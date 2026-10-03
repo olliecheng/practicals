@@ -4,7 +4,7 @@
    "prompt": "Symptoms to ask about",
    "presentation": [
     {
-     "label": "Exertional dyspnoea + distance/stairs (NYHA)",
+     "label": "Exertional SOB + distance/stairs (NYHA)",
      "keywords": "dysp|sob|short of breath|breathless|exercise tol|nyha|stairs|walk"
     },
     {
@@ -165,7 +165,7 @@
      "keywords": "palpit"
     },
     {
-     "label": "Dyspnoea / reduced exercise tolerance",
+     "label": "SOB / reduced exercise tolerance",
      "keywords": "dysp|sob|breath|exercise"
     },
     {
@@ -185,8 +185,8 @@
      "keywords": "stroke|tia|weak|speech|vision|numb"
     },
     {
-     "label": "Heart failure symptoms",
-     "keywords": "orthop|pnd|oedema|swell|heart failure"
+     "label": "HF symptoms",
+     "keywords": "orthop|pnd|oedema|swell|heart failure|hf"
     }
    ],
    "risks": [
@@ -221,7 +221,7 @@
      "keywords": "murmur|mitral|valve|stenosis"
     },
     {
-     "label": "Signs of heart failure (raised JVP, oedema, creps)",
+     "label": "Signs of HF (raised JVP, oedema, creps)",
      "keywords": "jvp|edema|crep"
     },
     {
@@ -299,7 +299,7 @@
     },
     {
      "label": "HF symptoms",
-     "keywords": "orthop|pnd|oedema|swell"
+     "keywords": "orthop|pnd|oedema|swell|hf|heart failure"
     },
     {
      "label": "Claudication / stroke symptoms (other vascular beds)",
@@ -329,8 +329,8 @@
      "keywords": "pad|peripheral|vascular"
     },
     {
-     "label": "Signs of heart failure (raised JVP, creps, oedema)",
-     "keywords": "heart failure|jvp|crep|edema"
+     "label": "Signs of HF (raised JVP, creps, oedema)",
+     "keywords": "heart failure|jvp|crep|edema|hf"
     },
     {
      "label": "New murmur (mitral regurgitation / aortic stenosis)",
@@ -411,7 +411,7 @@
     },
     {
      "label": "SOB / HF symptoms",
-     "keywords": "sob|breath|orthop|swell"
+     "keywords": "sob|breath|orthop|swell|dysp|hf|heart failure"
     },
     {
      "label": "Stroke / embolic symptoms",
@@ -474,8 +474,8 @@
      "keywords": "splen"
     },
     {
-     "label": "Signs of heart failure",
-     "keywords": "heart failure|jvp|crep|oedema|edema"
+     "label": "Signs of HF",
+     "keywords": "heart failure|jvp|crep|oedema|edema|hf"
     },
     {
      "label": "Embolic / stroke signs; injection sites",
@@ -523,7 +523,7 @@
     },
     {
      "label": "Valve surgery (HF, abscess, large vegetation, emboli)",
-     "keywords": "surg|valve replace|valve repair|cardiothoracic"
+     "keywords": "surg|valve replace|valve repair|cardiothoracic|hf|heart failure"
     },
     {
      "label": "Antibiotic prophylaxis for future dental procedures",
@@ -544,7 +544,7 @@
     },
     {
      "label": "Chest pain / SOB (end-organ)",
-     "keywords": "chest pain|sob|breath|angina"
+     "keywords": "chest pain|sob|breath|angina|dysp"
     },
     {
      "label": "Stroke/TIA symptoms",
@@ -619,8 +619,8 @@
      "keywords": "bmi|obes|waist"
     },
     {
-     "label": "Signs of end-organ damage / heart failure",
-     "keywords": "end.?organ|heart failure|oedema|edema|jvp"
+     "label": "Signs of end-organ damage / HF",
+     "keywords": "end.?organ|heart failure|oedema|edema|jvp|hf"
     }
    ],
    "investigations": [
@@ -688,12 +688,12 @@
      "keywords": "syncop|faint|dizz|presync|lighthead"
     },
     {
-     "label": "Exertional dyspnoea / exercise tolerance",
+     "label": "Exertional SOB / exercise tolerance",
      "keywords": "dysp|sob|breath|exercise|stairs|walk"
     },
     {
      "label": "Orthopnoea / PND / oedema (HF)",
-     "keywords": "orthop|pnd|oedema|swell"
+     "keywords": "orthop|pnd|oedema|swell|hf|heart failure"
     },
     {
      "label": "Palpitations",
@@ -748,8 +748,8 @@
      "keywords": "thrill"
     },
     {
-     "label": "Signs of heart failure",
-     "keywords": "heart failure|jvp|crep|edema"
+     "label": "Signs of HF",
+     "keywords": "heart failure|jvp|crep|edema|hf"
     }
    ],
    "investigations": [
@@ -807,7 +807,7 @@
    "prompt": "Symptoms to ask about",
    "presentation": [
     {
-     "label": "Dyspnoea + exercise tolerance (mMRC)",
+     "label": "SOB + exercise tolerance (mMRC)",
      "keywords": "dysp|sob|breath|exercise tol|mmrc|walk|stairs"
     },
     {
@@ -964,7 +964,7 @@
      "keywords": "tight"
     },
     {
-     "label": "Dyspnoea",
+     "label": "SOB",
      "keywords": "dysp|sob|breath"
     },
     {
@@ -1081,7 +1081,7 @@
    "prompt": "Symptoms and history to ask about",
    "presentation": [
     {
-     "label": "Progressive exertional dyspnoea",
+     "label": "Progressive exertional SOB",
      "keywords": "dysp|sob|breath|exercise"
     },
     {
@@ -1230,7 +1230,7 @@
      "keywords": "haemopt|hemopt|blood"
     },
     {
-     "label": "Dyspnoea",
+     "label": "SOB",
      "keywords": "dysp|sob|breath"
     },
     {
@@ -1439,8 +1439,8 @@
      "keywords": "nasal|septum|septal|polyp|obstruct"
     },
     {
-     "label": "Signs of cor pulmonale / heart failure",
-     "keywords": "cor pulmonale|heart failure|jvp|oedema|edema"
+     "label": "Signs of cor pulmonale / HF",
+     "keywords": "cor pulmonale|heart failure|jvp|oedema|edema|hf"
     },
     {
      "label": "Hypothyroidism / acromegaly features",
@@ -1512,7 +1512,7 @@
      "keywords": "haemopt|hemopt|blood"
     },
     {
-     "label": "Dyspnoea",
+     "label": "SOB",
      "keywords": "dysp|sob|breath"
     },
     {
@@ -1669,7 +1669,7 @@
      "keywords": "haemopt|hemopt|blood"
     },
     {
-     "label": "Dyspnoea / lung function (FEV1)",
+     "label": "SOB / lung function (FEV1)",
      "keywords": "dysp|sob|breath|fev|lung function"
     },
     {
@@ -1813,7 +1813,7 @@
      "keywords": "chest pain|pleurit"
     },
     {
-     "label": "Dyspnoea",
+     "label": "SOB",
      "keywords": "dysp|sob|breath"
     },
     {
@@ -2251,7 +2251,7 @@
     },
     {
      "label": "SOB / oedema",
-     "keywords": "sob|breath|oedema|swell"
+     "keywords": "sob|breath|oedema|swell|dysp"
     },
     {
      "label": "Itch / restless legs",
@@ -3408,7 +3408,7 @@
     },
     {
      "label": "Fatigue / anaemia / SOB",
-     "keywords": "fatigue|anaem|tired|sob|breath"
+     "keywords": "fatigue|anaem|tired|sob|breath|dysp"
     },
     {
      "label": "Obstruction: distension, vomiting, constipation",
@@ -4620,7 +4620,7 @@
      "keywords": "fatigue|tired|letharg"
     },
     {
-     "label": "Dyspnoea / reduced exercise tolerance",
+     "label": "SOB / reduced exercise tolerance",
      "keywords": "dysp|sob|breath|exercise"
     },
     {
@@ -6068,7 +6068,7 @@
     },
     {
      "label": "Pleuritic chest pain / SOB",
-     "keywords": "pleurit|chest pain|sob|breath"
+     "keywords": "pleurit|chest pain|sob|breath|dysp"
     },
     {
      "label": "Frothy urine / swelling (nephritis)",
@@ -6526,7 +6526,7 @@
     },
     {
      "label": "SOB / chest expansion",
-     "keywords": "sob|breath|chest expans"
+     "keywords": "sob|breath|chest expans|dysp"
     },
     {
      "label": "Function / posture / work",
@@ -7619,7 +7619,7 @@
     },
     {
      "label": "SOB / orthopnoea / morning headache (resp)",
-     "keywords": "sob|breath|orthop|headache|sleep"
+     "keywords": "sob|breath|orthop|headache|sleep|dysp"
     },
     {
      "label": "Emotional lability",
@@ -7767,7 +7767,7 @@
     },
     {
      "label": "SOB / crisis history",
-     "keywords": "sob|breath|crisis|icu|ventil"
+     "keywords": "sob|breath|crisis|icu|ventil|dysp"
     }
    ],
    "risks": [
@@ -8903,7 +8903,7 @@
     },
     {
      "label": "SOB / cough",
-     "keywords": "sob|cough|breath"
+     "keywords": "sob|cough|breath|dysp"
     },
     {
      "label": "Diarrhoea",
@@ -9811,7 +9811,7 @@
     },
     {
      "label": "Bone pain / SOB / headache / jaundice (mets)",
-     "keywords": "bone|sob|breath|headache|jaund|mets"
+     "keywords": "bone|sob|breath|headache|jaund|mets|dysp"
     },
     {
      "label": "Weight loss / fatigue",
@@ -9935,8 +9935,8 @@
      "keywords": "hoarse|voice"
     },
     {
-     "label": "Dysphagia / dyspnoea / stridor (compression)",
-     "keywords": "dysphag|swallow|sob|breath|stridor"
+     "label": "Dysphagia / SOB / stridor (compression)",
+     "keywords": "dysphag|swallow|sob|breath|stridor|dysp"
     },
     {
      "label": "Hyper / hypothyroid symptoms",
@@ -10399,7 +10399,7 @@
     },
     {
      "label": "Systemic: weight loss, headache, SOB, bone pain",
-     "keywords": "weight|headache|sob|bone|systemic"
+     "keywords": "weight|headache|sob|bone|systemic|dysp"
     }
    ],
    "risks": [
@@ -11209,7 +11209,7 @@
     },
     {
      "label": "Stridor / SOB",
-     "keywords": "stridor|sob|breath"
+     "keywords": "stridor|sob|breath|dysp"
     },
     {
      "label": "Haemoptysis / bleeding",

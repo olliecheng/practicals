@@ -5,7 +5,7 @@
    "differentials": [
     {
      "label": "Ascites (cirrhosis, malignancy, HF)",
-     "keywords": "ascites|free fluid"
+     "keywords": "ascites|free fluid|hf|heart failure"
     },
     {
      "label": "Bowel obstruction / ileus",
@@ -1169,7 +1169,7 @@
     },
     {
      "label": "Medical: pain, nocturia, reflux, HF, COPD",
-     "keywords": "pain|nocturia|reflux|gord|orthopn|pnd|cough|heart failure|copd|medical cause"
+     "keywords": "pain|nocturia|reflux|gord|orthopn|pnd|cough|heart failure|copd|medical cause|hf"
     },
     {
      "label": "Hyperthyroidism",
@@ -1266,7 +1266,7 @@
    "differentials": [
     {
      "label": "Prerenal AKI (dehydration, sepsis, HF)",
-     "keywords": "prerenal|pre-renal|dehydrat|hypovol|sepsis"
+     "keywords": "prerenal|pre-renal|dehydrat|hypovol|sepsis|hf|heart failure"
     },
     {
      "label": "Intrinsic AKI (ATN, GN, AIN)",
@@ -1477,7 +1477,7 @@
     },
     {
      "label": "Systemic: weight loss, bone pain, SOB",
-     "keywords": "weight|bone pain|sob|breath|systemic|back pain"
+     "keywords": "weight|bone pain|sob|breath|systemic|back pain|dysp"
     }
    ],
    "investigations": [
@@ -2389,7 +2389,7 @@
      "keywords": "lung cancer|cancer|malignan|tumour|neoplas"
     },
     {
-     "label": "Heart failure",
+     "label": "HF",
      "keywords": "heart failure|hf|ccf|pulmonary oedema"
     },
     {
@@ -3267,7 +3267,7 @@
      "keywords": "pneumon|lrti|chest infection"
     },
     {
-     "label": "Heart failure / APO",
+     "label": "HF / APO",
      "keywords": "heart failure|hf|ccf|apo|pulmonary oedema|pulmonary edema"
     },
     {
@@ -3890,7 +3890,7 @@
     },
     {
      "label": "Exertional / chest pain / SOB",
-     "keywords": "exert|chest pain|sob|breath"
+     "keywords": "exert|chest pain|sob|breath|dysp"
     },
     {
      "label": "Numbness / neuro deficit",
@@ -4572,7 +4572,7 @@
      "keywords": "bronchiect"
     },
     {
-     "label": "Heart failure / mitral stenosis",
+     "label": "HF / mitral stenosis",
      "keywords": "heart failure|hf|mitral|pulmonary oedema|apo"
     },
     {
@@ -5058,7 +5058,7 @@
     },
     {
      "label": "Headache / visual change / chest pain / SOB",
-     "keywords": "headache|visual|vision|chest pain|sob|breath"
+     "keywords": "headache|visual|vision|chest pain|sob|breath|dysp"
     },
     {
      "label": "Neuro symptoms (stroke / TIA)",
@@ -5945,7 +5945,7 @@
      "keywords": "hypercalc|hyponat|electrolyte disturb|electrolyte abnorm|electrolyte derang"
     },
     {
-     "label": "Heart failure",
+     "label": "HF",
      "keywords": "heart failure|hf|ccf"
     },
     {
@@ -6000,7 +6000,7 @@
     },
     {
      "label": "SOB / exercise tolerance",
-     "keywords": "sob|breath|exercise"
+     "keywords": "sob|breath|exercise|dysp"
     },
     {
      "label": "Lumps / bone pain",
@@ -6173,7 +6173,7 @@
     },
     {
      "label": "Palpitations / chest pain / SOB",
-     "keywords": "palpit|chest pain|sob|breath"
+     "keywords": "palpit|chest pain|sob|breath|dysp"
     },
     {
      "label": "Injury during episode",
@@ -6260,7 +6260,7 @@
     },
     {
      "label": "Cardiogenic shock (MI, arrhythmia, HF)",
-     "keywords": "cardiogenic|mi|infarct|arrhythm|pump failure|heart failure"
+     "keywords": "cardiogenic|mi|infarct|arrhythm|pump failure|heart failure|hf"
     },
     {
      "label": "Obstructive: PE, tamponade, tension pneumothorax",
@@ -6310,7 +6310,7 @@
     },
     {
      "label": "Chest pain / SOB / palpitations",
-     "keywords": "chest pain|sob|breath|palpit"
+     "keywords": "chest pain|sob|breath|palpit|dysp"
     },
     {
      "label": "Allergen exposure / rash / swelling",
@@ -6588,7 +6588,7 @@
     },
     {
      "label": "Syncope / dizziness / SOB / chest pain",
-     "keywords": "syncop|dizz|faint|sob|chest pain|lighthead"
+     "keywords": "syncop|dizz|faint|sob|chest pain|lighthead|dysp"
     },
     {
      "label": "NSAIDs / aspirin / steroids / SSRIs",
@@ -7337,7 +7337,7 @@
     },
     {
      "label": "Fatigue / SOB / chest pain / palpitations",
-     "keywords": "fatigue|tired|sob|breath|chest pain|palpit"
+     "keywords": "fatigue|tired|sob|breath|chest pain|palpit|dysp"
     },
     {
      "label": "Menstrual / GI bleeding (melaena, PR blood)",
@@ -7502,7 +7502,7 @@
     },
     {
      "label": "Syncope / chest pain / SOB / dizziness",
-     "keywords": "syncop|faint|chest pain|sob|breath|dizz"
+     "keywords": "syncop|faint|chest pain|sob|breath|dizz|dysp"
     },
     {
      "label": "Terminated by vagal manoeuvres",
@@ -7980,7 +7980,7 @@
    "differentials": [
     {
      "label": "Cardiac risk (IHD, HF, arrhythmia, valve disease)",
-     "keywords": "cardiac|ihd|heart|arrhythm|valv|rcri|revised cardiac"
+     "keywords": "cardiac|ihd|heart|arrhythm|valv|rcri|revised cardiac|hf|heart failure"
     },
     {
      "label": "Respiratory risk (COPD, asthma, OSA)",
@@ -8038,7 +8038,7 @@
     },
     {
      "label": "Chest pain / SOB / orthopnoea / syncope",
-     "keywords": "chest pain|sob|breath|orthopn|syncop"
+     "keywords": "chest pain|sob|breath|orthopn|syncop|dysp"
     },
     {
      "label": "Snoring / STOP-BANG",
@@ -9890,7 +9890,7 @@
     },
     {
      "label": "Chest pain / SOB",
-     "keywords": "chest pain|sob|breath"
+     "keywords": "chest pain|sob|breath|dysp"
     },
     {
      "label": "Flushing / diarrhoea",
@@ -9968,7 +9968,7 @@
    "prompt": "Differentials (generalised, regional, lower limb, peripheral oedema)",
    "differentials": [
     {
-     "label": "Heart failure",
+     "label": "HF",
      "keywords": "heart failure|hf|ccf|cardiac failure"
     },
     {
@@ -10043,7 +10043,7 @@
     },
     {
      "label": "SOB / orthopnoea / PND",
-     "keywords": "sob|breath|orthopn|pnd"
+     "keywords": "sob|breath|orthopn|pnd|dysp"
     },
     {
      "label": "Frothy urine / reduced urine output",
@@ -10349,7 +10349,7 @@
     },
     {
      "label": "SOB / chest pain / abdominal pain",
-     "keywords": "sob|breath|chest pain|abdominal pain"
+     "keywords": "sob|breath|chest pain|abdominal pain|dysp"
     },
     {
      "label": "AMPLE: allergies, meds (anticoagulants), PMH, last meal, events",
@@ -10826,7 +10826,7 @@
     },
     {
      "label": "Nocturnal polyuria (HF, OSA)",
-     "keywords": "nocturnal polyuria|osa|heart failure|ccf"
+     "keywords": "nocturnal polyuria|osa|heart failure|ccf|hf"
     }
    ],
    "associated": [
@@ -11313,7 +11313,7 @@
     },
     {
      "label": "Fluid retention (HF, CKD, nephrotic, cirrhosis)",
-     "keywords": "fluid|oedema|edema|heart failure|nephrotic|cirrho|ascites"
+     "keywords": "fluid|oedema|edema|heart failure|nephrotic|cirrho|ascites|hf"
     },
     {
      "label": "Hypothyroidism",
@@ -11387,7 +11387,7 @@
     },
     {
      "label": "SOB / orthopnoea / swelling",
-     "keywords": "sob|breath|orthopn|swell|ankle"
+     "keywords": "sob|breath|orthopn|swell|ankle|dysp"
     },
     {
      "label": "Snoring / daytime sleepiness",
@@ -11497,8 +11497,8 @@
      "keywords": "tb|tuberc|hiv|endocard|chronic infect|infection"
     },
     {
-     "label": "COPD / heart failure (cachexia)",
-     "keywords": "copd|heart failure|cachexia"
+     "label": "COPD / HF (cachexia)",
+     "keywords": "copd|heart failure|cachexia|hf"
     },
     {
      "label": "CKD / liver disease",
@@ -11544,7 +11544,7 @@
     },
     {
      "label": "Cough / haemoptysis / SOB",
-     "keywords": "cough|haemopt|hemopt|sob|breath"
+     "keywords": "cough|haemopt|hemopt|sob|breath|dysp"
     },
     {
      "label": "Polyuria / polydipsia",
