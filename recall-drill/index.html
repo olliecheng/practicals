@@ -64,6 +64,7 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .counter span{color:var(--mute);font-weight:400;font-size:.9rem}
 .sect+.sect{margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}
 .sh{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:0 0 8px;font-size:1rem;font-weight:600;line-height:1.2}
+.sh .ic{display:inline-block;width:16px;height:16px;margin-right:8px;vertical-align:-2px;background:var(--teal);-webkit-mask:var(--ic) center/16px 16px no-repeat;mask:var(--ic) center/16px 16px no-repeat}
 .sh .sc{color:var(--mute);font-weight:400;font-size:.8rem;font-variant-numeric:tabular-nums}
 .sect.done .sh .sc{color:var(--teal);font-weight:400}
 .board{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:5px}
@@ -110,10 +111,13 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 </div>
 <script type="module">
 import QUESTIONS from './data.json';
+import icP from './assets/presentation.svg';
+import icR from './assets/risks.svg';
+import icM from './assets/investigations.svg';
 let DATA=[];
 // Built from data.json at startup (see bottom of script) as [system, condition, prompt, [[label, keywords, section]]]; section: P presentation, R risk factors / etiology, M investigations / management
 const $=s=>document.querySelector(s);
-const SECTIONS=[['P','Presentation'],['R','Risk factors / etiology'],['M','Investigations / management']];
+const SECTIONS=[['P','Presentation',icP],['R','Risk factors / etiology',icR],['M','Investigations / management',icM]];
 let systems=[],selSys=new Set(),cur=null,found=new Set(),credited=new Set(),over=false;
 // live: short keywords (<=3 chars) need a following delimiter so "ed" doesn't fire while typing "edema"
 const rx=(kws,live)=>new RegExp(kws.split('|').map(k=>k.replace(/\s+$/,'').length<=3?'\\b'+k.trim()+'s?'+(live?'(?=[^a-z0-9])':'\\b'):'\\b'+k).join('|'),'i');
@@ -136,10 +140,11 @@ function start(d){
  const inp=$('#answer');inp.value='';inp.disabled=false;inp.classList.remove('ok','dup','bad');
  $('#playActs').classList.remove('hidden');$('#doneActs').classList.add('hidden');
  const wrap=$('#sections');wrap.innerHTML='';
- SECTIONS.forEach(([code,name])=>{
+ SECTIONS.forEach(([code,name,icon])=>{
   const idx=d[3].map((it,i)=>i).filter(i=>d[3][i][2]===code);
   const sec=document.createElement('section');sec.className='sect';sec.id='s'+code;
-  sec.innerHTML=`<h3 class="sh"><span>${name}</span><span class="sc"></span></h3>`;
+  sec.innerHTML=`<h3 class="sh"><span><span class="ic" aria-hidden="true"></span>${name}</span><span class="sc"></span></h3>`;
+  sec.querySelector('.ic').style.setProperty('--ic',`url("${icon}")`);
   if(!idx.length){sec.insertAdjacentHTML('beforeend','<p class="note" style="margin:0">None listed for this condition.</p>')}
   const bd=document.createElement('div');bd.className='board';
   idx.forEach((i,n)=>{const it=d[3][i];const t=document.createElement('div');t.className='tile';t.id='t'+i;t.innerHTML=`<div class="in"><div class="f">${n+1}</div><div class="b">${it[0]}</div></div>`;
