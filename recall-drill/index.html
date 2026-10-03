@@ -52,6 +52,16 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .sys{color:var(--teal);font-weight:500;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
 .tline{display:flex;justify-content:flex-end;margin-top:6px;color:var(--mute);font-size:.8rem;font-variant-numeric:tabular-nums}
 #answer{width:100%;font:inherit;font-size:1rem;padding:11px 14px;border-radius:var(--r);border:1px solid var(--line);background:var(--bg);color:var(--ink);margin-top:10px}
+#dock{display:flex;gap:8px;align-items:stretch;margin-top:10px}
+#dock #answer{margin-top:0;flex:1;min-width:0}
+#dock #finish{flex:none;white-space:nowrap}
+@media(max-width:780px){
+ /* Pinned bottom-right above the keyboard; --kb is set from visualViewport (iOS doesn't resize the layout viewport) */
+ #dock{position:fixed;left:0;right:0;bottom:var(--kb,0px);z-index:20;margin:0;padding:8px 10px calc(8px + env(safe-area-inset-bottom,0px));background:var(--panel);border-top:1px solid var(--line);justify-content:flex-end}
+ #dock #answer{margin-top:0;max-width:none}
+ #game.over #dock{display:none}
+ #game:not(.hidden){padding-bottom:70px}
+}
 #answer:disabled{opacity:.6}
 #answer.ok{animation:okf .55s ease-out}
 #answer.dup{animation:dupf .55s ease-out}
@@ -157,8 +167,8 @@ button.star[aria-pressed="true"]{color:var(--amber);border-color:var(--amber)}
   <div class="cond" id="gCond"></div>
   <p class="prompt" id="gPrompt"></p>
   <div class="tline"><span>Enter submits short abbreviations</span></div>
-  <input id="answer" type="text" placeholder="Type an item…" aria-label="Your answer" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
-  <div id="playActs"><div class="actions"><button class="primary" id="finish"></button></div><div class="actions"><button id="quit">Back</button><button id="newCond">New</button></div></div>
+  <div id="dock"><input id="answer" type="text" placeholder="Type an item…" aria-label="Your answer" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="primary" id="finish"></button></div>
+  <div id="playActs"><div class="actions"><button id="quit">Back</button><button id="newCond">New</button></div></div>
   <div class="actions hidden" id="doneActs"><span class="result" id="result"></span><button class="primary" id="next">Next condition</button><button id="retry">Retry this one</button><button id="menu">Menu</button><span class="note" style="flex-basis:100%;margin:0">Tap a missed tile if you had it.</span></div>
  </div>
  <div class="panel">
@@ -410,6 +420,7 @@ function home(){
  $('#game').classList.add('hidden');$('#home').classList.remove('hidden');list();
 }
 $('#finish').onclick=revealSec;
+{const vv=window.visualViewport;if(vv){const kb=()=>document.documentElement.style.setProperty('--kb',Math.max(0,window.innerHeight-vv.height-vv.offsetTop)+'px');vv.addEventListener('resize',kb);vv.addEventListener('scroll',kb);kb()}}
 $('#newCond').onclick=()=>rand(curMode);
 $('#quit').onclick=home;
 $('#menu').onclick=home;
