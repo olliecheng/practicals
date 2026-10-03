@@ -35,16 +35,17 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .sysh{grid-column:1/-1;margin:8px 0 0;font-size:.8rem;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:.06em}.sysh:first-child{margin-top:0}
 .condlist button{text-align:left;font-size:.85rem;padding:7px 10px;display:flex;justify-content:space-between;gap:6px}
 .play{display:grid;grid-template-columns:minmax(260px,340px) minmax(0,1fr);gap:14px;align-items:start}
-.play>.panel:first-child{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:2}
-.play>.panel:last-child{padding:14px 16px}
+.side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:2;display:flex;flex-direction:column;gap:14px}
+.play>.tiles{padding:14px 16px}
 @media(max-width:780px){
  .wrap{padding:10px 10px 32px}header{margin-bottom:8px}header h1{font-size:1.25rem}
  .play{grid-template-columns:1fr;gap:10px}
- .play>.panel:first-child{top:env(safe-area-inset-top,0px);padding:12px 14px;border-radius:var(--r)}
- .play>.panel:last-child{padding:12px}
- .cond{font-size:1.4rem!important;margin:0!important}.prompt{display:none}.tline{margin-top:2px!important;font-size:.78rem!important}
+ .side{display:contents}.side>.panel{padding:12px 14px;border-radius:var(--r)}
+ #inCard{position:sticky;top:env(safe-area-inset-top,0px);z-index:2;padding:8px 10px}
+ .play>.tiles{padding:12px}
+ .cond{font-size:1.4rem!important;margin:0!important}.prompt{display:none}.tline{margin-top:2px!important;font-size:.78rem!important}#inCard .tline{display:none}
  #game .board{grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:4px}#game .tile .f,#game .tile .b{font-size:.74rem;padding:4px 6px;min-height:32px}#game .tile .f{font-size:.85rem}
- #game.over>.panel:first-child{position:static}#game.over #answer,#game.over .tline{display:none!important}.sh{font-size:.95rem!important}
+ .sh{font-size:.95rem!important}
  #answer{font-size:1rem;padding:9px 12px;margin-top:6px}
  .actions{margin-top:8px!important;gap:6px!important}.actions button{padding:6px 11px;font-size:.92rem}.result{font-size:1.05rem}
 }
@@ -52,16 +53,8 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .sys{color:var(--teal);font-weight:500;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
 .tline{display:flex;justify-content:flex-end;margin-top:6px;color:var(--mute);font-size:.8rem;font-variant-numeric:tabular-nums}
 #answer{width:100%;font:inherit;font-size:1rem;padding:11px 14px;border-radius:var(--r);border:1px solid var(--line);background:var(--bg);color:var(--ink);margin-top:10px}
-#dock{display:flex;gap:8px;align-items:stretch;margin-top:10px}
-#dock #answer{margin-top:0;flex:1;min-width:0}
-#dock #finish{flex:none;white-space:nowrap}
-@media(max-width:780px){
- /* Pinned bottom-right above the keyboard; --kb is set from visualViewport (iOS doesn't resize the layout viewport) */
- #dock{position:fixed;left:0;right:0;bottom:var(--kb,0px);z-index:20;margin:0;padding:8px 10px calc(8px + env(safe-area-inset-bottom,0px));background:var(--panel);border-top:1px solid var(--line);justify-content:flex-end}
- #dock #answer{margin-top:0;max-width:none}
- #game.over #dock{display:none}
- #game:not(.hidden){padding-bottom:70px}
-}
+#inCard #answer{margin-top:0}
+#game.over #inCard{display:none}
 #answer:disabled{opacity:.6}
 #answer.ok{animation:okf .55s ease-out}
 #answer.dup{animation:dupf .55s ease-out}
@@ -171,16 +164,20 @@ button.star[aria-pressed="true"]{color:var(--amber);border-color:var(--amber)}
 </section>
 
 <section id="game" class="play hidden">
+ <div class="side">
  <div class="panel">
   <div class="ttl"><div class="sys" id="gSys"></div><button class="star hidden" id="gStar" aria-pressed="false" title="Star this drill" aria-label="Star this drill">★</button></div>
   <div class="cond" id="gCond"></div>
   <p class="prompt" id="gPrompt"></p>
-  <div class="tline"><span>Enter submits short abbreviations</span></div>
-  <div id="dock"><input id="answer" type="text" placeholder="Type an item…" aria-label="Your answer" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="primary" id="finish"></button></div>
-  <div id="playActs"><div class="actions"><button id="quit">Back</button><button id="newCond">New</button></div></div>
+  <div id="playActs"><div class="actions"><button class="primary" id="finish"></button><button id="quit">Back</button><button id="newCond">New</button></div></div>
   <div class="actions hidden" id="doneActs"><span class="result" id="result"></span><button class="primary" id="next">Next condition</button><button id="retry">Retry this one</button><button id="menu">Menu</button><span class="note" style="flex-basis:100%;margin:0">Tap a missed tile if you had it.</span></div>
  </div>
- <div class="panel">
+ <div class="panel" id="inCard">
+  <input id="answer" type="text" placeholder="Type an item…" aria-label="Your answer" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+  <div class="tline"><span>Enter submits short abbreviations</span></div>
+ </div>
+ </div>
+ <div class="panel tiles">
   <div class="chead"><p class="counter" id="counter"></p><button class="chip" id="allToggle"></button></div>
   <div id="sections"></div>
  </div>
@@ -470,12 +467,7 @@ function home(){
  $('#game').classList.add('hidden');$('#home').classList.remove('hidden');list();
 }
 $('#finish').onclick=revealSec;
-{const vv=window.visualViewport,dock=$('#dock'),KB_TRIM=56/* iOS reports the viewport above its floating URL pill + field-arrows bar; sit the dock just over the arrows bar */;
-if(vv){const place=()=>{if(!matchMedia('(max-width:780px)').matches){dock.style.top=dock.style.bottom=dock.style.transform='';return}
- const gap=window.innerHeight-vv.height-vv.offsetTop,trim=gap>100?KB_TRIM:0;
- // anchored from the layout-viewport top (innerHeight is unreliable on iOS while scrolled to the page end)
- dock.style.bottom='auto';dock.style.top=(vv.offsetTop+vv.height+trim)+'px';dock.style.transform='translateY(-100%)'};
- vv.addEventListener('resize',place);vv.addEventListener('scroll',place);addEventListener('scroll',place,{passive:true});place()}}
+
 $('#newCond').onclick=()=>rand(curMode);
 $('#quit').onclick=home;
 $('#menu').onclick=home;
