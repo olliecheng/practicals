@@ -118,8 +118,8 @@
      "keywords": "cxr|chest x|x.?ray|kerley|upper lobe"
     },
     {
-     "label": "U&E / eGFR / K+ at baseline and monitoring on ACEi, MRA, SGLT2i",
-     "keywords": "u&e|u and e|egfr|potassium|creatinine|renal function"
+     "label": "UEC / eGFR / K+ at baseline and monitoring on ACEi, MRA, SGLT2i",
+     "keywords": "uec|euc|u&e|u and e|egfr|potassium|creatinine|renal function"
     },
     {
      "label": "Iron studies (ferritin, TSAT), TFTs, HbA1c: reversible causes / comorbidity",
@@ -629,8 +629,8 @@
      "keywords": "abpm|ambulatory|home bp|home blood|hbpm|24.?h"
     },
     {
-     "label": "U&E / eGFR, urine ACR, urinalysis (renal cause or damage)",
-     "keywords": "egfr|u&e|creatinine|acr|albumin|urinalysis|urine dip"
+     "label": "UEC / eGFR, urine ACR, urinalysis (renal cause or damage)",
+     "keywords": "egfr|uec|euc|u&e|creatinine|acr|albumin|urinalysis|urine dip"
     },
     {
      "label": "ECG: LVH (voltage criteria, strain)",
@@ -2207,8 +2207,8 @@
      "keywords": "psa|prostate.?specific"
     },
     {
-     "label": "U&E / eGFR: renal impairment from obstructive uropathy",
-     "keywords": "creatinin|egfr|u&e|renal function|renal impair"
+     "label": "UEC / eGFR: renal impairment from obstructive uropathy",
+     "keywords": "creatinin|egfr|uec|euc|u&e|renal function|renal impair"
     },
     {
      "label": "Frequency-volume chart (bladder diary): nocturnal polyuria",
@@ -2312,8 +2312,8 @@
      "keywords": "kt/v|ktv|urr|adequacy|urea reduction"
     },
     {
-     "label": "Pre-dialysis U&E: potassium, urea, creatinine, bicarbonate",
-     "keywords": "u&e|potassium|urea|bicarb|pre.?dialysis"
+     "label": "Pre-dialysis UEC: potassium, urea, creatinine, bicarbonate",
+     "keywords": "uec|euc|u&e|potassium|urea|bicarb|pre.?dialysis"
     },
     {
      "label": "Hb, ferritin, TSAT (target Hb 100-115 g/L on ESA)",
@@ -2422,7 +2422,7 @@
    "investigations": [
     {
      "label": "Creatinine / eGFR trend: rising creatinine = rejection, CNI toxicity, obstruction",
-     "keywords": "creatin|egfr|graft function|u&e|trend"
+     "keywords": "creatin|egfr|graft function|uec|euc|u&e|trend"
     },
     {
      "label": "Tacrolimus trough level (target by time post-transplant)",
@@ -2566,8 +2566,8 @@
      "keywords": "msu|culture|mcs|nitrite|leucocyte|leukocyte"
     },
     {
-     "label": "U&E / eGFR (AKI, obstruction), WCC / CRP (infection), lactate",
-     "keywords": "creatinin|egfr|u&e|aki|wcc|crp|white cell|lactate"
+     "label": "UEC / eGFR (AKI, obstruction), WCC / CRP (infection), lactate",
+     "keywords": "creatinin|egfr|uec|euc|u&e|aki|wcc|crp|white cell|lactate"
     },
     {
      "label": "Metabolic screen if recurrent: serum calcium, PTH, urate; 24 h urine (Ca, oxalate, citrate)",
@@ -2739,8 +2739,8 @@
      "keywords": "cystoscop|pelvic us|pelvic ultrasound|renal tract us"
     },
     {
-     "label": "U&E / eGFR, glucose / HbA1c (polyuria, renal impairment)",
-     "keywords": "creatinin|egfr|u&e|hba1c|glucose|bsl|blood sugar"
+     "label": "UEC / eGFR, glucose / HbA1c (polyuria, renal impairment)",
+     "keywords": "creatinin|egfr|uec|euc|u&e|hba1c|glucose|bsl|blood sugar"
     }
    ],
    "medications": [
@@ -4460,8 +4460,8 @@
      "keywords": "ct|closed.?loop|bowel wall|enhancement"
     },
     {
-     "label": "Bloods if strangulation suspected: lactate, WCC, CRP, U&E",
-     "keywords": "lactate|wcc|crp|u&e|white cell"
+     "label": "Bloods if strangulation suspected: lactate, WCC, CRP, UEC",
+     "keywords": "lactate|wcc|crp|uec|euc|u&e|white cell"
     },
     {
      "label": "Abdominal X-ray: dilated bowel, air-fluid levels (obstruction)",
@@ -4565,8 +4565,8 @@
    ],
    "investigations": [
     {
-     "label": "U&E / magnesium: hyponatraemia, hypokalaemia, hypomagnesaemia, AKI (high output)",
-     "keywords": "u&e|urea|creatinin|magnesium|hypokal|hypomag|hyponat"
+     "label": "UEC / magnesium: hyponatraemia, hypokalaemia, hypomagnesaemia, AKI (high output)",
+     "keywords": "uec|euc|u&e|urea|creatinin|magnesium|hypokal|hypomag|hyponat"
     },
     {
      "label": "Stoma output chart / fluid balance: high output >1.5 L/day",
@@ -5561,7 +5561,7 @@
     },
     {
      "label": "Electrolytes: hyponatraemia, hyperkalaemia, (mild acidosis)",
-     "keywords": "sodium|potassium|hyponat|hyperkal|electrolyte|u&e|ues|~natraemia|~kalaemia"
+     "keywords": "sodium|potassium|hyponat|hyperkal|electrolyte|uec|euc|u&e|ues|~natraemia|~kalaemia"
     },
     {
      "label": "Adrenal autoantibodies (anti-21-hydroxylase)",
@@ -6302,7 +6302,7 @@
     },
     {
      "label": "eGFR / creatinine (CKD; guides allopurinol dose)",
-     "keywords": "egfr|creatinine|renal function|kidney function|u&e"
+     "keywords": "egfr|creatinine|renal function|kidney function|uec|euc|u&e"
     }
    ],
    "medications": [
@@ -7547,7 +7547,7 @@
      "keywords": "neuropsych|rudas|ace-iii|ace iii|formal testing|formal cognitive"
     },
     {
-     "label": "Reversible-cause bloods: TSH, folate, calcium, glucose, FBC, EUC, LFT (+ syphilis / HIV if risk)",
+     "label": "Reversible-cause bloods: TSH, folate, calcium, glucose, FBC, UEC, LFT (+ syphilis / HIV if risk)",
      "keywords": "bloods|blood test|tsh|folate|calcium|dementia screen|screening bloods"
     },
     {
@@ -7993,7 +7993,7 @@
      "keywords": "hba1c|glucose|ogtt|fasting|blood sugar"
     },
     {
-     "label": "Nutritional / metabolic bloods: B12 + folate (MMA), TSH, EUC / eGFR, LFT, FBC (macrocytosis)",
+     "label": "Nutritional / metabolic bloods: B12 + folate (MMA), TSH, UEC / eGFR, LFT, FBC (macrocytosis)",
      "keywords": "folate|tsh|mcv|homocysteine|methylmalonic|nutritional|metabolic screen|egfr"
     },
     {
@@ -8439,7 +8439,7 @@
     },
     {
      "label": "Fasting lipids, HbA1c, eGFR (risk factors; contrast)",
-     "keywords": "hba1c|egfr|u&e|lipid profile|lipid panel|fasting lipid|ldl"
+     "keywords": "hba1c|egfr|uec|euc|u&e|lipid profile|lipid panel|fasting lipid|ldl"
     },
     {
      "label": "Treadmill test: claudication distance, post-exercise ABPI drop",
@@ -8588,7 +8588,7 @@
     },
     {
      "label": "HbA1c / BSL; eGFR",
-     "keywords": "hba1c|bsl|bgl|glucose|egfr|u&e"
+     "keywords": "hba1c|bsl|bgl|glucose|egfr|uec|euc|u&e"
     },
     {
      "label": "ABPI / toe pressures, arterial duplex +/- angiography (ABPI falsely high if calcified)",
@@ -9612,8 +9612,8 @@
      "keywords": "ct|kub|ct urogram|abscess"
     },
     {
-     "label": "Pyelonephritis bloods: blood cultures x2, CRP, eGFR / EUC, lactate",
-     "keywords": "blood culture|crp|egfr|euc|lactate|fbc"
+     "label": "Pyelonephritis bloods: blood cultures x2, CRP, eGFR / UEC, lactate",
+     "keywords": "blood culture|crp|egfr|uec|euc|lactate|fbc"
     },
     {
      "label": "Cystoscopy (urology) if recurrent UTI with haematuria or suspected structural cause",
@@ -10172,8 +10172,8 @@
      "keywords": "ecg|ekg|holter|telemetry|qt"
     },
     {
-     "label": "Bloods: FBC (anaemia), U&E / eGFR, CK (long lie), glucose, TFTs",
-     "keywords": "u&e|ues|electrolyte|ck|rhabdo|fbc|egfr|bloods|blood test"
+     "label": "Bloods: FBC (anaemia), UEC / eGFR, CK (long lie), glucose, TFTs",
+     "keywords": "uec|euc|u&e|ues|electrolyte|ck|rhabdo|fbc|egfr|bloods|blood test"
     },
     {
      "label": "Bone health: DEXA, calcium, 25-OH vitamin D, PTH",
@@ -11615,7 +11615,7 @@
     },
     {
      "label": "Withdrawal monitoring: electrolytes (Mg, K, phosphate), glucose",
-     "keywords": "magnesium|phosph|electrolyte|u&e|withdrawal score|glucose"
+     "keywords": "magnesium|phosph|electrolyte|uec|euc|u&e|withdrawal score|glucose"
     }
    ],
    "medications": [
