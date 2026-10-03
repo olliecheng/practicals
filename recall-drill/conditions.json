@@ -89,11 +89,11 @@
     },
     {
      "label": "Peripheral / sacral oedema",
-     "keywords": "oedema|edema|sacral|pitting"
+     "keywords": "sacral|pitting"
     },
     {
      "label": "Hepatomegaly / ascites",
-     "keywords": "hepatomeg|ascites|liver"
+     "keywords": "hepatomeg|liver"
     },
     {
      "label": "Cool peripheries / tachycardia / hypotension",
@@ -186,15 +186,15 @@
    "examination": [
     {
      "label": "Irregularly irregular pulse",
-     "keywords": "irregular|pulse|rhythm"
+     "keywords": "irregular|pulse"
     },
     {
      "label": "Pulse deficit (apex-radial)",
-     "keywords": "deficit|apex.?radial"
+     "keywords": "apex.?radial"
     },
     {
      "label": "Rate (tachycardia) and blood pressure",
-     "keywords": "rate|tachy|bp|blood pressure|hypotens"
+     "keywords": "rate|tachy|bp|hypotens"
     },
     {
      "label": "Signs of valve disease (mitral stenosis murmur)",
@@ -202,15 +202,15 @@
     },
     {
      "label": "Signs of heart failure (raised JVP, oedema, creps)",
-     "keywords": "heart failure|jvp|oedema|edema|crep"
+     "keywords": "jvp|edema|crep"
     },
     {
      "label": "Thyrotoxicosis signs (tremor, goitre, warm hands)",
-     "keywords": "thyro|tremor|goitre|goiter|warm"
+     "keywords": "goitre|goiter|warm"
     },
     {
      "label": "Signs of embolic events / stroke (focal deficit)",
-     "keywords": "embol|stroke|focal|deficit"
+     "keywords": "embol|focal"
     }
    ],
    "investigations": [
@@ -286,7 +286,7 @@
     },
     {
      "label": "Blood pressure (both arms) and heart rate",
-     "keywords": "bp|blood pressure|both arms|heart rate|pulse"
+     "keywords": "bp|both arms|heart rate|pulse"
     },
     {
      "label": "Xanthelasma / xanthomata / arcus",
@@ -298,11 +298,11 @@
     },
     {
      "label": "Peripheral pulses / signs of PAD",
-     "keywords": "pad|peripheral|pulses|vascular"
+     "keywords": "pad|peripheral|vascular"
     },
     {
      "label": "Signs of heart failure (raised JVP, creps, oedema)",
-     "keywords": "heart failure|jvp|crep|oedema|edema"
+     "keywords": "heart failure|jvp|crep|edema"
     },
     {
      "label": "New murmur (mitral regurgitation / aortic stenosis)",
@@ -419,23 +419,11 @@
    "examination": [
     {
      "label": "Fever",
-     "keywords": "fever|pyrexi|temp"
+     "keywords": "pyrexi|temp|febrile"
     },
     {
      "label": "New or changing regurgitant murmur",
      "keywords": "murmur|regurg"
-    },
-    {
-     "label": "Splinter haemorrhages",
-     "keywords": "splinter"
-    },
-    {
-     "label": "Janeway lesions",
-     "keywords": "janeway"
-    },
-    {
-     "label": "Osler nodes",
-     "keywords": "osler"
     },
     {
      "label": "Roth spots (fundoscopy)",
@@ -455,7 +443,7 @@
     },
     {
      "label": "Embolic / stroke signs; injection sites",
-     "keywords": "embol|stroke|neuro|inject|track|needle"
+     "keywords": "neuro|track|needle"
     }
    ],
    "investigations": [
@@ -548,7 +536,7 @@
    "examination": [
     {
      "label": "Elevated BP (repeat, both arms, postural)",
-     "keywords": "bp|blood pressure|both arms|postural|elevat|repeat"
+     "keywords": "bp|blood pressure|both arms|elevat|repeat"
     },
     {
      "label": "Radio-femoral delay (coarctation)",
@@ -556,7 +544,7 @@
     },
     {
      "label": "Renal bruit",
-     "keywords": "renal bruit|bruit"
+     "keywords": "bruit"
     },
     {
      "label": "Fundoscopy: hypertensive retinopathy",
@@ -568,11 +556,11 @@
     },
     {
      "label": "Cushingoid features / abdominal mass (PCKD)",
-     "keywords": "cushing|moon|striae|mass|ballot|polycyst"
+     "keywords": "moon|striae|mass|ballot|polycyst"
     },
     {
      "label": "Obesity / BMI / waist",
-     "keywords": "bmi|obes|waist|weight"
+     "keywords": "bmi|obes|waist"
     },
     {
      "label": "Signs of end-organ damage / heart failure",
@@ -603,7 +591,7 @@
      "keywords": "ccb|calcium channel|amlodipine|norvasc|lercanidipine|felodipine|nifedipine|~dipine"
     },
     {
-     "label": "Thiazide-like diuretic (indapamide, hydrochlorothiazide)",
+     "label": "Thiazide / thiazide-like diuretic (hydrochlorothiazide, indapamide)",
      "keywords": "thiazide|indapamide|natrilix|hydrochlorothiazide|hct|chlortalidone|diuretic"
     },
     {
@@ -677,7 +665,7 @@
     },
     {
      "label": "Narrow pulse pressure",
-     "keywords": "narrow|pulse pressure"
+     "keywords": "narrow"
     },
     {
      "label": "Soft or absent S2",
@@ -693,11 +681,7 @@
     },
     {
      "label": "Signs of heart failure",
-     "keywords": "heart failure|jvp|crep|oedema|edema"
-    },
-    {
-     "label": "Dental hygiene / bicuspid valve associations",
-     "keywords": "dental|bicuspid|teeth"
+     "keywords": "heart failure|jvp|crep|edema"
     }
    ],
    "investigations": [
@@ -812,23 +796,19 @@
     },
     {
      "label": "Reduced breath sounds, prolonged expiration",
-     "keywords": "breath sounds|expir"
-    },
-    {
-     "label": "Wheeze",
-     "keywords": "wheez"
+     "keywords": "expir"
     },
     {
      "label": "Cyanosis / low SpO2",
-     "keywords": "cyano|spo2|sat|oxygen"
+     "keywords": "cyano|spo2|sat"
     },
     {
      "label": "Nicotine staining; CO2 retention flap",
-     "keywords": "nicotine|stain|flap|asterixis|co2"
+     "keywords": "nicotine|stain|flap|asterixis"
     },
     {
      "label": "Cor pulmonale (raised JVP, oedema, loud P2)",
-     "keywords": "cor pulmonale|jvp|oedema|edema|p2"
+     "keywords": "jvp|edema|p2"
     }
    ],
    "investigations": [
@@ -920,10 +900,6 @@
    ],
    "examination": [
     {
-     "label": "Wheeze (polyphonic expiratory)",
-     "keywords": "wheez"
-    },
-    {
      "label": "Prolonged expiratory phase",
      "keywords": "prolong|expir"
     },
@@ -945,7 +921,7 @@
     },
     {
      "label": "Atopic features (eczema, nasal polyps, rhinitis)",
-     "keywords": "atopic|eczema|polyp|rhinit"
+     "keywords": "polyp"
     },
     {
      "label": "Hyperinflation in chronic disease",
@@ -1070,11 +1046,11 @@
     },
     {
      "label": "Connective tissue disease signs (sclerodactyly, telangiectasia, synovitis, mechanic's hands)",
-     "keywords": "sclero|telang|synovit|mechanic|ctd|connective|raynaud"
+     "keywords": "telang|synovit|mechanic|ctd|connective"
     },
     {
      "label": "Rash / skin signs (heliotrope, Gottron's)",
-     "keywords": "heliotrope|gottron|rash|skin"
+     "keywords": "heliotrope|gottron|skin"
     },
     {
      "label": "Wheeze and squawks (hypersensitivity pneumonitis)",
@@ -1183,7 +1159,7 @@
     },
     {
      "label": "Nicotine staining",
-     "keywords": "nicotine|stain|smok"
+     "keywords": "nicotine|stain"
     },
     {
      "label": "Cachexia, pallor",
@@ -1199,19 +1175,19 @@
     },
     {
      "label": "Horner's syndrome (Pancoast)",
-     "keywords": "horner|ptosis|miosis|pancoast"
+     "keywords": "miosis"
     },
     {
      "label": "SVC obstruction (facial plethora, fixed raised JVP)",
-     "keywords": "svc|plethor|facial|jvp|obstruct"
+     "keywords": "plethor|jvp|obstruct"
     },
     {
      "label": "Hoarse voice (recurrent laryngeal nerve)",
-     "keywords": "hoarse|voice|recurrent laryng"
+     "keywords": "recurrent laryng"
     },
     {
      "label": "Hepatomegaly / bony tenderness (metastases)",
-     "keywords": "hepatomeg|liver|bone|bony|tender|mets|metast"
+     "keywords": "hepatomeg|liver|bony|tender|mets|metast"
     }
    ],
    "investigations": [
@@ -1295,14 +1271,6 @@
    ],
    "examination": [
     {
-     "label": "Obesity: BMI",
-     "keywords": "bmi|obes|weight"
-    },
-    {
-     "label": "Increased neck circumference",
-     "keywords": "neck"
-    },
-    {
      "label": "Crowded oropharynx (Mallampati), large tonsils / tongue",
      "keywords": "mallampati|oropharyn|crowded|tonsil|tongue|airway"
     },
@@ -1312,7 +1280,7 @@
     },
     {
      "label": "Hypertension",
-     "keywords": "hypertens|bp|blood pressure"
+     "keywords": "blood pressure"
     },
     {
      "label": "Nasal obstruction (septal deviation, polyps)",
@@ -1433,7 +1401,7 @@
     },
     {
      "label": "Wheeze / rhonchi",
-     "keywords": "wheez|rhonch"
+     "keywords": "rhonch"
     },
     {
      "label": "Digital clubbing",
@@ -1441,7 +1409,7 @@
     },
     {
      "label": "Large volume purulent sputum (sputum pot)",
-     "keywords": "sputum|purulent|pot"
+     "keywords": "purulent|pot"
     },
     {
      "label": "Tachypnoea / low SpO2",
@@ -1449,7 +1417,7 @@
     },
     {
      "label": "Chronic sinusitis / nasal polyps",
-     "keywords": "sinus|polyp|nasal"
+     "keywords": "polyp"
     },
     {
      "label": "Dextrocardia (Kartagener's)",
@@ -1549,7 +1517,7 @@
    "examination": [
     {
      "label": "Low weight / BMI, short stature",
-     "keywords": "bmi|weight|stature|short|underweight"
+     "keywords": "stature|short|underweight"
     },
     {
      "label": "Digital clubbing",
@@ -1564,16 +1532,12 @@
      "keywords": "hyperinfl|barrel"
     },
     {
-     "label": "Nasal polyps / sinus tenderness",
-     "keywords": "polyp|sinus|nasal"
-    },
-    {
      "label": "Sputum pot",
-     "keywords": "sputum|pot"
+     "keywords": "pot"
     },
     {
      "label": "Abdominal: hepatosplenomegaly, DIOS mass, abdominal distension",
-     "keywords": "hepatosplen|dios|mass|distens|abdo|liver"
+     "keywords": "hepatosplen|mass|distens"
     },
     {
      "label": "Port / PICC / PEG sites",
@@ -1581,7 +1545,7 @@
     },
     {
      "label": "Signs of CF-related diabetes / liver disease",
-     "keywords": "diabet|liver|cirrho|jaundice"
+     "keywords": "cirrho"
     }
    ],
    "investigations": [
@@ -1686,7 +1650,7 @@
    "examination": [
     {
      "label": "Unilateral leg swelling, calf tenderness, pitting oedema",
-     "keywords": "swell|calf|tender|oedema|edema|unilateral"
+     "keywords": "tender|oedema|edema|unilateral"
     },
     {
      "label": "Calf circumference difference (>3 cm)",
@@ -1694,7 +1658,7 @@
     },
     {
      "label": "Warmth, erythema, superficial venous dilatation",
-     "keywords": "warm|erythem|red|venous|dilat"
+     "keywords": "warm|erythem|venous|dilat"
     },
     {
      "label": "Tachycardia",
@@ -1714,11 +1678,11 @@
     },
     {
      "label": "Hypotension / syncope (massive PE)",
-     "keywords": "hypotens|shock|syncop|massive"
+     "keywords": "hypotens|shock"
     },
     {
      "label": "Low-grade fever; signs of malignancy (Virchow's, mass)",
-     "keywords": "fever|temp|malignan|virchow|mass|cancer"
+     "keywords": "fever|temp|virchow|mass"
     }
    ],
    "investigations": [
@@ -1829,15 +1793,15 @@
     },
     {
      "label": "Fluid status: oedema, JVP, creps, weight",
-     "keywords": "fluid|oedema|edema|jvp|crep|weight|overload"
+     "keywords": "edema|jvp|crep|weight|overload"
     },
     {
      "label": "Hypertension",
-     "keywords": "hypertens|bp|blood pressure"
+     "keywords": "blood pressure"
     },
     {
      "label": "Uraemic frost / sallow skin / scratch marks",
-     "keywords": "uraem|uremic|frost|sallow|scratch|excoriat|pruritus"
+     "keywords": "uraem|uremic|frost|sallow|scratch|excoriat"
     },
     {
      "label": "Asterixis / pericardial rub (advanced)",
@@ -1845,15 +1809,15 @@
     },
     {
      "label": "AV fistula / dialysis catheter (thrill, bruit)",
-     "keywords": "fistula|catheter|thrill|bruit|av "
+     "keywords": "catheter|thrill|av "
     },
     {
      "label": "Palpable kidneys (PCKD) / renal bruit",
-     "keywords": "kidney|polycyst|pckd|bruit|ballot|mass"
+     "keywords": "kidney|pckd|ballot|mass"
     },
     {
      "label": "Signs of underlying cause (diabetic retinopathy/neuropathy, rash, joint disease)",
-     "keywords": "retinopathy|neuropath|rash|joint|diabet|lupus|cause"
+     "keywords": "retinopathy|rash|joint|lupus|cause"
     }
    ],
    "investigations": [
@@ -1954,10 +1918,10 @@
    "examination": [
     {
      "label": "Palpable bladder (suprapubic dullness)",
-     "keywords": "bladder|suprapubic|palpable|dull|retention"
+     "keywords": "bladder|suprapubic|palpable|dull"
     },
     {
-     "label": "DRE: enlarged, smooth, firm, symmetrical prostate with preserved median sulcus",
+     "label": "DRE: enlarged, smooth, firm, rubbery, symmetrical prostate",
      "keywords": "dre|rectal|prostate|enlarg|smooth|sulcus|digital"
     },
     {
@@ -2047,19 +2011,19 @@
    "examination": [
     {
      "label": "AV fistula: thrill, bruit, aneurysm, steal, infection",
-     "keywords": "fistula|thrill|bruit|aneurysm|steal|av "
+     "keywords": "thrill|bruit|aneurysm|steal|av "
     },
     {
      "label": "Tunnelled dialysis catheter exit site",
-     "keywords": "catheter|exit site|tunnel|permcath|line"
+     "keywords": "tunnel|permcath"
     },
     {
      "label": "Peritoneal dialysis catheter exit site / abdominal tenderness (peritonitis)",
-     "keywords": "tenckhoff|pd catheter|peritonitis|exit|abdominal tender"
+     "keywords": "exit|abdominal tender"
     },
     {
      "label": "Fluid status: oedema, JVP, weight, BP",
-     "keywords": "fluid|oedema|edema|jvp|weight|bp|blood pressure|overload"
+     "keywords": "edema|jvp|bp|overload"
     },
     {
      "label": "Pallor (anaemia)",
@@ -2075,7 +2039,7 @@
     },
     {
      "label": "Previous transplant scar / hernias",
-     "keywords": "transplant|scar|hernia"
+     "keywords": "scar|hernia"
     }
    ],
    "investigations": [
@@ -2160,23 +2124,19 @@
     },
     {
      "label": "Graft tenderness (rejection)",
-     "keywords": "tender|rejection"
+     "keywords": "graft tender|tender graft"
     },
     {
      "label": "Cushingoid features (steroids)",
-     "keywords": "cushing|moon|steroid|bruis|striae"
+     "keywords": "cushing|moon|bruis|striae"
     },
     {
      "label": "Gingival hypertrophy / hirsutism (ciclosporin)",
      "keywords": "gingival|hirsut|ciclosporin|cyclosporin|gum"
     },
     {
-     "label": "Tremor (tacrolimus)",
-     "keywords": "tremor|tacrolimus"
-    },
-    {
      "label": "Skin cancers / warts",
-     "keywords": "skin|cancer|scc|wart|lesion"
+     "keywords": "wart|lesion"
     },
     {
      "label": "BP and fluid status",
@@ -2188,7 +2148,7 @@
     },
     {
      "label": "Infection signs (fever, lymphadenopathy, oral thrush)",
-     "keywords": "infect|fever|lymph|thrush|candid"
+     "keywords": "fever|lymph|thrush|candid"
     }
    ],
    "investigations": [
@@ -2313,7 +2273,7 @@
    "examination": [
     {
      "label": "Renal angle (loin) tenderness",
-     "keywords": "loin|renal angle|flank|cvat|tender"
+     "keywords": "renal angle|cvat"
     },
     {
      "label": "Restlessness, unable to lie still",
@@ -2321,15 +2281,15 @@
     },
     {
      "label": "Fever / tachycardia (infected obstructed system)",
-     "keywords": "fever|temp|tachycard|sepsis|infect"
+     "keywords": "temp|tachycard|sepsis"
     },
     {
      "label": "Abdominal tenderness, palpable bladder / kidney",
-     "keywords": "abdo|tender|bladder|kidney|palpable"
+     "keywords": "abdo|bladder|kidney|palpable"
     },
     {
      "label": "Haematuria on urinalysis",
-     "keywords": "haematuria|hematuria|dipstick|urinalysis|blood"
+     "keywords": "dipstick|urinalysis"
     },
     {
      "label": "Genital examination (testicular / hernia mimics)",
@@ -2341,7 +2301,7 @@
     },
     {
      "label": "Gout tophi / signs of hyperparathyroidism",
-     "keywords": "gout|tophi|parathyroid|calcium"
+     "keywords": "tophi"
     }
    ],
    "investigations": [],
@@ -2449,39 +2409,39 @@
    "examination": [
     {
      "label": "Abdominal exam: palpable bladder (overflow), masses",
-     "keywords": "abdo|bladder|palpable|mass|retention"
+     "keywords": "abdo|bladder|palpable|mass"
     },
     {
      "label": "Pelvic exam: prolapse (cystocele, rectocele, uterine)",
-     "keywords": "prolapse|cystocele|rectocele|pelvic|vaginal|uterine"
+     "keywords": "cystocele|rectocele|pelvic|uterine"
     },
     {
      "label": "Atrophic vaginitis",
-     "keywords": "atroph|vagin|oestrogen|estrogen"
+     "keywords": "atroph|vagin"
     },
     {
      "label": "Cough stress test: observed leak",
-     "keywords": "cough|stress test|leak|observed"
+     "keywords": "leak|observed"
     },
     {
      "label": "Pelvic floor muscle strength",
-     "keywords": "pelvic floor|squeeze|muscle|kegel"
+     "keywords": "squeeze|muscle"
     },
     {
      "label": "DRE in men: prostate size; faecal impaction",
-     "keywords": "prostate|dre|rectal|faecal|fecal|impaction"
+     "keywords": "dre|rectal|fecal"
     },
     {
      "label": "Perineal sensation and anal tone (neuro)",
-     "keywords": "perineal|sensation|anal tone|neuro|sacral"
+     "keywords": "perineal|sensation|anal tone|sacral"
     },
     {
      "label": "Lower limb neurology, gait, mobility",
-     "keywords": "limb|neuro|gait|mobil|power|reflex"
+     "keywords": "limb|gait|power|reflex"
     },
     {
      "label": "Fluid status / oedema (diuretic, nocturnal polyuria)",
-     "keywords": "oedema|edema|fluid|diuretic"
+     "keywords": "oedema|edema"
     }
    ],
    "investigations": [],
@@ -2544,7 +2504,7 @@
    "examination": [
     {
      "label": "DRE: hard, nodular, asymmetric prostate",
-     "keywords": "dre|rectal|hard|nodul|irregular|asymmet|prostate"
+     "keywords": "dre|hard|nodul|irregular|asymmet|prostate"
     },
     {
      "label": "Loss of median sulcus, fixed gland (extracapsular)",
@@ -2552,15 +2512,15 @@
     },
     {
      "label": "Palpable bladder (retention)",
-     "keywords": "bladder|retention|suprapubic|palpable"
+     "keywords": "retention|suprapubic|palpable"
     },
     {
      "label": "Bony tenderness / spinal percussion tenderness",
-     "keywords": "bony|bone|spine|spinal|tender|percussion|mets|metast"
+     "keywords": "bony|spine|spinal|tender|percussion|mets|metast"
     },
     {
      "label": "Spinal cord compression signs (weakness, sensory level, anal tone)",
-     "keywords": "cord|compress|weakness|sensory level|anal tone|neuro"
+     "keywords": "compress|weakness|sensory level|anal tone|neuro"
     },
     {
      "label": "Lymphadenopathy / leg lymphoedema",
@@ -2572,7 +2532,7 @@
     },
     {
      "label": "Gynaecomastia / hot flushes (ADT)",
-     "keywords": "gynaec|gynec|breast|flush|adt|androgen"
+     "keywords": "gynec|flush|androgen"
     },
     {
      "label": "Cachexia / pallor in advanced disease",
@@ -2702,10 +2662,6 @@
    ],
    "examination": [
     {
-     "label": "Jaundice",
-     "keywords": "jaundice|icter|yellow"
-    },
-    {
      "label": "Spider naevi",
      "keywords": "spider|naevi|nevi|naevus"
     },
@@ -2715,7 +2671,7 @@
     },
     {
      "label": "Gynaecomastia / testicular atrophy / loss of body hair",
-     "keywords": "gynaec|gynec|testic|atroph|body hair"
+     "keywords": "gynec|testic|atroph|body hair"
     },
     {
      "label": "Dupuytren's contracture",
@@ -2731,7 +2687,7 @@
     },
     {
      "label": "Ascites (shifting dullness, fluid thrill)",
-     "keywords": "ascites|shifting|dullness|thrill|distend"
+     "keywords": "shifting|dullness|thrill|distend"
     },
     {
      "label": "Splenomegaly / caput medusae",
@@ -2743,11 +2699,11 @@
     },
     {
      "label": "Peripheral oedema / bruising",
-     "keywords": "oedema|edema|bruis|ecchym|coagulop"
+     "keywords": "edema|ecchym|coagulop"
     },
     {
      "label": "Fetor hepaticus / confusion",
-     "keywords": "fetor|confus|encephalopathy|drows"
+     "keywords": "fetor"
     }
    ],
    "investigations": [
@@ -2868,27 +2824,27 @@
    "examination": [
     {
      "label": "Oral ulcers / aphthous stomatitis",
-     "keywords": "oral|aphth|mouth|ulcer"
+     "keywords": "aphth"
     },
     {
      "label": "Right iliac fossa tenderness or mass",
-     "keywords": "rif|iliac|mass|tender"
+     "keywords": "rif|iliac|mass"
     },
     {
      "label": "Abdominal distension / tenderness",
-     "keywords": "distens|distend|tender|abdo"
+     "keywords": "distend|abdo"
     },
     {
      "label": "Perianal disease: fistulae, skin tags, abscess, fissure",
-     "keywords": "perianal|fistula|tag|abscess|fissure|anal"
+     "keywords": "tag|fissure"
     },
     {
      "label": "Pallor (anaemia)",
-     "keywords": "pallor|pale|anaem|anem"
+     "keywords": "pallor|pale|anem"
     },
     {
      "label": "Weight loss / low BMI",
-     "keywords": "weight|bmi|cachex|wast"
+     "keywords": "bmi|cachex|wast"
     },
     {
      "label": "Clubbing",
@@ -2896,19 +2852,15 @@
     },
     {
      "label": "Erythema nodosum / pyoderma gangrenosum",
-     "keywords": "erythema nodosum|pyoderma|skin|nodosum"
+     "keywords": "nodosum"
     },
     {
      "label": "Arthritis / joint swelling",
-     "keywords": "arthritis|joint|swell|synovit"
-    },
-    {
-     "label": "Eyes: uveitis / episcleritis",
-     "keywords": "uveitis|episcler|eye|red eye"
+     "keywords": "swell|synovit"
     },
     {
      "label": "Surgical scars / stoma",
-     "keywords": "scar|stoma|surgery|resect"
+     "keywords": "scar|stoma"
     }
    ],
    "investigations": [
@@ -3001,7 +2953,7 @@
    "examination": [
     {
      "label": "Tachycardia / fever / hypotension (severe colitis)",
-     "keywords": "tachycard|fever|hypotens|toxic|temp"
+     "keywords": "hypotens|toxic|temp"
     },
     {
      "label": "Abdominal tenderness (left-sided), distension",
@@ -3025,23 +2977,19 @@
     },
     {
      "label": "Erythema nodosum / pyoderma gangrenosum",
-     "keywords": "erythema nodosum|pyoderma|skin|nodosum"
+     "keywords": "nodosum"
     },
     {
      "label": "Arthritis (peripheral / axial)",
-     "keywords": "arthritis|joint|spondyl|sacroil"
-    },
-    {
-     "label": "Eyes: uveitis / episcleritis",
-     "keywords": "uveitis|episcler|eye|red eye"
+     "keywords": "spondyl|sacroil"
     },
     {
      "label": "Jaundice (primary sclerosing cholangitis)",
-     "keywords": "jaundice|psc|sclerosing|icter"
+     "keywords": "sclerosing|icter"
     },
     {
      "label": "DRE: blood on glove",
-     "keywords": "dre|rectal|blood|glove"
+     "keywords": "dre|rectal|glove"
     }
    ],
    "investigations": [
@@ -3122,23 +3070,23 @@
    "examination": [
     {
      "label": "Pallor (anaemia)",
-     "keywords": "pallor|pale|anaem|anem"
+     "keywords": "pallor|pale|anem"
     },
     {
      "label": "Cachexia / weight loss",
-     "keywords": "cachex|wast|weight"
+     "keywords": "cachex|wast"
     },
     {
      "label": "Palpable abdominal mass (right iliac fossa / left)",
-     "keywords": "mass|palpable|rif|iliac"
+     "keywords": "palpable|rif|iliac"
     },
     {
      "label": "Abdominal distension / tenderness (obstruction)",
-     "keywords": "distens|distend|tender|obstruct|tinkling|bowel sounds"
+     "keywords": "distend|tender|tinkling|bowel sounds"
     },
     {
      "label": "Hepatomegaly (liver metastases)",
-     "keywords": "hepatomeg|liver|mets|metast|craggy"
+     "keywords": "hepatomeg|mets|metast|craggy"
     },
     {
      "label": "Ascites",
@@ -3150,11 +3098,11 @@
     },
     {
      "label": "DRE: palpable rectal mass, blood on glove",
-     "keywords": "dre|rectal|mass|blood|glove"
+     "keywords": "dre|rectal|glove"
     },
     {
      "label": "Hernia / stoma / surgical scars",
-     "keywords": "hernia|stoma|scar"
+     "keywords": "hernia|scar"
     }
    ],
    "investigations": [
@@ -3259,15 +3207,15 @@
    "examination": [
     {
      "label": "Epigastric tenderness",
-     "keywords": "epigast|tender"
+     "keywords": "tender"
     },
     {
      "label": "Pallor (anaemia)",
-     "keywords": "pallor|pale|anaem|anem"
+     "keywords": "pallor|pale|anem"
     },
     {
      "label": "Weight loss / cachexia",
-     "keywords": "weight|cachex|wast"
+     "keywords": "cachex|wast"
     },
     {
      "label": "Virchow's node (left supraclavicular)",
@@ -3275,7 +3223,7 @@
     },
     {
      "label": "Epigastric mass",
-     "keywords": "mass|epigast|palpable"
+     "keywords": "mass|palpable"
     },
     {
      "label": "Peritonism / rigidity (perforation)",
@@ -3287,7 +3235,7 @@
     },
     {
      "label": "Dental erosions / hoarse voice / laryngitis (GORD)",
-     "keywords": "dental|erosion|hoarse|laryng|voice"
+     "keywords": "dental|erosion|laryng|voice"
     },
     {
      "label": "Signs of systemic sclerosis / chronic liver disease",
@@ -3295,7 +3243,7 @@
     },
     {
      "label": "Melaena on DRE",
-     "keywords": "melaena|melena|dre|rectal|black"
+     "keywords": "melena|dre|rectal"
     }
    ],
    "investigations": [
@@ -3392,7 +3340,7 @@
    "examination": [
     {
      "label": "Epigastric tenderness ± guarding",
-     "keywords": "epigast|tender|guard"
+     "keywords": "tender|guard"
     },
     {
      "label": "Tachycardia / fever / hypotension",
@@ -3403,8 +3351,8 @@
      "keywords": "cullen|grey.?turner|bruis|flank|periumb"
     },
     {
-     "label": "Jaundice",
-     "keywords": "jaundice|icter|yellow"
+     "label": "Jaundice (obstructive: gallstone or head-of-pancreas)",
+     "keywords": "icter|yellow"
     },
     {
      "label": "Abdominal distension / reduced bowel sounds (ileus)",
@@ -3416,19 +3364,19 @@
     },
     {
      "label": "Epigastric mass (pseudocyst)",
-     "keywords": "mass|pseudocyst|epigast|palpable"
+     "keywords": "mass|pseudocyst|palpable"
     },
     {
      "label": "Weight loss / cachexia (chronic)",
-     "keywords": "weight|cachex|wast"
+     "keywords": "cachex|wast"
     },
     {
      "label": "Signs of alcohol use / chronic liver disease",
-     "keywords": "alcohol|liver|spider|palmar|stigmata"
+     "keywords": "liver|spider|palmar|stigmata"
     },
     {
      "label": "Steatorrhoea features / diabetes signs",
-     "keywords": "steato|diabet|malnutrition|fat"
+     "keywords": "steato|malnutrition|fat"
     }
    ],
    "investigations": [
@@ -3517,11 +3465,11 @@
    "examination": [
     {
      "label": "Jaundice",
-     "keywords": "jaundice|icter|yellow"
+     "keywords": "icter"
     },
     {
      "label": "Scratch marks (pruritus)",
-     "keywords": "scratch|excoriat|prurit|itch"
+     "keywords": "scratch|excoriat"
     },
     {
      "label": "Palpable non-tender gallbladder (Courvoisier's sign)",
@@ -3529,11 +3477,11 @@
     },
     {
      "label": "Epigastric mass / tenderness",
-     "keywords": "mass|epigast|tender"
+     "keywords": "mass|tender"
     },
     {
      "label": "Cachexia",
-     "keywords": "cachex|wast|weight"
+     "keywords": "cachex|wast"
     },
     {
      "label": "Hepatomegaly",
@@ -3549,7 +3497,7 @@
     },
     {
      "label": "Migratory thrombophlebitis (Trousseau's)",
-     "keywords": "trousseau|thrombophleb|migrat|dvt|clot"
+     "keywords": "migrat"
     }
    ],
    "investigations": [
@@ -3638,19 +3586,19 @@
    "examination": [
     {
      "label": "Pallor (anaemia)",
-     "keywords": "pallor|pale|anaem|anem"
+     "keywords": "pallor|pale|anem"
     },
     {
      "label": "Low BMI / short stature / weight loss",
-     "keywords": "bmi|stature|weight|underweight"
+     "keywords": "bmi|stature|underweight"
     },
     {
      "label": "Dermatitis herpetiformis",
-     "keywords": "dermatitis|herpetiform|rash|blister"
+     "keywords": "herpetiform"
     },
     {
      "label": "Angular stomatitis / glossitis / aphthous ulcers",
-     "keywords": "angular|stomatitis|glossitis|aphth|mouth|oral"
+     "keywords": "angular|stomatitis|glossitis|aphth|oral"
     },
     {
      "label": "Dental enamel defects",
@@ -3666,15 +3614,15 @@
     },
     {
      "label": "Abdominal distension",
-     "keywords": "distens|distend|bloat|abdo"
+     "keywords": "distens|distend|abdo"
     },
     {
      "label": "Peripheral neuropathy / ataxia",
-     "keywords": "neuropath|ataxia|neuro|sensation"
+     "keywords": "neuro|sensation"
     },
     {
      "label": "Signs of osteomalacia (bone tenderness, proximal myopathy)",
-     "keywords": "osteomalac|bone|myopath|tender"
+     "keywords": "osteomalac|myopath|tender"
     }
    ],
    "investigations": [
@@ -3759,7 +3707,7 @@
    "examination": [
     {
      "label": "Right upper quadrant tenderness",
-     "keywords": "ruq|right upper|tender"
+     "keywords": "tender"
     },
     {
      "label": "Murphy's sign",
@@ -3767,11 +3715,11 @@
     },
     {
      "label": "Fever / tachycardia",
-     "keywords": "fever|tachycard|temp"
+     "keywords": "tachycard|temp"
     },
     {
      "label": "Jaundice (choledocholithiasis / cholangitis)",
-     "keywords": "jaundice|icter|yellow"
+     "keywords": "icter"
     },
     {
      "label": "Palpable gallbladder / mass",
@@ -3783,7 +3731,7 @@
     },
     {
      "label": "Charcot's triad / Reynolds' pentad features",
-     "keywords": "charcot|reynold|triad|pentad|rigors"
+     "keywords": "charcot|reynold|triad|pentad"
     },
     {
      "label": "Hypotension / confusion (sepsis)",
@@ -3791,7 +3739,7 @@
     },
     {
      "label": "Scars (previous cholecystectomy)",
-     "keywords": "scar|cholecystectomy|laparoscop"
+     "keywords": "scar|laparoscop"
     }
    ],
    "investigations": [
@@ -3876,35 +3824,35 @@
    "examination": [
     {
      "label": "Left iliac fossa tenderness",
-     "keywords": "lif|left iliac|tender"
+     "keywords": "tender"
     },
     {
      "label": "Localised guarding / rebound",
-     "keywords": "guard|rebound|peritonism|rigid"
+     "keywords": "guard|rebound|peritonism"
     },
     {
      "label": "Fever / tachycardia",
-     "keywords": "fever|tachycard|temp"
+     "keywords": "tachycard|temp"
     },
     {
      "label": "Palpable left iliac fossa mass (phlegmon / abscess)",
-     "keywords": "mass|phlegmon|abscess|palpable"
+     "keywords": "phlegmon|abscess|palpable"
     },
     {
      "label": "Generalised peritonitis (perforation)",
-     "keywords": "generalised|peritonitis|perfor|board|rigid"
+     "keywords": "generalised|peritonitis|perfor|board"
     },
     {
      "label": "Abdominal distension (obstruction)",
-     "keywords": "distens|distend|obstruct|bowel sounds"
+     "keywords": "distend|bowel sounds"
     },
     {
      "label": "DRE: blood, mass, tenderness",
-     "keywords": "dre|rectal|blood|mass"
+     "keywords": "dre|rectal"
     },
     {
      "label": "Signs of colovesical fistula (pneumaturia, faecaluria)",
-     "keywords": "fistula|pneumaturia|faecaluria|fecaluria|vesical"
+     "keywords": "fistula|fecaluria|vesical"
     },
     {
      "label": "Hypotension (sepsis / bleeding)",
@@ -3989,11 +3937,11 @@
    "examination": [
     {
      "label": "Visible lump at the site (inguinal, femoral, umbilical, incisional)",
-     "keywords": "lump|swelling|bulge|visible|inguinal|femoral|umbilical|incisional"
+     "keywords": "visible|umbilical"
     },
     {
      "label": "Cough impulse",
-     "keywords": "cough|impulse"
+     "keywords": "impulse"
     },
     {
      "label": "Reducibility",
@@ -4001,19 +3949,19 @@
     },
     {
      "label": "Position relative to pubic tubercle (inguinal vs femoral)",
-     "keywords": "pubic|tubercle|inguinal|femoral|position"
+     "keywords": "pubic|tubercle|position"
     },
     {
      "label": "Tenderness, erythema, irreducible (incarceration/strangulation)",
-     "keywords": "tender|erythem|irreduc|incarcerat|strangul"
+     "keywords": "erythem|irreduc|incarcerat"
     },
     {
      "label": "Abdominal distension / bowel sounds (obstruction)",
-     "keywords": "distens|distend|obstruct|bowel sounds"
+     "keywords": "distend|bowel sounds"
     },
     {
      "label": "Examine standing and lying",
-     "keywords": "standing|lying|supine|stand"
+     "keywords": "standing|supine|stand"
     },
     {
      "label": "Scrotal examination (testicle separate, transillumination)",
@@ -4021,7 +3969,7 @@
     },
     {
      "label": "Predisposing signs (obesity, ascites, prostate)",
-     "keywords": "obes|ascites|prostate|bph|predispos"
+     "keywords": "ascites|bph|predispos"
     }
    ],
    "investigations": [
@@ -4090,7 +4038,7 @@
    "examination": [
     {
      "label": "Stoma type, site (ileostomy RIF vs colostomy LIF), spouted vs flush",
-     "keywords": "type|site|ileostomy|colostomy|spout|flush|rif|lif"
+     "keywords": "site|spout|flush|rif|lif"
     },
     {
      "label": "Stoma colour (pink/healthy vs dusky/ischaemic)",
@@ -4098,19 +4046,19 @@
     },
     {
      "label": "Output: character and volume",
-     "keywords": "output|volume|liquid|faecal|fecal|effluent"
+     "keywords": "liquid|faecal|fecal|effluent"
     },
     {
      "label": "Peristomal skin: excoriation, dermatitis",
-     "keywords": "peristomal|skin|excoriat|dermatitis|rash"
+     "keywords": "peristomal|excoriat|dermatitis|rash"
     },
     {
      "label": "Parastomal hernia",
-     "keywords": "parastomal|hernia"
+     "keywords": "parastomal"
     },
     {
      "label": "Prolapse / retraction / stenosis",
-     "keywords": "prolaps|retract|stenos"
+     "keywords": "retract|stenos"
     },
     {
      "label": "Midline laparotomy scar / other scars",
@@ -4118,11 +4066,11 @@
     },
     {
      "label": "Dehydration signs (high-output ileostomy)",
-     "keywords": "dehydrat|high.?output|dry|hypotens|tachycard"
+     "keywords": "high.?output|dry|hypotens|tachycard"
     },
     {
      "label": "Bag fit / leaks",
-     "keywords": "bag|appliance|leak|fit"
+     "keywords": "fit"
     }
    ],
    "investigations": [
@@ -4239,15 +4187,15 @@
     },
     {
      "label": "Epigastric mass / tenderness (upper GI source)",
-     "keywords": "epigast|mass|tender"
+     "keywords": "tender"
     },
     {
      "label": "Abdominal mass (colorectal cancer)",
-     "keywords": "abdominal mass|mass|palpable"
+     "keywords": "palpable"
     },
     {
      "label": "DRE: rectal mass, melaena, fresh blood",
-     "keywords": "dre|rectal|melaena|melena|blood|mass"
+     "keywords": "dre|rectal|melena"
     },
     {
      "label": "Hepatosplenomegaly / lymphadenopathy",
@@ -4255,7 +4203,7 @@
     },
     {
      "label": "Telangiectasia (HHT) / signs of malabsorption",
-     "keywords": "telangiect|hht|malabsorp|coeliac|celiac"
+     "keywords": "telangiect|hht|malabsorp|celiac"
     }
    ],
    "investigations": [
@@ -4345,7 +4293,7 @@
    "examination": [
     {
      "label": "BMI, waist circumference, central obesity",
-     "keywords": "bmi|waist|obes|central|weight"
+     "keywords": "bmi|waist|obes|central"
     },
     {
      "label": "Blood pressure",
@@ -4357,11 +4305,11 @@
     },
     {
      "label": "Fundoscopy: retinopathy",
-     "keywords": "fundos|retin|maculopath|haemorrhage|exudate"
+     "keywords": "fundos|maculopath|haemorrhage|exudate"
     },
     {
      "label": "Feet: ulcers, calluses, deformity, skin",
-     "keywords": "foot|feet|ulcer|callus|deform|skin"
+     "keywords": "callus|deform"
     },
     {
      "label": "Foot pulses / ankle-brachial index",
@@ -4369,7 +4317,7 @@
     },
     {
      "label": "Neuropathy: monofilament, vibration, reflexes",
-     "keywords": "monofil|vibrat|neuropath|reflex|sensation|tuning fork"
+     "keywords": "monofil|vibrat|reflex|sensation|tuning fork"
     },
     {
      "label": "Injection / lipohypertrophy sites",
@@ -4498,15 +4446,15 @@
     },
     {
      "label": "Dry, coarse skin; hair thinning; lateral eyebrow loss",
-     "keywords": "dry|coarse|skin|hair|eyebrow|alopecia"
+     "keywords": "dry|coarse|eyebrow|alopecia"
     },
     {
      "label": "Goitre (diffuse or nodular)",
-     "keywords": "goitre|goiter|thyroid|neck"
+     "keywords": "diffuse goit|nodular goit|thyroid enlarg|palpable thyroid"
     },
     {
      "label": "Delayed relaxation of ankle jerks",
-     "keywords": "relaxation|ankle jerk|reflex|slow"
+     "keywords": "relaxation|ankle jerk|reflex"
     },
     {
      "label": "Peripheral oedema / non-pitting facial puffiness (myxoedema)",
@@ -4514,23 +4462,23 @@
     },
     {
      "label": "Cold peripheries / hypothermia",
-     "keywords": "cold|hypotherm|temp|cool"
+     "keywords": "hypotherm|temp|cool"
     },
     {
      "label": "Hoarse voice / macroglossia",
-     "keywords": "hoarse|voice|macroglos|tongue"
+     "keywords": "macroglos|tongue"
     },
     {
      "label": "Carpal tunnel signs (Tinel's, Phalen's)",
-     "keywords": "carpal|tinel|phalen"
+     "keywords": "tinel|phalen"
     },
     {
      "label": "Pericardial / pleural effusions; slow mentation",
-     "keywords": "effusion|pericardial|pleural|slow|mentation|cognit"
+     "keywords": "effusion|pericardial|pleural|mentation|cognit"
     },
     {
      "label": "Scar of thyroidectomy",
-     "keywords": "scar|thyroidectomy|surgery"
+     "keywords": "scar"
     }
    ],
    "investigations": [
@@ -4615,15 +4563,15 @@
     },
     {
      "label": "Fine tremor of outstretched hands",
-     "keywords": "tremor"
+     "keywords": "outstretched|fine tremor|postural tremor"
     },
     {
      "label": "Warm, sweaty, moist palms",
-     "keywords": "warm|sweat|moist|palm|hyperhidros"
+     "keywords": "warm|moist|palm|hyperhidros"
     },
     {
      "label": "Goitre with bruit (Graves')",
-     "keywords": "goitre|goiter|thyroid|bruit"
+     "keywords": "thyroid|bruit"
     },
     {
      "label": "Lid lag / lid retraction",
@@ -4631,7 +4579,7 @@
     },
     {
      "label": "Graves' ophthalmopathy: proptosis, chemosis, ophthalmoplegia",
-     "keywords": "proptosis|exophthalm|chemosis|ophthalmoplegia|ophthalmopathy|eye"
+     "keywords": "proptosis|exophthalm|chemosis|ophthalmoplegia|ophthalmopathy"
     },
     {
      "label": "Pretibial myxoedema / thyroid acropachy",
@@ -4643,7 +4591,7 @@
     },
     {
      "label": "Proximal myopathy",
-     "keywords": "proximal|myopath|weakness|sit.?to.?stand"
+     "keywords": "proximal|myopath|sit.?to.?stand"
     },
     {
      "label": "Onycholysis / palmar erythema / vitiligo",
@@ -4651,7 +4599,7 @@
     },
     {
      "label": "Tender goitre (thyroiditis)",
-     "keywords": "tender|thyroiditis"
+     "keywords": "tender"
     }
    ],
    "investigations": [
@@ -4715,19 +4663,15 @@
     },
     {
      "label": "Injection sites: lipohypertrophy / lipoatrophy",
-     "keywords": "lipohypertroph|lipoatroph|lipodystroph|inject|site"
-    },
-    {
-     "label": "Insulin pump / CGM sensor sites",
-     "keywords": "pump|cgm|sensor|libre|dexcom|site"
+     "keywords": "inject"
     },
     {
      "label": "Fundoscopy: retinopathy",
-     "keywords": "fundos|retin|maculopath"
+     "keywords": "fundos|maculopath"
     },
     {
      "label": "Feet: ulcers, pulses, monofilament, vibration",
-     "keywords": "foot|feet|ulcer|pulses|monofil|vibrat|neuropath"
+     "keywords": "pulses|monofil|vibrat"
     },
     {
      "label": "Blood pressure",
@@ -4735,11 +4679,11 @@
     },
     {
      "label": "Signs of DKA: Kussmaul breathing, dehydration, ketotic breath, tachycardia",
-     "keywords": "dka|kussmaul|dehydrat|ketone|ketotic|acetone|tachycard"
+     "keywords": "kussmaul|dehydrat|ketotic|acetone|tachycard"
     },
     {
      "label": "Other autoimmune signs: vitiligo, thyroid goitre",
-     "keywords": "vitiligo|goitre|goiter|thyroid|autoimmune"
+     "keywords": "vitiligo|goitre|goiter|autoimmune"
     },
     {
      "label": "Limited joint mobility (cheiroarthropathy / prayer sign)",
@@ -4747,7 +4691,7 @@
     },
     {
      "label": "Necrobiosis lipoidica",
-     "keywords": "necrobiosis|lipoidica|shin|skin"
+     "keywords": "necrobiosis|shin|skin"
     }
    ],
    "investigations": [
@@ -4876,27 +4820,23 @@
    "examination": [
     {
      "label": "Moon face, facial plethora",
-     "keywords": "moon|plethor|facial|round"
+     "keywords": "plethor|facial|round"
     },
     {
      "label": "Central obesity, buffalo hump, supraclavicular fat pads",
-     "keywords": "central|obes|buffalo|hump|fat pad|supraclav"
+     "keywords": "buffalo|fat pad|supraclav"
     },
     {
      "label": "Purple abdominal striae",
-     "keywords": "striae|stria|purple|abdominal"
+     "keywords": "purple|abdominal"
     },
     {
      "label": "Easy bruising, thin skin",
-     "keywords": "bruis|thin|skin|ecchym|atroph"
+     "keywords": "thin|ecchym|atroph"
     },
     {
      "label": "Proximal myopathy (can't rise from chair)",
-     "keywords": "proximal|myopath|weakness|rise|chair|squat"
-    },
-    {
-     "label": "Hypertension",
-     "keywords": "hypertens|bp|blood pressure"
+     "keywords": "proximal|myopath|rise|squat"
     },
     {
      "label": "Acne / hirsutism",
@@ -4908,15 +4848,15 @@
     },
     {
      "label": "Poor wound healing / skin infections",
-     "keywords": "wound|heal|infect|fung|candid"
+     "keywords": "wound|heal|fung|candid"
     },
     {
      "label": "Kyphosis / vertebral tenderness (fractures)",
-     "keywords": "kyphosis|vertebr|spinal|fracture|tender"
+     "keywords": "kyphosis|vertebr|spinal|tender"
     },
     {
      "label": "Cataracts / visual field defects",
-     "keywords": "cataract|visual field|bitemporal|eye"
+     "keywords": "visual field|bitemporal"
     }
    ],
    "investigations": [
@@ -5009,19 +4949,15 @@
    "examination": [
     {
      "label": "Postural hypotension",
-     "keywords": "postural|orthostat|hypotens|bp|blood pressure"
+     "keywords": "orthostat|bp|blood pressure"
     },
     {
      "label": "Hyperpigmentation: palmar creases, buccal mucosa, scars",
-     "keywords": "pigment|palmar|crease|buccal|scar|tan|bronz"
-    },
-    {
-     "label": "Vitiligo",
-     "keywords": "vitiligo"
+     "keywords": "palmar|crease|buccal|scar|bronz"
     },
     {
      "label": "Weight loss / dehydration",
-     "keywords": "weight|dehydrat|dry"
+     "keywords": "dehydrat|dry"
     },
     {
      "label": "Tachycardia",
@@ -5033,11 +4969,11 @@
     },
     {
      "label": "Signs of adrenal crisis: shock, abdominal tenderness, confusion",
-     "keywords": "crisis|shock|confus|abdo|tender|hypotens"
+     "keywords": "shock|confus|tender"
     },
     {
      "label": "Other autoimmune signs (thyroid, vitiligo)",
-     "keywords": "thyroid|autoimmune|goitre|goiter"
+     "keywords": "goitre|goiter"
     },
     {
      "label": "Hypoglycaemia features",
@@ -5126,11 +5062,11 @@
    "examination": [
     {
      "label": "Height loss (measure height, compare with previous)",
-     "keywords": "height|stature|loss|measure|shorter"
+     "keywords": "stature|loss|measure|shorter"
     },
     {
      "label": "Thoracic kyphosis (dowager's hump)",
-     "keywords": "kyphosis|dowager|hump|stoop|curv"
+     "keywords": "dowager|hump|curv"
     },
     {
      "label": "Spinal tenderness on percussion",
@@ -5142,11 +5078,11 @@
     },
     {
      "label": "Low BMI",
-     "keywords": "bmi|weight|underweight|thin"
+     "keywords": "underweight|low bmi|bmi below"
     },
     {
      "label": "Gait, balance, Timed Up and Go (falls risk)",
-     "keywords": "gait|balance|timed up|tug|falls|mobil"
+     "keywords": "gait|balance|timed up|tug|mobil"
     },
     {
      "label": "Muscle strength / sarcopenia",
@@ -5154,7 +5090,7 @@
     },
     {
      "label": "Signs of secondary causes (Cushing's, thyrotoxicosis, hypogonadism)",
-     "keywords": "cushing|thyro|hypogonad|secondary|rheum"
+     "keywords": "cushing|secondary|rheum"
     },
     {
      "label": "Blue sclerae (osteogenesis imperfecta)",
@@ -5259,11 +5195,11 @@
     },
     {
      "label": "Waist circumference / waist-hip ratio",
-     "keywords": "waist|hip ratio|central|circumference"
+     "keywords": "waist|central|circumference"
     },
     {
      "label": "Blood pressure (correct cuff size)",
-     "keywords": "bp|blood pressure|cuff|hypertens"
+     "keywords": "bp|blood pressure|cuff"
     },
     {
      "label": "Acanthosis nigricans",
@@ -5271,19 +5207,19 @@
     },
     {
      "label": "Striae, hirsutism, moon face (Cushing's / PCOS)",
-     "keywords": "striae|hirsut|moon|cushing|pcos"
+     "keywords": "striae|hirsut|moon"
     },
     {
      "label": "Goitre / signs of hypothyroidism",
-     "keywords": "goitre|goiter|thyroid|hypothyroid"
+     "keywords": "goitre|goiter|hypothyroid"
     },
     {
      "label": "Neck circumference / crowded oropharynx (OSA)",
-     "keywords": "neck|oropharyn|mallampati|osa|crowded"
+     "keywords": "neck|oropharyn|mallampati|crowded"
     },
     {
      "label": "Joints: knee / hip OA, mobility",
-     "keywords": "joint|knee|hip|oa|osteoarth|mobil"
+     "keywords": "hip|oa|osteoarth|mobil"
     },
     {
      "label": "Intertrigo / skin infections / lymphoedema",
@@ -5291,7 +5227,7 @@
     },
     {
      "label": "Hepatomegaly (fatty liver)",
-     "keywords": "hepatomeg|liver|fatty|nafld"
+     "keywords": "hepatomeg|nafld"
     },
     {
      "label": "Waist-height ratio",
@@ -5385,7 +5321,7 @@
    "examination": [
     {
      "label": "Symmetrical small joint synovitis: MCPs, PIPs, wrists (swelling, warmth, tenderness)",
-     "keywords": "synovit|mcp|pip|wrist|swell|warm|tender|symmetr"
+     "keywords": "synovit|mcp|pip|warm|tender"
     },
     {
      "label": "Ulnar deviation, swan-neck, boutonnière, Z-thumb",
@@ -5393,7 +5329,7 @@
     },
     {
      "label": "Rheumatoid nodules (elbows)",
-     "keywords": "nodule|elbow"
+     "keywords": "elbow"
     },
     {
      "label": "Muscle wasting of small hand muscles",
@@ -5401,7 +5337,7 @@
     },
     {
      "label": "Reduced grip / functional loss",
-     "keywords": "grip|function|dexterity|power"
+     "keywords": "dexterity|power"
     },
     {
      "label": "Prominent MTP heads / hindfoot disease",
@@ -5409,23 +5345,23 @@
     },
     {
      "label": "Cervical spine involvement (atlanto-axial subluxation)",
-     "keywords": "cervical|atlanto|subluxation|neck"
+     "keywords": "cervical|atlanto|subluxation"
     },
     {
      "label": "Eyes: scleritis, episcleritis, keratoconjunctivitis sicca",
-     "keywords": "scleritis|episcler|keratoconj|sicca|dry eye|eye"
+     "keywords": "episcler|keratoconj"
     },
     {
      "label": "Lung: pleural effusion, fibrosis crackles",
-     "keywords": "lung|effusion|fibrosis|crackle|crep"
+     "keywords": "effusion|fibrosis|crackle|crep"
     },
     {
      "label": "Felty's: splenomegaly; vasculitic skin lesions",
-     "keywords": "felty|splen|vasculit|skin|ulcer"
+     "keywords": "felty|splen|vasculit|skin"
     },
     {
      "label": "Steroid / methotrexate effects (bruising, cushingoid)",
-     "keywords": "steroid|bruis|cushing|methotrexate"
+     "keywords": "bruis|cushing"
     }
    ],
    "investigations": [
@@ -5517,31 +5453,27 @@
    "examination": [
     {
      "label": "Malar (butterfly) rash",
-     "keywords": "malar|butterfly|facial rash|rash"
+     "keywords": "butterfly"
     },
     {
      "label": "Discoid lesions with scarring",
-     "keywords": "discoid|scarring|plaque"
-    },
-    {
-     "label": "Photosensitive rash",
-     "keywords": "photosens|sun|rash"
+     "keywords": "scarring|plaque"
     },
     {
      "label": "Oral / nasal ulcers",
-     "keywords": "oral|nasal|ulcer|mouth"
+     "keywords": "oral|nasal"
     },
     {
      "label": "Non-erosive arthritis (small joints)",
-     "keywords": "arthritis|synovit|joint|swell"
+     "keywords": "synovit"
     },
     {
      "label": "Alopecia",
-     "keywords": "alopecia|hair|thin"
+     "keywords": "hair thin|scarring alopecia|diffuse alopecia"
     },
     {
      "label": "Raynaud's / vasculitic lesions (nail-fold infarcts, livedo)",
-     "keywords": "raynaud|vasculit|nail.?fold|infarct|livedo"
+     "keywords": "vasculit|nail.?fold|infarct|livedo"
     },
     {
      "label": "Pleural / pericardial rub or effusion",
@@ -5553,15 +5485,15 @@
     },
     {
      "label": "Hypertension / oedema (lupus nephritis)",
-     "keywords": "hypertens|oedema|edema|nephritis|bp|blood pressure|frothy"
+     "keywords": "hypertens|edema|nephritis|bp|blood pressure"
     },
     {
      "label": "Neurological: seizures, psychosis, neuropathy",
-     "keywords": "neuro|seizure|psychos|neuropath|cognit"
+     "keywords": "neuro|neuropath"
     },
     {
      "label": "Cushingoid features (steroids)",
-     "keywords": "cushing|moon|bruis|steroid"
+     "keywords": "cushing|moon|bruis"
     }
    ],
    "investigations": [
@@ -5662,11 +5594,11 @@
    "examination": [
     {
      "label": "Acutely inflamed joint: red, hot, swollen, exquisitely tender",
-     "keywords": "red|hot|swollen|swelling|tender|inflam|erythem|warm"
+     "keywords": "swollen|tender|inflam|erythem|warm"
     },
     {
      "label": "Podagra (first MTP)",
-     "keywords": "podagra|mtp|big toe|great toe|first metatars"
+     "keywords": "podagra|first metatars"
     },
     {
      "label": "Reduced range of motion / unable to bear weight",
@@ -5674,11 +5606,11 @@
     },
     {
      "label": "Tophi: ears, elbows, hands, Achilles",
-     "keywords": "toph|ear|elbow|achilles|hand"
+     "keywords": "ear|elbow|achilles|hand"
     },
     {
      "label": "Low-grade fever",
-     "keywords": "fever|temp|pyrexi"
+     "keywords": "temp|pyrexi"
     },
     {
      "label": "Signs of chronic arthropathy / joint deformity",
@@ -5689,8 +5621,8 @@
      "keywords": "bmi|bp|blood pressure|metabolic|obes"
     },
     {
-     "label": "Differentiate septic arthritis (fever, systemic upset)",
-     "keywords": "septic|systemic|fever|differential"
+     "label": "Fever / systemic upset (consider septic arthritis)",
+     "keywords": "systemic|differential"
     },
     {
      "label": "Skin desquamation overlying joint",
@@ -5771,7 +5703,7 @@
    "examination": [
     {
      "label": "Bony enlargement: Heberden's, Bouchard's nodes",
-     "keywords": "heberden|bouchard|node|bony|enlarge"
+     "keywords": "heberden|bouchard|node|enlarge"
     },
     {
      "label": "Crepitus on movement",
@@ -5779,7 +5711,7 @@
     },
     {
      "label": "Reduced range of motion, pain at end range",
-     "keywords": "range|motion|rom|stiff|end range"
+     "keywords": "range|motion|rom|end range"
     },
     {
      "label": "Joint-line tenderness",
@@ -5787,7 +5719,7 @@
     },
     {
      "label": "Bony swelling / small effusion",
-     "keywords": "effusion|swell|bony"
+     "keywords": "effusion"
     },
     {
      "label": "Antalgic gait / Trendelenburg",
@@ -5803,7 +5735,7 @@
     },
     {
      "label": "Surgical scar; prosthesis stability, leg-length discrepancy",
-     "keywords": "scar|prosthes|replace|leg length|stable|instab"
+     "keywords": "scar|prosthes|leg length|stable|instab"
     },
     {
      "label": "First CMC squaring of the thumb base",
@@ -5919,11 +5851,11 @@
     },
     {
      "label": "Reduced chest expansion",
-     "keywords": "chest expansion|expansion"
+     "keywords": "expansion"
     },
     {
      "label": "Loss of lumbar lordosis / thoracic kyphosis",
-     "keywords": "lordosis|kyphosis|stoop|posture"
+     "keywords": "lordosis|kyphosis|stoop"
     },
     {
      "label": "Occiput-to-wall distance",
@@ -5931,23 +5863,15 @@
     },
     {
      "label": "Reduced lateral flexion",
-     "keywords": "lateral flexion|lateral"
+     "keywords": "lateral"
     },
     {
      "label": "Sacroiliac joint tenderness / FABER / Gaenslen's",
-     "keywords": "sacroil|si joint|faber|gaenslen|tender"
-    },
-    {
-     "label": "Enthesitis (Achilles insertion, plantar fascia)",
-     "keywords": "enthes|achilles|plantar|heel"
+     "keywords": "sacroil|faber|gaenslen|tender"
     },
     {
      "label": "Peripheral arthritis / dactylitis",
-     "keywords": "dactylitis|peripheral|arthritis|sausage"
-    },
-    {
-     "label": "Anterior uveitis (red painful eye)",
-     "keywords": "uveitis|iritis|red eye|eye"
+     "keywords": "peripheral|arthritis"
     },
     {
      "label": "Aortic regurgitation murmur",
@@ -5955,7 +5879,7 @@
     },
     {
      "label": "Psoriasis / nail changes",
-     "keywords": "psoria|nail|skin"
+     "keywords": "nail"
     },
     {
      "label": "Apical lung fibrosis",
@@ -6039,7 +5963,7 @@
    "examination": [
     {
      "label": "Proximal muscle tenderness / stiffness (shoulders, hips)",
-     "keywords": "proximal|shoulder|hip|stiff|tender|muscle"
+     "keywords": "proximal|muscle"
     },
     {
      "label": "Normal power but pain-limited movement",
@@ -6047,23 +5971,19 @@
     },
     {
      "label": "Reduced active shoulder range of motion",
-     "keywords": "range|motion|shoulder|active|abduct"
+     "keywords": "range|motion|active|abduct"
     },
     {
      "label": "Tender, thickened, non-pulsatile temporal arteries",
-     "keywords": "temporal|artery|arteries|thicken|tender|pulse|beaded"
+     "keywords": "artery|arteries|thicken|beaded"
     },
     {
      "label": "Scalp tenderness (pain on hair brushing)",
-     "keywords": "scalp|brush|comb|tender"
-    },
-    {
-     "label": "Jaw claudication",
-     "keywords": "jaw|claudic|chew"
+     "keywords": "brush"
     },
     {
      "label": "Visual acuity, fields, relative afferent pupillary defect",
-     "keywords": "visual|acuity|field|rapd|pupil|afferent|fundos"
+     "keywords": "acuity|field|rapd|pupil|afferent|fundos"
     },
     {
      "label": "Pale swollen optic disc (ischaemic optic neuropathy)",
@@ -6071,11 +5991,11 @@
     },
     {
      "label": "Absent / asymmetric upper limb pulses and BP, bruits (large-vessel GCA)",
-     "keywords": "pulses|asymmetr|bruit|subclavian|large.?vessel|bp"
+     "keywords": "asymmetr|bruit|subclavian|large.?vessel|bp"
     },
     {
      "label": "Low-grade fever, weight loss",
-     "keywords": "fever|temp|weight"
+     "keywords": "temp"
     },
     {
      "label": "Carpal tunnel / peripheral synovitis (distal)",
@@ -6213,39 +6133,35 @@
    "examination": [
     {
      "label": "Resting pill-rolling tremor (asymmetric)",
-     "keywords": "tremor|pill|rolling|rest"
+     "keywords": "pill|rolling|rest"
     },
     {
      "label": "Bradykinesia: slow finger tapping, reduced amplitude",
-     "keywords": "bradykin|finger tap|slow|amplitude|sequence"
+     "keywords": "finger tap|amplitude|sequence"
     },
     {
      "label": "Cogwheel rigidity / lead-pipe",
-     "keywords": "rigid|cogwheel|lead.?pipe|tone"
+     "keywords": "cogwheel|lead.?pipe|tone"
     },
     {
      "label": "Postural instability (pull test)",
-     "keywords": "postural|pull test|instab|balance"
+     "keywords": "pull test|instab|balance"
     },
     {
      "label": "Shuffling gait, reduced arm swing, festination, freezing, difficulty turning",
-     "keywords": "shuffl|gait|arm swing|festinat|freez|turn"
+     "keywords": "arm swing|festinat"
     },
     {
      "label": "Hypomimia (mask-like face), reduced blink",
-     "keywords": "hypomimia|mask|face|blink"
+     "keywords": "hypomimia|face|blink"
     },
     {
      "label": "Hypophonia / monotonous speech",
-     "keywords": "hypophonia|speech|voice|monoton|soft"
-    },
-    {
-     "label": "Micrographia",
-     "keywords": "micrograph|handwrit|writing"
+     "keywords": "monoton|soft"
     },
     {
      "label": "Postural hypotension (autonomic)",
-     "keywords": "postural|orthostat|hypotens|autonomic"
+     "keywords": "hypotens|autonomic"
     },
     {
      "label": "Glabellar tap; impaired upgaze (PSP) / cerebellar signs (MSA)",
@@ -6253,7 +6169,7 @@
     },
     {
      "label": "Dyskinesias (levodopa-induced)",
-     "keywords": "dyskines|levodopa|chorea"
+     "keywords": "chorea"
     }
    ],
    "investigations": [
@@ -6373,7 +6289,7 @@
    "examination": [
     {
      "label": "Optic neuritis / RAPD, pale optic disc",
-     "keywords": "optic|rapd|pupil|disc|pale|visual|acuity|colour"
+     "keywords": "rapd|pupil|disc|pale|acuity|colour"
     },
     {
      "label": "Internuclear ophthalmoplegia (slowed adduction, nystagmus in abducting eye)",
@@ -6381,35 +6297,27 @@
     },
     {
      "label": "Spastic paraparesis: increased tone, brisk reflexes, upgoing plantars",
-     "keywords": "spastic|tone|reflex|plantar|babinski|upgoing|clonus"
+     "keywords": "tone|reflex|plantar|babinski|upgoing|clonus"
     },
     {
      "label": "Weakness (pyramidal pattern)",
-     "keywords": "weak|power|pyramidal|paresis"
+     "keywords": "power|pyramidal|paresis"
     },
     {
      "label": "Cerebellar signs: intention tremor, dysdiadochokinesia, ataxia",
-     "keywords": "cerebell|intention|dysdiadochokin|ataxi|dysmetria"
+     "keywords": "cerebell|intention|dysdiadochokin|dysmetria"
     },
     {
      "label": "Sensory loss (sensory level, vibration/proprioception loss)",
-     "keywords": "sensory|sensation|vibration|proprioception|level"
-    },
-    {
-     "label": "Lhermitte's sign",
-     "keywords": "lhermitte"
-    },
-    {
-     "label": "Uhthoff's phenomenon",
-     "keywords": "uhthoff|heat"
+     "keywords": "sensation|vibration|proprioception|level"
     },
     {
      "label": "Gait abnormality",
-     "keywords": "gait|walk|spastic|ataxic"
+     "keywords": "gait"
     },
     {
      "label": "Bladder: palpable bladder / retention",
-     "keywords": "bladder|retention|palpable"
+     "keywords": "palpable"
     },
     {
      "label": "Scanning speech",
@@ -6526,31 +6434,31 @@
    "examination": [
     {
      "label": "Facial droop (UMN pattern, forehead sparing)",
-     "keywords": "facial|droop|face|umn|forehead"
+     "keywords": "umn|forehead"
     },
     {
      "label": "Arm / leg weakness (hemiparesis), pronator drift",
-     "keywords": "weak|hemipar|drift|power|pronator"
+     "keywords": "drift|power|pronator"
     },
     {
      "label": "Hemisensory loss",
-     "keywords": "sensory|sensation|hemisens|numb"
+     "keywords": "sensation|hemisens"
     },
     {
      "label": "Speech: dysarthria / expressive or receptive dysphasia",
-     "keywords": "dysarthria|dysphasia|aphasia|speech|language"
+     "keywords": "dysphasia"
     },
     {
      "label": "Visual field defect (homonymous hemianopia)",
-     "keywords": "field|hemianop|visual|homonymous|neglect"
+     "keywords": "homonymous"
     },
     {
      "label": "Neglect / inattention",
-     "keywords": "neglect|inattention"
+     "keywords": "inattention"
     },
     {
      "label": "Cerebellar signs / gait ataxia (posterior circulation)",
-     "keywords": "cerebell|ataxi|gait|nystagmus|vertigo|dysmetria"
+     "keywords": "cerebell|gait|nystagmus|dysmetria"
     },
     {
      "label": "Carotid bruit",
@@ -6558,15 +6466,11 @@
     },
     {
      "label": "Irregular pulse (AF)",
-     "keywords": "irregular|af|fibrillation|pulse"
-    },
-    {
-     "label": "Blood pressure",
-     "keywords": "bp|blood pressure|hypertens"
+     "keywords": "fibrillation|pulse"
     },
     {
      "label": "Swallow screen / aspiration",
-     "keywords": "swallow|dysphagia|aspirat"
+     "keywords": "aspirat"
     },
     {
      "label": "NIHSS / GCS assessment",
@@ -6666,19 +6570,19 @@
     },
     {
      "label": "Tongue bite (lateral), incontinence",
-     "keywords": "tongue|bite|incontinen"
+     "keywords": "bite"
     },
     {
      "label": "Injuries (head, shoulder dislocation)",
-     "keywords": "injur|dislocat|bruis|head|trauma"
+     "keywords": "dislocat|bruis|head|trauma"
     },
     {
      "label": "Postictal state: drowsiness, confusion, Todd's paresis",
-     "keywords": "postictal|post.?ictal|todd|confus|drows"
+     "keywords": "post.?ictal"
     },
     {
      "label": "Neurocutaneous stigmata (café-au-lait, ash-leaf, adenoma sebaceum)",
-     "keywords": "neurocutaneous|cafe|café|ash.?leaf|adenoma|sebaceum|neurofibrom|port.?wine"
+     "keywords": "cafe|café|ash.?leaf|adenoma|sebaceum|port.?wine"
     },
     {
      "label": "Focal neurological deficit (structural lesion)",
@@ -6686,7 +6590,7 @@
     },
     {
      "label": "Gingival hypertrophy / hirsutism (phenytoin)",
-     "keywords": "gingival|hirsut|phenytoin|gum"
+     "keywords": "gingival|hirsut|gum"
     },
     {
      "label": "Cardiovascular exam: pulse, BP, murmur (exclude syncope)",
@@ -6694,11 +6598,11 @@
     },
     {
      "label": "Signs of alcohol / drug withdrawal, intoxication",
-     "keywords": "alcohol|withdraw|drug|intoxic|substance"
+     "keywords": "withdraw|drug|intoxic|substance"
     },
     {
      "label": "Cognitive / mood screen",
-     "keywords": "cognit|mood|memory|depress"
+     "keywords": "cognit|memory|depress"
     }
    ],
    "investigations": [
@@ -6815,7 +6719,7 @@
     },
     {
      "label": "Orientation, attention, recall",
-     "keywords": "orient|attention|recall|memory"
+     "keywords": "attention|recall"
     },
     {
      "label": "Frontal release signs (grasp, palmomental, glabellar)",
@@ -6823,15 +6727,15 @@
     },
     {
      "label": "Gait: magnetic gait (NPH), shuffling (Lewy / vascular)",
-     "keywords": "gait|magnetic|shuffl|nph|walk"
+     "keywords": "magnetic|shuffl|nph|walk"
     },
     {
      "label": "Parkinsonism (rigidity, bradykinesia)",
-     "keywords": "parkinson|rigid|bradykin|tremor"
+     "keywords": "rigid|bradykin"
     },
     {
      "label": "Focal neurological signs (vascular dementia)",
-     "keywords": "focal|vascular|weak|hemipar|deficit"
+     "keywords": "focal|weak|hemipar|deficit"
     },
     {
      "label": "Vertical gaze palsy / eye movements",
@@ -6843,19 +6747,19 @@
     },
     {
      "label": "Signs of delirium (fluctuating consciousness, inattention)",
-     "keywords": "delirium|fluctuat|inattention|conscious"
+     "keywords": "delirium|inattention|conscious"
     },
     {
      "label": "Hypothyroid, B12 / alcohol-related signs",
-     "keywords": "thyroid|b12|alcohol|nutrition|reversible"
+     "keywords": "thyroid|b12|reversible"
     },
     {
      "label": "Depression screen (GDS)",
-     "keywords": "depress|gds|mood|pseudodementia"
+     "keywords": "gds|pseudodementia"
     },
     {
      "label": "Weight loss / nutrition / self-neglect",
-     "keywords": "weight|nutrition|neglect|hygiene"
+     "keywords": "weight|neglect|hygiene"
     }
    ],
    "investigations": [
@@ -6951,15 +6855,11 @@
     },
     {
      "label": "Muscle wasting (tongue, hands: first dorsal interosseous, thenar)",
-     "keywords": "wast|atroph|tongue|interossei|thenar|hand"
-    },
-    {
-     "label": "Fasciculations (including tongue)",
-     "keywords": "fascic|twitch"
+     "keywords": "atroph|interossei|thenar|hand"
     },
     {
      "label": "Weakness (limbs, neck, bulbar)",
-     "keywords": "weak|power|neck|limb|bulbar"
+     "keywords": "power|neck"
     },
     {
      "label": "Brisk reflexes with wasted muscle; jaw jerk",
@@ -6967,23 +6867,23 @@
     },
     {
      "label": "Increased tone / spasticity; upgoing plantars",
-     "keywords": "tone|spastic|plantar|babinski|upgoing"
+     "keywords": "tone|plantar|babinski|upgoing"
     },
     {
      "label": "Bulbar signs: dysarthria, dysphagia, sialorrhoea, tongue spastic",
-     "keywords": "bulbar|dysarthria|dysphagia|drool|sialorr|tongue|speech"
+     "keywords": "sialorr"
     },
     {
      "label": "Sensation preserved; eye movements spared",
-     "keywords": "sensation|sensory|spared|eye movement|preserved"
+     "keywords": "sensation|spared|eye movement|preserved"
     },
     {
      "label": "Respiratory weakness: FVC, orthopnoea, accessory muscle use",
-     "keywords": "fvc|resp|orthop|accessory|vital capacity|breath"
+     "keywords": "fvc|resp|accessory|vital capacity"
     },
     {
      "label": "Emotional lability / frontotemporal features",
-     "keywords": "emotional|labil|frontotemporal|ftd|cognit"
+     "keywords": "frontotemporal|ftd"
     }
    ],
    "investigations": [
@@ -7072,15 +6972,15 @@
    "examination": [
     {
      "label": "Ptosis, worse after sustained upgaze (fatigable)",
-     "keywords": "ptosis|upgaze|fatigab|eyelid"
+     "keywords": "upgaze"
     },
     {
      "label": "Diplopia / ophthalmoparesis (variable, no pupil involvement)",
-     "keywords": "diplopia|ophthalmopar|eye movement|pupil|strabismus"
+     "keywords": "ophthalmopar|eye movement|pupil|strabismus"
     },
     {
      "label": "Proximal muscle weakness with repetition (fatigable)",
-     "keywords": "proximal|weak|fatigab|repeti|arm abduction|count"
+     "keywords": "weak|repeti"
     },
     {
      "label": "Facial weakness (snarl smile), weak eye closure",
@@ -7088,7 +6988,7 @@
     },
     {
      "label": "Bulbar weakness: nasal speech, dysphagia, chewing fatigue",
-     "keywords": "bulbar|nasal|speech|dysphagia|chew|swallow"
+     "keywords": "bulbar"
     },
     {
      "label": "Neck flexion weakness (head drop)",
@@ -7096,7 +6996,7 @@
     },
     {
      "label": "Respiratory function (FVC, single-breath count)",
-     "keywords": "fvc|resp|breath|count|vital capacity|crisis"
+     "keywords": "fvc|resp|vital capacity"
     },
     {
      "label": "Normal reflexes and sensation",
@@ -7108,7 +7008,7 @@
     },
     {
      "label": "Thymoma signs / thymectomy scar",
-     "keywords": "thymoma|thymectomy|scar|sternotomy"
+     "keywords": "scar|sternotomy"
     }
    ],
    "investigations": [
@@ -7217,7 +7117,7 @@
    "examination": [
     {
      "label": "Glove-and-stocking sensory loss (pinprick, light touch)",
-     "keywords": "glove|stocking|sensory|pinprick|touch|sensation"
+     "keywords": "sensory|pinprick|touch|sensation"
     },
     {
      "label": "Reduced vibration sense / proprioception",
@@ -7229,7 +7129,7 @@
     },
     {
      "label": "Distal muscle weakness / wasting, foot drop",
-     "keywords": "weak|wast|foot drop|power|atroph"
+     "keywords": "wast|power|atroph"
     },
     {
      "label": "Sensory ataxia: positive Romberg, wide-based gait",
@@ -7241,15 +7141,15 @@
     },
     {
      "label": "Feet: ulcers, pes cavus, Charcot joint, callus",
-     "keywords": "foot|feet|ulcer|pes cavus|charcot|callus|deform"
+     "keywords": "feet|charcot|callus"
     },
     {
      "label": "Autonomic: postural hypotension, dry skin",
-     "keywords": "postural|autonomic|orthostat|dry|hypotens"
+     "keywords": "orthostat|dry|hypotens"
     },
     {
      "label": "Signs of cause: diabetes, alcohol, B12 (glossitis, pallor), hypothyroid",
-     "keywords": "diabet|alcohol|b12|glossitis|pallor|thyroid|cause"
+     "keywords": "glossitis|pallor|cause"
     },
     {
      "label": "Mononeuropathy / entrapment (Tinel's, wrist drop)",
@@ -7345,15 +7245,15 @@
     },
     {
      "label": "Focal neurological deficit (hemiparesis, dysphasia, field defect)",
-     "keywords": "focal|deficit|hemipar|dysphasia|field|weak"
+     "keywords": "deficit|hemipar|dysphasia|field"
     },
     {
      "label": "Altered GCS / drowsiness / confusion",
-     "keywords": "gcs|glasgow|drows|confus|conscious|alert"
+     "keywords": "gcs|glasgow|conscious|alert"
     },
     {
      "label": "Cranial nerve palsies (VI, III)",
-     "keywords": "cranial|palsy|vi|iii|diplopia|gaze"
+     "keywords": "cranial|palsy|vi|iii|gaze"
     },
     {
      "label": "Cushing's reflex (hypertension, bradycardia, irregular breathing)",
@@ -7373,15 +7273,15 @@
     },
     {
      "label": "Frontal lobe signs / personality change",
-     "keywords": "frontal|personality|disinhib|apathy"
+     "keywords": "frontal|disinhib|apathy"
     },
     {
      "label": "Seizure / postictal state",
-     "keywords": "seizure|postictal|post.?ictal"
+     "keywords": "postictal|post.?ictal"
     },
     {
      "label": "Signs of primary cancer (breast mass, lung, melanoma)",
-     "keywords": "primary|breast|lung|melanoma|skin|cancer|mass"
+     "keywords": "breast|lung|melanoma|skin|mass"
     }
    ],
    "investigations": [
@@ -7482,11 +7382,11 @@
    "examination": [
     {
      "label": "Vitals incl. temperature, BP",
-     "keywords": "temp|fever|bp|blood pressure|vitals"
+     "keywords": "temp|bp|vitals"
     },
     {
      "label": "Neck stiffness / Kernig's / Brudzinski's",
-     "keywords": "neck stiff|meningism|kernig|brudzinski|nuchal"
+     "keywords": "kernig|brudzinski|nuchal"
     },
     {
      "label": "Fundoscopy: papilloedema / spontaneous venous pulsation",
@@ -7494,15 +7394,15 @@
     },
     {
      "label": "Focal neurology / cranial nerves / gait",
-     "keywords": "focal|cranial|neuro|gait|deficit"
+     "keywords": "cranial|neuro|gait|deficit"
     },
     {
      "label": "Temporal artery tenderness, thickening, absent pulse",
-     "keywords": "temporal|artery|tender|thicken|pulse"
+     "keywords": "artery|thicken|pulse"
     },
     {
      "label": "Rash (petechial / purpuric; zoster)",
-     "keywords": "rash|petechia|purpur|zoster|shingles"
+     "keywords": "petechia|purpur|zoster|shingles"
     },
     {
      "label": "Red eye, fixed mid-dilated pupil (acute angle closure)",
@@ -7514,11 +7414,11 @@
     },
     {
      "label": "Sinus tenderness, TMJ tenderness, neck/scalp muscle tenderness",
-     "keywords": "sinus|tmj|jaw|neck|scalp|tender|muscle"
+     "keywords": "sinus|tmj|muscle"
     },
     {
      "label": "Papilloedema / visual fields (IIH, obesity)",
-     "keywords": "iih|intracranial hypertension|bmi|obes|visual field"
+     "keywords": "iih|intracranial hypertension|bmi|obes"
     },
     {
      "label": "Head trauma signs",
@@ -7600,11 +7500,11 @@
    "examination": [
     {
      "label": "Cool, pale limb; capillary refill delay",
-     "keywords": "cool|cold|pale|capillary|refill|temperature"
+     "keywords": "cool|capillary|refill|temperature"
     },
     {
      "label": "Absent / reduced foot pulses (femoral, popliteal, DP, PT)",
-     "keywords": "pulse|femoral|popliteal|dorsalis|tibial|absent"
+     "keywords": "pulse|popliteal|dorsalis|tibial|absent"
     },
     {
      "label": "Hair loss, shiny atrophic skin, thickened nails",
@@ -7612,15 +7512,15 @@
     },
     {
      "label": "Ulcers: pressure points, toes, heel (punched-out, dry)",
-     "keywords": "ulcer|toe|heel|punched|gangrene"
+     "keywords": "toe|heel|punched"
     },
     {
      "label": "Gangrene / tissue loss",
-     "keywords": "gangrene|necrosis|tissue loss|black"
+     "keywords": "necrosis|tissue loss|black"
     },
     {
      "label": "Buerger's test (pallor on elevation, rubor on dependency)",
-     "keywords": "buerger|pallor|elevat|rubor|dependen"
+     "keywords": "buerger|elevat|rubor|dependen"
     },
     {
      "label": "Ankle-brachial pressure index",
@@ -7628,7 +7528,7 @@
     },
     {
      "label": "Femoral / carotid bruits",
-     "keywords": "bruit|femoral|carotid"
+     "keywords": "bruit|carotid"
     },
     {
      "label": "Palpable AAA",
@@ -7636,11 +7536,11 @@
     },
     {
      "label": "Signs of acute limb ischaemia (6 Ps)",
-     "keywords": "6 ?p|pain|pallor|pulseless|paraesthesia|paralysis|perishing|acute"
+     "keywords": "6 ?p|pain|paraesthesia|paralysis|perishing|acute"
     },
     {
      "label": "Neuropathy (mixed diabetic)",
-     "keywords": "neuropath|monofil|sensation|diabet"
+     "keywords": "neuropath|monofil|sensation"
     }
    ],
    "investigations": [
@@ -7737,15 +7637,15 @@
     },
     {
      "label": "Infection signs: erythema, warmth, purulence, odour, lymphangitis",
-     "keywords": "infect|erythem|warm|pus|purul|odour|odor|lymphang|cellulitis"
+     "keywords": "infect|erythem|warm|purul|odor|lymphang"
     },
     {
      "label": "Neuropathy: reduced monofilament / vibration, absent ankle jerks",
-     "keywords": "neuropath|monofil|vibrat|ankle jerk|sensation"
+     "keywords": "monofil|vibrat|ankle jerk"
     },
     {
      "label": "Dry skin, fissures, hammer toes, clawing, bony prominences",
-     "keywords": "dry|fissure|hammer|claw|deform|prominen|bunion"
+     "keywords": "dry|fissure|hammer|claw|prominen|bunion"
     },
     {
      "label": "Foot pulses / ABI / capillary refill",
@@ -7753,15 +7653,15 @@
     },
     {
      "label": "Charcot foot (warm, swollen, collapsed arch)",
-     "keywords": "charcot|collapsed|arch|swollen|rocker"
+     "keywords": "collapsed|arch|swollen|rocker"
     },
     {
      "label": "Footwear",
-     "keywords": "footwear|shoe|sock|fit"
+     "keywords": "sock|footwear exam|poorly fitting|shoe fit"
     },
     {
      "label": "Systemic upset (fever, tachycardia, hypotension)",
-     "keywords": "fever|tachycard|hypotens|sepsis|systemic"
+     "keywords": "tachycard|hypotens|systemic"
     },
     {
      "label": "Gangrene / necrosis",
@@ -7842,31 +7742,31 @@
    "examination": [
     {
      "label": "Expansile pulsatile epigastric / periumbilical mass",
-     "keywords": "pulsatile|expansile|mass|epigast|periumb"
+     "keywords": "expansile|epigast|periumb"
     },
     {
      "label": "Aortic diameter on palpation (ultrasound correlate)",
-     "keywords": "diameter|width|size|palpat|ultrasound"
+     "keywords": "diameter|width|palpat|ultrasound"
     },
     {
      "label": "Abdominal / femoral bruit",
-     "keywords": "bruit|femoral"
+     "keywords": "bruit"
     },
     {
      "label": "Peripheral pulses: femoral, popliteal (popliteal aneurysms)",
-     "keywords": "pulse|femoral|popliteal|aneurysm"
+     "keywords": "pulse|popliteal|aneurysm"
     },
     {
      "label": "Signs of rupture: shock, hypotension, tachycardia, back/flank tenderness",
-     "keywords": "rupture|shock|hypotens|tachycard|tender|collapse"
+     "keywords": "rupture|shock|hypotens|tachycard|tender"
     },
     {
      "label": "Blue toe / distal embolisation",
-     "keywords": "blue toe|embol|distal"
+     "keywords": "blue toe|distal"
     },
     {
      "label": "Blood pressure both arms",
-     "keywords": "bp|blood pressure|both arms"
+     "keywords": "bp|both arms"
     },
     {
      "label": "Marfan / connective tissue features",
@@ -7874,7 +7774,7 @@
     },
     {
      "label": "Signs of atherosclerosis / smoking (nicotine staining, PAD, carotid bruit)",
-     "keywords": "atheroscl|nicotine|stain|pad|carotid|smok"
+     "keywords": "atheroscl|nicotine|stain|carotid"
     }
    ],
    "investigations": [
@@ -7971,11 +7871,11 @@
    "examination": [
     {
      "label": "Ulcer: gaiter area (medial malleolus), shallow, irregular, sloughy, exudate",
-     "keywords": "gaiter|malleol|shallow|irregular|slough|exudate|ulcer|medial"
+     "keywords": "gaiter|malleol|shallow|irregular|slough|ulcer|medial"
     },
     {
-     "label": "Varicose veins",
-     "keywords": "varicos|varices|veins"
+     "label": "Varicose veins on standing inspection (long / short saphenous territory)",
+     "keywords": "varices"
     },
     {
      "label": "Lipodermatosclerosis / 'inverted champagne bottle' leg",
@@ -7983,11 +7883,11 @@
     },
     {
      "label": "Haemosiderin staining",
-     "keywords": "haemosiderin|hemosiderin|brown|pigment|stasis"
+     "keywords": "haemosiderin|hemosiderin"
     },
     {
      "label": "Venous eczema / stasis dermatitis",
-     "keywords": "eczema|stasis|dermatitis|scal"
+     "keywords": "scaly|stasis dermatitis|venous eczema|stasis eczema"
     },
     {
      "label": "Atrophie blanche",
@@ -7995,15 +7895,15 @@
     },
     {
      "label": "Oedema (pitting) / lymphoedema",
-     "keywords": "oedema|edema|swell|lymph"
+     "keywords": "edema|lymph"
     },
     {
      "label": "Foot pulses / ABI (exclude arterial disease before compression)",
-     "keywords": "pulse|abi|abpi|arterial|doppler|ankle.?brachial"
+     "keywords": "pulse|abi|abpi|doppler|ankle.?brachial"
     },
     {
      "label": "Infection / cellulitis / contact dermatitis from dressings",
-     "keywords": "infect|cellulitis|dermatitis|contact|dressing|allerg"
+     "keywords": "contact|allerg"
     },
     {
      "label": "Trendelenburg / tourniquet test (saphenous incompetence)",
@@ -8106,7 +8006,7 @@
    "examination": [
     {
      "label": "Oral thrush / hairy leukoplakia",
-     "keywords": "thrush|candid|leukoplakia|oral|mouth"
+     "keywords": "candid|leukoplakia"
     },
     {
      "label": "Generalised lymphadenopathy",
@@ -8114,15 +8014,15 @@
     },
     {
      "label": "Weight loss / wasting",
-     "keywords": "weight|wast|cachex"
+     "keywords": "wast|cachex"
     },
     {
      "label": "Skin: seborrhoeic dermatitis, Kaposi's sarcoma, molluscum, zoster scars",
-     "keywords": "seborrh|kaposi|molluscum|zoster|shingles|skin|rash|purple"
+     "keywords": "seborrh|molluscum|zoster|shingles|purple"
     },
     {
      "label": "Fever / night sweats",
-     "keywords": "fever|sweat|temp"
+     "keywords": "temp"
     },
     {
      "label": "Hepatosplenomegaly",
@@ -8130,19 +8030,19 @@
     },
     {
      "label": "Genital / anal warts, ulcers (other STIs)",
-     "keywords": "genital|anal|wart|ulcer|sti|herpes"
+     "keywords": "genital|anal|wart|ulcer|herpes"
     },
     {
      "label": "Chest: crackles (PJP), lung signs",
-     "keywords": "chest|crackle|crep|pjp|pneumocystis|lung"
+     "keywords": "chest|crackle|crep|pneumocystis|lung"
     },
     {
      "label": "Fundoscopy: CMV retinitis",
-     "keywords": "fundos|cmv|retinitis|retina"
+     "keywords": "fundos|retinitis|retina"
     },
     {
      "label": "Neurological: cognitive impairment, neuropathy, focal signs",
-     "keywords": "neuro|cognit|neuropath|focal|toxoplasm"
+     "keywords": "focal|toxoplasm"
     },
     {
      "label": "Lipodystrophy (older ART)",
@@ -8247,15 +8147,15 @@
    "examination": [
     {
      "label": "Cachexia / weight loss",
-     "keywords": "cachex|wast|weight"
+     "keywords": "cachex|wast"
     },
     {
      "label": "Fever / tachycardia",
-     "keywords": "fever|temp|tachycard"
+     "keywords": "temp|tachycard"
     },
     {
      "label": "Cervical / supraclavicular lymphadenopathy (scrofula)",
-     "keywords": "lymph|node|cervical|supraclav|scrofula"
+     "keywords": "cervical|supraclav|scrofula"
     },
     {
      "label": "Chest: apical crackles, bronchial breathing, signs of cavitation (amphoric breath sounds)",
@@ -8263,7 +8163,7 @@
     },
     {
      "label": "Pleural effusion (dull base, reduced breath sounds)",
-     "keywords": "effusion|pleural|dull|stony|breath sounds"
+     "keywords": "pleural|dull|stony|breath sounds"
     },
     {
      "label": "Clubbing",
@@ -8279,7 +8179,7 @@
     },
     {
      "label": "Pericardial rub / effusion; ascites (extrapulmonary)",
-     "keywords": "pericard|rub|effusion|ascites|abdo"
+     "keywords": "pericard|rub|ascites|abdo"
     },
     {
      "label": "Skin: erythema nodosum, scrofuloderma",
@@ -8287,7 +8187,7 @@
     },
     {
      "label": "Signs of HIV co-infection",
-     "keywords": "hiv|thrush|candid|lymph"
+     "keywords": "thrush|candid"
     }
    ],
    "investigations": [
@@ -8376,23 +8276,23 @@
     },
     {
      "label": "Jaundice (acute infection)",
-     "keywords": "jaundice|icter|yellow"
+     "keywords": "icter|yellow"
     },
     {
      "label": "Tender hepatomegaly (acute)",
-     "keywords": "hepatomeg|tender|liver|ruq"
+     "keywords": "hepatomeg|tender|liver"
     },
     {
      "label": "Stigmata of chronic liver disease (spider naevi, palmar erythema)",
-     "keywords": "spider|naevi|nevi|palmar|erythema|stigmata|chronic liver"
+     "keywords": "spider|naevi|nevi|palmar|erythema"
     },
     {
      "label": "Ascites / splenomegaly / caput medusae (cirrhosis)",
-     "keywords": "ascites|splen|caput|portal|cirrho"
+     "keywords": "splen|caput|portal"
     },
     {
      "label": "Asterixis / encephalopathy",
-     "keywords": "asterixis|flap|encephalopathy|confus"
+     "keywords": "asterixis|flap|encephalopathy"
     },
     {
      "label": "Gynaecomastia / testicular atrophy",
@@ -8404,11 +8304,11 @@
     },
     {
      "label": "Injection track marks / tattoos",
-     "keywords": "track|inject|needle|tattoo|piercing|scar"
+     "keywords": "track|piercing|scar"
     },
     {
      "label": "Hepatocellular carcinoma signs (hepatomegaly, bruit, weight loss)",
-     "keywords": "hepatocellular|hcc|mass|bruit|weight|cancer"
+     "keywords": "hepatocellular|mass|bruit|weight|cancer"
     }
    ],
    "investigations": [
@@ -8521,7 +8421,7 @@
    "examination": [
     {
      "label": "Genital inspection: ulcers, vesicles, warts, discharge, rash",
-     "keywords": "genital|ulcer|vesicle|wart|discharge|rash|lesion"
+     "keywords": "genital|vesicle"
     },
     {
      "label": "Inguinal lymphadenopathy",
@@ -8529,31 +8429,31 @@
     },
     {
      "label": "Urethral discharge / meatal erythema",
-     "keywords": "urethral|discharge|meat|erythem"
+     "keywords": "urethral|meat|erythem"
     },
     {
      "label": "Epididymo-orchitis: scrotal tenderness / swelling",
-     "keywords": "epididym|orchitis|scrot|testic|tender|swelling"
+     "keywords": "epididym|orchitis|swelling"
     },
     {
      "label": "Speculum: cervicitis, mucopurulent discharge, contact bleeding",
-     "keywords": "speculum|cervic|mucopurulent|discharge|contact bleeding|friable"
+     "keywords": "speculum|cervic|mucopurulent|friable"
     },
     {
      "label": "Bimanual: cervical motion / adnexal tenderness (PID)",
-     "keywords": "bimanual|cervical motion|adnexal|pid|tender|chandelier"
+     "keywords": "bimanual|adnexal|pid|chandelier"
     },
     {
      "label": "Rectal / anal examination",
-     "keywords": "rectal|anal|proctitis|anoscop"
+     "keywords": "proctitis|anoscop"
     },
     {
      "label": "Oropharynx: pharyngitis, lesions",
-     "keywords": "oropharyn|pharyn|throat|oral|mouth|lesion"
+     "keywords": "oropharyn|pharyn|throat|mouth"
     },
     {
      "label": "Secondary syphilis: palmar/plantar rash, condylomata lata, mucous patches",
-     "keywords": "syphilis|palmar|plantar|condylomata|mucous patch|rash"
+     "keywords": "plantar|condylomata|mucous patch"
     },
     {
      "label": "Skin: pubic lice, scabies, molluscum",
@@ -8561,7 +8461,7 @@
     },
     {
      "label": "Fever / abdominal tenderness / RUQ tenderness (Fitz-Hugh-Curtis)",
-     "keywords": "fever|abdo|ruq|fitz|tender"
+     "keywords": "fever|abdo|ruq|fitz"
     }
    ],
    "investigations": [
@@ -8654,27 +8554,27 @@
    "examination": [
     {
      "label": "Fever, rigors, tachycardia, hypotension",
-     "keywords": "fever|rigor|tachycard|hypotens|temp|sepsis"
+     "keywords": "tachycard|hypotens|temp|sepsis"
     },
     {
      "label": "Renal angle (loin) tenderness",
-     "keywords": "loin|renal angle|flank|cvat|tender"
+     "keywords": "cvat"
     },
     {
      "label": "Suprapubic tenderness",
-     "keywords": "suprapubic|tender"
+     "keywords": "suprapubic"
     },
     {
      "label": "Palpable bladder (retention)",
-     "keywords": "bladder|retention|palpable"
+     "keywords": "bladder|palpable"
     },
     {
      "label": "Urinalysis: leucocytes, nitrites, blood",
-     "keywords": "urinalysis|dipstick|leucocyte|leukocyte|nitrite|blood|urine"
+     "keywords": "urinalysis|dipstick|leucocyte|leukocyte|nitrite|urine"
     },
     {
      "label": "Pelvic exam: atrophic vaginitis, prolapse",
-     "keywords": "pelvic|atroph|vagin|prolapse|speculum"
+     "keywords": "pelvic|vagin|speculum"
     },
     {
      "label": "Genital exam: urethral caruncle / balanitis / phimosis",
@@ -8682,11 +8582,11 @@
     },
     {
      "label": "Prostate: tender, boggy (prostatitis)",
-     "keywords": "prostate|boggy|tender|dre|rectal"
+     "keywords": "prostate|boggy|dre|rectal"
     },
     {
      "label": "Catheter / device in situ",
-     "keywords": "catheter|device|stent|nephrostomy"
+     "keywords": "device|stent|nephrostomy"
     },
     {
      "label": "Abdominal mass / enlarged kidney",
@@ -8787,19 +8687,19 @@
    "examination": [
     {
      "label": "Localised bone tenderness, warmth, swelling, erythema",
-     "keywords": "bone|tender|warm|swell|erythem|local"
+     "keywords": "erythem|local"
     },
     {
      "label": "Sinus tract / draining wound",
-     "keywords": "sinus|drain|discharge|wound|pus|tract"
+     "keywords": "drain|tract"
     },
     {
      "label": "Exposed bone / probe-to-bone positive",
-     "keywords": "exposed|probe|bone"
+     "keywords": "exposed|probe"
     },
     {
      "label": "Fever / systemic upset",
-     "keywords": "fever|temp|systemic|rigor"
+     "keywords": "temp|systemic"
     },
     {
      "label": "Reduced range of motion / pain on weight-bearing / limp",
@@ -8811,19 +8711,19 @@
     },
     {
      "label": "Diabetic foot ulcer, pulses, neuropathy",
-     "keywords": "diabet|ulcer|pulse|neuropath|foot"
+     "keywords": "pulse"
     },
     {
      "label": "Spinal tenderness, neurological deficit (vertebral)",
-     "keywords": "spin|vertebr|neuro|deficit|cord|tender"
+     "keywords": "spin|vertebr|deficit|cord"
     },
     {
      "label": "Prosthetic joint / hardware / surgical scar",
-     "keywords": "prosthe|hardware|scar|implant|surgery"
+     "keywords": "hardware|scar"
     },
     {
      "label": "Injection sites; cellulitis; pressure sores",
-     "keywords": "inject|cellulitis|pressure|sacral|ulcer"
+     "keywords": "cellulitis|pressure|sacral"
     }
    ],
    "investigations": [
@@ -8898,23 +8798,23 @@
    "examination": [
     {
      "label": "Breast lump: hard, irregular, fixed, painless",
-     "keywords": "lump|mass|hard|irregular|fixed|painless"
+     "keywords": "mass|irregular|fixed|painless"
     },
     {
      "label": "Skin changes: dimpling, peau d'orange, erythema, ulceration",
-     "keywords": "dimpl|peau|orange|skin|erythema|ulcer|tether"
+     "keywords": "orange|erythema|ulcer|tether"
     },
     {
      "label": "Nipple changes: inversion, discharge, Paget's (eczema)",
-     "keywords": "nipple|inversion|discharge|paget|eczema"
+     "keywords": "paget|eczema"
     },
     {
      "label": "Axillary lymphadenopathy",
-     "keywords": "axilla|lymph|node"
+     "keywords": "lymph"
     },
     {
      "label": "Supraclavicular / cervical nodes",
-     "keywords": "supraclav|cervical|node"
+     "keywords": "supraclav|cervical"
     },
     {
      "label": "Contralateral breast examination",
@@ -8926,11 +8826,11 @@
     },
     {
      "label": "Signs of metastases: hepatomegaly, bone tenderness, pleural effusion, neurological signs",
-     "keywords": "metast|hepatomeg|liver|bone|effusion|neuro"
+     "keywords": "metast|hepatomeg|liver|effusion|neuro"
     },
     {
      "label": "Post-treatment: scars, lymphoedema, radiotherapy skin changes",
-     "keywords": "scar|lymphoedema|lymphedema|radiotherapy|mastectomy|reconstruction|radiation"
+     "keywords": "scar|reconstruction"
     }
    ],
    "investigations": [
@@ -9011,11 +8911,11 @@
    "examination": [
     {
      "label": "Palpable thyroid nodule: size, consistency, mobility",
-     "keywords": "nodule|lump|size|consisten|mobil|palpable|hard"
+     "keywords": "nodule|size|consisten|mobil|palpable|hard"
     },
     {
      "label": "Moves with swallowing; moves with tongue protrusion (thyroglossal)",
-     "keywords": "swallow|tongue|protrus|thyroglossal"
+     "keywords": "tongue|protrus"
     },
     {
      "label": "Goitre extent; retrosternal extension (Pemberton's)",
@@ -9031,23 +8931,23 @@
     },
     {
      "label": "Hoarseness / stridor (recurrent laryngeal)",
-     "keywords": "hoarse|stridor|voice|laryng"
+     "keywords": "laryng"
     },
     {
      "label": "Thyroid status: pulse, tremor, reflexes, eyes",
-     "keywords": "pulse|tremor|reflex|eyes|status|thyro|euthyroid"
+     "keywords": "pulse|tremor|reflex|eyes|status|euthyroid"
     },
     {
      "label": "Collar incision scar (post-thyroidectomy)",
-     "keywords": "scar|collar|incision|thyroidectomy|surgery"
+     "keywords": "scar|collar|incision"
     },
     {
      "label": "Hypocalcaemia signs: Chvostek's, Trousseau's, perioral tingling",
-     "keywords": "chvostek|trousseau|calcium|perioral|tetany|hypocalc"
+     "keywords": "chvostek|trousseau|perioral|tetany|hypocalc"
     },
     {
      "label": "Voice quality post-op",
-     "keywords": "voice|hoarse|cord"
+     "keywords": "vocal cord|cord palsy|voice quality"
     }
    ],
    "investigations": [
@@ -9158,7 +9058,7 @@
    "examination": [
     {
      "label": "Postural BP (lying and standing)",
-     "keywords": "postural|orthostat|lying|standing|bp|blood pressure"
+     "keywords": "postural|orthostat|lying|standing|bp"
     },
     {
      "label": "Pulse (AF, bradycardia) and cardiac murmurs (aortic stenosis)",
@@ -9166,11 +9066,11 @@
     },
     {
      "label": "Gait, balance: Timed Up and Go, tandem, Romberg",
-     "keywords": "gait|balance|timed up|tug|tandem|romberg"
+     "keywords": "gait|timed up|tug|tandem|romberg"
     },
     {
      "label": "Muscle strength / sarcopenia, sit-to-stand",
-     "keywords": "strength|sarcopen|sit.?to.?stand|power|proximal|weak"
+     "keywords": "sarcopen|sit.?to.?stand|power|proximal|weak"
     },
     {
      "label": "Neurological: Parkinsonism, neuropathy, cerebellar",
@@ -9178,15 +9078,15 @@
     },
     {
      "label": "Visual acuity / hearing",
-     "keywords": "visual|vision|acuity|hearing|cataract"
+     "keywords": "visual|acuity|hearing|cataract"
     },
     {
      "label": "Feet and footwear",
-     "keywords": "feet|foot|footwear|shoe|nail"
+     "keywords": "feet|foot"
     },
     {
-     "label": "Cognition",
-     "keywords": "cognit|mmse|moca|delirium|dementia"
+     "label": "Cognitive screen (MoCA / MMSE / 4AT)",
+     "keywords": "mmse|moca|delirium|dementia"
     },
     {
      "label": "Hip fracture: shortened, externally rotated leg; pain on log-roll / axial loading",
@@ -9194,7 +9094,7 @@
     },
     {
      "label": "Bruising / injuries; head injury signs",
-     "keywords": "bruis|injur|head|trauma|laceration"
+     "keywords": "bruis|injur|trauma|laceration"
     },
     {
      "label": "Hydration and nutrition status",
@@ -9202,7 +9102,7 @@
     },
     {
      "label": "Pressure areas (long lie)",
-     "keywords": "pressure|sacral|skin|long lie"
+     "keywords": "pressure|sacral|skin"
     }
    ],
    "investigations": [
@@ -9319,7 +9219,7 @@
     },
     {
      "label": "Straight leg raise / crossed SLR / femoral stretch",
-     "keywords": "slr|straight leg|crossed|femoral stretch|sciatic|lasegue"
+     "keywords": "slr|crossed|femoral stretch|lasegue"
     },
     {
      "label": "Neurology: power, sensation, reflexes of lower limbs",
@@ -9327,19 +9227,19 @@
     },
     {
      "label": "Saddle (perianal) sensation and anal tone",
-     "keywords": "saddle|perianal|anal tone|sacral|cauda"
+     "keywords": "perianal|anal tone|sacral|cauda"
     },
     {
      "label": "Gait: Trendelenburg, heel/toe walking",
-     "keywords": "gait|trendelenburg|heel|toe|walk"
+     "keywords": "gait|trendelenburg|heel|toe"
     },
     {
      "label": "Hip joint exam (exclude referred pain)",
-     "keywords": "hip|rotation|referred|fabere|faber"
+     "keywords": "hip|rotation|referred"
     },
     {
      "label": "SIJ tests",
-     "keywords": "sij|sacroil|si joint|faber|gaenslen"
+     "keywords": "sij|sacroil|si joint|gaenslen"
     },
     {
      "label": "Abdominal exam: AAA, kidney tenderness; peripheral pulses",
@@ -9347,7 +9247,7 @@
     },
     {
      "label": "Signs of malignancy / infection: fever, lymph nodes, weight loss, breast / prostate exam",
-     "keywords": "fever|lymph|node|malignan|cancer|infect|prostate|breast"
+     "keywords": "lymph|node|infect|prostate|breast"
     }
    ],
    "investigations": [
@@ -9438,15 +9338,15 @@
    "examination": [
     {
      "label": "Full skin examination (head to toe including scalp, nails, soles)",
-     "keywords": "full skin|skin check|scalp|nail|sole|whole body|total body|head to toe"
+     "keywords": "full skin|scalp|nail|sole|whole body|total body|head to toe"
     },
     {
      "label": "Dermoscopy findings",
-     "keywords": "dermosc|dermatosc|network|globule|structure"
+     "keywords": "dermosc|network|globule|structure"
     },
     {
      "label": "ABCDE: asymmetry, border irregularity, colour variation, diameter >6 mm, evolution",
-     "keywords": "abcde|asymmetr|border|colour|color|diameter|evolution|irregular"
+     "keywords": "abcde|asymmetr|border|color|diameter|evolution|irregular"
     },
     {
      "label": "Ugly duckling sign",
@@ -9454,19 +9354,19 @@
     },
     {
      "label": "Nodular / ulcerated lesion, bleeding",
-     "keywords": "nodul|ulcer|bleed|crust"
+     "keywords": "nodul"
     },
     {
      "label": "BCC: pearly papule, rolled edge, telangiectasia",
-     "keywords": "bcc|basal|pearly|rolled|telangiect"
+     "keywords": "basal|pearly|rolled|telangiect"
     },
     {
      "label": "SCC / actinic keratoses: scaly, crusted, indurated",
-     "keywords": "scc|squamous|actinic|keratos|scaly|crust|indurat"
+     "keywords": "squamous|actinic|keratos|scaly|indurat"
     },
     {
      "label": "Regional lymph nodes and satellite / in-transit lesions",
-     "keywords": "lymph|node|satellite|in.?transit|regional"
+     "keywords": "satellite|in.?transit|regional"
     },
     {
      "label": "Hepatomegaly / signs of metastases",
@@ -9474,7 +9374,7 @@
     },
     {
      "label": "Photodamage / Fitzpatrick skin type",
-     "keywords": "photodamage|sun damage|fitzpatrick|solar|skin type|elastosis"
+     "keywords": "photodamage|fitzpatrick|solar|elastosis"
     }
    ],
    "investigations": [
@@ -9563,15 +9463,15 @@
    "examination": [
     {
      "label": "Well-demarcated erythematous plaques with silvery scale",
-     "keywords": "plaque|erythem|silver|scale|scaly|demarcat"
+     "keywords": "erythem|silver|scale|scaly|demarcat"
     },
     {
      "label": "Extensor surfaces: elbows, knees; scalp; sacrum",
-     "keywords": "extensor|elbow|knee|scalp|sacrum|sacral"
+     "keywords": "extensor|sacrum|sacral"
     },
     {
      "label": "Auspitz sign (pinpoint bleeding on scale removal)",
-     "keywords": "auspitz|pinpoint|bleed"
+     "keywords": "auspitz|pinpoint"
     },
     {
      "label": "Koebner phenomenon",
@@ -9579,7 +9479,7 @@
     },
     {
      "label": "Nail changes: pitting, onycholysis, oil-drop, subungual hyperkeratosis",
-     "keywords": "nail|pitting|onycholysis|oil.?drop|subungual"
+     "keywords": "pitting|onycholysis|oil.?drop|subungual"
     },
     {
      "label": "Guttate: small drop-like lesions after strep",
@@ -9595,11 +9495,11 @@
     },
     {
      "label": "Psoriatic arthritis: dactylitis, DIP synovitis, enthesitis",
-     "keywords": "arthritis|dactylitis|dip|enthes|synovit|joint"
+     "keywords": "dactylitis|dip|enthes|synovit"
     },
     {
      "label": "BSA affected / PASI",
-     "keywords": "bsa|pasi|body surface|extent|severity"
+     "keywords": "pasi|body surface|severity"
     }
    ],
    "investigations": [
@@ -9672,7 +9572,7 @@
     },
     {
      "label": "Distribution: flexures (antecubital, popliteal) in adults; face in infants",
-     "keywords": "flexur|antecubital|popliteal|distribution|face|neck"
+     "keywords": "antecubital|popliteal|face|neck"
     },
     {
      "label": "Lichenification",
@@ -9680,11 +9580,11 @@
     },
     {
      "label": "Weeping / crusting (secondary bacterial infection, impetiginisation)",
-     "keywords": "weep|crust|impetig|bacterial|infect|staph"
+     "keywords": "impetig|bacterial"
     },
     {
      "label": "Eczema herpeticum (punched-out vesicles)",
-     "keywords": "herpeticum|herpes|vesicle|punched"
+     "keywords": "herpeticum|vesicle|punched"
     },
     {
      "label": "Dennie-Morgan folds, hyperlinear palms, pityriasis alba",
@@ -9692,15 +9592,15 @@
     },
     {
      "label": "Atopic stigmata: allergic rhinitis, asthma signs, nasal polyps",
-     "keywords": "atopic|rhinitis|asthma|wheez|polyp"
+     "keywords": "atopic|wheez|polyp"
     },
     {
      "label": "Severity: SCORAD / EASI; sleep disturbance",
-     "keywords": "scorad|easi|severity|sleep"
+     "keywords": "scorad|easi|severity"
     },
     {
      "label": "Skin atrophy / striae from topical steroids",
-     "keywords": "atroph|striae|steroid|thin"
+     "keywords": "atroph|striae|thin"
     }
    ],
    "investigations": [
@@ -9783,11 +9683,11 @@
    "examination": [
     {
      "label": "Visual acuity",
-     "keywords": "visual acuity|acuity|snellen|vision"
+     "keywords": "visual acuity|acuity|snellen"
     },
     {
      "label": "Visual fields: peripheral loss, tunnel vision",
-     "keywords": "visual field|field|peripheral|tunnel|arcuate|confrontation"
+     "keywords": "arcuate|confrontation"
     },
     {
      "label": "Raised intraocular pressure (tonometry)",
@@ -9807,15 +9707,15 @@
     },
     {
      "label": "Acute angle closure: red eye, hazy cornea, fixed mid-dilated pupil, hard globe",
-     "keywords": "red eye|cornea|hazy|fixed|mid.?dilated|hard|acute"
+     "keywords": "hazy|fixed|mid.?dilated|hard|acute"
     },
     {
      "label": "Corneal thickness (pachymetry)",
-     "keywords": "pachymetry|corneal thickness|cornea"
+     "keywords": "pachymetry"
     },
     {
      "label": "Laser iridotomy / trabeculectomy / surgical bleb",
-     "keywords": "iridotomy|laser|trabeculectomy|bleb|surgery"
+     "keywords": "bleb"
     }
    ],
    "investigations": [
@@ -9908,11 +9808,11 @@
    "examination": [
     {
      "label": "Visual acuity (reduced; best-corrected)",
-     "keywords": "visual acuity|acuity|snellen|vision"
+     "keywords": "visual acuity|acuity|snellen"
     },
     {
      "label": "Amsler grid: distortion / central scotoma",
-     "keywords": "amsler|distort|scotoma|central|grid"
+     "keywords": "scotoma|grid"
     },
     {
      "label": "Fundoscopy: drusen, pigment changes, geographic atrophy, haemorrhage (wet AMD)",
@@ -9920,7 +9820,7 @@
     },
     {
      "label": "Red reflex: opacity, lens cloudiness",
-     "keywords": "red reflex|lens|opacity|cloud|opacif"
+     "keywords": "opacity|cloud|opacif"
     },
     {
      "label": "Slit lamp: nuclear sclerosis, cortical, posterior subcapsular",
@@ -9928,7 +9828,7 @@
     },
     {
      "label": "Glare / contrast sensitivity",
-     "keywords": "glare|contrast"
+     "keywords": "contrast"
     },
     {
      "label": "Pupillary reflexes (exclude RAPD)",
@@ -9936,11 +9836,11 @@
     },
     {
      "label": "Pseudophakia (intraocular lens) / post-surgical changes",
-     "keywords": "pseudophak|intraocular lens|iol|lens|surgery"
+     "keywords": "pseudophak"
     },
     {
      "label": "Retinal exam for diabetic or other pathology",
-     "keywords": "diabet|retinopathy|retinal|vein|occlusion"
+     "keywords": "retinopathy|retinal|vein|occlusion"
     }
    ],
    "investigations": [
@@ -10035,7 +9935,7 @@
    "examination": [
     {
      "label": "Otoscopy: wax, canal, tympanic membrane (perforation, effusion, retraction)",
-     "keywords": "otoscop|wax|canal|tympanic|drum|perforat|effusion|retract"
+     "keywords": "otoscop|canal|tympanic|drum|perforat|effusion|retract"
     },
     {
      "label": "Rinne test (air vs bone conduction)",
@@ -10055,19 +9955,19 @@
     },
     {
      "label": "Cranial nerves V, VII, VIII; facial weakness",
-     "keywords": "cranial|facial|nerve|vii|viii|v "
+     "keywords": "cranial|facial|nerve|vii|viii"
     },
     {
      "label": "Nystagmus / balance (if vertigo)",
-     "keywords": "nystagm|balance|vertigo|romberg"
+     "keywords": "nystagm|romberg"
     },
     {
      "label": "Cholesteatoma (attic retraction, debris, discharge)",
-     "keywords": "cholesteatoma|attic|debris|discharge"
+     "keywords": "cholesteatoma|attic|debris"
     },
     {
      "label": "Otosclerosis (normal drum, conductive)",
-     "keywords": "otosclerosis|stapes|normal drum"
+     "keywords": "otosclerosis|stapes"
     },
     {
      "label": "Mastoid tenderness / external ear lesions",
@@ -10156,47 +10056,39 @@
    "examination": [
     {
      "label": "Oral cavity: ulcer, leukoplakia, erythroplakia, mass",
-     "keywords": "oral|ulcer|leukoplakia|erythroplakia|mass|mouth|tongue"
+     "keywords": "oral|leukoplakia|erythroplakia"
     },
     {
      "label": "Oropharynx: tonsillar asymmetry / mass",
-     "keywords": "oropharyn|tonsil|asymmetr|mass|throat"
+     "keywords": "oropharyn|tonsil|asymmetr|throat"
     },
     {
      "label": "Neck lymphadenopathy (hard, fixed) by levels",
-     "keywords": "lymph|node|neck|hard|fixed|level"
+     "keywords": "lymph|hard|fixed|level"
     },
     {
      "label": "Neck mass / thyroid / salivary glands",
-     "keywords": "neck mass|mass|thyroid|salivary|parotid|submandibular"
+     "keywords": "thyroid|parotid|submandibular"
     },
     {
      "label": "Fibreoptic nasendoscopy: larynx / pharynx / vocal cords",
      "keywords": "nasendoscop|endoscop|fibreoptic|larynx|vocal|cord|pharynx|laryng"
     },
     {
-     "label": "Hoarse voice, stridor",
-     "keywords": "hoarse|stridor|voice"
-    },
-    {
      "label": "Cranial nerve palsies",
-     "keywords": "cranial|palsy|nerve|tongue deviation|facial|hypoglossal"
-    },
-    {
-     "label": "Trismus",
-     "keywords": "trismus|jaw|mouth opening"
+     "keywords": "cranial|palsy|nerve|facial|hypoglossal"
     },
     {
      "label": "Nasal / ear examination (nasopharyngeal carcinoma; serous otitis media)",
-     "keywords": "nasal|ear|nasopharyn|otitis|effusion"
+     "keywords": "nasal|nasopharyn|otitis|effusion"
     },
     {
      "label": "Dentition / smoking and alcohol stigmata",
-     "keywords": "dentition|teeth|dental|nicotine|alcohol|stigmata"
+     "keywords": "dentition|nicotine|stigmata"
     },
     {
      "label": "Post-treatment: radiotherapy skin changes, trismus, lymphoedema, stoma / tracheostomy",
-     "keywords": "radiotherapy|radiation|lymphoedema|lymphedema|tracheostomy|stoma|laryngectomy|flap"
+     "keywords": "radiation|stoma"
     }
    ],
    "investigations": [
@@ -10301,7 +10193,7 @@
    "examination": [
     {
      "label": "Spontaneous nystagmus (direction, fatigability, fixation suppression)",
-     "keywords": "nystagm|direction|fatigab|fixation|horizontal|vertical"
+     "keywords": "nystagm|direction|fatigab|fixation|horizontal"
     },
     {
      "label": "Dix-Hallpike manoeuvre (BPPV: latent, fatiguing, torsional nystagmus)",
@@ -10313,7 +10205,7 @@
     },
     {
      "label": "Test of skew (central sign)",
-     "keywords": "skew|vertical|central"
+     "keywords": "skew|central"
     },
     {
      "label": "HINTS exam",
@@ -10321,7 +10213,7 @@
     },
     {
      "label": "Gait / Romberg / Unterberger / past-pointing",
-     "keywords": "gait|romberg|unterberger|past.?pointing|ataxi|truncal"
+     "keywords": "gait|romberg|unterberger|past.?pointing|truncal"
     },
     {
      "label": "Cerebellar signs",
@@ -10329,11 +10221,11 @@
     },
     {
      "label": "Hearing: Rinne/Weber, audiometry (Ménière's, labyrinthitis)",
-     "keywords": "hearing|rinne|weber|audiom|meniere|ménière|labyrinth"
+     "keywords": "rinne|weber|audiom|meniere|ménière|labyrinth"
     },
     {
      "label": "Otoscopy (infection, cholesteatoma, vesicles - Ramsay Hunt)",
-     "keywords": "otoscop|infect|cholesteatoma|vesicle|ramsay|hunt"
+     "keywords": "otoscop|cholesteatoma|vesicle|ramsay|hunt"
     },
     {
      "label": "Postural BP / cardiac exam (non-vestibular dizziness)",
@@ -10341,7 +10233,7 @@
     },
     {
      "label": "Cranial nerves, focal neurology (posterior circulation stroke)",
-     "keywords": "cranial|focal|neuro|stroke|diplopia|dysarthria"
+     "keywords": "cranial|focal"
     }
    ],
    "investigations": [],
@@ -10435,11 +10327,11 @@
    "examination": [
     {
      "label": "Signs of chronic liver disease (spider naevi, palmar erythema, jaundice, ascites)",
-     "keywords": "liver|spider|naevi|palmar|erythema|jaundice|ascites|stigmata"
+     "keywords": "spider|naevi|palmar|erythema|stigmata"
     },
     {
      "label": "Hepatomegaly",
-     "keywords": "hepatomeg|liver"
+     "keywords": "hepatomeg"
     },
     {
      "label": "Parotid enlargement / facial telangiectasia / plethora",
@@ -10447,15 +10339,15 @@
     },
     {
      "label": "Tremor, tachycardia, sweating (withdrawal)",
-     "keywords": "tremor|tachycard|sweat|withdraw|agitat"
+     "keywords": "tachycard|agitat"
     },
     {
      "label": "Cerebellar signs / ataxic gait / nystagmus (Wernicke's: ophthalmoplegia)",
-     "keywords": "cerebell|ataxi|gait|nystagm|wernicke|ophthalmoplegia"
+     "keywords": "cerebell|ataxi|gait|nystagm|ophthalmoplegia"
     },
     {
      "label": "Peripheral neuropathy",
-     "keywords": "neuropath|sensation|glove|stocking"
+     "keywords": "sensation|glove|stocking"
     },
     {
      "label": "Dupuytren's contracture",
@@ -10467,11 +10359,11 @@
     },
     {
      "label": "Muscle wasting / malnutrition, bruising",
-     "keywords": "wast|malnutrition|bruis|nutrition|sarcopen"
+     "keywords": "wast|malnutrition|nutrition|sarcopen"
     },
     {
      "label": "Injuries, self-neglect, mood / cognition",
-     "keywords": "injur|neglect|mood|cognit|trauma|bruis"
+     "keywords": "neglect|cognit|trauma"
     },
     {
      "label": "Gynaecomastia / testicular atrophy",
@@ -10548,7 +10440,7 @@
    "examination": [
     {
      "label": "Nicotine staining of fingers / teeth / hair",
-     "keywords": "nicotine|stain|yellow|finger|teeth"
+     "keywords": "nicotine|stain|yellow|finger"
     },
     {
      "label": "Clubbing",
@@ -10556,7 +10448,7 @@
     },
     {
      "label": "Tachypnoea, pursed-lip breathing, hyperinflated chest (COPD)",
-     "keywords": "tachyp|pursed|hyperinfl|barrel|copd"
+     "keywords": "tachyp|pursed|hyperinfl|barrel"
     },
     {
      "label": "Wheeze / crackles / reduced air entry",
@@ -10564,7 +10456,7 @@
     },
     {
      "label": "Oral lesions: leukoplakia, poor dentition, cancer",
-     "keywords": "oral|leukoplakia|dentition|teeth|mouth|cancer"
+     "keywords": "oral|leukoplakia|dentition|mouth"
     },
     {
      "label": "Cachexia / lymphadenopathy (malignancy)",
