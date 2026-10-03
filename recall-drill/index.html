@@ -89,11 +89,17 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .acct b{color:var(--ink);font-weight:600}
 .acct a{padding:5px 12px;border-radius:var(--r);border:1px solid var(--line);background:var(--panel);color:var(--ink);text-decoration:none}
 .acct button{padding:5px 12px;font-size:.85rem}
-.crow{display:flex;flex-direction:column;gap:3px}
-.crow .top{display:flex;gap:4px}
-.condlist .crow .nm{flex:1;min-width:0}
-.condlist .crow .inc{font-size:.75rem;padding:3px 8px;color:var(--mute);justify-content:center}
-.bdg{color:var(--teal);font-variant-numeric:tabular-nums}
+.cell{display:flex;flex-direction:column;gap:3px}
+.rw{display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--panel);border-radius:var(--r);padding:7px 10px;font-size:.85rem;cursor:pointer}
+.rw .lb{min-width:0}
+.rw .stl{display:inline;margin-left:4px;border:0;background:none;padding:0 2px;font:inherit;color:var(--mute);cursor:pointer;line-height:1;opacity:0}
+.rw:hover .stl,.rw .stl:focus-visible,.rw .stl[aria-pressed="true"]{opacity:1}
+.rw .stl[aria-pressed="true"]{color:var(--amber)}
+/* unstarred stars (hover only) take no layout space, so they never force a wrap */
+.rw .stl[aria-pressed="false"]{margin-right:-1.3em}
+@media(hover:none){.rw .stl{opacity:.5}.rw .stl[aria-pressed="true"]{opacity:1}}
+.bdg{color:var(--teal);font-variant-numeric:tabular-nums;margin-left:auto;flex:none}
+.cell .inc{font-size:.75rem;padding:3px 8px;color:var(--mute);justify-content:center}
 button.star,.condlist button.star{padding:2px 9px;font-size:1rem;line-height:1.2;color:var(--mute)}
 button.star[aria-pressed="true"]{color:var(--amber);border-color:var(--amber)}
 .ttl{display:flex;justify-content:space-between;align-items:center;gap:8px}
@@ -195,16 +201,16 @@ function rand(m){const d=randPick(m);if(d)start(d,m)}
 // Some item of the drill is neither found, credited nor ignored in the saved record
 const hasBlanks=(d,sv)=>{const k=new Set([...sv.found,...sv.credited,...sv.ignored]);return d[3].some(it=>!k.has(ik(it)))};
 function row(d,m){
- const r=document.createElement('div');r.className='crow';
- const top=document.createElement('div');top.className='top';r.appendChild(top);
- if(acct){const s=document.createElement('button');s.className='star';s.textContent='★';s.title='Star';s.setAttribute('aria-label','Star '+d[1]);
-  s.setAttribute('aria-pressed',starred(d,m));s.onclick=()=>{s.setAttribute('aria-pressed',toggleStar(d,m));if(starOnly)list()};top.appendChild(s)}
- const sv=savedOf(d,m),b=document.createElement('button');b.className='nm';b.title='Start from scratch';
- const n=document.createElement('span');n.textContent=d[1];b.appendChild(n);
- if(sv&&sv.runs){const g=document.createElement('span');g.className='bdg';g.textContent=sv.score+'%';g.title=`Done ${sv.runs}×, last ${new Date(sv.last).toLocaleDateString()}`;b.appendChild(g)}
- b.onclick=()=>start(d,m);top.appendChild(b);
- if(sv&&sv.runs&&hasBlanks(d,sv)){const i=document.createElement('button');i.className='inc';i.textContent='Redo incorrect';i.title='Keep your correct answers filled in; fill the rest';i.onclick=()=>start(d,m,true);r.appendChild(i)}
- return r;
+ const c=document.createElement('div');c.className='cell';
+ const r=document.createElement('div');r.className='rw';r.tabIndex=0;r.setAttribute('role','button');r.title='Start from scratch';r.onclick=()=>start(d,m);
+ r.onkeydown=e=>{if(e.target===r&&(e.key==='Enter'||e.key===' ')){e.preventDefault();start(d,m)}};c.appendChild(r);
+ const n=document.createElement('span');n.className='lb';n.textContent=d[1];r.appendChild(n);
+ if(acct){const t=document.createElement('button');t.className='stl';t.textContent='★';t.title='Star';t.setAttribute('aria-label','Star '+d[1]);
+  t.setAttribute('aria-pressed',starred(d,m));t.onclick=e=>{e.stopPropagation();t.setAttribute('aria-pressed',toggleStar(d,m));if(starOnly)list()};n.appendChild(t)}
+ const sv=savedOf(d,m);
+ if(sv&&sv.runs){const g=document.createElement('span');g.className='bdg';g.textContent=sv.score+'%';g.title=`Done ${sv.runs}×, last ${new Date(sv.last).toLocaleDateString()}`;r.appendChild(g)}
+ if(sv&&sv.runs&&hasBlanks(d,sv)){const i=document.createElement('button');i.className='inc';i.textContent='Redo incorrect';i.title='Keep your correct answers filled in; fill the rest';i.onclick=()=>start(d,m,true);c.appendChild(i)}
+ return c;
 }
 function list(){
  const c=$('#condList'),ds=pool(mode);c.innerHTML='';
