@@ -40,7 +40,7 @@ Registered in `/vite.config.js` as `recallDrill` -> `recall-drill/index.html`. T
   - Alternatives of 3 chars or fewer (after trimming trailing spaces) are matched as whole words (optional plural `s`), and during live typing must be followed by a delimiter, so `ed` doesn't fire while typing `edema`. Alternatives longer than 3 chars are prefix matches (`orthop` matches `orthopnoea`), so use stems.
   - A leading `~` matches anywhere instead of at a word start (drug suffixes, e.g. `~pril`). Alternatives starting with a non-word character are used as raw regex.
   - Don't use `(`, `)`, `[`, `]` or `\` unless you intend regex syntax; never put a literal `|` inside an alternative.
-  - If several tiles match, the one whose match starts earliest, then is longest, wins (ties credit all). If the typed text is still a proper prefix of a longer literal keyword of another unfound tile (e.g. `sputum` vs `sputum culture`), the box waits 0.7s before firing.
+  - If several tiles match, the one whose match starts earliest, then is longest, wins (ties credit all). If the typed text is still a proper prefix of a longer literal keyword of another tile, found or not (e.g. `sputum` vs `sputum culture`), nothing fires while typing; after a 0.7s pause it credits a new tile, but never flashes yellow for an already-named one (Enter still does).
   - Where one word could name both a diagnosis and its test (iron, B12, electrolytes, urate), the diagnosis tile needs a qualifier (e.g. `iron deficiency`).
 
 ## Editing guidelines

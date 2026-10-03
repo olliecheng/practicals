@@ -140,8 +140,8 @@ let systems=[],mode='cond',curMode='cond',selSys=new Set(),cur=null,found=new Se
 const rx=kws=>new RegExp(kws.split('|').map(k=>{if(k[0]==='~')return k.slice(1);if(/^[^\w]/.test(k))return k;return k.replace(/\s+$/,'').length<=3?'\\b'+k.trim()+'s?(?=[^a-z0-9])':'\\b'+k}).join('|'),'i');
 const prep=A=>A.forEach(d=>d[3].forEach(it=>{it.re=rx(it[1]);
  it.lits=it[1].toLowerCase().split('|').filter(k=>k[0]!=='~'&&!/[.*+?()[\]{}^$\\]/.test(k)).map(k=>k.trim()).filter(Boolean)}));
-// Earliest match wins, then longest; if what's typed could still become a longer keyword of an
-// unfound item (e.g. "sputum" -> "sputum culture"), defer instead of firing.
+// Earliest match wins, then longest; if what's typed could still become a longer keyword of any other
+// item, found or not (e.g. "sputum" -> "sputum culture"), defer instead of firing.
 function judge(items,isFound,v,submit){
  const t=submit?v+' ':v,c=[];
  items.forEach((it,i)=>{const m=it.re.exec(t);if(m)c.push([i,m.index,m[0].length])});
@@ -149,7 +149,7 @@ function judge(items,isFound,v,submit){
  const s0=Math.min(...c.map(x=>x[1])),at=c.filter(x=>x[1]===s0),l0=Math.max(...at.map(x=>x[2]));
  const win=at.filter(x=>x[2]===l0).map(x=>x[0]);
  let defer=false;
- if(!submit){const low=v.toLowerCase().replace(/^\s+/,'');defer=items.some((it,i)=>!win.includes(i)&&!isFound(i)&&it.lits.some(k=>k.length>low.length&&k.startsWith(low)))}
+ if(!submit){const low=v.toLowerCase().replace(/^\s+/,'');defer=items.some((it,i)=>!win.includes(i)&&it.lits.some(k=>k.length>low.length&&k.startsWith(low)))}
  return {hit:win.filter(i=>!isFound(i)),dup:win.filter(i=>isFound(i)),defer};
 }
 
@@ -207,6 +207,7 @@ function evaluate(submit,idle){
  const r=judge(cur[3],i=>found.has(i)||revealed.has(i),v,submit);
  if(!r){if(submit&&!idle){inp.value='';retrigger(inp,'bad')}return}
  if(r.defer){deferT=setTimeout(()=>evaluate(true,true),700);return}
+ if(idle&&!r.hit.length)return;
  inp.value='';
  if(!submit&&/[a-z0-9]$/i.test(v))swallow();
  if(r.hit.length){
