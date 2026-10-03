@@ -13,7 +13,7 @@ export default defineConfig({
         hepatitisB: resolve(__dirname, "hepatitis-b.html"),
         lft: resolve(__dirname, "liver-function.html"),
         bacteria: resolve(__dirname, "bacteria.html"),
-        recallDrill: resolve(__dirname, "recall-drill.html"),
+        recallDrill: resolve(__dirname, "recall-drill/index.html"),
       },
     },
   },

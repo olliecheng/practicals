@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>History Recall Drill</title>
+<style>
+:root{--bg:#E6EDEB;--panel:#F7FAF9;--ink:#13262A;--mute:#5B6E70;--line:#C9D6D3;--teal:#1F6F6B;--teal-soft:#D3E8E5;--miss:#B8461B;--miss-soft:#F6DED3;--amber:#C98A12;--amber-soft:#F8E7B8;--ok:#2F8F4E;--ok-soft:#CDEBD5;--bad:#C62F3A;--bad-soft:#F7D3D6;--tile:#DCE5E3;--r:5px;
+ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1D1F;--panel:#16282A;--ink:#E3EEEC;--mute:#93A9A9;--line:#2A4245;--teal:#4FB3AA;--teal-soft:#1D3F3D;--miss:#F08A5D;--miss-soft:#3E2419;--amber:#E9B44C;--amber-soft:#43360F;--ok:#5FCB80;--ok-soft:#173A24;--bad:#F2737C;--bad-soft:#421B20;--tile:#1F3437}}
+:root[data-theme="dark"]{--bg:#0F1D1F;--panel:#16282A;--ink:#E3EEEC;--mute:#93A9A9;--line:#2A4245;--teal:#4FB3AA;--teal-soft:#1D3F3D;--miss:#F08A5D;--miss-soft:#3E2419;--amber:#E9B44C;--amber-soft:#43360F;--ok:#5FCB80;--ok-soft:#173A24;--bad:#F2737C;--bad-soft:#421B20;--tile:#1F3437}
+*,*:before,*:after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter',sans-serif;font-size:16px;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding:16px 16px 40px}
+h1,h2,.display,.cond,.sh>span:first-child{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter',sans-serif}
+header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+header h1{font-size:1.5rem;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1.2}
+.stats{display:flex;gap:16px;color:var(--mute);font-size:.85rem}
+.stats b{color:var(--ink)}
+button{font:inherit;font-size:.9rem;cursor:pointer;border-radius:var(--r);border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:8px 14px}
+button:focus-visible,input:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+button.primary{background:var(--teal);border-color:var(--teal);color:#fff;font-weight:500}
+:root[data-theme="dark"] button.primary{color:#0F1D1F}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) button.primary{color:#0F1D1F}}
+button.chip{padding:5px 12px;border-radius:var(--r);font-size:.85rem}
+button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--teal);font-weight:400}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.home{max-width:760px}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 16px}
+.lbl{font-weight:600;font-size:.9rem;margin:0}
+.big{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.big button{padding:10px 16px;font-size:.95rem}
+.condlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:6px;max-height:440px;overflow:auto;margin-top:8px}
+.condlist button{text-align:left;font-size:.85rem;padding:7px 10px;display:flex;justify-content:space-between;gap:6px}
+.play{display:grid;grid-template-columns:minmax(260px,340px) minmax(0,1fr);gap:14px;align-items:start}
+.play>.panel:first-child{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:2}
+.play>.panel:last-child{padding:14px 16px}
+@media(max-width:780px){
+ .wrap{padding:10px 10px 32px}header{margin-bottom:8px}header h1{font-size:1.25rem}
+ .play{grid-template-columns:1fr;gap:10px}
+ .play>.panel:first-child{top:env(safe-area-inset-top,0px);padding:12px 14px;border-radius:var(--r)}
+ .play>.panel:last-child{padding:12px}
+ .cond{font-size:1.4rem!important;margin:0!important}.prompt{display:none}.tline{margin-top:2px!important;font-size:.78rem!important}
+ #game .board{grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:4px}#game .tile .f,#game .tile .b{font-size:.74rem;padding:4px 6px;min-height:32px}#game .tile .f{font-size:.85rem}
+ #game.over>.panel:first-child{position:static}#game.over #answer,#game.over .tline{display:none!important}.sh{font-size:.95rem!important}
+ #answer{font-size:1rem;padding:9px 12px;margin-top:6px}
+ .actions{margin-top:8px!important;gap:6px!important}.actions button{padding:6px 11px;font-size:.92rem}.result{font-size:1.05rem}
+}
+.cond{font-size:clamp(1.5rem,2.4vw,1.85rem);font-weight:600;line-height:1.2;margin:4px 0 8px;letter-spacing:-.015em}
+.sys{color:var(--teal);font-weight:500;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
+.prompt{color:var(--mute);margin:0 0 12px;font-size:.9rem}
+.tline{display:flex;justify-content:flex-end;margin-top:6px;color:var(--mute);font-size:.8rem;font-variant-numeric:tabular-nums}
+#answer{width:100%;font:inherit;font-size:1rem;padding:11px 14px;border-radius:var(--r);border:1px solid var(--line);background:var(--bg);color:var(--ink);margin-top:10px}
+#answer:disabled{opacity:.6}
+#answer.ok{animation:okf .55s ease-out}
+#answer.dup{animation:dupf .55s ease-out}
+#answer.bad{animation:badf .55s ease-out}
+@keyframes badf{0%,25%{background:var(--bad-soft);border-color:var(--bad)}}
+@keyframes okf{0%,25%{background:var(--ok-soft);border-color:var(--ok)}}
+@keyframes dupf{0%,25%{background:var(--amber-soft);border-color:var(--amber)}}
+.tile.dup .b{animation:dupt .7s ease-out}
+@keyframes dupt{0%,30%{background:var(--amber-soft);border-color:var(--amber)}}
+.counter{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter',sans-serif;font-weight:600;font-size:1.1rem;margin:0 0 10px;line-height:1.2;font-variant-numeric:tabular-nums}
+.counter span{color:var(--mute);font-weight:400;font-size:.9rem}
+.sect+.sect{margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}
+.sh{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:0 0 8px;font-size:1rem;font-weight:600;line-height:1.2}
+.sh .sc{color:var(--mute);font-weight:400;font-size:.8rem;font-variant-numeric:tabular-nums}
+.sect.done .sh .sc{color:var(--teal);font-weight:400}
+.board{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:5px}
+.tile{perspective:600px}
+.tile .in{position:relative;display:grid;height:100%;transition:transform .45s cubic-bezier(.3,1.4,.6,1);transform-style:preserve-3d}
+.tile .f,.tile .b{grid-area:1/1;border-radius:var(--r);display:flex;align-items:center;min-height:36px;padding:5px 8px;font-size:.82rem;line-height:1.25;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.tile .f{background:var(--tile);color:var(--mute);justify-content:center;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter',sans-serif;font-weight:500;font-size:.85rem;border:1px solid var(--line)}
+.tile .b{background:var(--teal-soft);border:1px solid var(--teal);transform:rotateY(180deg)}
+.tile.on .in{transform:rotateY(180deg)}
+.tile.miss .b{background:var(--miss-soft);border-color:var(--miss);cursor:pointer}
+.tile.cred .b{background:var(--teal-soft);border-color:var(--teal);border-style:dashed}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.result{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter',sans-serif;font-weight:600;font-size:1.25rem;line-height:1.2}
+.hidden{display:none!important}
+.note{color:var(--mute);font-size:.88rem}
+@media (prefers-reduced-motion:reduce){.tile .in{transition:none}}
+</style></head><body>
+<div class="wrap">
+<header><h1>History recall drill</h1></header>
+
+<section id="home" class="home">
+ <div class="panel">
+  <p class="lbl">Systems</p><div class="row" id="sysChips"></div>
+  <div class="big"><button class="primary" id="goRandom">Random condition</button></div>
+  <p class="note">Name one item at a time, from any section. The box flashes green and clears when you hit something on the list, or yellow if you've already named it. Press "I'm done" to reveal the ones you missed in orange; tap a missed tile to credit it if you had it.</p>
+  <p class="lbl" style="margin-top:18px">Or pick one</p><div class="condlist" id="condList"></div>
+ </div>
+</section>
+
+<section id="game" class="play hidden">
+ <div class="panel">
+  <div class="sys" id="gSys"></div>
+  <div class="cond" id="gCond"></div>
+  <p class="prompt" id="gPrompt"></p>
+  <div class="tline"><span>Enter submits short abbreviations</span></div>
+  <input id="answer" type="text" placeholder="Type an item…" aria-label="Your answer" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+  <div class="actions" id="playActs"><button class="primary" id="finish">I'm done</button><button id="quit">Back to menu</button></div>
+  <div class="actions hidden" id="doneActs"><span class="result" id="result"></span><button class="primary" id="next">Next condition</button><button id="retry">Retry this one</button><button id="menu">Menu</button><span class="note" style="flex-basis:100%;margin:0">Tap a missed tile if you had it.</span></div>
+ </div>
+ <div class="panel">
+  <p class="counter" id="counter"></p>
+  <div id="sections"></div>
+ </div>
+</section>
+</div>
+<script type="module">
+import QUESTIONS from './data.json';
+let DATA=[];
+// Built from data.json at startup (see bottom of script) as [system, condition, prompt, [[label, keywords, section]]]; section: P presentation, R risk factors / etiology, M investigations / management
+const $=s=>document.querySelector(s);
+const SECTIONS=[['P','Presentation'],['R','Risk factors / etiology'],['M','Investigations / management']];
+let systems=[],selSys=new Set(),cur=null,found=new Set(),credited=new Set(),over=false;
+// live: short keywords (<=3 chars) need a following delimiter so "ed" doesn't fire while typing "edema"
+const rx=(kws,live)=>new RegExp(kws.split('|').map(k=>k.replace(/\s+$/,'').length<=3?'\\b'+k.trim()+'s?'+(live?'(?=[^a-z0-9])':'\\b'):'\\b'+k).join('|'),'i');
+function chips(){
+ const sc=$('#sysChips');sc.innerHTML='';
+ systems.forEach(s=>{const b=document.createElement('button');b.className='chip';b.textContent=s;b.setAttribute('aria-pressed',selSys.has(s));b.onclick=()=>{selSys.has(s)?selSys.delete(s):selSys.add(s);if(!selSys.size)selSys.add(s);chips();list()};sc.appendChild(b)});
+}
+function pool(){return DATA.filter(d=>selSys.has(d[0]))}
+function randPick(){const p=pool().filter(d=>d!==cur);const q=p.length?p:pool();return q[Math.floor(Math.random()*q.length)]}
+function list(){
+ const c=$('#condList');c.innerHTML='';
+ pool().forEach(d=>{const b=document.createElement('button');b.textContent=d[1];b.onclick=()=>start(d);c.appendChild(b)});
+}
+function start(d){
+ $('#game').classList.remove('over');cur=d;found=new Set();credited=new Set();over=false;swallowing=false;
+ $('#home').classList.add('hidden');$('#game').classList.remove('hidden');
+ $('#gSys').textContent=d[0];$('#gCond').textContent=d[1];$('#gPrompt').textContent=d[2];
+ const inp=$('#answer');inp.value='';inp.disabled=false;inp.classList.remove('ok','dup','bad');
+ $('#playActs').classList.remove('hidden');$('#doneActs').classList.add('hidden');
+ const wrap=$('#sections');wrap.innerHTML='';
+ SECTIONS.forEach(([code,name])=>{
+  const idx=d[3].map((it,i)=>i).filter(i=>d[3][i][2]===code);
+  const sec=document.createElement('section');sec.className='sect';sec.id='s'+code;
+  sec.innerHTML=`<h3 class="sh"><span>${name}</span><span class="sc"></span></h3>`;
+  if(!idx.length){sec.insertAdjacentHTML('beforeend','<p class="note" style="margin:0">None listed for this condition.</p>')}
+  const bd=document.createElement('div');bd.className='board';
+  idx.forEach((i,n)=>{const it=d[3][i];const t=document.createElement('div');t.className='tile';t.id='t'+i;t.innerHTML=`<div class="in"><div class="f">${n+1}</div><div class="b">${it[0]}</div></div>`;
+   t.onclick=()=>{if(!over||found.has(i))return;credited.has(i)?credited.delete(i):credited.add(i);t.classList.toggle('cred');t.classList.toggle('miss');score()};bd.appendChild(t)});
+  sec.appendChild(bd);wrap.appendChild(sec)});
+ count();
+ inp.focus();
+}
+function count(){const n=cur[3].length;$('#counter').innerHTML=`${found.size+credited.size} <span>of ${n} found</span>`;
+ SECTIONS.forEach(([code])=>{const idx=cur[3].map((it,i)=>i).filter(i=>cur[3][i][2]===code);const g=idx.filter(i=>found.has(i)||credited.has(i)).length;
+  const sec=$('#s'+code);sec.querySelector('.sc').textContent=idx.length?`${g} of ${idx.length}`:'';sec.classList.toggle('done',idx.length>0&&g===idx.length)})}
+function retrigger(el,cls){el.classList.remove('ok','dup','bad');void el.offsetWidth;el.classList.add(cls)}
+// After a stem matches mid-word (e.g. "orthop" of "orthopnoea"), eat the rest of that answer
+// until a pause or a comma, so the tail doesn't land in the empty box.
+let swallowing=false,swT=null;
+function swallow(){swallowing=true;clearTimeout(swT);swT=setTimeout(()=>{swallowing=false},400)}
+function evaluate(submit){
+ if(over)return;const inp=$('#answer');const v=inp.value;if(!v.trim())return;
+ const txt=submit?v+' ':v,hit=[],dup=[];
+ cur[3].forEach((it,i)=>{if(it.re.test(txt))(found.has(i)?dup:hit).push(i)});
+ if(!hit.length&&!dup.length){if(submit){inp.value='';retrigger(inp,'bad')}return}
+ inp.value='';
+ if(!submit&&/[a-z0-9]$/i.test(v))swallow();
+ if(hit.length){
+  hit.forEach(i=>{found.add(i);$('#t'+i).classList.add('on')});retrigger(inp,'ok');count();
+  if(found.size===cur[3].length)finish();
+ }else{retrigger(inp,'dup');dup.forEach(i=>retrigger($('#t'+i),'dup'))}
+}
+$('#answer').addEventListener('input',e=>{
+ if(swallowing){
+  const d=e.data||'';const inp=$('#answer');
+  if(/[,;]/.test(d)){swallowing=false;clearTimeout(swT);inp.value=inp.value.replace(/^.*[,;]\s*/,'');}
+  else{inp.value='';swallow();return}
+ }
+ evaluate(false);
+});
+$('#answer').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();swallowing=false;evaluate(true)}});
+function score(){const n=cur[3].length,p=Math.round(100*(found.size+credited.size)/n);$('#result').textContent=p+'%';count();return p}
+function finish(){
+ if(over)return;over=true;$('#game').classList.add('over');$('#answer').disabled=true;
+ cur[3].forEach((it,i)=>{if(!found.has(i)){const t=$('#t'+i);t.classList.add('on','miss')}});
+ $('#playActs').classList.add('hidden');$('#doneActs').classList.remove('hidden');score();
+}
+function home(){$('#game').classList.add('hidden');$('#home').classList.remove('hidden')}
+$('#finish').onclick=finish;
+$('#quit').onclick=home;
+$('#menu').onclick=home;
+$('#next').onclick=()=>start(randPick());
+$('#retry').onclick=()=>start(cur);
+$('#goRandom').onclick=()=>start(randPick());
+const KEYS=[['presentation','P'],['risks','R'],['investigations','M']];
+{
+ DATA=Object.entries(QUESTIONS).flatMap(([sys,conds])=>Object.entries(conds).map(([name,c])=>[sys,name,c.prompt,KEYS.flatMap(([k,code])=>c[k].map(it=>[it.label,it.keywords,code]))]));
+ DATA.forEach(d=>d[3].forEach(it=>it.re=rx(it[1],true)));
+ systems=[...new Set(DATA.map(d=>d[0]))];selSys=new Set(systems);
+ chips();list();
+}
+</script></body></html>
