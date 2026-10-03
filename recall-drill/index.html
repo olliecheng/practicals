@@ -196,7 +196,7 @@ import {lastUser,rememberUser,fetchUser,putUser} from './account.js';
 let DATA=[],PRES=[];
 const $=s=>document.querySelector(s);
 const MODES={
- cond:{noun:'condition',sections:[['P','Presentation',icP,'presentation'],['R','Risk factors / etiology',icR,'risk factors'],['E','Examination findings',icE,'examination findings'],['M','Investigations',icM,'investigations'],['T','Medications / treatment',icT,'medications']]},
+ cond:{noun:'condition',sections:[['P','Presentation',icP,'presentation'],['R','Risk factors / etiology',icR,'risk factors'],['E','Examination findings',icE,'examination findings'],['M','Investigations',icM,'investigations'],['T','Medications, treatment, and management',icT,'medications']]},
  pres:{noun:'presentation',sections:[['D','Differentials',icR,'differentials'],['A','Associated features (history)',icP,'associated features'],['I','Investigations',icM,'investigations']]}
 };
 let systems=[],mode='cond',curMode='cond',selSys=new Set(),cur=null,found=new Set(),credited=new Set(),revealed=new Set(),celebrated=new Set(),over=false;
