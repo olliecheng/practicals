@@ -96,7 +96,7 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}
 .result{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter',sans-serif;font-weight:600;font-size:1.25rem;line-height:1.2}
 .hidden{display:none!important}
-.cf{position:fixed;top:-20px;width:8px;height:12px;border-radius:2px;pointer-events:none;z-index:50;opacity:0;animation:cf 2.2s cubic-bezier(.3,.5,.5,1) both}
+.cf{position:fixed;top:-20px;width:8px;height:12px;border-radius:2px;pointer-events:none;z-index:50;opacity:0;animation:cf 2.2s linear both}
 @keyframes cf{0%{opacity:1;transform:translate(0,0) rotate(0)}85%{opacity:1}100%{opacity:0;transform:translate(var(--dx),calc(100vh + 40px)) rotate(var(--r))}}
 .note{color:var(--mute);font-size:.88rem}
 .prompt{color:var(--mute);margin:0 0 8px;font-size:.85rem}
@@ -422,9 +422,9 @@ function pct(){const A=cur[3].map((it,i)=>i),n=A.filter(i=>!ignored.has(i)).leng
 function score(){const p=pct();$('#result').textContent=p+'%';count();return p}
 // One Reveal button, labelled with the next section that still has unfound tiles (expanded) or the open section (collapsed).
 const nextSec=()=>MODES[curMode].sections.find(([code])=>(!collapsed||code===active)&&cur[3].some((it,i)=>it[2]===code&&pending(i)));
-function confetti(n){
+function confetti(){
  const w=window.innerWidth,cols=['--teal','--amber','--ok','--miss','--bad'];
- for(let i=0;i<n;i++){const c=document.createElement('i');c.className='cf';
+ for(let i=0;i<200;i++){const c=document.createElement('i');c.className='cf';
   c.style.cssText=`left:${Math.random()*w}px;background:var(${cols[i%cols.length]});--dx:${Math.random()*160-80}px;--r:${Math.random()*720-360}deg;animation-duration:${1.5+Math.random()*1.1}s;animation-delay:${Math.random()*.6}s`;
   document.body.appendChild(c);c.addEventListener('animationend',()=>c.remove())}
 }
@@ -432,7 +432,7 @@ function confetti(n){
 function celebrate(){
  MODES[curMode].sections.forEach(([code])=>{
   const idx=secIdx(code);
-  if(idx.length&&!celebrated.has(code)&&idx.every(i=>found.has(i)||ignored.has(i))){celebrated.add(code);confetti(allSettled()?350:200)}})
+  if(idx.length&&!celebrated.has(code)&&idx.every(i=>found.has(i)||ignored.has(i))){celebrated.add(code);confetti()}})
 }
 function reveal(){
  const n=nextSec(),f=$('#finish');
