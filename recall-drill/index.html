@@ -106,6 +106,13 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .menu .mi{display:flex;flex-direction:column;gap:4px;padding:6px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 6px 18px rgba(0,0,0,.18)}
 .menu button{white-space:nowrap;justify-content:flex-start;font-size:.85rem;padding:6px 10px}
 .menu button:disabled{opacity:.5;cursor:default}
+.menu button{background:none}
+.menu .scr{color:var(--ok);border-color:var(--ok)}
+.menu .inc{color:var(--amber);border-color:var(--amber)}
+.menu .rst{color:var(--bad);border-color:var(--bad)}
+.menu .scr:hover{background:var(--ok-soft)}
+.menu .inc:not(:disabled):hover{background:var(--amber-soft)}
+.menu .rst:hover{background:var(--bad-soft)}
 .cell.open .menu{display:block}
 @media(hover:hover){.cell:hover .menu{display:block}}
 button.star,.condlist button.star{padding:2px 9px;font-size:1rem;line-height:1.2;color:var(--mute)}
@@ -221,8 +228,10 @@ function row(d,m){
   t.setAttribute('aria-pressed',starred(d,m));t.onclick=e=>{e.stopPropagation();t.setAttribute('aria-pressed',toggleStar(d,m));if(starOnly)list()};n.appendChild(t)}
  if(hist){
   const g=document.createElement('span');g.className='bdg';g.textContent=sv.score+'%';g.title=`Done ${sv.runs}×, last ${new Date(sv.last).toLocaleDateString()}`;r.appendChild(g);
-  const mn=document.createElement('div');mn.className='menu';mn.innerHTML='<div class="mi"><button class="scr">Start from scratch</button><button class="inc">Redo incorrect</button></div>';
+  const mn=document.createElement('div');mn.className='menu';mn.innerHTML='<div class="mi"><button class="scr">Start from scratch</button><button class="inc">Redo incorrect</button><button class="rst">Reset progress</button></div>';
   mn.querySelector('.scr').onclick=()=>start(d,m);
+  // Reset clears the drill's history (runs, score, found, credited); ignored items and the star are kept
+  mn.querySelector('.rst').onclick=()=>{if(!confirm(`Reset your progress on ${d[1]}?`))return;Object.assign(sv,{runs:0,last:0,score:0,found:[],credited:[]});save();list()};
   const i=mn.querySelector('.inc');i.title='Keep your correct answers filled in; fill the rest';
   if(hasBlanks(d,sv))i.onclick=()=>start(d,m,true);else{i.disabled=true;i.title='Nothing incorrect to redo'}
   c.appendChild(mn);c.addEventListener('mouseenter',()=>place(c));
