@@ -41,7 +41,7 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
  .play{grid-template-columns:1fr;gap:10px}
  .play>.panel:first-child{top:env(safe-area-inset-top,0px);padding:12px 14px;border-radius:var(--r)}
  .play>.panel:last-child{padding:12px}
- .cond{font-size:1.4rem!important;margin:0!important}.prompt{display:none}.tline{margin-top:2px!important;font-size:.78rem!important}
+ .cond{font-size:1.4rem!important;margin:0!important}.tline{margin-top:2px!important;font-size:.78rem!important}
  #game .board{grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:4px}#game .tile .f,#game .tile .b{font-size:.74rem;padding:4px 6px;min-height:32px}#game .tile .f{font-size:.85rem}
  #game.over>.panel:first-child{position:static}#game.over #answer,#game.over .tline{display:none!important}.sh{font-size:.95rem!important}
  #answer{font-size:1rem;padding:9px 12px;margin-top:6px}
@@ -49,7 +49,6 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 }
 .cond{font-size:clamp(1.5rem,2.4vw,1.85rem);font-weight:600;line-height:1.2;margin:4px 0 8px;letter-spacing:-.015em}
 .sys{color:var(--teal);font-weight:500;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
-.prompt{color:var(--mute);margin:0 0 12px;font-size:.9rem}
 .tline{display:flex;justify-content:flex-end;margin-top:6px;color:var(--mute);font-size:.8rem;font-variant-numeric:tabular-nums}
 #answer{width:100%;font:inherit;font-size:1rem;padding:11px 14px;border-radius:var(--r);border:1px solid var(--line);background:var(--bg);color:var(--ink);margin-top:10px}
 #answer:disabled{opacity:.6}
@@ -68,9 +67,9 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .sh .sc{color:var(--mute);font-weight:400;font-size:.8rem;font-variant-numeric:tabular-nums}
 .sect.done .sh .sc{color:var(--teal);font-weight:400}
 .board{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:5px}
-.tile{perspective:600px}
+.tile{perspective:600px;min-width:0}
 .tile .in{position:relative;display:grid;height:100%;transition:transform .45s cubic-bezier(.3,1.4,.6,1);transform-style:preserve-3d}
-.tile .f,.tile .b{grid-area:1/1;border-radius:var(--r);display:flex;align-items:center;min-height:36px;padding:5px 8px;font-size:.82rem;line-height:1.25;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.tile .f,.tile .b{grid-area:1/1;border-radius:var(--r);display:flex;align-items:center;min-height:36px;padding:5px 8px;font-size:.82rem;line-height:1.25;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow-wrap:anywhere}
 .tile .f{background:var(--tile);color:var(--mute);justify-content:center;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter',sans-serif;font-weight:500;font-size:.85rem;border:1px solid var(--line)}
 .tile .b{background:var(--teal-soft);border:1px solid var(--teal);transform:rotateY(180deg)}
 .tile.on .in{transform:rotateY(180deg)}
@@ -98,10 +97,9 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
  <div class="panel">
   <div class="sys" id="gSys"></div>
   <div class="cond" id="gCond"></div>
-  <p class="prompt" id="gPrompt"></p>
   <div class="tline"><span>Enter submits short abbreviations</span></div>
   <input id="answer" type="text" placeholder="Type an item…" aria-label="Your answer" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
-  <div class="actions" id="playActs"><button class="primary" id="finish">I'm done</button><button id="quit">Back to menu</button></div>
+  <div class="actions" id="playActs"><button class="primary" id="finish">I'm done</button><button id="quit">Back to menu</button><button id="newCond">New condition</button></div>
   <div class="actions hidden" id="doneActs"><span class="result" id="result"></span><button class="primary" id="next">Next condition</button><button id="retry">Retry this one</button><button id="menu">Menu</button><span class="note" style="flex-basis:100%;margin:0">Tap a missed tile if you had it.</span></div>
  </div>
  <div class="panel">
@@ -134,7 +132,7 @@ function list(){
 function start(d){
  $('#game').classList.remove('over');cur=d;found=new Set();credited=new Set();over=false;swallowing=false;
  $('#home').classList.add('hidden');$('#game').classList.remove('hidden');
- $('#gSys').textContent=d[0];$('#gCond').textContent=d[1];$('#gPrompt').textContent=d[2];
+ $('#gSys').textContent=d[0];$('#gCond').textContent=d[1];
  const inp=$('#answer');inp.value='';inp.disabled=false;inp.classList.remove('ok','dup','bad');
  $('#playActs').classList.remove('hidden');$('#doneActs').classList.add('hidden');
  const wrap=$('#sections');wrap.innerHTML='';
@@ -188,6 +186,7 @@ function finish(){
 function home(){$('#game').classList.add('hidden');$('#home').classList.remove('hidden')}
 $('#finish').onclick=finish;
 $('#quit').onclick=home;
+$('#newCond').onclick=()=>start(randPick());
 $('#menu').onclick=home;
 $('#next').onclick=()=>start(randPick());
 $('#retry').onclick=()=>start(cur);

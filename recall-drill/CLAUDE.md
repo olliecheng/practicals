@@ -28,7 +28,7 @@ Registered in `/vite.config.js` as `recallDrill` -> `recall-drill/index.html`. `
 
 - **Top-level key = system / category** (e.g. `Cardio`, `Resp`, `Renal`, `GI`, `Endo`, `Rheum`, `Neuro`, `Vasc`, `ID`, `Breast`, `Ortho`, `Derm`, `Eye`, `ENT`, `Cross`). Each becomes a filter chip. Chip order = key order in the file. `Cross` holds cross-cutting histories (e.g. "Smoking history").
 - **Second-level key = condition name**, shown as the title and in the "Or pick one" list. Must be unique within a system. List order is by system (in file order), then condition (in file order).
-- **`prompt`**: sentence shown under the title. Required string (usually "Symptoms to ask about" or "History to ask about"; varies per condition).
+- **`prompt`**: required string (usually "Symptoms to ask about" or "History to ask about"). Currently loaded but not displayed in the UI; keep it in the data.
 - **`presentation` / `risks` / `investigations`**: the three sections, shown in that order and labelled "Presentation", "Risk factors / etiology" and "Investigations / management". All three keys must be present; an empty array renders "None listed for this condition." Tiles are numbered 1..n within each section in array order.
 - **Item `label`**: text revealed on the tile (and the answer shown on reveal). Rendered as HTML via `innerHTML`, so escape `<`/`&` if ever needed.
 - **Item `keywords`**: a single string of `|`-separated alternatives, compiled by `rx()` in `index.html` into a case-insensitive regex. Each alternative is a regex fragment (so `.`, `.*`, `.?` work, e.g. `"ex.?smok"`, `"wake.*breath"`), and is prefixed with `\b`.
