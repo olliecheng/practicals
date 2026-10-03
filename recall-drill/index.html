@@ -225,7 +225,7 @@ function start(d,m,inc){
   if(inc){
    sv.found.forEach(k=>{const i=at(k);if(i>=0&&!ignored.has(i))found.add(i)});
    sv.credited.forEach(k=>{const i=at(k);if(i>=0&&!ignored.has(i)&&!found.has(i)){credited.add(i);revealed.add(i)}})}}
- $('#game').classList.remove('over','rv');$('#home').classList.add('hidden');$('#game').classList.remove('hidden');$('#acct').classList.add('hidden');
+ $('#game').classList.remove('over','rv');$('#home').classList.add('hidden');$('#game').classList.remove('hidden');
  $('#gSys').textContent=d[0];$('#gCond').textContent=d[1];$('#gPrompt').textContent=d[2];
  const gs=$('#gStar');gs.classList.toggle('hidden',!acct);gs.setAttribute('aria-pressed',!!starred(d,m));
  $('#next').textContent='Next '+MODES[m].noun;
@@ -338,7 +338,7 @@ function finish(){
 }
 function home(){
  clearTimeout(deferT);flush();
- $('#game').classList.add('hidden');$('#home').classList.remove('hidden');$('#acct').classList.remove('hidden');list();
+ $('#game').classList.add('hidden');$('#home').classList.remove('hidden');list();
 }
 $('#finish').onclick=revealSec;
 $('#newCond').onclick=()=>rand(curMode);
@@ -366,7 +366,7 @@ async function restore(n){
   acct=n;user=u;acctUI();chips();list()}
  catch{}
 }
-function logout(){flush();acct=null;user=null;starOnly=false;rememberUser('');acctUI();chips();list()}
+function logout(){flush();acct=null;user=null;starOnly=false;rememberUser('');$('#gStar').classList.add('hidden');acctUI();chips();list()}
 function acctUI(){
  const el=$('#acct');el.innerHTML='';
  const msg=document.createElement('span');msg.id='acctMsg';
