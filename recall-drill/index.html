@@ -168,7 +168,7 @@ button.star[aria-pressed="true"]{color:var(--amber);border-color:var(--amber)}
   <div class="cond" id="gCond"></div>
   <p class="prompt" id="gPrompt"></p>
   <div id="playActs"><div class="actions"><button class="primary" id="finish"></button><button id="quit">Back</button><button id="newCond">New</button></div></div>
-  <div class="actions hidden" id="doneActs"><span class="result" id="result"></span><button class="primary" id="next">Next condition</button><button id="retry">Retry this one</button><button id="menu">Menu</button><span class="note" style="flex-basis:100%;margin:0">Tap a missed tile if you had it.</span></div>
+  <div class="actions hidden" id="doneActs"><span class="result" id="result"></span><button class="primary" id="next">Next condition</button><button id="retryInc">Retry incorrect</button><button id="retry">Retry this one</button><button id="menu">Menu</button><span class="note" style="flex-basis:100%;margin:0">Tap a missed tile if you had it.</span></div>
  </div>
  <div class="panel" id="inCard">
   <input id="answer" type="text" placeholder="Type an item…" aria-label="Your answer" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
@@ -307,11 +307,12 @@ function start(d,m,inc){
  curMode=m;cur=d;found=new Set();credited=new Set();revealed=new Set();celebrated=new Set();ignored=new Set();over=false;counted=false;swallowing=false;
  keys=d[3].map(ik);
  const sv=savedOf(d,m),at=k=>keys.indexOf(k);
- if(sv){
-  sv.ignored.forEach(k=>{const i=at(k);if(i>=0)ignored.add(i)});
-  if(inc){
-   sv.found.forEach(k=>{const i=at(k);if(i>=0&&!ignored.has(i))found.add(i)});
-   sv.credited.forEach(k=>{const i=at(k);if(i>=0&&!ignored.has(i)&&!found.has(i)){credited.add(i);revealed.add(i)}})}}
+ if(sv)sv.ignored.forEach(k=>{const i=at(k);if(i>=0)ignored.add(i)});
+ // inc === true redoes from the saved record; an object ({found,credited} keys) redoes from the round just played (also works for guests)
+ const src=inc===true?sv:inc;
+ if(src){
+  src.found.forEach(k=>{const i=at(k);if(i>=0&&!ignored.has(i))found.add(i)});
+  src.credited.forEach(k=>{const i=at(k);if(i>=0&&!ignored.has(i)&&!found.has(i)){credited.add(i);revealed.add(i)}})}
  $('#game').classList.remove('over');$('#home').classList.add('hidden');$('#game').classList.remove('hidden');
  $('#gSys').textContent=d[0];$('#gCond').textContent=d[1];$('#gPrompt').textContent=d[2];
  const gs=$('#gStar');gs.classList.toggle('hidden',!acct);gs.setAttribute('aria-pressed',!!starred(d,m));
@@ -449,6 +450,7 @@ function finish(){
  $('#game').classList.add('over');$('#answer').disabled=true;
  cur[3].forEach((it,i)=>{if(pending(i)){revealed.add(i);$('#t'+i).classList.add('on','miss')}});
  $('#playActs').classList.add('hidden');$('#doneActs').classList.remove('hidden');score();refreshSections();
+ $('#retryInc').classList.toggle('hidden',cur[3].every((it,i)=>found.has(i)||credited.has(i)||ignored.has(i)));
  commit(true);
 }
 function home(){
@@ -462,6 +464,7 @@ $('#quit').onclick=home;
 $('#menu').onclick=home;
 $('#next').onclick=()=>rand(curMode);
 $('#retry').onclick=()=>start(cur,curMode);
+$('#retryInc').onclick=()=>{const ks=s=>[...s].map(i=>keys[i]);start(cur,curMode,{found:ks(found),credited:ks(credited)})};
 $('#goRandom').onclick=()=>rand(mode);
 $('#gStar').onclick=()=>$('#gStar').setAttribute('aria-pressed',toggleStar(cur,curMode));
 
