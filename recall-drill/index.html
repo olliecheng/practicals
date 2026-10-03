@@ -441,7 +441,7 @@ function acctUI(){
  const el=$('#acct');el.innerHTML='';
  const msg=document.createElement('span');msg.id='acctMsg';
  if(acct){
-  const s=document.createElement('span');s.innerHTML='Signed in as <b></b>';s.querySelector('b').textContent=acct;
+  const s=document.createElement('span');s.innerHTML='Signed in as <b></b>';s.querySelector('b').textContent=acct.replace(/(^|[_-])([a-z])/g,(m,d,c)=>d+c.toUpperCase());
   const b=document.createElement('button');b.textContent='Log out';b.onclick=logout;
   el.append(s,b,msg);
  }else el.innerHTML='Guest: nothing is saved <a href="./login/">Log in</a>';
