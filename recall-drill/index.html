@@ -95,6 +95,7 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .tile.cred .b{background:var(--teal-soft);border-color:var(--teal);border-style:dashed}
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}
 .result{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter',sans-serif;font-weight:600;font-size:1.25rem;line-height:1.2}
+.hist{display:flex;align-items:center;gap:6px;font-size:.88rem;color:var(--mute);cursor:pointer;flex-basis:100%}
 .hidden{display:none!important}
 .cf{position:fixed;top:-20px;width:8px;height:12px;border-radius:2px;pointer-events:none;z-index:50;opacity:0;animation:cf 2.2s cubic-bezier(.5,0,1,1) both}
 @keyframes cf{0%{opacity:1;transform:translate(0,0) rotate(0)}85%{opacity:1}100%{opacity:0;transform:translate(var(--dx),calc(100vh + 40px)) rotate(var(--r))}}
@@ -168,7 +169,7 @@ button.star[aria-pressed="true"]{color:var(--amber);border-color:var(--amber)}
   <div class="cond" id="gCond"></div>
   <p class="prompt" id="gPrompt"></p>
   <div id="playActs"><div class="actions"><button class="primary" id="finish"></button><button id="quit">Back</button><button id="newCond">New</button></div></div>
-  <div class="actions hidden" id="doneActs"><span class="result" id="result"></span><button class="primary" id="next">Next condition</button><button id="retryInc">Retry incorrect</button><button id="retry">Retry this one</button><button id="menu">Menu</button><span class="note" style="flex-basis:100%;margin:0">Tap a missed tile if you had it.</span></div>
+  <div class="actions hidden" id="doneActs"><span class="result" id="result"></span><button class="primary" id="next">Next condition</button><button id="retryInc">Retry incorrect</button><button id="retry">Retry this one</button><button id="menu">Menu</button><label class="hist hidden" id="histWrap"><input type="checkbox" id="histCk" checked> Add to history</label><span class="note" style="flex-basis:100%;margin:0">Tap a missed tile if you had it.</span></div>
  </div>
  <div class="panel" id="inCard">
   <input id="answer" type="text" placeholder="Type an item…" aria-label="Your answer" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
@@ -204,7 +205,7 @@ let systems=[],mode='cond',curMode='cond',selSys=new Set(),cur=null,found=new Se
 let ignored=new Set(),keys=[],acct=null,user=null,starOnly=false;
 // collapsed: only the section `active` is open and matched (the counter and score still cover every section).
 // The choice is remembered; expanded (all sections open, all matched) is the default.
-let collapsed=false,active='',counted=false;
+let collapsed=false,active='',counted=false,histOn=true,prevRec=null;
 const CKEY='recallDrillCollapsed';
 try{collapsed=localStorage.getItem(CKEY)==='1'}catch{}
 function saveCollapsed(){try{localStorage.setItem(CKEY,collapsed?'1':'0')}catch{}}
@@ -384,8 +385,8 @@ function commit(done){
  const keysOf=s=>[...s].map(i=>keys[i]);
  r.ignored=keysOf(ignored);
  // A redo round starts from the saved found/credited, so what it saves is the combined result
- if(over){r.found=keysOf(found);r.credited=keysOf(credited);r.score=pct()}
- if(done){if(!counted){r.runs++;counted=true}r.last=Date.now()}
+ if(over&&histOn){r.found=keysOf(found);r.credited=keysOf(credited);r.score=pct()}
+ if(done&&histOn){if(!counted){r.runs++;counted=true}r.last=Date.now()}
  save();
 }
 function count(){const A=cur[3].map((it,i)=>i),n=A.filter(i=>!ignored.has(i)).length,g0=A.filter(i=>found.has(i)||credited.has(i)).length;$('#counter').innerHTML=`${g0} <span>of ${n} found</span>`;
@@ -451,7 +452,10 @@ function finish(){
  cur[3].forEach((it,i)=>{if(pending(i)){revealed.add(i);$('#t'+i).classList.add('on','miss')}});
  $('#playActs').classList.add('hidden');$('#doneActs').classList.remove('hidden');score();refreshSections();
  $('#retryInc').classList.toggle('hidden',cur[3].every((it,i)=>found.has(i)||credited.has(i)||ignored.has(i)));
- commit(true);
+ // "Add to history" starts ticked: remember the record as it was so unticking can restore it
+ if(acct){const r=user.drills[dk(cur,curMode)];prevRec=r?JSON.parse(JSON.stringify(r)):null}
+ histOn=true;$('#histCk').checked=true;$('#histWrap').classList.toggle('hidden',!acct);
+ commit(true);flush();
 }
 function home(){
  clearTimeout(deferT);flush();
@@ -463,6 +467,15 @@ $('#newCond').onclick=()=>rand(curMode);
 $('#quit').onclick=home;
 $('#menu').onclick=home;
 $('#next').onclick=()=>rand(curMode);
+$('#histCk').onchange=e=>{
+ histOn=e.target.checked;
+ if(histOn)commit(true);
+ else{
+  const r=user.drills[dk(cur,curMode)],p=prevRec||{runs:0,last:0,score:0,found:[],credited:[]};
+  Object.assign(r,{runs:p.runs,last:p.last,score:p.score,found:p.found,credited:p.credited});counted=false;save();
+ }
+ flush();
+};
 $('#retry').onclick=()=>start(cur,curMode);
 $('#retryInc').onclick=()=>{const ks=s=>[...s].map(i=>keys[i]);start(cur,curMode,{found:ks(found),credited:ks(credited)})};
 $('#goRandom').onclick=()=>rand(mode);
