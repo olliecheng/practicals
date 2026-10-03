@@ -78,10 +78,9 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .sect.done .sh .sc{color:var(--teal);font-weight:400}
 .chead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin:0 0 10px}.chead .counter{margin:0}
 .chead button{padding:4px 10px;font-size:.8rem;flex:none}
-.tg{border:0;background:none;padding:0;font:inherit;color:inherit;display:inline-flex;align-items:center;gap:4px;cursor:default;text-align:left}
+.tg{border:0;background:none;padding:0;font:inherit;color:inherit;display:flex;flex:1;justify-content:space-between;align-items:center;gap:10px;cursor:default;text-align:left}
+.tg .nm{display:inline-flex;align-items:center;gap:4px}
 .sect.collapsible.closed .tg{cursor:pointer}
-.tg .chev{display:inline-block;width:14px;color:var(--mute);font-size:.8rem;transition:transform .15s}
-.sect.closed .tg .chev{transform:rotate(-90deg)}
 .sect.closed .board,.sect.closed>.note{display:none}
 .sect.closed{opacity:.75}.sect.closed .sh{margin-bottom:0}
 #game.over .tg{pointer-events:none}#game.over #allToggle{display:none}
@@ -323,7 +322,7 @@ function start(d,m,inc){
  MODES[m].sections.forEach(([code,name,icon])=>{
   const idx=d[3].map((it,i)=>i).filter(i=>d[3][i][2]===code);
   const sec=document.createElement('section');sec.className='sect';sec.id='s'+code;
-  sec.innerHTML=`<h3 class="sh"><button class="tg" type="button"><span class="chev" aria-hidden="true">▾</span><span class="ic" aria-hidden="true"></span>${name}</button><span class="sc"></span></h3>`;
+  sec.innerHTML=`<h3 class="sh"><button class="tg" type="button"><span class="nm"><span class="ic" aria-hidden="true"></span>${name}</span><span class="sc"></span></button></h3>`;
   sec.querySelector('.ic').style.setProperty('--ic',`url("${icon}")`);
   const tg=sec.querySelector('.tg');tg.onclick=()=>setActive(code);
   if(!idx.length)sec.insertAdjacentHTML('beforeend',`<p class="note" style="margin:0">None listed for this ${MODES[m].noun}.</p>`);
