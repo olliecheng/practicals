@@ -106,7 +106,7 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
   <p class="prompt" id="gPrompt"></p>
   <div class="tline"><span>Enter submits short abbreviations</span></div>
   <input id="answer" type="text" placeholder="Type an item…" aria-label="Your answer" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
-  <div class="actions" id="playActs"><button class="primary" id="finish">I'm done</button><button id="newCond">New</button><button id="quit">Back</button></div>
+  <div id="playActs"><div class="actions"><button class="primary" id="finish"></button></div><div class="actions"><button id="quit">Back</button><button id="newCond">New</button></div></div>
   <div class="actions hidden" id="doneActs"><span class="result" id="result"></span><button class="primary" id="next">Next condition</button><button id="retry">Retry this one</button><button id="menu">Menu</button><span class="note" style="flex-basis:100%;margin:0">Tap a missed tile if you had it.</span></div>
  </div>
  <div class="panel">
@@ -128,10 +128,10 @@ import icT from './assets/medications.svg';
 let DATA=[],PRES=[];
 const $=s=>document.querySelector(s);
 const MODES={
- cond:{noun:'condition',sections:[['P','Presentation',icP],['R','Risk factors / etiology',icR],['M','Investigations / management',icM],['T','Medications / treatment',icT]]},
- pres:{noun:'presentation',sections:[['D','Differentials',icR],['A','Associated features (history)',icP],['I','Investigations',icM]]}
+ cond:{noun:'condition',sections:[['P','Presentation',icP,'presentation'],['R','Risk factors / etiology',icR,'risk factors'],['M','Investigations / management',icM,'investigations / management'],['T','Medications / treatment',icT,'medications']]},
+ pres:{noun:'presentation',sections:[['D','Differentials',icR,'differentials'],['A','Associated features (history)',icP,'associated features'],['I','Investigations',icM,'investigations']]}
 };
-let systems=[],mode='cond',curMode='cond',selSys=new Set(),cur=null,found=new Set(),credited=new Set(),over=false;
+let systems=[],mode='cond',curMode='cond',selSys=new Set(),cur=null,found=new Set(),credited=new Set(),revealed=new Set(),over=false;
 
 // Matching. Keywords are word-start stems; "~x" matches anywhere (drug suffixes like ~pril).
 // Short keywords (<=3 chars) need a following delimiter so "ed" doesn't fire while typing "edema".
@@ -172,7 +172,7 @@ function list(){
 }
 function start(d,m){
  clearTimeout(deferT);
- curMode=m;cur=d;found=new Set();credited=new Set();over=false;swallowing=false;
+ curMode=m;cur=d;found=new Set();credited=new Set();revealed=new Set();over=false;swallowing=false;
  $('#game').classList.remove('over');$('#home').classList.add('hidden');$('#game').classList.remove('hidden');
  $('#gSys').textContent=d[0];$('#gCond').textContent=d[1];$('#gPrompt').textContent=d[2];
  $('#next').textContent='Next '+MODES[m].noun;
@@ -187,9 +187,9 @@ function start(d,m){
   if(!idx.length)sec.insertAdjacentHTML('beforeend',`<p class="note" style="margin:0">None listed for this ${MODES[m].noun}.</p>`);
   const bd=document.createElement('div');bd.className='board';
   idx.forEach((i,n)=>{const t=document.createElement('div');t.className='tile'+(found.has(i)?' on':'');t.id='t'+i;t.innerHTML=`<div class="in"><div class="f">${n+1}</div><div class="b">${d[3][i][0]}</div></div>`;
-   t.onclick=()=>{if(!over||found.has(i))return;credited.has(i)?credited.delete(i):credited.add(i);t.classList.toggle('cred');t.classList.toggle('miss');score()};bd.appendChild(t)});
+   t.onclick=()=>{if(!revealed.has(i))return;credited.has(i)?credited.delete(i):credited.add(i);t.classList.toggle('cred');t.classList.toggle('miss');score()};bd.appendChild(t)});
   sec.appendChild(bd);wrap.appendChild(sec)});
- count();inp.focus();
+ count();reveal();inp.focus();
 }
 function count(){const n=cur[3].length;$('#counter').innerHTML=`${found.size+credited.size} <span>of ${n} found</span>`;
  MODES[curMode].sections.forEach(([code])=>{const idx=cur[3].map((it,i)=>i).filter(i=>cur[3][i][2]===code);const g=idx.filter(i=>found.has(i)||credited.has(i)).length;
@@ -202,7 +202,7 @@ function swallow(){swallowing=true;clearTimeout(swT);swT=setTimeout(()=>{swallow
 function evaluate(submit,idle){
  clearTimeout(deferT);
  if(over)return;const inp=$('#answer');const v=inp.value;if(!v.trim())return;
- const r=judge(cur[3],i=>found.has(i),v,submit);
+ const r=judge(cur[3],i=>found.has(i)||revealed.has(i),v,submit);
  if(!r){if(submit&&!idle){inp.value='';retrigger(inp,'bad')}return}
  if(r.defer){deferT=setTimeout(()=>evaluate(true,true),700);return}
  inp.value='';
@@ -222,17 +222,25 @@ $('#answer').addEventListener('input',e=>{
 });
 $('#answer').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();swallowing=false;evaluate(true)}});
 function score(){const n=cur[3].length,p=Math.round(100*(found.size+credited.size)/n);$('#result').textContent=p+'%';count();return p}
+// One Reveal button, labelled with the next section that still has unfound tiles; revealing the last one finishes.
+const nextSec=()=>MODES[curMode].sections.find(([code])=>cur[3].some((it,i)=>it[2]===code&&!found.has(i)&&!revealed.has(i)));
+function reveal(){const n=nextSec();if(n)$('#finish').textContent='Reveal '+n[3]}
+function revealSec(){
+ if(over)return;const n=nextSec();if(!n)return finish();
+ cur[3].forEach((it,i)=>{if(it[2]===n[0]&&!found.has(i)&&!revealed.has(i)){revealed.add(i);$('#t'+i).classList.add('on','miss')}});
+ if(nextSec())reveal();else finish();
+}
 function finish(){
  if(over)return;over=true;clearTimeout(deferT);
  $('#game').classList.add('over');$('#answer').disabled=true;
- cur[3].forEach((it,i)=>{if(!found.has(i))$('#t'+i).classList.add('on','miss')});
+ cur[3].forEach((it,i)=>{if(!found.has(i)&&!revealed.has(i)){revealed.add(i);$('#t'+i).classList.add('on','miss')}});
  $('#playActs').classList.add('hidden');$('#doneActs').classList.remove('hidden');score();
 }
 function home(){
  clearTimeout(deferT);
  $('#game').classList.add('hidden');$('#home').classList.remove('hidden');
 }
-$('#finish').onclick=finish;
+$('#finish').onclick=revealSec;
 $('#newCond').onclick=()=>start(randPick(curMode),curMode);
 $('#quit').onclick=home;
 $('#menu').onclick=home;
