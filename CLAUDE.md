@@ -17,7 +17,7 @@ Use `npx prettier` for formatting. Run it after every change.
 
 # Deployment
 
-- The website is deployed as a static site on Cloudflare Pages.
+- The website is deployed as a Cloudflare Worker with static assets (Workers Builds, `wrangler.jsonc`): `dist/` is served as assets and only `/api/*` runs Worker code (`worker/index.js`, D1 binding `DB`).
 - Don't run build tests, only use the dev server.
 - Add new pages to @vite.config.js so they can be deployed
 

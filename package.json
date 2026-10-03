@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "api": "wrangler pages dev . --kv USERS --port 8788"
+    "api": "mkdir -p dist && npx wrangler dev --port 8788"
   },
   "dependencies": {
     "@fontsource-variable/bricolage-grotesque": "^5.2.8",
