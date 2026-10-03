@@ -41,8 +41,12 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
  .wrap{padding:10px 10px 32px}header{margin-bottom:8px}header h1{font-size:1.25rem}
  .play{grid-template-columns:1fr;gap:10px}
  .side{display:contents}.side>.panel{padding:12px 14px;border-radius:var(--r)}
- #inCard{position:sticky;top:env(safe-area-inset-top,0px);z-index:2;padding:8px 10px}
+ #inCard{position:sticky;top:calc(env(safe-area-inset-top,0px) - 10px);z-index:2;padding:8px 10px}
  .play>.tiles{padding:12px}
+ /* The drill scrolls inside .wrap rather than the document, so the iOS keyboard has no page to pan and the sticky input card stays at the top */
+ html:has(#game:not(.hidden)),html:has(#game:not(.hidden)) body{height:100%;overflow:hidden;overscroll-behavior:none}
+ .wrap:has(#game:not(.hidden)){height:100dvh;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+ #game:focus-within{padding-bottom:50dvh}
  .cond{font-size:1.4rem!important;margin:0!important}.prompt{display:none}.tline{margin-top:2px!important;font-size:.78rem!important}#inCard .tline{display:none}
  #game .board{grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:4px}#game .tile .f,#game .tile .b{font-size:.74rem;padding:4px 6px;min-height:32px}#game .tile .f{font-size:.85rem}
  .sh{font-size:.95rem!important}
