@@ -421,7 +421,12 @@ function home(){
  $('#game').classList.add('hidden');$('#home').classList.remove('hidden');list();
 }
 $('#finish').onclick=revealSec;
-{const vv=window.visualViewport,KB_TRIM=56/* iOS reports the viewport above its floating URL pill + field-arrows bar; sit the dock just over the arrows bar */;if(vv){const kb=()=>document.documentElement.style.setProperty('--kb',Math.max(0,window.innerHeight-vv.height-vv.offsetTop-KB_TRIM)+'px');vv.addEventListener('resize',kb);vv.addEventListener('scroll',kb);kb()}}
+{const vv=window.visualViewport,dock=$('#dock'),KB_TRIM=56/* iOS reports the viewport above its floating URL pill + field-arrows bar; sit the dock just over the arrows bar */;
+if(vv){const place=()=>{if(!matchMedia('(max-width:780px)').matches){dock.style.top=dock.style.bottom=dock.style.transform='';return}
+ const gap=window.innerHeight-vv.height-vv.offsetTop,trim=gap>100?KB_TRIM:0;
+ // anchored from the layout-viewport top (innerHeight is unreliable on iOS while scrolled to the page end)
+ dock.style.bottom='auto';dock.style.top=(vv.offsetTop+vv.height+trim)+'px';dock.style.transform='translateY(-100%)'};
+ vv.addEventListener('resize',place);vv.addEventListener('scroll',place);addEventListener('scroll',place,{passive:true});place()}}
 $('#newCond').onclick=()=>rand(curMode);
 $('#quit').onclick=home;
 $('#menu').onclick=home;
