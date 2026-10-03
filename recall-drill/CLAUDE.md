@@ -33,7 +33,7 @@ Registered in `/vite.config.js` as `recallDrill` -> `recall-drill/index.html`. T
 
 - **Top-level key = system / category** (e.g. `Cardio`, `Resp`, `Renal`, `GI`, `Endo`, `Rheum`, `Neuro`, `Vasc`, `ID`, `Breast`, `Ortho`, `Derm`, `Eye`, `ENT`, `Cross`). Each becomes a filter chip. Chip order = key order in the file. `Cross` holds cross-cutting histories (e.g. "Smoking history"). Systems apply to `conditions.json` only.
 - **Second-level key = condition name**, shown as the title and in the "Or pick one" list. Must be unique within a system. List order is by system (in file order), then condition (in file order).
-- **`prompt`**: required string (usually "Symptoms to ask about" or "History to ask about"). Shown under the title in the game.
+- **`prompt`**: required string (usually "Symptoms to ask about" or "History to ask about"). Shown under the title; may be empty ("").
 - **Section arrays**: every key for the file must be present, shown in the order above; an empty array renders "None listed for this condition." Tiles are numbered 1..n within each section in array order.
 - **Item `label`**: text revealed on the tile (and the answer shown on reveal). Rendered as HTML via `innerHTML`, so escape `<`/`&` if ever needed.
 - **Item `keywords`**: a single string of `|`-separated alternatives, compiled by `rx()` in `index.html` into a case-insensitive regex. Each alternative is a regex fragment (so `.`, `.*`, `.?` work, e.g. `"ex.?smok"`, `"wake.*breath"`), and is prefixed with `\b`.

@@ -1,7 +1,7 @@
 {
  "Presentation": {
   "Abdominal distension": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Ascites (cirrhosis, malignancy, HF)",
@@ -134,7 +134,7 @@
    ]
   },
   "Abdominal pain": {
-   "prompt": "Differentials (all regions), associated features and investigations",
+   "prompt": "Differentials (all regions)",
    "differentials": [
     {
      "label": "Appendicitis",
@@ -311,7 +311,7 @@
    ]
   },
   "Abnormal bleeding and bruising": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Thrombocytopenia (ITP, TTP, marrow failure)",
@@ -428,7 +428,7 @@
    ]
   },
   "Abnormal speech and communication": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Stroke / TIA (aphasia, dysarthria)",
@@ -565,7 +565,7 @@
    ]
   },
   "Agitation (including aggression)": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Delirium (infection, metabolic, drugs)",
@@ -702,7 +702,7 @@
    ]
   },
   "Alcohol-related presentations": {
-   "prompt": "Complications, associated features and investigations",
+   "prompt": "Complications",
    "differentials": [
     {
      "label": "Intoxication",
@@ -839,7 +839,7 @@
    ]
   },
   "Altered bowel habit": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Colorectal cancer",
@@ -976,7 +976,7 @@
    ]
   },
   "Altered conscious state": {
-   "prompt": "Differentials (incl. intoxication, shock, trauma), associated features and investigations",
+   "prompt": "Differentials (incl. intoxication, shock, trauma)",
    "differentials": [
     {
      "label": "Hypoglycaemia",
@@ -1133,7 +1133,7 @@
    ]
   },
   "Altered sleep": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Insomnia",
@@ -1262,7 +1262,7 @@
    ]
   },
   "Altered urinary volume": {
-   "prompt": "Differentials (anuria, oliguria, polyuria), associated features and investigations",
+   "prompt": "Differentials (anuria, oliguria, polyuria)",
    "differentials": [
     {
      "label": "Prerenal AKI (dehydration, sepsis, HF)",
@@ -1403,7 +1403,7 @@
    ]
   },
   "Breast lump": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Fibroadenoma",
@@ -1512,7 +1512,7 @@
    ]
   },
   "Breast pain (mastalgia)": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Cyclical mastalgia",
@@ -1613,7 +1613,7 @@
    ]
   },
   "Chest pain": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "ACS",
@@ -1766,7 +1766,7 @@
    ]
   },
   "Chronic disease assessment": {
-   "prompt": "Complications to screen for, associated features and investigations",
+   "prompt": "Complications to screen for",
    "differentials": [
     {
      "label": "Cardiovascular disease (IHD, stroke, PAD)",
@@ -1911,7 +1911,7 @@
    ]
   },
   "Cognitive impairment": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Alzheimer's disease",
@@ -2060,7 +2060,7 @@
    ]
   },
   "Confusion": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Infection / sepsis (UTI, pneumonia)",
@@ -2217,7 +2217,7 @@
    ]
   },
   "Constipation": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Functional constipation / IBS-C",
@@ -2354,7 +2354,7 @@
    ]
   },
   "Cough": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Viral URTI / post-viral cough",
@@ -2499,7 +2499,7 @@
    ]
   },
   "Diarrhoea": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Viral gastroenteritis",
@@ -2656,7 +2656,7 @@
    ]
   },
   "Difficulty walking": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Stroke",
@@ -2813,7 +2813,7 @@
    ]
   },
   "Dizziness": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "BPPV",
@@ -2958,7 +2958,7 @@
    ]
   },
   "Drug misuse": {
-   "prompt": "Complications, associated features and investigations",
+   "prompt": "Complications",
    "differentials": [
     {
      "label": "Overdose / toxicity",
@@ -3103,7 +3103,7 @@
    ]
   },
   "Dysphagia": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Oesophageal cancer",
@@ -3252,7 +3252,7 @@
    ]
   },
   "Dyspnoea": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Asthma",
@@ -3421,7 +3421,7 @@
    ]
   },
   "Ear pain": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Acute otitis media",
@@ -3538,7 +3538,7 @@
    ]
   },
   "Erectile dysfunction": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Vascular (atherosclerosis)",
@@ -3667,7 +3667,7 @@
    ]
   },
   "Eye pain": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Acute angle-closure glaucoma",
@@ -3804,7 +3804,7 @@
    ]
   },
   "Facial pain": {
-   "prompt": "Differentials (incl. jaw pain), associated features and investigations",
+   "prompt": "Differentials (incl. jaw pain)",
    "differentials": [
     {
      "label": "Dental (abscess, caries, pulpitis)",
@@ -3933,7 +3933,7 @@
    ]
   },
   "Falls": {
-   "prompt": "Causes, associated features and investigations",
+   "prompt": "Causes",
    "differentials": [
     {
      "label": "Mechanical / environmental (trip, slip)",
@@ -4090,7 +4090,7 @@
    ]
   },
   "Fever": {
-   "prompt": "Differentials (incl. post-operative fever), associated features and investigations",
+   "prompt": "Differentials (incl. post-operative fever)",
    "differentials": [
     {
      "label": "Respiratory infection (pneumonia, influenza, COVID)",
@@ -4263,7 +4263,7 @@
    ]
   },
   "Haematemesis": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Peptic ulcer disease",
@@ -4392,7 +4392,7 @@
    ]
   },
   "Haematuria": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "UTI / cystitis / pyelonephritis",
@@ -4549,7 +4549,7 @@
    ]
   },
   "Haemoptysis": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Bronchitis / pneumonia",
@@ -4682,7 +4682,7 @@
    ]
   },
   "Headache": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Tension-type headache",
@@ -4851,7 +4851,7 @@
    ]
   },
   "Hearing loss": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Wax impaction",
@@ -4992,7 +4992,7 @@
    ]
   },
   "High blood pressure": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Essential (primary) hypertension",
@@ -5149,7 +5149,7 @@
    ]
   },
   "Inguinoscrotal lumps": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Inguinal hernia (direct / indirect)",
@@ -5270,7 +5270,7 @@
    ]
   },
   "Inguinoscrotal pain": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Testicular torsion",
@@ -5403,7 +5403,7 @@
    ]
   },
   "Jaundice": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Haemolysis (pre-hepatic)",
@@ -5572,7 +5572,7 @@
    ]
   },
   "Joint pain": {
-   "prompt": "Differentials (incl. back, hip, knee, neck, shoulder, SIJ), associated features and investigations",
+   "prompt": "Differentials (incl. back, hip, knee, neck, shoulder, SIJ)",
    "differentials": [
     {
      "label": "Osteoarthritis",
@@ -5729,7 +5729,7 @@
    ]
   },
   "Joint swelling": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Septic arthritis",
@@ -5890,7 +5890,7 @@
    ]
   },
   "Lack of energy": {
-   "prompt": "Differentials (lethargy, fatigue, malaise), associated features and investigations",
+   "prompt": "Differentials (lethargy, fatigue, malaise)",
    "differentials": [
     {
      "label": "Anaemia",
@@ -6087,7 +6087,7 @@
    ]
   },
   "Loss of consciousness": {
-   "prompt": "Differentials (transient, trauma, anaesthetised), associated features and investigations",
+   "prompt": "Differentials (transient, trauma, anaesthetised)",
    "differentials": [
     {
      "label": "Vasovagal syncope",
@@ -6244,7 +6244,7 @@
    ]
   },
   "Low blood pressure": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Hypovolaemia (haemorrhage, dehydration, burns)",
@@ -6401,7 +6401,7 @@
    ]
   },
   "Lump": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Lipoma",
@@ -6534,7 +6534,7 @@
    ]
   },
   "Melaena": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Peptic ulcer disease",
@@ -6663,7 +6663,7 @@
    ]
   },
   "Muscle weakness": {
-   "prompt": "Differentials (generalised and regional), associated features and investigations",
+   "prompt": "Differentials (generalised and regional)",
    "differentials": [
     {
      "label": "Stroke / TIA",
@@ -6840,7 +6840,7 @@
    ]
   },
   "Musculoskeletal pain": {
-   "prompt": "Differentials (bone, muscle, limb, loin, pelvic floor), associated features and investigations",
+   "prompt": "Differentials (bone, muscle, limb, loin, pelvic floor)",
    "differentials": [
     {
      "label": "Mechanical / muscle strain / soft tissue",
@@ -7005,7 +7005,7 @@
    ]
   },
   "Neck lump": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Reactive lymphadenopathy",
@@ -7154,7 +7154,7 @@
    ]
   },
   "Nipple discharge": {
-   "prompt": "Differentials (incl. lactation), associated features and investigations",
+   "prompt": "Differentials (incl. lactation)",
    "differentials": [
     {
      "label": "Physiological / galactorrhoea",
@@ -7279,7 +7279,7 @@
    ]
   },
   "Pallor": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Iron deficiency anaemia",
@@ -7436,7 +7436,7 @@
    ]
   },
   "Palpitations": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Sinus tachycardia (anxiety, exercise, fever)",
@@ -7577,7 +7577,7 @@
    ]
   },
   "Perianal lump": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Haemorrhoids (internal prolapsed / external)",
@@ -7710,7 +7710,7 @@
    ]
   },
   "Perianal pain": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Anal fissure",
@@ -7843,7 +7843,7 @@
    ]
   },
   "Polydipsia": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Diabetes mellitus",
@@ -7976,7 +7976,7 @@
    ]
   },
   "Pre-operative assessment": {
-   "prompt": "Risks to consider, associated features and investigations",
+   "prompt": "Risks to consider",
    "differentials": [
     {
      "label": "Cardiac risk (IHD, HF, arrhythmia, valve disease)",
@@ -8129,7 +8129,7 @@
    ]
   },
   "Preventative health assessment": {
-   "prompt": "Screening targets, associated features and investigations",
+   "prompt": "Screening targets",
    "differentials": [
     {
      "label": "Cardiovascular disease (absolute CVD risk)",
@@ -8298,7 +8298,7 @@
    ]
   },
   "Pruritus": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Dry skin (xerosis)",
@@ -8459,7 +8459,7 @@
    ]
   },
   "Rash": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Eczema / dermatitis",
@@ -8628,7 +8628,7 @@
    ]
   },
   "Rectal bleeding": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Haemorrhoids",
@@ -8769,7 +8769,7 @@
    ]
   },
   "Red eye": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Conjunctivitis (viral, bacterial, allergic)",
@@ -8910,7 +8910,7 @@
    ]
   },
   "Rhinorrhoea": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Viral URTI (common cold)",
@@ -9043,7 +9043,7 @@
    ]
   },
   "Seizure": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Epilepsy (generalised / focal)",
@@ -9208,7 +9208,7 @@
    ]
   },
   "Sensory disturbance": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Peripheral neuropathy (diabetes, B12, alcohol)",
@@ -9373,7 +9373,7 @@
    ]
   },
   "Skin lumps": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Seborrhoeic keratosis",
@@ -9498,7 +9498,7 @@
    ]
   },
   "Skin ulcers": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Venous ulcer",
@@ -9643,7 +9643,7 @@
    ]
   },
   "Sore throat": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Viral pharyngitis",
@@ -9788,7 +9788,7 @@
    ]
   },
   "Sweating": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Infection (TB, endocarditis, abscess, HIV)",
@@ -9965,7 +9965,7 @@
    ]
   },
   "Swelling": {
-   "prompt": "Differentials (generalised, regional, lower limb, peripheral oedema), associated features and investigations",
+   "prompt": "Differentials (generalised, regional, lower limb, peripheral oedema)",
    "differentials": [
     {
      "label": "Heart failure",
@@ -10138,7 +10138,7 @@
    ]
   },
   "Tinnitus": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Presbycusis / sensorineural hearing loss",
@@ -10267,7 +10267,7 @@
    ]
   },
   "Trauma": {
-   "prompt": "Injuries to consider, associated features and investigations",
+   "prompt": "Injuries to consider",
    "differentials": [
     {
      "label": "Airway compromise / C-spine injury",
@@ -10440,7 +10440,7 @@
    ]
   },
   "Tremor": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Essential tremor",
@@ -10581,7 +10581,7 @@
    ]
   },
   "Unusual thoughts or behaviours": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Schizophrenia / schizophreniform disorder",
@@ -10762,7 +10762,7 @@
    ]
   },
   "Urinary symptoms": {
-   "prompt": "Differentials (frequency, dysuria, nocturia, LUTS, incontinence), associated features and investigations",
+   "prompt": "Differentials (frequency, dysuria, nocturia, LUTS, incontinence)",
    "differentials": [
     {
      "label": "UTI / cystitis",
@@ -10935,7 +10935,7 @@
    ]
   },
   "Vision loss": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Central retinal artery occlusion",
@@ -11120,7 +11120,7 @@
    ]
   },
   "Vomiting": {
-   "prompt": "Differentials (incl. nausea), associated features and investigations",
+   "prompt": "Differentials (incl. nausea)",
    "differentials": [
     {
      "label": "Gastroenteritis",
@@ -11305,7 +11305,7 @@
    ]
   },
   "Weight gain": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Increased intake / reduced activity",
@@ -11462,7 +11462,7 @@
    ]
   },
   "Weight loss": {
-   "prompt": "Differentials, associated features and investigations",
+   "prompt": "",
    "differentials": [
     {
      "label": "Malignancy",
