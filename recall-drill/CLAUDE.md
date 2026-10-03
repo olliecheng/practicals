@@ -57,6 +57,19 @@ Registered in `/vite.config.js` as `recallDrill` -> `recall-drill/index.html`. T
 - Typography uses Apple system fonts with Inter as a fallback; no external requests.
 - Colour variables are in `:root`, with light/dark via `prefers-color-scheme`.
 
+## Accounts
+
+Optional, username-only (no password), so the username is effectively the secret; the UI asks for 6-32 characters of `a-z0-9_-`. "Guest" or not logging in saves nothing (ignoring a tile still works within the round).
+
+- `functions/api/user.js`: a Cloudflare Pages Function. `GET /api/user` returns the user's JSON (404 `{"error":"not found"}` if missing); `PUT /api/user` replaces it (this also creates the user). The username is the `X-Username` header. Storage is the `USERS` KV namespace, key `user:<name>`. There is no list endpoint.
+- `account.js`: fetch helpers and the remembered username (localStorage `recallDrillUser`, auto-login).
+- Record shape: `{v:1, stars:["mode|system|name"], drills:{"mode|system|name":{runs,last,score,found:["code:label"],credited:[...],ignored:[...]}}}`. Items are keyed by `sectionCode:label`, so renaming a label in the JSON orphans its saved state.
+- `index.html` saves with a debounced whole-record `PUT` (`save()`/`flush()`): on finishing a round, on credit toggles after finishing, on star and ignore toggles, and on Menu/Back.
+- Ignored tiles (hover a tile, press the `−` bubble; press again to restore) stay visible but greyed, count as already named when typed, and are excluded from the score and counters. They are always prefilled on the next attempt.
+- "Redo incorrect" on the selection page calls `start(d, mode, true)`: found and credited tiles from the saved record are prefilled, so only the blanks remain. Clicking the drill name starts from scratch (ignored tiles still prefilled).
+
+Local dev: `npm run dev` and, in a second shell, `npm run api` (wrangler with a local KV; `vite.config.js` proxies `/api` to it). Production needs a KV namespace bound as `USERS` in the Pages project settings. Don't add a `wrangler.toml` to the repo: for Pages it would override the dashboard bindings.
+
 ## Deployment
 
-Static site on Cloudflare Pages; Vite builds `recall-drill/index.html` as an entry and inlines the JSON files into the bundle, so nothing extra needs registering when the data changes.
+Static site on Cloudflare Pages (plus the Pages Function above); Vite builds `recall-drill/index.html` as an entry and inlines the JSON files into the bundle, so nothing extra needs registering when the data changes.

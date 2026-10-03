@@ -4,6 +4,8 @@ import { resolve } from "path";
 
 export default defineConfig({
   plugins: [react()],
+  // Recall Drill accounts: run `npm run api` (wrangler, local KV) alongside the dev server
+  server: { proxy: { "/api": "http://localhost:8788" } },
   build: {
     rollupOptions: {
       input: {
