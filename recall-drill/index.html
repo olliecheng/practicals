@@ -106,13 +106,10 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .menu .mi{display:flex;flex-direction:column;gap:4px;padding:6px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 6px 18px rgba(0,0,0,.18)}
 .menu button{white-space:nowrap;justify-content:flex-start;font-size:.85rem;padding:6px 10px}
 .menu button:disabled{opacity:.5;cursor:default}
-.menu button{background:none}
-.menu .scr{color:var(--ok);border-color:var(--ok)}
-.menu .inc{color:var(--amber);border-color:var(--amber)}
-.menu .rst{color:var(--bad);border-color:var(--bad)}
-.menu .scr:hover{background:var(--ok-soft)}
-.menu .inc:not(:disabled):hover{background:var(--amber-soft)}
-.menu .rst:hover{background:var(--bad-soft)}
+.menu .scr{background:var(--ok-soft);border-color:var(--ok)}
+.menu .inc{background:var(--bad-soft);border-color:var(--bad)}
+.menu .scr:hover,.menu .inc:not(:disabled):hover{filter:brightness(.96)}
+.menu .rst:hover{border-color:var(--mute)}
 .cell.open .menu{display:block}
 @media(hover:hover){.cell:hover .menu{display:block}}
 button.star,.condlist button.star{padding:2px 9px;font-size:1rem;line-height:1.2;color:var(--mute)}
