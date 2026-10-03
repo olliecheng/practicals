@@ -8,7 +8,7 @@ Registered in `/vite.config.js` as `recallDrill` -> `recall-drill/index.html`. T
 
 1. The player picks a mode (Conditions / Presentations), then systems (chips, Conditions only) and an item (random or from a list).
 2. The prompt is shown, and the items appear as numbered face-down tiles. Conditions have four sections: Presentation, Risk factors / etiology, Investigations / management, Medications / treatment. Presentations have three: Differentials, Associated features (history), Investigations.
-3. The player types one item at a time. Each input is tested against every item's `keywords` regex; a match flips that tile. Matching is live (on input) and on Enter. Skip saves progress (found tiles) and moves on; skipped items show in an amber tray and list highlight and are resumed from there (in-memory only).
+3. The player types one item at a time. Each input is tested against every item's `keywords` regex; a match flips that tile. Matching is live (on input) and on Enter. "New" jumps to another random item.
 4. "I'm done" reveals missed items; the player can tap a missed tile to credit it. Score is found+credited / total items.
 
 ## JSON format

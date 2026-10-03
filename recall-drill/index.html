@@ -41,7 +41,7 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
  .play{grid-template-columns:1fr;gap:10px}
  .play>.panel:first-child{top:env(safe-area-inset-top,0px);padding:12px 14px;border-radius:var(--r)}
  .play>.panel:last-child{padding:12px}
- .cond{font-size:1.4rem!important;margin:0!important}.prompt{display:none}#game:not(.over) #skipTrayG{display:none!important}.tline{margin-top:2px!important;font-size:.78rem!important}
+ .cond{font-size:1.4rem!important;margin:0!important}.prompt{display:none}.tline{margin-top:2px!important;font-size:.78rem!important}
  #game .board{grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:4px}#game .tile .f,#game .tile .b{font-size:.74rem;padding:4px 6px;min-height:32px}#game .tile .f{font-size:.85rem}
  #game.over>.panel:first-child{position:static}#game.over #answer,#game.over .tline{display:none!important}.sh{font-size:.95rem!important}
  #answer{font-size:1rem;padding:9px 12px;margin-top:6px}
@@ -82,10 +82,7 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .hidden{display:none!important}
 .note{color:var(--mute);font-size:.88rem}
 .prompt{color:var(--mute);margin:0 0 8px;font-size:.85rem}
-.tray{margin-top:14px;padding-top:10px;border-top:1px solid var(--line)}
-.tray .row{margin:6px 0 0}
-.tray .chip{font-size:.8rem;padding:4px 10px;border-color:var(--amber);background:var(--amber-soft)}
-.condlist button.skipd{border-color:var(--amber);background:var(--amber-soft)}
+
 @media (prefers-reduced-motion:reduce){.tile .in{transition:none}}
 </style></head><body>
 <div class="wrap">
@@ -96,8 +93,7 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
   <p class="lbl">Mode</p><div class="row" id="modeChips"></div>
   <div id="sysWrap"><p class="lbl">Systems</p><div class="row" id="sysChips"></div></div>
   <div class="big"><button class="primary" id="goRandom">Random condition</button></div>
-  <div class="tray hidden" id="skipTray"></div>
-  <p class="note">Conditions: history, risk factors, investigations/management and medications. Presentations: differentials, associated features and investigations. Name one item at a time, from any section. The box flashes green and clears when you hit something on the list, or yellow if you've already named it. Press "I'm done" to reveal the ones you missed in orange; tap a missed tile to credit it if you had it. Skip saves your progress so you can come back to it.</p>
+  <p class="note">Conditions: history, risk factors, investigations/management and medications. Presentations: differentials, associated features and investigations. Name one item at a time, from any section. The box flashes green and clears when you hit something on the list, or yellow if you've already named it. Press "I'm done" to reveal the ones you missed in orange; tap a missed tile to credit it if you had it.</p>
   <p class="lbl" style="margin-top:18px">Or pick one</p><div class="condlist" id="condList"></div>
  </div>
 </section>
@@ -109,9 +105,8 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
   <p class="prompt" id="gPrompt"></p>
   <div class="tline"><span>Enter submits short abbreviations</span></div>
   <input id="answer" type="text" placeholder="Type an item…" aria-label="Your answer" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
-  <div class="actions" id="playActs"><button class="primary" id="finish">I'm done</button><button id="skip">Skip</button><button id="quit">Back</button></div>
+  <div class="actions" id="playActs"><button class="primary" id="finish">I'm done</button><button id="newCond">New</button><button id="quit">Back</button></div>
   <div class="actions hidden" id="doneActs"><span class="result" id="result"></span><button class="primary" id="next">Next condition</button><button id="retry">Retry this one</button><button id="menu">Menu</button><span class="note" style="flex-basis:100%;margin:0">Tap a missed tile if you had it.</span></div>
-  <div class="tray hidden" id="skipTrayG"></div>
  </div>
  <div class="panel">
   <p class="counter" id="counter"></p>
@@ -136,8 +131,6 @@ const MODES={
  pres:{noun:'presentation',sections:[['D','Differentials',icR],['A','Associated features (history)',icP],['I','Investigations',icM]]}
 };
 let systems=[],mode='cond',curMode='cond',selSys=new Set(),cur=null,found=new Set(),credited=new Set(),over=false;
-const skipped=new Map();
-const keyOf=(m,d)=>m+':'+d[1];
 
 // Matching. Keywords are word-start stems; "~x" matches anywhere (drug suffixes like ~pril).
 // Short keywords (<=3 chars) need a following delimiter so "ed" doesn't fire while typing "edema".
@@ -167,32 +160,18 @@ function chips(){
  $('#goRandom').textContent='Random '+MODES[mode].noun;
 }
 function pool(m){return m==='cond'?DATA.filter(d=>selSys.has(d[0])):PRES}
-function randPick(m){
- const p=pool(m).filter(d=>d!==cur&&!skipped.has(keyOf(m,d)));
- return p.length?p[Math.floor(Math.random()*p.length)]:null;
-}
+function randPick(m){const p=pool(m).filter(d=>d!==cur);const q=p.length?p:pool(m);return q[Math.floor(Math.random()*q.length)]}
 function list(){
  const c=$('#condList');c.innerHTML='';
- const add=d=>{const b=document.createElement('button');b.textContent=d[1];if(skipped.has(keyOf(mode,d)))b.classList.add('skipd');b.onclick=()=>start(d,mode);c.appendChild(b)};
+ const add=d=>{const b=document.createElement('button');b.textContent=d[1];b.onclick=()=>start(d,mode);c.appendChild(b)};
  if(mode==='pres'){PRES.forEach(add);return}
  systems.filter(s=>selSys.has(s)).forEach(s=>{
   const h=document.createElement('h3');h.className='sysh';h.textContent=s;c.appendChild(h);
   DATA.filter(d=>d[0]===s).forEach(add)});
 }
-function tray(){
- [['#skipTray',null],['#skipTrayG',cur&&keyOf(curMode,cur)]].forEach(([sel,excl])=>{
-  const el=$(sel),items=[...skipped.entries()].filter(([k])=>k!==excl);
-  el.classList.toggle('hidden',!items.length);el.innerHTML='';if(!items.length)return;
-  el.insertAdjacentHTML('beforeend',`<p class="lbl">Skipped (${items.length}) — tap to return</p>`);
-  const row=document.createElement('div');row.className='row';
-  items.forEach(([k,s])=>{const n=s.d[3].length;row.appendChild(chipBtn(`${s.d[1]} · ${s.found.length}/${n}`,false,()=>start(s.d,s.mode)))});
-  el.appendChild(row)});
-}
-function start(d,m,fresh){
+function start(d,m){
  clearTimeout(deferT);
- const key=keyOf(m,d);if(fresh)skipped.delete(key);
- const sv=skipped.get(key);
- curMode=m;cur=d;found=new Set(sv?sv.found:[]);credited=new Set();over=false;swallowing=false;
+ curMode=m;cur=d;found=new Set();credited=new Set();over=false;swallowing=false;
  $('#game').classList.remove('over');$('#home').classList.add('hidden');$('#game').classList.remove('hidden');
  $('#gSys').textContent=d[0];$('#gCond').textContent=d[1];$('#gPrompt').textContent=d[2];
  $('#next').textContent='Next '+MODES[m].noun;
@@ -209,7 +188,7 @@ function start(d,m,fresh){
   idx.forEach((i,n)=>{const t=document.createElement('div');t.className='tile'+(found.has(i)?' on':'');t.id='t'+i;t.innerHTML=`<div class="in"><div class="f">${n+1}</div><div class="b">${d[3][i][0]}</div></div>`;
    t.onclick=()=>{if(!over||found.has(i))return;credited.has(i)?credited.delete(i):credited.add(i);t.classList.toggle('cred');t.classList.toggle('miss');score()};bd.appendChild(t)});
   sec.appendChild(bd);wrap.appendChild(sec)});
- count();tray();inp.focus();
+ count();inp.focus();
 }
 function count(){const n=cur[3].length;$('#counter').innerHTML=`${found.size+credited.size} <span>of ${n} found</span>`;
  MODES[curMode].sections.forEach(([code])=>{const idx=cur[3].map((it,i)=>i).filter(i=>cur[3][i][2]===code);const g=idx.filter(i=>found.has(i)||credited.has(i)).length;
@@ -243,35 +222,28 @@ $('#answer').addEventListener('input',e=>{
 $('#answer').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();swallowing=false;evaluate(true)}});
 function score(){const n=cur[3].length,p=Math.round(100*(found.size+credited.size)/n);$('#result').textContent=p+'%';count();return p}
 function finish(){
- if(over)return;over=true;clearTimeout(deferT);skipped.delete(keyOf(curMode,cur));tray();
+ if(over)return;over=true;clearTimeout(deferT);
  $('#game').classList.add('over');$('#answer').disabled=true;
  cur[3].forEach((it,i)=>{if(!found.has(i))$('#t'+i).classList.add('on','miss')});
  $('#playActs').classList.add('hidden');$('#doneActs').classList.remove('hidden');score();
 }
-function skip(){
- if(over)return;
- skipped.set(keyOf(curMode,cur),{mode:curMode,d:cur,found:[...found]});
- const nx=randPick(curMode);
- if(nx)start(nx,curMode);else home();
-}
 function home(){
  clearTimeout(deferT);
- if(cur&&!over){const k=keyOf(curMode,cur);if(skipped.has(k))skipped.set(k,{mode:curMode,d:cur,found:[...found]})}
- $('#game').classList.add('hidden');$('#home').classList.remove('hidden');list();tray();
+ $('#game').classList.add('hidden');$('#home').classList.remove('hidden');
 }
 $('#finish').onclick=finish;
-$('#skip').onclick=skip;
+$('#newCond').onclick=()=>start(randPick(curMode),curMode);
 $('#quit').onclick=home;
 $('#menu').onclick=home;
-$('#next').onclick=()=>{const nx=randPick(curMode);nx?start(nx,curMode):home()};
-$('#retry').onclick=()=>start(cur,curMode,true);
-$('#goRandom').onclick=()=>{const nx=randPick(mode);nx?start(nx,mode):tray()};
+$('#next').onclick=()=>start(randPick(curMode),curMode);
+$('#retry').onclick=()=>start(cur,curMode);
+$('#goRandom').onclick=()=>start(randPick(mode),mode);
 const flatten=(src,keys)=>Object.entries(src).flatMap(([sys,items])=>Object.entries(items).map(([name,c])=>[sys,name,c.prompt,keys.flatMap(([k,code])=>c[k].map(it=>[it.label,it.keywords,code]))]));
 {
  DATA=flatten(COND,[['presentation','P'],['risks','R'],['investigations','M'],['medications','T']]);
  PRES=flatten(PRESENT,[['differentials','D'],['associated','A'],['investigations','I']]);
  prep(DATA);prep(PRES);
  systems=Object.keys(COND);selSys=new Set(systems);
- chips();list();tray();
+ chips();list();
 }
 </script></body></html>
