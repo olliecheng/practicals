@@ -164,7 +164,7 @@ button.star[aria-pressed="true"]{color:var(--amber);border-color:var(--amber)}
   <p class="lbl">Mode</p><div class="row" id="modeChips"></div>
   <div id="sysWrap"><p class="lbl">Systems</p><div class="row" id="sysChips"></div></div>
   <div class="big"><button class="primary" id="goRandom">Random condition</button></div>
-  <p class="note">Conditions: history, risk factors, examination findings, investigations/management and medications. Presentations: differentials, associated features and investigations. Name one item at a time, from any open section: click a section heading to collapse it and leave it out of the round (Presentation and Examination can't both be open). The box flashes green and clears when you hit something on the list, or yellow if you've already named it. Press "I'm done" to reveal the ones you missed in orange; tap a missed tile to credit it if you had it. Hover a tile and press − to ignore an item you can't recall: it's greyed out and left out of your score. Log in with a username to save your history, stars and ignored items.</p>
+  <p class="note">Conditions: history, risk factors, examination findings, investigations and medications / treatment. Presentations: differentials, associated features and investigations. Name one item at a time, from any open section: click a section heading to collapse it and leave it out of the round (Presentation and Examination can't both be open). The box flashes green and clears when you hit something on the list, or yellow if you've already named it. Press "I'm done" to reveal the ones you missed in orange; tap a missed tile to credit it if you had it. Hover a tile and press − to ignore an item you can't recall: it's greyed out and left out of your score. Log in with a username to save your history, stars and ignored items.</p>
   <p class="lbl" style="margin-top:18px">Or pick one</p><div class="condlist" id="condList"></div>
  </div>
  <div class="panel hidden" id="hist"><p class="lbl">History</p><div class="hist" id="histList"></div></div>
@@ -201,7 +201,7 @@ import {lastUser,rememberUser,fetchUser,putUser} from './account.js';
 let DATA=[],PRES=[];
 const $=s=>document.querySelector(s);
 const MODES={
- cond:{noun:'condition',sections:[['P','Presentation',icP,'presentation'],['R','Risk factors / etiology',icR,'risk factors'],['E','Examination findings',icE,'examination findings'],['M','Investigations / management',icM,'investigations / management'],['T','Medications / treatment',icT,'medications']]},
+ cond:{noun:'condition',sections:[['P','Presentation',icP,'presentation'],['R','Risk factors / etiology',icR,'risk factors'],['E','Examination findings',icE,'examination findings'],['M','Investigations',icM,'investigations'],['T','Medications / treatment',icT,'medications']]},
  pres:{noun:'presentation',sections:[['D','Differentials',icR,'differentials'],['A','Associated features (history)',icP,'associated features'],['I','Investigations',icM,'investigations']]}
 };
 let systems=[],mode='cond',curMode='cond',selSys=new Set(),cur=null,found=new Set(),credited=new Set(),revealed=new Set(),celebrated=new Set(),over=false;

@@ -102,12 +102,28 @@
    ],
    "investigations": [
     {
-     "label": "Drug side effects (postural dizziness, gout, ACEi cough, thrush)",
-     "keywords": "side effect|postural|gout|thrush|genital|acei cough|hyperk"
+     "label": "Echo: reduced EF (HFrEF), LV dilatation, valve disease, RV function",
+     "keywords": "echo|ejection|ef |lvef|tte"
     },
     {
-     "label": "ICD shocks / device",
-     "keywords": "icd|shock|device|pacemaker|crt"
+     "label": "BNP / NT-proBNP raised",
+     "keywords": "bnp|natriuretic|pro.?bnp"
+    },
+    {
+     "label": "ECG: ischaemia, AF, LBBB / wide QRS (CRT candidate)",
+     "keywords": "ecg|ekg|lbbb|qrs"
+    },
+    {
+     "label": "CXR: upper lobe diversion, Kerley B lines, pleural effusions",
+     "keywords": "cxr|chest x|x.?ray|kerley|upper lobe"
+    },
+    {
+     "label": "U&E / eGFR / K+ at baseline and monitoring on ACEi, MRA, SGLT2i",
+     "keywords": "u&e|u and e|egfr|potassium|creatinine|renal function"
+    },
+    {
+     "label": "Iron studies (ferritin, TSAT), TFTs, HbA1c: reversible causes / comorbidity",
+     "keywords": "ferritin|tsat|iron stud|iron def|tft|tsh|hba1c"
     }
    ],
    "medications": [
@@ -134,6 +150,10 @@
     {
      "label": "Ivabradine / digoxin",
      "keywords": "ivabradine|digoxin"
+    },
+    {
+     "label": "Device therapy: ICD / CRT (EF <=35%, LBBB)",
+     "keywords": "icd|crt|device|pacemaker|defibrillator|resynchron"
     }
    ]
   },
@@ -215,16 +235,24 @@
    ],
    "investigations": [
     {
-     "label": "Bleeding on anticoagulation (GI, urine, bruising)",
-     "keywords": "bleed|bruis|melaen|haematur|blood"
+     "label": "ECG: absent P waves, irregularly irregular RR intervals",
+     "keywords": "ecg|ekg|p wave|12.?lead"
     },
     {
-     "label": "Anticoagulant adherence / INR",
-     "keywords": "adheren|inr|doac|warfarin|anticoag"
+     "label": "Holter / event monitor / loop recorder for paroxysmal AF",
+     "keywords": "holter|event monitor|loop recorder|ambulatory|monitor"
     },
     {
-     "label": "Falls",
-     "keywords": "fall"
+     "label": "Echo: LA size, LV function, mitral valve disease",
+     "keywords": "echo|left atri|transthoracic"
+    },
+    {
+     "label": "TFTs: low TSH (thyrotoxicosis)",
+     "keywords": "tft|tsh|thyroid function"
+    },
+    {
+     "label": "Renal function / FBC / LFTs for DOAC dosing; INR if on warfarin (target 2-3)",
+     "keywords": "inr|egfr|creatinine|renal function|fbc|lft|anti.?xa"
     }
    ],
    "medications": [
@@ -315,24 +343,28 @@
    ],
    "investigations": [
     {
-     "label": "GTN use and frequency",
-     "keywords": "gtn|nitrate|spray"
+     "label": "Resting ECG: ST depression, T wave inversion, Q waves; ST elevation in STEMI",
+     "keywords": "ecg|ekg|st depress|st elev|q wave|t wave"
     },
     {
-     "label": "Bleeding on antiplatelets",
-     "keywords": "bleed|bruis|melaen"
+     "label": "Serial high-sensitivity troponin: rise and fall in ACS",
+     "keywords": "troponin|trop"
     },
     {
-     "label": "Statin myalgia",
-     "keywords": "myalg|muscle|statin"
+     "label": "Stress test (exercise ECG, stress echo, perfusion scan): reversible ischaemia; resting echo for LV function",
+     "keywords": "stress|treadmill|exercise ecg|exercise test|perfusion|mibi|echo|wall motion|lvef"
     },
     {
-     "label": "Cardiac rehab",
-     "keywords": "rehab"
+     "label": "CT coronary angiogram / calcium score: coronary stenosis",
+     "keywords": "ctca|ct coronary|calcium score|ct angio|ct"
     },
     {
-     "label": "Erectile dysfunction (PDE5i + nitrate)",
-     "keywords": "erectil|sexual|ed |viagra|pde5"
+     "label": "Invasive coronary angiography: stenosis, PCI / CABG planning",
+     "keywords": "invasive|cath|angiogra"
+    },
+    {
+     "label": "Fasting lipids (LDL-C target <1.8 mmol/L) and HbA1c",
+     "keywords": "ldl|cholesterol|lipid profile|lipid panel|fasting lipid|hba1c"
     }
    ],
    "medications": [
@@ -359,6 +391,10 @@
     {
      "label": "Revascularisation (PCI / CABG)",
      "keywords": "pci|stent|cabg|bypass|angioplast|revascular"
+    },
+    {
+     "label": "Cardiac rehabilitation",
+     "keywords": "rehab"
     }
    ]
   },
@@ -448,8 +484,28 @@
    ],
    "investigations": [
     {
-     "label": "Antibiotic course / PICC / OPAT",
-     "keywords": "antibiot|picc|opat|hith"
+     "label": "Blood cultures x3 sets from separate sites before antibiotics",
+     "keywords": "blood cult|bcx|cultures|3 sets|three sets"
+    },
+    {
+     "label": "Echo: TTE then TOE if negative or prosthetic valve: vegetation, regurgitation, abscess",
+     "keywords": "echo|tte|toe|transoesoph|oesophageal|vegetation"
+    },
+    {
+     "label": "Modified Duke criteria (major: positive cultures, endocardial involvement)",
+     "keywords": "duke"
+    },
+    {
+     "label": "CRP / ESR raised, anaemia of chronic disease, urinalysis (microscopic haematuria)",
+     "keywords": "crp|esr|inflammatory|fbc|urinalysis|urine dip|anaemia"
+    },
+    {
+     "label": "ECG: new PR prolongation / AV block (aortic root abscess)",
+     "keywords": "ecg|ekg|pr interval|heart block|av block"
+    },
+    {
+     "label": "CT / MRI brain, CT abdomen, PET-CT for embolic or prosthetic valve disease",
+     "keywords": "septic emboli|ct brain|mri|pet|ct|imaging"
     }
    ],
    "medications": [
@@ -569,16 +625,28 @@
    ],
    "investigations": [
     {
-     "label": "Diagnosis: how found, home/ambulatory readings",
-     "keywords": "diagnos|home|ambulat|abpm|reading|found"
+     "label": "ABPM / home BP monitoring to confirm (ambulatory daytime >=135/85)",
+     "keywords": "abpm|ambulatory|home bp|home blood|hbpm|24.?h"
     },
     {
-     "label": "Med side effects (cough, ankle swelling, dizziness, gout)",
-     "keywords": "side effect|cough|ankle|dizz|gout|postural"
+     "label": "U&E / eGFR, urine ACR, urinalysis (renal cause or damage)",
+     "keywords": "egfr|u&e|creatinine|acr|albumin|urinalysis|urine dip"
     },
     {
-     "label": "Adherence",
-     "keywords": "adheren|complian"
+     "label": "ECG: LVH (voltage criteria, strain)",
+     "keywords": "ecg|ekg|strain|voltage"
+    },
+    {
+     "label": "Fasting lipids and glucose / HbA1c for CV risk",
+     "keywords": "lipid|cholest|glucose|hba1c|fasting|cv risk|cardiovascular risk"
+    },
+    {
+     "label": "Secondary screen if young / resistant: aldosterone-renin ratio, metanephrines, renal artery duplex, TFTs",
+     "keywords": "renin|arr|aldosterone.?renin|metaneph|renal artery|duplex|catecholamine|tft"
+    },
+    {
+     "label": "Echo: LV hypertrophy, diastolic dysfunction",
+     "keywords": "echo|echocardiogram|diastolic"
     }
    ],
    "medications": [
@@ -686,20 +754,28 @@
    ],
    "investigations": [
     {
-     "label": "Echo surveillance / known severity",
-     "keywords": "echo|surveil|severity|gradient"
+     "label": "Echo (TTE): AV area <1.0 cm2, mean gradient >=40 mmHg, Vmax >=4 m/s, LVEF; serial surveillance",
+     "keywords": "echo|gradient|valve area|vmax|av area|transthoracic"
     },
     {
-     "label": "Dental hygiene",
-     "keywords": "dental|teeth|dentist"
+     "label": "ECG: LVH with strain, AV block, AF",
+     "keywords": "ecg|ekg|strain|heart block"
     },
     {
-     "label": "TAVI / valve surgery discussion",
-     "keywords": "tavi|savr|surgery|valve replace"
+     "label": "CXR: calcified valve, LVH, pulmonary congestion",
+     "keywords": "cxr|chest x|x.?ray|calcif"
     },
     {
-     "label": "Anticoagulation if mechanical valve",
-     "keywords": "warfarin|inr|anticoag"
+     "label": "Coronary angiography / CT coronary before AVR (assess CAD)",
+     "keywords": "angiogra|cath|ct coronary|ctca|coronary"
+    },
+    {
+     "label": "CT aortic valve calcium score / TAVI planning CT (low-flow low-gradient)",
+     "keywords": "calcium score|tavi planning|ct aort|ct tavi|cardiac ct"
+    },
+    {
+     "label": "Dobutamine stress echo / exercise test (low-flow low-gradient; asymptomatic severe)",
+     "keywords": "dobutamine|stress echo|exercise test|stress test"
     }
    ],
    "medications": [
@@ -718,6 +794,10 @@
     {
      "label": "Balloon valvuloplasty (bridge)",
      "keywords": "balloon|valvuloplast|bav"
+    },
+    {
+     "label": "Aortic valve replacement: SAVR or TAVI (symptomatic / severe)",
+     "keywords": "tavi|savr|avr|valve replace|surg"
     }
    ]
   }
@@ -813,16 +893,28 @@
    ],
    "investigations": [
     {
-     "label": "Steroid & antibiotic courses",
-     "keywords": "steroid|pred|antibiot"
+     "label": "Post-bronchodilator spirometry: FEV1/FVC <0.7 (GOLD grade by FEV1 % predicted)",
+     "keywords": "spirom|fev|fvc|obstruct|gold"
     },
     {
-     "label": "Home O2 (hours, flow)",
-     "keywords": "oxygen|o2|home ox"
+     "label": "CXR: hyperinflation, flattened diaphragms, bullae; exclude cancer",
+     "keywords": "cxr|chest x|x.?ray|bulla|flattened"
     },
     {
-     "label": "Inhaler technique & adherence",
-     "keywords": "inhaler|technique|adheren|puffer|spacer"
+     "label": "Full lung function: raised TLC / RV, reduced DLCO (emphysema)",
+     "keywords": "lung function|dlco|tlco|gas transfer|plethysm|tlc"
+    },
+    {
+     "label": "ABG / oximetry: hypoxia, hypercapnia (type 2 respiratory failure); LTOT assessment",
+     "keywords": "abg|blood gas|vbg|hypercap|pao2|type 2|respiratory failure|oximetry"
+    },
+    {
+     "label": "FBC (polycythaemia, eosinophils to guide ICS); alpha-1 antitrypsin level",
+     "keywords": "eosinophil|polycyth|fbc|alpha|aat|a1at"
+    },
+    {
+     "label": "CT chest: emphysema, bronchiectasis, lung cancer",
+     "keywords": "ct|hrct|ct chest"
     }
    ],
    "medications": [
@@ -849,6 +941,10 @@
     {
      "label": "Pulmonary rehabilitation",
      "keywords": "rehab|pulmonary rehab"
+    },
+    {
+     "label": "Long-term home oxygen (resting PaO2 <=55 mmHg, or <=59 with cor pulmonale)",
+     "keywords": "oxygen|o2|home ox|ltot"
     }
    ]
   },
@@ -930,20 +1026,28 @@
    ],
    "investigations": [
     {
-     "label": "Reliever use frequency",
-     "keywords": "reliever|ventolin|salbutamol|saba|puffer use|how often"
+     "label": "Spirometry: obstructive; bronchodilator reversibility >=12% and 200 mL",
+     "keywords": "spirom|fev|reversib|bronchodil|fvc"
     },
     {
-     "label": "Oral steroid courses",
-     "keywords": "steroid|pred"
+     "label": "Peak flow diary: diurnal variability >10-20%",
+     "keywords": "peak flow diary|variability|diurnal|pef diary"
     },
     {
-     "label": "Action plan",
-     "keywords": "action plan|plan"
+     "label": "Bronchial provocation (methacholine / mannitol / exercise) if spirometry normal",
+     "keywords": "methacholine|mannitol|challenge|provocation|bronchial"
     },
     {
-     "label": "Inhaler technique / adherence",
-     "keywords": "technique|adheren|spacer"
+     "label": "FeNO raised (eosinophilic airway inflammation)",
+     "keywords": "feno|nitric oxide|exhaled"
+    },
+    {
+     "label": "Blood eosinophils, total / specific IgE, skin prick tests (atopy; biologic eligibility)",
+     "keywords": "eosinophil|ige|skin prick|prick|rast"
+    },
+    {
+     "label": "CXR: exclude pneumothorax, pneumonia, other causes",
+     "keywords": "cxr|chest x|x.?ray"
     }
    ],
    "medications": [
@@ -966,6 +1070,10 @@
     {
      "label": "Biologics for severe asthma (mepolizumab, benralizumab, dupilumab)",
      "keywords": "biolog|mepolizumab|nucala|benralizumab|fasenra|dupilumab|dupixent|omalizumab|xolair|tezepelumab|~lizumab"
+    },
+    {
+     "label": "Written asthma action plan",
+     "keywords": "action plan|written plan|asthma plan"
     }
    ]
   },
@@ -1059,8 +1167,28 @@
    ],
    "investigations": [
     {
-     "label": "Home O2 / antifibrotic side effects (diarrhoea, photosensitivity)",
-     "keywords": "oxygen|o2|nintedanib|pirfenidone|antifib|diarrh|side effect"
+     "label": "HRCT chest: UIP (honeycombing, traction bronchiectasis, basal subpleural reticulation) or NSIP (ground glass)",
+     "keywords": "hrct|ct|honeycomb|reticul|uip|ground glass|traction"
+    },
+    {
+     "label": "Spirometry: restrictive, reduced FVC, normal or raised FEV1/FVC",
+     "keywords": "spirom|fvc|fev"
+    },
+    {
+     "label": "DLCO / TLCO reduced; reduced TLC",
+     "keywords": "dlco|tlco|gas transfer|tlc|lung volumes|plethys"
+    },
+    {
+     "label": "Autoimmune serology: ANA, ENA, RF, anti-CCP, anti-Scl-70, Jo-1, ANCA",
+     "keywords": "ana|ena|rf|ccp|serolog|jo.?1|scl|anca|autoantibod"
+    },
+    {
+     "label": "6-minute walk test: exertional oxygen desaturation",
+     "keywords": "6mwt|six.?minute|6.?min|walk test"
+    },
+    {
+     "label": "BAL (lymphocytosis in HP) or cryo / surgical lung biopsy if HRCT uncertain; MDT",
+     "keywords": "bal|biops|lavage|bronchoscop|mdt|cryo"
     }
    ],
    "medications": [
@@ -1083,6 +1211,10 @@
     {
      "label": "Vaccines",
      "keywords": "vaccin|influenza|pneumococc|covid|rsv|immunis"
+    },
+    {
+     "label": "Home / ambulatory oxygen if hypoxaemic",
+     "keywords": "oxygen|o2|home ox|ambulatory ox"
     }
    ]
   },
@@ -1192,8 +1324,28 @@
    ],
    "investigations": [
     {
-     "label": "Treatment side effects (immunotherapy: diarrhoea, rash)",
-     "keywords": "side effect|immunother|chemo|diarrh|rash|radiother"
+     "label": "CXR: mass, hilar enlargement, collapse, effusion",
+     "keywords": "cxr|chest x|x.?ray"
+    },
+    {
+     "label": "CT chest / abdomen / adrenals with contrast (staging)",
+     "keywords": "ct chest|ct|ct thorax|contrast|staging ct"
+    },
+    {
+     "label": "PET-CT: nodal and distant staging",
+     "keywords": "pet|fdg|pet.?ct"
+    },
+    {
+     "label": "Tissue diagnosis: CT-guided biopsy, bronchoscopy, EBUS-TBNA, pleural fluid cytology",
+     "keywords": "biops|ebus|tbna|bronchoscop|histolog|cytolog|tissue"
+    },
+    {
+     "label": "Molecular / biomarker testing (EGFR, ALK, ROS1, KRAS, PD-L1)",
+     "keywords": "molecular|mutation|genotyp|ngs|next.?gen|biomarker|ros1|kras|braf"
+    },
+    {
+     "label": "MRI brain (stage III/IV, brain metastases)",
+     "keywords": "mri|brain imaging|ct brain|bone scan"
     }
    ],
    "medications": [
@@ -1297,12 +1449,28 @@
    ],
    "investigations": [
     {
-     "label": "Driving / near misses",
-     "keywords": "driv|accident|near miss"
+     "label": "Sleep study (polysomnography / home): AHI >=5 (mild 5-15, moderate 15-30, severe >30)",
+     "keywords": "sleep study|polysomn|psg|ahi|apnoea.?hypo|apnea.?hypo"
     },
     {
-     "label": "CPAP adherence / problems",
-     "keywords": "cpap|mask|adheren"
+     "label": "STOP-BANG screening score (>=3 high risk)",
+     "keywords": "stop-bang|stopbang|stop bang"
+    },
+    {
+     "label": "Overnight oximetry: desaturation dips (ODI)",
+     "keywords": "oximet|odi|desat"
+    },
+    {
+     "label": "CPAP data download: usage hours / night, residual AHI, mask leak",
+     "keywords": "cpap download|machine download|data download|download|residual|leak"
+    },
+    {
+     "label": "TFTs (hypothyroidism), HbA1c / glucose (associated conditions)",
+     "keywords": "tft|tsh|hba1c|glucose|thyroid function"
+    },
+    {
+     "label": "Serum bicarbonate / ABG: obesity hypoventilation (daytime hypercapnia)",
+     "keywords": "bicarb|hypoventil|abg|blood gas"
     }
    ],
    "medications": [
@@ -1430,8 +1598,28 @@
    ],
    "investigations": [
     {
-     "label": "Airway clearance / physio routine",
-     "keywords": "clearance|physio|pep|flutter|nebul"
+     "label": "HRCT chest: bronchial dilatation (signet ring, bronchoarterial ratio >1), no tapering, wall thickening, mucus plugging",
+     "keywords": "hrct|ct|signet|tram|bronchial dilat|tapering"
+    },
+    {
+     "label": "Sputum culture: Pseudomonas, H. influenzae; AFB / NTM and fungal culture",
+     "keywords": "sputum cult|mcs|microbiolog|afb|ntm|mycobacter|pseudomonas|sputum m"
+    },
+    {
+     "label": "Spirometry: obstructive (or mixed), FEV1 decline",
+     "keywords": "spirom|fev|fvc|lung function"
+    },
+    {
+     "label": "Immunoglobulins (IgG, IgA, IgM) and vaccine antibody titres (CVID / hypogammaglobulinaemia)",
+     "keywords": "immunoglobulin|igg|iga|igm|antibody|vaccine titre|cvid"
+    },
+    {
+     "label": "Aspergillus IgE / IgE / eosinophils (ABPA); RF, anti-CCP, ANCA; alpha-1 antitrypsin",
+     "keywords": "abpa|aspergill|ige|alpha|a1at|rf|ccp|anca|rheumatoid"
+    },
+    {
+     "label": "Sweat chloride / CFTR genetics; nasal nitric oxide / cilia studies (PCD)",
+     "keywords": "sweat chloride|chloride|cftr|nasal no|nasal nitric|cilia|pcd|genetic"
     }
    ],
    "medications": [
@@ -1458,6 +1646,10 @@
     {
      "label": "Pulmonary rehabilitation",
      "keywords": "rehab|pulmonary rehab"
+    },
+    {
+     "label": "Airway clearance physiotherapy (PEP, flutter, active cycle of breathing)",
+     "keywords": "clearance|physio|pep|flutter|acapella|active cycle"
     }
    ]
   },
@@ -1550,20 +1742,28 @@
    ],
    "investigations": [
     {
-     "label": "Modulator therapy (Trikafta) & side effects",
-     "keywords": "trikafta|modulator|elexacaf|side effect"
+     "label": "Newborn screening IRT, sweat chloride >60 mmol/L, CFTR genotyping (two pathogenic variants)",
+     "keywords": "newborn|irt|heel|sweat|chloride|cftr|genotyp|genetic"
     },
     {
-     "label": "Treatment burden / time per day",
-     "keywords": "burden|time|hours|routine|adheren"
+     "label": "Spirometry: obstructive; FEV1 trend for monitoring",
+     "keywords": "spirom|fev1|fvc|obstructive"
     },
     {
-     "label": "Infection control / Pseudomonas / B. cepacia",
-     "keywords": "pseudomon|cepacia|infection control|bug"
+     "label": "Sputum / cough swab / BAL microbiology: Pseudomonas, S. aureus (MRSA), B. cepacia complex, NTM, Aspergillus",
+     "keywords": "sputum cult|sputum micro|cough swab|mcs|microbiolog|pseudomonas|cepacia|burkholderia|mrsa|ntm|aspergill"
     },
     {
-     "label": "Transplant discussions",
-     "keywords": "transplant"
+     "label": "CXR / HRCT: upper lobe bronchiectasis, mucus plugging",
+     "keywords": "cxr|chest x|x.?ray|hrct|ct"
+    },
+    {
+     "label": "OGTT annually from age 10 (CFRD; HbA1c unreliable)",
+     "keywords": "ogtt|glucose tolerance|cfrd|hba1c"
+    },
+    {
+     "label": "Annual review: faecal elastase, fat-soluble vitamin levels, LFTs / liver US, DEXA",
+     "keywords": "elastase|faecal|fecal|dexa|dxa|bone density|liver ultrasound|lft|vitamin level"
     }
    ],
    "medications": [
@@ -1590,6 +1790,14 @@
     {
      "label": "Airway clearance physiotherapy",
      "keywords": "physio|airway clearance|pep|flutter|acapella"
+    },
+    {
+     "label": "CFTR modulator therapy (elexacaftor/tezacaftor/ivacaftor, Trikafta)",
+     "keywords": "trikafta|modulator|elexacaf|ivacaftor"
+    },
+    {
+     "label": "Lung transplant assessment (end-stage disease)",
+     "keywords": "transplant"
     }
    ]
   },
@@ -1687,12 +1895,28 @@
    ],
    "investigations": [
     {
-     "label": "Anticoagulation: drug, duration, adherence",
-     "keywords": "anticoag|doac|apixaban|rivaroxab|warfarin|duration|adheren"
+     "label": "Wells score then D-dimer (if low / unlikely probability): raised, non-specific",
+     "keywords": "d.?dimer|wells|pre.?test|pretest"
     },
     {
-     "label": "Bleeding",
-     "keywords": "bleed|bruis"
+     "label": "Compression duplex ultrasound of leg: non-compressible vein (DVT)",
+     "keywords": "duplex|doppler|compression us|ultrasound|usg|leg us"
+    },
+    {
+     "label": "CTPA: filling defect (PE)",
+     "keywords": "ctpa|ct pulm|ct angio|pulmonary angio|filling defect"
+    },
+    {
+     "label": "V/Q scan if CTPA contraindicated (renal impairment, pregnancy, contrast allergy)",
+     "keywords": "v/q|vq|v.?q scan|ventilation|perfusion scan"
+    },
+    {
+     "label": "ECG, troponin, BNP, echo: sinus tachycardia, S1Q3T3, RBBB, RV strain / dilatation (risk stratification)",
+     "keywords": "ecg|s1q3t3|rv strain|troponin|bnp|echo|right heart strain"
+    },
+    {
+     "label": "Baseline FBC, eGFR, LFTs, coags; anti-Xa / INR monitoring; thrombophilia / antiphospholipid antibodies if selected",
+     "keywords": "fbc|egfr|renal function|baseline|coag|inr|anti.?xa|thrombophilia screen|antiphospholipid|lupus anticoag"
     }
    ],
    "medications": [
@@ -1822,8 +2046,24 @@
    ],
    "investigations": [
     {
-     "label": "Dialysis plans / fistula / transplant",
-     "keywords": "dialys|fistula|transplant"
+     "label": "eGFR / creatinine: sustained eGFR <60 for >3 months (stage G1-G5)",
+     "keywords": "egfr|creatinin|gfr|staging|stage g"
+    },
+    {
+     "label": "Urine ACR (UACR): albuminuria (A1-A3, >3 mg/mmol abnormal)",
+     "keywords": "uacr|acr|albuminuria|proteinuria|urine albumin"
+    },
+    {
+     "label": "Renal ultrasound: small echogenic kidneys, cortical thinning (or PKD, obstruction)",
+     "keywords": "ultrasound|usg|echogenic|renal us|renal imaging"
+    },
+    {
+     "label": "Urinalysis / microscopy: haematuria, red cell casts, dysmorphic RBCs (GN)",
+     "keywords": "urinalysis|dipstick|microscopy|casts|dysmorphic|msu"
+    },
+    {
+     "label": "Bloods: potassium, bicarbonate (acidosis), Hb, Ca / phosphate / PTH",
+     "keywords": "bicarb|hyperkal|pth|ca.?phos|hb|haemoglobin|ferritin"
     }
    ],
    "medications": [
@@ -1850,6 +2090,10 @@
     {
      "label": "Renal dose adjustment / avoid nephrotoxins",
      "keywords": "dose adjust|renal dos|nephrotox|sick day"
+    },
+    {
+     "label": "Renal replacement planning: dialysis access / transplant work-up (eGFR <15-20)",
+     "keywords": "rrt|renal replacement|dialys|fistula|transplant"
     }
    ]
   },
@@ -1951,8 +2195,28 @@
    ],
    "investigations": [
     {
-     "label": "Sexual dysfunction / tamsulosin side effects",
-     "keywords": "sexual|erect|ejacul|postural|dizz"
+     "label": "IPSS symptom score (mild / moderate / severe) + bother",
+     "keywords": "ipss|symptom score|questionnaire"
+    },
+    {
+     "label": "Urinalysis / MSU: exclude UTI, haematuria, glycosuria",
+     "keywords": "urinalysis|dipstick|msu|midstream|glycosur"
+    },
+    {
+     "label": "PSA (after counselling): raised in BPH, prostatitis, cancer",
+     "keywords": "psa|prostate.?specific"
+    },
+    {
+     "label": "U&E / eGFR: renal impairment from obstructive uropathy",
+     "keywords": "creatinin|egfr|u&e|renal function|renal impair"
+    },
+    {
+     "label": "Frequency-volume chart (bladder diary): nocturnal polyuria",
+     "keywords": "diary|frequency.?volume|volume chart"
+    },
+    {
+     "label": "Uroflowmetry (Qmax <10-15 mL/s) + post-void residual (bladder scan)",
+     "keywords": "uroflow|qmax|flow rate|residual|pvr|bladder scan"
     }
    ],
    "medications": [
@@ -2044,36 +2308,28 @@
    ],
    "investigations": [
     {
-     "label": "Modality, schedule, where",
-     "keywords": "haemodialy|hemodialy|peritoneal|pd|schedule|times a week|centre|home|satellite"
+     "label": "Dialysis adequacy: Kt/V (>=1.2 HD) / URR >65%",
+     "keywords": "kt/v|ktv|urr|adequacy|urea reduction"
     },
     {
-     "label": "Access: fistula problems / catheter",
-     "keywords": "fistula|access|catheter|line|tenckhoff"
+     "label": "Pre-dialysis U&E: potassium, urea, creatinine, bicarbonate",
+     "keywords": "u&e|potassium|urea|bicarb|pre.?dialysis"
     },
     {
-     "label": "Dry weight / interdialytic weight gain",
-     "keywords": "dry weight|weight gain|weigh|idwg"
+     "label": "Hb, ferritin, TSAT (target Hb 100-115 g/L on ESA)",
+     "keywords": "ferritin|tsat|transferrin|hb|haemoglobin|iron studies"
     },
     {
-     "label": "Fluid restriction",
-     "keywords": "fluid|restrict"
+     "label": "Ca / phosphate / PTH (CKD-MBD monitoring)",
+     "keywords": "pth|parathyroid|ca.?phos|phosphate level|mineral bone"
     },
     {
-     "label": "Diet: potassium / phosphate",
-     "keywords": "potass|phosph|diet"
+     "label": "Access surveillance: duplex US / fistulogram for stenosis, low flow",
+     "keywords": "duplex|fistulogram|doppler|stenosis|access flow|access us"
     },
     {
-     "label": "Cramps / hypotension on dialysis",
-     "keywords": "cramp|hypotens|dizz|drop"
-    },
-    {
-     "label": "Transplant list status",
-     "keywords": "transplant|list"
-    },
-    {
-     "label": "Advance care planning / withdrawal",
-     "keywords": "advance care|acp|withdraw|goals"
+     "label": "PD effluent: cell count (WCC >100/uL, >50% neutrophils), Gram stain, culture",
+     "keywords": "effluent|cell count|gram stain|culture|wcc|dialysate"
     }
    ],
    "medications": [
@@ -2096,6 +2352,18 @@
     {
      "label": "Renal dosing of medications",
      "keywords": "renal dos|dose adjust|nephrotox"
+    },
+    {
+     "label": "Dry weight / fluid restriction (limit interdialytic weight gain)",
+     "keywords": "dry weight|fluid restrict|idwg|interdialytic|fluid limit"
+    },
+    {
+     "label": "Renal dietitian: low potassium / phosphate diet",
+     "keywords": "dietit|low potassium|low phosph|potassium restrict|renal diet"
+    },
+    {
+     "label": "Vascular access care: fistula / catheter hygiene, protect arm",
+     "keywords": "access care|fistula care|catheter care|protect arm|no bp|hygiene"
     }
    ]
   },
@@ -2153,48 +2421,28 @@
    ],
    "investigations": [
     {
-     "label": "Date / living vs deceased donor",
-     "keywords": "donor|living|deceased|when|date"
+     "label": "Creatinine / eGFR trend: rising creatinine = rejection, CNI toxicity, obstruction",
+     "keywords": "creatin|egfr|graft function|u&e|trend"
     },
     {
-     "label": "Dialysis before transplant",
-     "keywords": "dialys"
+     "label": "Tacrolimus trough level (target by time post-transplant)",
+     "keywords": "tacrolimus level|trough|drug level|tac level|immunosuppressant level|cni level"
     },
     {
-     "label": "Rejection episodes / biopsies",
-     "keywords": "reject|biops"
+     "label": "Urine ACR / PCR: proteinuria (recurrent disease, rejection)",
+     "keywords": "uacr|upcr|pcr urine|proteinuria|urine protein|urine acr"
     },
     {
-     "label": "Graft function: baseline creatinine",
-     "keywords": "creatin|function|egfr|baseline"
+     "label": "Graft ultrasound + Doppler: resistive index, hydronephrosis, collection",
+     "keywords": "doppler|ultrasound|resistive|graft us|graft imaging"
     },
     {
-     "label": "Immunosuppressants and adherence",
-     "keywords": "tacrolim|mycophen|pred|immunosupp|adheren"
+     "label": "Graft biopsy: acute rejection (Banff), BK nephropathy, recurrence",
+     "keywords": "biops|banff"
     },
     {
-     "label": "Side effects: tremor, diabetes, GI upset",
-     "keywords": "tremor|diabet|gi|diarr|side effect"
-    },
-    {
-     "label": "Infections (CMV, BK, PJP, UTI)",
-     "keywords": "infect|cmv|bk|pjp|uti"
-    },
-    {
-     "label": "Skin cancers / skin checks",
-     "keywords": "skin|cancer|scc|bcc|derm"
-    },
-    {
-     "label": "Other cancers / screening",
-     "keywords": "cancer|screen|lymphom"
-    },
-    {
-     "label": "Vaccinations (no live)",
-     "keywords": "vaccin|immunis|flu"
-    },
-    {
-     "label": "Drug interactions awareness",
-     "keywords": "interact|grapefruit|antibiot"
+     "label": "BK / CMV PCR (viral load); donor-specific antibodies (HLA)",
+     "keywords": "bk pcr|cmv pcr|viral load|pcr|dsa|donor.specific|hla antibod"
     }
    ],
    "medications": [
@@ -2304,7 +2552,32 @@
      "keywords": "tophi"
     }
    ],
-   "investigations": [],
+   "investigations": [
+    {
+     "label": "Non-contrast CT KUB (gold standard): stone size, site, hydronephrosis",
+     "keywords": "ct|kub|non.?contrast"
+    },
+    {
+     "label": "Renal tract ultrasound / plain KUB: hydronephrosis (pregnancy, children, follow-up)",
+     "keywords": "ultrasound|usg|x-?ray|plain film"
+    },
+    {
+     "label": "MSU / urine culture: exclude infection (nitrites, leucocytes)",
+     "keywords": "msu|culture|mcs|nitrite|leucocyte|leukocyte"
+    },
+    {
+     "label": "U&E / eGFR (AKI, obstruction), WCC / CRP (infection), lactate",
+     "keywords": "creatinin|egfr|u&e|aki|wcc|crp|white cell|lactate"
+    },
+    {
+     "label": "Metabolic screen if recurrent: serum calcium, PTH, urate; 24 h urine (Ca, oxalate, citrate)",
+     "keywords": "metabolic|serum calcium|pth level|serum urate|24.?h|24 hour|urine collection"
+    },
+    {
+     "label": "Stone analysis (retrieved stone composition)",
+     "keywords": "stone analysis|analysis|composition"
+    }
+   ],
    "medications": [
     {
      "label": "Analgesia: NSAIDs ± opioids",
@@ -2444,7 +2717,32 @@
      "keywords": "oedema|edema"
     }
    ],
-   "investigations": [],
+   "investigations": [
+    {
+     "label": "Urinalysis / MSU: exclude UTI, glycosuria, haematuria",
+     "keywords": "urinalysis|dipstick|msu|midstream|glycosur"
+    },
+    {
+     "label": "Bladder diary (frequency-volume chart, 3 days)",
+     "keywords": "diary|chart|frequency.?volume"
+    },
+    {
+     "label": "Post-void residual (bladder scan): >100-150 mL suggests overflow",
+     "keywords": "residual|pvr|bladder scan|post.?void"
+    },
+    {
+     "label": "Urodynamics: detrusor overactivity vs urodynamic stress incontinence (pre-surgery)",
+     "keywords": "urodynamic|cystometr|detrusor"
+    },
+    {
+     "label": "Cystoscopy / pelvic ultrasound if haematuria, mass or pain",
+     "keywords": "cystoscop|pelvic us|pelvic ultrasound|renal tract us"
+    },
+    {
+     "label": "U&E / eGFR, glucose / HbA1c (polyuria, renal impairment)",
+     "keywords": "creatinin|egfr|u&e|hba1c|glucose|bsl|blood sugar"
+    }
+   ],
    "medications": [
     {
      "label": "Pelvic floor muscle training (stress)",
@@ -2541,28 +2839,28 @@
    ],
    "investigations": [
     {
-     "label": "Treatment: surgery / RT / ADT / surveillance",
-     "keywords": "prostatectom|radio|adt|hormone|surveil|lupron|zoladex"
+     "label": "PSA: raised (age-specific); velocity / doubling time; post-treatment nadir and rise",
+     "keywords": "psa level|psa rise|psa nadir|psa velocity|prostate.?specific|doubling"
     },
     {
-     "label": "Incontinence post-treatment",
-     "keywords": "incontin|leak|pad"
+     "label": "Multiparametric prostate MRI before biopsy: PI-RADS 4-5, extracapsular extension",
+     "keywords": "mri|pi.?rads|multiparametric|mp.?mri"
     },
     {
-     "label": "Erectile dysfunction / libido",
-     "keywords": "erect|libido|sexual"
+     "label": "Transperineal biopsy: adenocarcinoma, Gleason / ISUP grade group",
+     "keywords": "biops|gleason|isup|grade group|histolog"
     },
     {
-     "label": "ADT effects: hot flushes, weight, mood, fatigue",
-     "keywords": "hot flush|weight|mood|fatigue|breast|gynaec"
+     "label": "Staging: PSMA PET-CT (or CT + bone scan) for nodes / bone mets",
+     "keywords": "pet|bone scan|ct|staging|psma pet"
     },
     {
-     "label": "Bone health / DEXA",
-     "keywords": "dexa|bone density|osteopor"
+     "label": "Testosterone (castrate <0.7 nmol/L), ALP, Hb on ADT / advanced disease",
+     "keywords": "testosterone|castrat|alp|alkaline phos"
     },
     {
-     "label": "Bowel symptoms post-RT (proctitis)",
-     "keywords": "bowel|proctit|rectal|diarr"
+     "label": "DEXA: bone loss on long-term ADT",
+     "keywords": "dexa|bone density|bone mineral"
     }
    ],
    "medications": [
@@ -2589,6 +2887,10 @@
     {
      "label": "Bone protection (denosumab / zoledronic acid)",
      "keywords": "denosumab|xgeva|prolia|zoledron|bone protect"
+    },
+    {
+     "label": "Pelvic floor physiotherapy (post-prostatectomy continence)",
+     "keywords": "pelvic floor|physio|kegel|continence rehab"
     }
    ]
   }
@@ -2708,8 +3010,28 @@
    ],
    "investigations": [
     {
-     "label": "Medications (NSAIDs, sedatives, lactulose adherence)",
-     "keywords": "nsaid|sedat|lactulose|medic"
+     "label": "LFTs / INR / FBC: raised bilirubin, low albumin, prolonged INR, thrombocytopenia",
+     "keywords": "lft|liver function|bilirubin|low albumin|serum albumin|alt|ast|transaminase|inr|coag|platelet|thrombocytop|fbc"
+    },
+    {
+     "label": "Aetiology screen: hep B / C serology, iron studies, autoantibodies (ANA, ASMA, AMA), caeruloplasmin, A1AT",
+     "keywords": "hep b|hep c|hbsag|serolog|ferritin|iron studies|autoantibod|ama|asma|ana|caeruloplasmin|a1at|aetiology screen"
+    },
+    {
+     "label": "Liver ultrasound + Doppler: nodular small liver, splenomegaly, portal vein thrombosis; 6-monthly HCC surveillance (US +/- AFP)",
+     "keywords": "ultrasound|usg|doppler|hcc|afp|surveillance|alpha.?fet"
+    },
+    {
+     "label": "Elastography (FibroScan) / FIB-4 / APRI: fibrosis stage",
+     "keywords": "fibroscan|elastograph|fib-?4|apri|stiffness"
+    },
+    {
+     "label": "Gastroscopy: oesophageal / gastric varices screening",
+     "keywords": "gastroscop|endoscop|varices|oge|egd"
+    },
+    {
+     "label": "Ascitic tap: SAAG >=1.1, neutrophils >250/uL (SBP), culture",
+     "keywords": "ascitic tap|ascitic fluid|saag|diagnostic tap|neutrophil"
     }
    ],
    "medications": [
@@ -2865,8 +3187,28 @@
    ],
    "investigations": [
     {
-     "label": "Treatment side effects (steroids, infections on biologics)",
-     "keywords": "side effect|steroid|infect|biolog|immunosupp"
+     "label": "Faecal calprotectin raised; stool MC&S / C. difficile to exclude infection",
+     "keywords": "calprotectin|calpro|fcp|c.?diff|stool culture|stool mc"
+    },
+    {
+     "label": "CRP / ESR, FBC (anaemia, thrombocytosis), albumin, iron / B12 / folate",
+     "keywords": "crp|esr|inflammatory markers|albumin|fbc|b12 level|folate level"
+    },
+    {
+     "label": "Ileocolonoscopy + biopsies: skip lesions, cobblestoning, aphthous ulcers, non-caseating granulomas",
+     "keywords": "colonoscop|ileoscop|biops|granuloma|cobblestone|skip|histolog"
+    },
+    {
+     "label": "MR / CT enterography: small bowel strictures, fistulae, abscess, extent",
+     "keywords": "mre|enterograph|small bowel imag|ct enter|mri enter"
+    },
+    {
+     "label": "MRI pelvis: perianal fistula / abscess (+/- EUA)",
+     "keywords": "mri pelvis|pelvic mri|perianal mri|eua|examination under anaesthe"
+    },
+    {
+     "label": "Pre-treatment screen: TPMT / NUDT15, TB (IGRA), hepatitis B / C, HIV, VZV",
+     "keywords": "tpmt|nudt15|igra|quantiferon|tb screen|hep b|hepatitis|pre.?biologic|baseline screen"
     }
    ],
    "medications": [
@@ -2994,12 +3336,28 @@
    ],
    "investigations": [
     {
-     "label": "Steroid courses / flares",
-     "keywords": "steroid|flare|pred"
+     "label": "Faecal calprotectin raised; stool MC&S / C. difficile toxin (exclude infection)",
+     "keywords": "calprotectin|calpro|fcp|c.?diff|stool culture|stool mc"
     },
     {
-     "label": "Colonoscopy surveillance",
-     "keywords": "colonoscop|surveil|scope"
+     "label": "Bloods: CRP / ESR, FBC (anaemia), albumin (Truelove-Witts severity)",
+     "keywords": "crp|esr|inflammatory markers|albumin|fbc|truelove"
+    },
+    {
+     "label": "Colonoscopy / flexible sigmoidoscopy + biopsies: continuous rectal-onward inflammation, loss of vascular pattern, crypt abscesses",
+     "keywords": "colonoscop|sigmoidoscop|biops|crypt|vascular pattern|histolog|friab"
+    },
+    {
+     "label": "Abdominal X-ray in acute severe colitis: colon >5.5 cm, thumbprinting, mucosal islands",
+     "keywords": "axr|abdominal x|x-?ray|plain film|5.5"
+    },
+    {
+     "label": "Surveillance colonoscopy from 8 years: chromoendoscopy for dysplasia",
+     "keywords": "surveil|chromoendo|dysplasia|8 year"
+    },
+    {
+     "label": "LFTs: raised ALP / GGT (PSC), MRCP: beaded bile ducts",
+     "keywords": "alp|ggt|mrcp|lft|liver function|cholestatic"
     }
    ],
    "medications": [
@@ -3107,16 +3465,28 @@
    ],
    "investigations": [
     {
-     "label": "Screening history (iFOBT)",
-     "keywords": "screen|fobt|ifobt|bowel test"
+     "label": "Colonoscopy + biopsy: adenocarcinoma (synchronous polyps)",
+     "keywords": "colonoscop|biops|adenocarcinoma|histolog|scope"
     },
     {
-     "label": "Post-op: stoma, LARS, sexual/urinary dysfunction",
-     "keywords": "stoma|lars|frequen|sexual|urin|bag"
+     "label": "Positive iFOBT (NBCSP screening) triggers colonoscopy",
+     "keywords": "ifobt|fobt|nbcsp|bowel screening|faecal occult"
     },
     {
-     "label": "Chemo side effects (neuropathy, hand-foot)",
-     "keywords": "neuropath|tingl|hand.?foot|chemo|side effect"
+     "label": "CT chest / abdomen / pelvis: staging (liver / lung mets, nodes, local invasion)",
+     "keywords": "ct|staging|chest abdo|pet"
+    },
+    {
+     "label": "MRI pelvis (rectal cancer): T stage, mesorectal fascia, nodes",
+     "keywords": "mri|mesorectal|mrf|rectal staging|t stage|endorectal"
+    },
+    {
+     "label": "CEA: baseline and post-resection surveillance (not diagnostic)",
+     "keywords": "cea level|carcinoembryonic|tumour marker|tumor marker"
+    },
+    {
+     "label": "MMR / MSI (Lynch), RAS / BRAF testing on tumour",
+     "keywords": "mmr|msi|microsatellite|lynch|ras|braf|kras|immunohisto"
     }
    ],
    "medications": [
@@ -3139,6 +3509,10 @@
     {
      "label": "Surveillance (CEA, CT, colonoscopy)",
      "keywords": "cea|surveil"
+    },
+    {
+     "label": "Stoma nurse / appliance care (if stoma formed)",
+     "keywords": "stoma nurse|stoma care|stomal therap|appliance"
     }
    ]
   },
@@ -3248,8 +3622,28 @@
    ],
    "investigations": [
     {
-     "label": "PPI use and duration",
-     "keywords": "ppi|omepraz|pantopra|esomepra|duration"
+     "label": "Gastroscopy (OGD) + biopsy: oesophagitis (LA grade), Barrett's, ulcer, malignancy; urgent if alarm features",
+     "keywords": "gastroscop|ogd|egd|endoscop|barrett|biops|oesophagitis|la grade"
+    },
+    {
+     "label": "H. pylori testing: urea breath test, stool antigen or biopsy urease (off PPI 2 weeks)",
+     "keywords": "urea breath|stool antigen|urease|clo test|hp test|off ppi"
+    },
+    {
+     "label": "FBC / ferritin: iron deficiency anaemia (occult upper GI bleed)",
+     "keywords": "fbc|ferritin|iron studies|microcytic"
+    },
+    {
+     "label": "Barium swallow / oesophageal manometry: achalasia (bird's beak), stricture, dysmotility",
+     "keywords": "barium|manometry|achalasia|bird"
+    },
+    {
+     "label": "24 h pH / impedance monitoring: if refractory or atypical GORD",
+     "keywords": "ph monitor|ph stud|impedance|24.?h ph|ph test"
+    },
+    {
+     "label": "CT chest / abdomen +/- EUS: staging of oesophageal / gastric cancer",
+     "keywords": "ct|eus|endoscopic ultrasound|staging|pet"
     }
    ],
    "medications": [
@@ -3381,8 +3775,28 @@
    ],
    "investigations": [
     {
-     "label": "Creon adherence / analgesia / opioid use",
-     "keywords": "creon|enzyme|pert|opioid|analges|pain relief"
+     "label": "Lipase >3x upper limit of normal (amylase less specific)",
+     "keywords": "lipase|amylase"
+    },
+    {
+     "label": "LFTs (ALT >150 suggests gallstone) + abdominal ultrasound: gallstones, dilated CBD",
+     "keywords": "lft|alt|bilirubin|alp|liver function|ultrasound|usg|abdo us|biliary us|dilated cbd"
+    },
+    {
+     "label": "Severity bloods: CRP, urea / creatinine, lactate, calcium; Glasgow / BISAP score",
+     "keywords": "crp|glasgow|bisap|apache|ranson|severity|lactate|urea"
+    },
+    {
+     "label": "Contrast CT (after 72 h if unwell): necrosis, collections, calcification",
+     "keywords": "ct|necrosis|balthazar|collection|calcification"
+    },
+    {
+     "label": "MRCP / EUS: CBD stones, ductal dilatation / strictures, chronic changes",
+     "keywords": "mrcp|eus|endoscopic ultrasound|ductal"
+    },
+    {
+     "label": "Chronic: faecal elastase <200 ug/g, HbA1c / glucose",
+     "keywords": "elastase|hba1c|fecal elastase"
     }
    ],
    "medications": [
@@ -3502,12 +3916,28 @@
    ],
    "investigations": [
     {
-     "label": "Treatment: Whipple / chemo / stent",
-     "keywords": "whipple|chemo|stent|surgery"
+     "label": "Pancreas-protocol (triphasic) CT: hypodense mass, double duct sign, vascular involvement (resectability)",
+     "keywords": "ct|pancreas protocol|triphasic|double duct|resectab"
     },
     {
-     "label": "Goals of care / palliative",
-     "keywords": "goals|palliat|advance care|acp|prognos"
+     "label": "EUS +/- FNA / FNB: tissue diagnosis, local staging",
+     "keywords": "eus|endoscopic ultrasound|fna|fnb|biops|cytolog"
+    },
+    {
+     "label": "CA 19-9 raised: baseline / monitoring (false positive in jaundice)",
+     "keywords": "ca ?19|ca19|tumour marker|tumor marker"
+    },
+    {
+     "label": "LFTs: obstructive picture (raised bilirubin, ALP, GGT)",
+     "keywords": "lft|bilirubin|alp|ggt|cholesta|liver function"
+    },
+    {
+     "label": "MRCP / ERCP: double duct sign, biliary stenting",
+     "keywords": "mrcp|ercp"
+    },
+    {
+     "label": "Staging: PET-CT / staging laparoscopy / CT chest for liver, peritoneal, lung disease",
+     "keywords": "pet|staging lap|chest ct|laparoscop"
     }
    ],
    "medications": [
@@ -3530,6 +3960,14 @@
     {
      "label": "VTE prophylaxis (LMWH)",
      "keywords": "lmwh|enoxaparin|clexane|anticoag|vte"
+    },
+    {
+     "label": "Resection: Whipple (pancreaticoduodenectomy) if resectable",
+     "keywords": "whipple|pancreaticoduodenectomy|resect|surgery|pancreatectomy"
+    },
+    {
+     "label": "Palliative care / goals of care",
+     "keywords": "palliat|goals|advance care|acp|prognos"
     }
    ]
   },
@@ -3627,12 +4065,20 @@
    ],
    "investigations": [
     {
-     "label": "Gluten-free adherence / cross-contamination",
-     "keywords": "gluten|adheren|contamin|diet"
+     "label": "tTG-IgA (while on gluten) + total IgA (IgA deficiency: use DGP / tTG-IgG)",
+     "keywords": "ttg.?iga|tissue transglut|iga|coeliac serolog|dgp"
     },
     {
-     "label": "Dietitian / Coeliac Australia",
-     "keywords": "dietit|coeliac australia|support"
+     "label": "Duodenal biopsies (>=4, D2 + bulb): villous atrophy, crypt hyperplasia, raised IELs (Marsh 3)",
+     "keywords": "biops|gastroscop|villous|marsh|endoscop|duoden"
+    },
+    {
+     "label": "HLA-DQ2 / DQ8: high negative predictive value (if equivocal or already gluten-free)",
+     "keywords": "hla|dq2|dq8|genetic"
+    },
+    {
+     "label": "Baseline bloods: FBC, iron studies, B12 / folate, vitamin D, calcium, LFTs",
+     "keywords": "fbc|baseline bloods|nutritional screen|deficienc|ferritin level|lft"
     }
    ],
    "medications": [
@@ -3651,6 +4097,10 @@
     {
      "label": "DEXA",
      "keywords": "dexa|bone density"
+    },
+    {
+     "label": "Strict lifelong gluten-free diet (dietitian)",
+     "keywords": "gluten|gfd|diet|dietit"
     }
    ]
   },
@@ -3744,8 +4194,24 @@
    ],
    "investigations": [
     {
-     "label": "Previous ERCP / cholecystectomy",
-     "keywords": "ercp|cholecyst|surgery"
+     "label": "RUQ ultrasound: gallstones, wall thickening >3 mm, pericholecystic fluid, sonographic Murphy's, CBD >6 mm",
+     "keywords": "ultrasound|us|usg|thickening|cbd|pericholecyst"
+    },
+    {
+     "label": "LFTs (+ lipase): cholestatic picture (bilirubin, ALP, GGT) in CBD stone / cholangitis",
+     "keywords": "lft|liver function|bilirubin|alp|ggt|cholesta|lipase"
+    },
+    {
+     "label": "WCC / CRP; blood cultures if febrile (cholecystitis / cholangitis)",
+     "keywords": "wcc|crp|fbc|white cell|blood culture"
+    },
+    {
+     "label": "MRCP / EUS: CBD stones if ultrasound equivocal",
+     "keywords": "mrcp|eus|endoscopic ultrasound"
+    },
+    {
+     "label": "HIDA scan: non-filling gallbladder if ultrasound equivocal",
+     "keywords": "hida|hepatobiliary scan|cholescint"
     }
    ],
    "medications": [
@@ -3861,12 +4327,24 @@
    ],
    "investigations": [
     {
-     "label": "Colonoscopy after episode",
-     "keywords": "colonoscop|scope"
+     "label": "CT abdomen / pelvis with IV contrast: diverticula, wall thickening, pericolic fat stranding, free gas (Hinchey)",
+     "keywords": "ct|hinchey|stranding|free gas"
     },
     {
-     "label": "Stoma (Hartmann's)",
-     "keywords": "stoma|bag"
+     "label": "CRP / WCC raised; lactate if septic; Hb if bleeding",
+     "keywords": "crp|wcc|white cell|inflammatory markers|lactate|fbc"
+    },
+    {
+     "label": "Colonoscopy 6-8 weeks after acute episode: exclude cancer",
+     "keywords": "colonoscop|scope|6 weeks|exclude cancer"
+    },
+    {
+     "label": "CT angiography: active extravasation in diverticular bleed",
+     "keywords": "cta|ct angio|angiograph|extravasation|tagged"
+    },
+    {
+     "label": "Erect CXR: free air under diaphragm (perforation)",
+     "keywords": "erect|cxr|chest x|free air|pneumoperitoneum"
     }
    ],
    "medications": [
@@ -3974,8 +4452,20 @@
    ],
    "investigations": [
     {
-     "label": "Fitness for surgery / anticoagulation",
-     "keywords": "anaesth|fitness|anticoag|surgery"
+     "label": "Dynamic ultrasound: occult hernia, vs hydrocele / lymph node / lipoma",
+     "keywords": "ultrasound|usg|dynamic|occult"
+    },
+    {
+     "label": "CT abdomen / pelvis: incisional / complex hernia; closed-loop, bowel wall enhancement",
+     "keywords": "ct|closed.?loop|bowel wall|enhancement"
+    },
+    {
+     "label": "Bloods if strangulation suspected: lactate, WCC, CRP, U&E",
+     "keywords": "lactate|wcc|crp|u&e|white cell"
+    },
+    {
+     "label": "Abdominal X-ray: dilated bowel, air-fluid levels (obstruction)",
+     "keywords": "axr|x-?ray|abdominal x|air.?fluid|fluid level|dilated bowel"
     }
    ],
    "medications": [
@@ -4075,16 +4565,24 @@
    ],
    "investigations": [
     {
-     "label": "Temporary or permanent / reversal plans",
-     "keywords": "temporar|permanent|revers"
+     "label": "U&E / magnesium: hyponatraemia, hypokalaemia, hypomagnesaemia, AKI (high output)",
+     "keywords": "u&e|urea|creatinin|magnesium|hypokal|hypomag|hyponat"
     },
     {
-     "label": "Diet / foods avoided",
-     "keywords": "diet|food"
+     "label": "Stoma output chart / fluid balance: high output >1.5 L/day",
+     "keywords": "fluid balance|1.5|1500|stoma output|daily output|output chart"
     },
     {
-     "label": "Stoma nurse involvement",
-     "keywords": "stoma nurse|stomal|nurse"
+     "label": "Urinary sodium <20 mmol/L: sodium depletion",
+     "keywords": "urine sodium|urinary sodium|spot sodium"
+    },
+    {
+     "label": "Vitamin B12 (ileal resection) + stool MC&S / C. difficile if high output",
+     "keywords": "b12|cobalamin|c.?diff|stool culture"
+    },
+    {
+     "label": "CT / stomagram: obstruction, parastomal hernia, stenosis; distal loop contrast study before reversal",
+     "keywords": "ct abdo|stomagram|contrast study|gastrografin|loopogram|contrast enema|distal loop|pre.?reversal"
     }
    ],
    "medications": [
@@ -4103,6 +4601,14 @@
     {
      "label": "Avoid modified-release meds (absorption)",
      "keywords": "slow release|modified release|absorption"
+    },
+    {
+     "label": "Stomal therapy nurse: site marking, appliance fitting, education",
+     "keywords": "stoma nurse|stomal therap|enterostomal|nurse specialist|stoma therap"
+    },
+    {
+     "label": "Dietitian: hydration, blockage foods, diet advice",
+     "keywords": "diet|food|blockage|dietit"
     }
    ]
   },
@@ -4208,8 +4714,20 @@
    ],
    "investigations": [
     {
-     "label": "Previous scopes / iron infusions",
-     "keywords": "scope|colonoscop|gastroscop|infusion|iron"
+     "label": "FBC: low Hb, low MCV / MCH, high RDW, pencil cells on film",
+     "keywords": "fbc|full blood|hb|haemoglobin|mcv|microcytic|hypochrom|film"
+    },
+    {
+     "label": "Iron studies: low ferritin (<30 ug/L), low TSAT, high TIBC",
+     "keywords": "ferritin|iron studies|tsat|transferrin|tibc|iron deficiency"
+    },
+    {
+     "label": "Bidirectional endoscopy (gastroscopy + colonoscopy): find GI blood loss source / cancer",
+     "keywords": "gastroscop|colonoscop|endoscop|bidirectional|scope"
+    },
+    {
+     "label": "Coeliac serology (tTG-IgA)",
+     "keywords": "ttg|tissue transglut|celiac serolog|coeliac serolog|coeliac screen"
     }
    ],
    "medications": [
@@ -4338,20 +4856,28 @@
    ],
    "investigations": [
     {
-     "label": "Blood glucose monitoring & readings / HbA1c",
-     "keywords": "bsl|bgl|glucose|hba1c|monitor|cgm|libre|reading"
+     "label": "HbA1c: control (target ~7% / 53 mmol/mol, individualised); diagnosis 48 mmol/mol (6.5%) or more",
+     "keywords": "hba1c|a1c|glycated|glycosylated"
     },
     {
-     "label": "Hypos: frequency, awareness, severity",
-     "keywords": "hypo"
+     "label": "Fasting glucose 7.0 or more / random 11.1 or more / OGTT 2 h 11.1 or more (diagnosis)",
+     "keywords": "fasting glucose|fasting bsl|random glucose|ogtt|glucose tolerance|diagnostic criteria"
     },
     {
-     "label": "Med side effects (GI upset, genital thrush, weight)",
-     "keywords": "side effect|gi upset|diarr|nausea|genital"
+     "label": "Urine ACR + eGFR: diabetic nephropathy (ACR >3 mg/mmol), annual",
+     "keywords": "urine acr|albumin.?creat|microalbumin|albuminuria|egfr|uacr|nephropathy screen"
     },
     {
-     "label": "Diet / exercise / weight",
-     "keywords": "diet|exercise|weight"
+     "label": "Retinal screening (retinal photography / fundoscopy): retinopathy, 1-2 yearly",
+     "keywords": "retinal screen|retinal photo|retinal imag|eye screen|retinopathy screen|retinal exam"
+    },
+    {
+     "label": "Fasting lipids: raised LDL / TG, low HDL (CV risk)",
+     "keywords": "fasting lipid|lipid profile|lipid level|ldl|triglycer|hdl"
+    },
+    {
+     "label": "Home BGL / CGM readings and hypo log",
+     "keywords": "bgl|bsl|home glucose|glucose monitor|cgm|libre|self.?monitor|blood glucose monitor"
     }
    ],
    "medications": [
@@ -4382,6 +4908,10 @@
     {
      "label": "CV protection: statin, ACEi/ARB",
      "keywords": "statin|~statin|acei|~pril|~sartan|cardioprotect"
+    },
+    {
+     "label": "Lifestyle: diet, physical activity, weight loss (dietitian / DSME)",
+     "keywords": "lifestyle|dietitian|physical activity|dietary|diet and exercise|exercise|diet"
     }
    ]
   },
@@ -4483,8 +5013,24 @@
    ],
    "investigations": [
     {
-     "label": "Levothyroxine adherence / timing",
-     "keywords": "levothyrox|thyroxine|adheren|timing"
+     "label": "TSH raised, fT4 low (primary hypothyroidism)",
+     "keywords": "tsh|ft4|free t4|tft|thyroid function"
+    },
+    {
+     "label": "Subclinical: TSH raised with normal fT4 (repeat in 6-12 weeks)",
+     "keywords": "subclinical|normal ft4|repeat tsh"
+    },
+    {
+     "label": "Anti-TPO antibodies positive (Hashimoto's thyroiditis)",
+     "keywords": "tpo|peroxidase|hashimoto|thyroid antibod|thyroglobulin antib"
+    },
+    {
+     "label": "Associated: raised LDL / CK, hyponatraemia, macrocytic anaemia",
+     "keywords": "ck|creatine kinase|hyponat|macrocyt|anaemia|lipid|ldl"
+    },
+    {
+     "label": "Thyroid ultrasound +/- FNA if goitre or nodule",
+     "keywords": "ultrasound|fna|fine needle|biopsy|nodule"
     }
    ],
    "medications": [
@@ -4604,12 +5150,28 @@
    ],
    "investigations": [
     {
-     "label": "Carbimazole side effects: sore throat/fever (agranulocytosis)",
-     "keywords": "sore throat|fever|agranul|rash"
+     "label": "TSH suppressed, fT4 / fT3 raised",
+     "keywords": "tsh|ft4|ft3|free t4|tft|thyroid function"
     },
     {
-     "label": "Pregnancy plans",
-     "keywords": "pregnan"
+     "label": "TSH receptor antibodies (TRAb / TSI): Graves'",
+     "keywords": "trab|tsi|tsh receptor|receptor antibod|thyroid stimulating"
+    },
+    {
+     "label": "Radionuclide (technetium) uptake scan: diffuse (Graves'), hot nodule / toxic MNG, low uptake (thyroiditis)",
+     "keywords": "uptake|technetium|scintigraph|nuclear|radionuclide|thyroid scan|isotope"
+    },
+    {
+     "label": "Thyroid ultrasound: diffuse enlargement, increased vascularity, nodules",
+     "keywords": "ultrasound|doppler|vascularity|inferno"
+    },
+    {
+     "label": "ECG: sinus tachycardia / AF",
+     "keywords": "ecg|ekg|12.?lead"
+    },
+    {
+     "label": "Carbimazole monitoring: FBC (neutropenia), LFTs",
+     "keywords": "fbc|full blood|white cell|neutropen|lft|liver function|wcc"
     }
    ],
    "medications": [
@@ -4696,48 +5258,28 @@
    ],
    "investigations": [
     {
-     "label": "Insulin regimen / pump / CGM",
-     "keywords": "insulin|pump|cgm|libre|dexcom|basal|bolus|regimen|loop"
+     "label": "HbA1c (target ~7% / 53) and CGM metrics: time in range >70%, time below range",
+     "keywords": "hba1c|a1c|time in range|tir|cgm metric|ambulatory glucose|agp|time below"
     },
     {
-     "label": "Carb counting / dose adjustment (DAFNE)",
-     "keywords": "carb|dafne|adjust"
+     "label": "Islet autoantibodies: GAD, IA-2, ZnT8 (diagnosis)",
+     "keywords": "gad|ia-2|ia2|znt8|islet|autoantibod"
     },
     {
-     "label": "HbA1c / time in range",
-     "keywords": "hba1c|time in range|tir|control"
+     "label": "C-peptide low (insulin deficiency)",
+     "keywords": "c-peptide|c peptide|cpeptide"
     },
     {
-     "label": "Hypo frequency / severity / awareness",
-     "keywords": "hypo|aware"
+     "label": "Blood ketones / BHB raised, VBG acidosis (DKA)",
+     "keywords": "blood ketone|bhb|hydroxybut|vbg|blood gas|acidosis|bicarb"
     },
     {
-     "label": "Glucagon / hypo management",
-     "keywords": "glucagon|jelly|treat"
+     "label": "Annual complication screen: urine ACR + eGFR, retinal screening, lipids",
+     "keywords": "urine acr|albumin.?creat|microalbumin|egfr|retinal screen|retinal photo|complication screen|annual review|lipid"
     },
     {
-     "label": "Sick day rules / ketone testing",
-     "keywords": "sick day|keton"
-    },
-    {
-     "label": "Injection sites (lipohypertrophy)",
-     "keywords": "injection site|lipo|lump"
-    },
-    {
-     "label": "Driving (above 5 to drive)",
-     "keywords": "driv"
-    },
-    {
-     "label": "Exercise / alcohol and hypos",
-     "keywords": "exercise|alcohol"
-    },
-    {
-     "label": "Coeliac / thyroid screening",
-     "keywords": "coeliac|thyro"
-    },
-    {
-     "label": "Pregnancy / contraception",
-     "keywords": "pregnan|contracep"
+     "label": "Coeliac serology (tTG-IgA) and TSH / anti-TPO (autoimmune screen)",
+     "keywords": "coeliac|ttg|transglutaminase|tsh|anti-tpo|tpo|thyroid function"
     }
    ],
    "medications": [
@@ -4756,6 +5298,18 @@
     {
      "label": "Statin / ACEi if complications or risk",
      "keywords": "statin|acei|~pril|~sartan"
+    },
+    {
+     "label": "Sick day rules + ketone testing",
+     "keywords": "sick day|sick-day|keton"
+    },
+    {
+     "label": "Carb counting / insulin dose adjustment (DAFNE)",
+     "keywords": "carb|dafne|dose adjust|insulin adjust"
+    },
+    {
+     "label": "Hypo treatment: 15 g fast carbohydrate, glucagon",
+     "keywords": "15 g|15g|fast.?acting|jelly|glucagon|hypo treat|treat hypo"
     }
    ]
   },
@@ -4861,16 +5415,28 @@
    ],
    "investigations": [
     {
-     "label": "Sick day dosing / never stop abruptly",
-     "keywords": "sick day|stop|abrupt|stress dos|taper"
+     "label": "Overnight 1 mg dexamethasone suppression test: cortisol not suppressed (>50 nmol/L)",
+     "keywords": "dexamethasone|dst|1 mg dex|overnight|suppression test"
     },
     {
-     "label": "Steroid card / MedicAlert",
-     "keywords": "card|medicalert|bracelet"
+     "label": "Late-night salivary cortisol raised",
+     "keywords": "salivary|late.?night|midnight"
     },
     {
-     "label": "PJP prophylaxis / bone protection",
-     "keywords": "pjp|bactrim|cotrimox|bisphos|calcium|vitamin d"
+     "label": "24-hour urinary free cortisol raised",
+     "keywords": "urinary free|ufc|24.?h|urine cortisol"
+    },
+    {
+     "label": "ACTH: suppressed (adrenal source) vs normal / high (pituitary or ectopic)",
+     "keywords": "acth|corticotrop"
+    },
+    {
+     "label": "Imaging: pituitary MRI, adrenal CT; inferior petrosal sinus sampling",
+     "keywords": "pituitary mri|mri|adrenal ct|ct adrenal|petrosal|ipss|imaging"
+    },
+    {
+     "label": "Complication monitoring: HbA1c / glucose, K+, lipids, DEXA bone density",
+     "keywords": "hba1c|a1c|potassium|hypokal|lipid|bone density|dexa scan"
     }
    ],
    "medications": [
@@ -4893,6 +5459,10 @@
     {
      "label": "Steroid-sparing agents",
      "keywords": "steroid-sparing|steroid sparing|sparing"
+    },
+    {
+     "label": "Sick day rules: stress dosing, never stop abruptly",
+     "keywords": "sick day|stress dos|abrupt|never stop|don't stop|taper"
     }
    ]
   },
@@ -4982,12 +5552,28 @@
    ],
    "investigations": [
     {
-     "label": "Sick day rules / IM hydrocortisone kit",
-     "keywords": "sick day|im|injection|kit|emergency"
+     "label": "Morning (8 am) cortisol low (<100 nmol/L suggests; >400 excludes)",
+     "keywords": "cortisol|8 am|8am|morning cortisol"
     },
     {
-     "label": "Medical alert",
-     "keywords": "alert|bracelet|card"
+     "label": "Short Synacthen test: inadequate cortisol rise (<500 nmol/L at 30-60 min)",
+     "keywords": "synacthen|synachten|tetracosactide|acth stimul|stimulation test"
+    },
+    {
+     "label": "ACTH raised (primary adrenal failure)",
+     "keywords": "acth raised|plasma acth|acth level|high acth|raised acth|acth"
+    },
+    {
+     "label": "Electrolytes: hyponatraemia, hyperkalaemia, (mild acidosis)",
+     "keywords": "sodium|potassium|hyponat|hyperkal|electrolyte|u&e|ues|~natraemia|~kalaemia"
+    },
+    {
+     "label": "Adrenal autoantibodies (anti-21-hydroxylase)",
+     "keywords": "21.?hydroxylase|adrenal antibod|autoantibod|anti-adrenal"
+    },
+    {
+     "label": "Renin raised, aldosterone low (mineralocorticoid deficiency)",
+     "keywords": "renin|aldosterone"
     }
    ],
    "medications": [
@@ -5006,6 +5592,14 @@
     {
      "label": "DHEA (selected women)",
      "keywords": "dhea"
+    },
+    {
+     "label": "Sick day rules + IM hydrocortisone emergency kit",
+     "keywords": "sick day|sick-day|im hydro|emergency kit|kit|injection kit"
+    },
+    {
+     "label": "Medical alert bracelet / steroid emergency card",
+     "keywords": "alert|bracelet|medicalert|steroid card|emergency card"
     }
    ]
   },
@@ -5099,16 +5693,24 @@
    ],
    "investigations": [
     {
-     "label": "DEXA results",
-     "keywords": "dexa|bone density|t.?score"
+     "label": "DEXA: T-score -2.5 or lower (hip / lumbar spine) = osteoporosis; Z-score if premenopausal",
+     "keywords": "dexa|dxa|bone density|t.?score|densitometry|z.?score"
     },
     {
-     "label": "Treatment and side effects (reflux, jaw, thigh pain)",
-     "keywords": "bisphos|alendron|denosum|prolia|zoledron|jaw|thigh|reflux|side effect"
+     "label": "Spine X-ray / vertebral fracture assessment: wedge or compression fractures",
+     "keywords": "x-ray|xray|radiograph|vertebral fracture|vfa|wedge|compression fracture"
     },
     {
-     "label": "Dental health before treatment",
-     "keywords": "dental|teeth|dentist"
+     "label": "Secondary-cause bloods: corrected calcium, phosphate, ALP, PTH, 25-OH vitamin D, eGFR",
+     "keywords": "25.?oh|vitamin d level|serum calcium|corrected calcium|parathyroid hormone|serum pth|alp|alkaline phos|egfr|phosphate"
+    },
+    {
+     "label": "Other bloods: TSH, serum testosterone (men), coeliac serology, myeloma screen (SPEP)",
+     "keywords": "tsh|serum testosterone|coeliac serology|ttg|spep|electrophoresis|myeloma|protein electro"
+    },
+    {
+     "label": "Monitoring: repeat DEXA 1-2 yearly; bone turnover markers (CTX, P1NP)",
+     "keywords": "ctx|p1np|turnover|repeat dexa|bone marker"
     }
    ],
    "medications": [
@@ -5135,6 +5737,10 @@
     {
      "label": "MHT / raloxifene (selected)",
      "keywords": "hrt|mht|oestrogen|estrogen|raloxifene|serm|evista"
+    },
+    {
+     "label": "Weight-bearing / resistance exercise + falls prevention",
+     "keywords": "exercise|weight.?bearing|resistance|physio|falls prevent"
     }
    ]
   },
@@ -5236,12 +5842,28 @@
    ],
    "investigations": [
     {
-     "label": "Previous attempts / meds / surgery",
-     "keywords": "previous|attempt|medic|ozempic|wegovy|mounjaro|bariatr|surgery"
+     "label": "HbA1c / fasting glucose (T2DM, prediabetes)",
+     "keywords": "hba1c|a1c|fasting glucose|prediabet|ogtt|glucose tolerance"
     },
     {
-     "label": "Motivation / goals",
-     "keywords": "motivat|goal|ready"
+     "label": "Fasting lipids: raised TG / LDL, low HDL",
+     "keywords": "fasting lipid|lipid profile|triglycer|hdl|ldl"
+    },
+    {
+     "label": "LFTs +/- liver ultrasound / FibroScan: raised ALT, steatosis, fibrosis (MASLD)",
+     "keywords": "lft|alt|fibroscan|elastograph|liver ultrasound|steatosis|liver function"
+    },
+    {
+     "label": "TSH (exclude hypothyroidism)",
+     "keywords": "tsh|thyroid function|tft"
+    },
+    {
+     "label": "Sleep study (polysomnography): OSA, AHI 5 or more",
+     "keywords": "sleep study|polysomn|ahi|psg|epworth|apnoea hypopnoea"
+    },
+    {
+     "label": "If suspected: Cushing's screen (1 mg DST / urinary free cortisol); PCOS bloods (testosterone, SHBG)",
+     "keywords": "dexamethasone|dst|urinary free|salivary cortisol|midnight cortisol|shbg|androgen|testosterone"
     }
    ],
    "medications": [
@@ -5264,6 +5886,10 @@
     {
      "label": "Psychology / CBT",
      "keywords": "psycholog|cbt|behaviour therapy"
+    },
+    {
+     "label": "Lifestyle: diet, physical activity, behaviour change",
+     "keywords": "lifestyle|150 min|exercise prescription|behaviour change|behavior change"
     }
    ]
   }
@@ -5366,16 +5992,28 @@
    ],
    "investigations": [
     {
-     "label": "Infections on DMARDs/biologics",
-     "keywords": "infect"
+     "label": "RF and anti-CCP positive (anti-CCP most specific, predicts erosions)",
+     "keywords": "rf|ccp|rheumatoid factor|anti-ccp|cyclic citrullin"
     },
     {
-     "label": "MTX side effects: mouth ulcers, nausea, SOB",
-     "keywords": "ulcer|nausea|side effect|methotrex|mtx"
+     "label": "CRP / ESR raised (disease activity, DAS28)",
+     "keywords": "crp|esr|inflammatory marker|c-reactive|das28|sed rate"
     },
     {
-     "label": "Pregnancy plans (MTX)",
-     "keywords": "pregnan|contracep|fertil"
+     "label": "X-ray hands / feet: periarticular osteopenia, marginal erosions, joint space narrowing",
+     "keywords": "x-ray|xray|radiograph|erosion|osteopenia|joint space"
+    },
+    {
+     "label": "Ultrasound / MRI: synovitis, power Doppler signal, early erosions",
+     "keywords": "ultrasound|mri|power doppler|doppler"
+    },
+    {
+     "label": "DMARD safety bloods: FBC, LFTs, creatinine / eGFR (MTX monitoring)",
+     "keywords": "fbc|lft|liver function|full blood|creatinine|egfr|safety blood|dmard monitor|mtx monitor|methotrexate monitor"
+    },
+    {
+     "label": "Pre-biologic screen: Quantiferon (TB), hepatitis B / C, HIV",
+     "keywords": "quantiferon|tb|igra|hepatitis|hep b|hbv|hiv|pre.?biologic"
     }
    ],
    "medications": [
@@ -5398,6 +6036,10 @@
     {
      "label": "NSAIDs / analgesia",
      "keywords": "nsaid|ibuprofen|naproxen|celecoxib|meloxicam|analges|paracetamol"
+    },
+    {
+     "label": "Physio / OT: exercise, joint protection, splints",
+     "keywords": "physio|occupational|ot|splint|joint protection|hand therapy|exercise"
     }
    ]
   },
@@ -5498,16 +6140,28 @@
    ],
    "investigations": [
     {
-     "label": "Infections",
-     "keywords": "infect"
+     "label": "ANA positive (>95% sensitive); ENA (anti-Ro / La, RNP)",
+     "keywords": "ana|antinuclear|ena|extractable|anti-ro|anti-la|ssa|ssb|rnp"
     },
     {
-     "label": "Hydroxychloroquine eye checks",
-     "keywords": "eye check|retin|hydroxychlor|vision"
+     "label": "Anti-dsDNA and anti-Sm: specific for SLE (dsDNA titre tracks activity)",
+     "keywords": "dsdna|ds-dna|anti-sm|smith|double.?stranded"
     },
     {
-     "label": "Steroid side effects",
-     "keywords": "steroid|side effect|weight|bone"
+     "label": "Low C3 / C4: active disease (esp nephritis)",
+     "keywords": "complement|c3|c4|hypocomplement"
+    },
+    {
+     "label": "Urinalysis + urine ACR / PCR: haematuria, proteinuria, casts; renal biopsy for nephritis class",
+     "keywords": "urinalysis|dipstick|proteinuria|haematuria|urine acr|urine pcr|casts|renal biops|egfr"
+    },
+    {
+     "label": "FBC: lymphopenia / leukopenia, thrombocytopenia, haemolytic anaemia (Coombs positive)",
+     "keywords": "fbc|full blood|lymphopen|leukopen|cytopen|coombs|haemolytic|thrombocytopen"
+    },
+    {
+     "label": "Antiphospholipid antibodies: lupus anticoagulant, anticardiolipin, anti-beta2 GPI",
+     "keywords": "antiphospholipid|lupus anticoag|cardiolipin|beta.?2|gpi"
     }
    ],
    "medications": [
@@ -5631,8 +6285,28 @@
    ],
    "investigations": [
     {
-     "label": "Allopurinol adherence / rash",
-     "keywords": "allopur|adheren|rash"
+     "label": "Joint aspirate: needle-shaped, negatively birefringent MSU crystals (gold standard)",
+     "keywords": "aspirat|crystal|birefring|synovial fluid|arthrocentesis|polariz|msu|needle"
+    },
+    {
+     "label": "Serum urate: raised (>0.42 mmol/L; may be normal in flare); target <0.36 (<0.30 if tophi)",
+     "keywords": "serum urate|urate level|urate|uric acid"
+    },
+    {
+     "label": "Dual-energy CT (urate deposits) / ultrasound (double contour sign, tophi)",
+     "keywords": "dect|dual.?energy|double contour|ultrasound|ct"
+    },
+    {
+     "label": "X-ray: punched-out erosions with overhanging edges, tophi (late disease)",
+     "keywords": "x-ray|xray|radiograph|overhanging|punched"
+    },
+    {
+     "label": "CRP / ESR / WCC raised in flare (non-specific)",
+     "keywords": "crp|esr|wcc|white cell|inflammatory marker"
+    },
+    {
+     "label": "eGFR / creatinine (CKD; guides allopurinol dose)",
+     "keywords": "egfr|creatinine|renal function|kidney function|u&e"
     }
    ],
    "medications": [
@@ -5651,6 +6325,14 @@
     {
      "label": "Flare prophylaxis when starting ULT (low-dose colchicine)",
      "keywords": "prophyla|flare prophyl|low-dose colchicine|low dose colchicine"
+    },
+    {
+     "label": "Lifestyle: limit alcohol / fructose, weight loss, hydration",
+     "keywords": "lifestyle|hydrat|limit alcohol|reduce alcohol|dietary change|weight loss|cherry"
+    },
+    {
+     "label": "Flare: rest, ice, elevate the joint",
+     "keywords": "ice|rest|elevat|cold pack|ice pack"
     }
    ]
   },
@@ -5744,20 +6426,28 @@
    ],
    "investigations": [
     {
-     "label": "Exercise / physio",
-     "keywords": "exercise|physio"
+     "label": "Weight-bearing X-ray: joint space narrowing, osteophytes, subchondral sclerosis and cysts",
+     "keywords": "x-ray|xray|radiograph|osteophyt|sclerosis|joint space|subchondral"
     },
     {
-     "label": "Analgesia and side effects (NSAIDs)",
-     "keywords": "analges|nsaid|paracetamol|opioid|side effect"
+     "label": "CRP / ESR normal (exclude inflammatory arthritis)",
+     "keywords": "crp|esr|inflammatory marker"
     },
     {
-     "label": "Injections",
-     "keywords": "inject"
+     "label": "RF / anti-CCP negative (if inflammatory features)",
+     "keywords": "rf|ccp|rheumatoid factor|anti-ccp"
     },
     {
-     "label": "Joint replacement: complications, infection, rehab",
-     "keywords": "replace|tkr|thr|infect|rehab|dislocat"
+     "label": "MRI: cartilage loss, meniscal tear, bone marrow lesions (not routine)",
+     "keywords": "mri|magnetic|cartilage|meniscal"
+    },
+    {
+     "label": "Joint aspiration if effusion: non-inflammatory fluid (WCC <2000), no crystals",
+     "keywords": "aspirat|synovial fluid|arthrocentesis|wcc"
+    },
+    {
+     "label": "Post-arthroplasty: serial X-rays (loosening, wear); CRP +/- aspiration for infection",
+     "keywords": "loosening|pji|periprosthetic|serial x|arthroplasty x"
     }
    ],
    "medications": [
@@ -5788,6 +6478,10 @@
     {
      "label": "Avoid opioids",
      "keywords": "opioid|tramadol"
+    },
+    {
+     "label": "Exercise / physiotherapy (core treatment) +/- walking aids",
+     "keywords": "exercise|physio|strengthening|walking aid|hydrotherapy"
     }
    ]
   },
@@ -5888,8 +6582,24 @@
    ],
    "investigations": [
     {
-     "label": "Treatment response (NSAIDs, biologics)",
-     "keywords": "nsaid|biolog|adalim|secukin"
+     "label": "HLA-B27 positive (~90%; supportive, not diagnostic)",
+     "keywords": "hla|b27|b-27"
+    },
+    {
+     "label": "MRI sacroiliac joints (STIR): bone marrow oedema, active sacroiliitis (earliest change)",
+     "keywords": "mri|stir|marrow|bone marrow oedema"
+    },
+    {
+     "label": "Pelvis / spine X-ray: sacroiliitis (erosions, sclerosis), syndesmophytes, bamboo spine",
+     "keywords": "x-ray|xray|radiograph|syndesmophyt|bamboo|squaring|erosion"
+    },
+    {
+     "label": "CRP / ESR raised (only ~50%)",
+     "keywords": "crp|esr|inflammatory marker"
+    },
+    {
+     "label": "BASDAI / ASDAS-CRP disease activity (biologic eligibility)",
+     "keywords": "basdai|asdas|basfi|disease activity"
     }
    ],
    "medications": [
@@ -6004,16 +6714,28 @@
    ],
    "investigations": [
     {
-     "label": "Steroid response / dose / taper",
-     "keywords": "steroid|pred|taper|dose|response"
+     "label": "ESR / CRP markedly raised (ESR often >50); anaemia, thrombocytosis, raised ALP",
+     "keywords": "esr|crp|inflammatory marker|c-reactive|thrombocytosis|raised alp|anaemia"
     },
     {
-     "label": "Steroid side effects (BSL, bone, mood)",
-     "keywords": "side effect|bsl|bone|mood|diabet"
+     "label": "Temporal artery biopsy (ideally within 1-2 weeks of steroids): giant cells, granulomatous inflammation, skip lesions",
+     "keywords": "biopsy|giant cell|granulomat|skip lesion"
     },
     {
-     "label": "Flares on taper",
-     "keywords": "flare|relapse"
+     "label": "Temporal artery ultrasound: halo sign, non-compressible artery",
+     "keywords": "temporal artery ultra|halo|duplex|doppler|ultrasound"
+    },
+    {
+     "label": "PET-CT / CT or MR angiography: large-vessel GCA (aortitis, subclavian / axillary stenosis)",
+     "keywords": "pet|angiograph|large vessel imag|aortitis|ct angio|mra"
+    },
+    {
+     "label": "CK normal, RF / anti-CCP negative (exclude myositis / RA mimics)",
+     "keywords": "ck|creatine kinase|myositis|rf|ccp|rheumatoid"
+    },
+    {
+     "label": "Steroid monitoring: HbA1c / BSL, lipids, DEXA bone density",
+     "keywords": "dexa|dxa|bone density|hba1c|baseline glucose"
     }
    ],
    "medications": [
@@ -6174,16 +6896,24 @@
    ],
    "investigations": [
     {
-     "label": "Wearing off / on-off fluctuations",
-     "keywords": "wearing|on.?off|fluctuat"
+     "label": "Clinical diagnosis; MRI brain to exclude mimics (vascular parkinsonism, NPH); hummingbird (PSP) / hot cross bun (MSA)",
+     "keywords": "mri|ct brain|hummingbird|hot cross|neuroimag|imaging"
     },
     {
-     "label": "Dyskinesias",
-     "keywords": "dyskines|involuntary|wriggl|writh"
+     "label": "DaTscan (FP-CIT SPECT): reduced striatal uptake if diagnosis uncertain (vs essential tremor, drug-induced)",
+     "keywords": "datscan|dat scan|spect|fp.cit|dopamine transporter"
     },
     {
-     "label": "Impulse control (gambling, shopping, hypersexuality)",
-     "keywords": "impuls|gambl|shopping|hypersex|compuls"
+     "label": "Acute levodopa challenge: >30% motor improvement supports PD",
+     "keywords": "challenge|levodopa response|response to levodopa|apomorphine challenge"
+    },
+    {
+     "label": "Lying / standing BP: orthostatic drop (autonomic failure suggests MSA / Lewy body)",
+     "keywords": "lying and standing|lying.standing|standing bp|orthostatic bp|tilt table"
+    },
+    {
+     "label": "Caeruloplasmin / copper (Wilson's) if onset <40 years",
+     "keywords": "caeruloplasmin|ceruloplasmin|wilson|copper"
     }
    ],
    "medications": [
@@ -6326,12 +7056,28 @@
    ],
    "investigations": [
     {
-     "label": "DMT side effects / infections",
-     "keywords": "dmt|side effect|infect"
+     "label": "MRI brain + spine with gadolinium: periventricular, juxtacortical, infratentorial, spinal lesions (Dawson's fingers); enhancing = active",
+     "keywords": "mri|gadolinium|periventric|dawson|t2 lesion|enhanc|dissemination"
     },
     {
-     "label": "Pregnancy plans",
-     "keywords": "pregnan|family plan"
+     "label": "LP / CSF: oligoclonal bands (unmatched in serum), raised IgG index",
+     "keywords": "lp|lumbar puncture|csf|oligoclonal|igg index"
+    },
+    {
+     "label": "Visual evoked potentials: delayed P100 latency",
+     "keywords": "vep|visual evoked|evoked potential|p100"
+    },
+    {
+     "label": "OCT: retinal nerve fibre layer thinning after optic neuritis",
+     "keywords": "oct|optical coherence|rnfl|nerve fibre layer"
+    },
+    {
+     "label": "Exclude mimics: aquaporin-4 (NMOSD) and MOG antibodies, B12, TFT, ANA, HIV / syphilis",
+     "keywords": "aqp4|aquaporin|nmo|mog|mimic|autoantibod"
+    },
+    {
+     "label": "Pre-DMT / monitoring: JC virus serology (natalizumab PML risk), hepatitis B / VZV serology, lymphocyte count, LFTs, annual MRI",
+     "keywords": "jc|jcv|john cunningham|pml|lymphocyte count|annual mri|surveillance mri|baseline serology"
     }
    ],
    "medications": [
@@ -6477,7 +7223,32 @@
      "keywords": "nihss|gcs|glasgow|score"
     }
    ],
-   "investigations": [],
+   "investigations": [
+    {
+     "label": "Urgent non-contrast CT brain: excludes haemorrhage; early ischaemic change, hyperdense MCA sign",
+     "keywords": "ct brain|ct head|non-contrast|non contrast|hyperdense|exclude haemorrhage"
+    },
+    {
+     "label": "CT angiogram + perfusion (CTA / CTP): large vessel occlusion, penumbra for thrombectomy",
+     "keywords": "cta|ctp|angiogram|perfusion|large vessel|lvo|penumbra"
+    },
+    {
+     "label": "MRI brain with DWI: restricted diffusion (best for small / posterior circulation infarcts)",
+     "keywords": "mri|dwi|diffusion"
+    },
+    {
+     "label": "Carotid imaging (duplex US / CTA neck): symptomatic stenosis >50-70%",
+     "keywords": "carotid duplex|carotid imaging|duplex|doppler|stenosis|cta neck"
+    },
+    {
+     "label": "ECG + prolonged rhythm monitoring (Holter / implantable loop recorder): paroxysmal AF",
+     "keywords": "ecg|holter|loop recorder|telemetry|rhythm monitor|event monitor"
+    },
+    {
+     "label": "Echo (TTE / TOE): LV thrombus, vegetations, PFO / bubble study, low EF",
+     "keywords": "echo|toe|pfo|bubble"
+    }
+   ],
    "medications": [
     {
      "label": "Acute: thrombolysis / thrombectomy",
@@ -6607,16 +7378,28 @@
    ],
    "investigations": [
     {
-     "label": "AED side effects (mood, rash, weight)",
-     "keywords": "side effect|mood|rash|weight|levetir|valpro"
+     "label": "EEG (routine / sleep-deprived / ambulatory): interictal epileptiform discharges; 3 Hz spike-wave in absence",
+     "keywords": "eeg|electroenceph|spike|3 hz|epileptiform"
     },
     {
-     "label": "Driving / work / swimming",
-     "keywords": "driv|work|swim|bath"
+     "label": "MRI brain (epilepsy protocol): hippocampal sclerosis, cortical dysplasia, tumour, cavernoma, gliosis",
+     "keywords": "mri|hippocamp|dysplasia|mesial|cavernoma|neuroimag"
     },
     {
-     "label": "Contraception / pregnancy (valproate)",
-     "keywords": "contracep|pregnan|folic"
+     "label": "ECG: long QT / arrhythmia to exclude convulsive syncope",
+     "keywords": "ecg|long qt|qtc|holter"
+    },
+    {
+     "label": "Bloods at first seizure: glucose, Na, Ca, Mg, renal function, LFTs (provoked / metabolic cause)",
+     "keywords": "glucose|bsl|bgl|sodium|electrolyte|metabolic|calcium|magnesium|first seizure bloods"
+    },
+    {
+     "label": "Video-EEG telemetry: differentiates epileptic from functional (non-epileptic) events; localises focus",
+     "keywords": "video|telemetry|pnes|non-epileptic|functional seizure"
+    },
+    {
+     "label": "Drug levels (phenytoin, valproate, carbamazepine) if toxicity or breakthrough seizures",
+     "keywords": "drug level|therapeutic drug|tdm|serum level|phenytoin level|asm level"
     }
    ],
    "medications": [
@@ -6764,12 +7547,24 @@
    ],
    "investigations": [
     {
-     "label": "Wandering / safety (stove, driving)",
-     "keywords": "wander|stove|safety|driv|cook"
+     "label": "Formal cognitive testing: ACE-III / RUDAS (CALD) / neuropsychology: domain pattern (amnestic vs frontal vs visuospatial)",
+     "keywords": "neuropsych|rudas|ace-iii|ace iii|formal testing|formal cognitive"
     },
     {
-     "label": "Carer stress / supports / EPOA",
-     "keywords": "carer|support|epoa|power of attorney|decision maker"
+     "label": "Reversible-cause bloods: TSH, folate, calcium, glucose, FBC, EUC, LFT (+ syphilis / HIV if risk)",
+     "keywords": "bloods|blood test|tsh|folate|calcium|dementia screen|screening bloods"
+    },
+    {
+     "label": "MRI / CT brain: hippocampal / global atrophy (AD), vascular change, frontotemporal atrophy, NPH, subdural, tumour",
+     "keywords": "mri|ct brain|ct head|atrophy|hippocamp|neuroimag|imaging"
+    },
+    {
+     "label": "FDG-PET / CSF biomarkers (low A-beta42, raised p-tau) or plasma p-tau217 in atypical / young-onset",
+     "keywords": "pet|fdg|csf|biomarker|tau|ptau|p-tau|lumbar puncture"
+    },
+    {
+     "label": "DaTscan: reduced striatal uptake supports Lewy body dementia",
+     "keywords": "datscan|dat scan|lewy|dlb|fp-cit"
     }
    ],
    "medications": [
@@ -6888,12 +7683,28 @@
    ],
    "investigations": [
     {
-     "label": "NIV / PEG decisions",
-     "keywords": "niv|bipap|peg|feed"
+     "label": "EMG / nerve conduction: active denervation (fibrillations, fasciculations) + chronic reinnervation in >=3 regions; normal sensory NCS",
+     "keywords": "emg|electromyo|nerve conduction|ncs|denervation|fibrillation"
     },
     {
-     "label": "Advance care planning / VAD",
-     "keywords": "advance|acp|goals|vad|assisted dying"
+     "label": "MRI brain + cervical spine: excludes myelopathy / structural mimic",
+     "keywords": "mri|myelopathy|cervical spine|corticospinal|neuroimag"
+    },
+    {
+     "label": "Respiratory: supine / sitting FVC, SNIP, overnight oximetry, ABG (hypercapnia) to time NIV",
+     "keywords": "snip|sniff nasal|supine|overnight oximetry|nocturnal oximetry|abg|hypercap|bicarbonate|lung function"
+    },
+    {
+     "label": "Bloods to exclude mimics: CK, TFT, B12, calcium, paraprotein, anti-GM1 (MMN), HIV",
+     "keywords": "ck|creatine kinase|mimic|paraprotein|gm1|mmn|exclude"
+    },
+    {
+     "label": "Genetic testing: C9orf72, SOD1, TARDBP, FUS (familial / young onset / FTD)",
+     "keywords": "genetic|c9orf72|c9|tardbp|fus|gene panel|familial testing"
+    },
+    {
+     "label": "Swallow assessment (videofluoroscopy / SLT) + weight / BMI trend: aspiration, malnutrition",
+     "keywords": "videofluoro|swallow study|barium|slt|bmi|weight trend|dietitian review"
     }
    ],
    "medications": [
@@ -6920,6 +7731,14 @@
     {
      "label": "MND clinic MDT (physio, OT, speech, dietitian)",
      "keywords": "mdt|multidisciplin|physio|ot|speech|dietitian|allied"
+    },
+    {
+     "label": "NIV (non-invasive ventilation) if FVC <50% or nocturnal hypoventilation",
+     "keywords": "niv|non.?invasive vent|bipap|ventilat|respiratory support"
+    },
+    {
+     "label": "PEG / gastrostomy feeding if weight loss or unsafe swallow",
+     "keywords": "peg|gastrostomy|enteral|feeding tube|rig|tube feed"
     }
    ]
   },
@@ -7013,12 +7832,24 @@
    ],
    "investigations": [
     {
-     "label": "Pyridostigmine side effects (cramps, diarrhoea)",
-     "keywords": "pyridostig|mestinon|cramp|diarr|side effect"
+     "label": "Acetylcholine receptor antibodies (~85% generalised); if negative: MuSK, LRP4",
+     "keywords": "achr|acetylcholine|ach receptor|antibod|musk|lrp4|serolog"
     },
     {
-     "label": "Immunosuppression side effects",
-     "keywords": "steroid|azathiop|immunosupp"
+     "label": "Repetitive nerve stimulation: decrement >10% in CMAP; single-fibre EMG (most sensitive): increased jitter",
+     "keywords": "repetitive|rns|decrement|single.fibre|sfemg|jitter|emg|nerve stim"
+    },
+    {
+     "label": "CT chest: thymoma / thymic hyperplasia",
+     "keywords": "ct chest|ct thorax|chest ct|mediastin|ct"
+    },
+    {
+     "label": "Spirometry / negative inspiratory force: monitor for crisis (FVC <20 mL/kg, NIF weaker than -30)",
+     "keywords": "spirometry|nif|inspiratory|20 ml|single breath"
+    },
+    {
+     "label": "TFTs (associated autoimmune thyroid disease); pre-immunosuppression screen (hepatitis B, TB, strongyloides)",
+     "keywords": "tft|tsh|thyroid function|pre-immunosupp|strongyloides|baseline screen"
     }
    ],
    "medications": [
@@ -7156,7 +7987,32 @@
      "keywords": "mononeuro|entrap|tinel|wrist drop|carpal|ulnar|peroneal"
     }
    ],
-   "investigations": [],
+   "investigations": [
+    {
+     "label": "Nerve conduction studies / EMG: axonal (low amplitude) vs demyelinating (slow velocity, conduction block, prolonged F waves)",
+     "keywords": "ncs|nerve conduction|emg|electromyo|conduction|demyelinat|axonal"
+    },
+    {
+     "label": "HbA1c / fasting glucose (diabetes: commonest cause)",
+     "keywords": "hba1c|glucose|ogtt|fasting|blood sugar"
+    },
+    {
+     "label": "Nutritional / metabolic bloods: B12 + folate (MMA), TSH, EUC / eGFR, LFT, FBC (macrocytosis)",
+     "keywords": "folate|tsh|mcv|homocysteine|methylmalonic|nutritional|metabolic screen|egfr"
+    },
+    {
+     "label": "Serum protein electrophoresis / free light chains: paraprotein; anti-MAG, ANCA, ANA, HIV",
+     "keywords": "spep|protein electro|paraprotein|immunofix|light chain|anti-mag|anca|ana|monoclonal"
+    },
+    {
+     "label": "LP: raised CSF protein with normal cells (albuminocytological dissociation) in GBS / CIDP",
+     "keywords": "lp|lumbar puncture|csf|albuminocyt|cytoalbumin"
+    },
+    {
+     "label": "Nerve / skin biopsy (small fibre: reduced intraepidermal nerve fibre density) or genetic testing (CMT: PMP22)",
+     "keywords": "biops|intraepidermal|small fibre|pmp22|cmt|genetic|charcot-marie"
+    }
+   ],
    "medications": [
     {
      "label": "Treat cause (glycaemic control, B12, stop alcohol / toxic drugs)",
@@ -7286,12 +8142,24 @@
    ],
    "investigations": [
     {
-     "label": "Steroid (dexamethasone) side effects",
-     "keywords": "dexameth|steroid|bsl|side effect"
+     "label": "Non-contrast CT head: SDH (crescentic, midline shift; hypodense if chronic), mass effect, hydrocephalus, oedema",
+     "keywords": "ct head|ct brain|crescent|midline shift|hypodense|non-contrast|non contrast"
     },
     {
-     "label": "Driving / work / ACP",
-     "keywords": "driv|work|advance|goals"
+     "label": "MRI brain with gadolinium: enhancing mass (ring-enhancing in GBM / abscess / mets), oedema, number of lesions",
+     "keywords": "mri|gadolinium|ring.enhanc|enhanc|contrast mri"
+    },
+    {
+     "label": "Staging CT chest / abdomen / pelvis (+/- PET) if metastasis suspected: lung, breast, melanoma, renal primary",
+     "keywords": "staging|ct chest|ct cap|ct c/a/p|primary search|whole body|pet"
+    },
+    {
+     "label": "Biopsy / resection histology with molecular markers (IDH, MGMT methylation, 1p/19q)",
+     "keywords": "biops|histolog|idh|mgmt|molecular|pathology|1p19q"
+    },
+    {
+     "label": "Coagulation screen (INR / APTT) and platelets: anticoagulant-related SDH, pre-operative",
+     "keywords": "coag|inr|aptt|platelet|clotting|fbc"
     }
    ],
    "medications": [
@@ -7425,7 +8293,28 @@
      "keywords": "trauma|haematoma|hematoma|bruis|battle"
     }
    ],
-   "investigations": [],
+   "investigations": [
+    {
+     "label": "MRI brain +/- MR venogram (red flags only): mass, Chiari, pituitary lesion, cerebral venous thrombosis",
+     "keywords": "mri|chiari|neuroimag|imaging|mrv|venogram|pituitary"
+    },
+    {
+     "label": "Non-contrast CT head <6 h of thunderclap onset: hyperdense blood (SAH); if negative CTA or LP for xanthochromia",
+     "keywords": "ct head|ct brain|sah|subarachnoid|xanthochrom|lumbar puncture|lp"
+    },
+    {
+     "label": "ESR / CRP if >50 years: markedly raised in giant cell arteritis",
+     "keywords": "esr|crp|inflammatory marker"
+    },
+    {
+     "label": "Temporal artery biopsy / US (halo sign) for suspected GCA",
+     "keywords": "biops|halo sign|temporal artery biopsy|temporal artery ultrasound"
+    },
+    {
+     "label": "LP opening pressure (>25 cmH2O) with normal CSF + papilloedema on fundoscopy (idiopathic intracranial hypertension)",
+     "keywords": "opening pressure|cmh2o|papilloedema|idiopathic intracranial"
+    }
+   ],
    "medications": [
     {
      "label": "Acute migraine: NSAID / aspirin + antiemetic, triptans",
@@ -7545,12 +8434,28 @@
    ],
    "investigations": [
     {
-     "label": "Previous interventions / amputations",
-     "keywords": "stent|bypass|angioplast|amput|surgery"
+     "label": "ABPI: <0.9 PAD, <0.5 critical ischaemia, >1.3 non-compressible (calcified); toe-brachial index",
+     "keywords": "abi|abpi|ankle.?brachial|tbi|toe.?brachial|toe pressure"
     },
     {
-     "label": "Exercise program",
-     "keywords": "exercise"
+     "label": "Arterial duplex ultrasound: stenosis / occlusion, PSV ratio >2",
+     "keywords": "duplex|psv|velocity"
+    },
+    {
+     "label": "CT / MR / catheter angiography: revascularisation planning",
+     "keywords": "angiogra|cta|mra|ct|mri"
+    },
+    {
+     "label": "Fasting lipids, HbA1c, eGFR (risk factors; contrast)",
+     "keywords": "hba1c|egfr|u&e|lipid profile|lipid panel|fasting lipid|ldl"
+    },
+    {
+     "label": "Treadmill test: claudication distance, post-exercise ABPI drop",
+     "keywords": "treadmill|exercise test|walking test|claudication distance|post.?exercise"
+    },
+    {
+     "label": "Screen other vascular beds: carotid duplex, ECG",
+     "keywords": "carotid duplex|ecg|screen"
     }
    ],
    "medications": [
@@ -7577,6 +8482,10 @@
     {
      "label": "Cilostazol (claudication)",
      "keywords": "cilostazol|pletal"
+    },
+    {
+     "label": "Supervised exercise therapy (walking program)",
+     "keywords": "exercise|supervised|walking program|exercise therapy"
     }
    ]
   },
@@ -7670,16 +8579,28 @@
    ],
    "investigations": [
     {
-     "label": "Podiatry / offloading / wound care",
-     "keywords": "podiat|offload|dressing|wound care|boot"
+     "label": "Foot X-ray: osteomyelitis (cortical erosion, periosteal reaction), gas, Charcot",
+     "keywords": "x.?ray|xray|radiograph|plain film|osteomyel"
     },
     {
-     "label": "Glycaemic control",
-     "keywords": "bsl|bgl|hba1c|glucose|control"
+     "label": "MRI foot: osteomyelitis, abscess, Charcot (most sensitive)",
+     "keywords": "mri|magnetic|bone scan|nuclear"
     },
     {
-     "label": "Vision (can they inspect feet?)",
-     "keywords": "vision|inspect|see"
+     "label": "CRP / ESR (ESR >70 suggests osteomyelitis), WCC; blood cultures if systemic",
+     "keywords": "crp|esr|wcc|fbc|inflammatory|blood culture"
+    },
+    {
+     "label": "Deep tissue / bone culture and biopsy (not superficial swab)",
+     "keywords": "swab|tissue culture|bone biopsy|bone culture|biopsy|microbiolog|culture"
+    },
+    {
+     "label": "HbA1c / BSL; eGFR",
+     "keywords": "hba1c|bsl|bgl|glucose|egfr|u&e"
+    },
+    {
+     "label": "ABPI / toe pressures, arterial duplex +/- angiography (ABPI falsely high if calcified)",
+     "keywords": "abi|toe pressure|tbi|toe.?brachial|duplex|angiogra|ankle.?brachial"
     }
    ],
    "medications": [
@@ -7702,6 +8623,10 @@
     {
      "label": "Antiplatelet / statin",
      "keywords": "aspirin|antiplatelet|statin|~statin|clopidogrel"
+    },
+    {
+     "label": "Podiatry / offloading (total-contact cast, boot)",
+     "keywords": "podiat|offload|total.?contact|cast|boot"
     }
    ]
   },
@@ -7779,16 +8704,24 @@
    ],
    "investigations": [
     {
-     "label": "Size and surveillance",
-     "keywords": "size|surveil|scan|cm"
+     "label": "Abdominal ultrasound: aortic diameter (>=3.0 cm = aneurysm), screening and surveillance",
+     "keywords": "abdominal ultrasound|abdo ultrasound|aorta ultrasound|aaa ultrasound|usg|surveillance|screening scan|duplex"
     },
     {
-     "label": "EVAR / open repair / endoleak follow-up",
-     "keywords": "evar|repair|endoleak|surgery|stent"
+     "label": "CT angiogram aorta: maximum diameter, neck anatomy, leak; EVAR planning",
+     "keywords": "cta|ct angio|ct aort|ct|computed|contrast"
     },
     {
-     "label": "Fitness for surgery / function",
-     "keywords": "fitness|function|exercise|stairs"
+     "label": "Post-EVAR surveillance imaging (CT / duplex): endoleak",
+     "keywords": "endoleak|post.?evar|evar surveillance|follow.?up imaging"
+    },
+    {
+     "label": "Pre-op fitness: ECG, echo, spirometry, eGFR, CPET",
+     "keywords": "ecg|echo|cpet|cardiopulmonary exercise|spirom|egfr|pre.?op"
+    },
+    {
+     "label": "Bedside ultrasound (POCUS) if suspected rupture: aneurysm, free fluid; CT if stable",
+     "keywords": "pocus|bedside us|bedside ultra|fast scan|free fluid|ct if stable"
     }
    ],
    "medications": [
@@ -7916,12 +8849,24 @@
    ],
    "investigations": [
     {
-     "label": "Compression adherence",
-     "keywords": "compression|stocking|bandage|adheren"
+     "label": "ABPI (>0.8 safe for full compression; 0.5-0.8 reduced compression)",
+     "keywords": "abi|abpi|ankle.?brachial|ankle pressure|safe for compression"
     },
     {
-     "label": "Wound care / community nurse",
-     "keywords": "dressing|nurse|wound care|clinic"
+     "label": "Venous duplex ultrasound: reflux (>0.5 s superficial, >1 s deep), SFJ / SPJ / perforator incompetence, DVT",
+     "keywords": "duplex|reflux|venous ultrasound|venous duplex|vein mapping|sfj|spj"
+    },
+    {
+     "label": "Wound swab / culture only if clinically infected",
+     "keywords": "swab|culture|mcs|microbiolog"
+    },
+    {
+     "label": "Biopsy of atypical or non-healing ulcer: SCC (Marjolin), vasculitis, pyoderma",
+     "keywords": "biops|histolog|punch|pathology"
+    },
+    {
+     "label": "Bloods: FBC, HbA1c / glucose, albumin, ferritin, CRP",
+     "keywords": "hba1c|glucose|albumin|fbc|crp|ferritin|bloods"
     }
    ],
    "medications": [
@@ -7944,6 +8889,10 @@
     {
      "label": "Venous ablation / surgery",
      "keywords": "ablat|evla|rfa|sclerotherapy|vein stripping|venous surg|endovenous"
+    },
+    {
+     "label": "Wound care: moist dressings / community nurse",
+     "keywords": "dressing|nurse|wound care"
     }
    ]
   }
@@ -8051,16 +9000,28 @@
    ],
    "investigations": [
     {
-     "label": "Diagnosis: when, how, CD4 nadir",
-     "keywords": "diagnos|cd4|nadir"
+     "label": "HIV Ag/Ab (4th-generation) screen, confirmed on second assay / HIV RNA; repeat at 3 months if window period",
+     "keywords": "serolog|ag/ab|4th gen|fourth gen|combination assay|elisa|western blot|window period|hiv test|screening test"
     },
     {
-     "label": "Viral load / undetectable",
-     "keywords": "viral load|undetect|vl"
+     "label": "HIV viral load (RNA PCR): goal undetectable (<50 copies/mL) by 6 months; 3-6 monthly",
+     "keywords": "viral load|rna|undetectable|copies|u=u|pcr"
     },
     {
-     "label": "ART regimen, adherence, side effects",
-     "keywords": "art|adheren|side effect|antiretro"
+     "label": "CD4 count: <200 PJP prophylaxis, <100 toxoplasma / cryptococcus / MAC risk",
+     "keywords": "cd4|t cell|lymphocyte subset"
+    },
+    {
+     "label": "Baseline genotypic resistance test; HLA-B*5701 if abacavir considered",
+     "keywords": "genotyp|resistance|hla|5701"
+    },
+    {
+     "label": "Baseline screen: HBV / HCV / syphilis serology, IGRA, toxoplasma IgG, G6PD, cervical screening",
+     "keywords": "igra|quantiferon|toxoplasma|g6pd|baseline|coinfection screen|cervical screen"
+    },
+    {
+     "label": "ART monitoring: eGFR / urine protein (tenofovir), lipids, HbA1c, bone density (DEXA)",
+     "keywords": "egfr|urine protein|dexa|dxa|lipids|bone density|monitoring bloods"
     }
    ],
    "medications": [
@@ -8192,12 +9153,28 @@
    ],
    "investigations": [
     {
-     "label": "Drug side effects: vision, tingling, jaundice, orange urine",
-     "keywords": "vision|tingl|neuropath|jaund|orange|side effect"
+     "label": "Sputum x3 (early morning): AFB smear (Ziehl-Neelsen / auramine) and culture (gold standard, up to 6-8 weeks)",
+     "keywords": "afb|smear|ziehl|auramine|culture|sputum|acid fast"
     },
     {
-     "label": "Adherence / DOT",
-     "keywords": "adheren|dot|directly"
+     "label": "NAAT (Xpert MTB/RIF): rapid diagnosis and rifampicin resistance; phenotypic drug susceptibility testing",
+     "keywords": "naat|xpert|genexpert|pcr|resistance|susceptib|dst|mdr"
+    },
+    {
+     "label": "CXR: upper lobe infiltrate / cavitation, fibrosis, hilar nodes, miliary pattern",
+     "keywords": "cxr|chest x|x-ray|xray|miliary|upper lobe|ct chest"
+    },
+    {
+     "label": "IGRA (QuantiFERON) / Mantoux (TST): latent TB; cannot distinguish active disease",
+     "keywords": "igra|quantiferon|mantoux|tst|tuberculin|interferon"
+    },
+    {
+     "label": "Baseline and monitoring LFTs (hepatitis on RIPE); baseline visual acuity / colour vision (ethambutol)",
+     "keywords": "lft|liver function|alt|colour vision|visual acuity|baseline lft"
+    },
+    {
+     "label": "HIV test (all patients with TB) +/- hepatitis B / C serology",
+     "keywords": "hiv test|hiv serology|hiv status|hbv serology"
     }
    ],
    "medications": [
@@ -8224,6 +9201,10 @@
     {
      "label": "Latent TB treatment (isoniazid or rifampicin-based)",
      "keywords": "latent|ltbi|3hp|rifapentine"
+    },
+    {
+     "label": "Directly observed therapy (DOT / video DOT) to ensure completion",
+     "keywords": "dot|directly observed|observed therapy|video dot"
     }
    ]
   },
@@ -8313,24 +9294,28 @@
    ],
    "investigations": [
     {
-     "label": "How / when diagnosed",
-     "keywords": "diagnos|when|how"
+     "label": "HBV serology: HBsAg (>6 months = chronic), anti-HBc (IgM / total), anti-HBs (immune), HBeAg / anti-HBe",
+     "keywords": "hbsag|surface antigen|anti-hbc|anti-hbs|core antibod|hbeag|serology"
     },
     {
-     "label": "Treatment (antivirals, DAAs) and adherence",
-     "keywords": "antiviral|entecavir|tenofovir|daa|sofosbuv|epclusa|maviret|adheren|treat"
+     "label": "HBV DNA viral load + ALT: guides treatment and monitoring (6-12 monthly)",
+     "keywords": "hbv dna|dna|viral load|alt|lft|liver function"
     },
     {
-     "label": "Viral load / LFT monitoring",
-     "keywords": "viral load|lft|monitor"
+     "label": "HCV antibody then HCV RNA PCR to confirm active infection (genotype not needed for pan-genotypic DAAs)",
+     "keywords": "anti-hcv|hcv antibod|hcv rna|hcv pcr|rna|pcr"
     },
     {
-     "label": "HCC surveillance (6-monthly US)",
-     "keywords": "hcc|surveil|ultrasound"
+     "label": "Fibrosis staging: FibroScan (elastography), APRI / FIB-4",
+     "keywords": "fibroscan|elastograph|apri|fib-4|fib4|stiffness"
     },
     {
-     "label": "Family / household screening & vaccination",
-     "keywords": "family|household|contacts|vaccin"
+     "label": "HCC surveillance: 6-monthly liver ultrasound +/- AFP (cirrhosis, high-risk HBV)",
+     "keywords": "hcc|surveillance|ultrasound|us|afp|alpha.?feto"
+    },
+    {
+     "label": "Anti-HDV (if HBsAg positive), HAV IgG, HIV test",
+     "keywords": "hdv|delta|hepatitis d|hav igg|hiv test"
     }
    ],
    "medications": [
@@ -8466,8 +9451,28 @@
    ],
    "investigations": [
     {
-     "label": "Vaccination (HPV, HBV, HAV, mpox)",
-     "keywords": "vaccin|hpv|hep|mpox"
+     "label": "NAAT / PCR for chlamydia and gonorrhoea: first-void urine (men), self-collected vaginal swab (women); pharyngeal / rectal swabs by exposure",
+     "keywords": "naat|pcr|first void|first-void|vaginal swab|self-collected|urine test"
+    },
+    {
+     "label": "Gonorrhoea culture + antibiotic susceptibility (before treatment)",
+     "keywords": "culture|susceptib|sensitivit|resistance"
+    },
+    {
+     "label": "Syphilis serology: treponemal EIA / TPPA + RPR / VDRL titre (4-fold fall at 12 months)",
+     "keywords": "rpr|vdrl|tppa|treponem|eia|titre|serology"
+    },
+    {
+     "label": "HIV Ag/Ab (4th gen) with repeat at 3 months (window period)",
+     "keywords": "hiv test|hiv ag|4th gen|window period|hiv serology"
+    },
+    {
+     "label": "Blood-borne virus screen: HBsAg / anti-HBs, HCV antibody",
+     "keywords": "hbsag|hepatitis b|hepatitis c|hcv|bbv|blood.?borne"
+    },
+    {
+     "label": "HSV PCR swab of ulcer / unroofed vesicle",
+     "keywords": "hsv|pcr swab|lesion swab|vesicle swab|swab of ulcer"
     }
    ],
    "medications": [
@@ -8599,12 +9604,28 @@
    ],
    "investigations": [
     {
-     "label": "Number of episodes / cultures / resistance",
-     "keywords": "episode|how many|culture|resist|recurr"
+     "label": "MSU M/C/S: >=10^8 CFU/L single organism, sensitivities (culture-proven episodes; recurrent = >=2 in 6 months or >=3 in 12 months)",
+     "keywords": "msu|mcs|m/c/s|culture|sensitiv|cfu"
     },
     {
-     "label": "Prophylaxis tried",
-     "keywords": "prophyl|cranberr|methenamine|hiprex"
+     "label": "Urine microscopy: pyuria (white cells), bacteria, red cells",
+     "keywords": "microscopy|pyuria|white cell"
+    },
+    {
+     "label": "Renal tract ultrasound +/- post-void residual: hydronephrosis, calculi, structural abnormality, incomplete emptying",
+     "keywords": "renal tract|ultrasound|us|post.?void|pvr|bladder scan"
+    },
+    {
+     "label": "CT KUB / CT urogram if obstruction, abscess or not improving at 48-72 h",
+     "keywords": "ct|kub|ct urogram|abscess"
+    },
+    {
+     "label": "Pyelonephritis bloods: blood cultures x2, CRP, eGFR / EUC, lactate",
+     "keywords": "blood culture|crp|egfr|euc|lactate|fbc"
+    },
+    {
+     "label": "Cystoscopy (urology) if recurrent UTI with haematuria or suspected structural cause",
+     "keywords": "cystoscop|urolog"
     }
    ],
    "medications": [
@@ -8728,8 +9749,28 @@
    ],
    "investigations": [
     {
-     "label": "Antibiotic course / PICC / side effects",
-     "keywords": "antibiot|picc|course|side effect|diarr"
+     "label": "Bone biopsy (culture + histology): gold standard for organism; sinus swabs unreliable",
+     "keywords": "biops|bone culture|histolog|deep tissue|bone cultur"
+    },
+    {
+     "label": "Blood cultures x2-3 before antibiotics (positive in haematogenous)",
+     "keywords": "blood culture|bc x2|cultures x2"
+    },
+    {
+     "label": "ESR / CRP: raised (ESR >70 suggestive); trend to monitor treatment response",
+     "keywords": "esr|crp|inflammatory marker|wcc|white cell"
+    },
+    {
+     "label": "MRI: marrow oedema (T1 low, T2 / STIR high), abscess, sinus tract; most sensitive early",
+     "keywords": "mri|marrow|oedema|stir"
+    },
+    {
+     "label": "Plain X-ray: lucency, periosteal reaction (lags 10-14 days)",
+     "keywords": "x-ray|xray|plain film|radiograph|periosteal"
+    },
+    {
+     "label": "Bone scan / labelled WBC scan / PET if MRI contraindicated",
+     "keywords": "bone scan|nuclear|wbc scan|pet|spect"
     }
    ],
    "medications": [
@@ -8835,16 +9876,28 @@
    ],
    "investigations": [
     {
-     "label": "Arm swelling (lymphoedema)",
-     "keywords": "lymphoed|arm swell|swell"
+     "label": "Bilateral mammogram +/- breast ultrasound (US if <35 y): spiculated mass, microcalcifications",
+     "keywords": "mammogram|breast imaging|tomosynthesis|spiculated|microcalc|ultrasound|usg|breast us"
     },
     {
-     "label": "Endocrine therapy side effects (hot flushes, joint pain)",
-     "keywords": "hot flush|joint|arthral|tamoxifen|letrozole|aromatase|side effect"
+     "label": "Image-guided core biopsy: histology, grade, ER / PR / HER2, Ki-67",
+     "keywords": "biops|core needle|histolog|receptor status|ihc|ki-?67|er pr|grade"
     },
     {
-     "label": "Chemo / RT side effects",
-     "keywords": "chemo|radio|neuropath|side effect"
+     "label": "Axillary ultrasound +/- FNA / core of suspicious nodes",
+     "keywords": "axillary ultrasound|axillary us|node biops|fna|cytolog|node sampl"
+    },
+    {
+     "label": "Staging if stage III / symptomatic: CT chest / abdomen / pelvis + bone scan (or PET)",
+     "keywords": "ct|bone scan|pet|staging"
+    },
+    {
+     "label": "Genetic testing (BRCA1/2, germline panel): young age, triple-negative, family history",
+     "keywords": "brca|genetic|germline|gene panel"
+    },
+    {
+     "label": "Echo / MUGA: baseline and monitoring LVEF on trastuzumab / anthracycline",
+     "keywords": "echo|muga|lvef|ejection"
     }
    ],
    "medications": [
@@ -8952,20 +10005,28 @@
    ],
    "investigations": [
     {
-     "label": "Post-op: tingling / cramps (hypocalcaemia)",
-     "keywords": "tingl|cramp|calc|numb"
+     "label": "TSH (+/- fT4): suppressed suggests toxic (hot) nodule",
+     "keywords": "tsh|ft4|thyroid function|tft"
     },
     {
-     "label": "Post-op voice change",
-     "keywords": "voice"
+     "label": "Thyroid / neck ultrasound: TI-RADS features (solid, hypoechoic, microcalcifications, taller-than-wide), nodes",
+     "keywords": "ultrasound|usg|ti-?rads|microcalc|hypoechoic|taller"
     },
     {
-     "label": "Thyroxine / calcium replacement",
-     "keywords": "thyrox|levothyrox|calcium|calcitriol"
+     "label": "FNA cytology (Bethesda II-VI)",
+     "keywords": "fna|fine needle|cytolog|bethesda|biops"
     },
     {
-     "label": "RAI / surveillance",
-     "keywords": "rai|radioiod|surveil|thyroglob"
+     "label": "Thyroid scintigraphy (Tc-99m): hot vs cold nodule if TSH low",
+     "keywords": "scintigraph|technetium|tc.?99|nuclear|isotope|hot nodule|cold nodule"
+    },
+    {
+     "label": "Calcitonin (+/- CEA, RET) if medullary carcinoma suspected",
+     "keywords": "calcitonin|medullary|ret|cea"
+    },
+    {
+     "label": "Post-op calcium / PTH: hypocalcaemia day 1-2 (plus vocal cord check if voice change)",
+     "keywords": "pth|calcium|ionised|corrected calcium|laryngoscop"
     }
    ],
    "medications": [
@@ -9107,12 +10168,28 @@
    ],
    "investigations": [
     {
-     "label": "Mobility aids / pre-morbid function",
-     "keywords": "aid|frame|stick|function|pre.?morbid|mobil"
+     "label": "Hip X-ray (AP pelvis + lateral): femoral neck / intertrochanteric fracture, Shenton's line broken",
+     "keywords": "x-ray|xray|radiograph|shenton|ap pelvis|neck of femur|nof"
     },
     {
-     "label": "Living situation / supports",
-     "keywords": "live|alone|support|carer"
+     "label": "MRI (or CT) hip if X-ray negative but suspected occult fracture",
+     "keywords": "mri|ct|occult"
+    },
+    {
+     "label": "ECG +/- Holter: AF, bradycardia, heart block, long QT",
+     "keywords": "ecg|ekg|holter|telemetry|qt"
+    },
+    {
+     "label": "Bloods: FBC (anaemia), U&E / eGFR, CK (long lie), glucose, TFTs",
+     "keywords": "u&e|ues|electrolyte|ck|rhabdo|fbc|egfr|bloods|blood test"
+    },
+    {
+     "label": "Bone health: DEXA, calcium, 25-OH vitamin D, PTH",
+     "keywords": "dexa|dxa|bone density|25.?oh|vitamin d level|serum pth|parathyroid hormone"
+    },
+    {
+     "label": "Urinalysis / MSU (UTI as trigger, delirium)",
+     "keywords": "urinalysis|msu|dipstick|uti"
     }
    ],
    "medications": [
@@ -9139,6 +10216,10 @@
     {
      "label": "Falls prevention (strength & balance, home OT)",
      "keywords": "balance|strength|home assess|home mod|falls clinic|rehab|physio"
+    },
+    {
+     "label": "Orthogeriatric care + early mobilisation",
+     "keywords": "orthogeriat|early mobil|mobilis|mobiliz|weight.?bearing"
     }
    ]
   },
@@ -9252,8 +10333,28 @@
    ],
    "investigations": [
     {
-     "label": "Analgesia / opioid use",
-     "keywords": "analges|opioid|nsaid"
+     "label": "No imaging for acute non-specific back pain without red flags",
+     "keywords": "no imaging|not indicated|none needed|not needed|non.?specific|no investigation"
+    },
+    {
+     "label": "MRI lumbar spine (urgent if cauda equina / cord compression): disc herniation, canal stenosis, infection, tumour",
+     "keywords": "mri|magnetic|disc herniation|stenosis"
+    },
+    {
+     "label": "X-ray spine: fracture, spondylolisthesis, degenerative change (limited use)",
+     "keywords": "x-ray|xray|radiograph|spondylolisthesis"
+    },
+    {
+     "label": "ESR / CRP / FBC raised +/- blood cultures (infection, malignancy, inflammatory)",
+     "keywords": "esr|crp|fbc|blood culture|inflammatory marker"
+    },
+    {
+     "label": "Bladder scan (post-void residual) if cauda equina suspected",
+     "keywords": "bladder scan|post.?void|pvr|residual"
+    },
+    {
+     "label": "Bone scan / CT staging; PSA, SPEP, calcium if malignancy suspected",
+     "keywords": "bone scan|pet|psa|spep|myeloma|electrophoresis|tumour marker"
     }
    ],
    "medications": [
@@ -9379,12 +10480,28 @@
    ],
    "investigations": [
     {
-     "label": "Skin checks / surveillance",
-     "keywords": "skin check|surveil|dermat"
+     "label": "Excisional biopsy with 2 mm margins (full thickness, not shave) for suspected melanoma",
+     "keywords": "excisional biops|excision biops|biopsy|punch|shave"
     },
     {
-     "label": "Immunotherapy side effects (diarrhoea, rash, fatigue, thyroid)",
-     "keywords": "immunother|pembrol|nivol|diarr|thyro|side effect"
+     "label": "Histopathology: Breslow thickness (mm), mitotic rate, subtype (key prognostic)",
+     "keywords": "histolog|histopath|breslow|clark|pathology|mitotic"
+    },
+    {
+     "label": "Staging imaging (CT chest / abdomen / pelvis, brain MRI, PET-CT) for stage III / IV",
+     "keywords": "ct|pet|mri|staging|imaging|scan"
+    },
+    {
+     "label": "LDH raised (adverse prognosis in stage IV)",
+     "keywords": "ldh|lactate dehydrogenase"
+    },
+    {
+     "label": "BRAF V600 mutation testing on tumour (advanced disease)",
+     "keywords": "braf mutation|braf v600|v600|mutation test|molecular"
+    },
+    {
+     "label": "Lymph node ultrasound +/- FNA for palpable nodes",
+     "keywords": "ultrasound|fna|fine needle|node us"
     }
    ],
    "medications": [
@@ -9411,6 +10528,10 @@
     {
      "label": "Nicotinamide (prevention in high-risk)",
      "keywords": "nicotinamide|vitamin b3"
+    },
+    {
+     "label": "Sun protection (SPF 50+, hat, clothing) + regular skin checks",
+     "keywords": "spf|slip slop|sunsmart|sun smart|skin check|surveil|self.?exam"
     }
    ]
   },
@@ -9504,8 +10625,28 @@
    ],
    "investigations": [
     {
-     "label": "Treatments tried & side effects",
-     "keywords": "treat|topical|methotrex|biolog|photother|side effect"
+     "label": "Skin biopsy if atypical: parakeratosis, acanthosis, Munro microabscesses, absent granular layer",
+     "keywords": "biopsy|histolog|parakeratosis|munro"
+    },
+    {
+     "label": "PsA imaging (X-ray / US / MRI): pencil-in-cup, periostitis, DIP erosions, sacroiliitis",
+     "keywords": "x-ray|xray|pencil|periostitis|ultrasound|mri"
+    },
+    {
+     "label": "CRP / ESR; RF / anti-CCP negative (seronegative PsA)",
+     "keywords": "crp|esr|rf|ccp|seronegative|rheumatoid factor"
+    },
+    {
+     "label": "DMARD monitoring (MTX, acitretin, ciclosporin): FBC, LFTs, creatinine, fasting lipids, BP",
+     "keywords": "fbc|lft|liver function|creatinine|egfr|fasting lipid|monitoring blood|drug monitoring"
+    },
+    {
+     "label": "Pre-biologic screen: Quantiferon (TB), hepatitis B / C, HIV",
+     "keywords": "quantiferon|tb|igra|hepatitis|hbv|hiv|pre.?biologic"
+    },
+    {
+     "label": "Metabolic screen: HbA1c / glucose, lipids, BP, weight (CV risk)",
+     "keywords": "hba1c|metabolic screen|cardiovascular risk|cv risk|fasting glucose"
     }
    ],
    "medications": [
@@ -9605,16 +10746,28 @@
    ],
    "investigations": [
     {
-     "label": "Emollient use",
-     "keywords": "emollient|moistur"
+     "label": "Skin swab (bacterial culture): Staph aureus, impetiginisation",
+     "keywords": "skin swab|swab|culture|mcs"
     },
     {
-     "label": "Topical steroids: use, fears",
-     "keywords": "steroid|topical|fear|phobia"
+     "label": "Viral PCR swab: HSV (eczema herpeticum)",
+     "keywords": "viral pcr|hsv|pcr|viral swab"
     },
     {
-     "label": "Systemic / biologic therapy",
-     "keywords": "dupilum|biolog|systemic|ciclospor|methotrex"
+     "label": "Total / specific IgE (RAST), skin prick test: allergen sensitisation, eosinophilia (only if history suggests)",
+     "keywords": "ige|rast|skin prick|prick|spt|allergy test|sensitis"
+    },
+    {
+     "label": "Patch testing: allergic contact dermatitis (hands, atypical or resistant disease)",
+     "keywords": "patch test|contact dermatitis|allergic contact"
+    },
+    {
+     "label": "Skin biopsy if atypical (exclude CTCL, scabies, psoriasis)",
+     "keywords": "biopsy|cutaneous t|ctcl|scabies"
+    },
+    {
+     "label": "Baseline bloods before systemic therapy: FBC, LFTs, creatinine / eGFR",
+     "keywords": "fbc|lft|liver function|creatinine|egfr|baseline blood|monitoring blood"
     }
    ],
    "medications": [
@@ -9641,6 +10794,10 @@
     {
      "label": "Phototherapy",
      "keywords": "photo|uv|nbuvb|light therapy"
+    },
+    {
+     "label": "Emollients (liberal, daily) + soap-free wash",
+     "keywords": "emollient|moistur|soap.?free|sorbolene|aqueous"
     }
    ]
   }
@@ -9720,20 +10877,20 @@
    ],
    "investigations": [
     {
-     "label": "Drops: adherence, technique",
-     "keywords": "drop|adheren|technique"
+     "label": "Goldmann applanation tonometry: IOP >21 mmHg (normal in normal-tension glaucoma); diurnal curve",
+     "keywords": "goldmann|applanation|diurnal|iop curve|phasing"
     },
     {
-     "label": "Drop side effects (timolol: SOB, bradycardia)",
-     "keywords": "timolol|side effect|breath|asthma|heart|brady"
+     "label": "Automated perimetry (Humphrey visual fields): arcuate / nasal step / paracentral scotoma; monitors progression",
+     "keywords": "perimetry|humphrey|visual field|automated|hvf"
     },
     {
-     "label": "Laser / surgery",
-     "keywords": "laser|surgery|trabec|slt"
+     "label": "OCT: retinal nerve fibre layer / ganglion cell thinning; progression",
+     "keywords": "oct|optical coherence|rnfl|nerve fibre layer|ganglion"
     },
     {
-     "label": "Driving",
-     "keywords": "driv"
+     "label": "Optic disc photography / stereo imaging for baseline and progression",
+     "keywords": "disc photo|stereo|retinal photo|serial photo"
     }
    ],
    "medications": [
@@ -9756,6 +10913,10 @@
     {
      "label": "Acute angle closure: pilocarpine, laser peripheral iridotomy",
      "keywords": "pilocarpine|peripheral iridotomy|iridotomy|lpi"
+    },
+    {
+     "label": "Laser trabeculoplasty (SLT) or surgery (trabeculectomy / MIGS / tube) if drops fail",
+     "keywords": "slt|trabeculoplasty|trabeculectomy|migs|tube|glaucoma surg|laser|drainage"
     }
    ]
   },
@@ -9845,16 +11006,24 @@
    ],
    "investigations": [
     {
-     "label": "Injections / surgery history",
-     "keywords": "inject|anti.?vegf|surgery|operation|lens"
+     "label": "OCT macula: drusen, subretinal / intraretinal fluid, PED (wet AMD); monitors treatment response",
+     "keywords": "oct|optical coherence|subretinal|intraretinal|fluid|ped"
     },
     {
-     "label": "Amsler grid / supplements",
-     "keywords": "amsler|supplement|areds|vitamin"
+     "label": "Fluorescein angiography / OCT-angiography: choroidal neovascularisation leakage",
+     "keywords": "ffa|fluorescein|angiogra|octa|cnv|choroidal neovasc"
     },
     {
-     "label": "Driving",
-     "keywords": "driv"
+     "label": "Fundus autofluorescence: geographic atrophy (dry AMD)",
+     "keywords": "autofluoresc|faf|fundus photo|geographic"
+    },
+    {
+     "label": "Home Amsler grid monitoring: new distortion = urgent review",
+     "keywords": "amsler|home monitoring|self.?monitor|monitor at home"
+    },
+    {
+     "label": "Biometry (axial length, keratometry) for IOL power before cataract surgery",
+     "keywords": "biometry|iolmaster|iol master|axial length|keratometry"
     }
    ],
    "medications": [
@@ -9980,8 +11149,24 @@
    ],
    "investigations": [
     {
-     "label": "Hearing aids / use",
-     "keywords": "aid|hearing aid|cochlear"
+     "label": "Pure tone audiometry: air-bone gap = conductive; both reduced = sensorineural (4 kHz noise notch); urgent if sudden (>=30 dB over 3 frequencies in <72 h)",
+     "keywords": "pure tone|pta|air.?bone|noise notch|4 khz|speech audiometry"
+    },
+    {
+     "label": "Tympanometry: type B flat (effusion), As (otosclerosis), Ad (ossicular disruption), C (Eustachian dysfunction)",
+     "keywords": "type b|type a|type c|flat trace|compliance|middle ear pressure|acoustic reflex"
+    },
+    {
+     "label": "MRI internal auditory meatus (gadolinium) for asymmetric / sudden SNHL: vestibular schwannoma",
+     "keywords": "mri|iam|iac|internal auditory|schwannoma|acoustic neuroma|cerebellopontine|cpa"
+    },
+    {
+     "label": "ABR / otoacoustic emissions (newborn screen, neural vs cochlear loss)",
+     "keywords": "abr|brainstem response|oae|otoacoustic|newborn|hearing screen"
+    },
+    {
+     "label": "HRCT temporal bones: ossicular chain, cholesteatoma, otosclerosis, SCDS",
+     "keywords": "ct temporal|temporal bone|hrct|ct"
     }
    ],
    "medications": [
@@ -10000,6 +11185,10 @@
     {
      "label": "Assistive devices / communication strategies",
      "keywords": "assistive|captions|amplif|lip read|communication strateg"
+    },
+    {
+     "label": "Hearing aids (audiology fitting; bone-anchored aid if conductive)",
+     "keywords": "hearing aid|aid|bte|bahi|baha|bone.?anchor"
     }
    ]
   },
@@ -10093,20 +11282,28 @@
    ],
    "investigations": [
     {
-     "label": "Treatment: surgery, RT, chemo, trach, PEG",
-     "keywords": "surgery|radio|chemo|trach|peg|laryngectom|flap"
+     "label": "Biopsy of primary lesion: SCC histology; p16 / HPV status (oropharynx), EBV (nasopharynx)",
+     "keywords": "biopsy|histolog|p16|hpv status|ebv|squamous|scc"
     },
     {
-     "label": "Dry mouth / dental / trismus",
-     "keywords": "dry mouth|xerost|dental|teeth|trismus|jaw"
+     "label": "US-guided FNA / core biopsy of neck node (avoid open node biopsy)",
+     "keywords": "fna|fine needle|core biopsy|us guided|neck ultrasound"
     },
     {
-     "label": "Speech / communication",
-     "keywords": "speech|communicat|valve|electrolar"
+     "label": "Panendoscopy / EUA under GA: direct laryngoscopy, mapping, synchronous second primaries",
+     "keywords": "panendoscop|eua|examination under anaesthe|direct laryngoscop|triple endoscopy"
     },
     {
-     "label": "Shoulder dysfunction / lymphoedema",
-     "keywords": "shoulder|lymphoed|swell"
+     "label": "Staging: CT neck / chest with contrast, MRI (oral cavity, nasopharynx, skull base), PET-CT for N+ or distant disease",
+     "keywords": "staging|ct|mri|pet|imaging"
+    },
+    {
+     "label": "Pre-treatment work-up: audiogram + eGFR (cisplatin), videofluoroscopy / SLT swallow assessment",
+     "keywords": "audiogram|egfr|renal function|baseline bloods|videofluoroscopy|swallow study"
+    },
+    {
+     "label": "Surveillance: TSH 6-12 monthly (post-RT hypothyroidism), post-treatment PET-CT at 12 weeks",
+     "keywords": "tsh|thyroid function|surveillance|post-treatment|follow.?up"
     }
    ],
    "medications": [
@@ -10129,6 +11326,18 @@
     {
      "label": "Smoking and alcohol cessation",
      "keywords": "quit|cessation|abstin"
+    },
+    {
+     "label": "Surgical resection +/- neck dissection / reconstruction (free flap, laryngectomy, tracheostomy)",
+     "keywords": "surg|resect|neck dissection|laryngectomy|glossectomy|trache|free flap|reconstruct"
+    },
+    {
+     "label": "Radiotherapy (IMRT 60-70 Gy) definitive or adjuvant",
+     "keywords": "radiotherap|imrt|xrt|rt|brachy|gy"
+    },
+    {
+     "label": "PEG / enteral feeding if unsafe swallow or weight loss",
+     "keywords": "peg|gastrostomy|enteral|feeding tube|rig"
     }
    ]
   },
@@ -10236,7 +11445,28 @@
      "keywords": "cranial|focal"
     }
    ],
-   "investigations": [],
+   "investigations": [
+    {
+     "label": "Audiogram: low-frequency SNHL in Meniere's; unilateral SNHL needs MRI",
+     "keywords": "audiogram|pta|pure tone"
+    },
+    {
+     "label": "MRI brain (posterior fossa / IAC protocol): cerebellar or brainstem stroke (DWI may miss early), vestibular schwannoma, MS",
+     "keywords": "mri|posterior fossa|schwannoma|dwi|iac|diffusion"
+    },
+    {
+     "label": "CT / MR angiogram head and neck: vertebrobasilar stenosis or dissection",
+     "keywords": "cta|angiogram|vertebrobasilar|dissection|mra"
+    },
+    {
+     "label": "Video head impulse test (vHIT) / caloric testing / VNG: unilateral canal paresis, reduced VOR gain",
+     "keywords": "vhit|video head impulse|caloric|vng|videonystagmo|electronystagmo|vestibular function test"
+    },
+    {
+     "label": "ECG / Holter and lying-standing BP if presyncope or cardiovascular cause suspected",
+     "keywords": "ecg|holter|lying and standing|lying.standing"
+    }
+   ],
    "medications": [
     {
      "label": "BPPV: Epley manoeuvre",
@@ -10372,12 +11602,28 @@
    ],
    "investigations": [
     {
-     "label": "CAGE / AUDIT",
-     "keywords": "cage|audit"
+     "label": "AUDIT (>=8 hazardous, >=20 dependence) / AUDIT-C",
+     "keywords": "audit|cage"
     },
     {
-     "label": "Previous attempts to quit / rehab / meds",
-     "keywords": "quit|rehab|detox|naltrex|acamprosate|aa"
+     "label": "GGT raised, AST:ALT >2:1, ALP, bilirubin (LFTs)",
+     "keywords": "ggt|lft|liver function|ast|alt|alp|transaminase"
+    },
+    {
+     "label": "MCV raised (macrocytosis), FBC (thrombocytopenia)",
+     "keywords": "mcv|macrocyt|fbc|full blood|platelet"
+    },
+    {
+     "label": "CDT / PEth / blood alcohol level",
+     "keywords": "cdt|carbohydrate|transferrin|peth|phosphatidyl|blood alcohol|breath alcohol"
+    },
+    {
+     "label": "Liver assessment: INR, albumin, liver ultrasound, FibroScan (steatosis, fibrosis, cirrhosis)",
+     "keywords": "fibroscan|elastograph|liver ultra|ultrasound|inr|albumin|fibrosis"
+    },
+    {
+     "label": "Withdrawal monitoring: electrolytes (Mg, K, phosphate), glucose",
+     "keywords": "magnesium|phosph|electrolyte|u&e|withdrawal score|glucose"
     }
    ],
    "medications": [
@@ -10481,24 +11727,28 @@
    ],
    "investigations": [
     {
-     "label": "Readiness to quit",
-     "keywords": "ready|motivat|want to quit|stage"
+     "label": "Spirometry: FEV1/FVC <0.7 (COPD)",
+     "keywords": "spirometry|spirom|fvc"
     },
     {
-     "label": "Previous quit attempts / what worked",
-     "keywords": "previous|attempt|tried"
+     "label": "Low-dose CT lung screening (NLCSP: age 50-70, >=30 pack-years, current or quit <10 y)",
+     "keywords": "ldct|low.?dose|lung cancer screening|screening ct|ct"
     },
     {
-     "label": "NRT / varenicline / bupropion use",
-     "keywords": "nrt|patch|gum|varenic|champix|bupropion"
+     "label": "Exhaled CO breath test (raised in smokers)",
+     "keywords": "carbon monoxide|exhaled|breath co|co monitor"
     },
     {
-     "label": "Quitline / support",
-     "keywords": "quitline|support|counsel"
+     "label": "Urine / salivary cotinine (verify abstinence)",
+     "keywords": "cotinine|biochemical|verif"
     },
     {
-     "label": "Smoking-related disease awareness",
-     "keywords": "copd|cancer|heart|aware|disease"
+     "label": "Fagerstrom test of nicotine dependence",
+     "keywords": "fagerstr|ftnd|dependence score|time to first cigarette"
+    },
+    {
+     "label": "Lipids, HbA1c, BP: absolute cardiovascular risk",
+     "keywords": "lipid|cholest|hba1c|cv risk|cardiovascular risk|absolute risk"
     }
    ],
    "medications": [
