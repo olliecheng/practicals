@@ -1,6 +1,6 @@
 // Recall Drill accounts: one JSON blob per username in the USERS KV namespace.
 // GET returns the blob (404 if the user doesn't exist); PUT replaces it (and creates the user).
-const NAME = /^[a-z0-9_-]{3,32}$/;
+const NAME = /^[a-z0-9_-]{1,100}$/;
 const MAX = 256 * 1024;
 
 const json = (body, status = 200) =>

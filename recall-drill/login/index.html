@@ -26,8 +26,8 @@ a{color:var(--teal)}
 <h1>History recall drill</h1>
 <form class="panel" id="f" novalidate>
  <label for="un">Username</label>
- <input id="un" autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false" maxlength="32" autofocus>
- <p class="note">6–32 characters: a–z, 0–9, - or _. There is no password, so anyone who knows your username can see your history. Pick something others won't guess.</p>
+ <input id="un" autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false" maxlength="100" autofocus>
+ <p class="note">Pick a unique name that others won't guess.</p>
  <p id="msg" role="alert"></p>
  <div class="row"><button class="primary" id="login" type="submit">Log in</button><button id="create" type="button">Create account</button></div>
  <p class="note" style="margin-top:14px"><a href="../">← Back to the drill (as guest)</a></p>
@@ -40,7 +40,7 @@ const back=()=>{location.href='../'};
 // create: false = log in (user must exist), true = create (name must be free)
 async function go(create){
  const n=$('#un').value.trim().toLowerCase();
- if(!/^[a-z0-9_-]{6,32}$/.test(n))return msg('Use 6–32 characters: a–z, 0–9, - or _.');
+ if(!/^[a-z0-9_-]+$/.test(n))return msg('Use only letters, numbers, - or _.');
  msg('');document.querySelectorAll('button').forEach(b=>b.disabled=true);
  try{
   const u=await fetchUser(n);
