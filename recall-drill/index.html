@@ -99,7 +99,15 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .rw .stl[aria-pressed="false"]{margin-right:-1.3em}
 @media(hover:none){.rw .stl{opacity:.5}.rw .stl[aria-pressed="true"]{opacity:1}}
 .bdg{color:var(--teal);font-variant-numeric:tabular-nums;margin-left:auto;flex:none}
-.cell .inc{font-size:.75rem;padding:3px 8px;color:var(--mute);justify-content:center}
+.cell{position:relative}
+/* Options popover for drills with history: right of the cell, over everything else; .l flips it left near the viewport edge */
+.menu{display:none;position:absolute;top:0;left:100%;z-index:10;padding-left:4px}
+.menu.l{left:auto;right:100%;padding-left:0;padding-right:4px}
+.menu .mi{display:flex;flex-direction:column;gap:4px;padding:6px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.menu button{white-space:nowrap;justify-content:flex-start;font-size:.85rem;padding:6px 10px}
+.menu button:disabled{opacity:.5;cursor:default}
+.cell.open .menu{display:block}
+@media(hover:hover){.cell:hover .menu{display:block}}
 button.star,.condlist button.star{padding:2px 9px;font-size:1rem;line-height:1.2;color:var(--mute)}
 button.star[aria-pressed="true"]{color:var(--amber);border-color:var(--amber)}
 .ttl{display:flex;justify-content:space-between;align-items:center;gap:8px}
@@ -160,7 +168,7 @@ const MODES={
 };
 let systems=[],mode='cond',curMode='cond',selSys=new Set(),cur=null,found=new Set(),credited=new Set(),revealed=new Set(),celebrated=new Set(),over=false;
 // ignored: tiles the user gave up on; greyed out, always shown, left out of the score (persisted per drill for accounts)
-let ignored=new Set(),keys=[],acct=null,user=null,starOnly=false;
+let ignored=new Set(),keys=[],acct=null,user=null,starOnly=false,redo=false;
 
 // Matching. Keywords are word-start stems; "~x" matches anywhere (drug suffixes like ~pril).
 // Short keywords (<=3 chars) need a following delimiter so "ed" doesn't fire while typing "edema".
@@ -202,16 +210,28 @@ function rand(m){const d=randPick(m);if(d)start(d,m)}
 const hasBlanks=(d,sv)=>{const k=new Set([...sv.found,...sv.credited,...sv.ignored]);return d[3].some(it=>!k.has(ik(it)))};
 function row(d,m){
  const c=document.createElement('div');c.className='cell';
- const r=document.createElement('div');r.className='rw';r.tabIndex=0;r.setAttribute('role','button');r.title='Start from scratch';r.onclick=()=>start(d,m);
- r.onkeydown=e=>{if(e.target===r&&(e.key==='Enter'||e.key===' ')){e.preventDefault();start(d,m)}};c.appendChild(r);
+ const sv=savedOf(d,m),hist=!!(sv&&sv.runs);
+ const r=document.createElement('div');r.className='rw';r.tabIndex=0;r.setAttribute('role','button');
+ // With history, clicking opens the options popover (it also shows on hover); otherwise start straight away.
+ const act=()=>{if(!hist)return start(d,m);c.classList.toggle('open');place(c)};
+ r.onclick=act;
+ r.onkeydown=e=>{if(e.target===r&&(e.key==='Enter'||e.key===' ')){e.preventDefault();act()}};c.appendChild(r);
  const n=document.createElement('span');n.className='lb';n.textContent=d[1];r.appendChild(n);
  if(acct){const t=document.createElement('button');t.className='stl';t.textContent='★';t.title='Star';t.setAttribute('aria-label','Star '+d[1]);
   t.setAttribute('aria-pressed',starred(d,m));t.onclick=e=>{e.stopPropagation();t.setAttribute('aria-pressed',toggleStar(d,m));if(starOnly)list()};n.appendChild(t)}
- const sv=savedOf(d,m);
- if(sv&&sv.runs){const g=document.createElement('span');g.className='bdg';g.textContent=sv.score+'%';g.title=`Done ${sv.runs}×, last ${new Date(sv.last).toLocaleDateString()}`;r.appendChild(g)}
- if(sv&&sv.runs&&hasBlanks(d,sv)){const i=document.createElement('button');i.className='inc';i.textContent='Redo incorrect';i.title='Keep your correct answers filled in; fill the rest';i.onclick=()=>start(d,m,true);c.appendChild(i)}
+ if(hist){
+  const g=document.createElement('span');g.className='bdg';g.textContent=sv.score+'%';g.title=`Done ${sv.runs}×, last ${new Date(sv.last).toLocaleDateString()}`;r.appendChild(g);
+  const mn=document.createElement('div');mn.className='menu';mn.innerHTML='<div class="mi"><button class="scr">Start from scratch</button><button class="inc">Redo incorrect</button></div>';
+  mn.querySelector('.scr').onclick=()=>start(d,m);
+  const i=mn.querySelector('.inc');i.title='Keep your correct answers filled in; fill the rest';
+  if(hasBlanks(d,sv))i.onclick=()=>start(d,m,true);else{i.disabled=true;i.title='Nothing incorrect to redo'}
+  c.appendChild(mn);c.addEventListener('mouseenter',()=>place(c));
+ }
  return c;
 }
+// Open the popover to the right of the cell, or to the left if it wouldn't fit in the viewport
+function place(c){const m=c.querySelector('.menu');if(m)m.classList.toggle('l',c.getBoundingClientRect().right+170>document.documentElement.clientWidth)}
+document.addEventListener('click',e=>document.querySelectorAll('.cell.open').forEach(c=>{if(!c.contains(e.target))c.classList.remove('open')}));
 function list(){
  const c=$('#condList'),ds=pool(mode);c.innerHTML='';
  if(!ds.length){c.innerHTML='<p class="note" style="grid-column:1/-1;margin:0">No starred drills here yet.</p>';return}
@@ -223,7 +243,7 @@ function list(){
 // inc: prefill the tiles the saved record has as found/credited (the user only fills the blanks). Ignored tiles are always prefilled.
 function start(d,m,inc){
  clearTimeout(deferT);
- curMode=m;cur=d;found=new Set();credited=new Set();revealed=new Set();celebrated=new Set();ignored=new Set();over=false;swallowing=false;
+ curMode=m;cur=d;found=new Set();credited=new Set();revealed=new Set();celebrated=new Set();ignored=new Set();over=false;redo=!!inc;swallowing=false;
  keys=d[3].map(ik);
  const sv=savedOf(d,m),at=k=>keys.indexOf(k);
  if(sv){
@@ -270,15 +290,16 @@ function toggleIgnore(i){
  syncCelebrated();count();commit();
  if(over)score();else if(allSettled())finish();else reveal();
 }
-// Persist the current round into the user's record: ignored always; found/credited/score once the round is over.
+// Persist the current round into the user's record: ignored always; found/credited/score once a from-scratch round is over.
 // done: the round has just finished, so count it as a run.
 function commit(done){
  if(!acct)return;
  const k=dk(cur,curMode),r=user.drills[k]||(user.drills[k]={runs:0,last:0,score:0,found:[],credited:[],ignored:[]});
  const keysOf=s=>[...s].map(i=>keys[i]);
  r.ignored=keysOf(ignored);
- if(over){r.found=keysOf(found);r.credited=keysOf(credited);r.score=pct()}
- if(done){r.runs++;r.last=Date.now()}
+ // A "redo incorrect" round is practice: it never changes the saved history, only ignored items
+ if(over&&!redo){r.found=keysOf(found);r.credited=keysOf(credited);r.score=pct()}
+ if(done&&!redo){r.runs++;r.last=Date.now()}
  save();
 }
 function count(){const n=cur[3].length-ignored.size;$('#counter').innerHTML=`${found.size+credited.size} <span>of ${n} found</span>`;
@@ -313,7 +334,7 @@ $('#answer').addEventListener('input',e=>{
 });
 $('#answer').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();swallowing=false;evaluate(true)}});
 function pct(){const n=cur[3].length-ignored.size;return n?Math.round(100*(found.size+credited.size)/n):100}
-function score(){const p=pct();$('#result').textContent=p+'%';count();return p}
+function score(){const p=pct();$('#result').textContent=p+'%'+(redo&&acct?' (not saved)':'');count();return p}
 // One Reveal button, labelled with the next section that still has unfound tiles; revealing the last one finishes.
 const nextSec=()=>MODES[curMode].sections.find(([code])=>cur[3].some((it,i)=>it[2]===code&&!found.has(i)&&!revealed.has(i)&&!ignored.has(i)));
 function confetti(el,n){
