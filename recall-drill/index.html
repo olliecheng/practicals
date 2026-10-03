@@ -104,12 +104,6 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .cell{display:flex;flex-direction:column;gap:3px}
 .rw{display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--panel);border-radius:var(--r);padding:7px 10px;font-size:.85rem;cursor:pointer}
 .rw .lb{min-width:0}
-.rw .stl{display:inline;margin-left:4px;border:0;background:none;padding:0 2px;font:inherit;color:var(--mute);cursor:pointer;line-height:1;opacity:0}
-.rw:hover .stl,.rw .stl:focus-visible,.rw .stl[aria-pressed="true"]{opacity:1}
-.rw .stl[aria-pressed="true"]{color:var(--amber)}
-/* unstarred stars (hover only) take no layout space, so they never force a wrap */
-.rw .stl[aria-pressed="false"]{margin-right:-1.3em}
-@media(hover:none){.rw .stl{opacity:.5}.rw .stl[aria-pressed="true"]{opacity:1}}
 .bdg{color:var(--teal);font-variant-numeric:tabular-nums;margin-left:auto;flex:none}
 .cell{position:relative}
 /* Options popover for drills with history: right of the cell, over everything else; .l flips it left near the viewport edge */
@@ -288,8 +282,6 @@ function row(d,m){
  r.onclick=act;
  r.onkeydown=e=>{if(e.target===r&&(e.key==='Enter'||e.key===' ')){e.preventDefault();act()}};c.appendChild(r);
  const n=document.createElement('span');n.className='lb';n.textContent=d[1];r.appendChild(n);
- if(acct){const t=document.createElement('button');t.className='stl';t.textContent='★';t.title='Star';t.setAttribute('aria-label','Star '+d[1]);
-  t.setAttribute('aria-pressed',starred(d,m));t.onclick=e=>{e.stopPropagation();t.setAttribute('aria-pressed',toggleStar(d,m));if(starOnly)list()};n.appendChild(t)}
  if(hist){
   const g=document.createElement('span');g.className='bdg';g.textContent=sv.score+'%';g.title=`Done ${sv.runs}×, last ${new Date(sv.last).toLocaleDateString()}`;r.appendChild(g);
   const mn=document.createElement('div');mn.className='menu';mn.innerHTML='<div class="mi"><button class="scr">Start from scratch</button><button class="inc">Redo incorrect</button><button class="rst">Reset progress</button></div>';
