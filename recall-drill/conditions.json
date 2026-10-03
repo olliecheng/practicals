@@ -4740,10 +4740,6 @@
      "keywords": "iv iron|ferinject|carboxymaltose|iron infusion|monofer|derisomaltose"
     },
     {
-     "label": "Treat the cause",
-     "keywords": "treat cause|treat the cause"
-    },
-    {
      "label": "Transfusion if severe / unstable",
      "keywords": "transfus|prbc|red cell"
     },
@@ -8014,10 +8010,6 @@
     }
    ],
    "medications": [
-    {
-     "label": "Treat cause (glycaemic control, B12, stop alcohol / toxic drugs)",
-     "keywords": "treat cause|glycaem|stop alcohol|cease"
-    },
     {
      "label": "Neuropathic pain agents (pregabalin, duloxetine, amitriptyline)",
      "keywords": "neuropathic|pregabalin|lyrica|gabapentin|neurontin|duloxetine|cymbalta|amitriptyline|endep|tca|snri"
