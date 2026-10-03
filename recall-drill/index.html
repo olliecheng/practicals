@@ -168,7 +168,7 @@ button.star[aria-pressed="true"]{color:var(--amber);border-color:var(--amber)}
   <div class="cond" id="gCond"></div>
   <p class="prompt" id="gPrompt"></p>
   <div id="playActs"><div class="actions"><button class="primary" id="finish"></button><button id="quit">Back</button><button id="newCond">New</button></div></div>
-  <div class="actions hidden" id="doneActs"><span class="result" id="result"></span><button class="primary" id="next">Next condition</button><button id="retry">Retry this one</button><button id="menu">Menu</button><span class="note" style="flex-basis:100%;margin:0">Tap a missed tile if you had it.</span></div>
+  <div class="actions hidden" id="doneActs"><span class="result" id="result"></span><button class="primary hidden" id="nextCat"></button><button class="primary" id="next">Next condition</button><button id="retry">Retry this one</button><button id="menu">Menu</button><span class="note" style="flex-basis:100%;margin:0">Tap a missed tile if you had it.</span></div>
  </div>
  <div class="panel" id="inCard">
   <input id="answer" type="text" placeholder="Type an item…" aria-label="Your answer" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
@@ -202,15 +202,13 @@ const MODES={
 let systems=[],mode='cond',curMode='cond',selSys=new Set(),cur=null,found=new Set(),credited=new Set(),revealed=new Set(),celebrated=new Set(),over=false;
 // ignored: tiles the user gave up on; greyed out, always shown, left out of the score (persisted per drill for accounts)
 let ignored=new Set(),keys=[],acct=null,user=null,starOnly=false,redo=false;
-// closed: section codes the user has collapsed; they are left out of matching, counts, score and Reveal. In conditions mode only one of
-// Presentation / Examination can be open. The choice is remembered per mode.
-let closed=new Set();
-const EXCL={cond:['P','E']},CKEY='recallDrillClosed';
+// closed: section codes the user has collapsed; they are left out of matching, counts, score and Reveal.
+// The choice is remembered per mode (all sections open by default).
+let closed=new Set(),counted=false;
+const CKEY='recallDrillClosed2';
 function loadClosed(m){
- let c=new Set(m==='cond'?['E']:[]);
- try{const j=JSON.parse(localStorage.getItem(CKEY)||'{}');if(Array.isArray(j[m]))c=new Set(j[m])}catch{}
- const ex=EXCL[m];if(ex&&ex.every(x=>!c.has(x)))c.add(ex[1]);
- return c;
+ try{const j=JSON.parse(localStorage.getItem(CKEY)||'{}');if(Array.isArray(j[m]))return new Set(j[m])}catch{}
+ return new Set();
 }
 function saveClosed(){try{const j=JSON.parse(localStorage.getItem(CKEY)||'{}');j[curMode]=[...closed];localStorage.setItem(CKEY,JSON.stringify(j))}catch{}}
 
@@ -309,7 +307,7 @@ function list(){
 // inc: prefill the tiles the saved record has as found/credited (the user only fills the blanks). Ignored tiles are always prefilled.
 function start(d,m,inc){
  clearTimeout(deferT);
- curMode=m;cur=d;found=new Set();credited=new Set();revealed=new Set();celebrated=new Set();ignored=new Set();over=false;redo=!!inc;swallowing=false;
+ curMode=m;cur=d;found=new Set();credited=new Set();revealed=new Set();celebrated=new Set();ignored=new Set();over=false;counted=false;redo=!!inc;swallowing=false;
  keys=d[3].map(ik);
  const sv=savedOf(d,m),at=k=>keys.indexOf(k);
  // redo incorrect reopens exactly the sections of the saved run; otherwise use the remembered choice
@@ -332,7 +330,6 @@ function start(d,m,inc){
   sec.innerHTML=`<h3 class="sh"><button class="tg" type="button"><span class="chev" aria-hidden="true">▾</span><span class="ic" aria-hidden="true"></span>${name}</button><span class="sc"></span></h3>`;
   sec.querySelector('.ic').style.setProperty('--ic',`url("${icon}")`);
   const tg=sec.querySelector('.tg');tg.onclick=()=>setOpen(code,closed.has(code));
-  if(EXCL[m]&&EXCL[m].includes(code))tg.title='Presentation and Examination can\'t both be open: opening one collapses the other';
   if(!idx.length)sec.insertAdjacentHTML('beforeend',`<p class="note" style="margin:0">None listed for this ${MODES[m].noun}.</p>`);
   const bd=document.createElement('div');bd.className='board';
   idx.forEach((i,n)=>{const t=document.createElement('div');t.className='tile'+(ignored.has(i)?' on ign':credited.has(i)?' on cred':found.has(i)?' on':'');t.id='t'+i;
@@ -350,14 +347,12 @@ const allSettled=()=>cur[3].every((it,i)=>!act(i)||settled(i));
 // Re-apply the collapsed state to the page and everything derived from it
 function refreshSections(){
  MODES[curMode].sections.forEach(([c])=>{const s=$('#s'+c);s.classList.toggle('closed',closed.has(c));s.querySelector('.tg').setAttribute('aria-expanded',!closed.has(c))});
- const any=MODES[curMode].sections.some(([c])=>!closed.has(c));
- $('#allToggle').textContent=any?'Collapse all':'Open all';
+ $('#allToggle').textContent=closed.size?'Open all':'Collapse all'; // a mixed state offers Open all
  syncCelebrated();count();reveal();
 }
 function setOpen(code,open){
  if(over)return;
- if(open){closed.delete(code);const ex=EXCL[curMode];if(ex&&ex.includes(code))ex.forEach(c=>{if(c!==code)closed.add(c)})}
- else closed.add(code);
+ if(open)closed.delete(code);else closed.add(code);
  afterToggle();
 }
 function afterToggle(){
@@ -367,8 +362,8 @@ function afterToggle(){
 $('#allToggle').onclick=()=>{
  if(over)return;
  const secs=MODES[curMode].sections.map(x=>x[0]);
- if(secs.some(c=>!closed.has(c)))secs.forEach(c=>closed.add(c));
- else{closed.clear();const ex=EXCL[curMode];if(ex)closed.add(ex[1])}
+ if(closed.size)closed.clear();
+ else secs.forEach(c=>closed.add(c));
  afterToggle();
 };
 // Sections already complete (prefilled or ignored) must not fire confetti when something else is typed.
@@ -395,7 +390,7 @@ function commit(done){
  r.ignored=keysOf(ignored);
  // A "redo incorrect" round is practice: it never changes the saved history, only ignored items
  if(over&&!redo){r.found=keysOf(found);r.credited=keysOf(credited);r.score=pct();r.sections=MODES[curMode].sections.map(x=>x[0]).filter(c=>!closed.has(c))}
- if(done&&!redo){r.runs++;r.last=Date.now()}
+ if(done&&!redo){if(!counted){r.runs++;counted=true}r.last=Date.now()} // "Next category" continues the same run
  save();
 }
 function count(){const A=actIdx(),n=A.filter(i=>!ignored.has(i)).length,g0=A.filter(i=>found.has(i)||credited.has(i)).length;$('#counter').innerHTML=`${g0} <span>of ${n} found</span>`;
@@ -451,11 +446,22 @@ function revealSec(){
  cur[3].forEach((it,i)=>{if(it[2]===n[0]&&!found.has(i)&&!revealed.has(i)&&!ignored.has(i)){revealed.add(i);$('#t'+i).classList.add('on','miss')}});
  if(nextSec())reveal();else finish();
 }
+// The first collapsed section after the last open one (wrapping round), offered when a round ends
+const nextClosed=()=>{const S=MODES[curMode].sections.map(x=>x[0]),last=Math.max(-1,...S.map((c,i)=>closed.has(c)?-1:i));return S.find((c,i)=>closed.has(c)&&i>last)||S.find(c=>closed.has(c))};
+// Continue the same round with the next collapsed section (not a new run, and the saved collapse preference is untouched)
+$('#nextCat').onclick=()=>{
+ const c=nextClosed();if(!c)return;
+ closed.delete(c);over=false;
+ $('#game').classList.remove('over');$('#answer').disabled=false;$('#playActs').classList.remove('hidden');$('#doneActs').classList.add('hidden');
+ refreshSections();$('#answer').focus();$('#s'+c).scrollIntoView({block:'nearest',behavior:'smooth'});
+};
 function finish(){
  if(over)return;over=true;clearTimeout(deferT);
  $('#game').classList.add('over');$('#answer').disabled=true;
  cur[3].forEach((it,i)=>{if(act(i)&&!found.has(i)&&!revealed.has(i)&&!ignored.has(i)){revealed.add(i);$('#t'+i).classList.add('on','miss')}});
  $('#playActs').classList.add('hidden');$('#doneActs').classList.remove('hidden');score();
+ const nc=nextClosed(),nb=$('#nextCat');nb.classList.toggle('hidden',!nc);$('#next').classList.toggle('primary',!nc);
+ if(nc)nb.textContent='Next category: '+MODES[curMode].sections.find(x=>x[0]===nc)[1];
  commit(true);
 }
 function home(){
