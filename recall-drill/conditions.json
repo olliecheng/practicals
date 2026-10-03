@@ -109,6 +109,32 @@
      "label": "ICD shocks / device",
      "keywords": "icd|shock|device|pacemaker|crt"
     }
+   ],
+   "medications": [
+    {
+     "label": "ACEi / ARB / ARNI (sacubitril-valsartan)",
+     "keywords": "acei|ace inhib|~pril|arb|~sartan|sacubitril|entresto|arni"
+    },
+    {
+     "label": "Beta-blocker (bisoprolol, carvedilol, metoprolol)",
+     "keywords": "beta|bisoprolol|carvedilol|metoprolol|nebivolol"
+    },
+    {
+     "label": "MRA (spironolactone, eplerenone)",
+     "keywords": "mra|spironolact|eplerenone|mineralocorticoid|aldosterone antag"
+    },
+    {
+     "label": "SGLT2 inhibitor (dapagliflozin, empagliflozin)",
+     "keywords": "sglt|~gliflozin|jardiance|forxiga"
+    },
+    {
+     "label": "Loop diuretic (furosemide)",
+     "keywords": "loop|furosemide|frusemide|lasix|diuretic|bumetanide"
+    },
+    {
+     "label": "Ivabradine / digoxin",
+     "keywords": "ivabradine|digoxin"
+    }
    ]
   },
   "Atrial fibrillation": {
@@ -200,6 +226,24 @@
      "label": "Falls",
      "keywords": "fall"
     }
+   ],
+   "medications": [
+    {
+     "label": "Rate control: beta-blocker / diltiazem / verapamil / digoxin",
+     "keywords": "rate control|bisoprolol|metoprolol|atenolol|beta|diltiazem|verapamil|digoxin|calcium channel"
+    },
+    {
+     "label": "Rhythm control: flecainide / sotalol / amiodarone, cardioversion, ablation",
+     "keywords": "rhythm|flecainide|sotalol|amiodarone|cardiover|ablat|pill in the pocket"
+    },
+    {
+     "label": "DOAC (apixaban, rivaroxaban, dabigatran)",
+     "keywords": "doac|noac|apixaban|eliquis|rivaroxaban|xarelto|dabigatran|pradaxa"
+    },
+    {
+     "label": "Warfarin (valvular AF / mechanical valve)",
+     "keywords": "warfarin|coumadin|vitamin k antag"
+    }
    ]
   },
   "Ischaemic heart disease": {
@@ -289,6 +333,32 @@
     {
      "label": "Erectile dysfunction (PDE5i + nitrate)",
      "keywords": "erectil|sexual|ed |viagra|pde5"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Antiplatelet: aspirin ± P2Y12 (clopidogrel, ticagrelor)",
+     "keywords": "aspirin|antiplatelet|clopidogrel|plavix|ticagrelor|brilinta|prasugrel|p2y12|dapt"
+    },
+    {
+     "label": "High-intensity statin (± ezetimibe)",
+     "keywords": "statin|~statin|lipitor|crestor|ezetimibe|lipid lowering"
+    },
+    {
+     "label": "Beta-blocker",
+     "keywords": "beta|bisoprolol|metoprolol|atenolol|carvedilol"
+    },
+    {
+     "label": "ACEi / ARB",
+     "keywords": "acei|ace inhib|~pril|arb|~sartan"
+    },
+    {
+     "label": "Anti-anginals (long-acting nitrate, CCB, nicorandil)",
+     "keywords": "isosorbide|imdur|nitrate patch|long-acting nitrate|amlodipine|calcium channel|ccb|nicorandil|anti-anginal|antianginal"
+    },
+    {
+     "label": "Revascularisation (PCI / CABG)",
+     "keywords": "pci|stent|cabg|bypass|angioplast|revascular"
     }
    ]
   },
@@ -392,6 +462,28 @@
     {
      "label": "Antibiotic course / PICC / OPAT",
      "keywords": "antibiot|picc|opat|hith"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Empirical IV benzylpenicillin + flucloxacillin + gentamicin",
+     "keywords": "benzylpen|benpen|penicillin|flucloxacillin|fluclox|gentamicin|empiric"
+    },
+    {
+     "label": "Vancomycin (MRSA / prosthetic valve / penicillin allergy)",
+     "keywords": "vancomycin|vanc|mrsa"
+    },
+    {
+     "label": "Culture-directed IV antibiotics 4-6 weeks",
+     "keywords": "culture-directed|targeted|6 weeks|4 weeks|six weeks|etg"
+    },
+    {
+     "label": "Valve surgery (HF, abscess, large vegetation, emboli)",
+     "keywords": "surg|valve replace|valve repair|cardiothoracic"
+    },
+    {
+     "label": "Antibiotic prophylaxis for future dental procedures",
+     "keywords": "prophyla|amoxicillin"
     }
    ]
   },
@@ -500,6 +592,32 @@
      "label": "Adherence",
      "keywords": "adheren|complian"
     }
+   ],
+   "medications": [
+    {
+     "label": "ACEi / ARB",
+     "keywords": "acei|ace inhib|~pril|arb|~sartan"
+    },
+    {
+     "label": "Dihydropyridine CCB (amlodipine)",
+     "keywords": "ccb|calcium channel|amlodipine|norvasc|lercanidipine|felodipine|nifedipine|~dipine"
+    },
+    {
+     "label": "Thiazide-like diuretic (indapamide, hydrochlorothiazide)",
+     "keywords": "thiazide|indapamide|natrilix|hydrochlorothiazide|hct|chlortalidone|diuretic"
+    },
+    {
+     "label": "Spironolactone for resistant HTN",
+     "keywords": "spironolact|aldactone|mra|resistant"
+    },
+    {
+     "label": "Beta-blocker (if other indication)",
+     "keywords": "beta|~olol"
+    },
+    {
+     "label": "Statin if high absolute CVD risk",
+     "keywords": "statin|~statin"
+    }
    ]
   },
   "Aortic stenosis": {
@@ -598,6 +716,24 @@
     {
      "label": "Anticoagulation if mechanical valve",
      "keywords": "warfarin|inr|anticoag"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Diuretics for congestion (cautiously, preload-dependent)",
+     "keywords": "diuret|furosemide|frusemide|loop"
+    },
+    {
+     "label": "Avoid vasodilators / nitrates",
+     "keywords": "avoid|vasodilat|nitrate|gtn"
+    },
+    {
+     "label": "BP control / statin",
+     "keywords": "blood pressure|antihypert|statin|~statin"
+    },
+    {
+     "label": "Balloon valvuloplasty (bridge)",
+     "keywords": "balloon|valvuloplast|bav"
     }
    ]
   }
@@ -708,6 +844,32 @@
      "label": "Inhaler technique & adherence",
      "keywords": "inhaler|technique|adheren|puffer|spacer"
     }
+   ],
+   "medications": [
+    {
+     "label": "SABA reliever (salbutamol)",
+     "keywords": "saba|salbutamol|ventolin|reliever|short-acting beta|terbutaline|bricanyl"
+    },
+    {
+     "label": "LAMA (tiotropium, umeclidinium)",
+     "keywords": "lama|tiotropium|spiriva|umeclidinium|glycopyrr|muscarinic"
+    },
+    {
+     "label": "LABA (incl. LAMA/LABA combo)",
+     "keywords": "laba|long-acting beta|salmeterol|formoterol|indacaterol|olodaterol|vilanterol|spiolto|anoro|ultibro"
+    },
+    {
+     "label": "ICS if eosinophilic / frequent exacerbations (triple therapy)",
+     "keywords": "ics|inhaled cortico|inhaled steroid|budesonide|fluticasone|triple|trelegy|breztri"
+    },
+    {
+     "label": "Vaccines (influenza, pneumococcal, RSV, COVID)",
+     "keywords": "vaccin|flu|influenza|pneumococc|rsv|covid|immunis"
+    },
+    {
+     "label": "Pulmonary rehabilitation",
+     "keywords": "rehab|pulmonary rehab"
+    }
    ]
   },
   "Asthma": {
@@ -807,6 +969,28 @@
      "label": "Inhaler technique / adherence",
      "keywords": "technique|adheren|spacer"
     }
+   ],
+   "medications": [
+    {
+     "label": "As-needed budesonide-formoterol (AIR / MART)",
+     "keywords": "budesonide|formoterol|symbicort|air|mart|smart|anti-inflammatory reliever"
+    },
+    {
+     "label": "ICS preventer (fluticasone, beclometasone, ciclesonide)",
+     "keywords": "ics|inhaled cortico|inhaled steroid|preventer|fluticasone|flixotide|beclomet|qvar|ciclesonide|alvesco"
+    },
+    {
+     "label": "ICS/LABA combination",
+     "keywords": "laba|seretide|breo|flutiform|salmeterol|vilanterol|combination inhaler"
+    },
+    {
+     "label": "Add-on LAMA / montelukast",
+     "keywords": "lama|tiotropium|spiriva|montelukast|singulair|ltra|leukotriene"
+    },
+    {
+     "label": "Biologics for severe asthma (mepolizumab, benralizumab, dupilumab)",
+     "keywords": "biolog|mepolizumab|nucala|benralizumab|fasenra|dupilumab|dupixent|omalizumab|xolair|tezepelumab|~lizumab"
+    }
    ]
   },
   "Interstitial lung disease": {
@@ -901,6 +1085,28 @@
     {
      "label": "Home O2 / antifibrotic side effects (diarrhoea, photosensitivity)",
      "keywords": "oxygen|o2|nintedanib|pirfenidone|antifib|diarrh|side effect"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Antifibrotics (nintedanib, pirfenidone)",
+     "keywords": "nintedanib|ofev|pirfenidone|esbriet"
+    },
+    {
+     "label": "Immunosuppression for CTD-ILD (prednisolone, mycophenolate)",
+     "keywords": "prednis|steroid|mycophenol|mmf|cellcept|azathioprine|immunosupp|rituximab|cyclophosph"
+    },
+    {
+     "label": "Pulmonary rehabilitation",
+     "keywords": "rehab|pulmonary rehab"
+    },
+    {
+     "label": "Lung transplant referral",
+     "keywords": "transplant"
+    },
+    {
+     "label": "Vaccines",
+     "keywords": "vaccin|influenza|pneumococc|covid|rsv|immunis"
     }
    ]
   },
@@ -1013,6 +1219,32 @@
      "label": "Treatment side effects (immunotherapy: diarrhoea, rash)",
      "keywords": "side effect|immunother|chemo|diarrh|rash|radiother"
     }
+   ],
+   "medications": [
+    {
+     "label": "Surgery (lobectomy)",
+     "keywords": "surg|lobectomy|resect|pneumonectomy|wedge"
+    },
+    {
+     "label": "Radiotherapy / SABR",
+     "keywords": "radio|rt|sabr|sbrt|radiation"
+    },
+    {
+     "label": "Chemotherapy (platinum doublet)",
+     "keywords": "chemo|platinum|cisplatin|carboplatin|pemetrexed|docetaxel"
+    },
+    {
+     "label": "Immunotherapy (pembrolizumab, durvalumab)",
+     "keywords": "pembrolizumab|keytruda|durvalumab|nivolumab|atezolizumab|checkpoint|pd-l1"
+    },
+    {
+     "label": "Targeted therapy (EGFR / ALK inhibitors)",
+     "keywords": "targeted|egfr|osimertinib|tagrisso|alk|alectinib|tki|~tinib"
+    },
+    {
+     "label": "Palliative care / symptom control",
+     "keywords": "palliat|symptom control|comfort"
+    }
    ]
   },
   "OSA": {
@@ -1103,6 +1335,28 @@
     {
      "label": "CPAP adherence / problems",
      "keywords": "cpap|mask|adheren"
+    }
+   ],
+   "medications": [
+    {
+     "label": "CPAP",
+     "keywords": "cpap|positive airway|apap|bipap"
+    },
+    {
+     "label": "Weight loss (incl. GLP-1 / tirzepatide)",
+     "keywords": "weight loss|lose weight|glp|semaglutide|tirzepatide|mounjaro|bariatric"
+    },
+    {
+     "label": "Mandibular advancement splint",
+     "keywords": "mandibular|splint|oral appliance|dental device"
+    },
+    {
+     "label": "Positional therapy / avoid alcohol & sedatives",
+     "keywords": "positional|sleep on side|avoid alcohol|avoid sedative"
+    },
+    {
+     "label": "Surgery (ENT / hypoglossal nerve stimulation)",
+     "keywords": "surg|uppp|tonsillect|hypoglossal|inspire|ent"
     }
    ]
   },
@@ -1210,6 +1464,32 @@
     {
      "label": "Airway clearance / physio routine",
      "keywords": "clearance|physio|pep|flutter|nebul"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Hypertonic saline / mucoactive nebs",
+     "keywords": "hypertonic|saline|mucoactive|mucolytic|nebul|bronchitol|mannitol"
+    },
+    {
+     "label": "Long-term macrolide (azithromycin)",
+     "keywords": "macrolide|azithromycin|zithromax|erythromycin"
+    },
+    {
+     "label": "Exacerbation antibiotics guided by sputum (ciprofloxacin for Pseudomonas)",
+     "keywords": "antibiot|ciprofloxacin|cipro|amoxicillin|augmentin|abx"
+    },
+    {
+     "label": "Inhaled antibiotics (Pseudomonas)",
+     "keywords": "inhaled antibiotic|tobramycin|tobi|colistin"
+    },
+    {
+     "label": "Vaccines",
+     "keywords": "vaccin|influenza|pneumococc|immunis"
+    },
+    {
+     "label": "Pulmonary rehabilitation",
+     "keywords": "rehab|pulmonary rehab"
     }
    ]
   },
@@ -1321,6 +1601,32 @@
      "label": "Transplant discussions",
      "keywords": "transplant"
     }
+   ],
+   "medications": [
+    {
+     "label": "Pancreatic enzymes (Creon) + ADEK vitamins",
+     "keywords": "creon|enzyme|pert|pancreatic enzyme|adek|fat-soluble|vitamin"
+    },
+    {
+     "label": "Dornase alfa / hypertonic saline",
+     "keywords": "dornase|pulmozyme|hypertonic|saline|mucolytic|nebul"
+    },
+    {
+     "label": "Inhaled antibiotics (tobramycin, aztreonam)",
+     "keywords": "inhaled antibiotic|tobramycin|tobi|aztreonam|cayston|colistin"
+    },
+    {
+     "label": "Azithromycin",
+     "keywords": "azithromycin|macrolide"
+    },
+    {
+     "label": "IV antibiotic \"tune-ups\"",
+     "keywords": "iv antibiot|tune-up|tune up|iv abx"
+    },
+    {
+     "label": "Airway clearance physiotherapy",
+     "keywords": "physio|airway clearance|pep|flutter|acapella"
+    }
    ]
   },
   "VTE (DVT / PE)": {
@@ -1423,6 +1729,32 @@
     {
      "label": "Bleeding",
      "keywords": "bleed|bruis"
+    }
+   ],
+   "medications": [
+    {
+     "label": "DOAC (apixaban, rivaroxaban)",
+     "keywords": "doac|noac|apixaban|eliquis|rivaroxaban|xarelto|dabigatran"
+    },
+    {
+     "label": "LMWH (cancer, pregnancy)",
+     "keywords": "lmwh|enoxaparin|clexane|heparin|dalteparin|fragmin"
+    },
+    {
+     "label": "Warfarin (APS, mechanical valve)",
+     "keywords": "warfarin|coumadin"
+    },
+    {
+     "label": "Duration: 3 months if provoked, extended if unprovoked",
+     "keywords": "duration|3 months|three months|extended|indefinite|provoked"
+    },
+    {
+     "label": "Thrombolysis (massive PE)",
+     "keywords": "thromboly|alteplase|tpa|tenecteplase|catheter-directed"
+    },
+    {
+     "label": "IVC filter (if anticoagulation contraindicated)",
+     "keywords": "ivc|filter"
     }
    ]
   }
@@ -1529,6 +1861,32 @@
      "label": "Dialysis plans / fistula / transplant",
      "keywords": "dialys|fistula|transplant"
     }
+   ],
+   "medications": [
+    {
+     "label": "ACEi / ARB",
+     "keywords": "acei|ace inhib|~pril|arb|~sartan"
+    },
+    {
+     "label": "SGLT2 inhibitor",
+     "keywords": "sglt|~gliflozin|jardiance|forxiga"
+    },
+    {
+     "label": "Statin",
+     "keywords": "statin|~statin"
+    },
+    {
+     "label": "Anaemia: iron / ESA (darbepoetin)",
+     "keywords": "esa|epo|erythropoie|darbepoetin|aranesp|iron"
+    },
+    {
+     "label": "CKD-MBD: phosphate binders, calcitriol, cinacalcet",
+     "keywords": "phosphate binder|binder|calcium carbonate|sevelamer|lanthanum|calcitriol|vitamin d|cinacalcet"
+    },
+    {
+     "label": "Renal dose adjustment / avoid nephrotoxins",
+     "keywords": "dose adjust|renal dos|nephrotox|sick day"
+    }
    ]
   },
   "BPH / LUTS": {
@@ -1631,6 +1989,24 @@
     {
      "label": "Sexual dysfunction / tamsulosin side effects",
      "keywords": "sexual|erect|ejacul|postural|dizz"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Alpha-blocker (tamsulosin, prazosin)",
+     "keywords": "alpha|tamsulosin|flomax|prazosin|silodosin|~osin"
+    },
+    {
+     "label": "5-alpha reductase inhibitor (dutasteride, finasteride)",
+     "keywords": "5ari|5-alpha|reductase|dutasteride|finasteride|avodart|duodart"
+    },
+    {
+     "label": "Antimuscarinic / mirabegron for storage symptoms",
+     "keywords": "anticholin|antimuscarin|oxybutynin|solifenacin|vesicare|mirabegron|betmiga"
+    },
+    {
+     "label": "TURP / surgery",
+     "keywords": "turp|surg|resection|holep|urolift|rezum"
     }
    ]
   },
@@ -1735,6 +2111,28 @@
      "label": "Advance care planning / withdrawal",
      "keywords": "advance care|acp|withdraw|goals"
     }
+   ],
+   "medications": [
+    {
+     "label": "ESA (darbepoetin) + IV iron",
+     "keywords": "esa|epo|darbepoetin|aranesp|erythropoie|iron|venofer|ferinject"
+    },
+    {
+     "label": "Phosphate binders",
+     "keywords": "binder|phosphate binder|calcium carbonate|caltrate|sevelamer|renvela|lanthanum|fosrenol"
+    },
+    {
+     "label": "Calcitriol / cinacalcet",
+     "keywords": "calcitriol|rocaltrol|cinacalcet|sensipar|activated vitamin d"
+    },
+    {
+     "label": "Antihypertensives adjusted to dry weight",
+     "keywords": "antihypert|blood pressure|amlodipine"
+    },
+    {
+     "label": "Renal dosing of medications",
+     "keywords": "renal dos|dose adjust|nephrotox"
+    }
    ]
   },
   "Kidney transplant": {
@@ -1838,6 +2236,24 @@
      "label": "Drug interactions awareness",
      "keywords": "interact|grapefruit|antibiot"
     }
+   ],
+   "medications": [
+    {
+     "label": "Tacrolimus",
+     "keywords": "tacrolimus|prograf|advagraf|envarsus|calcineurin|cni"
+    },
+    {
+     "label": "Mycophenolate",
+     "keywords": "mycophenol|mmf|cellcept|myfortic"
+    },
+    {
+     "label": "Prednisolone",
+     "keywords": "prednis|steroid"
+    },
+    {
+     "label": "Prophylaxis (co-trimoxazole, valganciclovir)",
+     "keywords": "cotrimoxazole|co-trimoxazole|bactrim|valganciclovir|valcyte|prophyla"
+    }
    ]
   },
   "Kidney stones": {
@@ -1928,7 +2344,29 @@
      "keywords": "gout|tophi|parathyroid|calcium"
     }
    ],
-   "investigations": []
+   "investigations": [],
+   "medications": [
+    {
+     "label": "Analgesia: NSAIDs ± opioids",
+     "keywords": "nsaid|ibuprofen|diclofenac|voltaren|indometh|parecoxib|ketorolac|analges|opioid"
+    },
+    {
+     "label": "Medical expulsive therapy (tamsulosin)",
+     "keywords": "tamsulosin|flomax|alpha|met|expulsive"
+    },
+    {
+     "label": "Decompression if infected obstruction (stent / nephrostomy)",
+     "keywords": "stent|nephrostomy|decompress|jj"
+    },
+    {
+     "label": "Definitive: ureteroscopy / ESWL / PCNL",
+     "keywords": "ureteroscop|urs|eswl|lithotrip|shockwave|pcnl|laser"
+    },
+    {
+     "label": "Prevention: fluids, thiazide, citrate, allopurinol",
+     "keywords": "thiazide|citrate|allopurinol|prevent"
+    }
+   ]
   },
   "Urinary incontinence": {
    "prompt": "Symptoms to ask about",
@@ -2046,7 +2484,33 @@
      "keywords": "oedema|edema|fluid|diuretic"
     }
    ],
-   "investigations": []
+   "investigations": [],
+   "medications": [
+    {
+     "label": "Pelvic floor muscle training (stress)",
+     "keywords": "pelvic floor|kegel|pfmt|physio"
+    },
+    {
+     "label": "Bladder training (urge)",
+     "keywords": "bladder train|bladder retrain|timed void|scheduled void"
+    },
+    {
+     "label": "Antimuscarinic (solifenacin, oxybutynin)",
+     "keywords": "antimuscarin|anticholin|solifenacin|vesicare|oxybutynin|ditropan|tolterodine|darifenacin"
+    },
+    {
+     "label": "Mirabegron (β3 agonist)",
+     "keywords": "mirabegron|betmiga|beta-3|β3|vibegron"
+    },
+    {
+     "label": "Vaginal oestrogen",
+     "keywords": "oestrogen|estrogen|vaginal|ovestin|vagifem"
+    },
+    {
+     "label": "Surgery (midurethral sling) / Botox",
+     "keywords": "sling|tvt|midurethral|colposuspension|surg|botox|botulinum|bulking"
+    }
+   ]
   },
   "Prostate cancer": {
    "prompt": "History to ask about",
@@ -2139,6 +2603,32 @@
     {
      "label": "Bowel symptoms post-RT (proctitis)",
      "keywords": "bowel|proctit|rectal|diarr"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Active surveillance / prostatectomy / radiotherapy by risk",
+     "keywords": "active surveil|prostatectomy|radical|brachy|radiotherapy"
+    },
+    {
+     "label": "ADT: GnRH agonist (goserelin, leuprorelin) / degarelix",
+     "keywords": "gnrh|goserelin|zoladex|leuprorelin|lucrin|eligard|degarelix|firmagon|relugolix|lhrh"
+    },
+    {
+     "label": "Androgen receptor pathway inhibitors (enzalutamide, abiraterone)",
+     "keywords": "enzalutamide|xtandi|abiraterone|zytiga|apalutamide|darolutamide|arpi|antiandrogen|bicalutamide"
+    },
+    {
+     "label": "Chemotherapy (docetaxel)",
+     "keywords": "chemo|docetaxel|cabazitaxel"
+    },
+    {
+     "label": "Lu-PSMA / radium-223",
+     "keywords": "psma|lutetium|lu-psma|radium|pluvicto"
+    },
+    {
+     "label": "Bone protection (denosumab / zoledronic acid)",
+     "keywords": "denosumab|xgeva|prolia|zoledron|bone protect"
     }
    ]
   }
@@ -2264,6 +2754,32 @@
     {
      "label": "Medications (NSAIDs, sedatives, lactulose adherence)",
      "keywords": "nsaid|sedat|lactulose|medic"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Diuretics (spironolactone ± furosemide)",
+     "keywords": "diuret|spironolact|furosemide|frusemide|lasix"
+    },
+    {
+     "label": "Lactulose ± rifaximin (encephalopathy)",
+     "keywords": "rifaximin|xifaxan|lactulose"
+    },
+    {
+     "label": "Non-selective beta-blocker (propranolol, carvedilol)",
+     "keywords": "beta|propranolol|carvedilol|nsbb|non-selective"
+    },
+    {
+     "label": "Paracentesis with albumin / TIPS",
+     "keywords": "paracent|albumin|tips"
+    },
+    {
+     "label": "Variceal band ligation",
+     "keywords": "band|ligation|evl"
+    },
+    {
+     "label": "Liver transplant assessment",
+     "keywords": "transplant"
     }
    ]
   },
@@ -2400,6 +2916,28 @@
      "label": "Treatment side effects (steroids, infections on biologics)",
      "keywords": "side effect|steroid|infect|biolog|immunosupp"
     }
+   ],
+   "medications": [
+    {
+     "label": "Steroids for flares (prednisolone, budesonide)",
+     "keywords": "steroid|prednis|budesonide|entocort"
+    },
+    {
+     "label": "Thiopurines / methotrexate",
+     "keywords": "azathioprine|imuran|thiopurine|mercaptopurine|methotrexate|mtx|immunomod"
+    },
+    {
+     "label": "Biologics (infliximab, adalimumab, vedolizumab, ustekinumab)",
+     "keywords": "biolog|infliximab|adalimumab|humira|vedolizumab|entyvio|ustekinumab|stelara|anti-tnf|risankizumab|~mab"
+    },
+    {
+     "label": "Exclusive enteral nutrition",
+     "keywords": "enteral|een|formula"
+    },
+    {
+     "label": "Surgery (resection / stricturoplasty)",
+     "keywords": "surg|resect|stricturoplasty|ileocaec"
+    }
    ]
   },
   "Ulcerative colitis": {
@@ -2515,6 +3053,28 @@
      "label": "Colonoscopy surveillance",
      "keywords": "colonoscop|surveil|scope"
     }
+   ],
+   "medications": [
+    {
+     "label": "5-ASA (mesalazine) oral + topical",
+     "keywords": "5-asa|5asa|mesalazine|mesalamine|pentasa|mezavant|salazopyrin|sulfasalazine|aminosalicylate|asacol"
+    },
+    {
+     "label": "Steroids for flares",
+     "keywords": "prednis|budesonide|steroid"
+    },
+    {
+     "label": "Thiopurines",
+     "keywords": "azathioprine|imuran|thiopurine|mercaptopurine|immunomod"
+    },
+    {
+     "label": "Biologics / small molecules (infliximab, vedolizumab, tofacitinib)",
+     "keywords": "biolog|infliximab|adalimumab|vedolizumab|entyvio|ustekinumab|tofacitinib|xeljanz|upadacitinib|jak|anti-tnf|~mab|~citinib"
+    },
+    {
+     "label": "Colectomy",
+     "keywords": "colectomy|surg|pouch|ipaa"
+    }
    ]
   },
   "Colorectal cancer": {
@@ -2609,6 +3169,28 @@
     {
      "label": "Chemo side effects (neuropathy, hand-foot)",
      "keywords": "neuropath|tingl|hand.?foot|chemo|side effect"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Surgery (hemicolectomy / anterior resection)",
+     "keywords": "surg|colectomy|hemicolectomy|anterior resection|resection"
+    },
+    {
+     "label": "Adjuvant chemo (FOLFOX / CAPOX)",
+     "keywords": "chemo|folfox|capox|xelox|oxaliplatin|5-fu|fluorouracil|capecitabine"
+    },
+    {
+     "label": "Neoadjuvant (chemo)radiotherapy for rectal cancer",
+     "keywords": "radio|chemoradi|neoadjuvant|short course"
+    },
+    {
+     "label": "Targeted (bevacizumab, cetuximab)",
+     "keywords": "bevacizumab|avastin|cetuximab|panitumumab|targeted|vegf"
+    },
+    {
+     "label": "Surveillance (CEA, CT, colonoscopy)",
+     "keywords": "cea|surveil"
     }
    ]
   },
@@ -2721,6 +3303,32 @@
      "label": "PPI use and duration",
      "keywords": "ppi|omepraz|pantopra|esomepra|duration"
     }
+   ],
+   "medications": [
+    {
+     "label": "PPI",
+     "keywords": "ppi|proton pump|~prazole|nexium|somac"
+    },
+    {
+     "label": "H. pylori eradication (PPI + amoxicillin + clarithromycin)",
+     "keywords": "pylori|eradicat|triple therapy|clarithromycin|amoxicillin|helicobacter"
+    },
+    {
+     "label": "Stop NSAIDs",
+     "keywords": "stop nsaid|avoid nsaid|cease nsaid"
+    },
+    {
+     "label": "Antacids / alginates",
+     "keywords": "antacid|alginate|gaviscon|mylanta"
+    },
+    {
+     "label": "H2 antagonist",
+     "keywords": "h2|famotidine|nizatidine"
+    },
+    {
+     "label": "Endoscopic dilatation / fundoplication",
+     "keywords": "fundoplication|nissen|dilat|endoscopic"
+    }
    ]
   },
   "Acute / chronic pancreatitis": {
@@ -2828,6 +3436,32 @@
      "label": "Creon adherence / analgesia / opioid use",
      "keywords": "creon|enzyme|pert|opioid|analges|pain relief"
     }
+   ],
+   "medications": [
+    {
+     "label": "Acute: IV fluids, analgesia, early oral feeding",
+     "keywords": "iv fluid|hartmann|resus|analges|opioid|early feed|enteral"
+    },
+    {
+     "label": "ERCP if cholangitis / obstructed duct",
+     "keywords": "ercp"
+    },
+    {
+     "label": "Cholecystectomy (same admission for gallstone pancreatitis)",
+     "keywords": "cholecystect|lap chole"
+    },
+    {
+     "label": "Creon (chronic)",
+     "keywords": "creon|enzyme|pert"
+    },
+    {
+     "label": "Insulin for type 3c diabetes",
+     "keywords": "insulin"
+    },
+    {
+     "label": "Coeliac plexus block / endotherapy for pain",
+     "keywords": "coeliac plexus|celiac plexus|plexus block|nerve block|lithotripsy"
+    }
    ]
   },
   "Pancreatic cancer": {
@@ -2926,6 +3560,28 @@
     {
      "label": "Goals of care / palliative",
      "keywords": "goals|palliat|advance care|acp|prognos"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Chemotherapy (FOLFIRINOX, gemcitabine + nab-paclitaxel)",
+     "keywords": "chemo|folfirinox|gemcitabine|nab-paclitaxel|abraxane|irinotecan|oxaliplatin"
+    },
+    {
+     "label": "Creon (pancreatic enzymes)",
+     "keywords": "creon|enzyme|pert"
+    },
+    {
+     "label": "Analgesia incl. coeliac plexus block",
+     "keywords": "analges|opioid|morphine|oxycodone|coeliac plexus|celiac plexus|plexus"
+    },
+    {
+     "label": "Duodenal stent / gastrojejunostomy",
+     "keywords": "duodenal stent|gastrojejunostomy|gj"
+    },
+    {
+     "label": "VTE prophylaxis (LMWH)",
+     "keywords": "lmwh|enoxaparin|clexane|anticoag|vte"
     }
    ]
   },
@@ -3030,6 +3686,24 @@
      "label": "Dietitian / Coeliac Australia",
      "keywords": "dietit|coeliac australia|support"
     }
+   ],
+   "medications": [
+    {
+     "label": "Iron / folate / B12 / vitamin D replacement",
+     "keywords": "iron|folate|folic|b12|vitamin d|calcium|replace|supplement"
+    },
+    {
+     "label": "Pneumococcal vaccine (hyposplenism)",
+     "keywords": "pneumococc|vaccin|hyposplen"
+    },
+    {
+     "label": "Repeat tTG serology to monitor",
+     "keywords": "serology|ttg|monitor"
+    },
+    {
+     "label": "DEXA",
+     "keywords": "dexa|bone density"
+    }
    ]
   },
   "Biliary disease (gallstones / cholecystitis)": {
@@ -3124,6 +3798,28 @@
     {
      "label": "Previous ERCP / cholecystectomy",
      "keywords": "ercp|cholecyst|surgery"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Analgesia (NSAIDs / opioids), antiemetics",
+     "keywords": "analges|nsaid|opioid|antiemetic|ondansetron"
+    },
+    {
+     "label": "Laparoscopic cholecystectomy",
+     "keywords": "cholecystect|lap chole|laparoscopic"
+    },
+    {
+     "label": "IV antibiotics (amoxicillin + gentamicin, or ceftriaxone + metronidazole)",
+     "keywords": "antibiot|abx|ampicillin|amoxicillin|gentamicin|ceftriaxone|metronidazole|piperacillin|tazocin"
+    },
+    {
+     "label": "ERCP / sphincterotomy for CBD stones",
+     "keywords": "ercp|sphincterotomy|cbd clearance"
+    },
+    {
+     "label": "Ursodeoxycholic acid",
+     "keywords": "urso|ursodeoxycholic|ursofalk"
     }
    ]
   },
@@ -3224,6 +3920,28 @@
      "label": "Stoma (Hartmann's)",
      "keywords": "stoma|bag"
     }
+   ],
+   "medications": [
+    {
+     "label": "Uncomplicated: analgesia, clear fluids, often no antibiotics",
+     "keywords": "conservative|no antibiotic|analges|paracetamol|clear fluids|observ"
+    },
+    {
+     "label": "Antibiotics if complicated / systemic (amoxicillin-clavulanate)",
+     "keywords": "antibiot|abx|augmentin|amoxicillin|clavulan|metronidazole|ceftriaxone"
+    },
+    {
+     "label": "Percutaneous drainage (abscess)",
+     "keywords": "drain|percutaneous"
+    },
+    {
+     "label": "Surgery (Hartmann's / sigmoid resection)",
+     "keywords": "hartmann|surg|resection|sigmoid colectomy|colectomy"
+    },
+    {
+     "label": "High-fibre diet (prevention)",
+     "keywords": "fibre|fiber|psyllium|metamucil"
+    }
    ]
   },
   "Hernia": {
@@ -3310,6 +4028,24 @@
     {
      "label": "Fitness for surgery / anticoagulation",
      "keywords": "anaesth|fitness|anticoag|surgery"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Elective mesh repair (open / laparoscopic)",
+     "keywords": "mesh|repair|hernioplasty|herniorrhaphy|lichtenstein|tep|tapp|laparoscop|surg"
+    },
+    {
+     "label": "Watchful waiting (minimally symptomatic)",
+     "keywords": "watchful|watch and wait|conservative"
+    },
+    {
+     "label": "Emergency surgery if incarcerated / strangulated",
+     "keywords": "emergency|urgent surg"
+    },
+    {
+     "label": "Truss",
+     "keywords": "truss"
     }
    ]
   },
@@ -3401,6 +4137,24 @@
     {
      "label": "Stoma nurse involvement",
      "keywords": "stoma nurse|stomal|nurse"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Loperamide (high output)",
+     "keywords": "loperamide|imodium|high output"
+    },
+    {
+     "label": "Oral rehydration solution / restrict hypotonic fluids",
+     "keywords": "oral rehydrat|ors|electrolyte|hypotonic|gastrolyte"
+    },
+    {
+     "label": "Appliance / stoma care products",
+     "keywords": "appliance|pouch|bag|flange|barrier|paste"
+    },
+    {
+     "label": "Avoid modified-release meds (absorption)",
+     "keywords": "slow release|modified release|absorption"
     }
    ]
   },
@@ -3508,6 +4262,28 @@
     {
      "label": "Previous scopes / iron infusions",
      "keywords": "scope|colonoscop|gastroscop|infusion|iron"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Oral iron (alternate-day dosing)",
+     "keywords": "oral iron|ferrous|ferro-grad|ferrograd|maltofer|fefol|alternate day|iron tablet|iron supplement"
+    },
+    {
+     "label": "IV iron (ferric carboxymaltose)",
+     "keywords": "iv iron|ferinject|carboxymaltose|iron infusion|monofer|derisomaltose"
+    },
+    {
+     "label": "Treat the cause",
+     "keywords": "treat cause|treat the cause"
+    },
+    {
+     "label": "Transfusion if severe / unstable",
+     "keywords": "transfus|prbc|red cell"
+    },
+    {
+     "label": "Recheck Hb / ferritin response",
+     "keywords": "recheck|repeat|response"
     }
    ]
   }
@@ -3629,6 +4405,36 @@
      "label": "Diet / exercise / weight",
      "keywords": "diet|exercise|weight"
     }
+   ],
+   "medications": [
+    {
+     "label": "Metformin",
+     "keywords": "metformin|diabex|diaformin|biguanide"
+    },
+    {
+     "label": "SGLT2 inhibitor",
+     "keywords": "sglt|~gliflozin|jardiance|forxiga"
+    },
+    {
+     "label": "GLP-1 RA / tirzepatide",
+     "keywords": "glp|semaglutide|ozempic|dulaglutide|trulicity|liraglutide|tirzepatide|mounjaro|~glutide"
+    },
+    {
+     "label": "DPP-4 inhibitor",
+     "keywords": "dpp|~gliptin|januvia|sitagliptin|linagliptin|trajenta"
+    },
+    {
+     "label": "Sulfonylurea (gliclazide)",
+     "keywords": "sulfonyl|sulphonyl|gliclazide|glipizide|glimepiride|diamicron"
+    },
+    {
+     "label": "Insulin (basal ± bolus)",
+     "keywords": "insulin|basal|bolus|glargine|optisulin|degludec|toujeo|lantus|novorapid|aspart|lispro"
+    },
+    {
+     "label": "CV protection: statin, ACEi/ARB",
+     "keywords": "statin|~statin|acei|~pril|~sartan|cardioprotect"
+    }
    ]
   },
   "Hypothyroidism": {
@@ -3731,6 +4537,24 @@
     {
      "label": "Levothyroxine adherence / timing",
      "keywords": "levothyrox|thyroxine|adheren|timing"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Levothyroxine (start low in elderly / IHD)",
+     "keywords": "levothyrox|thyroxine|eltroxin|oroxine|t4|start low"
+    },
+    {
+     "label": "Titrate to TSH 6-8 weeks after change",
+     "keywords": "titrat|6 weeks|six weeks|6-8 weeks|recheck"
+    },
+    {
+     "label": "Increase dose in pregnancy",
+     "keywords": "pregnan"
+    },
+    {
+     "label": "Absorption interactions (iron, calcium, PPI)",
+     "keywords": "interact|iron|calcium|absorption|ppi"
     }
    ]
   },
@@ -3838,6 +4662,24 @@
     {
      "label": "Pregnancy plans",
      "keywords": "pregnan"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Antithyroid drugs (carbimazole, PTU)",
+     "keywords": "antithyroid|carbimazole|propylthiouracil|ptu|methimazole|thionamide|block and replace"
+    },
+    {
+     "label": "Beta-blocker for symptoms (propranolol)",
+     "keywords": "beta|propranolol"
+    },
+    {
+     "label": "Radioactive iodine",
+     "keywords": "rai|radioactive|radioiodine|i-131"
+    },
+    {
+     "label": "Thyroidectomy",
+     "keywords": "thyroidectomy|surg"
     }
    ]
   },
@@ -3952,6 +4794,24 @@
     {
      "label": "Pregnancy / contraception",
      "keywords": "pregnan|contracep"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Basal-bolus insulin (glargine / degludec + aspart / lispro)",
+     "keywords": "basal|bolus|glargine|degludec|detemir|lantus|optisulin|toujeo|tresiba|levemir|aspart|novorapid|fiasp|lispro|humalog|mdi"
+    },
+    {
+     "label": "Insulin pump / hybrid closed loop",
+     "keywords": "pump|csii|closed loop|hybrid|loop|omnipod|tandem|medtronic"
+    },
+    {
+     "label": "CGM",
+     "keywords": "cgm|libre|dexcom|sensor|flash glucose"
+    },
+    {
+     "label": "Statin / ACEi if complications or risk",
+     "keywords": "statin|acei|~pril|~sartan"
     }
    ]
   },
@@ -4072,6 +4932,28 @@
      "label": "PJP prophylaxis / bone protection",
      "keywords": "pjp|bactrim|cotrimox|bisphos|calcium|vitamin d"
     }
+   ],
+   "medications": [
+    {
+     "label": "Bone protection (bisphosphonate, calcium, vitamin D)",
+     "keywords": "bisphosph|alendron|risedron|zoledron|denosumab|calcium|vitamin d|bone protect"
+    },
+    {
+     "label": "PPI if additional GI risk",
+     "keywords": "ppi|~prazole|proton pump"
+    },
+    {
+     "label": "Cushing's disease: transsphenoidal surgery",
+     "keywords": "transsphenoidal|pituitary surg|tss"
+    },
+    {
+     "label": "Adrenalectomy / medical therapy (metyrapone, ketoconazole)",
+     "keywords": "adrenalectomy|metyrapone|ketoconazole|osilodrostat|pasireotide"
+    },
+    {
+     "label": "Steroid-sparing agents",
+     "keywords": "steroid-sparing|steroid sparing|sparing"
+    }
    ]
   },
   "Adrenal insufficiency (Addison's)": {
@@ -4170,6 +5052,24 @@
     {
      "label": "Medical alert",
      "keywords": "alert|bracelet|card"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Hydrocortisone (split daily dose)",
+     "keywords": "hydrocortisone|cortef|hysone|glucocorticoid replace|hc"
+    },
+    {
+     "label": "Fludrocortisone",
+     "keywords": "fludrocortisone|florinef|mineralocorticoid"
+    },
+    {
+     "label": "Crisis: IV hydrocortisone 100 mg + fluids",
+     "keywords": "iv hydrocortisone|100 mg|100mg|crisis|resus|saline|dextrose"
+    },
+    {
+     "label": "DHEA (selected women)",
+     "keywords": "dhea"
     }
    ]
   },
@@ -4273,6 +5173,32 @@
     {
      "label": "Dental health before treatment",
      "keywords": "dental|teeth|dentist"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Calcium + vitamin D",
+     "keywords": "calcium|vitamin d|cholecalciferol|ostelin|caltrate"
+    },
+    {
+     "label": "Oral bisphosphonate (alendronate, risedronate)",
+     "keywords": "bisphosph|alendron|fosamax|risedron|actonel|~dronate"
+    },
+    {
+     "label": "Denosumab 6-monthly (don't stop abruptly)",
+     "keywords": "denosumab|prolia|6-monthly|six monthly"
+    },
+    {
+     "label": "Zoledronic acid yearly",
+     "keywords": "zoledron|aclasta|yearly infusion|annual infusion"
+    },
+    {
+     "label": "Anabolic (teriparatide, romosozumab)",
+     "keywords": "teriparatide|forteo|terrosa|romosozumab|evenity|anabolic|pth"
+    },
+    {
+     "label": "MHT / raloxifene (selected)",
+     "keywords": "hrt|mht|oestrogen|estrogen|raloxifene|serm|evista"
     }
    ]
   },
@@ -4380,6 +5306,28 @@
     {
      "label": "Motivation / goals",
      "keywords": "motivat|goal|ready"
+    }
+   ],
+   "medications": [
+    {
+     "label": "GLP-1 RA (semaglutide) / tirzepatide",
+     "keywords": "glp|semaglutide|wegovy|ozempic|liraglutide|saxenda|tirzepatide|mounjaro|~glutide|zepbound"
+    },
+    {
+     "label": "Phentermine / naltrexone-bupropion / orlistat",
+     "keywords": "phentermine|duromine|naltrexone|bupropion|contrave|orlistat|xenical"
+    },
+    {
+     "label": "Bariatric surgery (sleeve, bypass)",
+     "keywords": "bariatric|sleeve|gastrectomy|bypass|roux|lap band|gastric band"
+    },
+    {
+     "label": "Dietitian / VLED (meal replacements)",
+     "keywords": "dietitian|vled|optifast|meal replace|very low energy|calorie"
+    },
+    {
+     "label": "Psychology / CBT",
+     "keywords": "psycholog|cbt|behaviour therapy"
     }
    ]
   }
@@ -4492,6 +5440,28 @@
     {
      "label": "Pregnancy plans (MTX)",
      "keywords": "pregnan|contracep|fertil"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Methotrexate + folic acid",
+     "keywords": "methotrexate|mtx|folic|folate"
+    },
+    {
+     "label": "Other csDMARDs (hydroxychloroquine, sulfasalazine, leflunomide)",
+     "keywords": "hydroxychloroquine|plaquenil|hcq|sulfasalazine|salazopyrin|leflunomide|arava|dmard|triple therapy"
+    },
+    {
+     "label": "Biologic / targeted DMARD (anti-TNF, tocilizumab, JAKi)",
+     "keywords": "biolog|anti-tnf|adalimumab|humira|etanercept|enbrel|infliximab|tocilizumab|actemra|abatacept|rituximab|jak|tofacitinib|baricitinib|upadacitinib|~mab|~citinib"
+    },
+    {
+     "label": "Bridging steroids",
+     "keywords": "steroid|prednis|bridg"
+    },
+    {
+     "label": "NSAIDs / analgesia",
+     "keywords": "nsaid|ibuprofen|naproxen|celecoxib|meloxicam|analges|paracetamol"
     }
    ]
   },
@@ -4607,6 +5577,32 @@
      "label": "Steroid side effects",
      "keywords": "steroid|side effect|weight|bone"
     }
+   ],
+   "medications": [
+    {
+     "label": "Hydroxychloroquine (all patients)",
+     "keywords": "hydroxychloroquine|plaquenil|hcq|antimalarial"
+    },
+    {
+     "label": "Corticosteroids",
+     "keywords": "steroid|prednis|methylpred|pulse"
+    },
+    {
+     "label": "Immunosuppressants (mycophenolate, azathioprine, cyclophosphamide)",
+     "keywords": "mycophenol|mmf|cellcept|azathioprine|imuran|methotrexate|cyclophosph|immunosupp|tacrolimus|voclosporin"
+    },
+    {
+     "label": "Biologics (belimumab, rituximab, anifrolumab)",
+     "keywords": "biolog|belimumab|benlysta|rituximab|anifrolumab|saphnelo|~mab"
+    },
+    {
+     "label": "Sun protection / vitamin D",
+     "keywords": "sun|photoprotect|vitamin d|calcium"
+    },
+    {
+     "label": "Anticoagulation if APS",
+     "keywords": "warfarin|anticoag"
+    }
    ]
   },
   "Gout": {
@@ -4705,6 +5701,24 @@
     {
      "label": "Allopurinol adherence / rash",
      "keywords": "allopur|adheren|rash"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Acute flare: NSAID / colchicine / steroid",
+     "keywords": "nsaid|ibuprofen|naproxen|indometh|colchicine|steroid|prednis|intra-articular"
+    },
+    {
+     "label": "Allopurinol (start low, titrate to urate <0.36)",
+     "keywords": "allopurinol|zyloprim|urate lowering|ult|xanthine|treat to target"
+    },
+    {
+     "label": "Febuxostat / probenecid",
+     "keywords": "febuxostat|adenuric|probenecid"
+    },
+    {
+     "label": "Flare prophylaxis when starting ULT (low-dose colchicine)",
+     "keywords": "prophyla|flare prophyl|low-dose colchicine|low dose colchicine"
     }
    ]
   },
@@ -4812,6 +5826,36 @@
     {
      "label": "Joint replacement: complications, infection, rehab",
      "keywords": "replace|tkr|thr|infect|rehab|dislocat"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Topical NSAIDs / paracetamol (limited benefit)",
+     "keywords": "paracetamol|panadol|topical|voltaren gel|diclofenac gel"
+    },
+    {
+     "label": "Oral NSAIDs (shortest duration, ± PPI)",
+     "keywords": "nsaid|ibuprofen|naproxen|celecoxib|celebrex|meloxicam|mobic|diclofenac"
+    },
+    {
+     "label": "Weight loss",
+     "keywords": "weight loss|lose weight"
+    },
+    {
+     "label": "Duloxetine",
+     "keywords": "duloxetine|cymbalta|snri"
+    },
+    {
+     "label": "Intra-articular steroid",
+     "keywords": "intra-articular|steroid injection|cortisone"
+    },
+    {
+     "label": "Joint replacement (TKR / THR)",
+     "keywords": "tkr|thr|tka|tha|arthroplasty|joint replace"
+    },
+    {
+     "label": "Avoid opioids",
+     "keywords": "opioid|tramadol"
     }
    ]
   },
@@ -4923,6 +5967,32 @@
      "label": "Treatment response (NSAIDs, biologics)",
      "keywords": "nsaid|biolog|adalim|secukin"
     }
+   ],
+   "medications": [
+    {
+     "label": "NSAIDs (first line)",
+     "keywords": "nsaid|ibuprofen|naproxen|celecoxib|meloxicam|diclofenac|indometh"
+    },
+    {
+     "label": "Anti-TNF (adalimumab, etanercept)",
+     "keywords": "anti-tnf|tnf|adalimumab|humira|etanercept|enbrel|infliximab|golimumab|certolizumab|biolog|~mab"
+    },
+    {
+     "label": "IL-17 inhibitors (secukinumab)",
+     "keywords": "il-17|il17|secukinumab|cosentyx|ixekizumab|taltz|bimekizumab"
+    },
+    {
+     "label": "JAK inhibitors (upadacitinib)",
+     "keywords": "jak|upadacitinib|rinvoq|tofacitinib|~citinib"
+    },
+    {
+     "label": "Physiotherapy / stretching",
+     "keywords": "physio|stretch|posture|hydrotherapy"
+    },
+    {
+     "label": "Sulfasalazine for peripheral arthritis",
+     "keywords": "sulfasalazine|salazopyrin"
+    }
    ]
   },
   "PMR / GCA": {
@@ -5024,6 +6094,28 @@
     {
      "label": "Flares on taper",
      "keywords": "flare|relapse"
+    }
+   ],
+   "medications": [
+    {
+     "label": "PMR: prednisolone ~15 mg with slow taper",
+     "keywords": "15 mg|15mg|prednis|steroid|taper"
+    },
+    {
+     "label": "GCA: high-dose prednisolone 40-60 mg (IV methylpred if visual loss)",
+     "keywords": "40|60 mg|high-dose|high dose|methylpred|ivmp|pulse"
+    },
+    {
+     "label": "Tocilizumab (GCA, steroid-sparing)",
+     "keywords": "tocilizumab|actemra|il-6|il6|steroid-sparing|steroid sparing"
+    },
+    {
+     "label": "Methotrexate (steroid-sparing)",
+     "keywords": "methotrexate|mtx"
+    },
+    {
+     "label": "Bone protection ± PPI",
+     "keywords": "bone protect|bisphosph|alendron|calcium|vitamin d|ppi|~prazole"
     }
    ]
   }
@@ -5177,6 +6269,36 @@
      "label": "Impulse control (gambling, shopping, hypersexuality)",
      "keywords": "impuls|gambl|shopping|hypersex|compuls"
     }
+   ],
+   "medications": [
+    {
+     "label": "Levodopa (Sinemet, Madopar)",
+     "keywords": "levodopa|l-dopa|ldopa|sinemet|madopar|carbidopa|benserazide|stalevo"
+    },
+    {
+     "label": "Dopamine agonists (pramipexole, ropinirole, rotigotine)",
+     "keywords": "dopamine agonist|agonist|pramipexole|sifrol|ropinirole|rotigotine|neupro|apomorphine"
+    },
+    {
+     "label": "MAO-B / COMT inhibitors",
+     "keywords": "mao|rasagiline|azilect|safinamide|selegiline|entacapone|comtan|opicapone|comt"
+    },
+    {
+     "label": "Amantadine (dyskinesia)",
+     "keywords": "amantadine"
+    },
+    {
+     "label": "Device therapies (DBS, levodopa infusion)",
+     "keywords": "dbs|deep brain|duodopa|infusion|pump|foslevodopa"
+    },
+    {
+     "label": "Allied health (physio, speech, OT)",
+     "keywords": "physio|speech|ot|occupational|allied|multidisciplin"
+    },
+    {
+     "label": "Avoid dopamine antagonists (metoclopramide, haloperidol)",
+     "keywords": "metoclopramide|maxolon|haloperidol|antipsychotic|dopamine antag"
+    }
    ]
   },
   "Multiple sclerosis": {
@@ -5302,6 +6424,28 @@
     {
      "label": "Pregnancy plans",
      "keywords": "pregnan|family plan"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Relapse: IV methylprednisolone",
+     "keywords": "methylpred|steroid|ivmp|pulse"
+    },
+    {
+     "label": "High-efficacy DMTs (ocrelizumab, natalizumab, ofatumumab)",
+     "keywords": "ocrelizumab|ocrevus|natalizumab|tysabri|ofatumumab|kesimpta|alemtuzumab|cladribine|mavenclad|~mab|dmt|disease modifying"
+    },
+    {
+     "label": "Oral DMTs (fingolimod, dimethyl fumarate, teriflunomide)",
+     "keywords": "fingolimod|gilenya|siponimod|ozanimod|dimethyl fumarate|tecfidera|teriflunomide|aubagio|oral dmt"
+    },
+    {
+     "label": "Symptomatic: baclofen, bladder meds, fampridine",
+     "keywords": "baclofen|spastic|oxybutynin|bladder|fampridine|gabapentin|symptomatic"
+    },
+    {
+     "label": "Vitamin D",
+     "keywords": "vitamin d"
     }
    ]
   },
@@ -5429,7 +6573,37 @@
      "keywords": "nihss|gcs|glasgow|score"
     }
    ],
-   "investigations": []
+   "investigations": [],
+   "medications": [
+    {
+     "label": "Acute: thrombolysis / thrombectomy",
+     "keywords": "thromboly|tpa|alteplase|tenecteplase|lysis|thrombectomy|ecr|clot retrieval"
+    },
+    {
+     "label": "Antiplatelet (aspirin, clopidogrel; short-term DAPT)",
+     "keywords": "aspirin|antiplatelet|clopidogrel|plavix|dapt|ticagrelor"
+    },
+    {
+     "label": "Anticoagulation if AF",
+     "keywords": "doac|noac|apixaban|rivaroxaban|dabigatran|warfarin|anticoag"
+    },
+    {
+     "label": "Statin",
+     "keywords": "statin|~statin"
+    },
+    {
+     "label": "BP lowering (ACEi ± thiazide-like)",
+     "keywords": "antihypert|blood pressure|acei|~pril|~sartan|indapamide"
+    },
+    {
+     "label": "Carotid endarterectomy / stenting",
+     "keywords": "endarterect|carotid stent"
+    },
+    {
+     "label": "Rehab (physio, OT, speech)",
+     "keywords": "rehab|physio|speech|ot|occupational|allied"
+    }
+   ]
   },
   "Epilepsy / seizure": {
    "prompt": "History to ask about",
@@ -5539,6 +6713,32 @@
     {
      "label": "Contraception / pregnancy (valproate)",
      "keywords": "contracep|pregnan|folic"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Levetiracetam",
+     "keywords": "levetiracetam|keppra|brivaracetam"
+    },
+    {
+     "label": "Sodium valproate (avoid in people who could become pregnant)",
+     "keywords": "valproate|epilim|valpro"
+    },
+    {
+     "label": "Lamotrigine",
+     "keywords": "lamotrigine|lamictal"
+    },
+    {
+     "label": "Other ASMs (carbamazepine, lacosamide, topiramate)",
+     "keywords": "carbamazepine|tegretol|lacosamide|vimpat|oxcarbazepine|phenytoin|topiramate|clobazam|zonisamide|perampanel"
+    },
+    {
+     "label": "Rescue: buccal / intranasal midazolam",
+     "keywords": "midazolam|rescue|buccal|intranasal|benzo|diazepam|seizure plan"
+    },
+    {
+     "label": "Folic acid if planning pregnancy",
+     "keywords": "folic|folate"
     }
    ]
   },
@@ -5667,6 +6867,32 @@
      "label": "Carer stress / supports / EPOA",
      "keywords": "carer|support|epoa|power of attorney|decision maker"
     }
+   ],
+   "medications": [
+    {
+     "label": "Cholinesterase inhibitors (donepezil, rivastigmine, galantamine)",
+     "keywords": "cholinesterase|achei|donepezil|aricept|rivastigmine|exelon|galantamine|reminyl"
+    },
+    {
+     "label": "Memantine",
+     "keywords": "memantine|ebixa"
+    },
+    {
+     "label": "Non-drug BPSD management",
+     "keywords": "non-pharm|bpsd|behaviour|routine|music|redirect"
+    },
+    {
+     "label": "Deprescribe anticholinergics / sedatives",
+     "keywords": "deprescrib|anticholin|sedative|benzo|polypharm"
+    },
+    {
+     "label": "Antipsychotic only if severe (risperidone)",
+     "keywords": "antipsychotic|risperidone|quetiapine"
+    },
+    {
+     "label": "Anti-amyloid antibodies (donanemab) for early AD",
+     "keywords": "amyloid|donanemab|lecanemab|kisunla|leqembi|~mab"
+    }
    ]
   },
   "Motor neuron disease": {
@@ -5769,6 +6995,32 @@
      "label": "Advance care planning / VAD",
      "keywords": "advance|acp|goals|vad|assisted dying"
     }
+   ],
+   "medications": [
+    {
+     "label": "Riluzole",
+     "keywords": "riluzole|rilutek"
+    },
+    {
+     "label": "Tofersen (SOD1) / edaravone",
+     "keywords": "edaravone|tofersen|sod1"
+    },
+    {
+     "label": "Sialorrhoea: glycopyrrolate / hyoscine / botulinum toxin",
+     "keywords": "glycopyrr|hyoscine|atropine|botox|botulinum|sialorrh|saliva"
+    },
+    {
+     "label": "Spasticity / cramps: baclofen",
+     "keywords": "baclofen|spastic|tizanidine|mexiletine"
+    },
+    {
+     "label": "Palliative care / symptom control",
+     "keywords": "palliat|symptom"
+    },
+    {
+     "label": "MND clinic MDT (physio, OT, speech, dietitian)",
+     "keywords": "mdt|multidisciplin|physio|ot|speech|dietitian|allied"
+    }
    ]
   },
   "Myasthenia gravis": {
@@ -5867,6 +7119,32 @@
     {
      "label": "Immunosuppression side effects",
      "keywords": "steroid|azathiop|immunosupp"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Pyridostigmine",
+     "keywords": "pyridostigmine|mestinon|anticholinesterase"
+    },
+    {
+     "label": "Corticosteroids",
+     "keywords": "prednis|steroid"
+    },
+    {
+     "label": "Steroid-sparing (azathioprine, mycophenolate)",
+     "keywords": "azathioprine|imuran|mycophenol|mmf|cellcept|steroid-sparing|steroid sparing|immunosupp"
+    },
+    {
+     "label": "Thymectomy",
+     "keywords": "thymectomy"
+    },
+    {
+     "label": "Crisis: IVIG / plasma exchange",
+     "keywords": "ivig|immunoglobulin|plasma exchange|plex|plasmapheresis"
+    },
+    {
+     "label": "Complement / FcRn inhibitors (eculizumab, efgartigimod)",
+     "keywords": "eculizumab|soliris|ravulizumab|efgartigimod|vyvgart|rozanolixizumab|complement|fcrn|~mab"
     }
    ]
   },
@@ -5978,7 +7256,33 @@
      "keywords": "mononeuro|entrap|tinel|wrist drop|carpal|ulnar|peroneal"
     }
    ],
-   "investigations": []
+   "investigations": [],
+   "medications": [
+    {
+     "label": "Treat cause (glycaemic control, B12, stop alcohol / toxic drugs)",
+     "keywords": "treat cause|glycaem|stop alcohol|cease"
+    },
+    {
+     "label": "Neuropathic pain agents (pregabalin, duloxetine, amitriptyline)",
+     "keywords": "neuropathic|pregabalin|lyrica|gabapentin|neurontin|duloxetine|cymbalta|amitriptyline|endep|tca|snri"
+    },
+    {
+     "label": "Topical (capsaicin, lidocaine)",
+     "keywords": "capsaicin|topical|lidocaine|lignocaine|versatis"
+    },
+    {
+     "label": "Foot care / podiatry",
+     "keywords": "podiat|foot care|footwear"
+    },
+    {
+     "label": "Physio / orthotics (AFO)",
+     "keywords": "physio|ot|orthotic|afo|splint"
+    },
+    {
+     "label": "IVIG / steroids for CIDP / GBS",
+     "keywords": "ivig|immunoglobulin|plasma exchange|plex|steroid|cidp|gbs"
+    }
+   ]
   },
   "Brain tumour / subdural": {
    "prompt": "Symptoms to ask about",
@@ -6089,6 +7393,32 @@
      "label": "Driving / work / ACP",
      "keywords": "driv|work|advance|goals"
     }
+   ],
+   "medications": [
+    {
+     "label": "Surgery (resection / burr holes for SDH)",
+     "keywords": "surg|resect|craniotomy|burr hole|evacuat"
+    },
+    {
+     "label": "Radiotherapy + temozolomide (GBM)",
+     "keywords": "radio|temozolomide|temodal|chemoradi|stupp|chemo"
+    },
+    {
+     "label": "Antiseizure medication (levetiracetam)",
+     "keywords": "levetiracetam|keppra|antiepilep|antiseizure|aed|anticonvuls"
+    },
+    {
+     "label": "Reverse anticoagulation (SDH)",
+     "keywords": "revers|prothrombinex|vitamin k|idarucizumab|praxbind|andexanet|stop anticoag"
+    },
+    {
+     "label": "Middle meningeal artery embolisation (chronic SDH)",
+     "keywords": "embolis|emboliz|mma"
+    },
+    {
+     "label": "Palliative care",
+     "keywords": "palliat"
+    }
    ]
   },
   "Headache": {
@@ -6195,7 +7525,33 @@
      "keywords": "trauma|haematoma|hematoma|bruis|battle"
     }
    ],
-   "investigations": []
+   "investigations": [],
+   "medications": [
+    {
+     "label": "Acute migraine: NSAID / aspirin + antiemetic, triptans",
+     "keywords": "nsaid|aspirin|ibuprofen|naproxen|triptan|sumatriptan|imigran|rizatriptan|maxalt|zolmitriptan|~triptan|antiemetic|metoclopramide|maxolon"
+    },
+    {
+     "label": "Migraine prophylaxis (propranolol, amitriptyline, candesartan, topiramate)",
+     "keywords": "prophyla|preventive|preventer|propranolol|amitriptyline|endep|candesartan|topiramate|pizotifen|verapamil"
+    },
+    {
+     "label": "CGRP monoclonal antibodies / gepants",
+     "keywords": "cgrp|galcanezumab|emgality|fremanezumab|ajovy|erenumab|aimovig|~mab|~gepant|rimegepant"
+    },
+    {
+     "label": "Botulinum toxin (chronic migraine)",
+     "keywords": "botox|botulinum"
+    },
+    {
+     "label": "Cluster: high-flow O2, SC sumatriptan, verapamil",
+     "keywords": "oxygen|o2|high flow|subcut"
+    },
+    {
+     "label": "Medication overuse: supervised withdrawal",
+     "keywords": "withdraw|detox"
+    }
+   ]
   }
  },
  "Vasc": {
@@ -6295,6 +7651,32 @@
     {
      "label": "Exercise program",
      "keywords": "exercise"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Antiplatelet (aspirin or clopidogrel) ± low-dose rivaroxaban",
+     "keywords": "aspirin|antiplatelet|clopidogrel|plavix|rivaroxaban|xarelto"
+    },
+    {
+     "label": "High-intensity statin",
+     "keywords": "statin|~statin"
+    },
+    {
+     "label": "Smoking cessation",
+     "keywords": "quit|cessation|nrt|varenicline|champix"
+    },
+    {
+     "label": "BP and diabetes control",
+     "keywords": "blood pressure|acei|~pril|~sartan|glycaem|diabetes control"
+    },
+    {
+     "label": "Revascularisation (angioplasty / bypass)",
+     "keywords": "revascular|angioplast|stent|bypass|endarterect"
+    },
+    {
+     "label": "Cilostazol (claudication)",
+     "keywords": "cilostazol|pletal"
     }
    ]
   },
@@ -6399,6 +7781,28 @@
      "label": "Vision (can they inspect feet?)",
      "keywords": "vision|inspect|see"
     }
+   ],
+   "medications": [
+    {
+     "label": "Antibiotics if infected (amoxicillin-clavulanate ± broader)",
+     "keywords": "antibiot|augmentin|amoxicillin|clavulan|cefalexin|cephalexin|flucloxacillin|clindamycin|piperacillin|tazocin|abx"
+    },
+    {
+     "label": "Revascularisation if ischaemic",
+     "keywords": "revascular|angioplast|stent|bypass|vascular surg"
+    },
+    {
+     "label": "Debridement / amputation",
+     "keywords": "debride|amput"
+    },
+    {
+     "label": "Negative pressure wound therapy / hyperbaric O2",
+     "keywords": "hyperbaric|vac|negative pressure|npwt"
+    },
+    {
+     "label": "Antiplatelet / statin",
+     "keywords": "aspirin|antiplatelet|statin|~statin|clopidogrel"
+    }
    ]
   },
   "Abdominal aortic aneurysm": {
@@ -6485,6 +7889,32 @@
     {
      "label": "Fitness for surgery / function",
      "keywords": "fitness|function|exercise|stairs"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Elective repair at threshold (≥5.5 cm men, ≥5.0 cm women, or rapid growth)",
+     "keywords": "5.5|5 cm|5.0|threshold|elective repair"
+    },
+    {
+     "label": "EVAR vs open repair",
+     "keywords": "evar|open repair|endovascular"
+    },
+    {
+     "label": "Statin + antiplatelet",
+     "keywords": "statin|~statin|aspirin|antiplatelet"
+    },
+    {
+     "label": "BP control",
+     "keywords": "blood pressure|antihypert"
+    },
+    {
+     "label": "Smoking cessation",
+     "keywords": "quit|cessation|nrt|varenicline"
+    },
+    {
+     "label": "Rupture: permissive hypotension, emergency theatre",
+     "keywords": "permissive|emergency|theatre|hypotensive resus"
     }
    ]
   },
@@ -6592,6 +8022,28 @@
     {
      "label": "Wound care / community nurse",
      "keywords": "dressing|nurse|wound care|clinic"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Compression therapy (after ABI)",
+     "keywords": "compression|bandage|stocking|multilayer|4-layer"
+    },
+    {
+     "label": "Leg elevation / calf exercises",
+     "keywords": "elevat|leg up|calf exercise"
+    },
+    {
+     "label": "Antibiotics only if infected",
+     "keywords": "antibiot|abx|flucloxacillin|cefalexin"
+    },
+    {
+     "label": "Pentoxifylline",
+     "keywords": "pentoxifylline"
+    },
+    {
+     "label": "Venous ablation / surgery",
+     "keywords": "ablat|evla|rfa|sclerotherapy|vein stripping|venous surg|endovenous"
     }
    ]
   }
@@ -6710,6 +8162,28 @@
      "label": "ART regimen, adherence, side effects",
      "keywords": "art|adheren|side effect|antiretro"
     }
+   ],
+   "medications": [
+    {
+     "label": "ART: INSTI-based (bictegravir or dolutegravir + 2 NRTIs)",
+     "keywords": "biktarvy|bictegravir|dolutegravir|dtg|tivicay|triumeq|dovato|insti|integrase|nrti|tenofovir|emtricitabine|lamivudine|abacavir|~tegravir"
+    },
+    {
+     "label": "Long-acting injectable (cabotegravir + rilpivirine)",
+     "keywords": "cabotegravir|rilpivirine|cabenuva|injectable|long-acting"
+    },
+    {
+     "label": "OI prophylaxis (co-trimoxazole if CD4 <200)",
+     "keywords": "cotrimoxazole|co-trimoxazole|bactrim|septrin|pjp|pcp|prophyla"
+    },
+    {
+     "label": "Vaccinations (HBV, pneumococcal, influenza, HPV)",
+     "keywords": "vaccin|immunis|flu|pneumococc|hpv"
+    },
+    {
+     "label": "Partner testing / PrEP / PEP",
+     "keywords": "partner|prep|pep|contact trac"
+    }
    ]
   },
   "Tuberculosis": {
@@ -6825,6 +8299,32 @@
      "label": "Adherence / DOT",
      "keywords": "adheren|dot|directly"
     }
+   ],
+   "medications": [
+    {
+     "label": "Intensive phase RIPE (rifampicin, isoniazid, pyrazinamide, ethambutol) × 2 months",
+     "keywords": "ripe|rifampicin|rifampin|isoniazid|inh|pyrazinamide|pza|ethambutol|quadruple|intensive"
+    },
+    {
+     "label": "Continuation phase (rifampicin + isoniazid) × 4 months",
+     "keywords": "continuation|4 months|four months"
+    },
+    {
+     "label": "Pyridoxine with isoniazid",
+     "keywords": "pyridoxine|b6"
+    },
+    {
+     "label": "Notification / contact tracing",
+     "keywords": "notif|public health|contact trac|contact screen"
+    },
+    {
+     "label": "Isolation (airborne precautions)",
+     "keywords": "isolat|airborne|negative pressure|n95|mask"
+    },
+    {
+     "label": "Latent TB treatment (isoniazid or rifampicin-based)",
+     "keywords": "latent|ltbi|3hp|rifapentine"
+    }
    ]
   },
   "Hepatitis B / C": {
@@ -6931,6 +8431,24 @@
     {
      "label": "Family / household screening & vaccination",
      "keywords": "family|household|contacts|vaccin"
+    }
+   ],
+   "medications": [
+    {
+     "label": "HBV: entecavir / tenofovir",
+     "keywords": "entecavir|baraclude|tenofovir|tdf|taf|vemlidy|nucleos"
+    },
+    {
+     "label": "HCV: DAAs 8-12 weeks (sofosbuvir/velpatasvir, glecaprevir/pibrentasvir)",
+     "keywords": "daa|direct acting|sofosbuvir|velpatasvir|epclusa|glecaprevir|pibrentasvir|maviret|~previr|~asvir"
+    },
+    {
+     "label": "Vaccinate against HAV (and HBV if HCV)",
+     "keywords": "vaccin|hepatitis a|hav|immunis"
+    },
+    {
+     "label": "Avoid alcohol",
+     "keywords": "avoid alcohol|abstain|alcohol"
     }
    ]
   },
@@ -7051,6 +8569,32 @@
      "label": "Vaccination (HPV, HBV, HAV, mpox)",
      "keywords": "vaccin|hpv|hep|mpox"
     }
+   ],
+   "medications": [
+    {
+     "label": "Chlamydia: doxycycline 100 mg BD for 7 days",
+     "keywords": "doxycycline|chlamydia"
+    },
+    {
+     "label": "Gonorrhoea: ceftriaxone IM + azithromycin",
+     "keywords": "ceftriaxone|gonorrh|azithromycin|azithro"
+    },
+    {
+     "label": "Syphilis: benzathine benzylpenicillin IM",
+     "keywords": "benzathine|bicillin|penicillin|syphilis"
+    },
+    {
+     "label": "Herpes: valaciclovir / aciclovir",
+     "keywords": "valaciclovir|valtrex|aciclovir|acyclovir|famciclovir|antiviral|herpes"
+    },
+    {
+     "label": "PrEP / PEP",
+     "keywords": "prep|pep|truvada|post-exposure"
+    },
+    {
+     "label": "Partner notification / contact tracing",
+     "keywords": "contact trac|partner notif|notify partner|let them know"
+    }
    ]
   },
   "Recurrent UTI / pyelonephritis": {
@@ -7162,6 +8706,28 @@
      "label": "Prophylaxis tried",
      "keywords": "prophyl|cranberr|methenamine|hiprex"
     }
+   ],
+   "medications": [
+    {
+     "label": "Cystitis: trimethoprim / nitrofurantoin / cefalexin",
+     "keywords": "trimethoprim|nitrofurantoin|macrobid|macrodantin|cefalexin|cephalexin|keflex|antibiot|abx"
+    },
+    {
+     "label": "Pyelonephritis: oral amoxicillin-clavulanate / cefalexin, or IV ceftriaxone / gentamicin",
+     "keywords": "ceftriaxone|gentamicin|augmentin|amoxicillin|iv antibiot"
+    },
+    {
+     "label": "Prophylaxis (low-dose trimethoprim, methenamine)",
+     "keywords": "prophyla|methenamine|hiprex|low-dose|low dose"
+    },
+    {
+     "label": "Vaginal oestrogen (postmenopausal)",
+     "keywords": "oestrogen|estrogen|vaginal|ovestin|vagifem"
+    },
+    {
+     "label": "D-mannose / cranberry (weak evidence)",
+     "keywords": "mannose|cranberry"
+    }
    ]
   },
   "Osteomyelitis": {
@@ -7265,6 +8831,24 @@
      "label": "Antibiotic course / PICC / side effects",
      "keywords": "antibiot|picc|course|side effect|diarr"
     }
+   ],
+   "medications": [
+    {
+     "label": "IV flucloxacillin / cefazolin (S. aureus)",
+     "keywords": "flucloxacillin|fluclox|cefazolin|antistaph"
+    },
+    {
+     "label": "Vancomycin (MRSA)",
+     "keywords": "vancomycin|vanc|mrsa"
+    },
+    {
+     "label": "Prolonged course (~6 weeks) ± oral switch",
+     "keywords": "6 weeks|six weeks|prolonged|oral switch|step down"
+    },
+    {
+     "label": "Surgical debridement / hardware removal",
+     "keywords": "debride|surg|washout|remove hardware|amput|sequestrect"
+    }
    ]
   }
  },
@@ -7362,6 +8946,36 @@
      "label": "Chemo / RT side effects",
      "keywords": "chemo|radio|neuropath|side effect"
     }
+   ],
+   "medications": [
+    {
+     "label": "Surgery: breast-conserving ± SLNB / mastectomy",
+     "keywords": "surg|lumpectomy|wide local|wle|bcs|mastectomy|sentinel|slnb|axillary clearance|breast conserv"
+    },
+    {
+     "label": "Radiotherapy",
+     "keywords": "radio|rt|radiation"
+    },
+    {
+     "label": "Endocrine therapy (tamoxifen, aromatase inhibitors)",
+     "keywords": "endocrine|hormon|tamoxifen|aromatase|letrozole|femara|anastrozole|arimidex|exemestane"
+    },
+    {
+     "label": "Chemotherapy (anthracycline / taxane)",
+     "keywords": "chemo|anthracycl|doxorubicin|epirubicin|cyclophosph|paclitaxel|docetaxel|taxane"
+    },
+    {
+     "label": "HER2-targeted (trastuzumab, pertuzumab)",
+     "keywords": "her2|trastuzumab|herceptin|pertuzumab|phesgo|kadcyla|~mab"
+    },
+    {
+     "label": "CDK4/6 inhibitors (ribociclib, abemaciclib)",
+     "keywords": "cdk|ribociclib|kisqali|abemaciclib|verzenio|palbociclib|ibrance|~ciclib"
+    },
+    {
+     "label": "Bone health (denosumab / zoledronic acid with AIs)",
+     "keywords": "bone|denosumab|prolia|zoledron|bisphosph"
+    }
    ]
   },
   "Thyroid nodule / thyroidectomy": {
@@ -7452,6 +9066,28 @@
     {
      "label": "RAI / surveillance",
      "keywords": "rai|radioiod|surveil|thyroglob"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Hemithyroidectomy / total thyroidectomy",
+     "keywords": "hemithyroid|lobectomy|total thyroid|thyroidectomy|surg"
+    },
+    {
+     "label": "Surveillance US for benign nodules",
+     "keywords": "surveil|repeat ultrasound|monitor"
+    },
+    {
+     "label": "Levothyroxine (TSH suppression if high-risk cancer)",
+     "keywords": "levothyrox|thyroxine|tsh suppress|suppress"
+    },
+    {
+     "label": "TKI for advanced cancer (lenvatinib)",
+     "keywords": "lenvatinib|sorafenib|selpercatinib|tki|~tinib"
+    },
+    {
+     "label": "Thyroglobulin monitoring",
+     "keywords": "thyroglobulin|tg"
     }
    ]
   }
@@ -7578,6 +9214,32 @@
      "label": "Living situation / supports",
      "keywords": "live|alone|support|carer"
     }
+   ],
+   "medications": [
+    {
+     "label": "Hip fracture surgery within 48 h (DHS, hemiarthroplasty, nail)",
+     "keywords": "surg|dhs|dynamic hip|hemiarthroplasty|arthroplasty|hip replacement|nail|fixation|orif"
+    },
+    {
+     "label": "Analgesia incl. fascia iliaca block",
+     "keywords": "analges|fascia iliaca|nerve block|block|paracetamol|opioid"
+    },
+    {
+     "label": "VTE prophylaxis",
+     "keywords": "vte|enoxaparin|clexane|heparin|thromboprophyla"
+    },
+    {
+     "label": "Osteoporosis treatment + vitamin D / calcium",
+     "keywords": "denosumab|prolia|zoledron|aclasta|bisphosph|alendron|vitamin d|calcium"
+    },
+    {
+     "label": "Medication review / deprescribing",
+     "keywords": "deprescrib|med review|medication review|polypharm"
+    },
+    {
+     "label": "Falls prevention (strength & balance, home OT)",
+     "keywords": "balance|strength|home assess|home mod|falls clinic|rehab|physio"
+    }
    ]
   },
   "Back pain": {
@@ -7693,6 +9355,36 @@
      "label": "Analgesia / opioid use",
      "keywords": "analges|opioid|nsaid"
     }
+   ],
+   "medications": [
+    {
+     "label": "Reassurance, stay active, physio",
+     "keywords": "reassur|stay active|physio|exercise|keep active|education"
+    },
+    {
+     "label": "Short-term NSAIDs",
+     "keywords": "nsaid|ibuprofen|naproxen|celecoxib|diclofenac"
+    },
+    {
+     "label": "Avoid opioids and benzodiazepines",
+     "keywords": "avoid opioid|benzodiazepine|benzo|diazepam"
+    },
+    {
+     "label": "Neuropathic agents for radicular pain (limited evidence)",
+     "keywords": "gabapentin|pregabalin|lyrica|amitriptyline|duloxetine|neuropathic"
+    },
+    {
+     "label": "Psychology / CBT (yellow flags)",
+     "keywords": "psycholog|cbt|pain management|multidisciplin"
+    },
+    {
+     "label": "Surgery only for red flags / failed conservative radicular pain",
+     "keywords": "surg|decompress|discectomy|laminectomy|fusion"
+    },
+    {
+     "label": "Epidural / nerve root injection",
+     "keywords": "epidural|nerve root|injection|facet"
+    }
    ]
   }
  },
@@ -7794,6 +9486,32 @@
      "label": "Immunotherapy side effects (diarrhoea, rash, fatigue, thyroid)",
      "keywords": "immunother|pembrol|nivol|diarr|thyro|side effect"
     }
+   ],
+   "medications": [
+    {
+     "label": "Wide local excision with margins",
+     "keywords": "excis|wle|wide local|margin"
+    },
+    {
+     "label": "Sentinel lymph node biopsy",
+     "keywords": "sentinel|slnb"
+    },
+    {
+     "label": "Adjuvant immunotherapy (pembrolizumab, nivolumab)",
+     "keywords": "pembrolizumab|keytruda|nivolumab|opdivo|ipilimumab|yervoy|checkpoint|adjuvant|~mab"
+    },
+    {
+     "label": "BRAF / MEK inhibitors (dabrafenib + trametinib)",
+     "keywords": "braf|mek|dabrafenib|trametinib|encorafenib|binimetinib|~fenib|~metinib"
+    },
+    {
+     "label": "BCC / SCC: Mohs, imiquimod, 5-FU, cryotherapy, curettage",
+     "keywords": "mohs|imiquimod|aldara|5-fu|fluorouracil|efudix|cryo|curettage|pdt|photodynamic"
+    },
+    {
+     "label": "Nicotinamide (prevention in high-risk)",
+     "keywords": "nicotinamide|vitamin b3"
+    }
    ]
   },
   "Psoriasis": {
@@ -7889,6 +9607,32 @@
      "label": "Treatments tried & side effects",
      "keywords": "treat|topical|methotrex|biolog|photother|side effect"
     }
+   ],
+   "medications": [
+    {
+     "label": "Topical steroids + calcipotriol",
+     "keywords": "topical steroid|steroid|calcipotriol|daivobet|enstilar|coal tar|salicylic"
+    },
+    {
+     "label": "Phototherapy (NB-UVB)",
+     "keywords": "photo|uv|nbuvb|nb-uvb|light therapy"
+    },
+    {
+     "label": "Methotrexate",
+     "keywords": "methotrexate|mtx"
+    },
+    {
+     "label": "Acitretin / ciclosporin",
+     "keywords": "acitretin|neotigason|ciclosporin|cyclosporin"
+    },
+    {
+     "label": "Biologics (IL-17, IL-23, anti-TNF)",
+     "keywords": "biolog|il-17|il-23|secukinumab|ixekizumab|bimekizumab|guselkumab|risankizumab|tildrakizumab|ustekinumab|adalimumab|anti-tnf|~mab"
+    },
+    {
+     "label": "Apremilast / deucravacitinib",
+     "keywords": "apremilast|otezla|deucravacitinib|sotyktu"
+    }
    ]
   },
   "Atopic eczema": {
@@ -7971,6 +9715,32 @@
     {
      "label": "Systemic / biologic therapy",
      "keywords": "dupilum|biolog|systemic|ciclospor|methotrex"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Topical calcineurin inhibitors (pimecrolimus, tacrolimus)",
+     "keywords": "calcineurin|pimecrolimus|elidel|tacrolimus|protopic|tci"
+    },
+    {
+     "label": "Wet wraps / dilute bleach baths",
+     "keywords": "wet wrap|bleach"
+    },
+    {
+     "label": "Sedating antihistamine for sleep (short-term)",
+     "keywords": "antihistamine|promethazine|phenergan"
+    },
+    {
+     "label": "Treat infection (flucloxacillin; aciclovir for eczema herpeticum)",
+     "keywords": "flucloxacillin|cephalexin|cefalexin|antibiot|aciclovir|eczema herpeticum"
+    },
+    {
+     "label": "Dupilumab / JAK inhibitors / ciclosporin",
+     "keywords": "dupilumab|dupixent|tralokinumab|upadacitinib|abrocitinib|ciclosporin|methotrexate|jak"
+    },
+    {
+     "label": "Phototherapy",
+     "keywords": "photo|uv|nbuvb|light therapy"
     }
    ]
   }
@@ -8064,6 +9834,28 @@
     {
      "label": "Driving",
      "keywords": "driv"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Prostaglandin analogue (latanoprost)",
+     "keywords": "prostaglandin|latanoprost|xalatan|travoprost|bimatoprost|~prost"
+    },
+    {
+     "label": "Beta-blocker drops (timolol)",
+     "keywords": "timolol|timoptol|betaxolol"
+    },
+    {
+     "label": "Carbonic anhydrase inhibitors (dorzolamide, acetazolamide)",
+     "keywords": "carbonic|dorzolamide|trusopt|brinzolamide|azopt|acetazolamide|diamox"
+    },
+    {
+     "label": "Alpha agonist (brimonidine)",
+     "keywords": "brimonidine|alphagan|apraclonidine"
+    },
+    {
+     "label": "Acute angle closure: pilocarpine, laser peripheral iridotomy",
+     "keywords": "pilocarpine|peripheral iridotomy|iridotomy|lpi"
     }
    ]
   },
@@ -8163,6 +9955,24 @@
     {
      "label": "Driving",
      "keywords": "driv"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Anti-VEGF intravitreal injections (aflibercept, ranibizumab, faricimab)",
+     "keywords": "anti-vegf|vegf|aflibercept|eylea|ranibizumab|lucentis|faricimab|vabysmo|bevacizumab|intravitreal|~cept|~mab"
+    },
+    {
+     "label": "Cataract surgery (phaco + IOL)",
+     "keywords": "phaco|iol|lens|cataract surg|cataract extraction"
+    },
+    {
+     "label": "Smoking cessation",
+     "keywords": "quit|cessation"
+    },
+    {
+     "label": "Low vision aids / Vision Australia",
+     "keywords": "low vision|magnif|vision australia"
     }
    ]
   }
@@ -8272,6 +10082,24 @@
     {
      "label": "Hearing aids / use",
      "keywords": "aid|hearing aid|cochlear"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Cochlear implant",
+     "keywords": "cochlear|implant"
+    },
+    {
+     "label": "Wax removal (microsuction / drops)",
+     "keywords": "wax|cerumen|microsuction|syringe|drops"
+    },
+    {
+     "label": "Sudden SNHL: urgent oral / intratympanic steroids",
+     "keywords": "steroid|prednis|intratympanic"
+    },
+    {
+     "label": "Assistive devices / communication strategies",
+     "keywords": "assistive|captions|amplif|lip read|communication strateg"
     }
    ]
   },
@@ -8388,6 +10216,28 @@
      "label": "Shoulder dysfunction / lymphoedema",
      "keywords": "shoulder|lymphoed|swell"
     }
+   ],
+   "medications": [
+    {
+     "label": "Concurrent cisplatin with RT",
+     "keywords": "cisplatin|platinum|chemoradi|concurrent"
+    },
+    {
+     "label": "Cetuximab / immunotherapy (pembrolizumab)",
+     "keywords": "cetuximab|erbitux|pembrolizumab|keytruda|nivolumab|immuno|~mab"
+    },
+    {
+     "label": "Pre-RT dental assessment (osteoradionecrosis)",
+     "keywords": "osteoradionecrosis|orn|pre-rt dental|dental assess"
+    },
+    {
+     "label": "Saliva substitutes / pilocarpine",
+     "keywords": "saliva|pilocarpine|biotene|xerostom"
+    },
+    {
+     "label": "Smoking and alcohol cessation",
+     "keywords": "quit|cessation|abstin"
+    }
    ]
   },
   "Vertigo": {
@@ -8494,7 +10344,33 @@
      "keywords": "cranial|focal|neuro|stroke|diplopia|dysarthria"
     }
    ],
-   "investigations": []
+   "investigations": [],
+   "medications": [
+    {
+     "label": "BPPV: Epley manoeuvre",
+     "keywords": "epley|repositioning|manoeuvre|maneuver|semont"
+    },
+    {
+     "label": "Vestibular rehabilitation",
+     "keywords": "vestibular rehab|rehab|physio|habituation"
+    },
+    {
+     "label": "Short-term vestibular suppressants (prochlorperazine)",
+     "keywords": "prochlorperazine|stemetil|betahistine|serc|promethazine|cinnarizine|suppressant"
+    },
+    {
+     "label": "Vestibular neuritis: short-course steroids",
+     "keywords": "steroid|prednis"
+    },
+    {
+     "label": "Ménière's: low salt, diuretic, intratympanic therapy",
+     "keywords": "low salt|salt restrict|diuretic|thiazide|intratympanic|grommet"
+    },
+    {
+     "label": "Vestibular migraine: migraine prophylaxis",
+     "keywords": "prophyla|preventive|propranolol|amitriptyline|topiramate"
+    }
+   ]
   }
  },
  "Cross": {
@@ -8611,6 +10487,28 @@
      "label": "Previous attempts to quit / rehab / meds",
      "keywords": "quit|rehab|detox|naltrex|acamprosate|aa"
     }
+   ],
+   "medications": [
+    {
+     "label": "Withdrawal: diazepam (symptom-triggered, CIWA)",
+     "keywords": "diazepam|valium|benzodiazepine|benzo|ciwa|chlordiazepoxide|oxazepam"
+    },
+    {
+     "label": "Thiamine (before glucose)",
+     "keywords": "thiamine|b1|pabrinex"
+    },
+    {
+     "label": "Relapse prevention: naltrexone, acamprosate, disulfiram",
+     "keywords": "naltrexone|revia|acamprosate|campral|disulfiram|antabuse|baclofen|topiramate"
+    },
+    {
+     "label": "Psychosocial: counselling, AA / SMART, residential rehab",
+     "keywords": "counsel|aa|alcoholics anonymous|smart recovery|residential|psycholog|motivational"
+    },
+    {
+     "label": "Multivitamin / folate",
+     "keywords": "multivit|folate|folic"
+    }
    ]
   },
   "Smoking history": {
@@ -8709,6 +10607,28 @@
     {
      "label": "Smoking-related disease awareness",
      "keywords": "copd|cancer|heart|aware|disease"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Combination NRT (patch + fast-acting form)",
+     "keywords": "combination|patch|gum|lozenge|inhalator|mouth spray|oral spray"
+    },
+    {
+     "label": "Cytisine",
+     "keywords": "cytisine|cytisinicline"
+    },
+    {
+     "label": "Brief advice (Ask, Advise, Help)",
+     "keywords": "ask advise|aah|brief advice|5a|brief intervention"
+    },
+    {
+     "label": "Follow-up / relapse prevention",
+     "keywords": "relapse|follow-up|follow up"
+    },
+    {
+     "label": "Nicotine vaping (prescription-only in Australia)",
+     "keywords": "vap|e-cig|ecig|nicotine vaping"
     }
    ]
   }

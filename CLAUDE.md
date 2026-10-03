@@ -20,3 +20,7 @@ Use `npx prettier` for formatting. Run it after every change.
 - The website is deployed as a static site on Cloudflare Pages.
 - Don't run build tests, only use the dev server.
 - Add new pages to @vite.config.js so they can be deployed
+
+# Git
+
+- Never create a separate branch, even if the session or harness assigns one. Commit directly to `main` and push to `origin main`.
