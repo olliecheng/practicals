@@ -25,7 +25,8 @@ button.primary{background:var(--teal);border-color:var(--teal);color:#fff;font-w
 button.chip{padding:5px 12px;border-radius:var(--r);font-size:.85rem}
 button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--teal);font-weight:400}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px}
-.home{max-width:760px}
+.home{display:grid;grid-template-columns:minmax(0,760px) minmax(240px,340px);gap:14px;max-width:1180px;align-items:start}
+@media(max-width:900px){.home{grid-template-columns:minmax(0,760px)}}
 .row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 16px}
 .lbl{font-weight:600;font-size:.9rem;margin:0}
 .big{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
@@ -105,12 +106,24 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .menu.l{left:auto;right:100%;padding-left:0;padding-right:4px}
 .menu .mi{display:flex;flex-direction:column;gap:4px;padding:6px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 6px 18px rgba(0,0,0,.18)}
 .menu button{white-space:nowrap;justify-content:flex-start;font-size:.85rem;padding:6px 10px}
-.menu button:disabled{opacity:.5;cursor:default}
-.menu .scr{background:var(--ok-soft);border-color:var(--ok)}
-.menu .inc{background:var(--bad-soft);border-color:var(--bad)}
-.menu .scr:hover,.menu .inc:not(:disabled):hover{filter:brightness(.96)}
-.menu .rst:hover{border-color:var(--mute)}
+:is(.menu,.acts) button:disabled{opacity:.5;cursor:default}
+:is(.menu,.acts) .scr{background:var(--ok-soft);border-color:var(--ok)}
+:is(.menu,.acts) .inc{background:var(--bad-soft);border-color:var(--bad)}
+:is(.menu,.acts) .scr:hover,:is(.menu,.acts) .inc:not(:disabled):hover{filter:brightness(.96)}
+:is(.menu,.acts) .rst:hover{border-color:var(--mute)}
 .cell.open .menu{display:block}
+.hist{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.hrow{display:flex;flex-direction:column;gap:2px;padding:6px 10px;border:1px solid var(--line);border-radius:var(--r);background:var(--panel);cursor:pointer;font-size:.88rem}
+.hl1{display:flex;justify-content:space-between;gap:8px}
+.hl1 .nm{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hl1 .bdg{margin-left:0}
+.hl2{min-height:26px;display:flex;align-items:center}
+.hl2 .meta{color:var(--mute);font-size:.75rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hl2 .acts{display:none;gap:4px;width:100%}
+.acts button{flex:1;font-size:.72rem;padding:3px 4px;white-space:nowrap}
+/* a history row swaps its meta line for the actions on hover/tap, so its height never changes */
+.hrow.open .meta{display:none}.hrow.open .acts{display:flex}
+@media(hover:hover){.hrow:hover .meta{display:none}.hrow:hover .acts{display:flex}}
 @media(hover:hover){.cell:hover .menu{display:block}}
 button.star,.condlist button.star{padding:2px 9px;font-size:1rem;line-height:1.2;color:var(--mute)}
 button.star[aria-pressed="true"]{color:var(--amber);border-color:var(--amber)}
@@ -135,6 +148,7 @@ button.star[aria-pressed="true"]{color:var(--amber);border-color:var(--amber)}
   <p class="note">Conditions: history, risk factors, investigations/management and medications. Presentations: differentials, associated features and investigations. Name one item at a time, from any section. The box flashes green and clears when you hit something on the list, or yellow if you've already named it. Press "I'm done" to reveal the ones you missed in orange; tap a missed tile to credit it if you had it. Hover a tile and press − to ignore an item you can't recall: it's greyed out and left out of your score. Log in with a username to save your history, stars and ignored items.</p>
   <p class="lbl" style="margin-top:18px">Or pick one</p><div class="condlist" id="condList"></div>
  </div>
+ <div class="panel hidden" id="hist"><p class="lbl">History</p><div class="hist" id="histList"></div></div>
 </section>
 
 <section id="game" class="play hidden">
@@ -212,6 +226,31 @@ function randPick(m){const p=pool(m).filter(d=>d!==cur);const q=p.length?p:pool(
 function rand(m){const d=randPick(m);if(d)start(d,m)}
 // Some item of the drill is neither found, credited nor ignored in the saved record
 const hasBlanks=(d,sv)=>{const k=new Set([...sv.found,...sv.credited,...sv.ignored]);return d[3].some(it=>!k.has(ik(it)))};
+// Start from scratch / Redo incorrect / clear history; shared by the drill popover and the history panel.
+// Clearing keeps ignored items and the star.
+function resetDrill(d,sv){if(!confirm(`Clear your history for ${d[1]}?`))return;Object.assign(sv,{runs:0,last:0,score:0,found:[],credited:[]});save();list()}
+function wireActs(root,d,m,sv){
+ root.querySelector('.scr').onclick=()=>start(d,m);
+ const i=root.querySelector('.inc');i.title='Keep your correct answers filled in; fill the rest';
+ if(hasBlanks(d,sv))i.onclick=()=>start(d,m,true);else{i.disabled=true;i.title='Nothing incorrect to redo'}
+ root.querySelector('.rst').onclick=()=>resetDrill(d,sv);
+}
+const byKey=new Map();
+function renderHist(){
+ const p=$('#hist');p.classList.toggle('hidden',!acct);if(!acct)return;
+ const l=$('#histList');l.innerHTML='';
+ const es=Object.entries(user.drills).filter(([k,v])=>v.runs&&byKey.has(k)).sort((a,b)=>b[1].last-a[1].last);
+ if(!es.length){l.innerHTML='<p class="note" style="margin:0">No history yet. Finish a drill from scratch to see it here.</p>';return}
+ es.forEach(([k,sv])=>{
+  const d=byKey.get(k),m=k.split('|')[0],r=document.createElement('div');r.className='hrow';r.tabIndex=0;
+  r.innerHTML='<div class="hl1"><span class="nm"></span><span class="bdg"></span></div><div class="hl2"><div class="meta"></div><div class="acts"><button class="scr" title="Start from scratch">Restart</button><button class="inc">Redo incorrect</button><button class="rst" title="Delete from history">Delete</button></div></div>';
+  r.querySelector('.nm').textContent=d[1];r.querySelector('.bdg').textContent=sv.score+'%';
+  r.querySelector('.meta').textContent=`${m==='pres'?'Presentation':d[0]} · ${new Date(sv.last).toLocaleDateString()} · ${sv.runs}×`;
+  wireActs(r,d,m,sv);
+  r.onclick=e=>{if(!e.target.closest('button'))r.classList.toggle('open')};
+  r.onkeydown=e=>{if(e.target===r&&(e.key==='Enter'||e.key===' ')){e.preventDefault();r.classList.toggle('open')}};
+  l.appendChild(r)});
+}
 function row(d,m){
  const c=document.createElement('div');c.className='cell';
  const sv=savedOf(d,m),hist=!!(sv&&sv.runs);
@@ -226,19 +265,16 @@ function row(d,m){
  if(hist){
   const g=document.createElement('span');g.className='bdg';g.textContent=sv.score+'%';g.title=`Done ${sv.runs}×, last ${new Date(sv.last).toLocaleDateString()}`;r.appendChild(g);
   const mn=document.createElement('div');mn.className='menu';mn.innerHTML='<div class="mi"><button class="scr">Start from scratch</button><button class="inc">Redo incorrect</button><button class="rst">Reset progress</button></div>';
-  mn.querySelector('.scr').onclick=()=>start(d,m);
-  // Reset clears the drill's history (runs, score, found, credited); ignored items and the star are kept
-  mn.querySelector('.rst').onclick=()=>{if(!confirm(`Reset your progress on ${d[1]}?`))return;Object.assign(sv,{runs:0,last:0,score:0,found:[],credited:[]});save();list()};
-  const i=mn.querySelector('.inc');i.title='Keep your correct answers filled in; fill the rest';
-  if(hasBlanks(d,sv))i.onclick=()=>start(d,m,true);else{i.disabled=true;i.title='Nothing incorrect to redo'}
+  wireActs(mn,d,m,sv);
   c.appendChild(mn);c.addEventListener('mouseenter',()=>place(c));
  }
  return c;
 }
 // Open the popover to the right of the cell, or to the left if it wouldn't fit in the viewport
 function place(c){const m=c.querySelector('.menu');if(m)m.classList.toggle('l',c.getBoundingClientRect().right+170>document.documentElement.clientWidth)}
-document.addEventListener('click',e=>document.querySelectorAll('.cell.open').forEach(c=>{if(!c.contains(e.target))c.classList.remove('open')}));
+document.addEventListener('click',e=>document.querySelectorAll('.cell.open,.hrow.open').forEach(c=>{if(!c.contains(e.target))c.classList.remove('open')}));
 function list(){
+ renderHist();
  const c=$('#condList'),ds=pool(mode);c.innerHTML='';
  if(!ds.length){c.innerHTML='<p class="note" style="grid-column:1/-1;margin:0">No starred drills here yet.</p>';return}
  const add=d=>c.appendChild(row(d,mode));
@@ -414,6 +450,7 @@ const flatten=(src,keys)=>Object.entries(src).flatMap(([sys,items])=>Object.entr
  DATA=flatten(COND,[['presentation','P'],['risks','R'],['investigations','M'],['medications','T']]);
  PRES=flatten(PRESENT,[['differentials','D'],['associated','A'],['investigations','I']]);
  prep(DATA);prep(PRES);
+ DATA.forEach(d=>byKey.set(dk(d,'cond'),d));PRES.forEach(d=>byKey.set(dk(d,'pres'),d));
  systems=Object.keys(COND);selSys=new Set(systems);
  chips();list();acctUI();
  const u0=lastUser();if(u0)restore(u0);
