@@ -421,7 +421,7 @@ function home(){
  $('#game').classList.add('hidden');$('#home').classList.remove('hidden');list();
 }
 $('#finish').onclick=revealSec;
-{const vv=window.visualViewport;if(vv){const kb=()=>document.documentElement.style.setProperty('--kb',Math.max(0,window.innerHeight-vv.height-vv.offsetTop)+'px');vv.addEventListener('resize',kb);vv.addEventListener('scroll',kb);kb()}}
+{const vv=window.visualViewport,KB_TRIM=56/* iOS reports the viewport above its floating URL pill + field-arrows bar; sit the dock just over the arrows bar */;if(vv){const kb=()=>document.documentElement.style.setProperty('--kb',Math.max(0,window.innerHeight-vv.height-vv.offsetTop-KB_TRIM)+'px');vv.addEventListener('resize',kb);vv.addEventListener('scroll',kb);kb()}}
 $('#newCond').onclick=()=>rand(curMode);
 $('#quit').onclick=home;
 $('#menu').onclick=home;
