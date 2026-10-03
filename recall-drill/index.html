@@ -425,14 +425,14 @@ const nextSec=()=>MODES[curMode].sections.find(([code])=>(!collapsed||code===act
 function confetti(n){
  const w=window.innerWidth,cols=['--teal','--amber','--ok','--miss','--bad'];
  for(let i=0;i<n;i++){const c=document.createElement('i');c.className='cf';
-  c.style.cssText=`left:${Math.random()*w}px;background:var(${cols[i%cols.length]});--dx:${Math.random()*160-80}px;--r:${Math.random()*720-360}deg;animation-duration:${1.8+Math.random()*1.4}s;animation-delay:${Math.random()*.5}s`;
+  c.style.cssText=`left:${Math.random()*w}px;background:var(${cols[i%cols.length]});--dx:${Math.random()*160-80}px;--r:${Math.random()*720-360}deg;animation-duration:${1.5+Math.random()*1.1}s;animation-delay:${Math.random()*.6}s`;
   document.body.appendChild(c);c.addEventListener('animationend',()=>c.remove())}
 }
 // A section named in full (by typing, not reveal/credit) earns confetti; the button then moves on to the next section.
 function celebrate(){
  MODES[curMode].sections.forEach(([code])=>{
   const idx=secIdx(code);
-  if(idx.length&&!celebrated.has(code)&&idx.every(i=>found.has(i)||ignored.has(i))){celebrated.add(code);confetti(allSettled()?120:60)}})
+  if(idx.length&&!celebrated.has(code)&&idx.every(i=>found.has(i)||ignored.has(i))){celebrated.add(code);confetti(allSettled()?350:200)}})
 }
 function reveal(){
  const n=nextSec(),f=$('#finish');
