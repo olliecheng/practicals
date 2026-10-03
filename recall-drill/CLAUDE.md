@@ -59,6 +59,19 @@ Registered in `/vite.config.js` as `recallDrill` -> `recall-drill/index.html`. T
 - Typography uses Apple system fonts with Inter as a fallback; no external requests.
 - Colour variables are in `:root`, with light/dark via `prefers-color-scheme`.
 
+## Accounts
+
+Optional, username-only (no password), so the username is effectively the secret; any non-empty name of `a-z0-9_-` (capped at 100 characters server-side to keep KV keys small). The drill defaults to "Guest: nothing is saved" (ignoring a tile still works within the round). The header "Log in" link opens `login/index.html` (`/recall-drill/login/`, registered in `vite.config.js` as `recallDrillLogin`), a form with Log in (user must exist) and Create account (name must be free); on success it stores the name and returns to the drill.
+
+- `functions/api/user.js`: a Cloudflare Pages Function. `GET /api/user` returns the user's JSON (404 `{"error":"not found"}` if missing); `PUT /api/user` replaces it (this also creates the user). The username is the `X-Username` header. Storage is the `USERS` KV namespace, key `user:<name>`. There is no list endpoint.
+- `account.js`: fetch helpers and the remembered username (localStorage `recallDrillUser`); the drill page restores it silently on load.
+- Record shape: `{v:1, stars:["mode|system|name"], drills:{"mode|system|name":{runs,last,score,found:["code:label"],credited:[...],ignored:[...]}}}`. Items are keyed by `sectionCode:label`, so renaming a label in the JSON orphans its saved state.
+- `index.html` saves with a debounced whole-record `PUT` (`save()`/`flush()`): on finishing a round, on credit toggles after finishing, on star and ignore toggles, and on Menu/Back.
+- Ignored tiles (once any section has been revealed, hover a tile and press the `−` bubble; press again to restore; the `rv` class on `#game` gates the bubble) stay visible but greyed, count as already named when typed, and are excluded from the score and counters. They are always prefilled on the next attempt.
+- A drill with history shows a popover (on hover, or on tap) with "Start from scratch" (light green), "Redo incorrect" (light red) and "Reset progress" (plain). Redo incorrect calls `start(d, mode, true)`: found and credited tiles from the saved record are prefilled, so only the blanks remain. It is practice only and does not change runs, score, found or credited (ignored items still save); the result shows "(not saved)". Start from scratch is the only thing that records history (ignored tiles are still prefilled). A drill with no history starts immediately when clicked. Logged-in users also get a History panel to the right of the list (below it on narrow screens): drills with `runs>0`, most recent first, showing score, system, date and run count. Hover or tap a row for Restart / Redo incorrect / Delete (the same actions as the popover, via `wireActs()`; Delete is the same as Reset progress). "Reset progress" (confirm first) clears runs, score, found and credited for that drill; ignored items and the star are kept.
+
+Local dev: `npm run dev` and, in a second shell, `npm run api` (wrangler with a local KV; `vite.config.js` proxies `/api` to it). Production needs a KV namespace bound as `USERS` in the Pages project settings. Don't add a `wrangler.toml` to the repo: for Pages it would override the dashboard bindings.
+
 ## Deployment
 
-Static site on Cloudflare Pages; Vite builds `recall-drill/index.html` as an entry and inlines the JSON files into the bundle, so nothing extra needs registering when the data changes.
+Static site on Cloudflare Pages (plus the Pages Function above); Vite builds `recall-drill/index.html` as an entry and inlines the JSON files into the bundle, so nothing extra needs registering when the data changes.

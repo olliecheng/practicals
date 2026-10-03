@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "api": "wrangler pages dev . --kv USERS --port 8788"
   },
   "dependencies": {
     "@fontsource-variable/bricolage-grotesque": "^5.2.8",
