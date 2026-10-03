@@ -59,13 +59,13 @@ Registered in `/vite.config.js` as `recallDrill` -> `recall-drill/index.html`. T
 
 ## Accounts
 
-Optional, username-only (no password), so the username is effectively the secret; the UI asks for 6-32 characters of `a-z0-9_-`. "Guest" or not logging in saves nothing (ignoring a tile still works within the round).
+Optional, username-only (no password), so the username is effectively the secret; 6-32 characters of `a-z0-9_-`. The drill defaults to "Guest: nothing is saved" (ignoring a tile still works within the round). The header "Log in" link opens `login/index.html` (`/recall-drill/login/`, registered in `vite.config.js` as `recallDrillLogin`), a form with Log in (user must exist) and Create account (name must be free); on success it stores the name and returns to the drill.
 
 - `functions/api/user.js`: a Cloudflare Pages Function. `GET /api/user` returns the user's JSON (404 `{"error":"not found"}` if missing); `PUT /api/user` replaces it (this also creates the user). The username is the `X-Username` header. Storage is the `USERS` KV namespace, key `user:<name>`. There is no list endpoint.
-- `account.js`: fetch helpers and the remembered username (localStorage `recallDrillUser`, auto-login).
+- `account.js`: fetch helpers and the remembered username (localStorage `recallDrillUser`); the drill page restores it silently on load.
 - Record shape: `{v:1, stars:["mode|system|name"], drills:{"mode|system|name":{runs,last,score,found:["code:label"],credited:[...],ignored:[...]}}}`. Items are keyed by `sectionCode:label`, so renaming a label in the JSON orphans its saved state.
 - `index.html` saves with a debounced whole-record `PUT` (`save()`/`flush()`): on finishing a round, on credit toggles after finishing, on star and ignore toggles, and on Menu/Back.
-- Ignored tiles (hover a tile, press the `−` bubble; press again to restore) stay visible but greyed, count as already named when typed, and are excluded from the score and counters. They are always prefilled on the next attempt.
+- Ignored tiles (once any section has been revealed, hover a tile and press the `−` bubble; press again to restore; the `rv` class on `#game` gates the bubble) stay visible but greyed, count as already named when typed, and are excluded from the score and counters. They are always prefilled on the next attempt.
 - "Redo incorrect" on the selection page calls `start(d, mode, true)`: found and credited tiles from the saved record are prefilled, so only the blanks remain. Clicking the drill name starts from scratch (ignored tiles still prefilled).
 
 Local dev: `npm run dev` and, in a second shell, `npm run api` (wrangler with a local KV; `vite.config.js` proxies `/api` to it). Production needs a KV namespace bound as `USERS` in the Pages project settings. Don't add a `wrangler.toml` to the repo: for Pages it would override the dashboard bindings.

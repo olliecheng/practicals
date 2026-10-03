@@ -87,7 +87,7 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .prompt:empty{display:none}
 .acct{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.85rem;color:var(--mute)}
 .acct b{color:var(--ink);font-weight:600}
-.acct input{font:inherit;font-size:.85rem;width:150px;padding:5px 8px;border-radius:var(--r);border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.acct a{padding:5px 12px;border-radius:var(--r);border:1px solid var(--line);background:var(--panel);color:var(--ink);text-decoration:none}
 .acct button{padding:5px 12px;font-size:.85rem}
 .crow{display:flex;flex-direction:column;gap:3px}
 .crow .top{display:flex;gap:4px}
@@ -97,9 +97,10 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 button.star,.condlist button.star{padding:2px 9px;font-size:1rem;line-height:1.2;color:var(--mute)}
 button.star[aria-pressed="true"]{color:var(--amber);border-color:var(--amber)}
 .ttl{display:flex;justify-content:space-between;align-items:center;gap:8px}
-.tile .ig{position:absolute;top:-6px;right:-6px;z-index:3;width:18px;height:18px;padding:0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;line-height:1;color:var(--mute);opacity:0}
+.tile .ig{position:absolute;top:-6px;right:-6px;z-index:3;width:18px;height:18px;padding:0;border-radius:50%;display:none;align-items:center;justify-content:center;font-size:.85rem;line-height:1;color:var(--mute);opacity:0}
 .tile:hover .ig,.tile .ig:focus-visible,.tile.ign .ig{opacity:1}
-.tile.on:not(.miss):not(.ign) .ig{display:none}
+/* Ignore is offered only once a section has been revealed (#game.rv), on tiles not yet named; ignored tiles keep theirs to restore */
+#game.rv .tile:not(.on) .ig,#game.rv .tile.miss .ig,.tile.ign .ig{display:flex}
 @media(hover:none){.tile .ig{opacity:.7}}
 .tile.ign .b{background:transparent;border:1px dashed var(--line);color:var(--mute);opacity:.6;cursor:default}
 
@@ -141,7 +142,7 @@ import icP from './assets/presentation.svg';
 import icR from './assets/risks.svg';
 import icM from './assets/investigations.svg';
 import icT from './assets/medications.svg';
-import {blankUser,lastUser,rememberUser,fetchUser,putUser} from './account.js';
+import {lastUser,rememberUser,fetchUser,putUser} from './account.js';
 // Built from the JSON files at startup (see bottom of script) as [system, name, prompt, [[label, keywords, section]]]
 // cond sections: P presentation, R risk factors / etiology, M investigations / management, T medications / treatment
 // pres sections: D differentials, A associated features (history), I investigations
@@ -153,7 +154,7 @@ const MODES={
 };
 let systems=[],mode='cond',curMode='cond',selSys=new Set(),cur=null,found=new Set(),credited=new Set(),revealed=new Set(),celebrated=new Set(),over=false;
 // ignored: tiles the user gave up on; greyed out, always shown, left out of the score (persisted per drill for accounts)
-let ignored=new Set(),keys=[],acct=null,user=null,guest=false,starOnly=false;
+let ignored=new Set(),keys=[],acct=null,user=null,starOnly=false;
 
 // Matching. Keywords are word-start stems; "~x" matches anywhere (drug suffixes like ~pril).
 // Short keywords (<=3 chars) need a following delimiter so "ed" doesn't fire while typing "edema".
@@ -224,7 +225,7 @@ function start(d,m,inc){
   if(inc){
    sv.found.forEach(k=>{const i=at(k);if(i>=0&&!ignored.has(i))found.add(i)});
    sv.credited.forEach(k=>{const i=at(k);if(i>=0&&!ignored.has(i)&&!found.has(i)){credited.add(i);revealed.add(i)}})}}
- $('#game').classList.remove('over');$('#home').classList.add('hidden');$('#game').classList.remove('hidden');$('#acct').classList.add('hidden');
+ $('#game').classList.remove('over','rv');$('#home').classList.add('hidden');$('#game').classList.remove('hidden');$('#acct').classList.add('hidden');
  $('#gSys').textContent=d[0];$('#gCond').textContent=d[1];$('#gPrompt').textContent=d[2];
  const gs=$('#gStar');gs.classList.toggle('hidden',!acct);gs.setAttribute('aria-pressed',!!starred(d,m));
  $('#next').textContent='Next '+MODES[m].noun;
@@ -324,12 +325,13 @@ function celebrate(){
 function reveal(){const n=nextSec();$('#finish').textContent=n?'Reveal '+n[3]:'Finish'}
 function revealSec(){
  if(over)return;const n=nextSec();if(!n)return finish();
+ $('#game').classList.add('rv');
  cur[3].forEach((it,i)=>{if(it[2]===n[0]&&!found.has(i)&&!revealed.has(i)&&!ignored.has(i)){revealed.add(i);$('#t'+i).classList.add('on','miss')}});
  if(nextSec())reveal();else finish();
 }
 function finish(){
  if(over)return;over=true;clearTimeout(deferT);
- $('#game').classList.add('over');$('#answer').disabled=true;
+ $('#game').classList.add('over','rv');$('#answer').disabled=true;
  cur[3].forEach((it,i)=>{if(!found.has(i)&&!revealed.has(i)&&!ignored.has(i)){revealed.add(i);$('#t'+i).classList.add('on','miss')}});
  $('#playActs').classList.add('hidden');$('#doneActs').classList.remove('hidden');score();
  commit(true);
@@ -358,32 +360,21 @@ function flush(){
  chain=chain.then(()=>putUser(n,body)).then(()=>setMsg(''),()=>setMsg('Save failed'));
 }
 document.addEventListener('visibilitychange',()=>{if(document.hidden)flush()});
-async function login(raw,silent){
- const n=raw.trim().toLowerCase();
- if(!/^[a-z0-9_-]{6,32}$/.test(n)){setMsg('6–32 characters: a–z, 0–9, - or _');return}
- setMsg('Loading…');
- try{
-  let u=await fetchUser(n);
-  if(!u){
-   if(silent){rememberUser('');setMsg('');return}
-   if(!confirm(`No account "${n}" yet. Create it?`)){setMsg('');return}
-   u=blankUser();await putUser(n,JSON.stringify(u));
-  }
-  acct=n;user=u;guest=false;rememberUser(n);acctUI();chips();list();
- }catch{setMsg(silent?'':'Could not reach the server')}
+// Logging in happens on /recall-drill/login/; here we only restore the remembered user (silently falling back to guest).
+async function restore(n){
+ try{const u=await fetchUser(n);if(!u){rememberUser('');return}
+  acct=n;user=u;acctUI();chips();list()}
+ catch{}
 }
-function logout(){flush();acct=null;user=null;guest=false;starOnly=false;rememberUser('');acctUI();chips();list()}
+function logout(){flush();acct=null;user=null;starOnly=false;rememberUser('');acctUI();chips();list()}
 function acctUI(){
  const el=$('#acct');el.innerHTML='';
- const btn=(t,f,c)=>{const b=document.createElement('button');b.textContent=t;b.onclick=f;if(c)b.className=c;return b};
  const msg=document.createElement('span');msg.id='acctMsg';
- if(acct){const s=document.createElement('span');s.innerHTML='Signed in as <b></b>';s.querySelector('b').textContent=acct;el.append(s,btn('Log out',logout),msg)}
- else if(guest)el.append('Guest: nothing is saved',btn('Log in',()=>{guest=false;acctUI()}))
- else{
-  const i=document.createElement('input');i.placeholder='Username';i.maxLength=32;i.autocapitalize='off';i.spellcheck=false;i.setAttribute('aria-label','Username');
-  i.onkeydown=e=>{if(e.key==='Enter')login(i.value)};
-  el.append(i,btn('Log in',()=>login(i.value),'primary'),btn('Guest',()=>{guest=true;acctUI()}),msg);
- }
+ if(acct){
+  const s=document.createElement('span');s.innerHTML='Signed in as <b></b>';s.querySelector('b').textContent=acct;
+  const b=document.createElement('button');b.textContent='Log out';b.onclick=logout;
+  el.append(s,b,msg);
+ }else el.innerHTML='Guest: nothing is saved <a href="./login/">Log in</a>';
 }
 const flatten=(src,keys)=>Object.entries(src).flatMap(([sys,items])=>Object.entries(items).map(([name,c])=>[sys,name,c.prompt,keys.flatMap(([k,code])=>c[k].map(it=>[it.label,it.keywords,code]))]));
 {
@@ -392,6 +383,6 @@ const flatten=(src,keys)=>Object.entries(src).flatMap(([sys,items])=>Object.entr
  prep(DATA);prep(PRES);
  systems=Object.keys(COND);selSys=new Set(systems);
  chips();list();acctUI();
- const u0=lastUser();if(u0)login(u0,true);
+ const u0=lastUser();if(u0)restore(u0);
 }
 </script></body></html>

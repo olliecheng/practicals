@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Log in – History Recall Drill</title>
+<style>
+:root{--bg:#E6EDEB;--panel:#F7FAF9;--ink:#13262A;--mute:#5B6E70;--line:#C9D6D3;--teal:#1F6F6B;--bad:#C62F3A;--r:5px;box-sizing:border-box}
+@media (prefers-color-scheme:dark){:root{--bg:#0F1D1F;--panel:#16282A;--ink:#E3EEEC;--mute:#93A9A9;--line:#2A4245;--teal:#4FB3AA;--bad:#F2737C}}
+*,*:before,*:after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter',sans-serif;font-size:16px;line-height:1.5}
+.wrap{max-width:420px;margin:0 auto;padding:16px 16px 40px}
+h1{font-size:1.5rem;font-weight:600;margin:0 0 12px;letter-spacing:-.01em;line-height:1.2}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+label{font-weight:600;font-size:.9rem}
+input{width:100%;font:inherit;padding:10px 12px;margin:6px 0 4px;border-radius:var(--r);border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+button{font:inherit;font-size:.95rem;cursor:pointer;border-radius:var(--r);border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:10px 16px}
+button.primary{background:var(--teal);border-color:var(--teal);color:#fff;font-weight:500}
+@media (prefers-color-scheme:dark){button.primary{color:#0F1D1F}}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #C98A12;outline-offset:2px}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.note{color:var(--mute);font-size:.85rem;margin:4px 0 0}
+#msg{color:var(--bad);font-size:.9rem;min-height:1.4em;margin:8px 0 0}
+a{color:var(--teal)}
+</style></head><body>
+<div class="wrap">
+<h1>History recall drill</h1>
+<form class="panel" id="f" novalidate>
+ <label for="un">Username</label>
+ <input id="un" autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false" maxlength="32" autofocus>
+ <p class="note">6–32 characters: a–z, 0–9, - or _. There is no password, so anyone who knows your username can see your history. Pick something others won't guess.</p>
+ <p id="msg" role="alert"></p>
+ <div class="row"><button class="primary" id="login" type="submit">Log in</button><button id="create" type="button">Create account</button></div>
+ <p class="note" style="margin-top:14px"><a href="../">← Back to the drill (as guest)</a></p>
+</form>
+</div>
+<script type="module">
+import {blankUser,rememberUser,fetchUser,putUser} from '../account.js';
+const $=s=>document.querySelector(s),msg=t=>{$('#msg').textContent=t};
+const back=()=>{location.href='../'};
+// create: false = log in (user must exist), true = create (name must be free)
+async function go(create){
+ const n=$('#un').value.trim().toLowerCase();
+ if(!/^[a-z0-9_-]{6,32}$/.test(n))return msg('Use 6–32 characters: a–z, 0–9, - or _.');
+ msg('');document.querySelectorAll('button').forEach(b=>b.disabled=true);
+ try{
+  const u=await fetchUser(n);
+  if(create){if(u)throw 'That username is taken.';await putUser(n,JSON.stringify(blankUser()))}
+  else if(!u)throw 'No account with that username. Use Create account.';
+  rememberUser(n);back();
+ }catch(e){msg(typeof e==='string'?e:'Could not reach the server.');document.querySelectorAll('button').forEach(b=>b.disabled=false)}
+}
+$('#f').onsubmit=e=>{e.preventDefault();go(false)};
+$('#create').onclick=()=>go(true);
+</script></body></html>

@@ -16,6 +16,7 @@ export default defineConfig({
         lft: resolve(__dirname, "liver-function.html"),
         bacteria: resolve(__dirname, "bacteria.html"),
         recallDrill: resolve(__dirname, "recall-drill/index.html"),
+        recallDrillLogin: resolve(__dirname, "recall-drill/login/index.html"),
       },
     },
   },
