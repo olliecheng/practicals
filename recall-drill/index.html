@@ -130,8 +130,8 @@ button.star[aria-pressed="true"]{color:var(--amber);border-color:var(--amber)}
 .ttl{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .tile .ig{position:absolute;top:-6px;right:-6px;z-index:3;width:18px;height:18px;padding:0;border-radius:50%;display:none;align-items:center;justify-content:center;font-size:.85rem;line-height:1;color:var(--mute);opacity:0}
 .tile:hover .ig,.tile .ig:focus-visible,.tile.ign .ig{opacity:1}
-/* Ignore is offered only once a section has been revealed (#game.rv), on tiles not yet named; ignored tiles keep theirs to restore */
-#game.rv .tile:not(.on) .ig,#game.rv .tile.miss .ig,.tile.ign .ig{display:flex}
+/* Ignore is offered only on revealed (missed) tiles; ignored tiles keep theirs to restore */
+.tile.miss .ig,.tile.ign .ig{display:flex}
 @media(hover:none){.tile .ig{opacity:.7}}
 .tile.ign .b{background:transparent;border:1px dashed var(--line);color:var(--mute);opacity:.6;cursor:default}
 
@@ -294,7 +294,7 @@ function start(d,m,inc){
   if(inc){
    sv.found.forEach(k=>{const i=at(k);if(i>=0&&!ignored.has(i))found.add(i)});
    sv.credited.forEach(k=>{const i=at(k);if(i>=0&&!ignored.has(i)&&!found.has(i)){credited.add(i);revealed.add(i)}})}}
- $('#game').classList.remove('over','rv');$('#home').classList.add('hidden');$('#game').classList.remove('hidden');
+ $('#game').classList.remove('over');$('#home').classList.add('hidden');$('#game').classList.remove('hidden');
  $('#gSys').textContent=d[0];$('#gCond').textContent=d[1];$('#gPrompt').textContent=d[2];
  const gs=$('#gStar');gs.classList.toggle('hidden',!acct);gs.setAttribute('aria-pressed',!!starred(d,m));
  $('#next').textContent='Next '+MODES[m].noun;
@@ -395,13 +395,12 @@ function celebrate(){
 function reveal(){const n=nextSec();$('#finish').textContent=n?'Reveal '+n[3]:'Finish'}
 function revealSec(){
  if(over)return;const n=nextSec();if(!n)return finish();
- $('#game').classList.add('rv');
  cur[3].forEach((it,i)=>{if(it[2]===n[0]&&!found.has(i)&&!revealed.has(i)&&!ignored.has(i)){revealed.add(i);$('#t'+i).classList.add('on','miss')}});
  if(nextSec())reveal();else finish();
 }
 function finish(){
  if(over)return;over=true;clearTimeout(deferT);
- $('#game').classList.add('over','rv');$('#answer').disabled=true;
+ $('#game').classList.add('over');$('#answer').disabled=true;
  cur[3].forEach((it,i)=>{if(!found.has(i)&&!revealed.has(i)&&!ignored.has(i)){revealed.add(i);$('#t'+i).classList.add('on','miss')}});
  $('#playActs').classList.add('hidden');$('#doneActs').classList.remove('hidden');score();
  commit(true);
