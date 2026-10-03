@@ -46,7 +46,7 @@ Registered in `/vite.config.js` as `recallDrill` -> `recall-drill/index.html`. `
 ## Code notes (`index.html`)
 
 - At startup the imported JSON is flattened into `DATA = [[system, condition, prompt, [[label, keywords, 'P'|'R'|'M']]]]` (P presentation, R risks, M investigations), and a `re` regex is attached to each item. The rest of the code works on that array.
-- Section header icons are 16x16 pixel-art SVGs in `assets/` (`presentation.svg` thermometer, `risks.svg` warning triangle, `investigations.svg` flask), imported as URLs and drawn as a CSS `mask` filled with `--teal`, so they follow the theme. Each is one `currentColor` path of 1px rects with `shape-rendering="crispEdges"`; keep them at 16px (integer scale) to stay sharp.
+- Section header icons are 16x16 pixel-art SVGs in `assets/` (`presentation.svg` thermometer, `risks.svg` warning triangle, `investigations.svg` flask), imported as URLs and drawn as a CSS `mask` filled with `--teal`, so they follow the theme. Each is one `currentColor` path of 1px rects with `shape-rendering="crispEdges"`; they render at 24px (1.5x the 16px heading text), which is sharp on 2x/3x screens but slightly uneven at 1x; 32px is the next exact integer scale.
 - Typography uses Apple system fonts with Inter as a fallback; no external requests.
 - Colour variables are in `:root`, with light/dark via `prefers-color-scheme`.
 

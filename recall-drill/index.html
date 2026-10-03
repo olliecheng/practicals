@@ -63,8 +63,9 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .counter{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter',sans-serif;font-weight:600;font-size:1.1rem;margin:0 0 10px;line-height:1.2;font-variant-numeric:tabular-nums}
 .counter span{color:var(--mute);font-weight:400;font-size:.9rem}
 .sect+.sect{margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}
-.sh{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:0 0 8px;font-size:1rem;font-weight:600;line-height:1.2}
-.sh .ic{display:inline-block;width:16px;height:16px;margin-right:8px;vertical-align:-2px;background:var(--teal);-webkit-mask:var(--ic) center/16px 16px no-repeat;mask:var(--ic) center/16px 16px no-repeat}
+.sh{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:0 0 8px;font-size:1rem;font-weight:600;line-height:1.2}
+.sh>span:first-child{display:inline-flex;align-items:center;gap:8px}
+.sh .ic{flex:none;width:24px;height:24px;background:var(--teal);-webkit-mask:var(--ic) center/24px 24px no-repeat;mask:var(--ic) center/24px 24px no-repeat}
 .sh .sc{color:var(--mute);font-weight:400;font-size:.8rem;font-variant-numeric:tabular-nums}
 .sect.done .sh .sc{color:var(--teal);font-weight:400}
 .board{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:5px}
