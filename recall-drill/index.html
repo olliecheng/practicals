@@ -41,7 +41,7 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
  .play{grid-template-columns:1fr;gap:10px}
  .play>.panel:first-child{top:env(safe-area-inset-top,0px);padding:12px 14px;border-radius:var(--r)}
  .play>.panel:last-child{padding:12px}
- .cond{font-size:1.4rem!important;margin:0!important}.tline{margin-top:2px!important;font-size:.78rem!important}
+ .cond{font-size:1.4rem!important;margin:0!important}.prompt{display:none}#game:not(.over) #skipTrayG{display:none!important}.tline{margin-top:2px!important;font-size:.78rem!important}
  #game .board{grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:4px}#game .tile .f,#game .tile .b{font-size:.74rem;padding:4px 6px;min-height:32px}#game .tile .f{font-size:.85rem}
  #game.over>.panel:first-child{position:static}#game.over #answer,#game.over .tline{display:none!important}.sh{font-size:.95rem!important}
  #answer{font-size:1rem;padding:9px 12px;margin-top:6px}
@@ -81,6 +81,11 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .result{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter',sans-serif;font-weight:600;font-size:1.25rem;line-height:1.2}
 .hidden{display:none!important}
 .note{color:var(--mute);font-size:.88rem}
+.prompt{color:var(--mute);margin:0 0 8px;font-size:.85rem}
+.tray{margin-top:14px;padding-top:10px;border-top:1px solid var(--line)}
+.tray .row{margin:6px 0 0}
+.tray .chip{font-size:.8rem;padding:4px 10px;border-color:var(--amber);background:var(--amber-soft)}
+.condlist button.skipd{border-color:var(--amber);background:var(--amber-soft)}
 @media (prefers-reduced-motion:reduce){.tile .in{transition:none}}
 </style></head><body>
 <div class="wrap">
@@ -88,9 +93,11 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 
 <section id="home" class="home">
  <div class="panel">
-  <p class="lbl">Systems</p><div class="row" id="sysChips"></div>
+  <p class="lbl">Mode</p><div class="row" id="modeChips"></div>
+  <div id="sysWrap"><p class="lbl">Systems</p><div class="row" id="sysChips"></div></div>
   <div class="big"><button class="primary" id="goRandom">Random condition</button></div>
-  <p class="note">Name one item at a time, from any section. The box flashes green and clears when you hit something on the list, or yellow if you've already named it. Press "I'm done" to reveal the ones you missed in orange; tap a missed tile to credit it if you had it.</p>
+  <div class="tray hidden" id="skipTray"></div>
+  <p class="note">Conditions: history, risk factors, investigations/management and medications. Presentations: differentials, associated features and investigations. Name one item at a time, from any section. The box flashes green and clears when you hit something on the list, or yellow if you've already named it. Press "I'm done" to reveal the ones you missed in orange; tap a missed tile to credit it if you had it. Skip saves your progress so you can come back to it.</p>
   <p class="lbl" style="margin-top:18px">Or pick one</p><div class="condlist" id="condList"></div>
  </div>
 </section>
@@ -99,10 +106,12 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
  <div class="panel">
   <div class="sys" id="gSys"></div>
   <div class="cond" id="gCond"></div>
+  <p class="prompt" id="gPrompt"></p>
   <div class="tline"><span>Enter submits short abbreviations</span></div>
   <input id="answer" type="text" placeholder="Type an item…" aria-label="Your answer" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
-  <div class="actions" id="playActs"><button class="primary" id="finish">I'm done</button><button id="quit">Back</button><button id="newCond">New</button></div>
+  <div class="actions" id="playActs"><button class="primary" id="finish">I'm done</button><button id="skip">Skip</button><button id="quit">Back</button></div>
   <div class="actions hidden" id="doneActs"><span class="result" id="result"></span><button class="primary" id="next">Next condition</button><button id="retry">Retry this one</button><button id="menu">Menu</button><span class="note" style="flex-basis:100%;margin:0">Tap a missed tile if you had it.</span></div>
+  <div class="tray hidden" id="skipTrayG"></div>
  </div>
  <div class="panel">
   <p class="counter" id="counter"></p>
@@ -111,68 +120,117 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 </section>
 </div>
 <script type="module">
-import QUESTIONS from './data.json';
+import COND from './conditions.json';
+import PRESENT from './presentations.json';
 import icP from './assets/presentation.svg';
 import icR from './assets/risks.svg';
 import icM from './assets/investigations.svg';
-let DATA=[];
-// Built from data.json at startup (see bottom of script) as [system, condition, prompt, [[label, keywords, section]]]; section: P presentation, R risk factors / etiology, M investigations / management
+import icT from './assets/medications.svg';
+// Built from the JSON files at startup (see bottom of script) as [system, name, prompt, [[label, keywords, section]]]
+// cond sections: P presentation, R risk factors / etiology, M investigations / management, T medications / treatment
+// pres sections: D differentials, A associated features (history), I investigations
+let DATA=[],PRES=[];
 const $=s=>document.querySelector(s);
-const SECTIONS=[['P','Presentation',icP],['R','Risk factors / etiology',icR],['M','Investigations / management',icM]];
-let systems=[],selSys=new Set(),cur=null,found=new Set(),credited=new Set(),over=false;
-// live: short keywords (<=3 chars) need a following delimiter so "ed" doesn't fire while typing "edema"
-const rx=(kws,live)=>new RegExp(kws.split('|').map(k=>k.replace(/\s+$/,'').length<=3?'\\b'+k.trim()+'s?'+(live?'(?=[^a-z0-9])':'\\b'):'\\b'+k).join('|'),'i');
-function chips(){
- const sc=$('#sysChips');sc.innerHTML='';
- systems.forEach(s=>{const b=document.createElement('button');b.className='chip';b.textContent=s;b.setAttribute('aria-pressed',selSys.has(s));b.onclick=()=>{selSys.has(s)?selSys.delete(s):selSys.add(s);if(!selSys.size)selSys.add(s);chips();list()};sc.appendChild(b)});
+const MODES={
+ cond:{noun:'condition',sections:[['P','Presentation',icP],['R','Risk factors / etiology',icR],['M','Investigations / management',icM],['T','Medications / treatment',icT]]},
+ pres:{noun:'presentation',sections:[['D','Differentials',icR],['A','Associated features (history)',icP],['I','Investigations',icM]]}
+};
+let systems=[],mode='cond',curMode='cond',selSys=new Set(),cur=null,found=new Set(),credited=new Set(),over=false;
+const skipped=new Map();
+const keyOf=(m,d)=>m+':'+d[1];
+
+// Matching. Keywords are word-start stems; "~x" matches anywhere (drug suffixes like ~pril).
+// Short keywords (<=3 chars) need a following delimiter so "ed" doesn't fire while typing "edema".
+const rx=kws=>new RegExp(kws.split('|').map(k=>{if(k[0]==='~')return k.slice(1);if(/^[^\w]/.test(k))return k;return k.replace(/\s+$/,'').length<=3?'\\b'+k.trim()+'s?(?=[^a-z0-9])':'\\b'+k}).join('|'),'i');
+const prep=A=>A.forEach(d=>d[3].forEach(it=>{it.re=rx(it[1]);
+ it.lits=it[1].toLowerCase().split('|').filter(k=>k[0]!=='~'&&!/[.*+?()[\]{}^$\\]/.test(k)).map(k=>k.trim()).filter(Boolean)}));
+// Earliest match wins, then longest; if what's typed could still become a longer keyword of an
+// unfound item (e.g. "sputum" -> "sputum culture"), defer instead of firing.
+function judge(items,isFound,v,submit){
+ const t=submit?v+' ':v,c=[];
+ items.forEach((it,i)=>{const m=it.re.exec(t);if(m)c.push([i,m.index,m[0].length])});
+ if(!c.length)return null;
+ const s0=Math.min(...c.map(x=>x[1])),at=c.filter(x=>x[1]===s0),l0=Math.max(...at.map(x=>x[2]));
+ const win=at.filter(x=>x[2]===l0).map(x=>x[0]);
+ let defer=false;
+ if(!submit){const low=v.toLowerCase().replace(/^\s+/,'');defer=items.some((it,i)=>!win.includes(i)&&!isFound(i)&&it.lits.some(k=>k.length>low.length&&k.startsWith(low)))}
+ return {hit:win.filter(i=>!isFound(i)),dup:win.filter(i=>isFound(i)),defer};
 }
-function pool(){return DATA.filter(d=>selSys.has(d[0]))}
-function randPick(){const p=pool().filter(d=>d!==cur);const q=p.length?p:pool();return q[Math.floor(Math.random()*q.length)]}
+
+function chipBtn(text,pressed,onclick){const b=document.createElement('button');b.className='chip';b.textContent=text;b.setAttribute('aria-pressed',pressed);b.onclick=onclick;return b}
+function chips(){
+ const mc=$('#modeChips');mc.innerHTML='';
+ [['cond','Conditions'],['pres','Presentations']].forEach(([m,l])=>mc.appendChild(chipBtn(l,mode===m,()=>{mode=m;chips();list()})));
+ $('#sysWrap').classList.toggle('hidden',mode!=='cond');
+ const sc=$('#sysChips');sc.innerHTML='';
+ systems.forEach(s=>sc.appendChild(chipBtn(s,selSys.has(s),()=>{selSys.has(s)?selSys.delete(s):selSys.add(s);if(!selSys.size)selSys.add(s);chips();list()})));
+ $('#goRandom').textContent='Random '+MODES[mode].noun;
+}
+function pool(m){return m==='cond'?DATA.filter(d=>selSys.has(d[0])):PRES}
+function randPick(m){
+ const p=pool(m).filter(d=>d!==cur&&!skipped.has(keyOf(m,d)));
+ return p.length?p[Math.floor(Math.random()*p.length)]:null;
+}
 function list(){
  const c=$('#condList');c.innerHTML='';
+ const add=d=>{const b=document.createElement('button');b.textContent=d[1];if(skipped.has(keyOf(mode,d)))b.classList.add('skipd');b.onclick=()=>start(d,mode);c.appendChild(b)};
+ if(mode==='pres'){PRES.forEach(add);return}
  systems.filter(s=>selSys.has(s)).forEach(s=>{
   const h=document.createElement('h3');h.className='sysh';h.textContent=s;c.appendChild(h);
-  DATA.filter(d=>d[0]===s).forEach(d=>{const b=document.createElement('button');b.textContent=d[1];b.onclick=()=>start(d);c.appendChild(b)})});
+  DATA.filter(d=>d[0]===s).forEach(add)});
 }
-function start(d){
- $('#game').classList.remove('over');cur=d;found=new Set();credited=new Set();over=false;swallowing=false;
- $('#home').classList.add('hidden');$('#game').classList.remove('hidden');
- $('#gSys').textContent=d[0];$('#gCond').textContent=d[1];
+function tray(){
+ [['#skipTray',null],['#skipTrayG',cur&&keyOf(curMode,cur)]].forEach(([sel,excl])=>{
+  const el=$(sel),items=[...skipped.entries()].filter(([k])=>k!==excl);
+  el.classList.toggle('hidden',!items.length);el.innerHTML='';if(!items.length)return;
+  el.insertAdjacentHTML('beforeend',`<p class="lbl">Skipped (${items.length}) — tap to return</p>`);
+  const row=document.createElement('div');row.className='row';
+  items.forEach(([k,s])=>{const n=s.d[3].length;row.appendChild(chipBtn(`${s.d[1]} · ${s.found.length}/${n}`,false,()=>start(s.d,s.mode)))});
+  el.appendChild(row)});
+}
+function start(d,m,fresh){
+ clearTimeout(deferT);
+ const key=keyOf(m,d);if(fresh)skipped.delete(key);
+ const sv=skipped.get(key);
+ curMode=m;cur=d;found=new Set(sv?sv.found:[]);credited=new Set();over=false;swallowing=false;
+ $('#game').classList.remove('over');$('#home').classList.add('hidden');$('#game').classList.remove('hidden');
+ $('#gSys').textContent=d[0];$('#gCond').textContent=d[1];$('#gPrompt').textContent=d[2];
+ $('#next').textContent='Next '+MODES[m].noun;
  const inp=$('#answer');inp.value='';inp.disabled=false;inp.classList.remove('ok','dup','bad');
  $('#playActs').classList.remove('hidden');$('#doneActs').classList.add('hidden');
  const wrap=$('#sections');wrap.innerHTML='';
- SECTIONS.forEach(([code,name,icon])=>{
+ MODES[m].sections.forEach(([code,name,icon])=>{
   const idx=d[3].map((it,i)=>i).filter(i=>d[3][i][2]===code);
   const sec=document.createElement('section');sec.className='sect';sec.id='s'+code;
   sec.innerHTML=`<h3 class="sh"><span><span class="ic" aria-hidden="true"></span>${name}</span><span class="sc"></span></h3>`;
   sec.querySelector('.ic').style.setProperty('--ic',`url("${icon}")`);
-  if(!idx.length){sec.insertAdjacentHTML('beforeend','<p class="note" style="margin:0">None listed for this condition.</p>')}
+  if(!idx.length)sec.insertAdjacentHTML('beforeend',`<p class="note" style="margin:0">None listed for this ${MODES[m].noun}.</p>`);
   const bd=document.createElement('div');bd.className='board';
-  idx.forEach((i,n)=>{const it=d[3][i];const t=document.createElement('div');t.className='tile';t.id='t'+i;t.innerHTML=`<div class="in"><div class="f">${n+1}</div><div class="b">${it[0]}</div></div>`;
+  idx.forEach((i,n)=>{const t=document.createElement('div');t.className='tile'+(found.has(i)?' on':'');t.id='t'+i;t.innerHTML=`<div class="in"><div class="f">${n+1}</div><div class="b">${d[3][i][0]}</div></div>`;
    t.onclick=()=>{if(!over||found.has(i))return;credited.has(i)?credited.delete(i):credited.add(i);t.classList.toggle('cred');t.classList.toggle('miss');score()};bd.appendChild(t)});
   sec.appendChild(bd);wrap.appendChild(sec)});
- count();
- inp.focus();
+ count();tray();inp.focus();
 }
 function count(){const n=cur[3].length;$('#counter').innerHTML=`${found.size+credited.size} <span>of ${n} found</span>`;
- SECTIONS.forEach(([code])=>{const idx=cur[3].map((it,i)=>i).filter(i=>cur[3][i][2]===code);const g=idx.filter(i=>found.has(i)||credited.has(i)).length;
+ MODES[curMode].sections.forEach(([code])=>{const idx=cur[3].map((it,i)=>i).filter(i=>cur[3][i][2]===code);const g=idx.filter(i=>found.has(i)||credited.has(i)).length;
   const sec=$('#s'+code);sec.querySelector('.sc').textContent=idx.length?`${g} of ${idx.length}`:'';sec.classList.toggle('done',idx.length>0&&g===idx.length)})}
 function retrigger(el,cls){el.classList.remove('ok','dup','bad');void el.offsetWidth;el.classList.add(cls)}
 // After a stem matches mid-word (e.g. "orthop" of "orthopnoea"), eat the rest of that answer
 // until a pause or a comma, so the tail doesn't land in the empty box.
-let swallowing=false,swT=null;
+let swallowing=false,swT=null,deferT=null;
 function swallow(){swallowing=true;clearTimeout(swT);swT=setTimeout(()=>{swallowing=false},400)}
-function evaluate(submit){
+function evaluate(submit,idle){
+ clearTimeout(deferT);
  if(over)return;const inp=$('#answer');const v=inp.value;if(!v.trim())return;
- const txt=submit?v+' ':v,hit=[],dup=[];
- cur[3].forEach((it,i)=>{if(it.re.test(txt))(found.has(i)?dup:hit).push(i)});
- if(!hit.length&&!dup.length){if(submit){inp.value='';retrigger(inp,'bad')}return}
+ const r=judge(cur[3],i=>found.has(i),v,submit);
+ if(!r){if(submit&&!idle){inp.value='';retrigger(inp,'bad')}return}
+ if(r.defer){deferT=setTimeout(()=>evaluate(true,true),700);return}
  inp.value='';
  if(!submit&&/[a-z0-9]$/i.test(v))swallow();
- if(hit.length){
-  hit.forEach(i=>{found.add(i);$('#t'+i).classList.add('on')});retrigger(inp,'ok');count();
+ if(r.hit.length){
+  r.hit.forEach(i=>{found.add(i);$('#t'+i).classList.add('on')});retrigger(inp,'ok');count();
   if(found.size===cur[3].length)finish();
- }else{retrigger(inp,'dup');dup.forEach(i=>retrigger($('#t'+i),'dup'))}
+ }else{retrigger(inp,'dup');r.dup.forEach(i=>retrigger($('#t'+i),'dup'))}
 }
 $('#answer').addEventListener('input',e=>{
  if(swallowing){
@@ -185,23 +243,35 @@ $('#answer').addEventListener('input',e=>{
 $('#answer').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();swallowing=false;evaluate(true)}});
 function score(){const n=cur[3].length,p=Math.round(100*(found.size+credited.size)/n);$('#result').textContent=p+'%';count();return p}
 function finish(){
- if(over)return;over=true;$('#game').classList.add('over');$('#answer').disabled=true;
- cur[3].forEach((it,i)=>{if(!found.has(i)){const t=$('#t'+i);t.classList.add('on','miss')}});
+ if(over)return;over=true;clearTimeout(deferT);skipped.delete(keyOf(curMode,cur));tray();
+ $('#game').classList.add('over');$('#answer').disabled=true;
+ cur[3].forEach((it,i)=>{if(!found.has(i))$('#t'+i).classList.add('on','miss')});
  $('#playActs').classList.add('hidden');$('#doneActs').classList.remove('hidden');score();
 }
-function home(){$('#game').classList.add('hidden');$('#home').classList.remove('hidden')}
+function skip(){
+ if(over)return;
+ skipped.set(keyOf(curMode,cur),{mode:curMode,d:cur,found:[...found]});
+ const nx=randPick(curMode);
+ if(nx)start(nx,curMode);else home();
+}
+function home(){
+ clearTimeout(deferT);
+ if(cur&&!over){const k=keyOf(curMode,cur);if(skipped.has(k))skipped.set(k,{mode:curMode,d:cur,found:[...found]})}
+ $('#game').classList.add('hidden');$('#home').classList.remove('hidden');list();tray();
+}
 $('#finish').onclick=finish;
+$('#skip').onclick=skip;
 $('#quit').onclick=home;
-$('#newCond').onclick=()=>start(randPick());
 $('#menu').onclick=home;
-$('#next').onclick=()=>start(randPick());
-$('#retry').onclick=()=>start(cur);
-$('#goRandom').onclick=()=>start(randPick());
-const KEYS=[['presentation','P'],['risks','R'],['investigations','M']];
+$('#next').onclick=()=>{const nx=randPick(curMode);nx?start(nx,curMode):home()};
+$('#retry').onclick=()=>start(cur,curMode,true);
+$('#goRandom').onclick=()=>{const nx=randPick(mode);nx?start(nx,mode):tray()};
+const flatten=(src,keys)=>Object.entries(src).flatMap(([sys,items])=>Object.entries(items).map(([name,c])=>[sys,name,c.prompt,keys.flatMap(([k,code])=>c[k].map(it=>[it.label,it.keywords,code]))]));
 {
- DATA=Object.entries(QUESTIONS).flatMap(([sys,conds])=>Object.entries(conds).map(([name,c])=>[sys,name,c.prompt,KEYS.flatMap(([k,code])=>c[k].map(it=>[it.label,it.keywords,code]))]));
- DATA.forEach(d=>d[3].forEach(it=>it.re=rx(it[1],true)));
- systems=Object.keys(QUESTIONS);selSys=new Set(systems);
- chips();list();
+ DATA=flatten(COND,[['presentation','P'],['risks','R'],['investigations','M'],['medications','T']]);
+ PRES=flatten(PRESENT,[['differentials','D'],['associated','A'],['investigations','I']]);
+ prep(DATA);prep(PRES);
+ systems=Object.keys(COND);selSys=new Set(systems);
+ chips();list();tray();
 }
 </script></body></html>
