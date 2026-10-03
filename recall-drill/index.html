@@ -96,7 +96,7 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}
 .result{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter',sans-serif;font-weight:600;font-size:1.25rem;line-height:1.2}
 .hidden{display:none!important}
-.cf{position:fixed;top:-20px;width:8px;height:12px;border-radius:2px;pointer-events:none;z-index:50;opacity:0;animation:cf 2.2s linear both}
+.cf{position:fixed;top:-20px;width:8px;height:12px;border-radius:2px;pointer-events:none;z-index:50;opacity:0;animation:cf 2.2s cubic-bezier(.5,0,1,1) both}
 @keyframes cf{0%{opacity:1;transform:translate(0,0) rotate(0)}85%{opacity:1}100%{opacity:0;transform:translate(var(--dx),calc(100vh + 40px)) rotate(var(--r))}}
 .note{color:var(--mute);font-size:.88rem}
 .prompt{color:var(--mute);margin:0 0 8px;font-size:.85rem}
