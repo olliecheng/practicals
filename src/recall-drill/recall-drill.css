@@ -1,3 +1,14 @@
+/* Registered so the page background (and its grid) can animate when a drill starts or ends */
+@property --bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e6edeb;
+}
+@property --grid {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #d3dfdc;
+}
 :root {
   --bg: #e6edeb;
   --panel: #f7faf9;
@@ -16,6 +27,11 @@
   --bad-soft: #f7d3d6;
   --tile: #dce5e3;
   --grid: #d3dfdc;
+  --blue: #2f6fb0;
+  --on-blue: #fff;
+  --blue-soft: #dbe8f6;
+  --purple: #7a4fb3;
+  --purple-soft: #e6dcf3;
   --r: 5px;
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
@@ -40,6 +56,11 @@
     --bad-soft: #421b20;
     --tile: #1f3437;
     --grid: #1a2e31;
+    --blue: #6aa8e6;
+    --on-blue: #0f1d1f;
+    --blue-soft: #1c2f45;
+    --purple: #b693e6;
+    --purple-soft: #33284a;
   }
 }
 :root[data-theme="dark"] {
@@ -60,6 +81,11 @@
   --bad-soft: #421b20;
   --tile: #1f3437;
   --grid: #1a2e31;
+  --blue: #6aa8e6;
+  --on-blue: #0f1d1f;
+  --blue-soft: #1c2f45;
+  --purple: #b693e6;
+  --purple-soft: #33284a;
 }
 *,
 *:before,
@@ -71,6 +97,9 @@ html {
 }
 body {
   margin: 0;
+  transition:
+    --bg 0.4s ease,
+    --grid 0.4s ease;
   background-color: var(--bg);
   background-image:
     linear-gradient(var(--grid) 1px, transparent 1px),
@@ -136,6 +165,10 @@ input:focus-visible {
   outline-offset: 2px;
 }
 button.primary {
+  transition:
+    background-color 0.4s ease,
+    border-color 0.4s ease,
+    color 0.4s ease;
   background: var(--teal);
   border-color: var(--teal);
   color: #fff;
@@ -148,6 +181,10 @@ button.primary {
   :root:not([data-theme="light"]) button.primary {
     color: #0f1d1f;
   }
+}
+button.primary.drill {
+  background: var(--blue);
+  border-color: var(--blue);
 }
 button.chip {
   padding: 5px 12px;
@@ -572,6 +609,10 @@ button.chip[aria-pressed="true"] {
   gap: 4px;
 }
 .redo {
+  transition:
+    background-color 0.4s ease,
+    border-color 0.4s ease,
+    color 0.4s ease;
   flex: none;
   width: 26px;
   height: 26px;
@@ -591,6 +632,28 @@ button.chip[aria-pressed="true"] {
   background: var(--teal-soft);
   border-color: var(--teal);
 }
+.redo.soft {
+  border-color: transparent;
+  background: none;
+}
+.redo.soft:hover {
+  border-color: var(--teal);
+  background: var(--teal-soft);
+}
+.redo[aria-pressed="true"] {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+.redo.soft[aria-pressed="true"] {
+  background: none;
+  border-color: transparent;
+  color: var(--blue);
+}
+.redo.soft[aria-pressed="true"]:hover {
+  background: var(--blue-soft);
+  border-color: var(--blue);
+}
 .sect.collapsible.closed .tg {
   cursor: pointer;
 }
@@ -603,6 +666,51 @@ button.chip[aria-pressed="true"] {
 }
 .sect.closed .sh {
   margin-bottom: 0;
+}
+/* A drill (body.drilling, set by the Drill route) turns the page background blue and recolours the accent buttons (Reveal, the pressed redo); other buttons, panels and the answer box stay as they are */
+body.drilling {
+  --bg: color-mix(in srgb, var(--blue) 22%, var(--panel));
+  --grid: color-mix(in srgb, var(--blue) 30%, var(--panel));
+}
+body.drilling #answer {
+  background: var(--panel);
+}
+body.drilling button.primary.drill {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--on-blue);
+}
+.drilling .seg.locked {
+  pointer-events: none;
+}
+.drilling .seg .pill {
+  border-color: var(--blue);
+  background: var(--blue-soft);
+}
+body.drilling .redo {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+body.drilling .redo.soft {
+  border-color: transparent;
+}
+body.drilling .redo:hover,
+body.drilling .redo.soft:hover {
+  background: var(--blue-soft);
+  border-color: var(--blue);
+}
+body.drilling .redo[aria-pressed="true"] {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--on-blue);
+}
+body.drilling .redo.soft[aria-pressed="true"] {
+  background: none;
+  border-color: transparent;
+  color: var(--blue);
+}
+body.drilling .sect .sh .sc {
+  color: var(--blue);
 }
 #game.over .tg {
   pointer-events: none;
@@ -701,6 +809,10 @@ button.chip[aria-pressed="true"] {
   background: var(--miss-soft);
   border-color: var(--miss);
   cursor: pointer;
+}
+.tile.rec .b {
+  background: var(--purple-soft);
+  border-color: var(--purple);
 }
 .tile.cred .b {
   background: var(--teal-soft);
@@ -1112,4 +1224,9 @@ button.star[aria-pressed="true"] {
 }
 .wrap a.link {
   color: var(--teal);
+}
+/* Hints stay off during a drill (the button is disabled) */
+body.drilling .hintbtn:disabled {
+  opacity: 0.5;
+  cursor: default;
 }

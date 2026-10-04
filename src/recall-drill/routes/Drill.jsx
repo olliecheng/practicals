@@ -17,9 +17,13 @@ function Tile({ i, n, label, s, complete, onCredit, onIgnore }) {
       ? " on cred"
       : s.found.has(i)
         ? " on"
-        : s.revealed.has(i)
-          ? " on miss"
-          : "";
+        : s.recalled.has(i)
+          ? " on rec"
+          : s.drilling.has(i)
+            ? ""
+            : s.revealed.has(i)
+              ? " on miss"
+              : "";
   const ok = complete && (s.found.has(i) || s.credited.has(i));
   return (
     <div
@@ -62,7 +66,16 @@ function Game({ drill, inc, restart }) {
   const filters = useFilters();
   const nav = useNavigate();
   const g = useDrillGame({ drill, account, inc });
-  const { s, collapsed, stats } = g;
+  const { s, stats } = g;
+  // A drill temporarily forces the Collapse view onto the drilled section (the saved preference is untouched)
+  const drilling = !!s.drill;
+  const collapsed = g.collapsed || drilling;
+  const focus = drilling ? s.drill : s.active;
+  // The page background and buttons are recoloured from CSS while drilling
+  useEffect(() => {
+    document.body.classList.toggle("drilling", drilling);
+    return () => document.body.classList.remove("drilling");
+  }, [drilling]);
   const { acct, user } = account;
   const noun = MODES[drill.mode].noun;
   const starred = !!acct && user.stars.includes(drill.key);
@@ -78,7 +91,10 @@ function Game({ drill, inc, restart }) {
   const hintable = drill.items.some((it) => it.code === g.hintCode && it.cat);
 
   return (
-    <section id="game" className={"play" + (s.over ? " over" : "")}>
+    <section
+      id="game"
+      className={"play" + (s.over && !drilling ? " over" : "")}
+    >
       <div className="side">
         <div className="panel">
           <div className="ttl">
@@ -97,10 +113,10 @@ function Game({ drill, inc, restart }) {
           </div>
           <div className="cond">{drill.name}</div>
           <p className="prompt">{drill.prompt}</p>
-          {!s.over ? (
+          {!s.over || drilling ? (
             <div className="actions">
               <button
-                className="primary"
+                className={"primary" + (drilling ? " drill" : "")}
                 onClick={g.revealSec}
                 disabled={g.revealDisabled}
               >
@@ -170,13 +186,13 @@ function Game({ drill, inc, restart }) {
           </div>
         </div>
       </div>
-      <div className="panel tiles">
+      <div className={"panel tiles" + (drilling ? " drilling" : "")}>
         <div className="chead">
           <p className="counter">
             {stats.got} <span>of {stats.total} found</span>
           </p>
           <div
-            className="seg"
+            className={"seg" + (drilling ? " locked" : "")}
             id="allToggle"
             role="group"
             aria-label="Sections"
@@ -190,11 +206,34 @@ function Game({ drill, inc, restart }) {
         </div>
         <div>
           {stats.sections.map((sec) => {
-            const shut = collapsed && !s.over && sec.code !== s.active;
+            const shut =
+              collapsed && (!s.over || drilling) && sec.code !== focus;
             const idx = drill.items.flatMap((it, i) =>
               it.code === sec.code ? [i] : [],
             );
             const complete = sectionComplete(drill, s, sec.code);
+            const active = s.drill === sec.code;
+            const canDrill = active || hasMissed(drill, s, sec.code);
+            const drillBtn = (cls) => (
+              <button
+                className={cls}
+                type="button"
+                aria-pressed={active}
+                title={
+                  active
+                    ? "Stop drilling this section"
+                    : "Drill the missed items in this section"
+                }
+                aria-label={
+                  active
+                    ? "Stop drilling this section"
+                    : "Drill the missed items in this section"
+                }
+                onClick={() => g.startDrill(sec.code)}
+              >
+                ↺
+              </button>
+            );
             // A finished section has nothing left to spoil, so its categories are always shown
             const hasCats = idx.some((i) => drill.items[i].cat);
             // n is the tile's number within its section, whatever the grouping
@@ -217,7 +256,7 @@ function Game({ drill, inc, restart }) {
                 className={
                   "sect" +
                   (shut ? " closed" : "") +
-                  (collapsed && !s.over ? " collapsible" : "") +
+                  (collapsed && !s.over && !drilling ? " collapsible" : "") +
                   (sec.done ? " done" : "")
                 }
               >
@@ -240,17 +279,8 @@ function Game({ drill, inc, restart }) {
                       {sec.count ? `${sec.got} of ${sec.total}` : ""}
                     </span>
                   </button>
-                  {hasMissed(drill, s, sec.code) && (
-                    <button
-                      className="redo"
-                      type="button"
-                      title="Redo the missed items in this section"
-                      aria-label="Redo the missed items in this section"
-                      onClick={() => g.redoSec(sec.code)}
-                    >
-                      ↺
-                    </button>
-                  )}
+                  {canDrill && drillBtn("redo soft")}
+                  {canDrill && drillBtn("redo")}
                 </h3>
                 {!idx.length && (
                   <p className="note" style={{ margin: 0 }}>
