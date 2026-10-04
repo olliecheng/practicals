@@ -76,8 +76,13 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .sh .ic{flex:none;width:24px;height:24px;background:var(--teal);-webkit-mask:var(--ic) center/24px 24px no-repeat;mask:var(--ic) center/24px 24px no-repeat}
 .sh .sc{color:var(--mute);font-weight:400;font-size:.8rem;font-variant-numeric:tabular-nums}
 .sect.done .sh .sc{color:var(--teal);font-weight:400}
-.chead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin:0 0 10px}.chead .counter{margin:0}
+.chead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:0 0 10px}.chead .counter{margin:0}
 .chead button{padding:4px 10px;font-size:.8rem;flex:none}
+.chead .seg{position:relative;display:grid;grid-template-columns:1fr 1fr;flex:none;padding:2px;border:1px solid var(--line);border-radius:var(--r);background:var(--panel)}
+.seg button{position:relative;padding:3px 10px;border:0;background:none;color:var(--mute);font-size:.8rem;transition:color .2s}
+.seg button[aria-pressed="true"]{color:var(--ink)}
+.seg .pill{position:absolute;top:2px;bottom:2px;left:2px;width:calc(50% - 2px);box-sizing:border-box;border:1px solid var(--teal);border-radius:calc(var(--r) - 2px);background:var(--teal-soft);transition:transform .2s ease}
+.seg[data-state="expanded"] .pill{transform:translateX(100%)}
 .tg{border:0;background:none;padding:0;font:inherit;color:inherit;display:flex;flex:1;justify-content:space-between;align-items:center;gap:10px;cursor:default;text-align:left}
 .tg .nm{display:inline-flex;align-items:center;gap:4px}
 .sect.collapsible.closed .tg{cursor:pointer}
@@ -188,7 +193,7 @@ button.star[aria-pressed="true"]{color:var(--amber);border-color:var(--amber)}
  </div>
  </div>
  <div class="panel tiles">
-  <div class="chead"><p class="counter" id="counter"></p><button class="chip" id="allToggle"></button></div>
+  <div class="chead"><p class="counter" id="counter"></p><div class="seg" id="allToggle" role="group" aria-label="Sections" data-state="expanded"><span class="pill"></span><button data-v="0">Collapse</button><button data-v="1">Expand</button></div></div>
   <div id="sections"></div>
  </div>
 </section>
@@ -369,20 +374,22 @@ const firstPending=()=>(MODES[curMode].sections.find(([c])=>cur[3].some((it,i)=>
 // Re-apply the open/collapsed state to the page and everything derived from it
 function refreshSections(){
  MODES[curMode].sections.forEach(([c])=>{const shut=collapsed&&!over&&c!==active,s=$('#s'+c);s.classList.toggle('closed',shut);s.classList.toggle('collapsible',collapsed&&!over);s.querySelector('.tg').setAttribute('aria-expanded',!shut)});
- $('#allToggle').textContent=collapsed?'Expand':'Collapse';
+ const g=$('#allToggle');g.dataset.state=collapsed?'collapsed':'expanded';
+ g.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',(b.dataset.v==='1')===!collapsed));
  syncCelebrated();count();reveal();
 }
 function setActive(code){
  if(over||!collapsed||code===active)return;
  clearTimeout(deferT);active=code;refreshSections();
 }
-$('#allToggle').onclick=()=>{
- if(over)return;
+$('#allToggle').querySelectorAll('button').forEach(b=>b.onclick=()=>{
+ const want=b.dataset.v==='0';
+ if(over||want===collapsed)return;
  clearTimeout(deferT);
- collapsed=!collapsed;saveCollapsed();
+ collapsed=want;saveCollapsed();
  if(collapsed)active=firstPending();
  refreshSections();
-};
+});
 // Sections already complete (prefilled or ignored) must not fire confetti when something else is typed.
 function syncCelebrated(){MODES[curMode].sections.forEach(([code])=>{const idx=secIdx(code);idx.length&&idx.every(settled)?celebrated.add(code):celebrated.delete(code)})}
 function toggleIgnore(i){
