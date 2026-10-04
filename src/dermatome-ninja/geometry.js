@@ -121,7 +121,7 @@ const crop = (members) => {
 };
 export const REGIONS = {
   all: { label: "All", ids: null },
-  upper: { label: "Upper limb", ids: run("C4", "T4") },
+  upper: { label: "Upper limb", ids: run("C2", "T4") },
   lower: { label: "Lower limb", ids: run("T12", "S5") },
   // The trunk from the shoulder tip down to the upper thigh; the arm dermatomes (C5-T1) are left out
   abdomen: { label: "Abdomen", ids: ["C4", ...run("T2", "L2")] },
