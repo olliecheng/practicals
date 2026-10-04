@@ -53,7 +53,7 @@ Layout: `routes/` (Home, Drill, Login), `components/` (Layout, DrillActions), `s
 
 ## Hint
 
-Off by default; a "Hint" button beside Reveal (aria-pressed, "Hide hint" when on) toggles category boxes (`fieldset.cat` with a `legend`, wrapping flex, `.cats` in `recall-drill.css`) around the tiles of the current section only: the one Reveal names, or the open one when collapsed (`hintCode` from `useDrillGame`). Other sections stay flat. The button is disabled when that section has no named categories and hidden once the round is over. `hint` lives in the round state (`s.hint`), so it resets on every round/restart and is never saved. Tile index, number, matching, scoring, ignore and saved keys are unaffected.
+Off by default; a "Hint" button beside Reveal (a checkbox toggle button, aria-pressed) toggles category boxes (`fieldset.cat` with a `legend`, wrapping flex, `.cats` in `recall-drill.css`) around the tiles of the current section only: the one Reveal names, or the open one when collapsed (`hintCode` from `useDrillGame`). Other sections stay flat. The button is disabled when that section has no named categories and hidden once the round is over. `hint` lives in the round state (`s.hint`) as the code of the section it was switched on for; it only applies while `hintCode` still equals it, so completing that section (by typing or Reveal) or moving to the next hides it again and the next section isn't spoiled. It resets on every round/restart and is never saved. Tile index, number, matching, scoring, ignore and saved keys are unaffected.
 
 ## Editing guidelines
 

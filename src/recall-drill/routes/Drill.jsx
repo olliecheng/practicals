@@ -69,6 +69,8 @@ function Game({ drill, inc, restart }) {
   };
   const menu = () => nav("/");
   // Hint needs named categories in the section Reveal names
+  // The hint only holds for the section it was switched on for
+  const hintOn = !!g.hintCode && s.hint === g.hintCode && !s.over;
   const hintable = drill.items.some((it) => it.code === g.hintCode && it.cat);
 
   return (
@@ -101,12 +103,14 @@ function Game({ drill, inc, restart }) {
                 {g.revealLabel}
               </button>
               <button
-                aria-pressed={s.hint}
-                onClick={g.toggleHint}
+                className="hintbtn"
+                aria-pressed={hintOn}
+                onClick={() => g.toggleHint(g.hintCode)}
                 disabled={!hintable}
                 title="Show the categories for this section"
               >
-                {s.hint ? "Hide hint" : "Hint"}
+                <span className="hintbox" aria-hidden="true" />
+                Hint
               </button>
               <button onClick={menu}>Back</button>
               <button onClick={another}>New</button>
@@ -236,7 +240,7 @@ function Game({ drill, inc, restart }) {
                     None listed for this {noun}.
                   </p>
                 )}
-                {s.hint && !s.over && sec.code === g.hintCode ? (
+                {hintOn && sec.code === g.hintCode ? (
                   <div className="cats">
                     {groups(drill, idx).map(([cat, list]) => (
                       <fieldset className="cat" key={cat || ""}>

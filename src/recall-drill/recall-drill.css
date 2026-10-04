@@ -159,6 +159,38 @@ button.chip[aria-pressed="true"] {
   border-color: var(--teal);
   font-weight: 400;
 }
+.hintbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.hintbox {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--mute);
+  border-radius: 3px;
+  background: var(--panel);
+}
+.hintbtn[aria-pressed="true"] {
+  background: var(--teal-soft);
+  border-color: var(--teal);
+}
+.hintbtn[aria-pressed="true"] .hintbox {
+  background: var(--teal);
+  border-color: var(--teal);
+}
+.hintbtn[aria-pressed="true"] .hintbox::after {
+  content: "";
+  position: absolute;
+  left: 3.5px;
+  top: 0.5px;
+  width: 4px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
 .panel {
   background: var(--panel);
   border: 1px solid var(--line);
