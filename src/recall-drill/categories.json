@@ -1,0 +1,474 @@
+{
+ "conditions": {
+  "presentation": [
+   {
+    "name": "Core symptoms",
+    "def": "Cardinal features of the condition itself, in any system, including its characteristic pain"
+   },
+   {
+    "name": "Time course",
+    "def": "Onset, duration, pattern, progression, chronicity, diurnal or exacerbation pattern"
+   },
+   {
+    "name": "Prodromal",
+    "def": "Symptoms or warning signs before the main event (aura, prodrome)"
+   },
+   {
+    "name": "Postdromal",
+    "def": "Symptoms after the main event (postictal, post-attack recovery)"
+   },
+   {
+    "name": "Constitutional",
+    "def": "Fever, sweats, weight change, fatigue, appetite, malaise"
+   },
+   {
+    "name": "Cardiovascular",
+    "def": "Chest pain, palpitations, oedema, syncope, claudication, perfusion and rhythm symptoms"
+   },
+   {
+    "name": "Respiratory",
+    "def": "Breathlessness, cough, sputum, wheeze, haemoptysis, upper-airway symptoms"
+   },
+   {
+    "name": "Gastrointestinal",
+    "def": "Dysphagia, reflux, nausea, abdominal pain, bowel habit change, bleeding, jaundice"
+   },
+   {
+    "name": "Genitourinary and reproductive",
+    "def": "Urinary, sexual, menstrual, fertility and obstetric symptoms"
+   },
+   {
+    "name": "Neurological",
+    "def": "General neurological symptoms (headache, seizures, cognition, vertigo); use Motor, Sensory, Autonomic or Bulbar only for neurological conditions where the item fits one"
+   },
+   {
+    "name": "Motor",
+    "def": "Weakness, tremor, rigidity, gait and movement symptoms (neurological conditions)"
+   },
+   {
+    "name": "Sensory",
+    "def": "Numbness, paraesthesia, pain of neuropathic type (neurological conditions)"
+   },
+   {
+    "name": "Autonomic",
+    "def": "Orthostatic, bladder, bowel, sweating and sexual autonomic symptoms (neurological conditions)"
+   },
+   {
+    "name": "Bulbar",
+    "def": "Speech, swallowing, drooling and facial symptoms (neurological conditions)"
+   },
+   {
+    "name": "Musculoskeletal",
+    "def": "Joint, bone, muscle and back symptoms, stiffness, deformity"
+   },
+   {
+    "name": "Skin and mucosa",
+    "def": "Rash, ulcers, lumps, pruritus, mouth and mucosal symptoms"
+   },
+   {
+    "name": "Eyes and vision",
+    "def": "Visual loss, red eye, visual disturbance"
+   },
+   {
+    "name": "Ear and hearing",
+    "def": "Hearing loss, tinnitus, otalgia, vertigo of ear origin"
+   },
+   {
+    "name": "Endocrine and metabolic",
+    "def": "Heat/cold intolerance, thirst, polyuria, hormonal symptoms"
+   },
+   {
+    "name": "Complications",
+    "def": "Complications of the disease or its treatment that the patient may report"
+   },
+   {
+    "name": "Red flags",
+    "def": "Alarm features that need urgent escalation"
+   },
+   {
+    "name": "Impact",
+    "def": "Functional, work, emotional, psychosocial and quality-of-life effects"
+   }
+  ],
+  "risks": [
+   {
+    "name": "Non-modifiable",
+    "def": "Age, sex, ethnicity, pregnancy, hormonal, anatomical and congenital predispositions"
+   },
+   {
+    "name": "Genetic and family",
+    "def": "Family history and inherited conditions"
+   },
+   {
+    "name": "Lifestyle",
+    "def": "Smoking, alcohol, diet, obesity, inactivity, substance use, behaviours"
+   },
+   {
+    "name": "Exposures",
+    "def": "Occupational, environmental, travel, allergen and contact exposures"
+   },
+   {
+    "name": "Infections",
+    "def": "Prior or concurrent infections as a cause or risk"
+   },
+   {
+    "name": "Drugs",
+    "def": "Medicines that cause or predispose (iatrogenic, nephrotoxins, steroids)"
+   },
+   {
+    "name": "Comorbidities",
+    "def": "Existing diseases that cause or predispose, including autoimmune, metabolic and past history"
+   },
+   {
+    "name": "Procedures and devices",
+    "def": "Surgery, lines, devices, dialysis access, instrumentation"
+   },
+   {
+    "name": "Triggers",
+    "def": "Precipitants of onset, attack or decompensation"
+   }
+  ],
+  "examination": [
+   {
+    "name": "General and vitals",
+    "def": "Appearance, observations, nutrition, hydration, general inspection"
+   },
+   {
+    "name": "Head and neck",
+    "def": "Eyes, mouth, ENT, neck, thyroid, lymph nodes of the neck, JVP"
+   },
+   {
+    "name": "Cardiovascular",
+    "def": "Pulses, heart sounds, murmurs, BP, perfusion, vascular signs, oedema"
+   },
+   {
+    "name": "Respiratory",
+    "def": "Chest inspection, percussion, auscultation, breathing pattern, sputum"
+   },
+   {
+    "name": "Abdomen",
+    "def": "Abdominal inspection, palpation, organomegaly, ascites, hernias, rectal"
+   },
+   {
+    "name": "Neurological",
+    "def": "Cranial nerves, tone, power, reflexes, sensation, coordination, gait, cognition"
+   },
+   {
+    "name": "Musculoskeletal",
+    "def": "Joints, spine, muscles, deformity, range of motion"
+   },
+   {
+    "name": "Skin",
+    "def": "Skin, nails, hair, ulcers of skin, rash, bruising"
+   },
+   {
+    "name": "Local findings",
+    "def": "Findings at a specific site: ulcer, lump, stoma, access site, wound, prostate, genitalia"
+   },
+   {
+    "name": "Peripheral signs",
+    "def": "Signs outside the primary organ: stigmata, extra-articular, extra-intestinal, associated disease"
+   },
+   {
+    "name": "Special tests",
+    "def": "Named signs and manoeuvres and bedside severity tests"
+   },
+   {
+    "name": "Severity",
+    "def": "Signs of severity or decompensation"
+   },
+   {
+    "name": "Complications",
+    "def": "Signs of complications, metastases, spread or end-organ damage"
+   }
+  ],
+  "investigations": [
+   {
+    "name": "Bedside",
+    "def": "Point-of-care and clinic-based tests: obs, ECG, urinalysis, BSL, spirometry at the bedside, scores and questionnaires"
+   },
+   {
+    "name": "Bloods",
+    "def": "Any blood test, including markers, serology, drug levels, glycaemic control and clotting"
+   },
+   {
+    "name": "Urine and stool",
+    "def": "Urine and stool tests that are not culture: ACR, 24h urine, FOBT/FIT, calprotectin, stool studies"
+   },
+   {
+    "name": "Microbiology",
+    "def": "Cultures, swabs, PCR, tap fluid and other tests for infection"
+   },
+   {
+    "name": "Imaging",
+    "def": "X-ray, ultrasound, CT, MRI, nuclear, echo, angiography, DEXA"
+   },
+   {
+    "name": "Functional",
+    "def": "Physiological function tests: lung function, urodynamics, sleep studies, neurophysiology, audiometry, stress tests"
+   },
+   {
+    "name": "Endoscopy",
+    "def": "Scopes and direct visualisation: gastroscopy, colonoscopy, bronchoscopy, cystoscopy"
+   },
+   {
+    "name": "Tissue and genetics",
+    "def": "Biopsy, cytology, histology, molecular and genetic tests"
+   },
+   {
+    "name": "Screening and risk",
+    "def": "Screening programs, risk scores, pre-treatment and pre-intervention checks, diagnostic criteria"
+   },
+   {
+    "name": "Monitoring and staging",
+    "def": "Staging work-up, ongoing disease monitoring and drug-level or complication surveillance"
+   }
+  ],
+  "medications": [
+   {
+    "name": "Acute",
+    "def": "Emergency and acute-phase treatment (thrombolysis, resuscitation, exacerbation, rescue)"
+   },
+   {
+    "name": "First line",
+    "def": "Initial standard drug therapy"
+   },
+   {
+    "name": "Escalation",
+    "def": "Add-on, second-line, resistant-disease and advanced therapies"
+   },
+   {
+    "name": "Disease-modifying",
+    "def": "Treatments that change disease course: DMARDs, immunotherapy, antivirals, anti-cancer, curative"
+   },
+   {
+    "name": "Symptomatic",
+    "def": "Symptom relief and supportive drugs: analgesia, antiemetics, bronchodilator relievers"
+   },
+   {
+    "name": "Procedural",
+    "def": "Surgery, drainage, revascularisation, devices, transplantation, other interventions"
+   },
+   {
+    "name": "Non-drug",
+    "def": "Lifestyle, diet, rehab, physiotherapy, allied health, self-management, education"
+   },
+   {
+    "name": "Prevention",
+    "def": "Primary and secondary prevention, prophylaxis, vaccination, risk-factor control"
+   },
+   {
+    "name": "Palliative",
+    "def": "Palliative and end-of-life care, advance planning"
+   },
+   {
+    "name": "Monitoring",
+    "def": "Follow-up, drug monitoring, safety checks, surveillance"
+   }
+  ]
+ },
+ "presentations": {
+  "differentials": [
+   {
+    "name": "Cardiovascular",
+    "def": "Heart and rhythm causes that don't fit a mechanism category"
+   },
+   {
+    "name": "Respiratory",
+    "def": "Lung and airway causes that don't fit a mechanism category"
+   },
+   {
+    "name": "Gastrointestinal",
+    "def": "Oesophageal, gastric, bowel and anorectal causes that don't fit a mechanism category"
+   },
+   {
+    "name": "Hepatobiliary and pancreatic",
+    "def": "Liver, biliary, gallbladder and pancreatic causes that don't fit a mechanism category"
+   },
+   {
+    "name": "Renal and urological",
+    "def": "Kidney, bladder, prostate and genital causes that don't fit a mechanism category"
+   },
+   {
+    "name": "Gynaecological and obstetric",
+    "def": "Gynaecological, breast and obstetric causes"
+   },
+   {
+    "name": "Neurological",
+    "def": "Central and peripheral nervous system causes that don't fit a mechanism category"
+   },
+   {
+    "name": "Musculoskeletal",
+    "def": "Bone, joint, muscle and soft-tissue causes that don't fit a mechanism category"
+   },
+   {
+    "name": "Skin",
+    "def": "Dermatological causes that don't fit a mechanism category"
+   },
+   {
+    "name": "Eye",
+    "def": "Ocular causes that don't fit a mechanism category"
+   },
+   {
+    "name": "Ear, nose and throat",
+    "def": "ENT causes that don't fit a mechanism category"
+   },
+   {
+    "name": "Haematological",
+    "def": "Blood, coagulation and platelet disorders, anaemias"
+   },
+   {
+    "name": "Endocrine and metabolic",
+    "def": "Endocrine, metabolic, nutritional and electrolyte causes"
+   },
+   {
+    "name": "Infective",
+    "def": "Infections of any organ, when the item is clearly an infection"
+   },
+   {
+    "name": "Inflammatory and autoimmune",
+    "def": "Inflammatory and autoimmune causes, when clearly so"
+   },
+   {
+    "name": "Malignant",
+    "def": "Cancers and neoplasms of any organ, when clearly so"
+   },
+   {
+    "name": "Vascular",
+    "def": "Ischaemic, thrombotic, embolic and haemorrhagic vascular causes in any organ"
+   },
+   {
+    "name": "Structural and traumatic",
+    "def": "Mechanical, anatomical, obstructive, congenital and traumatic causes"
+   },
+   {
+    "name": "Drugs and toxins",
+    "def": "Medicines, alcohol, substances, poisons and withdrawal"
+   },
+   {
+    "name": "Psychiatric and behavioural",
+    "def": "Mental health and behavioural causes"
+   },
+   {
+    "name": "Physiological and functional",
+    "def": "Normal physiology, variants and functional disorders"
+   }
+  ],
+  "associated": [
+   {
+    "name": "Characteristics",
+    "def": "Nature, severity, location, distribution, quality and pattern of the main symptom"
+   },
+   {
+    "name": "Onset and course",
+    "def": "Onset, duration, progression, timing, frequency, pattern over time"
+   },
+   {
+    "name": "Aggravating and relieving",
+    "def": "Triggers, exacerbating and relieving factors"
+   },
+   {
+    "name": "Event and collateral",
+    "def": "Details of a discrete event and witness or collateral history"
+   },
+   {
+    "name": "Constitutional",
+    "def": "Fever, sweats, weight change, fatigue, appetite"
+   },
+   {
+    "name": "Cardiorespiratory",
+    "def": "Cardiac and respiratory symptoms"
+   },
+   {
+    "name": "Gastrointestinal",
+    "def": "GI symptoms, including bowel and rectal"
+   },
+   {
+    "name": "Genitourinary and reproductive",
+    "def": "Urinary, sexual, gynaecological and breast symptoms"
+   },
+   {
+    "name": "Neurological",
+    "def": "Neurological symptoms"
+   },
+   {
+    "name": "Musculoskeletal and skin",
+    "def": "Joint, muscle, bone and skin symptoms"
+   },
+   {
+    "name": "Eye, ear, nose and throat",
+    "def": "Eye, ear, nose and throat symptoms"
+   },
+   {
+    "name": "Psychological",
+    "def": "Mood, anxiety, cognition, psychosis, sleep and psychiatric history"
+   },
+   {
+    "name": "Red flags",
+    "def": "Alarm features that need urgent escalation"
+   },
+   {
+    "name": "Past history",
+    "def": "Relevant past medical and surgical history, previous episodes, screening"
+   },
+   {
+    "name": "Drugs and substances",
+    "def": "Medications, alcohol, tobacco and recreational substances"
+   },
+   {
+    "name": "Exposures and contacts",
+    "def": "Travel, occupational, environmental, infective contacts, allergens"
+   },
+   {
+    "name": "Risk factors",
+    "def": "Demographic, lifestyle and family risk factors"
+   },
+   {
+    "name": "Social and function",
+    "def": "Social circumstances, function, independence, impact on life"
+   }
+  ],
+  "investigations": [
+   {
+    "name": "Bedside",
+    "def": "Point-of-care and clinic-based tests: obs, ECG, urinalysis, BSL, spirometry at the bedside, scores and questionnaires"
+   },
+   {
+    "name": "Bloods",
+    "def": "Any blood test, including markers, serology, drug levels, glycaemic control and clotting"
+   },
+   {
+    "name": "Urine and stool",
+    "def": "Urine and stool tests that are not culture: ACR, 24h urine, FOBT/FIT, calprotectin, stool studies"
+   },
+   {
+    "name": "Microbiology",
+    "def": "Cultures, swabs, PCR, tap fluid and other tests for infection"
+   },
+   {
+    "name": "Imaging",
+    "def": "X-ray, ultrasound, CT, MRI, nuclear, echo, angiography, DEXA"
+   },
+   {
+    "name": "Functional",
+    "def": "Physiological function tests: lung function, urodynamics, sleep studies, neurophysiology, audiometry, stress tests"
+   },
+   {
+    "name": "Endoscopy",
+    "def": "Scopes and direct visualisation: gastroscopy, colonoscopy, bronchoscopy, cystoscopy"
+   },
+   {
+    "name": "Tissue and genetics",
+    "def": "Biopsy, cytology, histology, molecular and genetic tests"
+   },
+   {
+    "name": "Screening and risk",
+    "def": "Screening programs, risk scores, pre-treatment and pre-intervention checks, diagnostic criteria"
+   },
+   {
+    "name": "Monitoring and staging",
+    "def": "Staging work-up, ongoing disease monitoring and drug-level or complication surveillance"
+   }
+  ]
+ }
+}
