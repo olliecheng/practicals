@@ -40,7 +40,7 @@ Layout: `routes/` (Home, Drill, Login), `components/` (Layout, DrillActions), `s
 - **Second-level key = condition name**, shown as the title and in the "Or pick one" list. Must be unique within a system. List order is by system (in file order), then condition (in file order).
 - **`prompt`**: required string (usually "Symptoms to ask about" or "History to ask about"). Shown under the title; may be empty ("").
 - **`examination`**: signs a clinician would look for or elicit on examination (general, system-specific, relevant special tests). Examination items often share terms with presentation items (e.g. "oedema"); a shared term ticks both, which is accepted.
-- **Section arrays**: every key for the file must be present, shown in the order above; an empty array renders "None listed for this condition." Tiles are numbered 1..n within each section in array order.
+- **Sections**: every key for the file must be present, shown in the order above; an empty one renders "None listed for this condition." A section is either a plain array of items (one unnamed category) or an object `{"Category": [items]}` whose key order is the category order (`lib/data.js` accepts both). Items are flattened in category order, and tiles are numbered 1..n within each section in that order. Empty categories are omitted. Every item sits in exactly one category.
 - **Item `label`**: text revealed on the tile (and the answer shown on reveal). Rendered as HTML via `innerHTML`, so escape `<`/`&` if ever needed.
 - **Item `keywords`**: a single string of `|`-separated alternatives, compiled by `rx()` in `lib/match.js` into a case-insensitive regex. Each alternative is a regex fragment (so `.`, `.*`, `.?` work, e.g. `"ex.?smok"`, `"wake.*breath"`), and is prefixed with `\b`.
   - Alternatives of 3 chars or fewer (after trimming trailing spaces) are matched as whole words (optional plural `s`), and during live typing must be followed by a delimiter, so `ed` doesn't fire while typing `edema`. Alternatives longer than 3 chars are prefix matches (`orthop` matches `orthopnoea`), so use stems.
@@ -51,16 +51,20 @@ Layout: `routes/` (Home, Drill, Login), `components/` (Layout, DrillActions), `s
   - Synonyms: `lib/synonyms.js` lists groups of interchangeable terms (erythema / redness, fever / pyrexia, kidney / renal, ...). Same fallback rules as `ABBR`: tried only when the typed text matches no tile, and while typing only after the idle pause. Whole words / phrases only; keep groups specific. Add a group there rather than widening individual tiles' keywords when the equivalence is general.
   - Where one word could name both a diagnosis and its test (iron, B12, electrolytes, urate), the diagnosis tile needs a qualifier (e.g. `iron deficiency`).
 
+## Hint
+
+Off by default; a "Hint" button beside Reveal (aria-pressed, "Hide hint" when on) toggles category boxes (`fieldset.cat` with a `legend`, wrapping flex, `.cats` in `recall-drill.css`) around the tiles of the current section only: the one Reveal names, or the open one when collapsed (`hintCode` from `useDrillGame`). Other sections stay flat. The button is disabled when that section has no named categories and hidden once the round is over. `hint` lives in the round state (`s.hint`), so it resets on every round/restart and is never saved. Tile index, number, matching, scoring, ignore and saved keys are unaffected.
+
 ## Editing guidelines
 
 - Keep the JSON valid (no trailing commas, double quotes). The file uses one-space indent.
 - When adding a condition, append inside the right system object; add a new system as a new top-level key (it gets a chip automatically).
-- Items have no ids or ordering requirement beyond array position; there is no `section` field, the array it sits in is the section.
+- Items have no ids or ordering requirement beyond position; there is no `section` field, the section (and category) it sits in is its identity.
 - No code change is needed to add or edit content.
 
 ## Code notes
 
-- `lib/data.js` flattens the imported JSON into `DATA` (conditions) and `PRES` (presentations): drills `{key, mode, system, name, prompt, items:[{label, keywords, code, key, re, lits}]}`, codes P/R/E/M/T (presentation, risks, examination, investigations, medications / treatment) or D/A/I (differentials, associated, investigations). A `re` regex and literal keyword list (`lits`, for deferral) are attached to each item; `judge()` picks the tile(s). The rest of the code works on that array.
+- `lib/data.js` flattens the imported JSON into `DATA` (conditions) and `PRES` (presentations): drills `{key, mode, system, name, prompt, items:[{label, keywords, code, cat, key, re, lits}]}`, codes P/R/E/M/T (presentation, risks, examination, investigations, medications / treatment) or D/A/I (differentials, associated, investigations). `cat` is the category name or `null`. A `re` regex and literal keyword list (`lits`, for deferral) are attached to each item; `judge()` picks the tile(s). The rest of the code works on that array.
 - Section header icons are 16x16 pixel-art SVGs in `assets/` (`presentation.svg` thermometer, `risks.svg` warning triangle, `examination.svg` magnifying glass, `investigations.svg` flask, `medications.svg` pill), imported as URLs and drawn as a CSS `mask` filled with `--teal`, so they follow the theme. Each is one `currentColor` path of 1px rects with `shape-rendering="crispEdges"`; they render at 24px (1.5x the 16px heading text), which is sharp on 2x/3x screens but slightly uneven at 1x; 32px is the next exact integer scale.
 - Typography uses Apple system fonts with Inter as a fallback; no external requests.
 - Colour variables are in `:root`, with light/dark via `prefers-color-scheme`.

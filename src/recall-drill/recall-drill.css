@@ -563,6 +563,40 @@ button.chip[aria-pressed="true"] {
   grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
   gap: 5px;
 }
+/* Hint: category boxes around the current section's tiles; they flow and wrap */
+.cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: flex-start;
+}
+.cat {
+  margin: 0;
+  min-width: 0;
+  max-width: 100%;
+  padding: 2px 8px 8px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.cat legend {
+  padding: 0 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--teal);
+}
+.cat .board {
+  display: flex;
+  flex-wrap: wrap;
+}
+.cat .tile {
+  width: 128px;
+  max-width: 100%;
+}
+@media (max-width: 780px) {
+  .cat .tile {
+    width: 100px;
+  }
+}
 .tile {
   position: relative;
   perspective: 600px;

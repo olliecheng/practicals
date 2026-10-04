@@ -42,6 +42,16 @@ function Tile({ i, n, label, s, complete, onCredit, onIgnore }) {
   );
 }
 
+// Group a section's item indexes by consecutive category: [[cat, [i...]]]
+const groups = (drill, idx) =>
+  idx.reduce((out, i) => {
+    const cat = drill.items[i].cat,
+      last = out[out.length - 1];
+    if (last && last[0] === cat) last[1].push(i);
+    else out.push([cat, [i]]);
+    return out;
+  }, []);
+
 // One round. Remounted (via key) for every restart, so each round starts from fresh state.
 function Game({ drill, inc, restart }) {
   const account = useAccount();
@@ -58,6 +68,8 @@ function Game({ drill, inc, restart }) {
     if (d) nav(drillPath(d));
   };
   const menu = () => nav("/");
+  // Hint needs named categories in the section Reveal names
+  const hintable = drill.items.some((it) => it.code === g.hintCode && it.cat);
 
   return (
     <section id="game" className={"play" + (s.over ? " over" : "")}>
@@ -87,6 +99,14 @@ function Game({ drill, inc, restart }) {
                 disabled={g.revealDisabled}
               >
                 {g.revealLabel}
+              </button>
+              <button
+                aria-pressed={s.hint}
+                onClick={g.toggleHint}
+                disabled={!hintable}
+                title="Show the categories for this section"
+              >
+                {s.hint ? "Hide hint" : "Hint"}
               </button>
               <button onClick={menu}>Back</button>
               <button onClick={another}>New</button>
@@ -166,6 +186,20 @@ function Game({ drill, inc, restart }) {
             const idx = drill.items.flatMap((it, i) =>
               it.code === sec.code ? [i] : [],
             );
+            const complete = sectionComplete(drill, s, sec.code);
+            // n is the tile's number within its section, whatever the grouping
+            const tile = (i) => (
+              <Tile
+                key={i}
+                i={i}
+                n={idx.indexOf(i)}
+                label={drill.items[i].label}
+                s={s}
+                complete={complete}
+                onCredit={g.toggleCredit}
+                onIgnore={g.toggleIgnore}
+              />
+            );
             return (
               <section
                 key={sec.code}
@@ -202,20 +236,18 @@ function Game({ drill, inc, restart }) {
                     None listed for this {noun}.
                   </p>
                 )}
-                <div className="board">
-                  {idx.map((i, n) => (
-                    <Tile
-                      key={i}
-                      i={i}
-                      n={n}
-                      label={drill.items[i].label}
-                      s={s}
-                      complete={sectionComplete(drill, s, sec.code)}
-                      onCredit={g.toggleCredit}
-                      onIgnore={g.toggleIgnore}
-                    />
-                  ))}
-                </div>
+                {s.hint && !s.over && sec.code === g.hintCode ? (
+                  <div className="cats">
+                    {groups(drill, idx).map(([cat, list]) => (
+                      <fieldset className="cat" key={cat || ""}>
+                        {cat && <legend>{cat}</legend>}
+                        <div className="board">{list.map(tile)}</div>
+                      </fieldset>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="board">{idx.map(tile)}</div>
+                )}
               </section>
             );
           })}

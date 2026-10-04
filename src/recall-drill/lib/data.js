@@ -56,7 +56,15 @@ export const MODES = {
 export const dk = (mode, system, name) => `${mode}|${system}|${name}`;
 export const ik = (it) => `${it.code}:${it.label}`;
 
-// A drill is {key, mode, system, name, prompt, items:[{label, keywords, code, key, re, lits}]}
+// A section is a plain array (one unnamed category) or {"Category": [items]} (key order = category order).
+// Returns [[category name or null, items]]; empty categories are dropped.
+const categories = (sec) =>
+  (Array.isArray(sec)
+    ? [[null, sec]]
+    : Object.entries(sec).map(([cat, list]) => [cat || null, list])
+  ).filter(([, list]) => list.length);
+
+// A drill is {key, mode, system, name, prompt, items:[{label, keywords, code, cat, key, re, lits}]}
 const flatten = (src, mode, keys) =>
   Object.entries(src).flatMap(([system, drills]) =>
     Object.entries(drills).map(([name, c]) => ({
@@ -66,13 +74,15 @@ const flatten = (src, mode, keys) =>
       name,
       prompt: c.prompt,
       items: keys.flatMap(([k, code]) =>
-        c[k].map((it) => {
-          const item = { label: it.label, keywords: it.keywords, code };
-          item.key = ik(item);
-          item.re = rx(it.keywords);
-          item.lits = literals(it.keywords);
-          return item;
-        }),
+        categories(c[k]).flatMap(([cat, list]) =>
+          list.map((it) => {
+            const item = { label: it.label, keywords: it.keywords, code, cat };
+            item.key = ik(item);
+            item.re = rx(it.keywords);
+            item.lits = literals(it.keywords);
+            return item;
+          }),
+        ),
       ),
     })),
   );

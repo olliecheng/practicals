@@ -6,7 +6,7 @@ import { loadCollapsed, saveCollapsed } from "../lib/storage";
 
 // One round of a drill. Tiles are addressed by their index in drill.items.
 // State: found (typed), credited (missed but self-credited), revealed (shown), ignored (given up on, left out of the score),
-// over (round finished), active (the open section while collapsed).
+// over (round finished), hint (category boxes shown for the current section), active (the open section while collapsed).
 // Collapsed: only the section `active` is open and matched (counter and score still cover everything). Remembered across drills.
 
 const settled = (s, i) =>
@@ -68,6 +68,7 @@ function init(drill, user, inc) {
       revealed: new Set(),
       ignored: new Set(),
       over: false,
+      hint: false,
       active: "",
     };
   const sv = user && user.drills[drill.key];
@@ -364,6 +365,12 @@ export function useDrillGame({ drill, account, inc }) {
     saveCollapsed(want);
     if (want) apply({ ...st, active: firstPending(drill, st) });
   };
+  // Show or hide the category boxes (per round, not saved)
+  const toggleHint = () => {
+    const st = sRef.current;
+    if (st.over) return;
+    apply({ ...st, hint: !st.hint });
+  };
   const setActive = (code) => {
     const st = sRef.current;
     if (st.over || !collapsedRef.current || code === st.active) return;
@@ -411,6 +418,8 @@ export function useDrillGame({ drill, account, inc }) {
     : collapsed
       ? "Reveal " + sections.find((x) => x.code === s.active).short
       : "Finish";
+  // The section the hint applies to: the one Reveal names (the open one when collapsed)
+  const hintCode = n ? n.code : collapsed ? s.active : "";
   const revealDisabled = collapsed ? !n : !items.length;
 
   return {
@@ -423,6 +432,8 @@ export function useDrillGame({ drill, account, inc }) {
     revealSec,
     revealLabel,
     revealDisabled,
+    hintCode,
+    toggleHint,
     toggleIgnore,
     toggleCredit,
     setCollapsed,
