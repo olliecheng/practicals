@@ -1770,7 +1770,7 @@
    "presentation": [
     {
      "label": "Leg swelling / pain / redness",
-     "keywords": "leg|calf|swell|red"
+     "keywords": "leg|calf|swell|red|erythem"
     },
     {
      "label": "Pleuritic chest pain",
@@ -1830,7 +1830,7 @@
     },
     {
      "label": "Warmth, erythema, superficial venous dilatation",
-     "keywords": "warm|erythem|venous|dilat"
+     "keywords": "warm|erythem|venous|dilat|redness|red"
     },
     {
      "label": "Tachycardia",
@@ -4347,7 +4347,7 @@
     },
     {
      "label": "Strangulation: severe pain, red, irreducible",
-     "keywords": "strangul|irreducib|red|tender"
+     "keywords": "strangul|irreducib|red|tender|erythem"
     }
    ],
    "risks": [
@@ -4387,7 +4387,7 @@
     },
     {
      "label": "Tenderness, erythema, irreducible (incarceration/strangulation)",
-     "keywords": "erythem|irreduc|incarcerat"
+     "keywords": "erythem|irreduc|incarcerat|redness|red"
     },
     {
      "label": "Abdominal distension / bowel sounds (obstruction)",
@@ -6136,7 +6136,7 @@
     },
     {
      "label": "Attack features (sudden, red, hot, can't bear sheet)",
-     "keywords": "red|hot|swell|sudden|sheet|pain"
+     "keywords": "red|hot|swell|sudden|sheet|pain|erythem"
     },
     {
      "label": "Attack frequency",
@@ -6184,7 +6184,7 @@
    "examination": [
     {
      "label": "Acutely inflamed joint: red, hot, swollen, exquisitely tender",
-     "keywords": "swollen|tender|inflam|erythem|warm"
+     "keywords": "swollen|tender|inflam|erythem|warm|redness|red"
     },
     {
      "label": "Podagra (first MTP)",
@@ -8422,7 +8422,7 @@
     },
     {
      "label": "Spreading redness / swelling",
-     "keywords": "red|cellulit|swell|spread"
+     "keywords": "red|cellulit|swell|spread|erythem"
     },
     {
      "label": "Fever / rigors / unwell",
@@ -8466,7 +8466,7 @@
     },
     {
      "label": "Infection signs: erythema, warmth, purulence, odour, lymphangitis",
-     "keywords": "infect|erythem|warm|purul|odor|lymphang"
+     "keywords": "infect|erythem|warm|purul|odor|lymphang|redness|red"
     },
     {
      "label": "Neuropathy: reduced monofilament / vibration, absent ankle jerks",
@@ -8696,7 +8696,7 @@
     },
     {
      "label": "Infection: redness, fever",
-     "keywords": "infect|red|cellulit|fever"
+     "keywords": "infect|red|cellulit|fever|erythem"
     }
    ],
    "risks": [
@@ -9576,7 +9576,7 @@
     },
     {
      "label": "Swelling / redness / warmth",
-     "keywords": "swell|red|warm"
+     "keywords": "swell|red|warm|erythem"
     },
     {
      "label": "Discharging sinus / wound",
@@ -9624,7 +9624,7 @@
    "examination": [
     {
      "label": "Localised bone tenderness, warmth, swelling, erythema",
-     "keywords": "erythem|local"
+     "keywords": "erythem|local|redness|red"
     },
     {
      "label": "Sinus tract / draining wound",
@@ -9759,7 +9759,7 @@
     },
     {
      "label": "Skin changes: dimpling, peau d'orange, erythema, ulceration",
-     "keywords": "orange|erythema|ulcer|tether"
+     "keywords": "orange|erythema|ulcer|tether|redness|red"
     },
     {
      "label": "Nipple changes: inversion, discharge, Paget's (eczema)",
@@ -10496,7 +10496,7 @@
    "examination": [
     {
      "label": "Well-demarcated erythematous plaques with silvery scale",
-     "keywords": "erythem|silver|scale|scaly|demarcat"
+     "keywords": "erythem|silver|scale|scaly|demarcat|redness|red"
     },
     {
      "label": "Extensor surfaces: elbows, knees; scalp; sacrum",
@@ -10621,7 +10621,7 @@
     },
     {
      "label": "Erythematous, scaly, excoriated patches",
-     "keywords": "erythem|scaly|scale|excoriat|scratch|patch"
+     "keywords": "erythem|scaly|scale|excoriat|scratch|patch|redness|red"
     },
     {
      "label": "Distribution: flexures (antecubital, popliteal) in adults; face in infants",

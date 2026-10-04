@@ -3729,7 +3729,7 @@
     },
     {
      "label": "Redness / discharge / watering",
-     "keywords": "red|discharge|water|tearing"
+     "keywords": "red|discharge|water|tearing|erythem"
     },
     {
      "label": "Headache / nausea / vomiting / haloes",
@@ -5642,7 +5642,7 @@
     },
     {
      "label": "Swelling / redness / warmth",
-     "keywords": "swell|red|warm|hot"
+     "keywords": "swell|red|warm|hot|erythem"
     },
     {
      "label": "Fever / systemic symptoms",
@@ -6922,7 +6922,7 @@
     },
     {
      "label": "Swelling / redness / joint involvement",
-     "keywords": "swell|red|joint"
+     "keywords": "swell|red|joint|erythem"
     },
     {
      "label": "Sleep / mood / fatigue",
@@ -10039,7 +10039,7 @@
     },
     {
      "label": "Pain / redness / warmth",
-     "keywords": "pain|red|warm|hot|tender"
+     "keywords": "pain|red|warm|hot|tender|erythem"
     },
     {
      "label": "SOB / orthopnoea / PND",
