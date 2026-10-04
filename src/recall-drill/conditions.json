@@ -11685,6 +11685,211 @@
      "keywords": "vap|e-cig|ecig|nicotine vaping"
     }
    ]
+  },
+  "Post-operative patient": {
+   "prompt": "History to ask about",
+   "presentation": [
+    {
+     "label": "Pain: site, severity, adequacy of analgesia",
+     "keywords": "pain|sore|hurt"
+    },
+    {
+     "label": "Nausea / vomiting",
+     "keywords": "nause|vomit|sick|retch"
+    },
+    {
+     "label": "Oral intake: eating and drinking",
+     "keywords": "eat|eating|drink|oral intake|intake|appetite|food"
+    },
+    {
+     "label": "Bowels: flatus, bowels opened (ileus)",
+     "keywords": "flatus|fart|wind|bowel|bo|constipat|ileus|stool|poo"
+    },
+    {
+     "label": "Urine: voiding, retention, catheter",
+     "keywords": "urin|void|wee|pass.*water|retention|catheter"
+    },
+    {
+     "label": "Mobility: out of bed, walking",
+     "keywords": "mobility|walk|out of bed|ambulat|get up"
+    },
+    {
+     "label": "Wound: redness, discharge, swelling",
+     "keywords": "wound|redness|discharg|ooz|incision"
+    },
+    {
+     "label": "Fever / sweats / rigors",
+     "keywords": "fever|sweat|rigor|chill|hot"
+    },
+    {
+     "label": "SOB / cough / chest pain (atelectasis, pneumonia, PE)",
+     "keywords": "sob|short of breath|breathless|dysp|cough|sputum|chest pain"
+    },
+    {
+     "label": "Calf pain / leg swelling (DVT)",
+     "keywords": "calf|calves|leg swell|dvt"
+    },
+    {
+     "label": "Dizziness / palpitations",
+     "keywords": "dizz|lighthead|palpit|faint"
+    },
+    {
+     "label": "Confusion / sleep (delirium)",
+     "keywords": "confus|delirium|orient|sleep|agitat"
+    }
+   ],
+   "risks": [
+    {
+     "label": "Operation: procedure, post-op day, elective vs emergency, intra-op complications, blood loss",
+     "keywords": "operat|procedure|surgery|pod|post.?op day|elective|emergenc|intra.?op|blood loss|ebl|complicat"
+    },
+    {
+     "label": "Anaesthetic: GA / spinal / regional, airway issues",
+     "keywords": "anaesth|anesth|ga|general anaes|spinal|regional|airway"
+    },
+    {
+     "label": "Comorbidities: diabetes, IHD, CKD, COPD, OSA, frailty",
+     "keywords": "comorbid|diabet|ihd|cardiac|ckd|renal|copd|lung|osa|frail|elderly"
+    },
+    {
+     "label": "Smoking, alcohol (withdrawal), obesity, malnutrition, immunosuppression / steroids",
+     "keywords": "smok|alcohol|obes|bmi|immunosupp|steroid|malnutrit"
+    },
+    {
+     "label": "Usual medications: anticoagulants / antiplatelets, insulin",
+     "keywords": "usual med|regular med|anticoag|antiplatelet|warfarin|doac|apixaban|rivaroxaban|aspirin|clopidogrel|insulin"
+    }
+   ],
+   "examination": [
+    {
+     "label": "Observations: tachycardia, hypotension, fever, tachypnoea, hypoxia",
+     "keywords": "obs|observation|vital|temp|pyrex|tachy|hypotens|heart rate|pulse|blood pressure|bp|resp rate|sats|spo2|oxygen sat|hypox"
+    },
+    {
+     "label": "Fluid status: mucous membranes, capillary refill, JVP",
+     "keywords": "fluid status|hydrat|dehydr|mucous|cap refill|capillary|jvp|turgor"
+    },
+    {
+     "label": "Wound: erythema, discharge, dehiscence, haematoma",
+     "keywords": "wound|incision|erythem|discharg|dehisc|haematoma|hematoma|cellulit|dressing"
+    },
+    {
+     "label": "Drains: volume and character of output",
+     "keywords": "drain"
+    },
+    {
+     "label": "Abdomen: distension, tenderness, peritonism, bowel sounds",
+     "keywords": "abdo|distens|bowel sound|tender|peritonism|guard|rigid"
+    },
+    {
+     "label": "Chest: basal crackles, reduced air entry (atelectasis, pneumonia)",
+     "keywords": "chest|crackle|crep|air entry|atelecta|consolidat"
+    },
+    {
+     "label": "Calves: swelling, tenderness (DVT)",
+     "keywords": "calf|calves|leg swell|dvt"
+    },
+    {
+     "label": "Lines / cannula sites: phlebitis",
+     "keywords": "cannula|line|iv site|phlebitis|picc|cvc"
+    },
+    {
+     "label": "Catheter / palpable bladder (retention)",
+     "keywords": "catheter|idc|palpable bladder|bladder"
+    },
+    {
+     "label": "Delirium screen: orientation, attention (4AT)",
+     "keywords": "delirium|confus|orient|attention|gcs|conscious|4at|cam"
+    }
+   ],
+   "investigations": [
+    {
+     "label": "FBC: Hb drop (bleeding), WCC (infection)",
+     "keywords": "fbc|fbe|full blood|haemoglobin|hemoglobin|hb|wcc|white cell"
+    },
+    {
+     "label": "UEC: AKI, hypo/hyperkalaemia, hyponatraemia",
+     "keywords": "uec|euc|u&e|urea|creatinin|electrolyte|potassium|sodium|aki"
+    },
+    {
+     "label": "Mg / phosphate / Ca (ileus, refeeding)",
+     "keywords": "magnesium|phosph|calcium|cmp|refeed"
+    },
+    {
+     "label": "CRP trend (still rising after day 3: leak / collection)",
+     "keywords": "crp|c.?reactive|inflammatory marker"
+    },
+    {
+     "label": "Fluid balance chart / urine output (>0.5 mL/kg/h), bladder scan",
+     "keywords": "fluid balance|urine output|uo|strict input|bladder scan"
+    },
+    {
+     "label": "Septic screen: blood cultures, wound swab, urine MC&S, sputum, lactate",
+     "keywords": "cultur|swab|msu|urine mc|septic screen|lactate"
+    },
+    {
+     "label": "CXR: atelectasis, pneumonia, effusion",
+     "keywords": "cxr|chest x|x.?ray"
+    },
+    {
+     "label": "CT abdomen/pelvis: anastomotic leak, collection, obstruction, bleeding",
+     "keywords": "ct|computed|leak|collection|abscess"
+    },
+    {
+     "label": "Doppler US / CTPA (DVT / PE)",
+     "keywords": "doppler|duplex|ctpa|v.?q"
+    },
+    {
+     "label": "ECG + troponin (post-op MI, new AF)",
+     "keywords": "ecg|ekg|troponin|trop"
+    },
+    {
+     "label": "BSL (stress hyperglycaemia, diabetes)",
+     "keywords": "bsl|bgl|glucose|sugar"
+    }
+   ],
+   "medications": [
+    {
+     "label": "Multimodal analgesia: paracetamol, NSAID (if renal function OK), opioids / PCA, epidural / nerve block",
+     "keywords": "analges|paracetamol|panadol|nsaid|ibuprofen|celecoxib|parecoxib|opioid|oxycodone|morphine|fentanyl|tapentadol|pca|epidural|nerve block"
+    },
+    {
+     "label": "Antiemetics: ondansetron, metoclopramide, cyclizine, droperidol",
+     "keywords": "antiemet|anti-emet|ondansetron|zofran|metoclopramide|maxolon|cyclizine|droperidol|prochlorperazine|stemetil"
+    },
+    {
+     "label": "VTE prophylaxis: enoxaparin / heparin + TEDS / calf compressors",
+     "keywords": "vte|prophyl|enoxaparin|clexane|heparin|ted|stocking|compression|ipc|calf compressor"
+    },
+    {
+     "label": "IV fluids: maintenance / replacement, stop once drinking",
+     "keywords": "iv fluid|fluid|hartmann|saline|maintenance|plasmalyte|replace"
+    },
+    {
+     "label": "Bowel care: aperients with opioids (Coloxyl + senna, Movicol)",
+     "keywords": "aperient|laxative|coloxyl|senna|movicol|macrogol|lactulose|docusate|bowel care"
+    },
+    {
+     "label": "Medication reconciliation: withheld anticoagulants, antihypertensives, metformin / SGLT2i, insulin plan, stress-dose steroids; when to restart",
+     "keywords": "reconcil|restart|withh|held|bridg|stress dose|sick day|insulin plan"
+    },
+    {
+     "label": "Physio: early mobilisation, chest physio / incentive spirometry",
+     "keywords": "physio|mobilis|mobiliz|incentive|spiromet|deep breath"
+    },
+    {
+     "label": "Early oral intake / nutrition (ERAS), dietitian",
+     "keywords": "eras|enhanced recovery|early feed|diet|nutrition|ngt|tpn"
+    },
+    {
+     "label": "Antibiotics: treat SSI / pneumonia / UTI (prophylaxis is single-dose)",
+     "keywords": "antibiot|cefazolin|cephazolin|abx|antimicrob"
+    },
+    {
+     "label": "Remove lines, drains, IDC early; discharge planning",
+     "keywords": "remov|discharge plan|take out"
+    }
+   ]
   }
  }
 }
