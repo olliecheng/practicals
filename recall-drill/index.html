@@ -205,7 +205,7 @@ let systems=[],mode='cond',curMode='cond',selSys=new Set(),cur=null,found=new Se
 let ignored=new Set(),keys=[],acct=null,user=null,starOnly=false;
 // collapsed: only the section `active` is open and matched (the counter and score still cover every section).
 // The choice is remembered; expanded (all sections open, all matched) is the default.
-let collapsed=false,active='',counted=false,histOn=true,prevRec=null;
+let collapsed=false,active='',counted=false,histOn=true,prevRec=null,redoRound=false;
 const CKEY='recallDrillCollapsed';
 try{collapsed=localStorage.getItem(CKEY)==='1'}catch{}
 function saveCollapsed(){try{localStorage.setItem(CKEY,collapsed?'1':'0')}catch{}}
@@ -305,7 +305,7 @@ function list(){
 // inc: prefill the tiles the saved record has as found/credited (the user only fills the blanks). Ignored tiles are always prefilled.
 function start(d,m,inc){
  clearTimeout(deferT);
- curMode=m;cur=d;found=new Set();credited=new Set();revealed=new Set();celebrated=new Set();ignored=new Set();over=false;counted=false;swallowing=false;
+ curMode=m;cur=d;found=new Set();credited=new Set();revealed=new Set();celebrated=new Set();ignored=new Set();over=false;counted=false;swallowing=false;redoRound=!!inc;
  keys=d[3].map(ik);
  const sv=savedOf(d,m),at=k=>keys.indexOf(k);
  if(sv)sv.ignored.forEach(k=>{const i=at(k);if(i>=0)ignored.add(i)});
@@ -452,9 +452,9 @@ function finish(){
  cur[3].forEach((it,i)=>{if(pending(i)){revealed.add(i);$('#t'+i).classList.add('on','miss')}});
  $('#playActs').classList.add('hidden');$('#doneActs').classList.remove('hidden');score();refreshSections();
  $('#retryInc').classList.toggle('hidden',cur[3].every((it,i)=>found.has(i)||credited.has(i)||ignored.has(i)));
- // "Add to history" starts ticked: remember the record as it was so unticking can restore it
+ // "Add to history" starts ticked (unticked after a redo round): remember the record as it was so unticking can restore it
  if(acct){const r=user.drills[dk(cur,curMode)];prevRec=r?JSON.parse(JSON.stringify(r)):null}
- histOn=true;$('#histCk').checked=true;$('#histWrap').classList.toggle('hidden',!acct);
+ histOn=!redoRound;$('#histCk').checked=histOn;$('#histWrap').classList.toggle('hidden',!acct);
  commit(true);flush();
 }
 function home(){
