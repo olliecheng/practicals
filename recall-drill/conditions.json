@@ -2840,7 +2840,7 @@
    "investigations": [
     {
      "label": "PSA: raised (age-specific); velocity / doubling time; post-treatment nadir and rise",
-     "keywords": "psa level|psa rise|psa nadir|psa velocity|prostate.?specific|doubling"
+     "keywords": "psa|prostate.?specific|doubling"
     },
     {
      "label": "Multiparametric prostate MRI before biopsy: PI-RADS 4-5, extracapsular extension",
