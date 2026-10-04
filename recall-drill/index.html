@@ -215,6 +215,10 @@ function saveCollapsed(){try{localStorage.setItem(CKEY,collapsed?'1':'0')}catch{
 const rx=kws=>new RegExp(kws.split('|').map(k=>{if(k[0]==='~')return k.slice(1);if(/^[^\w]/.test(k))return k;return k.replace(/\s+$/,'').length<=3?'\\b'+k.trim()+'s?(?=[^a-z0-9])':'\\b'+k}).join('|'),'i');
 const prep=A=>A.forEach(d=>d[3].forEach(it=>{it.re=rx(it[1]);
  it.lits=it[1].toLowerCase().split('|').filter(k=>k[0]!=='~'&&!/[.*+?()[\]{}^$\\]/.test(k)).map(k=>k.trim()).filter(Boolean)}));
+// Abbreviations: only tried when a typed answer matches no tile, and (while typing) only after the idle pause,
+// so short ones like "ra" or "ms" can't fire mid-word ("radiotherapy", "msu").
+const ABBR={htn:'hypertension',af:'atrial fibrillation',ckd:'chronic kidney disease',aki:'acute kidney injury',copd:'chronic obstructive pulmonary disease',gord:'reflux',dm:'diabetes',t2dm:'type 2 diabetes',t1dm:'type 1 diabetes',ihd:'ischaemic heart disease',cad:'ischaemic heart disease',mi:'myocardial infarction',hf:'heart failure',chf:'heart failure',cva:'stroke',tia:'transient ischaemic attack',dvt:'deep vein thrombosis',vte:'venous thromboembolism',uti:'urinary tract infection',bph:'benign prostatic hyperplasia',tb:'tuberculosis',ra:'rheumatoid arthritis',sle:'lupus',ms:'multiple sclerosis',pcos:'polycystic ovary',osa:'obstructive sleep apnoea',lvh:'left ventricular hypertrophy',gca:'giant cell arteritis',pmr:'polymyalgia',sdh:'subdural',sob:'shortness of breath',ecg:'electrocardiogram',echo:'echocardiogram',cxr:'chest x-ray',tft:'thyroid function',lft:'liver function',uec:'urea electrolytes creatinine',fbc:'full blood count',fbe:'full blood count',bsl:'blood glucose',acr:'albumin creatinine',pth:'parathyroid hormone',tsh:'thyroid stimulating hormone',ppi:'proton pump inhibitor',nsaid:'non-steroidal anti-inflammatory',acei:'ace inhibitor',arb:'angiotensin receptor blocker',mtx:'methotrexate',adt:'androgen deprivation',dmard:'disease-modifying',hrt:'hormone replacement',ocp:'oral contraceptive',lmwh:'enoxaparin',doac:'apixaban rivaroxaban'};
+const expandAbbr=v=>v.replace(/[a-z0-9]+/gi,w=>ABBR[w.toLowerCase()]||w);
 // Earliest match wins, then longest; if what's typed could still become a longer keyword of any other
 // item, found or not (e.g. "sputum" -> "sputum culture"), defer instead of firing.
 function judge(items,isFound,v,submit,skip=()=>false){
@@ -400,7 +404,8 @@ function swallow(){swallowing=true;clearTimeout(swT);swT=setTimeout(()=>{swallow
 function evaluate(submit,idle){
  clearTimeout(deferT);
  if(over)return;const inp=$('#answer');const v=inp.value;if(!v.trim())return;
- const r=judge(cur[3],i=>!pending(i),v,submit,i=>!act(i));
+ let r=judge(cur[3],i=>!pending(i),v,submit,i=>!act(i));
+ if(!r){const x=expandAbbr(v);if(x!==v){if(!submit){deferT=setTimeout(()=>evaluate(true,true),700);return}r=judge(cur[3],i=>!pending(i),x,submit,i=>!act(i))}}
  if(!r){if(submit&&!idle){inp.value='';retrigger(inp,'bad')}return}
  if(r.defer){deferT=setTimeout(()=>evaluate(true,true),700);return}
  if(idle&&!r.hit.length)return;
