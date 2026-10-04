@@ -126,6 +126,8 @@ export function useDrillGame({ drill, account, inc }) {
   latest.current.account = account;
   const counted = useRef(false);
   const prevRec = useRef(null);
+  // Set when a finished round is first redone: history keeps this original result however many redos follow
+  const frozen = useRef(null);
   const celebrated = useRef(new Set());
   const swallowing = useRef(false);
   const swT = useRef(null);
@@ -198,9 +200,10 @@ export function useDrillGame({ drill, account, inc }) {
       r.ignored = keysOf(st.ignored);
       // A redo round starts from the saved found/credited, so what it saves is the combined result
       if (st.over && hist) {
-        r.found = keysOf(st.found);
-        r.credited = keysOf(st.credited);
-        r.score = stats(drill, st).pct;
+        const f = frozen.current;
+        r.found = f ? f.found : keysOf(st.found);
+        r.credited = f ? f.credited : keysOf(st.credited);
+        r.score = f ? f.score : stats(drill, st).pct;
       }
       if (done && hist) {
         if (!counted.current) {
@@ -224,7 +227,7 @@ export function useDrillGame({ drill, account, inc }) {
       const r = account.user.drills[drill.key];
       prevRec.current = r ? JSON.parse(JSON.stringify(r)) : null;
     }
-    const h = !redoRound;
+    const h = frozen.current ? histOnRef.current : !redoRound;
     histOnRef.current = h;
     setHistOn(h);
     commit(ns, true, h);
@@ -337,6 +340,14 @@ export function useDrillGame({ drill, account, inc }) {
       miss = missedIdx(drill, st, code);
     if (!miss.length) return;
     clearTimeout(deferT.current);
+    if (st.over && !frozen.current) {
+      const keysOf = (set) => [...set].map((i) => items[i].key);
+      frozen.current = {
+        found: keysOf(st.found),
+        credited: keysOf(st.credited),
+        score: stats(drill, st).pct,
+      };
+    }
     const revealed = new Set(st.revealed),
       credited = new Set(st.credited);
     miss.forEach((i) => {
