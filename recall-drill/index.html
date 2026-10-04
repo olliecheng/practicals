@@ -362,7 +362,7 @@ const secIdx=code=>cur[3].map((it,i)=>i).filter(i=>cur[3][i][2]===code);
 const settled=i=>found.has(i)||credited.has(i)||ignored.has(i);
 // Tiles that can currently be matched by typing
 const act=i=>!collapsed||over||cur[3][i][2]===active;
-const allSettled=()=>cur[3].every((it,i)=>settled(i));
+const allSettled=()=>cur[3].every((it,i)=>settled(i)||revealed.has(i));
 const pending=i=>!found.has(i)&&!revealed.has(i)&&!ignored.has(i);
 // The first section with something left to name (else the first section)
 const firstPending=()=>(MODES[curMode].sections.find(([c])=>cur[3].some((it,i)=>it[2]===c&&pending(i)))||MODES[curMode].sections[0])[0];
