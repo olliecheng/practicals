@@ -191,6 +191,8 @@ function Game({ drill, inc, restart }) {
               it.code === sec.code ? [i] : [],
             );
             const complete = sectionComplete(drill, s, sec.code);
+            // A finished section has nothing left to spoil, so its categories are always shown
+            const hasCats = idx.some((i) => drill.items[i].cat);
             // n is the tile's number within its section, whatever the grouping
             const tile = (i) => (
               <Tile
@@ -240,7 +242,8 @@ function Game({ drill, inc, restart }) {
                     None listed for this {noun}.
                   </p>
                 )}
-                {hintOn && sec.code === g.hintCode ? (
+                {(hintOn && sec.code === g.hintCode) ||
+                (complete && hasCats) ? (
                   <div className="cats">
                     {groups(drill, idx).map(([cat, list]) => (
                       <fieldset className="cat" key={cat || ""}>
