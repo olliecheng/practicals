@@ -45,13 +45,11 @@
       "keywords": "fibroid|leiomyoma"
      }
     ],
-    "Fat": [
+    "Fat and fetus": [
      {
       "label": "Obesity",
       "keywords": "obes|adipos"
-     }
-    ],
-    "Fetus": [
+     },
      {
       "label": "Pregnancy",
       "keywords": "pregnan"
@@ -137,7 +135,7 @@
       "keywords": "ca-125|ca125|ca 125|tumour marker"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "Abdominal US",
       "keywords": "ultrasound|us|abdominal us|uss|sonogra"
@@ -149,9 +147,7 @@
      {
       "label": "AXR (obstruction)",
       "keywords": "axr|abdominal x|abdo x|abdominal radiograph"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Ascitic tap (SAAG, cell count, cytology)",
       "keywords": "ascitic|paracent|tap|saag|cytology"
@@ -409,13 +405,11 @@
       "keywords": "vitamin k|vit k|malabsor"
      }
     ],
-    "Vascular": [
+    "Vascular and traumatic": [
      {
       "label": "Vascular: senile purpura, steroids, vasculitis, scurvy, EDS",
       "keywords": "vasculit|hsp|henoch|senile|steroid|ehlers|scurvy|connective tissue"
-     }
-    ],
-    "Non-accidental": [
+     },
      {
       "label": "Non-accidental injury",
       "keywords": "nai|non-accidental|abuse|violence|assault"
@@ -552,13 +546,11 @@
       "keywords": "myasthen|mg"
      }
     ],
-    "ENT": [
+    "ENT and psychiatric": [
      {
       "label": "Hearing loss / laryngeal (vocal cord palsy, cancer)",
       "keywords": "hearing|deaf|laryn|vocal cord|recurrent laryngeal|hoarse"
-     }
-    ],
-    "Psychiatric": [
+     },
      {
       "label": "Psychiatric (thought disorder, mania)",
       "keywords": "psych|schizo|thought disorder|mania"
@@ -777,7 +769,7 @@
       "keywords": "urinalys|dipstick|udip|urine dip|ua"
      }
     ],
-    "Bloods": [
+    "Bloods, urine and swabs": [
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
@@ -801,15 +793,13 @@
      {
       "label": "Ca / Mg / PO4",
       "keywords": "cmp|calcium|magnesium|phosphate|po4"
-     }
-    ],
-    "Urine, stool and swabs": [
+     },
      {
       "label": "Urine drug screen",
       "keywords": "uds|urine drug|drug screen|tox screen|toxicology"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "CT head",
       "keywords": "ct head|ct brain|head ct|brain ct|cth|non-contrast ct"
@@ -817,9 +807,7 @@
      {
       "label": "CXR",
       "keywords": "cxr|chest x|chest radiograph|chest film|chest xr"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "LP (if CNS infection suspected)",
       "keywords": "lp|lumbar punct|csf"
@@ -830,7 +818,7 @@
   "Alcohol-related presentations": {
    "prompt": "Complications",
    "differentials": {
-    "Acute intoxication": [
+    "Intoxication and withdrawal": [
      {
       "label": "Intoxication",
       "keywords": "intox|drunk"
@@ -838,9 +826,7 @@
      {
       "label": "Hypoglycaemia",
       "keywords": "hypogly"
-     }
-    ],
-    "Withdrawal": [
+     },
      {
       "label": "Withdrawal / delirium tremens / withdrawal seizures",
       "keywords": "withdraw|dts|tremens|seizure"
@@ -880,13 +866,11 @@
       "keywords": "cardiomyop|af|holiday heart|arrhythm"
      }
     ],
-    "Metabolic": [
+    "Metabolic and psychiatric": [
      {
       "label": "Electrolytes (low K, Mg, PO4) / ketoacidosis / refeeding",
       "keywords": "hypokal|hypomag|hypophos|ketoacid|refeed|electrolyte disturb|electrolyte abnorm|electrolyte derang"
-     }
-    ],
-    "Psychiatric": [
+     },
      {
       "label": "Depression / suicide risk",
       "keywords": "depress|suicid|self-harm|mood"
@@ -944,7 +928,7 @@
       "keywords": "ecg|ekg|electrocardiogram|12 lead|12-lead"
      }
     ],
-    "Bloods": [
+    "Bloods, urine and swabs": [
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
@@ -972,9 +956,7 @@
      {
       "label": "Blood alcohol level",
       "keywords": "blood alcohol|bal|ethanol level|alcohol level"
-     }
-    ],
-    "Urine, stool and swabs": [
+     },
      {
       "label": "Urine drug screen",
       "keywords": "uds|urine drug|drug screen|tox screen|toxicology"
@@ -995,13 +977,17 @@
   "Altered bowel habit": {
    "prompt": "",
    "differentials": {
-    "Neoplastic": [
+    "Neoplastic and structural": [
      {
       "label": "Colorectal cancer",
       "keywords": "colorectal|bowel cancer|crc|colon cancer|rectal cancer|malignan"
+     },
+     {
+      "label": "Diverticular disease",
+      "keywords": "divertic"
      }
     ],
-    "Inflammatory": [
+    "Inflammatory and infective": [
      {
       "label": "IBD",
       "keywords": "ibd|crohn|colitis|ulcerative"
@@ -1009,21 +995,17 @@
      {
       "label": "Microscopic colitis",
       "keywords": "microscopic"
-     }
-    ],
-    "Infective": [
+     },
      {
       "label": "Infection (Giardia, C. difficile)",
       "keywords": "infect|giardia|c diff|difficile|gastroenteritis|gastro|parasitic"
      }
     ],
-    "Functional": [
+    "Functional and malabsorptive": [
      {
       "label": "IBS",
       "keywords": "ibs|irritable"
-     }
-    ],
-    "Malabsorption": [
+     },
      {
       "label": "Coeliac disease",
       "keywords": "coeliac|celiac"
@@ -1033,19 +1015,11 @@
       "keywords": "pancreatic insuff|exocrine|bile acid|malabsor"
      }
     ],
-    "Structural": [
-     {
-      "label": "Diverticular disease",
-      "keywords": "divertic"
-     }
-    ],
-    "Drugs": [
+    "Endocrine, metabolic and drugs": [
      {
       "label": "Medications (opioids, metformin, antibiotics, laxatives)",
       "keywords": "opioid|metformin|antibiot|laxative|med|drug|iatrogen"
-     }
-    ],
-    "Endocrine and metabolic": [
+     },
      {
       "label": "Thyroid disease",
       "keywords": "thyro|thyroid"
@@ -1067,7 +1041,7 @@
       "keywords": "noctur|night|wake"
      }
     ],
-    "Bleeding and rectal symptoms": [
+    "Rectal and abdominal symptoms": [
      {
       "label": "Blood / mucus PR",
       "keywords": "blood|mucus|pr bleed|rectal bleed|haematochez"
@@ -1075,9 +1049,7 @@
      {
       "label": "Tenesmus / incomplete evacuation",
       "keywords": "tenesm|incomplete|evacuat"
-     }
-    ],
-    "Abdominal": [
+     },
      {
       "label": "Abdominal pain / bloating (relieved by defecation)",
       "keywords": "pain|bloat|cramp"
@@ -1149,13 +1121,11 @@
       "keywords": "ifobt|fobt|fit|faecal occult|occult blood"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "CT abdomen / pelvis",
       "keywords": "ct abdo|ct ap|ct a/p|abdominal ct|ct abdomen|ct pelvis|ctap"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Colonoscopy",
       "keywords": "colonoscop|scope"
@@ -1198,19 +1168,17 @@
       "keywords": "seiz|postictal|post-ictal|status|ncse|fit"
      }
     ],
-    "Infection": [
+    "Infective and toxic": [
      {
       "label": "Sepsis / meningitis / encephalitis",
       "keywords": "sepsis|septic|mening|encephalit"
-     }
-    ],
-    "Toxic": [
+     },
      {
       "label": "Intoxication / overdose (opioids, alcohol, benzos)",
       "keywords": "intox|overdose|od|opioid|alcohol|benzo|toxic|poison"
      }
     ],
-    "Cardiorespiratory": [
+    "Cardiorespiratory and environmental": [
      {
       "label": "Hypoxia / hypercapnia",
       "keywords": "hypox|hypercap|co2 narcosis|resp failure"
@@ -1218,9 +1186,7 @@
      {
       "label": "Shock (hypovolaemic, cardiogenic, septic)",
       "keywords": "shock|hypovol|cardiogenic|hypoperfus"
-     }
-    ],
-    "Environmental": [
+     },
      {
       "label": "Hypothermia / hyperthermia",
       "keywords": "hypotherm|hypertherm|heat stroke"
@@ -1252,7 +1218,7 @@
       "keywords": "med|insulin|sedative|anticoag|warfarin"
      }
     ],
-    "Medical and psychiatric history": [
+    "Past history and infective features": [
      {
       "label": "Known diabetes / epilepsy / other conditions",
       "keywords": "diabet|epilep|known|pmh|past history|medical history"
@@ -1260,9 +1226,7 @@
      {
       "label": "Psychiatric history / suicidal intent",
       "keywords": "psych|suicid|intent|note|depress"
-     }
-    ],
-    "Infection": [
+     },
      {
       "label": "Fever / infective symptoms / rash",
       "keywords": "fever|infect|rash"
@@ -1284,7 +1248,7 @@
       "keywords": "ecg|ekg|electrocardiogram|12 lead|12-lead"
      }
     ],
-    "Bloods": [
+    "Bloods, urine and swabs": [
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
@@ -1324,21 +1288,17 @@
      {
       "label": "Ammonia",
       "keywords": "ammonia"
-     }
-    ],
-    "Urine, stool and swabs": [
+     },
      {
       "label": "Urine drug screen",
       "keywords": "uds|urine drug|drug screen|tox screen|toxicology"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "CT head",
       "keywords": "ct head|ct brain|head ct|brain ct|cth|non-contrast ct"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "LP",
       "keywords": "lp|lumbar punct|csf"
@@ -1439,13 +1399,11 @@
       "keywords": "driv|accident|safety|near miss"
      }
     ],
-    "Psychological": [
+    "Psychological and sleep phenomena": [
      {
       "label": "Stressors / worry",
       "keywords": "stress|life event|worry"
-     }
-    ],
-    "Other sleep phenomena": [
+     },
      {
       "label": "Hallucinations / sleep paralysis",
       "keywords": "hallucin|hypnagog|paralys"
@@ -1514,7 +1472,7 @@
       "keywords": "cardiorenal|hepatorenal|hrs"
      }
     ],
-    "Low output, renal": [
+    "Low output, renal and post-renal": [
      {
       "label": "Intrinsic AKI (ATN, GN, AIN)",
       "keywords": "intrinsic|atn|tubular necrosis|glomerulo|gn|interstitial nephritis|ain|nephritis"
@@ -1522,9 +1480,7 @@
      {
       "label": "Rhabdomyolysis / contrast / nephrotoxins",
       "keywords": "rhabdo|contrast|nephrotox|nsaid|aminoglycos"
-     }
-    ],
-    "Low output, post-renal": [
+     },
      {
       "label": "Post-renal obstruction (BPH, retention, stones)",
       "keywords": "postrenal|post-renal|obstruct|retention|bph|prostat|stone"
@@ -1588,13 +1544,11 @@
       "keywords": "haematuria|hematuria|froth|foam|rash|joint|systemic"
      }
     ],
-    "Medications and exposures": [
+    "Medications and systemic": [
      {
       "label": "Medications (ACEi/ARB) / recent contrast",
       "keywords": "med|acei|ace inhib|~pril|~sartan|recent contrast|new drug"
-     }
-    ],
-    "Systemic": [
+     },
      {
       "label": "Weight loss / blurred vision",
       "keywords": "weight|blurred|vision|polyphag"
@@ -1624,7 +1578,7 @@
       "keywords": "vbg|abg|blood gas|lactate"
      }
     ],
-    "Bloods": [
+    "Bloods, urine and swabs": [
      {
       "label": "UEC",
       "keywords": "uec|euc|u&e|urea|electrolyte|creat|renal function|kidney function|egfr"
@@ -1648,21 +1602,17 @@
      {
       "label": "HbA1c",
       "keywords": "hba1c|a1c|glycated|glycosylated"
-     }
-    ],
-    "Urine, stool and swabs": [
+     },
      {
       "label": "Urine Na / osmolality, serum osmolality",
       "keywords": "urine sodium|urine na|osmolal|fena|urine osm|serum osm"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "Renal tract US",
       "keywords": "renal us|kidney us|ultrasound|us|hydroneph"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Water deprivation / copeptin test",
       "keywords": "water deprivation|desmopressin|ddavp|copeptin"
@@ -1673,7 +1623,7 @@
   "Breast lump": {
    "prompt": "",
    "differentials": {
-    "Benign": [
+    "Benign and male": [
      {
       "label": "Fibroadenoma",
       "keywords": "fibroaden"
@@ -1693,6 +1643,10 @@
      {
       "label": "Intraductal papilloma / duct ectasia",
       "keywords": "papilloma|duct ectas|ectasia"
+     },
+     {
+      "label": "Gynaecomastia (male)",
+      "keywords": "gynaecomast|gynecomast"
      }
     ],
     "Inflammatory and traumatic": [
@@ -1714,16 +1668,10 @@
       "label": "Phyllodes tumour",
       "keywords": "phyllodes"
      }
-    ],
-    "Male": [
-     {
-      "label": "Gynaecomastia (male)",
-      "keywords": "gynaecomast|gynecomast"
-     }
     ]
    },
    "associated": {
-    "Lump features": [
+    "Lump and nipple features": [
      {
       "label": "Duration / change with cycle",
       "keywords": "duration|cycle|menstr|change|grow"
@@ -1739,15 +1687,13 @@
      {
       "label": "Axillary lumps",
       "keywords": "axill|armpit|node"
-     }
-    ],
-    "Nipple": [
+     },
      {
       "label": "Nipple discharge / inversion",
       "keywords": "nipple|discharge|inversion|retraction"
      }
     ],
-    "Risk factors": [
+    "Risk factors and systemic": [
      {
       "label": "Breastfeeding / trauma",
       "keywords": "breastfe|lactat|trauma|injury"
@@ -1755,9 +1701,7 @@
      {
       "label": "Risk: age, HRT/OCP, prior breast disease, BRCA",
       "keywords": "hrt|ocp|pill|hormon|risk|previous breast|brca|menarche|nullip|parity"
-     }
-    ],
-    "Systemic": [
+     },
      {
       "label": "Systemic: weight loss, bone pain, SOB",
       "keywords": "weight|bone pain|sob|breath|systemic|back pain|dysp"
@@ -1765,13 +1709,11 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and imaging": [
      {
       "label": "Clinical breast examination",
       "keywords": "exam|clinical|cbe|palpat"
-     }
-    ],
-    "Imaging": [
+     },
      {
       "label": "Mammogram",
       "keywords": "mammo"
@@ -1804,7 +1746,7 @@
   "Breast pain (mastalgia)": {
    "prompt": "",
    "differentials": {
-    "Hormonal and benign": [
+    "Hormonal, benign and drugs": [
      {
       "label": "Cyclical mastalgia",
       "keywords": "cyclical|cyclic|hormonal|premenstr"
@@ -1820,21 +1762,17 @@
      {
       "label": "Duct ectasia / Mondor's disease",
       "keywords": "duct ectas|ectasia|mondor|thrombophleb"
-     }
-    ],
-    "Inflammatory": [
-     {
-      "label": "Mastitis / abscess",
-      "keywords": "mastitis|abscess"
-     }
-    ],
-    "Drugs": [
+     },
      {
       "label": "Medications (OCP, HRT, SSRIs, spironolactone)",
       "keywords": "ocp|hrt|ssri|spironolact|med|drug"
      }
     ],
-    "Malignant": [
+    "Inflammatory and malignant": [
+     {
+      "label": "Mastitis / abscess",
+      "keywords": "mastitis|abscess"
+     },
      {
       "label": "Breast cancer (uncommon cause)",
       "keywords": "cancer|malignan|inflammatory breast"
@@ -1880,13 +1818,11 @@
       "keywords": "nipple|discharge|skin|redness"
      }
     ],
-    "Infection and lactation": [
+    "Infection, lactation and hormones": [
      {
       "label": "Fever / breastfeeding",
       "keywords": "fever|breastfe|lactat"
-     }
-    ],
-    "Hormonal status": [
+     },
      {
       "label": "LMP",
       "keywords": "lmp|last period|missed period"
@@ -1894,7 +1830,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and bloods": [
      {
       "label": "Breast examination",
       "keywords": "exam|palpat|cbe|clinical"
@@ -1906,9 +1842,7 @@
      {
       "label": "ECG",
       "keywords": "ecg|ekg|electrocardiogram|12 lead|12-lead"
-     }
-    ],
-    "Bloods": [
+     },
      {
       "label": "β-hCG",
       "keywords": "hcg|bhcg|b-hcg|beta hcg|βhcg|pregnancy test|upt|urine pregnancy"
@@ -1979,7 +1913,7 @@
       "keywords": "biliary|gallstone|pancreatit|peptic|ulcer|pud"
      }
     ],
-    "Musculoskeletal and skin": [
+    "Musculoskeletal, skin and psychiatric": [
      {
       "label": "Musculoskeletal / costochondritis",
       "keywords": "msk|musculoskel|costochondr|chest wall|rib"
@@ -1987,9 +1921,7 @@
      {
       "label": "Herpes zoster",
       "keywords": "zoster|shingles|herpes"
-     }
-    ],
-    "Psychiatric": [
+     },
      {
       "label": "Anxiety / panic",
       "keywords": "anxiety|panic"
@@ -2081,7 +2013,7 @@
       "keywords": "lipid|cholesterol|hba1c"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "CXR",
       "keywords": "cxr|chest x|chest radiograph|chest film|chest xr"
@@ -2097,9 +2029,7 @@
      {
       "label": "Coronary angiography / CTCA",
       "keywords": "coronary angio|angiogram|ctca|ct coronary|cath"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Stress testing",
       "keywords": "stress test|exercise ecg|stress echo|treadmill|ett|mpi|sestamibi"
@@ -2132,7 +2062,7 @@
       "keywords": "osteopor|falls|fracture"
      }
     ],
-    "Mental health": [
+    "Mental health and medications": [
      {
       "label": "Depression / anxiety",
       "keywords": "depress|anxiety|mental health"
@@ -2140,9 +2070,7 @@
      {
       "label": "Chronic pain / opioid dependence",
       "keywords": "chronic pain|opioid depend|opioid"
-     }
-    ],
-    "Medications": [
+     },
      {
       "label": "Medication adverse effects",
       "keywords": "adverse|toxicity"
@@ -2236,7 +2164,7 @@
       "keywords": "crp|esr|das28|das|disease activity"
      }
     ],
-    "Bloods": [
+    "Bloods, urine and swabs": [
      {
       "label": "HbA1c",
       "keywords": "hba1c|a1c|glycated|glycosylated"
@@ -2256,21 +2184,17 @@
      {
       "label": "LFT",
       "keywords": "lft|liver function|bilirubin|alt|ast|ggt|alp|albumin"
-     }
-    ],
-    "Urine, stool and swabs": [
+     },
      {
       "label": "Urine ACR",
       "keywords": "acr|albumin creatinine|albumin:creatinine|microalbumin|proteinuria"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "DEXA",
       "keywords": "dexa|bone density|bmd"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Spirometry / peak flow",
       "keywords": "spiro|fev1|lung function|pft|peak flow"
@@ -2281,7 +2205,7 @@
   "Cognitive impairment": {
    "prompt": "",
    "differentials": {
-    "Neurodegenerative": [
+    "Neurodegenerative and vascular": [
      {
       "label": "Alzheimer's disease",
       "keywords": "alzheimer|ad"
@@ -2297,9 +2221,7 @@
      {
       "label": "Parkinson's disease dementia / CJD",
       "keywords": "parkinson|cjd|prion|creutzfeldt"
-     }
-    ],
-    "Vascular": [
+     },
      {
       "label": "Vascular dementia",
       "keywords": "vascular dementia|vascular|multi-infarct"
@@ -2375,7 +2297,7 @@
       "keywords": "mood|sleep"
      }
     ],
-    "Dementia clues": [
+    "Dementia clues and risk factors": [
      {
       "label": "Hallucinations / fluctuations / falls / parkinsonism",
       "keywords": "hallucin|fluctuat|fall|parkinsonism|tremor"
@@ -2383,9 +2305,7 @@
      {
       "label": "Gait / urinary incontinence",
       "keywords": "gait|incontin|urinary|walk"
-     }
-    ],
-    "Risk factors": [
+     },
      {
       "label": "Vascular risk factors",
       "keywords": "vascular risk|risk factor|smok|hypertens|diabet|af"
@@ -2437,7 +2357,7 @@
       "keywords": "tpha|rpr|vdrl|serology|hiv serology|hiv test"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "CT / MRI brain",
       "keywords": "ct|mri|neuroimag|brain imaging|ct head|ct brain|mri brain"
@@ -2445,9 +2365,7 @@
      {
       "label": "FDG-PET / amyloid PET",
       "keywords": "pet|amyloid|fdg|spect"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Neuropsychology assessment",
       "keywords": "neuropsych"
@@ -2510,13 +2428,11 @@
       "keywords": "dementia|alzheimer"
      }
     ],
-    "Physical triggers": [
+    "Physical triggers and psychiatric": [
      {
       "label": "Urinary retention / constipation / pain",
       "keywords": "retention|constipat|pain"
-     }
-    ],
-    "Psychiatric": [
+     },
      {
       "label": "Psychiatric (psychosis, depression)",
       "keywords": "psych|psychos|depress"
@@ -2524,13 +2440,11 @@
     ]
    },
    "associated": {
-    "Collateral and course": [
+    "Collateral and triggers": [
      {
       "label": "Collateral: baseline, onset, fluctuation",
       "keywords": "collateral|baseline|onset|fluctuat|acute|timeline"
-     }
-    ],
-    "Triggers": [
+     },
      {
       "label": "Fever / infective symptoms (cough, urinary)",
       "keywords": "fever|cough|dysuria|urinary|rigor"
@@ -2548,7 +2462,7 @@
       "keywords": "bowel|bo|urine output|voiding|passing urine"
      }
     ],
-    "Delirium features": [
+    "Delirium features and care planning": [
      {
       "label": "Hallucinations / sleep-wake disturbance",
       "keywords": "hallucin|sleep|agitat|drows"
@@ -2556,9 +2470,7 @@
      {
       "label": "Hearing / vision aids",
       "keywords": "hearing|vision|glasses|aids"
-     }
-    ],
-    "Care planning": [
+     },
      {
       "label": "Advance care directive / goals of care",
       "keywords": "acp|advance care|goals|epoa|directive"
@@ -2592,7 +2504,7 @@
       "keywords": "bladder scan|pvr|post-void"
      }
     ],
-    "Bloods": [
+    "Bloods, urine and swabs": [
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
@@ -2620,9 +2532,7 @@
      {
       "label": "B12 / folate",
       "keywords": "b12|folate|cobalamin"
-     }
-    ],
-    "Urine, stool and swabs": [
+     },
      {
       "label": "MSU / blood cultures",
       "keywords": "msu|urine culture|blood culture|cultures"
@@ -2643,7 +2553,7 @@
   "Constipation": {
    "prompt": "",
    "differentials": {
-    "Functional and lifestyle": [
+    "Functional, lifestyle and drugs": [
      {
       "label": "Functional constipation / IBS-C",
       "keywords": "functional|ibs|idiopathic|slow transit"
@@ -2659,15 +2569,13 @@
      {
       "label": "Depression / eating disorder",
       "keywords": "depress|eating disorder|anorexia"
-     }
-    ],
-    "Medications": [
+     },
      {
       "label": "Medications (opioids, iron, CCBs, anticholinergics, ondansetron)",
       "keywords": "opioid|iron|ccb|calcium channel|anticholin|ondansetron|med|drug|codeine"
      }
     ],
-    "Structural": [
+    "Structural and neurological": [
      {
       "label": "Colorectal cancer",
       "keywords": "cancer|crc|colorectal|malignan|tumour"
@@ -2675,6 +2583,10 @@
      {
       "label": "Bowel obstruction / pseudo-obstruction",
       "keywords": "obstruct|pseudo|ileus|volvulus"
+     },
+     {
+      "label": "Neurological (Parkinson's, MS, spinal cord)",
+      "keywords": "parkinson|ms|multiple sclerosis|spinal|cord|neurolog|cauda"
      }
     ],
     "Endocrine and metabolic": [
@@ -2693,12 +2605,6 @@
      {
       "label": "Pregnancy",
       "keywords": "pregnan"
-     }
-    ],
-    "Neurological": [
-     {
-      "label": "Neurological (Parkinson's, MS, spinal cord)",
-      "keywords": "parkinson|ms|multiple sclerosis|spinal|cord|neurolog|cauda"
      }
     ]
    },
@@ -2751,13 +2657,11 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and bloods": [
      {
       "label": "BSL",
       "keywords": "bsl|bgl|glucose|finger prick|blood sugar"
-     }
-    ],
-    "Bloods": [
+     },
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
@@ -2775,13 +2679,11 @@
       "keywords": "tft|tsh|thyroid function|ft4"
      }
     ],
-    "Urine, stool and swabs": [
+    "Urine, swabs and imaging": [
      {
       "label": "iFOBT",
       "keywords": "ifobt|fobt|fit|faecal occult"
-     }
-    ],
-    "Imaging": [
+     },
      {
       "label": "AXR",
       "keywords": "axr|abdominal x|abdo x|abdominal radiograph"
@@ -3007,7 +2909,7 @@
       "keywords": "ischaem|ischem"
      }
     ],
-    "Functional and malabsorptive": [
+    "Functional, malabsorptive and drugs": [
      {
       "label": "IBS-D",
       "keywords": "ibs|irritable"
@@ -3019,21 +2921,17 @@
      {
       "label": "Pancreatic insufficiency / bile acid diarrhoea",
       "keywords": "pancrea|bile acid|steatorr|malabsor"
-     }
-    ],
-    "Drugs": [
+     },
      {
       "label": "Medications (antibiotics, metformin, laxatives, PPIs, chemo)",
       "keywords": "antibiot|metformin|laxative|ppi|chemo|med|drug|magnesium"
      }
     ],
-    "Neoplastic": [
+    "Neoplastic, endocrine and other": [
      {
       "label": "Colorectal cancer",
       "keywords": "cancer|crc|colorectal|malignan"
-     }
-    ],
-    "Endocrine and other": [
+     },
      {
       "label": "Hyperthyroidism",
       "keywords": "hyperthyro|thyrotox|thyroid"
@@ -3097,13 +2995,11 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and bloods": [
      {
       "label": "VBG / ABG (lactate)",
       "keywords": "vbg|abg|blood gas|lactate"
-     }
-    ],
-    "Bloods": [
+     },
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
@@ -3129,7 +3025,7 @@
       "keywords": "blood culture|bcs|cultures"
      }
     ],
-    "Urine, stool and swabs": [
+    "Urine, swabs and special tests": [
      {
       "label": "Stool MC&S / PCR / OCP",
       "keywords": "stool|faecal mcs|ocp|parasite|stool culture|stool pcr|multiplex"
@@ -3145,9 +3041,7 @@
      {
       "label": "Faecal elastase",
       "keywords": "elastase"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Colonoscopy + biopsies",
       "keywords": "colonoscop|scope|biops|flexi|sigmoidoscop"
@@ -3208,13 +3102,11 @@
       "keywords": "decondit|sarcopen|frail"
      }
     ],
-    "Vascular": [
+    "Vascular and vestibular": [
      {
       "label": "Peripheral arterial disease (claudication)",
       "keywords": "claudicat|pad|peripheral arterial|vascular"
-     }
-    ],
-    "Vestibular": [
+     },
      {
       "label": "Vestibular / dizziness",
       "keywords": "vestibul|dizz|vertigo"
@@ -3272,13 +3164,11 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and bloods": [
      {
       "label": "Gait assessment / neuro exam",
       "keywords": "gait|neuro exam|examination|timed up and go|tug"
-     }
-    ],
-    "Bloods": [
+     },
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
@@ -3312,7 +3202,7 @@
       "keywords": "crp|esr|c-reactive|inflammatory marker"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "X-ray (hip / knee / spine)",
       "keywords": "x-ray|xray|xr|radiograph|plain film"
@@ -3328,9 +3218,7 @@
      {
       "label": "ABI / arterial duplex",
       "keywords": "abi|ankle brachial|duplex|arterial doppler"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Nerve conduction studies / EMG",
       "keywords": "ncs|nerve conduction|emg"
@@ -3383,7 +3271,7 @@
       "keywords": "aortic stenosis|stenosis|as"
      }
     ],
-    "Metabolic and drugs": [
+    "Metabolic, drugs and psychiatric": [
      {
       "label": "Anaemia",
       "keywords": "anaem|anem"
@@ -3395,9 +3283,7 @@
      {
       "label": "Medications (antihypertensives, sedatives)",
       "keywords": "med|antihypert|sedat|drug|polypharm"
-     }
-    ],
-    "Psychiatric": [
+     },
      {
       "label": "Anxiety / panic / hyperventilation",
       "keywords": "anxiety|panic|hyperventil"
@@ -3439,13 +3325,11 @@
       "keywords": "headache|photophob"
      }
     ],
-    "Cardiovascular": [
+    "Cardiovascular and other": [
      {
       "label": "Palpitations / chest pain / exertional",
       "keywords": "palpit|chest pain|exert"
-     }
-    ],
-    "Other": [
+     },
      {
       "label": "Nausea / vomiting",
       "keywords": "nausea|vomit"
@@ -3594,7 +3478,7 @@
       "keywords": "sexual|sex work|partner"
      }
     ],
-    "Mental health and social": [
+    "Mental health, social and treatment": [
      {
       "label": "Mental health history",
       "keywords": "mental health|psychiatric|psych hist"
@@ -3606,9 +3490,7 @@
      {
       "label": "Driving / work / safety",
       "keywords": "driv|work|safety"
-     }
-    ],
-    "Treatment": [
+     },
      {
       "label": "Readiness to change / treatment history (OST)",
       "keywords": "ready|readiness|motivat|treatment hist|rehab|opioid substitution|ost|methadone|buprenorphine"
@@ -3668,13 +3550,11 @@
       "keywords": "sti screen|chlamydia|gonorrh|sti"
      }
     ],
-    "Urine, stool and swabs": [
+    "Urine, swabs and imaging": [
      {
       "label": "Urine drug screen",
       "keywords": "uds|urine drug|drug screen|tox screen|toxicology"
-     }
-    ],
-    "Imaging": [
+     },
      {
       "label": "Echocardiogram",
       "keywords": "echo|tte|echocardiogram"
@@ -3685,13 +3565,11 @@
   "Dysphagia": {
    "prompt": "",
    "differentials": {
-    "Malignant": [
+    "Malignant, structural and mucosal": [
      {
       "label": "Oesophageal cancer",
       "keywords": "oesophageal cancer|esophageal cancer|cancer|malignan|tumour|adenocarc|scc"
-     }
-    ],
-    "Structural and mucosal": [
+     },
      {
       "label": "Peptic stricture / GORD",
       "keywords": "stricture|peptic|gord|reflux"
@@ -3733,7 +3611,7 @@
       "keywords": "extrinsic|goitre|goiter|mediastin|compress"
      }
     ],
-    "Neurological": [
+    "Neurological and functional": [
      {
       "label": "Stroke",
       "keywords": "stroke|cva"
@@ -3741,9 +3619,7 @@
      {
       "label": "MND / myasthenia / Parkinson's",
       "keywords": "mnd|motor neuron|myasthen|parkinson|bulbar"
-     }
-    ],
-    "Functional": [
+     },
      {
       "label": "Globus (functional)",
       "keywords": "globus|functional"
@@ -3831,13 +3707,11 @@
       "keywords": "achr|acetylcholine|antibod"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "CT chest / abdomen (staging)",
       "keywords": "ct chest|ct neck|ct staging|staging|ct|pet"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Gastroscopy + biopsies",
       "keywords": "gastroscop|endoscop|ogd|egd|scope|biops"
@@ -3874,7 +3748,7 @@
       "keywords": "anaphyla|upper airway|stridor|foreign body|angioedema"
      }
     ],
-    "Cardiac": [
+    "Cardiac and pulmonary vascular": [
      {
       "label": "HF / APO",
       "keywords": "heart failure|hf|ccf|apo|pulmonary oedema|pulmonary edema"
@@ -3886,9 +3760,7 @@
      {
       "label": "Valvular disease / tamponade",
       "keywords": "valv|stenosis|regurg|tamponade"
-     }
-    ],
-    "Pulmonary vascular": [
+     },
      {
       "label": "Pulmonary embolism",
       "keywords": "pe|pulmonary embol|embol"
@@ -3934,13 +3806,11 @@
     ]
    },
    "associated": {
-    "Onset and tolerance": [
+    "Onset and cardiac features": [
      {
       "label": "Onset / exercise tolerance",
       "keywords": "onset|sudden|gradual|exercise toler|how far|nyha|mmrc"
-     }
-    ],
-    "Cardiac features": [
+     },
      {
       "label": "Orthopnoea / PND / ankle swelling",
       "keywords": "orthopn|pnd|ankle|leg swell|oedema"
@@ -3998,7 +3868,7 @@
       "keywords": "ecg|ekg|electrocardiogram|12 lead|12-lead"
      }
     ],
-    "Bloods": [
+    "Bloods, urine and swabs": [
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
@@ -4018,9 +3888,7 @@
      {
       "label": "D-dimer",
       "keywords": "d-dimer|ddimer|d dimer|dimer"
-     }
-    ],
-    "Urine, stool and swabs": [
+     },
      {
       "label": "Sputum MC&S",
       "keywords": "sputum culture|sputum mcs|mcs"
@@ -4099,13 +3967,11 @@
       "keywords": "trauma|perforat|tm rupture|ruptured"
      }
     ],
-    "Viral": [
+    "Viral and referred": [
      {
       "label": "Herpes zoster oticus (Ramsay Hunt)",
       "keywords": "ramsay|zoster|shingles|herpes"
-     }
-    ],
-    "Referred": [
+     },
      {
       "label": "Referred: dental, TMJ, tonsillitis, pharyngeal cancer",
       "keywords": "referred|dental|tooth|tmj|temporomandibular|tonsil|pharyn|throat|cancer"
@@ -4127,7 +3993,7 @@
       "keywords": "urti|cold|flying|flight|diving|pressure"
      }
     ],
-    "Systemic": [
+    "Systemic and referred symptoms": [
      {
       "label": "Fever / systemic illness",
       "keywords": "fever|unwell|systemic"
@@ -4135,6 +4001,10 @@
      {
       "label": "Smoking / alcohol / weight loss / hoarseness",
       "keywords": "smok|alcohol|weight|hoarse"
+     },
+     {
+      "label": "Jaw pain / dental pain / sore throat",
+      "keywords": "jaw|dental pain|toothache|sore throat|chew"
      }
     ],
     "Exposures and triggers": [
@@ -4145,12 +4015,6 @@
      {
       "label": "Diabetes / immunosuppression",
       "keywords": "diabet|immunosup|immunocomp"
-     }
-    ],
-    "Referred": [
-     {
-      "label": "Jaw pain / dental pain / sore throat",
-      "keywords": "jaw|dental pain|toothache|sore throat|chew"
      }
     ]
    },
@@ -4165,7 +4029,7 @@
       "keywords": "bsl|bgl|glucose|finger prick|blood sugar"
      }
     ],
-    "Bloods": [
+    "Bloods, urine and swabs": [
      {
       "label": "CRP / ESR",
       "keywords": "crp|esr|c-reactive|inflammatory marker"
@@ -4173,21 +4037,17 @@
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
-     }
-    ],
-    "Urine, stool and swabs": [
+     },
      {
       "label": "Swab of discharge",
       "keywords": "swab|culture|mcs"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "CT temporal bone / MRI",
       "keywords": "ct temporal|ct|mri|imaging|temporal bone"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Audiometry / tympanometry",
       "keywords": "audio|tympano|hearing test|pta"
@@ -4202,13 +4062,11 @@
   "Erectile dysfunction": {
    "prompt": "",
    "differentials": {
-    "Vascular": [
+    "Vascular, endocrine and metabolic": [
      {
       "label": "Vascular (atherosclerosis)",
       "keywords": "vascular|atheroscler|arterio|cardiovasc|endothel"
-     }
-    ],
-    "Endocrine and metabolic": [
+     },
      {
       "label": "Diabetes",
       "keywords": "diabet|dm"
@@ -4236,7 +4094,7 @@
       "keywords": "peyronie|curvature|plaque"
      }
     ],
-    "Drugs and lifestyle": [
+    "Drugs, lifestyle and psychogenic": [
      {
       "label": "Medications (antihypertensives, SSRIs, antiandrogens, opioids)",
       "keywords": "med|ssri|antidepress|beta|thiazide|antiandrogen|finasteride|opioid|antipsychotic|drug"
@@ -4244,9 +4102,7 @@
      {
       "label": "Smoking / alcohol / recreational drugs",
       "keywords": "smok|alcohol|drug use|recreational|cannabis"
-     }
-    ],
-    "Psychogenic": [
+     },
      {
       "label": "Psychogenic (anxiety, depression, relationship)",
       "keywords": "psychogen|anxiety|depress|performance|relationship|psycholog"
@@ -4286,13 +4142,11 @@
       "keywords": "gynaecomast|gynecomast|testicular|atrophy|small test"
      }
     ],
-    "Psychosocial": [
+    "Psychosocial and safety": [
      {
       "label": "Partner / mood / stress",
       "keywords": "partner|mood|stress"
-     }
-    ],
-    "Safety": [
+     },
      {
       "label": "Nitrate use (contraindicates PDE5i)",
       "keywords": "nitrate|gtn"
@@ -4314,7 +4168,7 @@
       "keywords": "bp|blood pressure|bmi"
      }
     ],
-    "Bloods": [
+    "Bloods and imaging": [
      {
       "label": "HbA1c",
       "keywords": "hba1c|a1c|glycated|glycosylated"
@@ -4342,9 +4196,7 @@
      {
       "label": "PSA",
       "keywords": "psa|prostate specific"
-     }
-    ],
-    "Imaging": [
+     },
      {
       "label": "Penile duplex US",
       "keywords": "duplex|penile us|doppler"
@@ -4397,13 +4249,11 @@
       "keywords": "endophthalm"
      }
     ],
-    "Infective and inflammatory": [
+    "Infective, systemic and headache": [
      {
       "label": "Herpes zoster ophthalmicus",
       "keywords": "zoster|shingles|hzo|herpes"
-     }
-    ],
-    "Systemic and headache": [
+     },
      {
       "label": "Giant cell arteritis",
       "keywords": "gca|giant cell|temporal arter"
@@ -4445,7 +4295,7 @@
       "keywords": "fever|swell|lid"
      }
     ],
-    "Exposures": [
+    "Exposures and systemic": [
      {
       "label": "Contact lens wear",
       "keywords": "contact lens|lens"
@@ -4457,9 +4307,7 @@
      {
       "label": "Recent eye surgery",
       "keywords": "surg|cataract|operation"
-     }
-    ],
-    "Systemic": [
+     },
      {
       "label": "Systemic: arthritis, IBD, rash, jaw claudication",
       "keywords": "arthrit|ibd|systemic|jaw claud|autoimmune|back pain|psoria|sarcoid"
@@ -4493,13 +4341,11 @@
       "keywords": "colour vision|color vision|ishihara|red desat"
      }
     ],
-    "Bloods": [
+    "Bloods, urine and swabs": [
      {
       "label": "CRP / ESR",
       "keywords": "crp|esr|c-reactive|inflammatory marker"
-     }
-    ],
-    "Urine, stool and swabs": [
+     },
      {
       "label": "Swab / corneal scrape",
       "keywords": "swab|scrape|culture|pcr"
@@ -4568,13 +4414,11 @@
       "keywords": "migraine|cluster"
      }
     ],
-    "Cardiac": [
+    "Cardiac and malignant": [
      {
       "label": "Cardiac (angina referred to jaw)",
       "keywords": "angina|cardiac|acs|mi|ischaem"
-     }
-    ],
-    "Malignant": [
+     },
      {
       "label": "Malignancy (nasopharyngeal, oral)",
       "keywords": "cancer|malignan|tumour|nasopharyn"
@@ -4610,7 +4454,7 @@
       "keywords": "click|lock|jaw opening"
      }
     ],
-    "Systemic and neurological": [
+    "Systemic, neurological and cardiac": [
      {
       "label": "Visual symptoms / scalp tenderness / PMR symptoms",
       "keywords": "vision|scalp|tender|pmr|shoulder|stiff|weight loss"
@@ -4622,9 +4466,7 @@
      {
       "label": "Numbness / neuro deficit",
       "keywords": "numb|neuro|weak|deficit"
-     }
-    ],
-    "Cardiac": [
+     },
      {
       "label": "Exertional / chest pain / SOB",
       "keywords": "exert|chest pain|sob|breath|dysp"
@@ -4632,13 +4474,11 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and bloods": [
      {
       "label": "ECG",
       "keywords": "ecg|ekg|electrocardiogram|12 lead|12-lead"
-     }
-    ],
-    "Bloods": [
+     },
      {
       "label": "CRP / ESR",
       "keywords": "crp|esr|c-reactive|inflammatory marker"
@@ -4648,7 +4488,7 @@
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "Dental examination / OPG",
       "keywords": "opg|orthopantomo|dental x|dental exam|panorex"
@@ -4664,9 +4504,7 @@
      {
       "label": "Sialography / salivary US",
       "keywords": "sialogra|salivary us|salivary ultrasound"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Temporal artery US / biopsy",
       "keywords": "temporal artery biopsy|tab|biopsy|halo|ultrasound"
@@ -4839,7 +4677,7 @@
       "keywords": "vitamin d|25-oh|25oh"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "X-ray (injury) / CT head if head strike on anticoagulant",
       "keywords": "x-ray|xray|xr|radiograph|ct head|ct brain"
@@ -4847,9 +4685,7 @@
      {
       "label": "DEXA",
       "keywords": "dexa|bone density"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Holter / echo",
       "keywords": "holter|echo|ambulatory ecg"
@@ -4880,7 +4716,7 @@
       "keywords": "cholang|append|intra-abdom|peritonit|divertic|collection"
      }
     ],
-    "Skin, bone and joint": [
+    "Skin, bone, joint and neurological": [
      {
       "label": "Skin / soft tissue (cellulitis, abscess)",
       "keywords": "cellulit|abscess|skin|soft tissue"
@@ -4888,9 +4724,7 @@
      {
       "label": "Septic arthritis / osteomyelitis",
       "keywords": "septic arthr|osteomyel"
-     }
-    ],
-    "Neurological": [
+     },
      {
       "label": "Meningitis / encephalitis",
       "keywords": "mening|encephalit"
@@ -4910,7 +4744,7 @@
       "keywords": "vte|dvt|pe|thrombo"
      }
     ],
-    "Non-infective and host": [
+    "Non-infective, host and travel": [
      {
       "label": "Drug fever / transfusion reaction",
       "keywords": "drug fever|transfus|reaction"
@@ -4926,9 +4760,7 @@
      {
       "label": "Neutropenic sepsis",
       "keywords": "neutropen|chemo"
-     }
-    ],
-    "Travel": [
+     },
      {
       "label": "Travel infections (malaria, dengue, typhoid)",
       "keywords": "malaria|dengue|typhoid|travel infect|travel-related"
@@ -4992,13 +4824,11 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and bloods": [
      {
       "label": "VBG / ABG (lactate)",
       "keywords": "vbg|abg|blood gas|lactate"
-     }
-    ],
-    "Bloods": [
+     },
      {
       "label": "Blood cultures",
       "keywords": "blood culture|bcs|cultures"
@@ -5038,7 +4868,7 @@
       "keywords": "viral pcr|respiratory pcr|npa|nasal swab|covid test|covid pcr|pcr|rat"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "CXR",
       "keywords": "cxr|chest x|chest radiograph|chest film|chest xr"
@@ -5054,9 +4884,7 @@
      {
       "label": "Leg Doppler US",
       "keywords": "doppler|duplex|leg us"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "LP (if meningism)",
       "keywords": "lp|lumbar punct|csf"
@@ -5067,7 +4895,7 @@
   "Haematemesis": {
    "prompt": "",
    "differentials": {
-    "Mucosal": [
+    "Mucosal and portal hypertension": [
      {
       "label": "Peptic ulcer disease",
       "keywords": "peptic|ulcer|pud|duodenal|gastric ulcer"
@@ -5079,9 +4907,7 @@
      {
       "label": "Upper GI malignancy",
       "keywords": "cancer|malignan|tumour|carcinoma"
-     }
-    ],
-    "Portal hypertension": [
+     },
      {
       "label": "Oesophageal / gastric varices",
       "keywords": "varice|variceal|portal hypert"
@@ -5107,13 +4933,11 @@
       "keywords": "aorto-enteric|aortoenteric|fistula|graft"
      }
     ],
-    "Coagulopathy": [
+    "Coagulopathy and non-GI": [
      {
       "label": "Coagulopathy / anticoagulants",
       "keywords": "coagulopath|anticoag|warfarin|doac"
-     }
-    ],
-    "Not GI": [
+     },
      {
       "label": "Swallowed blood (epistaxis, haemoptysis)",
       "keywords": "swallowed|epistax|nose bleed|haemopt|hemopt"
@@ -5121,7 +4945,7 @@
     ]
    },
    "associated": {
-    "Bleed features": [
+    "Bleed and haemodynamic features": [
      {
       "label": "Volume / fresh vs coffee-ground",
       "keywords": "volume|amount|fresh|bright|coffee|ground"
@@ -5133,9 +4957,7 @@
      {
       "label": "Melaena",
       "keywords": "melaena|melena|black stool"
-     }
-    ],
-    "Haemodynamic": [
+     },
      {
       "label": "Syncope / dizziness / postural symptoms",
       "keywords": "syncop|dizz|faint|postural|collapse|lighthead"
@@ -5209,13 +5031,11 @@
       "keywords": "group|hold|crossmatch|cross-match|g&h|type and screen|xmatch"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "CT angiography (if unstable / unlocalised)",
       "keywords": "cta|ct angio|angiogra|ct mesenteric"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Gastroscopy (within 24 h)",
       "keywords": "gastroscop|endoscop|ogd|egd|scope"
@@ -5330,7 +5150,7 @@
       "keywords": "oedema|swelling|froth|foam|hypertens|bp"
      }
     ],
-    "Risk factors": [
+    "Risk factors and systemic": [
      {
       "label": "Smoking / occupational dyes (aniline)",
       "keywords": "smok|dye|aniline|rubber|occupat"
@@ -5338,9 +5158,7 @@
      {
       "label": "Travel (schistosomiasis)",
       "keywords": "travel|africa|swimming in fresh"
-     }
-    ],
-    "Systemic": [
+     },
      {
       "label": "Weight loss / bone pain",
       "keywords": "weight|bone pain"
@@ -5348,13 +5166,11 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and bloods": [
      {
       "label": "Urinalysis",
       "keywords": "urinalys|dipstick|udip|urine dip|ua"
-     }
-    ],
-    "Bloods": [
+     },
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
@@ -5394,7 +5210,7 @@
       "keywords": "microscopy|dysmorphic|cast|red cell cast"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "CT urogram",
       "keywords": "ct urogram|ctu|ct kub|ct"
@@ -5402,9 +5218,7 @@
      {
       "label": "Renal US",
       "keywords": "renal us|ultrasound|us|uss"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Flexible cystoscopy",
       "keywords": "cystoscop|flexi|scope"
@@ -5415,7 +5229,7 @@
   "Haemoptysis": {
    "prompt": "",
    "differentials": {
-    "Infective": [
+    "Infective and neoplastic": [
      {
       "label": "Bronchitis / pneumonia",
       "keywords": "bronchit|pneumon|lrti|chest infection|infection"
@@ -5427,9 +5241,7 @@
      {
       "label": "Lung abscess / aspergilloma",
       "keywords": "abscess|aspergill|mycetoma|fungal"
-     }
-    ],
-    "Neoplastic": [
+     },
      {
       "label": "Lung cancer",
       "keywords": "lung cancer|cancer|malignan|tumour|carcinoma|neoplas"
@@ -5449,19 +5261,17 @@
       "keywords": "avm|arteriovenous|hht"
      }
     ],
-    "Airway": [
+    "Airway and immune": [
      {
       "label": "Bronchiectasis",
       "keywords": "bronchiect"
-     }
-    ],
-    "Immune": [
+     },
      {
       "label": "Vasculitis (GPA, anti-GBM disease)",
       "keywords": "vasculit|gpa|wegener|goodpasture|sle"
      }
     ],
-    "Haematological and trauma": [
+    "Haematological, trauma and non-respiratory": [
      {
       "label": "Coagulopathy / anticoagulants",
       "keywords": "coagulopath|anticoag|warfarin|doac"
@@ -5469,9 +5279,7 @@
      {
       "label": "Trauma / foreign body",
       "keywords": "trauma|foreign body|contusion"
-     }
-    ],
-    "Not respiratory": [
+     },
      {
       "label": "Pseudohaemoptysis (epistaxis, haematemesis)",
       "keywords": "pseudo|epistax|nose|haematemesis"
@@ -5499,7 +5307,7 @@
       "keywords": "haematuria|hematuria|rash|joint|sinus"
      }
     ],
-    "Risk factors": [
+    "Risk factors and cardiorespiratory symptoms": [
      {
       "label": "Smoking",
       "keywords": "smok|pack year"
@@ -5511,9 +5319,7 @@
      {
       "label": "Occupational exposure (asbestos)",
       "keywords": "occupat|asbestos|exposure"
-     }
-    ],
-    "Cardiorespiratory": [
+     },
      {
       "label": "Chest pain / SOB / leg swelling",
       "keywords": "chest pain|sob|breath|dysp|leg|calf|pleurit"
@@ -5521,13 +5327,11 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and bloods": [
      {
       "label": "SpO2 / blood gas",
       "keywords": "spo2|sats|oximetry|abg|vbg|blood gas"
-     }
-    ],
-    "Bloods": [
+     },
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
@@ -5559,7 +5363,7 @@
       "keywords": "urinalys|dipstick|ua|urine microscopy"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "CXR",
       "keywords": "cxr|chest x|chest radiograph|chest film|chest xr"
@@ -5567,9 +5371,7 @@
      {
       "label": "CT chest (± CTPA)",
       "keywords": "ct chest|ct|ctpa|hrct"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Bronchoscopy",
       "keywords": "bronchoscop"
@@ -5616,7 +5418,7 @@
       "keywords": "ich|subdural|sdh|intracerebral"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Meningitis / encephalitis",
       "keywords": "mening|encephalit"
@@ -5624,6 +5426,10 @@
      {
       "label": "Sinusitis",
       "keywords": "sinusit"
+     },
+     {
+      "label": "Giant cell arteritis",
+      "keywords": "gca|giant cell|temporal arter"
      }
     ],
     "Raised pressure and mass": [
@@ -5636,13 +5442,7 @@
       "keywords": "iih|idiopathic intracranial|pseudotumour|pseudotumor"
      }
     ],
-    "Inflammatory": [
-     {
-      "label": "Giant cell arteritis",
-      "keywords": "gca|giant cell|temporal arter"
-     }
-    ],
-    "Toxic and hypertensive": [
+    "Toxic, hypertensive and ocular": [
      {
       "label": "Carbon monoxide poisoning",
       "keywords": "carbon monox|co poison"
@@ -5650,9 +5450,7 @@
      {
       "label": "Hypertensive emergency / pre-eclampsia",
       "keywords": "hypertensive|pre-eclamp|preeclamp|eclampsia"
-     }
-    ],
-    "Ocular": [
+     },
      {
       "label": "Acute angle-closure glaucoma",
       "keywords": "glaucoma|angle closure"
@@ -5857,7 +5655,7 @@
       "keywords": "hearing aid|aid"
      }
     ],
-    "Ear symptoms": [
+    "Ear and neurological symptoms": [
      {
       "label": "Tinnitus",
       "keywords": "tinnitus"
@@ -5873,15 +5671,13 @@
      {
       "label": "Aural fullness",
       "keywords": "fullness|blocked|pressure"
-     }
-    ],
-    "Neurological": [
+     },
      {
       "label": "Facial weakness / numbness",
       "keywords": "facial|weak|numb"
      }
     ],
-    "Exposures": [
+    "Exposures and impact": [
      {
       "label": "Noise exposure / occupation",
       "keywords": "occupat|exposure|music|machinery|gun"
@@ -5893,9 +5689,7 @@
      {
       "label": "Recent URTI / flying / diving",
       "keywords": "urti|cold|fly|flight|diving"
-     }
-    ],
-    "Impact": [
+     },
      {
       "label": "Impact on communication / social isolation",
       "keywords": "communicat|social|isolation|impact|work"
@@ -5903,7 +5697,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and bloods": [
      {
       "label": "Otoscopy",
       "keywords": "otoscop|auroscop|examin"
@@ -5915,9 +5709,7 @@
      {
       "label": "BSL",
       "keywords": "bsl|bgl|glucose|finger prick|blood sugar"
-     }
-    ],
-    "Bloods": [
+     },
      {
       "label": "Syphilis serology / autoimmune screen",
       "keywords": "syphilis serology|tpha|rpr|autoimmune screen|ana|serology"
@@ -5986,7 +5778,7 @@
       "keywords": "thyro|thyroid"
      }
     ],
-    "Other secondary": [
+    "Other secondary and drugs": [
      {
       "label": "Obstructive sleep apnoea",
       "keywords": "osa|sleep apnoea|sleep apnea"
@@ -5994,27 +5786,21 @@
      {
       "label": "Coarctation of the aorta",
       "keywords": "coarct"
-     }
-    ],
-    "Drugs": [
+     },
      {
       "label": "Drugs (NSAIDs, OCP, steroids, stimulants, alcohol, liquorice)",
       "keywords": "nsaid|ocp|pill|steroid|stimulant|cocaine|amphet|alcohol|licorice|liquorice|drug|venlafaxine|decongest"
      }
     ],
-    "Pregnancy": [
+    "Pregnancy, emergency and transient": [
      {
       "label": "Pre-eclampsia / gestational hypertension",
       "keywords": "pre-eclamp|preeclamp|pregnan|gestational"
-     }
-    ],
-    "Emergency": [
+     },
      {
       "label": "Hypertensive emergency (end-organ damage)",
       "keywords": "emergency|urgency|malignant hypert|crisis"
-     }
-    ],
-    "Transient": [
+     },
      {
       "label": "Pain / anxiety",
       "keywords": "pain|anxiety|stress"
@@ -6022,13 +5808,11 @@
     ]
    },
    "associated": {
-    "Measurement": [
+    "Measurement and end-organ symptoms": [
      {
       "label": "Measurement: home readings, cuff size",
       "keywords": "home|cuff|reading|measure"
-     }
-    ],
-    "End-organ symptoms": [
+     },
      {
       "label": "Headache / visual change / chest pain / SOB",
       "keywords": "headache|visual|vision|chest pain|sob|breath|dysp"
@@ -6082,7 +5866,7 @@
       "keywords": "fundoscop|retina|fundus|ophthalmoscop"
      }
     ],
-    "Bloods": [
+    "Bloods, urine and swabs": [
      {
       "label": "UEC",
       "keywords": "uec|euc|u&e|urea|electrolyte|creat|renal function|kidney function|egfr"
@@ -6106,9 +5890,7 @@
      {
       "label": "Plasma metanephrines",
       "keywords": "metanephrin|catecholamin"
-     }
-    ],
-    "Urine, stool and swabs": [
+     },
      {
       "label": "Urinalysis / urine ACR",
       "keywords": "urinalys|dipstick|acr|albumin creatinine|ua|urine protein"
@@ -6183,7 +5965,7 @@
       "keywords": "torsion"
      }
     ],
-    "Inflammatory": [
+    "Inflammatory and other": [
      {
       "label": "Epididymo-orchitis",
       "keywords": "epididym|orchit"
@@ -6191,9 +5973,7 @@
      {
       "label": "Inguinal lymphadenopathy",
       "keywords": "lymph|node|adenopath"
-     }
-    ],
-    "Other": [
+     },
      {
       "label": "Lipoma of the cord",
       "keywords": "lipoma"
@@ -6235,7 +6015,7 @@
       "keywords": "sexual|sti|partner"
      }
     ],
-    "Systemic and fertility": [
+    "Systemic, fertility and precipitants": [
      {
       "label": "Constitutional (weight loss, back pain, gynaecomastia)",
       "keywords": "weight|back pain|constitution|gynaecomast"
@@ -6243,9 +6023,7 @@
      {
       "label": "Infertility / previous orchidopexy",
       "keywords": "infertil|orchidopexy|history of undescended"
-     }
-    ],
-    "Precipitants": [
+     },
      {
       "label": "Heavy lifting / chronic cough / straining",
       "keywords": "lifting|strain|chronic cough|heavy lifting"
@@ -6253,25 +6031,21 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and bloods": [
      {
       "label": "Examination (get above it, transilluminate, separate from testis)",
       "keywords": "transillum|get above|examin|separate|palpat"
-     }
-    ],
-    "Bloods": [
+     },
      {
       "label": "Tumour markers (AFP, β-hCG, LDH)",
       "keywords": "tumour marker|tumor marker|afp|alpha-fetoprotein|hcg|ldh"
      }
     ],
-    "Urine, stool and swabs": [
+    "Urine, swabs and imaging": [
      {
       "label": "First-void urine PCR / MSU",
       "keywords": "first void|fvu|pcr|chlamydia|gonorrh|msu|urine culture"
-     }
-    ],
-    "Imaging": [
+     },
      {
       "label": "Scrotal US",
       "keywords": "scrotal us|testicular us|ultrasound|us|uss|doppler"
@@ -6290,7 +6064,7 @@
   "Inguinoscrotal pain": {
    "prompt": "",
    "differentials": {
-    "Torsion": [
+    "Torsion and surgical emergencies": [
      {
       "label": "Testicular torsion",
       "keywords": "torsion|testicular torsion"
@@ -6298,6 +6072,10 @@
      {
       "label": "Torsion of appendix testis",
       "keywords": "appendix testis|hydatid|blue dot|torsion of appendix"
+     },
+     {
+      "label": "Incarcerated / strangulated hernia",
+      "keywords": "hernia|incarcerat|strangulat"
      }
     ],
     "Infective and inflammatory": [
@@ -6318,12 +6096,6 @@
       "keywords": "lymph|node|adenit"
      }
     ],
-    "Surgical emergencies": [
-     {
-      "label": "Incarcerated / strangulated hernia",
-      "keywords": "hernia|incarcerat|strangulat"
-     }
-    ],
     "Trauma and tumour": [
      {
       "label": "Trauma (haematocele, testicular rupture)",
@@ -6334,7 +6106,7 @@
       "keywords": "tumour|cancer|malignan"
      }
     ],
-    "Referred": [
+    "Referred and chronic": [
      {
       "label": "Renal colic (referred)",
       "keywords": "renal colic|stone|calcul|ureteric|referred"
@@ -6342,9 +6114,7 @@
      {
       "label": "AAA (referred) / hip / nerve entrapment",
       "keywords": "aaa|aneurysm|hip|nerve|entrapment|ilioinguinal"
-     }
-    ],
-    "Chronic": [
+     },
      {
       "label": "Varicocele / chronic orchialgia",
       "keywords": "varicocel|orchialgia|chronic"
@@ -6366,7 +6136,7 @@
       "keywords": "lump|swell|mass"
      }
     ],
-    "Systemic": [
+    "Systemic, urinary and referred symptoms": [
      {
       "label": "Nausea / vomiting",
       "keywords": "nausea|vomit"
@@ -6374,9 +6144,7 @@
      {
       "label": "Fever / dysuria / discharge",
       "keywords": "fever|dysuria|discharge|urinary"
-     }
-    ],
-    "Urinary and referred": [
+     },
      {
       "label": "Loin pain / haematuria",
       "keywords": "loin|flank|haematuria|hematuria"
@@ -6402,13 +6170,11 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and bloods": [
      {
       "label": "Examination (cremasteric reflex, high-riding testis)",
       "keywords": "cremaster|prehn|examin|lie|high-riding"
-     }
-    ],
-    "Bloods": [
+     },
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
@@ -6432,7 +6198,7 @@
       "keywords": "first void|fvu|pcr|chlamydia|gonorrh"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "Scrotal Doppler US",
       "keywords": "doppler|scrotal us|ultrasound|us|uss|testicular us"
@@ -6440,9 +6206,7 @@
      {
       "label": "CT KUB",
       "keywords": "ctkub|ct kub|ct"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Urgent scrotal exploration (don't delay for imaging)",
       "keywords": "exploration|explore|surgical exploration|theatre|surgery"
@@ -6802,7 +6566,7 @@
       "keywords": "spep|electrophoresis|paraprotein|free light|flc|protein electro"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "X-ray of affected joints",
       "keywords": "x-ray|xray|xr|radiograph|plain film"
@@ -6810,9 +6574,7 @@
      {
       "label": "US / MRI",
       "keywords": "ultrasound|us|mri"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Joint aspiration (cell count, Gram stain, crystals, culture)",
       "keywords": "aspirat|arthrocent|tap|synovial|crystal|gram|joint fluid"
@@ -6891,7 +6653,7 @@
     ]
    },
    "associated": {
-    "Onset and pattern": [
+    "Onset, pattern and systemic features": [
      {
       "label": "Onset (acute <24 h vs gradual)",
       "keywords": "onset|sudden|acute|gradual|hours"
@@ -6903,9 +6665,7 @@
      {
       "label": "Previous episodes",
       "keywords": "previous|episode|recurrent|attack"
-     }
-    ],
-    "Systemic": [
+     },
      {
       "label": "Fever / rigors",
       "keywords": "fever|rigor"
@@ -6921,7 +6681,7 @@
       "keywords": "anticoag|warfarin|doac|bleeding disorder"
      }
     ],
-    "Triggers and extra-articular": [
+    "Triggers, extra-articular and host factors": [
      {
       "label": "Diet / alcohol / diuretics",
       "keywords": "diet|alcohol|diuret|seafood|meat"
@@ -6937,9 +6697,7 @@
      {
       "label": "Eye symptoms / back pain",
       "keywords": "eye|uveit|conjunctiv|back pain"
-     }
-    ],
-    "Host factors": [
+     },
      {
       "label": "Prosthetic joint / immunosuppression / IVDU",
       "keywords": "prosthet|replacement|immunosup|ivdu|inject"
@@ -6947,7 +6705,7 @@
     ]
    },
    "investigations": {
-    "Bloods": [
+    "Bloods, urine and swabs": [
      {
       "label": "Blood cultures",
       "keywords": "blood culture|bcs|cultures"
@@ -6979,15 +6737,13 @@
      {
       "label": "Coags (INR, APTT, fibrinogen)",
       "keywords": "coag|inr|aptt|clotting|fibrinogen"
-     }
-    ],
-    "Urine, stool and swabs": [
+     },
      {
       "label": "STI PCR (urine, swabs)",
       "keywords": "sti|pcr|chlamydia|first void|swab"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "X-ray",
       "keywords": "x-ray|xray|xr|radiograph"
@@ -6999,9 +6755,7 @@
      {
       "label": "MRI (internal derangement)",
       "keywords": "mri"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Joint aspiration: cell count, Gram stain, culture, crystals",
       "keywords": "aspirat|arthrocent|tap|synovial|gram|crystal|joint fluid|polarised"
@@ -7152,13 +6906,11 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and bloods": [
      {
       "label": "Urinalysis",
       "keywords": "urinalys|dipstick|udip|urine dip|ua"
-     }
-    ],
-    "Bloods": [
+     },
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
@@ -7220,13 +6972,11 @@
       "keywords": "ck|creatine kinase|cpk"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "CXR",
       "keywords": "cxr|chest x|chest radiograph|chest film|chest xr"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Sleep study",
       "keywords": "sleep study|psg|polysomno"
@@ -7251,7 +7001,7 @@
       "keywords": "carotid sinus"
      }
     ],
-    "Cardiac": [
+    "Cardiac and haemorrhagic": [
      {
       "label": "Arrhythmia (brady/tachy, heart block, long QT)",
       "keywords": "arrhythm|heart block|brady|vt|svt|tachy|long qt|brugada|wpw"
@@ -7263,6 +7013,10 @@
      {
       "label": "Pulmonary embolism",
       "keywords": "pe|pulmonary embol"
+     },
+     {
+      "label": "Haemorrhage: dissection, ruptured AAA, ectopic",
+      "keywords": "dissect|aaa|rupture|ectopic|haemorrhag"
      }
     ],
     "Neurological": [
@@ -7296,16 +7050,10 @@
       "label": "Anaesthesia-related (airway, drugs, hypotension)",
       "keywords": "anaesthe|anesthe|airway|sedation"
      }
-    ],
-    "Haemorrhagic": [
-     {
-      "label": "Haemorrhage: dissection, ruptured AAA, ectopic",
-      "keywords": "dissect|aaa|rupture|ectopic|haemorrhag"
-     }
     ]
    },
    "associated": {
-    "Witness and prodrome": [
+    "Witness, prodrome and triggers": [
      {
       "label": "Witness account / collateral",
       "keywords": "witness|collateral|bystander|ambulance"
@@ -7313,9 +7061,7 @@
      {
       "label": "Prodrome (warmth, nausea, tunnel vision)",
       "keywords": "prodrom|warm|nausea|tunnel|lighthead|sweat|warning"
-     }
-    ],
-    "Triggers": [
+     },
      {
       "label": "Posture / triggers (standing, exertion, micturition, pain)",
       "keywords": "posture|standing|exert|trigger|micturition|cough|pain|neck turn"
@@ -7506,7 +7252,7 @@
       "keywords": "urine output|oligur|anur|output"
      }
     ],
-    "Triggers": [
+    "Triggers and other": [
      {
       "label": "Allergen exposure / rash / swelling",
       "keywords": "allerg|rash|swell|sting|food|wheez"
@@ -7518,9 +7264,7 @@
      {
       "label": "Trauma",
       "keywords": "trauma|injur|fall"
-     }
-    ],
-    "Other": [
+     },
      {
       "label": "LMP",
       "keywords": "lmp|period|missed period"
@@ -7554,7 +7298,7 @@
       "keywords": "lying|standing bp|postural bp"
      }
     ],
-    "Bloods": [
+    "Bloods and imaging": [
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
@@ -7590,9 +7334,7 @@
      {
       "label": "β-hCG",
       "keywords": "hcg|bhcg|b-hcg|beta hcg|βhcg|pregnancy test|upt|urine pregnancy"
-     }
-    ],
-    "Imaging": [
+     },
      {
       "label": "CXR",
       "keywords": "cxr|chest x|chest radiograph|chest film|chest xr"
@@ -7639,13 +7381,11 @@
       "keywords": "abscess|boil|furuncle|collection"
      }
     ],
-    "Hernia": [
+    "Hernia and vascular": [
      {
       "label": "Hernia",
       "keywords": "hernia"
-     }
-    ],
-    "Vascular": [
+     },
      {
       "label": "Vascular (aneurysm, haemangioma, varix)",
       "keywords": "aneurysm|haemangioma|hemangioma|varix|vascular"
@@ -7667,7 +7407,7 @@
     ]
    },
    "associated": {
-    "Lump features": [
+    "Lump and systemic features": [
      {
       "label": "Duration / rate of growth",
       "keywords": "duration|growth|grow|how long|change"
@@ -7683,15 +7423,13 @@
      {
       "label": "Pulsatile / cough impulse",
       "keywords": "pulsat|cough|reducib"
-     }
-    ],
-    "Systemic": [
+     },
      {
       "label": "Fever / night sweats / weight loss",
       "keywords": "fever|night sweat|sweat|weight|systemic"
      }
     ],
-    "Triggers and risk": [
+    "Triggers, risk and other sites": [
      {
       "label": "Trauma",
       "keywords": "trauma|injur"
@@ -7703,9 +7441,7 @@
      {
       "label": "Cancer history / smoking / sun exposure",
       "keywords": "cancer hist|smok|sun|previous cancer"
-     }
-    ],
-    "Other": [
+     },
      {
       "label": "Other lumps elsewhere",
       "keywords": "other lump|elsewhere|multiple"
@@ -7762,7 +7498,7 @@
   "Melaena": {
    "prompt": "",
    "differentials": {
-    "Mucosal": [
+    "Mucosal and portal hypertension": [
      {
       "label": "Peptic ulcer disease",
       "keywords": "peptic|ulcer|pud|duodenal|gastric ulcer"
@@ -7774,9 +7510,7 @@
      {
       "label": "Upper GI malignancy",
       "keywords": "cancer|malignan|tumour"
-     }
-    ],
-    "Portal hypertension": [
+     },
      {
       "label": "Varices",
       "keywords": "varice|variceal"
@@ -7796,13 +7530,11 @@
       "keywords": "small bowel|meckel|right colon|caecal|ileal"
      }
     ],
-    "Coagulopathy": [
+    "Coagulopathy and non-GI": [
      {
       "label": "Coagulopathy / anticoagulants",
       "keywords": "coagulopath|anticoag|warfarin|doac"
-     }
-    ],
-    "Not GI": [
+     },
      {
       "label": "Pseudo-melaena (iron, bismuth, liquorice)",
       "keywords": "iron|bismuth|liquorice|blueberr|pseudo|black food"
@@ -7814,7 +7546,7 @@
     ]
    },
    "associated": {
-    "Stool and bleeding": [
+    "Stool, bleeding and haemodynamic": [
      {
       "label": "Black tarry offensive stool / frequency",
       "keywords": "tarry|black|offensive|sticky|frequency|consisten"
@@ -7822,9 +7554,7 @@
      {
       "label": "Haematemesis / coffee-ground vomit",
       "keywords": "haematemesis|hematemesis|vomit|coffee"
-     }
-    ],
-    "Haemodynamic": [
+     },
      {
       "label": "Syncope / dizziness / SOB / chest pain",
       "keywords": "syncop|dizz|faint|sob|chest pain|lighthead|dysp"
@@ -7943,13 +7673,11 @@
       "keywords": "neuropath|radicul|mononeur|nerve palsy|carpal|foot drop|peroneal"
      }
     ],
-    "Neuromuscular junction": [
+    "Neuromuscular junction and muscle": [
      {
       "label": "Myasthenia gravis / LEMS",
       "keywords": "myasthen|mg|lems|lambert|eaton"
-     }
-    ],
-    "Muscle": [
+     },
      {
       "label": "Inflammatory myopathy (polymyositis, dermatomyositis, IBM)",
       "keywords": "myositis|dermatomyos|polymyos|ibm|inclusion body"
@@ -8240,13 +7968,11 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and bloods": [
      {
       "label": "Urinalysis",
       "keywords": "urinalys|dipstick|udip|urine dip|ua"
-     }
-    ],
-    "Bloods": [
+     },
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
@@ -8339,19 +8065,17 @@
       "keywords": "thyroglossal"
      }
     ],
-    "Salivary": [
+    "Salivary and infective": [
      {
       "label": "Salivary gland (pleomorphic adenoma, stone, sialadenitis)",
       "keywords": "salivary|parotid|submandibular|pleomorphic|warthin|sialaden|sialolith"
-     }
-    ],
-    "Infective": [
+     },
      {
       "label": "Deep neck abscess / quinsy",
       "keywords": "abscess|quinsy|deep neck"
      }
     ],
-    "Benign and congenital": [
+    "Benign, congenital and vascular": [
      {
       "label": "Branchial cyst",
       "keywords": "branchial"
@@ -8363,9 +8087,7 @@
      {
       "label": "Cystic hygroma / laryngocele / pharyngeal pouch",
       "keywords": "hygroma|lymphatic malform|laryngocele|pouch|zenker"
-     }
-    ],
-    "Vascular": [
+     },
      {
       "label": "Carotid body tumour / aneurysm",
       "keywords": "carotid body|paragangl|aneurysm|glomus"
@@ -8387,7 +8109,7 @@
       "keywords": "moves with swallow|tongue protru|tongue"
      }
     ],
-    "Red flags": [
+    "Red flags and infective triggers": [
      {
       "label": "B symptoms (fever, night sweats, weight loss)",
       "keywords": "fever|night sweat|sweat|weight|b symptom"
@@ -8399,15 +8121,13 @@
      {
       "label": "Referred otalgia",
       "keywords": "otalgia|ear pain"
-     }
-    ],
-    "Infective triggers": [
+     },
      {
       "label": "Recent URTI / dental infection / sore throat",
       "keywords": "urti|sore throat|dental|tooth|cold"
      }
     ],
-    "Risk factors": [
+    "Risk factors and thyroid": [
      {
       "label": "Smoking / alcohol",
       "keywords": "smok|alcohol"
@@ -8419,9 +8139,7 @@
      {
       "label": "Radiation exposure / cancer history / pets / travel",
       "keywords": "radiation|previous cancer|cat|travel|animal|dog"
-     }
-    ],
-    "Thyroid": [
+     },
      {
       "label": "Hyper- / hypothyroid symptoms",
       "keywords": "hyperthyro|hypothyro|heat|cold intoler|palpit"
@@ -8429,13 +8147,11 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and bloods": [
      {
       "label": "Examination (site: anterior / posterior triangle, thyroid)",
       "keywords": "examin|triangle|palpat|site"
-     }
-    ],
-    "Bloods": [
+     },
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
@@ -8504,7 +8220,7 @@
       "keywords": "ckd|renal|chest wall|stimulat"
      }
     ],
-    "Benign breast": [
+    "Benign and malignant breast": [
      {
       "label": "Intraductal papilloma",
       "keywords": "papilloma|intraductal"
@@ -8516,15 +8232,13 @@
      {
       "label": "Fibrocystic change",
       "keywords": "fibrocystic"
-     }
-    ],
-    "Malignant": [
+     },
      {
       "label": "Breast cancer (DCIS, invasive, Paget's)",
       "keywords": "cancer|dcis|malignan|carcinoma|paget"
      }
     ],
-    "Endocrine and drugs": [
+    "Endocrine, drugs and infective": [
      {
       "label": "Prolactinoma / pituitary adenoma",
       "keywords": "prolactinoma|pituitary|adenoma|macroadenoma"
@@ -8536,9 +8250,7 @@
      {
       "label": "Hypothyroidism",
       "keywords": "hypothyro|thyroid"
-     }
-    ],
-    "Infective": [
+     },
      {
       "label": "Mastitis / abscess",
       "keywords": "mastitis|abscess|infect"
@@ -8546,7 +8258,7 @@
     ]
    },
    "associated": {
-    "Discharge features": [
+    "Discharge and breast features": [
      {
       "label": "Unilateral vs bilateral",
       "keywords": "unilat|bilat|side"
@@ -8562,15 +8274,13 @@
      {
       "label": "Colour: bloody / serous / milky / green",
       "keywords": "colour|color|bloody|blood|serous|milky|green|clear"
-     }
-    ],
-    "Breast findings": [
+     },
      {
       "label": "Breast lump / skin change",
       "keywords": "lump|mass|skin|dimpl|retract|inversion"
      }
     ],
-    "Endocrine": [
+    "Endocrine and demographics": [
      {
       "label": "Headache / visual field loss",
       "keywords": "headache|visual|vision|field"
@@ -8578,9 +8288,7 @@
      {
       "label": "Amenorrhoea / infertility / libido",
       "keywords": "amenorr|period|menstru|infertil|libido"
-     }
-    ],
-    "Demographics": [
+     },
      {
       "label": "Male patient",
       "keywords": "male|man|gynaecomast"
@@ -8588,7 +8296,7 @@
     ]
    },
    "investigations": {
-    "Bloods": [
+    "Bloods, urine and swabs": [
      {
       "label": "β-hCG",
       "keywords": "hcg|bhcg|b-hcg|beta hcg|βhcg|pregnancy test|upt|urine pregnancy"
@@ -8604,9 +8312,7 @@
      {
       "label": "UEC",
       "keywords": "uec|euc|u&e|urea|electrolyte|creat|renal function|kidney function|egfr"
-     }
-    ],
-    "Urine, stool and swabs": [
+     },
      {
       "label": "Discharge cytology / occult blood",
       "keywords": "cytology|haemoccult|discharge test|blood in discharge"
@@ -8675,25 +8381,21 @@
       "keywords": "thalass|sickle|haemoglobinopath"
      }
     ],
-    "Blood loss": [
+    "Blood loss and marrow": [
      {
       "label": "Acute blood loss / GI bleeding",
       "keywords": "blood loss|bleed|gi bleed|haemorrhag"
-     }
-    ],
-    "Marrow": [
+     },
      {
       "label": "Marrow failure / leukaemia / myelodysplasia",
       "keywords": "marrow failure|leukaem|leukem|mds|myelodysplas|aplastic|marrow infiltrat"
      }
     ],
-    "Other endocrine": [
+    "Endocrine and circulatory": [
      {
       "label": "Hypopituitarism",
       "keywords": "hypopit|pituitar"
-     }
-    ],
-    "Circulatory": [
+     },
      {
       "label": "Shock / vasoconstriction (hypovolaemia, cold, pain)",
       "keywords": "shock|hypovol|vasoconst|cold|pain|anxiety"
@@ -8735,7 +8437,7 @@
       "keywords": "ethnic|ancestry|mediterran|haemoglobin disorder"
      }
     ],
-    "Haemolysis and marrow": [
+    "Haemolysis, marrow and drugs": [
      {
       "label": "Jaundice / dark urine",
       "keywords": "jaund|dark urine|yellow"
@@ -8747,9 +8449,7 @@
      {
       "label": "Weight loss / night sweats / bone pain",
       "keywords": "weight|night sweat|bone pain"
-     }
-    ],
-    "Drugs": [
+     },
      {
       "label": "NSAIDs / anticoagulants / medications",
       "keywords": "nsaid|anticoag|aspirin|med"
@@ -8757,7 +8457,7 @@
     ]
    },
    "investigations": {
-    "Bloods": [
+    "Bloods, urine and swabs": [
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
@@ -8805,9 +8505,7 @@
      {
       "label": "CRP / ESR",
       "keywords": "crp|esr|c-reactive|inflammatory marker"
-     }
-    ],
-    "Urine, stool and swabs": [
+     },
      {
       "label": "iFOBT",
       "keywords": "fobt|ifobt|fit|occult"
@@ -8842,7 +8540,7 @@
       "keywords": "pregnan"
      }
     ],
-    "Arrhythmia": [
+    "Arrhythmia and structural": [
      {
       "label": "AF / atrial flutter",
       "keywords": "af|atrial fib|flutter"
@@ -8854,9 +8552,13 @@
      {
       "label": "VT / long QT",
       "keywords": "vt|ventricular tachy|long qt|qt|brugada"
+     },
+     {
+      "label": "Structural heart disease / cardiomyopathy",
+      "keywords": "structural|cardiomyop|valv|hocm|hcm"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Thyrotoxicosis",
       "keywords": "thyrotox|hyperthyro|thyroid"
@@ -8864,9 +8566,7 @@
      {
       "label": "Hypoglycaemia / phaeochromocytoma",
       "keywords": "hypogly|phaeo|pheo"
-     }
-    ],
-    "Haematological": [
+     },
      {
       "label": "Anaemia",
       "keywords": "anaem|anem"
@@ -8881,16 +8581,10 @@
       "label": "Medications (salbutamol, thyroxine, QT-prolonging drugs)",
       "keywords": "salbutamol|med|thyroxine|drug|qt-prolong"
      }
-    ],
-    "Structural": [
-     {
-      "label": "Structural heart disease / cardiomyopathy",
-      "keywords": "structural|cardiomyop|valv|hocm|hcm"
-     }
     ]
    },
    "associated": {
-    "Rhythm features": [
+    "Rhythm features and triggers": [
      {
       "label": "Regular vs irregular / fast vs slow (tap it out)",
       "keywords": "regular|irregular|fast|slow|tap|rate|rhythm"
@@ -8902,9 +8596,7 @@
      {
       "label": "Terminated by vagal manoeuvres",
       "keywords": "vagal|valsalva|terminat"
-     }
-    ],
-    "Triggers": [
+     },
      {
       "label": "Triggers (exercise, stress, position)",
       "keywords": "trigger|exercise|stress|position"
@@ -8972,13 +8664,11 @@
       "keywords": "trop|troponin"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "Echocardiogram",
       "keywords": "echo|tte|echocardiogram"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Holter / event monitor / ILR / wearable",
       "keywords": "holter|event monitor|loop recorder|ilr|ambulatory ecg|kardia|smartwatch|wearable"
@@ -9035,13 +8725,11 @@
       "keywords": "molluscum|syphilis|condylomata lata"
      }
     ],
-    "Malignant": [
+    "Malignant and other": [
      {
       "label": "Anal cancer",
       "keywords": "anal cancer|cancer|scc|malignan"
-     }
-    ],
-    "Other": [
+     },
      {
       "label": "Pilonidal sinus / abscess",
       "keywords": "pilonidal"
@@ -9063,7 +8751,7 @@
       "keywords": "reduc|comes out|push back"
      }
     ],
-    "Symptoms": [
+    "Symptoms and bowel habit": [
      {
       "label": "Pain (on defecation / constant)",
       "keywords": "pain|tender|defecat"
@@ -9079,9 +8767,7 @@
      {
       "label": "Itch",
       "keywords": "itch|prurit"
-     }
-    ],
-    "Bowel habit": [
+     },
      {
       "label": "Bowel habit / straining",
       "keywords": "bowel|strain|constipat|diarrh"
@@ -9198,7 +8884,7 @@
       "keywords": "prostatit|coccyd|coccyx|tailbone"
      }
     ],
-    "Inflammatory and infective": [
+    "Inflammatory, infective and malignant": [
      {
       "label": "Proctitis (STI, IBD, radiation)",
       "keywords": "proctit|sti|herpes|gonorrh|chlamydia|lgv|radiation"
@@ -9206,9 +8892,7 @@
      {
       "label": "Perianal Crohn's disease",
       "keywords": "crohn|ibd"
-     }
-    ],
-    "Malignant": [
+     },
      {
       "label": "Anal cancer",
       "keywords": "cancer|malignan|scc"
@@ -9230,7 +8914,7 @@
       "keywords": "fever|discharg|pus"
      }
     ],
-    "Bowel habit": [
+    "Bowel habit and lump": [
      {
       "label": "Constipation / hard stools / straining",
       "keywords": "constipat|hard stool|strain"
@@ -9238,9 +8922,7 @@
      {
       "label": "Diarrhoea / mucus",
       "keywords": "diarrh|mucus"
-     }
-    ],
-    "Lump": [
+     },
      {
       "label": "Lump / swelling",
       "keywords": "lump|swell"
@@ -9280,7 +8962,7 @@
       "keywords": "bsl|bgl|glucose|finger prick|blood sugar"
      }
     ],
-    "Bloods": [
+    "Bloods, urine and swabs": [
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
@@ -9288,21 +8970,17 @@
      {
       "label": "CRP / ESR",
       "keywords": "crp|esr|c-reactive|inflammatory marker"
-     }
-    ],
-    "Urine, stool and swabs": [
+     },
      {
       "label": "STI swabs (PCR incl. HSV)",
       "keywords": "swab|pcr|hsv swab|sti screen"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "MRI pelvis / endoanal US",
       "keywords": "mri|endoanal|eus"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Proctoscopy / EUA",
       "keywords": "proctoscop|anoscop|eua|examination under"
@@ -9317,13 +8995,11 @@
   "Polydipsia": {
    "prompt": "",
    "differentials": {
-    "Osmotic diuresis": [
+    "Osmotic and water handling": [
      {
       "label": "Diabetes mellitus",
       "keywords": "diabetes mellitus|dm|t1dm|t2dm|hypergly|mellitus"
-     }
-    ],
-    "Water handling": [
+     },
      {
       "label": "Cranial diabetes insipidus (AVP deficiency)",
       "keywords": "cranial|central di|avp defic|diabetes insipidus|di"
@@ -9351,13 +9027,11 @@
       "keywords": "ckd|renal|kidney"
      }
     ],
-    "Dry mouth": [
+    "Dry mouth, drugs and other": [
      {
       "label": "Dry mouth (anticholinergics, Sjögren's)",
       "keywords": "dry mouth|xerostom|sjogren|sjögren|anticholin"
-     }
-    ],
-    "Drugs and other": [
+     },
      {
       "label": "Medications (diuretics, steroids, SGLT2i)",
       "keywords": "diuret|steroid|sglt|~gliflozin|med"
@@ -9461,13 +9135,11 @@
       "keywords": "urine volume|24 hour urine|24-hour urine|urine sodium"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "MRI pituitary",
       "keywords": "mri|pituitary mri"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Water deprivation / copeptin testing",
       "keywords": "water deprivation|copeptin|hypertonic saline|desmopressin|ddavp"
@@ -9520,7 +9192,7 @@
       "keywords": "nutrition|malnut|anaem|anem"
      }
     ],
-    "Metabolic and renal": [
+    "Metabolic, renal and frailty": [
      {
       "label": "Diabetes / glycaemic control",
       "keywords": "diabet|glycaem|insulin|sglt"
@@ -9528,9 +9200,7 @@
      {
       "label": "Renal impairment / AKI risk",
       "keywords": "renal|kidney|ckd|aki"
-     }
-    ],
-    "Frailty": [
+     },
      {
       "label": "Frailty / cognitive impairment / delirium risk",
       "keywords": "frail|cognit|dementia|delirium"
@@ -9588,13 +9258,11 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and bloods": [
      {
       "label": "ECG",
       "keywords": "ecg|ekg|electrocardiogram|12 lead|12-lead"
-     }
-    ],
-    "Bloods": [
+     },
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
@@ -9628,13 +9296,11 @@
       "keywords": "iron|ferritin|transferrin"
      }
     ],
-    "Urine, stool and swabs": [
+    "Urine, swabs and imaging": [
      {
       "label": "MRSA screen",
       "keywords": "mrsa|nasal swab|screen swab"
-     }
-    ],
-    "Imaging": [
+     },
      {
       "label": "CXR",
       "keywords": "cxr|chest x|chest radiograph|chest film|chest xr"
@@ -9757,13 +9423,11 @@
       "keywords": "screening hist|last screen|previous screen|dates|results"
      }
     ],
-    "Sexual and reproductive": [
+    "Sexual, psychosocial and medications": [
      {
       "label": "Sexual history",
       "keywords": "sexual hist|partner|safe sex"
-     }
-    ],
-    "Psychosocial": [
+     },
      {
       "label": "Occupation / sun exposure / driving",
       "keywords": "occupat|sun|driv|work"
@@ -9775,9 +9439,7 @@
      {
       "label": "Aboriginal and Torres Strait Islander status (715 health check)",
       "keywords": "aboriginal|torres|atsi|indigenous|715|first nations"
-     }
-    ],
-    "Medications": [
+     },
      {
       "label": "Medications / supplements",
       "keywords": "med|supplement"
@@ -9803,7 +9465,7 @@
       "keywords": "risk calculator|calculator|risk score|aus cvd risk|absolute cvd"
      }
     ],
-    "Bloods": [
+    "Bloods, urine and swabs": [
      {
       "label": "Lipids",
       "keywords": "lipid|cholesterol"
@@ -9819,15 +9481,13 @@
      {
       "label": "STI / BBV screen",
       "keywords": "sti screen|chlamydia pcr|serology|hiv test|syphilis"
-     }
-    ],
-    "Urine, stool and swabs": [
+     },
      {
       "label": "iFOBT (NBCSP, 45-74, 2-yearly)",
       "keywords": "ifobt|fobt|fit|nbcsp|faecal occult|bowel screen"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "Mammogram (BreastScreen, 50-74, 2-yearly)",
       "keywords": "mammo|breastscreen"
@@ -9843,9 +9503,7 @@
      {
       "label": "AAA ultrasound (selected)",
       "keywords": "aaa us|aaa ultrasound|aortic ultrasound|abdominal ultrasound|ultrasound"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Cervical screening test (HPV, 25-74, 5-yearly)",
       "keywords": "cst|cervical screen|hpv test|pap|self-collect|self collect"
@@ -9888,7 +9546,7 @@
       "keywords": "tinea|fungal|candid|ringworm"
      }
     ],
-    "Systemic": [
+    "Systemic and drugs": [
      {
       "label": "Cholestasis (PBC, obstruction, pregnancy)",
       "keywords": "cholesta|pbc|biliary|obstetric cholestasis|liver"
@@ -9908,9 +9566,7 @@
      {
       "label": "Thyroid disease / diabetes",
       "keywords": "thyro|thyroid|diabet"
-     }
-    ],
-    "Drugs": [
+     },
      {
       "label": "Drugs (opioids, ACEi, allopurinol)",
       "keywords": "drug|opioid|med|allopurinol|acei"
@@ -9946,7 +9602,7 @@
       "keywords": "stress|sleep|mood"
      }
     ],
-    "Contacts and exposures": [
+    "Contacts, exposures and products": [
      {
       "label": "Household / close contacts itchy",
       "keywords": "household|close contact|family itchy|others itchy"
@@ -9954,6 +9610,10 @@
      {
       "label": "Travel / pets / occupation",
       "keywords": "travel|pet|animal|occupat|work"
+     },
+     {
+      "label": "New medications / products (soaps, detergents)",
+      "keywords": "new med|soap|detergent|product|cosmetic|washing"
      }
     ],
     "Systemic features": [
@@ -9969,22 +9629,14 @@
       "label": "Fatigue / heavy periods",
       "keywords": "fatigue|tired|period|menorrh"
      }
-    ],
-    "Drugs and products": [
-     {
-      "label": "New medications / products (soaps, detergents)",
-      "keywords": "new med|soap|detergent|product|cosmetic|washing"
-     }
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and bloods": [
      {
       "label": "BSL",
       "keywords": "bsl|bgl|glucose|finger prick|blood sugar"
-     }
-    ],
-    "Bloods": [
+     },
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
@@ -10018,19 +9670,15 @@
       "keywords": "jak2|jak"
      }
     ],
-    "Urine, stool and swabs": [
+    "Urine, swabs, imaging and special tests": [
      {
       "label": "Skin scrapings (scabies, fungal)",
       "keywords": "scraping|scrape|skin scrap|microscopy|koh"
-     }
-    ],
-    "Imaging": [
+     },
      {
       "label": "CXR",
       "keywords": "cxr|chest x|chest radiograph|chest film|chest xr"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Skin biopsy",
       "keywords": "biopsy|punch"
@@ -10254,7 +9902,7 @@
       "keywords": "radiation|proctit|solitary rectal"
      }
     ],
-    "Colonic": [
+    "Colonic and infective": [
      {
       "label": "Colorectal cancer",
       "keywords": "colorectal|crc|cancer|malignan|bowel cancer|rectal cancer"
@@ -10274,9 +9922,7 @@
      {
       "label": "Ischaemic colitis",
       "keywords": "ischaem|ischem"
-     }
-    ],
-    "Infective": [
+     },
      {
       "label": "Infective colitis (Campylobacter, Shigella, STEC)",
       "keywords": "infective|campylobacter|shigella|e coli|stec|dysentery|gastroenteritis"
@@ -10344,7 +9990,7 @@
     ]
    },
    "investigations": {
-    "Bloods": [
+    "Bloods, urine and swabs": [
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
@@ -10368,21 +10014,17 @@
      {
       "label": "CRP / ESR",
       "keywords": "crp|esr|c-reactive|inflammatory marker"
-     }
-    ],
-    "Urine, stool and swabs": [
+     },
      {
       "label": "Stool MC&S / calprotectin",
       "keywords": "stool|calprotectin|culture"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "CT angiography (active bleed)",
       "keywords": "cta|ct angio|angiogra|mesenteric angio"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "DRE / proctoscopy",
       "keywords": "dre|digital rectal|pr exam|proctoscop|anoscop"
@@ -10463,7 +10105,7 @@
     ]
    },
    "associated": {
-    "Symptoms": [
+    "Symptoms and laterality": [
      {
       "label": "Pain vs gritty / itchy",
       "keywords": "pain|gritty|itch|ache|discomfort"
@@ -10483,9 +10125,7 @@
      {
       "label": "Headache / nausea / haloes",
       "keywords": "headache|nausea|halo|vomit"
-     }
-    ],
-    "Laterality": [
+     },
      {
       "label": "Unilateral vs bilateral",
       "keywords": "unilat|bilat|one eye|both eyes|side"
@@ -10547,13 +10187,11 @@
       "keywords": "fundoscop|ophthalmoscop|fundus"
      }
     ],
-    "Urine, stool and swabs": [
+    "Urine, swabs and special tests": [
      {
       "label": "Conjunctival swab (PCR / culture)",
       "keywords": "swab|pcr|culture"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Urgent ophthalmology review",
       "keywords": "ophthalmolog|eye clinic|referral|refer"
@@ -10678,13 +10316,11 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and bloods": [
      {
       "label": "Usually a clinical diagnosis",
       "keywords": "clinical|none|no investigation|not needed|nothing"
-     }
-    ],
-    "Bloods": [
+     },
      {
       "label": "β2-transferrin (CSF leak)",
       "keywords": "transferrin|beta-2|β2|tau"
@@ -10698,19 +10334,15 @@
       "keywords": "anca"
      }
     ],
-    "Urine, stool and swabs": [
+    "Urine, swabs, imaging and special tests": [
      {
       "label": "Nasal swab (viral PCR)",
       "keywords": "swab|pcr|viral pcr"
-     }
-    ],
-    "Imaging": [
+     },
      {
       "label": "CT sinuses",
       "keywords": "ct sinus|ct|sinus ct"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Anterior rhinoscopy / nasendoscopy",
       "keywords": "rhinoscop|nasendoscop|scope|speculum"
@@ -10725,10 +10357,18 @@
   "Seizure": {
    "prompt": "",
    "differentials": {
-    "Epileptic": [
+    "Epileptic and non-epileptic": [
      {
       "label": "Epilepsy (generalised / focal)",
       "keywords": "epilep|generalis|focal|idiopathic"
+     },
+     {
+      "label": "Convulsive syncope",
+      "keywords": "syncop|convulsive syncope|faint|vasovagal"
+     },
+     {
+      "label": "Functional seizures (PNES)",
+      "keywords": "pnes|functional|psychogenic|non-epileptic|dissociat"
      }
     ],
     "Metabolic": [
@@ -10778,16 +10418,6 @@
       "label": "Febrile convulsion (child)",
       "keywords": "febrile"
      }
-    ],
-    "Non-epileptic": [
-     {
-      "label": "Convulsive syncope",
-      "keywords": "syncop|convulsive syncope|faint|vasovagal"
-     },
-     {
-      "label": "Functional seizures (PNES)",
-      "keywords": "pnes|functional|psychogenic|non-epileptic|dissociat"
-     }
     ]
    },
    "associated": {
@@ -10833,13 +10463,11 @@
       "keywords": "pregnan"
      }
     ],
-    "Safety": [
+    "Safety and neurological symptoms": [
      {
       "label": "Driving / occupation / swimming / safety",
       "keywords": "driv|occupat|work|swim|safety"
-     }
-    ],
-    "Neurological": [
+     },
      {
       "label": "Neuro symptoms",
       "keywords": "neuro|weak|numb|speech"
@@ -10857,7 +10485,7 @@
       "keywords": "ecg|ekg|electrocardiogram|12 lead|12-lead"
      }
     ],
-    "Bloods": [
+    "Bloods, urine and swabs": [
      {
       "label": "UEC",
       "keywords": "uec|euc|u&e|urea|electrolyte|creat|renal function|kidney function|egfr"
@@ -10889,9 +10517,7 @@
      {
       "label": "Antiseizure medication levels",
       "keywords": "aed level|drug level|antiepileptic level|levels|valproate level|phenytoin level"
-     }
-    ],
-    "Urine, stool and swabs": [
+     },
      {
       "label": "Urine drug screen",
       "keywords": "uds|urine drug|drug screen|tox screen|toxicology"
@@ -10976,13 +10602,11 @@
       "keywords": "chemo|isoniazid|metronidazole|drug|toxic|vincristine|platinum"
      }
     ],
-    "Infective": [
+    "Infective and functional": [
      {
       "label": "Herpes zoster",
       "keywords": "zoster|shingles"
-     }
-    ],
-    "Functional": [
+     },
      {
       "label": "Functional",
       "keywords": "functional|fnd"
@@ -11199,7 +10823,7 @@
       "keywords": "discharg|punctum|pus"
      }
     ],
-    "Sun and skin cancer risk": [
+    "Sun, skin cancer and host risk": [
      {
       "label": "Sun exposure / sunburn / solarium",
       "keywords": "sun|sunburn|solarium|outdoor|uv"
@@ -11211,9 +10835,7 @@
      {
       "label": "Number of naevi / skin type",
       "keywords": "number of moles|skin type|fitzpatrick|fair|freckl"
-     }
-    ],
-    "Host factors": [
+     },
      {
       "label": "Immunosuppression (transplant)",
       "keywords": "immunosup|transplant"
@@ -11231,13 +10853,11 @@
       "keywords": "skin exam|full skin|total body|photograph|mole map|skin check"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "Ultrasound (subcutaneous lumps)",
       "keywords": "ultrasound|us|uss"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Excision biopsy (suspected melanoma, 2 mm margins)",
       "keywords": "excision|excis"
@@ -11280,13 +10900,11 @@
       "keywords": "pressure|bed sore|decubit"
      }
     ],
-    "Malignant": [
+    "Malignant and inflammatory": [
      {
       "label": "Malignant (SCC, BCC, Marjolin's)",
       "keywords": "scc|bcc|malignan|cancer|marjolin|melanoma"
-     }
-    ],
-    "Inflammatory": [
+     },
      {
       "label": "Pyoderma gangrenosum",
       "keywords": "pyoderma"
@@ -11300,7 +10918,7 @@
       "keywords": "calciphylax"
      }
     ],
-    "Infective and traumatic": [
+    "Infective, traumatic and haematological": [
      {
       "label": "Infection (Buruli ulcer, mycobacterial, ecthyma)",
       "keywords": "infect|cellulit|buruli|mycobact|ecthyma"
@@ -11308,9 +10926,7 @@
      {
       "label": "Trauma / pretibial laceration",
       "keywords": "trauma|lacerat|pretibial|skin tear"
-     }
-    ],
-    "Haematological": [
+     },
      {
       "label": "Sickle cell / haematological",
       "keywords": "sickle|haematolog"
@@ -11336,7 +10952,7 @@
       "keywords": "discharg|odour|smell|fever|exudate"
      }
     ],
-    "Vascular symptoms": [
+    "Vascular and neuropathic symptoms": [
      {
       "label": "Claudication",
       "keywords": "claudicat"
@@ -11348,9 +10964,7 @@
      {
       "label": "Smoking",
       "keywords": "smok"
-     }
-    ],
-    "Neuropathy": [
+     },
      {
       "label": "Numbness / diabetes control",
       "keywords": "numb|sensation|glycaem|control"
@@ -11372,13 +10986,11 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and bloods": [
      {
       "label": "ABI / toe pressures",
       "keywords": "abi|ankle brachial|toe pressure|tbi|doppler"
-     }
-    ],
-    "Bloods": [
+     },
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
@@ -11400,13 +11012,11 @@
       "keywords": "anca|ana|cryoglob|vasculitis screen|complement"
      }
     ],
-    "Urine, stool and swabs": [
+    "Urine, swabs, imaging and special tests": [
      {
       "label": "Wound swab (if clinically infected)",
       "keywords": "swab|culture|mcs"
-     }
-    ],
-    "Imaging": [
+     },
      {
       "label": "Arterial duplex / angiography",
       "keywords": "duplex|angiogra|cta|arterial imaging"
@@ -11418,9 +11028,7 @@
      {
       "label": "Probe-to-bone / X-ray / MRI (osteomyelitis)",
       "keywords": "probe to bone|probe-to-bone|x-ray|xray|mri"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Biopsy (atypical / non-healing)",
       "keywords": "biopsy|punch"
@@ -11473,13 +11081,11 @@
       "keywords": "candid|thrush"
      }
     ],
-    "Drugs": [
+    "Drugs, non-infective and malignant": [
      {
       "label": "Agranulocytosis (carbimazole, clozapine)",
       "keywords": "agranulocyt|neutropen|carbimazole|clozapine"
-     }
-    ],
-    "Non-infective": [
+     },
      {
       "label": "GORD / postnasal drip",
       "keywords": "gord|reflux|postnasal|post-nasal|lpr"
@@ -11487,9 +11093,7 @@
      {
       "label": "Subacute thyroiditis",
       "keywords": "thyroidit|de quervain"
-     }
-    ],
-    "Malignant": [
+     },
      {
       "label": "Laryngeal / oropharyngeal cancer (persistent)",
       "keywords": "cancer|malignan|laryn|oropharyn|tumour"
@@ -11587,13 +11191,11 @@
       "keywords": "pcr|sti|hiv test|throat pcr"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "CT neck (deep space infection)",
       "keywords": "ct neck|ct|lateral neck|soft tissue neck|x-ray|xray"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Nasendoscopy / laryngoscopy",
       "keywords": "nasendoscop|laryngoscop|scope|flexible"
@@ -11718,13 +11320,11 @@
       "keywords": "lmp|period|menstru"
      }
     ],
-    "Exposures": [
+    "Exposures and cardiorespiratory symptoms": [
      {
       "label": "Cough / travel / TB contacts / IVDU",
       "keywords": "cough|travel|contact|ivdu|inject"
-     }
-    ],
-    "Cardiac": [
+     },
      {
       "label": "Chest pain / SOB",
       "keywords": "chest pain|sob|breath|dysp"
@@ -11827,7 +11427,7 @@
       "keywords": "malnut|protein-losing|protein losing|kwashiork"
      }
     ],
-    "Venous and lymphatic": [
+    "Venous, lymphatic and dependent": [
      {
       "label": "DVT",
       "keywords": "dvt|deep vein|thrombo"
@@ -11843,6 +11443,10 @@
      {
       "label": "Pelvic mass / IVC obstruction",
       "keywords": "pelvic mass|ivc|obstruct|compress"
+     },
+     {
+      "label": "Dependent oedema (immobility) / lipoedema",
+      "keywords": "lipoed|dependent|immobil|chair"
      }
     ],
     "Infective and local": [
@@ -11873,12 +11477,6 @@
      {
       "label": "Angioedema / anaphylaxis",
       "keywords": "angioedema|anaphyla|allerg"
-     }
-    ],
-    "Dependent": [
-     {
-      "label": "Dependent oedema (immobility) / lipoedema",
-      "keywords": "lipoed|dependent|immobil|chair"
      }
     ]
    },
@@ -11937,13 +11535,11 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and bloods": [
      {
       "label": "ECG",
       "keywords": "ecg|ekg|electrocardiogram|12 lead|12-lead"
-     }
-    ],
-    "Bloods": [
+     },
      {
       "label": "UEC",
       "keywords": "uec|euc|u&e|urea|electrolyte|creat|renal function|kidney function|egfr"
@@ -11977,13 +11573,11 @@
       "keywords": "hcg|bhcg|b-hcg|beta hcg|βhcg|pregnancy test|upt|urine pregnancy"
      }
     ],
-    "Urine, stool and swabs": [
+    "Urine, swabs and imaging": [
      {
       "label": "Urinalysis + urine ACR / PCR",
       "keywords": "urinalys|dipstick|acr|pcr|urine protein|proteinuria|ua"
-     }
-    ],
-    "Imaging": [
+     },
      {
       "label": "Echocardiogram",
       "keywords": "echo|tte|echocardiogram"
@@ -12030,13 +11624,11 @@
       "keywords": "otosclero"
      }
     ],
-    "Drugs": [
+    "Drugs, inner ear and nerve": [
      {
       "label": "Ototoxic drugs (aspirin, aminoglycosides, loop diuretics, cisplatin)",
       "keywords": "ototox|aspirin|salicyl|aminoglycos|gentamicin|loop|furosemide|cisplatin|quinine"
-     }
-    ],
-    "Inner ear and nerve": [
+     },
      {
       "label": "Ménière's disease",
       "keywords": "meniere|ménière"
@@ -12046,13 +11638,11 @@
       "keywords": "acoustic|schwannoma|vestibular schwannoma"
      }
     ],
-    "Vascular": [
+    "Vascular and other": [
      {
       "label": "Vascular causes of pulsatile tinnitus (AVM, carotid stenosis, glomus, IIH)",
       "keywords": "vascular|avm|carotid|glomus|iih|dural|venous hum|fistula"
-     }
-    ],
-    "Other": [
+     },
      {
       "label": "TMJ / cervical",
       "keywords": "tmj|temporomandib|cervical|neck"
@@ -12102,7 +11692,7 @@
       "keywords": "med|drug"
      }
     ],
-    "Associated": [
+    "Associated symptoms and impact": [
      {
       "label": "Headache / visual symptoms (IIH)",
       "keywords": "headache|visual|vision|obes"
@@ -12110,9 +11700,7 @@
      {
       "label": "Head injury / neuro symptoms",
       "keywords": "head injur|neuro|facial|numb|weak"
-     }
-    ],
-    "Impact": [
+     },
      {
       "label": "Impact on sleep / mood / concentration",
       "keywords": "sleep|mood|concentrat|impact|distress"
@@ -12189,13 +11777,11 @@
       "keywords": "tamponade|cardiac injur|blunt cardiac|myocardial contusion"
      }
     ],
-    "Head and spine": [
+    "Head, spine, abdomen and pelvis": [
      {
       "label": "Traumatic brain injury (EDH, SDH, DAI, concussion)",
       "keywords": "tbi|head injur|edh|sdh|extradural|subdural|concuss|dai|intracranial"
-     }
-    ],
-    "Abdominal and pelvic": [
+     },
      {
       "label": "Solid organ injury (liver, spleen, kidney)",
       "keywords": "solid organ|splen|liver lacer|renal injur|kidney injur"
@@ -12372,7 +11958,7 @@
   "Tremor": {
    "prompt": "",
    "differentials": {
-    "Primary movement disorders": [
+    "Primary movement disorders and cerebellar": [
      {
       "label": "Essential tremor",
       "keywords": "essential"
@@ -12388,9 +11974,13 @@
      {
       "label": "Functional tremor",
       "keywords": "functional|psychogenic|fnd"
+     },
+     {
+      "label": "Cerebellar (intention) tremor (MS, stroke, alcohol)",
+      "keywords": "cerebell|intention|ms|multiple sclerosis"
      }
     ],
-    "Physiological and drugs": [
+    "Physiological, drugs and withdrawal": [
      {
       "label": "Enhanced physiological tremor (anxiety, caffeine, fatigue)",
       "keywords": "physiolog|enhanced|anxiety|caffeine|fatigue"
@@ -12402,6 +11992,10 @@
      {
       "label": "Drug-induced parkinsonism",
       "keywords": "drug-induced parkinson|parkinsonism"
+     },
+     {
+      "label": "Alcohol withdrawal",
+      "keywords": "alcohol|withdraw"
      }
     ],
     "Metabolic and endocrine": [
@@ -12421,22 +12015,10 @@
       "label": "Asterixis (hepatic, uraemic, CO2 retention)",
       "keywords": "asterix|flap|hepatic|uraem|co2"
      }
-    ],
-    "Withdrawal": [
-     {
-      "label": "Alcohol withdrawal",
-      "keywords": "alcohol|withdraw"
-     }
-    ],
-    "Cerebellar": [
-     {
-      "label": "Cerebellar (intention) tremor (MS, stroke, alcohol)",
-      "keywords": "cerebell|intention|ms|multiple sclerosis"
-     }
     ]
    },
    "associated": {
-    "Tremor features": [
+    "Tremor features and onset": [
      {
       "label": "Rest vs postural vs intention / action",
       "keywords": "rest|postur|action|kinetic|intention tremor"
@@ -12448,9 +12030,7 @@
      {
       "label": "Improves with alcohol",
       "keywords": "better with alcohol|alcohol responsive|improves with alcohol"
-     }
-    ],
-    "Onset": [
+     },
      {
       "label": "Onset / progression / age",
       "keywords": "onset|progress|age|how long"
@@ -12466,7 +12046,7 @@
       "keywords": "ataxi|dysarth|diplop|unsteady|coordinat"
      }
     ],
-    "Systemic features": [
+    "Systemic features and impact": [
      {
       "label": "Heat intolerance / weight loss / palpitations",
       "keywords": "heat|weight|palpit|sweat"
@@ -12474,9 +12054,7 @@
      {
       "label": "Liver disease / jaundice",
       "keywords": "liver|jaund"
-     }
-    ],
-    "Impact": [
+     },
      {
       "label": "Impact on ADLs (writing, drinking, eating)",
       "keywords": "adl|writing|drinking|eating|function|spill"
@@ -12653,7 +12231,7 @@
       "keywords": "forensic|police|legal|weapon|charge"
      }
     ],
-    "Background": [
+    "Background and organic features": [
      {
       "label": "Alcohol / recreational drug use",
       "keywords": "alcohol|recreational|drug use"
@@ -12661,9 +12239,7 @@
      {
       "label": "Psychiatric history / previous episodes / treatment",
       "keywords": "psychiatric|previous episode|previous admission|mental health|treatment hist"
-     }
-    ],
-    "Organic features": [
+     },
      {
       "label": "Neuro symptoms / headache / fever / confusion",
       "keywords": "neuro|headache|fever|weak|confus"
@@ -12689,7 +12265,7 @@
       "keywords": "ecg|ekg|electrocardiogram|12 lead|12-lead"
      }
     ],
-    "Bloods": [
+    "Bloods, urine and swabs": [
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
@@ -12721,21 +12297,17 @@
      {
       "label": "β-hCG",
       "keywords": "hcg|bhcg|b-hcg|beta hcg|βhcg|pregnancy test|upt|urine pregnancy"
-     }
-    ],
-    "Urine, stool and swabs": [
+     },
      {
       "label": "Urine drug screen",
       "keywords": "uds|urine drug|drug screen|tox screen|toxicology"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "CT / MRI brain",
       "keywords": "ct|mri|neuroimag|brain imaging|ct head|mri brain"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "EEG",
       "keywords": "eeg"
@@ -12778,7 +12350,7 @@
       "keywords": "prostate cancer|prostate ca"
      }
     ],
-    "Bladder dysfunction": [
+    "Bladder dysfunction and structural": [
      {
       "label": "Overactive bladder / detrusor overactivity",
       "keywords": "overactive|oab|detrusor|urge incontin|urgency incontin"
@@ -12802,9 +12374,7 @@
      {
       "label": "Interstitial cystitis / bladder pain syndrome",
       "keywords": "interstitial|bladder pain|painful bladder"
-     }
-    ],
-    "Tumour and stone": [
+     },
      {
       "label": "Bladder cancer / bladder stones",
       "keywords": "bladder cancer|bladder stone|stone|bladder ca"
@@ -12870,7 +12440,7 @@
       "keywords": "constipat|bowel habit"
      }
     ],
-    "Neurological and systemic": [
+    "Neurological, systemic and impact": [
      {
       "label": "Back pain / saddle anaesthesia / neuro symptoms",
       "keywords": "back pain|saddle|neuro|numb|weak|bowel"
@@ -12878,9 +12448,7 @@
      {
       "label": "Weight loss / bone pain",
       "keywords": "weight|bone pain"
-     }
-    ],
-    "Impact": [
+     },
      {
       "label": "Bother / impact (IPSS)",
       "keywords": "impact|qol|quality|bother|ipss"
@@ -12934,13 +12502,11 @@
       "keywords": "cytology"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "Renal tract US",
       "keywords": "ultrasound|us|uss|renal us|bladder us"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Flexible cystoscopy",
       "keywords": "cystoscop|flexi"
@@ -13011,7 +12577,7 @@
       "keywords": "open angle|open-angle|poag|glaucoma"
      }
     ],
-    "Lens and cornea": [
+    "Lens, cornea and other": [
      {
       "label": "Cataract",
       "keywords": "cataract"
@@ -13027,9 +12593,7 @@
      {
       "label": "Endophthalmitis / uveitis",
       "keywords": "endophthalm|uveit"
-     }
-    ],
-    "Other": [
+     },
      {
       "label": "Toxic / functional (methanol, ethambutol)",
       "keywords": "functional|methanol|ethambutol|toxic"
@@ -13282,7 +12846,7 @@
       "keywords": "chest pain"
      }
     ],
-    "Systemic features": [
+    "Systemic and reproductive features": [
      {
       "label": "Fever",
       "keywords": "fever"
@@ -13298,9 +12862,7 @@
      {
       "label": "Sick contacts / food / travel",
       "keywords": "contact|food|takeaway|travel"
-     }
-    ],
-    "Pregnancy": [
+     },
      {
       "label": "LMP",
       "keywords": "lmp|period|missed"
@@ -13385,7 +12947,7 @@
   "Weight gain": {
    "prompt": "",
    "differentials": {
-    "Lifestyle": [
+    "Lifestyle and fluid": [
      {
       "label": "Increased intake / reduced activity",
       "keywords": "calor|intake|diet|activity|sedentary|lifestyle|overeat"
@@ -13397,9 +12959,7 @@
      {
       "label": "Sleep deprivation / OSA / shift work",
       "keywords": "sleep depriv|osa|sleep apnoea|shift"
-     }
-    ],
-    "Fluid": [
+     },
      {
       "label": "Fluid retention (HF, CKD, nephrotic, cirrhosis)",
       "keywords": "fluid|oedema|edema|heart failure|nephrotic|cirrho|ascites|hf"
@@ -13427,13 +12987,11 @@
       "keywords": "growth hormone|gh defic|hypogonad"
      }
     ],
-    "Drugs": [
+    "Drugs and pregnancy": [
      {
       "label": "Medications (antipsychotics, steroids, insulin, sulfonylureas, valproate, mirtazapine)",
       "keywords": "antipsychot|olanzapine|steroid|insulin|sulfonyl|sulphonyl|valproate|mirtazapine|med|drug|lithium|beta|progest"
-     }
-    ],
-    "Pregnancy": [
+     },
      {
       "label": "Pregnancy",
       "keywords": "pregnan"
@@ -13549,13 +13107,11 @@
       "keywords": "bnp|nt-probnp|natriuretic"
      }
     ],
-    "Imaging": [
+    "Imaging and special tests": [
      {
       "label": "Pelvic US",
       "keywords": "pelvic us|ultrasound|transvaginal|us"
-     }
-    ],
-    "Special tests": [
+     },
      {
       "label": "Dexamethasone suppression test / 24 h urine cortisol",
       "keywords": "dexamethasone|dst|cortisol|urine free cortisol|late night saliv"
@@ -13570,10 +13126,22 @@
   "Weight loss": {
    "prompt": "",
    "differentials": {
-    "Malignant": [
+    "Malignant and chronic disease": [
      {
       "label": "Malignancy",
       "keywords": "malignan|cancer|tumour|neoplas|lymphoma"
+     },
+     {
+      "label": "Chronic infection (TB, HIV, endocarditis)",
+      "keywords": "tb|tuberc|hiv|endocard|chronic infect|infection"
+     },
+     {
+      "label": "COPD / HF (cachexia)",
+      "keywords": "copd|heart failure|cachexia|hf"
+     },
+     {
+      "label": "CKD / liver disease",
+      "keywords": "ckd|renal|kidney|liver|cirrho"
      }
     ],
     "Endocrine": [
@@ -13590,7 +13158,7 @@
       "keywords": "adrenal|addison"
      }
     ],
-    "Psychiatric and social": [
+    "Psychiatric, social and drugs": [
      {
       "label": "Depression",
       "keywords": "depress"
@@ -13602,6 +13170,10 @@
      {
       "label": "Dementia / social (poverty, isolation, dentition)",
       "keywords": "dementia|social|poverty|isolation|dentition|teeth|food access|financ"
+     },
+     {
+      "label": "Medications / substances (GLP-1 RA, stimulants, alcohol)",
+      "keywords": "metformin|glp|semaglutide|topiramate|stimulant|amphet|med|drug|substance|alcohol"
      }
     ],
     "Gastrointestinal": [
@@ -13616,26 +13188,6 @@
      {
       "label": "Peptic ulcer / oesophageal disease",
       "keywords": "peptic|ulcer|dysphag|oesophag"
-     }
-    ],
-    "Chronic disease": [
-     {
-      "label": "Chronic infection (TB, HIV, endocarditis)",
-      "keywords": "tb|tuberc|hiv|endocard|chronic infect|infection"
-     },
-     {
-      "label": "COPD / HF (cachexia)",
-      "keywords": "copd|heart failure|cachexia|hf"
-     },
-     {
-      "label": "CKD / liver disease",
-      "keywords": "ckd|renal|kidney|liver|cirrho"
-     }
-    ],
-    "Drugs": [
-     {
-      "label": "Medications / substances (GLP-1 RA, stimulants, alcohol)",
-      "keywords": "metformin|glp|semaglutide|topiramate|stimulant|amphet|med|drug|substance|alcohol"
      }
     ]
    },
@@ -13678,7 +13230,7 @@
       "keywords": "cough|haemopt|hemopt|sob|breath|dysp"
      }
     ],
-    "Endocrine and mood": [
+    "Endocrine, mood and risk factors": [
      {
       "label": "Polyuria / polydipsia",
       "keywords": "polyur|polydips|thirst"
@@ -13690,9 +13242,7 @@
      {
       "label": "Mood / anhedonia / body image / restriction",
       "keywords": "mood|anhedon|body image|fear of weight|restrict"
-     }
-    ],
-    "Risk factors": [
+     },
      {
       "label": "Smoking",
       "keywords": "smok"
@@ -13700,13 +13250,11 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and bloods": [
      {
       "label": "Urinalysis",
       "keywords": "urinalys|dipstick|udip|urine dip|ua"
-     }
-    ],
-    "Bloods": [
+     },
      {
       "label": "FBE",
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
@@ -13764,13 +13312,11 @@
       "keywords": "cortisol|synacthen"
      }
     ],
-    "Urine, stool and swabs": [
+    "Urine, swabs and imaging": [
      {
       "label": "Faecal elastase",
       "keywords": "elastase"
-     }
-    ],
-    "Imaging": [
+     },
      {
       "label": "CXR",
       "keywords": "cxr|chest x|chest radiograph|chest film|chest xr"
