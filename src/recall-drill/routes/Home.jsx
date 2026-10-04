@@ -199,59 +199,84 @@ export default function Home() {
 
   return (
     <section className="home">
-      <div className="panel">
-        <p className="lbl">Mode</p>
-        <div className="row">
+      <div className="tabwrap">
+        <div className="tabs" role="tablist" aria-label="Mode">
           {Object.entries(MODES).map(([m, { label }]) => (
-            <Chip key={m} pressed={mode === m} onClick={() => f.setMode(m)}>
+            <button
+              key={m}
+              role="tab"
+              aria-selected={mode === m}
+              className="tab"
+              onClick={() => f.setMode(m)}
+            >
               {label}
-            </Chip>
+            </button>
           ))}
+          <button
+            role="tab"
+            aria-selected={mode === "minis"}
+            className="tab"
+            onClick={() => f.setMode("minis")}
+          >
+            Minis
+          </button>
           {acct && (
-            <Chip pressed={starOnly} onClick={() => setStarOnly(!starOnly)}>
+            <button
+              className="starfilter"
+              aria-pressed={starOnly}
+              onClick={() => setStarOnly(!starOnly)}
+            >
               ★ Starred
-            </Chip>
+            </button>
           )}
         </div>
-        {mode === "cond" && (
-          <div>
-            <p className="lbl">Systems</p>
-            <div className="row">
-              {SYSTEMS.map((s) => (
-                <Chip
-                  key={s}
-                  pressed={f.selSys.has(s)}
-                  onClick={() => f.toggleSys(s)}
-                >
-                  {s}
-                </Chip>
-              ))}
-            </div>
-          </div>
-        )}
-        <div className="big">
-          <button className="primary" onClick={random}>
-            Random {MODES[mode].noun}
-          </button>
-        </div>
-        <p className="lbl" style={{ marginTop: 18 }}>
-          Or pick one
-        </p>
-        <div className="condlist">
-          {!ds.length ? (
-            <p className="note" style={{ gridColumn: "1/-1", margin: 0 }}>
-              No starred drills here yet.
-            </p>
-          ) : mode === "pres" ? (
-            ds.map((d) => <Row key={d.key} drill={d} />)
-          ) : (
-            SYSTEMS.filter((s) => ds.some((d) => d.system === s)).map((s) => (
-              <Group
-                key={s}
-                system={s}
-                drills={ds.filter((d) => d.system === s)}
-              />
-            ))
+        <div className="panel tabpanel" role="tabpanel">
+          {mode === "minis" ? null : (
+            <>
+              {mode === "cond" && (
+                <div>
+                  <p className="lbl">Systems</p>
+                  <div className="row">
+                    {SYSTEMS.map((s) => (
+                      <Chip
+                        key={s}
+                        pressed={f.selSys.has(s)}
+                        onClick={() => f.toggleSys(s)}
+                      >
+                        {s}
+                      </Chip>
+                    ))}
+                  </div>
+                </div>
+              )}
+              <div className="big">
+                <button className="primary" onClick={random}>
+                  Random {MODES[mode].noun}
+                </button>
+              </div>
+              <p className="lbl" style={{ marginTop: 18 }}>
+                Or pick one
+              </p>
+              <div className="condlist">
+                {!ds.length ? (
+                  <p className="note" style={{ gridColumn: "1/-1", margin: 0 }}>
+                    No starred drills here yet.
+                  </p>
+                ) : mode === "pres" ? (
+                  ds.map((d) => <Row key={d.key} drill={d} />)
+                ) : (
+                  SYSTEMS.filter((s) => ds.some((d) => d.system === s)).map(
+                    (s) => (
+                      <Group
+                        key={s}
+                        system={s}
+                        drills={ds.filter((d) => d.system === s)}
+                      />
+                    ),
+                  )
+                )}
+              </div>
+            </>
           )}
         </div>
       </div>

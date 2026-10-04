@@ -20,9 +20,12 @@ export function FilterProvider({ children }) {
       });
     // user: the account's record (or null) for the starred filter
     const pool = (m, user) =>
-      (m === "cond" ? DATA.filter((d) => selSys.has(d.system)) : PRES).filter(
-        (d) => !starOnly || (user && user.stars.includes(d.key)),
-      );
+      (m === "cond"
+        ? DATA.filter((d) => selSys.has(d.system))
+        : m === "pres"
+          ? PRES
+          : []
+      ).filter((d) => !starOnly || (user && user.stars.includes(d.key)));
     const randPick = (m, user, cur) => {
       const p = pool(m, user).filter((d) => d !== cur);
       const q = p.length ? p : pool(m, user);

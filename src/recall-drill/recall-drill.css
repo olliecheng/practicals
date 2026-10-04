@@ -33,6 +33,7 @@
   --purple: #7a4fb3;
   --purple-soft: #e6dcf3;
   --r: 5px;
+  --tabh: 38px;
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -244,6 +245,58 @@ button.chip[aria-pressed="true"] {
 @media (max-width: 900px) {
   .home {
     grid-template-columns: minmax(0, 760px);
+  }
+}
+.tabs {
+  display: flex;
+  gap: 2px;
+  height: var(--tabh);
+  align-items: flex-end;
+}
+button.starfilter {
+  margin: 0 0 4px auto;
+  padding: 3px 12px;
+  font-size: 0.85rem;
+  color: var(--mute);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--r);
+}
+button.starfilter[aria-pressed="true"] {
+  background: var(--teal-soft);
+  border-color: var(--teal);
+  color: var(--ink);
+}
+button.tab {
+  position: relative;
+  height: 34px;
+  padding: 0 20px;
+  font-size: 0.9rem;
+  color: var(--mute);
+  background: var(--tile);
+  border: 1px solid var(--line);
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 0;
+}
+button.tab[aria-selected="true"] {
+  height: 38px;
+  background: var(--panel);
+  color: var(--ink);
+  font-weight: 600;
+  z-index: 1;
+  margin-bottom: -1px;
+}
+.tabpanel {
+  min-height: 200px;
+  border-radius: 0 var(--r) var(--r) var(--r);
+}
+#hist {
+  margin-top: var(--tabh);
+}
+@media (max-width: 900px) {
+  #hist {
+    margin-top: 0;
   }
 }
 .row {
