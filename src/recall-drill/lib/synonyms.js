@@ -77,6 +77,7 @@ export const SYNONYMS = [
   ["x-ray", "xray", "radiograph"],
   ["stool", "faeces", "faecal"],
   ["blood sugar", "glucose"],
+  ["diabetes", "bsl", "bgl", "sugar", "sugars"],
   ["smoking", "tobacco", "cigarettes"],
   ["operation", "surgery"],
 ];
