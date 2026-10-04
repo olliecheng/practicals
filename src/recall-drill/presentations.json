@@ -3,7 +3,7 @@
   "Abdominal distension": {
    "prompt": "",
    "differentials": {
-    "Gastrointestinal": [
+    "Gastrointestinal and hepatobiliary": [
      {
       "label": "Constipation / faecal loading",
       "keywords": "constipat|faecal load|faecal impact|impaction"
@@ -11,9 +11,7 @@
      {
       "label": "Bloating / IBS",
       "keywords": "bloat|ibs|irritable|functional"
-     }
-    ],
-    "Hepatobiliary and pancreatic": [
+     },
      {
       "label": "Ascites (cirrhosis, malignancy, HF)",
       "keywords": "ascites|free fluid|hf|heart failure"
@@ -23,13 +21,11 @@
       "keywords": "organomegal|hepatomegal|splenomegal|enlarged liver|enlarged spleen|hepatosplenomegal"
      }
     ],
-    "Renal and urological": [
+    "Renal, urological and reproductive": [
      {
       "label": "Urinary retention",
       "keywords": "retention|distended bladder|bladder"
-     }
-    ],
-    "Gynaecological and obstetric": [
+     },
      {
       "label": "Fibroids",
       "keywords": "fibroid|leiomyoma"
@@ -63,13 +59,11 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Abdominal pain",
       "keywords": "pain"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Duration / rate of onset",
       "keywords": "duration|onset|how long|rapid|gradual"
@@ -87,7 +81,7 @@
       "keywords": "sob|breath|dysp|leg swell|oedema|edema|ankle"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Vomiting",
       "keywords": "vomit|nausea"
@@ -99,9 +93,7 @@
      {
       "label": "Jaundice",
       "keywords": "jaund|yellow"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "LMP / pregnancy possibility",
       "keywords": "lmp|period|menstru|last period"
@@ -111,7 +103,7 @@
       "keywords": "urin|luts|voiding"
      }
     ],
-    "Risk factors": [
+    "Risk factors and exposures": [
      {
       "label": "Alcohol / liver disease risk",
       "keywords": "alcohol|etoh|hepatitis|liver disease"
@@ -170,13 +162,13 @@
   "Abdominal pain": {
    "prompt": "Differentials (all regions)",
    "differentials": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Inferior MI / lower lobe pneumonia",
       "keywords": "mi|infarct|acs|pneumonia|lower lobe"
      }
     ],
-    "Gastrointestinal": [
+    "Gastrointestinal and hepatobiliary": [
      {
       "label": "Peptic ulcer / perforation / gastritis",
       "keywords": "peptic|ulcer|perforat|pud|gastrit"
@@ -196,9 +188,7 @@
      {
       "label": "Constipation / IBS",
       "keywords": "constipat|ibs|irritable|functional"
-     }
-    ],
-    "Hepatobiliary and pancreatic": [
+     },
      {
       "label": "Cholecystitis / biliary colic / cholangitis",
       "keywords": "cholecyst|biliary|gallstone|colic|cholang"
@@ -212,13 +202,11 @@
       "keywords": "hepatit"
      }
     ],
-    "Renal and urological": [
+    "Renal, urological and reproductive": [
      {
       "label": "Renal colic / pyelonephritis",
       "keywords": "renal colic|kidney stone|stone|calcul|pyelo|ureteric"
-     }
-    ],
-    "Gynaecological and obstetric": [
+     },
      {
       "label": "Ectopic pregnancy",
       "keywords": "ectopic"
@@ -228,7 +216,7 @@
       "keywords": "torsion|ovarian|pid|pelvic inflammatory|salping|cyst"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "DKA / hypercalcaemia / Addison's / porphyria",
       "keywords": "dka|ketoacidosis|hypercalc|porphyria|addison"
@@ -256,7 +244,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Site / radiation (SOCRATES)",
       "keywords": "site|radiat|socrates|where|location"
@@ -276,7 +264,7 @@
       "keywords": "weight|appetite"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Vomiting (bilious / faeculent / blood)",
       "keywords": "vomit|nausea|bilious|faeculent"
@@ -288,9 +276,7 @@
      {
       "label": "Jaundice",
       "keywords": "jaund|yellow"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "Urinary symptoms / haematuria",
       "keywords": "urin|dysuria|haematuria|hematuria|frequency"
@@ -381,13 +367,13 @@
   "Abnormal bleeding and bruising": {
    "prompt": "",
    "differentials": {
-    "Hepatobiliary and pancreatic": [
+    "Gastrointestinal and hepatobiliary": [
      {
       "label": "Liver disease (coagulopathy)",
       "keywords": "liver|cirrho|hepat"
      }
     ],
-    "Haematological": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Thrombocytopenia (ITP, TTP, marrow failure)",
       "keywords": "thrombocytopen|itp|ttp|low platelet"
@@ -407,9 +393,7 @@
      {
       "label": "DIC / sepsis",
       "keywords": "dic|disseminated|sepsis"
-     }
-    ],
-    "Endocrine and metabolic": [
+     },
      {
       "label": "Vitamin K deficiency / malabsorption",
       "keywords": "vitamin k|vit k|malabsor"
@@ -441,7 +425,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Bleeding sites (gums, nose, menorrhagia, GI, joints)",
       "keywords": "gum|nose|epistax|menorrhag|heavy period|gi bleed|haemarthr|joint bleed|site"
@@ -449,9 +433,7 @@
      {
       "label": "Petechiae / purpura vs ecchymoses pattern",
       "keywords": "petech|purpur|ecchym|bruis|pattern"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Spontaneous vs after trauma / surgery / dental",
       "keywords": "spontan|trauma|surg|dental|extraction|procedure"
@@ -524,7 +506,7 @@
   "Abnormal speech and communication": {
    "prompt": "",
    "differentials": {
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Dementia (incl. primary progressive aphasia)",
       "keywords": "dementia|ppa|primary progressive|alzheimer|frontotemporal|ftd"
@@ -548,15 +530,19 @@
      {
       "label": "Myasthenia gravis",
       "keywords": "myasthen|mg"
+     },
+     {
+      "label": "Psychiatric (thought disorder, mania)",
+      "keywords": "psych|schizo|thought disorder|mania"
      }
     ],
-    "Ear, nose and throat": [
+    "Eye, ear, nose and throat": [
      {
       "label": "Hearing loss / laryngeal (vocal cord palsy, cancer)",
       "keywords": "hearing|deaf|laryn|vocal cord|recurrent laryngeal|hoarse"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Hypoglycaemia",
       "keywords": "hypogly"
@@ -579,22 +565,14 @@
       "label": "Intoxication / sedation",
       "keywords": "intox|drunk|sedat|toxic"
      }
-    ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Psychiatric (thought disorder, mania)",
-      "keywords": "psych|schizo|thought disorder|mania"
-     }
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Type: comprehension / word-finding / slurring",
       "keywords": "compreh|word find|slur|dysarthr|expressive|receptive|fluency"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Onset (sudden vs gradual)",
       "keywords": "onset|sudden|gradual|time"
@@ -604,7 +582,7 @@
       "keywords": "fatig|end of day|worse with use"
      }
     ],
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "Facial / limb weakness, numbness",
       "keywords": "weak|numb|facial droop|limb|hemipar"
@@ -630,7 +608,7 @@
       "keywords": "alcohol|drug|med|etoh"
      }
     ],
-    "Risk factors": [
+    "Risk factors and exposures": [
      {
       "label": "Vascular risk factors",
       "keywords": "vascular|risk factor|af|smok|hypertens|diabet"
@@ -697,7 +675,7 @@
   "Agitation (including aggression)": {
    "prompt": "",
    "differentials": {
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Delirium (infection, metabolic, drugs)",
       "keywords": "delirium|acute confus"
@@ -705,9 +683,21 @@
      {
       "label": "Dementia (BPSD)",
       "keywords": "dementia|bpsd|alzheimer"
+     },
+     {
+      "label": "Psychosis (schizophrenia)",
+      "keywords": "psychos|psychot|schizo"
+     },
+     {
+      "label": "Mania",
+      "keywords": "mania|manic|bipolar"
+     },
+     {
+      "label": "Anxiety / situational / personality",
+      "keywords": "personality|situational|anxiety|panic|frustrat"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Hypoxia / hypoglycaemia",
       "keywords": "hypox|hypogly"
@@ -733,20 +723,6 @@
       "keywords": "steroid|anticholin|serotonin|nms|neurolept|akathis"
      }
     ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Psychosis (schizophrenia)",
-      "keywords": "psychos|psychot|schizo"
-     },
-     {
-      "label": "Mania",
-      "keywords": "mania|manic|bipolar"
-     },
-     {
-      "label": "Anxiety / situational / personality",
-      "keywords": "personality|situational|anxiety|panic|frustrat"
-     }
-    ],
     "Physiological and functional": [
      {
       "label": "Pain / urinary retention / constipation",
@@ -755,7 +731,7 @@
     ]
    },
    "associated": {
-    "Onset and course": [
+    "Characteristics and course": [
      {
       "label": "Onset / fluctuation",
       "keywords": "onset|fluctuat|sudden|acute"
@@ -777,7 +753,7 @@
       "keywords": "fever|infect|cough|urinary"
      }
     ],
-    "Psychological": [
+    "Psychological and social": [
      {
       "label": "Psychiatric history",
       "keywords": "psychiatric|mental health|previous episode"
@@ -868,19 +844,17 @@
   "Alcohol-related presentations": {
    "prompt": "Complications",
    "differentials": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Cardiomyopathy / AF (\"holiday heart\")",
       "keywords": "cardiomyop|af|holiday heart|arrhythm"
      }
     ],
-    "Gastrointestinal": [
+    "Gastrointestinal and hepatobiliary": [
      {
       "label": "Upper GI bleed (varices, Mallory-Weiss)",
       "keywords": "gi bleed|varice|mallory|haematemesis|upper gi"
-     }
-    ],
-    "Hepatobiliary and pancreatic": [
+     },
      {
       "label": "Alcoholic liver disease / hepatitis / cirrhosis",
       "keywords": "liver|cirrho|hepatit|fatty|ald"
@@ -890,13 +864,17 @@
       "keywords": "pancreatit"
      }
     ],
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Wernicke's encephalopathy / Korsakoff",
       "keywords": "wernicke|korsakoff|thiamine defic"
+     },
+     {
+      "label": "Depression / suicide risk",
+      "keywords": "depress|suicid|self-harm|mood"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Hypoglycaemia",
       "keywords": "hypogly"
@@ -906,7 +884,7 @@
       "keywords": "hypokal|hypomag|hypophos|ketoacid|refeed|electrolyte disturb|electrolyte abnorm|electrolyte derang"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Aspiration pneumonia",
       "keywords": "aspirat|pneumon"
@@ -927,12 +905,6 @@
       "label": "Withdrawal / delirium tremens / withdrawal seizures",
       "keywords": "withdraw|dts|tremens|seizure"
      }
-    ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Depression / suicide risk",
-      "keywords": "depress|suicid|self-harm|mood"
-     }
     ]
    },
    "associated": {
@@ -942,10 +914,18 @@
       "keywords": "nutrition|diet|weight|eat|malnut"
      }
     ],
-    "Psychological": [
+    "Psychological and social": [
      {
       "label": "Readiness to change",
       "keywords": "ready|readiness|motivat|stage of change|cut down"
+     },
+     {
+      "label": "Social: work, driving, relationships, housing, legal",
+      "keywords": "social|work|driv|relationship|housing|legal|finance|police|homeless"
+     },
+     {
+      "label": "Children / dependants at risk",
+      "keywords": "child|dependant|kids|safety"
      }
     ],
     "Past history": [
@@ -966,16 +946,6 @@
      {
       "label": "Other substances / benzos",
       "keywords": "substance|other drug|benzo|cannabis|smok"
-     }
-    ],
-    "Social and function": [
-     {
-      "label": "Social: work, driving, relationships, housing, legal",
-      "keywords": "social|work|driv|relationship|housing|legal|finance|police|homeless"
-     },
-     {
-      "label": "Children / dependants at risk",
-      "keywords": "child|dependant|kids|safety"
      }
     ]
    },
@@ -1041,19 +1011,17 @@
   "Altered bowel habit": {
    "prompt": "",
    "differentials": {
-    "Gastrointestinal": [
+    "Gastrointestinal and hepatobiliary": [
      {
       "label": "Diverticular disease",
       "keywords": "divertic"
-     }
-    ],
-    "Hepatobiliary and pancreatic": [
+     },
      {
       "label": "Pancreatic insufficiency / bile acid malabsorption",
       "keywords": "pancreatic insuff|exocrine|bile acid|malabsor"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Thyroid disease",
       "keywords": "thyro|thyroid"
@@ -1063,13 +1031,11 @@
       "keywords": "hypercalc|autonom|diabet"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Infection (Giardia, C. difficile)",
       "keywords": "infect|giardia|c diff|difficile|gastroenteritis|gastro|parasitic"
-     }
-    ],
-    "Inflammatory and autoimmune": [
+     },
      {
       "label": "IBD",
       "keywords": "ibd|crohn|colitis|ulcerative"
@@ -1103,13 +1069,11 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Nocturnal symptoms",
       "keywords": "noctur|night|wake"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Change from baseline: frequency, consistency, duration",
       "keywords": "frequen|consisten|baseline|bristol|duration|loose|hard"
@@ -1125,7 +1089,7 @@
       "keywords": "fever"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Blood / mucus PR",
       "keywords": "blood|mucus|pr bleed|rectal bleed|haematochez"
@@ -1145,7 +1109,7 @@
       "keywords": "screen|previous colonoscopy|age"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Travel / contacts / diet change",
       "keywords": "travel|contact|diet|food|camp"
@@ -1216,25 +1180,23 @@
   "Altered conscious state": {
    "prompt": "Differentials (incl. intoxication, shock, trauma)",
    "differentials": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Shock (hypovolaemic, cardiogenic, septic)",
       "keywords": "shock|hypovol|cardiogenic|hypoperfus"
-     }
-    ],
-    "Respiratory": [
+     },
      {
       "label": "Hypoxia / hypercapnia",
       "keywords": "hypox|hypercap|co2 narcosis|resp failure"
      }
     ],
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Seizure / post-ictal / NCSE",
       "keywords": "seiz|postictal|post-ictal|status|ncse|fit"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Hypoglycaemia",
       "keywords": "hypogly"
@@ -1252,7 +1214,7 @@
       "keywords": "wernicke"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Sepsis / meningitis / encephalitis",
       "keywords": "sepsis|septic|mening|encephalit"
@@ -1411,13 +1373,13 @@
   "Altered sleep": {
    "prompt": "",
    "differentials": {
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "Obstructive sleep apnoea",
       "keywords": "osa|apnoea|apnea|sleep disordered"
      }
     ],
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Restless legs / periodic limb movements",
       "keywords": "restless|rls|plmd|periodic limb|willis"
@@ -1425,9 +1387,21 @@
      {
       "label": "Narcolepsy",
       "keywords": "narcolep|cataplex"
+     },
+     {
+      "label": "Insomnia",
+      "keywords": "insomnia|psychophys"
+     },
+     {
+      "label": "Depression / anxiety",
+      "keywords": "depress|anxiety|mood"
+     },
+     {
+      "label": "Mania / bipolar",
+      "keywords": "mania|bipolar|manic"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Hyperthyroidism",
       "keywords": "hyperthyro|thyro"
@@ -1447,20 +1421,6 @@
       "keywords": "steroid|ssri|beta|diuret|med|drug"
      }
     ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Insomnia",
-      "keywords": "insomnia|psychophys"
-     },
-     {
-      "label": "Depression / anxiety",
-      "keywords": "depress|anxiety|mood"
-     },
-     {
-      "label": "Mania / bipolar",
-      "keywords": "mania|bipolar|manic"
-     }
-    ],
     "Physiological and functional": [
      {
       "label": "Circadian rhythm disorder / shift work",
@@ -1473,7 +1433,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Sleep pattern: onset vs maintenance vs early waking",
       "keywords": "pattern|onset|maintenan|early wak|wake|latency|initiat"
@@ -1497,7 +1457,7 @@
       "keywords": "snor|witnessed|gasping|choking"
      }
     ],
-    "Psychological": [
+    "Psychological and social": [
      {
       "label": "Stressors / worry",
       "keywords": "stress|life event|worry"
@@ -1505,18 +1465,16 @@
      {
       "label": "Hallucinations / sleep paralysis",
       "keywords": "hallucin|hypnagog|paralys"
-     }
-    ],
-    "Risk factors": [
-     {
-      "label": "Sleep hygiene / screens / environment",
-      "keywords": "hygiene|screen|phone|environment|bedroom|routine|bedtime"
-     }
-    ],
-    "Social and function": [
+     },
      {
       "label": "Driving / near misses",
       "keywords": "driv|accident|safety|near miss"
+     }
+    ],
+    "Risk factors and exposures": [
+     {
+      "label": "Sleep hygiene / screens / environment",
+      "keywords": "hygiene|screen|phone|environment|bedroom|routine|bedtime"
      }
     ]
    },
@@ -1572,7 +1530,7 @@
   "Altered urinary volume": {
    "prompt": "Differentials (anuria, oliguria, polyuria)",
    "differentials": {
-    "Renal and urological": [
+    "Renal, urological and reproductive": [
      {
       "label": "Prerenal AKI (dehydration, sepsis, HF)",
       "keywords": "prerenal|pre-renal|dehydrat|hypovol|sepsis|hf|heart failure"
@@ -1594,7 +1552,13 @@
       "keywords": "post-obstruct|recovery phase|polyuric phase"
      }
     ],
-    "Endocrine and metabolic": [
+    "Neurological and psychiatric": [
+     {
+      "label": "Primary polydipsia",
+      "keywords": "polydips|psychogenic|water drinking"
+     }
+    ],
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Diabetes mellitus (osmotic diuresis)",
       "keywords": "diabetes mellitus|dm|t1dm|t2dm|hypergly|osmotic"
@@ -1619,16 +1583,10 @@
       "label": "Diuretics / lithium",
       "keywords": "diuret|lithium|furosemide"
      }
-    ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Primary polydipsia",
-      "keywords": "polydips|psychogenic|water drinking"
-     }
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Input / output, fluid balance",
       "keywords": "input|output|fluid balance|intake|chart"
@@ -1644,13 +1602,11 @@
       "keywords": "weight|blurred|vision|polyphag"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Losses: vomiting, diarrhoea, bleeding",
       "keywords": "vomit|diarrh|loss|bleed"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "Nocturia",
       "keywords": "noctur"
@@ -1743,7 +1699,7 @@
   "Breast lump": {
    "prompt": "",
    "differentials": {
-    "Gynaecological and obstetric": [
+    "Renal, urological and reproductive": [
      {
       "label": "Fibroadenoma",
       "keywords": "fibroaden"
@@ -1769,7 +1725,7 @@
       "keywords": "gynaecomast|gynecomast"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Breast abscess / mastitis",
       "keywords": "abscess|mastitis"
@@ -1793,7 +1749,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Pain",
       "keywords": "pain|tender"
@@ -1805,9 +1761,7 @@
      {
       "label": "Axillary lumps",
       "keywords": "axill|armpit|node"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Duration / change with cycle",
       "keywords": "duration|cycle|menstr|change|grow"
@@ -1819,19 +1773,17 @@
       "keywords": "weight|bone pain|sob|breath|systemic|back pain|dysp"
      }
     ],
-    "Genitourinary and reproductive": [
+    "Abdominal and pelvic": [
      {
       "label": "Nipple discharge / inversion",
       "keywords": "nipple|discharge|inversion|retraction"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Breastfeeding / trauma",
       "keywords": "breastfe|lactat|trauma|injury"
-     }
-    ],
-    "Risk factors": [
+     },
      {
       "label": "Risk: age, HRT/OCP, prior breast disease, BRCA",
       "keywords": "hrt|ocp|pill|hormon|risk|previous breast|brca|menarche|nullip|parity"
@@ -1882,7 +1834,7 @@
   "Breast pain (mastalgia)": {
    "prompt": "",
    "differentials": {
-    "Gynaecological and obstetric": [
+    "Renal, urological and reproductive": [
      {
       "label": "Cyclical mastalgia",
       "keywords": "cyclical|cyclic|hormonal|premenstr"
@@ -1900,7 +1852,7 @@
       "keywords": "duct ectas|ectasia|mondor|thrombophleb"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Costochondritis / chest wall pain",
       "keywords": "costochondr|chest wall|musculoskel|tietze|msk"
@@ -1910,7 +1862,7 @@
       "keywords": "angina|cardiac|gord|reflux|shingles|zoster|referred|cervical"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Mastitis / abscess",
       "keywords": "mastitis|abscess"
@@ -1930,19 +1882,15 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Unilateral / bilateral / focal",
       "keywords": "unilat|bilat|focal|diffuse|side"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Timing with menstrual cycle",
       "keywords": "cycle|timing|period|menstr|luteal"
-     }
-    ],
-    "Aggravating and relieving": [
+     },
      {
       "label": "Bra fit / exercise / trauma",
       "keywords": "bra|exercise|trauma|support"
@@ -1958,7 +1906,7 @@
       "keywords": "fever|breastfe|lactat"
      }
     ],
-    "Genitourinary and reproductive": [
+    "Abdominal and pelvic": [
      {
       "label": "Lump",
       "keywords": "lump|mass"
@@ -2009,7 +1957,7 @@
   "Chest pain": {
    "prompt": "",
    "differentials": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Pericarditis / myocarditis / tamponade",
       "keywords": "pericard|tamponade|myocardit"
@@ -2017,15 +1965,13 @@
      {
       "label": "Aortic stenosis / HOCM",
       "keywords": "aortic stenosis|stenosis|hocm|hcm|hypertrophic"
-     }
-    ],
-    "Respiratory": [
+     },
      {
       "label": "Pneumothorax",
       "keywords": "pneumothorax|ptx"
      }
     ],
-    "Gastrointestinal": [
+    "Gastrointestinal and hepatobiliary": [
      {
       "label": "Oesophageal: GORD, spasm, rupture (Boerhaave)",
       "keywords": "gord|reflux|oesophag|esophag|boerhaave|spasm"
@@ -2035,13 +1981,19 @@
       "keywords": "biliary|gallstone|pancreatit|peptic|ulcer|pud"
      }
     ],
-    "Musculoskeletal": [
+    "Neurological and psychiatric": [
+     {
+      "label": "Anxiety / panic",
+      "keywords": "anxiety|panic"
+     }
+    ],
+    "Musculoskeletal and skin": [
      {
       "label": "Musculoskeletal / costochondritis",
       "keywords": "msk|musculoskel|costochondr|chest wall|rib"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Pneumonia / pleurisy",
       "keywords": "pneumon|pleuri|chest infection|lrti"
@@ -2068,22 +2020,14 @@
       "label": "Pulmonary embolism",
       "keywords": "pe|pulmonary embol|embol"
      }
-    ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Anxiety / panic",
-      "keywords": "anxiety|panic"
-     }
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Onset / character / radiation (SOCRATES)",
       "keywords": "socrates|onset|character|radiat|tearing|crushing|sharp|pleuritic"
-     }
-    ],
-    "Aggravating and relieving": [
+     },
      {
       "label": "Exertional / relieved by rest or GTN",
       "keywords": "exert|rest|gtn|relieved"
@@ -2113,7 +2057,7 @@
       "keywords": "cocaine|stimulant|amphet|meth"
      }
     ],
-    "Risk factors": [
+    "Risk factors and exposures": [
      {
       "label": "VTE risk (leg swelling, immobility, surgery, travel)",
       "keywords": "leg|calf|immobil|surg|flight|travel|ocp|vte risk|dvt"
@@ -2194,37 +2138,45 @@
   "Chronic disease assessment": {
    "prompt": "Complications to screen for",
    "differentials": {
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "Exacerbations / flares (asthma, COPD, RA)",
       "keywords": "exacerb|flare|attack"
      }
     ],
-    "Renal and urological": [
+    "Renal, urological and reproductive": [
      {
       "label": "Kidney disease",
       "keywords": "ckd|kidney|renal|nephropath"
      }
     ],
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Neuropathy / foot disease",
       "keywords": "neuropath|foot|ulcer"
+     },
+     {
+      "label": "Depression / anxiety",
+      "keywords": "depress|anxiety|mental health"
+     },
+     {
+      "label": "Chronic pain / opioid dependence",
+      "keywords": "chronic pain|opioid depend|opioid"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Osteoporosis / falls",
       "keywords": "osteopor|falls|fracture"
      }
     ],
-    "Eye": [
+    "Eye, ear, nose and throat": [
      {
       "label": "Retinopathy / eye disease",
       "keywords": "retinopath|eye|vision"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Infections (vaccine-preventable)",
       "keywords": "infection|pneumonia|influenza"
@@ -2241,20 +2193,10 @@
       "label": "Medication adverse effects",
       "keywords": "adverse|toxicity"
      }
-    ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Depression / anxiety",
-      "keywords": "depress|anxiety|mental health"
-     },
-     {
-      "label": "Chronic pain / opioid dependence",
-      "keywords": "chronic pain|opioid depend|opioid"
-     }
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Disease control & symptoms",
       "keywords": "control|symptom"
@@ -2262,6 +2204,24 @@
      {
       "label": "Self-monitoring (BSL, home BP, weight, diary)",
       "keywords": "monitor|bsl|home bp|weight|diary"
+     }
+    ],
+    "Psychological and social": [
+     {
+      "label": "Action plans / sick day rules / GP management plan",
+      "keywords": "action plan|sick day|care plan|gpmp|tca|team care"
+     },
+     {
+      "label": "Function / ADLs / work / impact",
+      "keywords": "function|adl|work|impact|qol|quality of life"
+     },
+     {
+      "label": "Understanding / goals / ICE",
+      "keywords": "understand|literacy|goal|ice|concern|expectation"
+     },
+     {
+      "label": "Psychosocial supports / carers",
+      "keywords": "support|carer|social|financ"
      }
     ],
     "Past history": [
@@ -2280,28 +2240,10 @@
       "keywords": "adheren|complian|technique|inhaler|med|side effect"
      }
     ],
-    "Risk factors": [
+    "Risk factors and exposures": [
      {
       "label": "Lifestyle: smoking, alcohol, diet, activity",
       "keywords": "smok|alcohol|diet|exercise|activity|lifestyle"
-     }
-    ],
-    "Social and function": [
-     {
-      "label": "Action plans / sick day rules / GP management plan",
-      "keywords": "action plan|sick day|care plan|gpmp|tca|team care"
-     },
-     {
-      "label": "Function / ADLs / work / impact",
-      "keywords": "function|adl|work|impact|qol|quality of life"
-     },
-     {
-      "label": "Understanding / goals / ICE",
-      "keywords": "understand|literacy|goal|ice|concern|expectation"
-     },
-     {
-      "label": "Psychosocial supports / carers",
-      "keywords": "support|carer|social|financ"
      }
     ]
    },
@@ -2379,7 +2321,7 @@
   "Cognitive impairment": {
    "prompt": "",
    "differentials": {
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Alzheimer's disease",
       "keywords": "alzheimer|ad"
@@ -2399,15 +2341,19 @@
      {
       "label": "Delirium",
       "keywords": "delirium"
+     },
+     {
+      "label": "Depression (pseudodementia)",
+      "keywords": "depress|pseudodem"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "B12 / thyroid / metabolic",
       "keywords": "thyroid|hypothyro|metabolic|hypercalc|b12 defic"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Neurosyphilis / HIV",
       "keywords": "syphilis|neurosyph|hiv"
@@ -2438,28 +2384,20 @@
       "label": "Alcohol-related (Korsakoff)",
       "keywords": "alcohol|korsakoff|wernicke"
      }
-    ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Depression (pseudodementia)",
-      "keywords": "depress|pseudodem"
-     }
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Domains: memory, language, executive, visuospatial",
       "keywords": "memory|language|executive|visuospat|domain|getting lost|word find"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Collateral history / timeline (gradual vs stepwise)",
       "keywords": "collateral|timeline|onset|progress|stepwise|gradual"
      }
     ],
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "Hallucinations / fluctuations / falls / parkinsonism",
       "keywords": "hallucin|fluctuat|fall|parkinsonism|tremor"
@@ -2469,7 +2407,7 @@
       "keywords": "gait|incontin|urinary|walk"
      }
     ],
-    "Psychological": [
+    "Psychological and social": [
      {
       "label": "Behaviour / personality change / disinhibition",
       "keywords": "behav|personalit|disinhib|apath"
@@ -2477,15 +2415,7 @@
      {
       "label": "Mood / sleep",
       "keywords": "mood|sleep"
-     }
-    ],
-    "Risk factors": [
-     {
-      "label": "Vascular risk factors",
-      "keywords": "vascular risk|risk factor|smok|hypertens|diabet|af"
-     }
-    ],
-    "Social and function": [
+     },
      {
       "label": "ADLs / IADLs",
       "keywords": "adl|iadl|function|finances|cooking|shopping|activit"
@@ -2493,6 +2423,12 @@
      {
       "label": "Driving / safety / EPOA / capacity",
       "keywords": "driv|safety|stove|wander|epoa|power of attorney|capacity|guardian"
+     }
+    ],
+    "Risk factors and exposures": [
+     {
+      "label": "Vascular risk factors",
+      "keywords": "vascular risk|risk factor|smok|hypertens|diabet|af"
      }
     ]
    },
@@ -2562,13 +2498,13 @@
   "Confusion": {
    "prompt": "",
    "differentials": {
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "Hypoxia / hypercapnia",
       "keywords": "hypox|hypercap|co2"
      }
     ],
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Seizure / post-ictal / NCSE",
       "keywords": "seiz|postictal|ncse|status"
@@ -2576,9 +2512,13 @@
      {
       "label": "Dementia (underlying or progression)",
       "keywords": "dementia|alzheimer"
+     },
+     {
+      "label": "Psychiatric (psychosis, depression)",
+      "keywords": "psych|psychos|depress"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Hypo- / hyperglycaemia",
       "keywords": "hypogly|hypergly|dka|hhs"
@@ -2592,7 +2532,7 @@
       "keywords": "thyro|hypotherm|b12 defic"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Infection / sepsis (UTI, pneumonia)",
       "keywords": "infect|sepsis|septic|uti|pneumon|cellulit"
@@ -2616,12 +2556,6 @@
      {
       "label": "Alcohol intoxication / withdrawal / Wernicke's",
       "keywords": "alcohol|withdraw|wernicke|intox|dts"
-     }
-    ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Psychiatric (psychosis, depression)",
-      "keywords": "psych|psychos|depress"
      }
     ],
     "Physiological and functional": [
@@ -2648,34 +2582,32 @@
       "keywords": "fever|cough|dysuria|urinary|rigor"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Bowels / urine output",
       "keywords": "bowel|bo|urine output|voiding|passing urine"
      }
     ],
-    "Eye, ear, nose and throat": [
+    "Neurological and special senses": [
      {
       "label": "Hearing / vision aids",
       "keywords": "hearing|vision|glasses|aids"
      }
     ],
-    "Psychological": [
+    "Psychological and social": [
      {
       "label": "Hallucinations / sleep-wake disturbance",
       "keywords": "hallucin|sleep|agitat|drows"
+     },
+     {
+      "label": "Advance care directive / goals of care",
+      "keywords": "acp|advance care|goals|epoa|directive"
      }
     ],
     "Drugs and substances": [
      {
       "label": "Medication changes",
       "keywords": "med change|new med|recent change|webster"
-     }
-    ],
-    "Social and function": [
-     {
-      "label": "Advance care directive / goals of care",
-      "keywords": "acp|advance care|goals|epoa|directive"
      }
     ]
    },
@@ -2757,7 +2689,7 @@
   "Constipation": {
    "prompt": "",
    "differentials": {
-    "Gastrointestinal": [
+    "Gastrointestinal and hepatobiliary": [
      {
       "label": "Functional constipation / IBS-C",
       "keywords": "functional|ibs|idiopathic|slow transit"
@@ -2767,19 +2699,23 @@
       "keywords": "pelvic floor|dyssynerg|fissure|haemorrhoid|anal"
      }
     ],
-    "Gynaecological and obstetric": [
+    "Renal, urological and reproductive": [
      {
       "label": "Pregnancy",
       "keywords": "pregnan"
      }
     ],
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Neurological (Parkinson's, MS, spinal cord)",
       "keywords": "parkinson|ms|multiple sclerosis|spinal|cord|neurolog|cauda"
+     },
+     {
+      "label": "Depression / eating disorder",
+      "keywords": "depress|eating disorder|anorexia"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Hypothyroidism",
       "keywords": "hypothyro|thyroid"
@@ -2811,12 +2747,6 @@
       "keywords": "opioid|iron|ccb|calcium channel|anticholin|ondansetron|med|drug|codeine"
      }
     ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Depression / eating disorder",
-      "keywords": "depress|eating disorder|anorexia"
-     }
-    ],
     "Physiological and functional": [
      {
       "label": "Low fibre / fluid / immobility",
@@ -2825,19 +2755,17 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Stool frequency / consistency (Bristol) / straining",
       "keywords": "frequen|consisten|bristol|hard|pellet|straining|strain"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Duration / recent change",
       "keywords": "duration|change|new|recent|how long"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Incomplete evacuation / digitation",
       "keywords": "incomplete|digitat|manual|evacuat"
@@ -2853,9 +2781,7 @@
      {
       "label": "Overflow incontinence",
       "keywords": "overflow|incontin|soiling"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "Urinary retention (elderly)",
       "keywords": "urinary|retention"
@@ -2936,13 +2862,11 @@
   "Cough": {
    "prompt": "",
    "differentials": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "HF",
       "keywords": "heart failure|hf|ccf|pulmonary oedema"
-     }
-    ],
-    "Respiratory": [
+     },
      {
       "label": "Bronchiectasis",
       "keywords": "bronchiect"
@@ -2960,19 +2884,19 @@
       "keywords": "ild|interstitial|fibrosis"
      }
     ],
-    "Gastrointestinal": [
+    "Gastrointestinal and hepatobiliary": [
      {
       "label": "GORD",
       "keywords": "gord|reflux"
      }
     ],
-    "Ear, nose and throat": [
+    "Eye, ear, nose and throat": [
      {
       "label": "Upper airway cough syndrome (postnasal drip)",
       "keywords": "postnasal|post-nasal|uacs|rhinitis|sinusit"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Viral URTI / post-viral cough",
       "keywords": "urti|viral|cold|post-viral|post-infect"
@@ -3010,19 +2934,15 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Sputum (colour, volume)",
       "keywords": "sputum|phlegm|product|purulent"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Duration (acute <3 weeks, chronic >8 weeks)",
       "keywords": "duration|acute|chronic|weeks|how long"
-     }
-    ],
-    "Aggravating and relieving": [
+     },
      {
       "label": "Nocturnal symptoms / triggers / atopy",
       "keywords": "noctur|night|trigger|atop|hay fever|eczema"
@@ -3048,7 +2968,7 @@
       "keywords": "chest pain|orthopn|pnd|leg swell|ankle"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Heartburn / acid taste",
       "keywords": "heartburn|acid|indigest"
@@ -3060,7 +2980,7 @@
       "keywords": "smok|pack year"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Occupational exposure / travel / TB contacts",
       "keywords": "occupat|exposure|asbestos|travel|contact|work"
@@ -3123,7 +3043,7 @@
   "Diarrhoea": {
    "prompt": "",
    "differentials": {
-    "Gastrointestinal": [
+    "Gastrointestinal and hepatobiliary": [
      {
       "label": "IBS-D",
       "keywords": "ibs|irritable"
@@ -3131,21 +3051,19 @@
      {
       "label": "Overflow (faecal impaction)",
       "keywords": "overflow|impact"
-     }
-    ],
-    "Hepatobiliary and pancreatic": [
+     },
      {
       "label": "Pancreatic insufficiency / bile acid diarrhoea",
       "keywords": "pancrea|bile acid|steatorr|malabsor"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Hyperthyroidism",
       "keywords": "hyperthyro|thyrotox|thyroid"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Viral gastroenteritis",
       "keywords": "viral|gastro|norovirus|rotavirus"
@@ -3161,9 +3079,7 @@
      {
       "label": "Parasitic (Giardia, Cryptosporidium, amoebiasis)",
       "keywords": "giardia|crypto|amoeb|parasit|entamoeba"
-     }
-    ],
-    "Inflammatory and autoimmune": [
+     },
      {
       "label": "IBD",
       "keywords": "ibd|crohn|ulcerative|colitis"
@@ -3197,7 +3113,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Frequency / volume / nocturnal",
       "keywords": "frequen|volume|noctur|night|how many"
@@ -3209,9 +3125,7 @@
      {
       "label": "Steatorrhoea (pale, floating, greasy)",
       "keywords": "pale|float|greasy|offensive|oily"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Duration (acute <14 days vs chronic >4 weeks)",
       "keywords": "duration|acute|chronic|how long|days|weeks"
@@ -3227,13 +3141,13 @@
       "keywords": "weight|appetite"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Fever / abdominal pain / vomiting",
       "keywords": "fever|pain|cramp|vomit"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Travel / food / contacts / water",
       "keywords": "travel|food|contact|water|takeaway|restaurant|outbreak|camp"
@@ -3316,7 +3230,7 @@
   "Difficulty walking": {
    "prompt": "",
    "differentials": {
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Parkinson's / parkinsonism",
       "keywords": "parkinson"
@@ -3334,19 +3248,19 @@
       "keywords": "myopath|myositis|gbs|guillain|polymyositis|statin"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Osteoarthritis / joint disease",
       "keywords": "osteoarth|oa|arthritis|joint"
      }
     ],
-    "Ear, nose and throat": [
+    "Eye, ear, nose and throat": [
      {
       "label": "Vestibular / dizziness",
       "keywords": "vestibul|dizz|vertigo"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Infection: septic arthritis, osteomyelitis, cellulitis",
       "keywords": "septic|osteomyel|cellulit|infect"
@@ -3384,13 +3298,11 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Pain (location, claudication distance)",
       "keywords": "pain|claudication distance|walking distance|distance"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Onset and course (sudden vs progressive)",
       "keywords": "onset|sudden|progress|gradual|course"
@@ -3402,7 +3314,7 @@
       "keywords": "fever|weight|cancer hist|malignancy hist"
      }
     ],
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "Weakness / numbness / back pain",
       "keywords": "weak|numb|tingl|back pain|sensory"
@@ -3414,12 +3326,16 @@
      {
       "label": "Tremor / stiffness / slowness",
       "keywords": "tremor|stiff|slow|bradykin|rigid"
-     }
-    ],
-    "Eye, ear, nose and throat": [
+     },
      {
       "label": "Vision",
       "keywords": "vision|visual"
+     }
+    ],
+    "Psychological and social": [
+     {
+      "label": "Function / aids / home setup",
+      "keywords": "function|aid|frame|stick|home|adl"
      }
     ],
     "Past history": [
@@ -3432,12 +3348,6 @@
      {
       "label": "Medications (sedatives, polypharmacy)",
       "keywords": "med|sedativ|polypharm|benzo"
-     }
-    ],
-    "Social and function": [
-     {
-      "label": "Function / aids / home setup",
-      "keywords": "function|aid|frame|stick|home|adl"
      }
     ]
    },
@@ -3511,7 +3421,7 @@
   "Dizziness": {
    "prompt": "",
    "differentials": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Orthostatic hypotension",
       "keywords": "orthostat|postural|hypotens"
@@ -3525,7 +3435,7 @@
       "keywords": "aortic stenosis|stenosis|as"
      }
     ],
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Vestibular schwannoma / MS",
       "keywords": "acoustic|vestibular schwannoma|schwannoma|ms|multiple sclerosis"
@@ -3533,9 +3443,13 @@
      {
       "label": "Vestibular migraine",
       "keywords": "vestibular migraine|migraine"
+     },
+     {
+      "label": "Anxiety / panic / hyperventilation",
+      "keywords": "anxiety|panic|hyperventil"
      }
     ],
-    "Ear, nose and throat": [
+    "Eye, ear, nose and throat": [
      {
       "label": "BPPV",
       "keywords": "bppv|benign paroxysmal|positional vertigo"
@@ -3549,13 +3463,11 @@
       "keywords": "meniere|ménière"
      }
     ],
-    "Haematological": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Anaemia",
       "keywords": "anaem|anem"
-     }
-    ],
-    "Endocrine and metabolic": [
+     },
      {
       "label": "Hypoglycaemia",
       "keywords": "hypogly"
@@ -3572,28 +3484,18 @@
       "label": "Medications (antihypertensives, sedatives)",
       "keywords": "med|antihypert|sedat|drug|polypharm"
      }
-    ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Anxiety / panic / hyperventilation",
-      "keywords": "anxiety|panic|hyperventil"
-     }
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Type: vertigo vs presyncope vs disequilibrium",
       "keywords": "vertigo|spinning|presyncop|lightheaded|light-headed|faint|unsteady|disequilib|type"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Duration / episodic vs continuous",
       "keywords": "duration|episod|continuous|seconds|minutes|hours|days"
-     }
-    ],
-    "Aggravating and relieving": [
+     },
      {
       "label": "Triggers: head movement, standing",
       "keywords": "trigger|head movement|turning|standing|rolling|lying down"
@@ -3605,13 +3507,13 @@
       "keywords": "palpit|chest pain|exert"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Nausea / vomiting",
       "keywords": "nausea|vomit"
      }
     ],
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "Neuro symptoms (diplopia, dysarthria, dysphagia, weakness)",
       "keywords": "neuro|diplop|dysarth|dysphag|weak|numb|ataxi"
@@ -3619,24 +3521,22 @@
      {
       "label": "Headache / photophobia",
       "keywords": "headache|photophob"
-     }
-    ],
-    "Eye, ear, nose and throat": [
+     },
      {
       "label": "Hearing loss / tinnitus / aural fullness",
       "keywords": "hearing|tinnitus|aural|fullness|ear"
      }
     ],
-    "Exposures and contacts": [
-     {
-      "label": "Recent viral illness",
-      "keywords": "viral|urti|cold|recent illness"
-     }
-    ],
-    "Social and function": [
+    "Psychological and social": [
      {
       "label": "Falls / injuries",
       "keywords": "fall|injur"
+     }
+    ],
+    "Risk factors and exposures": [
+     {
+      "label": "Recent viral illness",
+      "keywords": "viral|urti|cold|recent illness"
      }
     ]
    },
@@ -3698,13 +3598,27 @@
   "Drug misuse": {
    "prompt": "Complications",
    "differentials": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Cardiac (cocaine chest pain, arrhythmia)",
       "keywords": "cardiac|arrhythm|cocaine chest pain|mi"
      }
     ],
-    "Infective": [
+    "Neurological and psychiatric": [
+     {
+      "label": "Dependence / substance use disorder",
+      "keywords": "dependen|use disorder|addiction|sud"
+     },
+     {
+      "label": "Psychosis (stimulants, cannabis)",
+      "keywords": "psychos|psychot|drug-induced psych"
+     },
+     {
+      "label": "Depression / suicidality",
+      "keywords": "depress|suicid|mood|self-harm"
+     }
+    ],
+    "Infective and inflammatory": [
      {
       "label": "Injecting complications: abscess, cellulitis, endocarditis",
       "keywords": "abscess|cellulit|endocard|injecting complic|ie"
@@ -3737,27 +3651,21 @@
       "label": "Withdrawal syndromes",
       "keywords": "withdraw"
      }
-    ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Dependence / substance use disorder",
-      "keywords": "dependen|use disorder|addiction|sud"
-     },
-     {
-      "label": "Psychosis (stimulants, cannabis)",
-      "keywords": "psychos|psychot|drug-induced psych"
-     },
-     {
-      "label": "Depression / suicidality",
-      "keywords": "depress|suicid|mood|self-harm"
-     }
     ]
    },
    "associated": {
-    "Psychological": [
+    "Psychological and social": [
      {
       "label": "Mental health history",
       "keywords": "mental health|psychiatric|psych hist"
+     },
+     {
+      "label": "Social: housing, income, legal, children",
+      "keywords": "social|housing|homeless|income|legal|police|child|financ"
+     },
+     {
+      "label": "Driving / work / safety",
+      "keywords": "driv|work|safety"
      }
     ],
     "Past history": [
@@ -3780,7 +3688,7 @@
       "keywords": "toleran|crav|loss of control|compuls|dsm"
      }
     ],
-    "Risk factors": [
+    "Risk factors and exposures": [
      {
       "label": "Injecting practices (sharing equipment)",
       "keywords": "sharing|needle|equipment|nsp|syringe"
@@ -3788,16 +3696,6 @@
      {
       "label": "Sexual history / sex work",
       "keywords": "sexual|sex work|partner"
-     }
-    ],
-    "Social and function": [
-     {
-      "label": "Social: housing, income, legal, children",
-      "keywords": "social|housing|homeless|income|legal|police|child|financ"
-     },
-     {
-      "label": "Driving / work / safety",
-      "keywords": "driv|work|safety"
      }
     ]
    },
@@ -3873,7 +3771,7 @@
   "Dysphagia": {
    "prompt": "",
    "differentials": {
-    "Gastrointestinal": [
+    "Gastrointestinal and hepatobiliary": [
      {
       "label": "Peptic stricture / GORD",
       "keywords": "stricture|peptic|gord|reflux"
@@ -3887,19 +3785,17 @@
       "keywords": "spasm|dysmotil|motility|scleroderma|systemic sclerosis"
      }
     ],
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "MND / myasthenia / Parkinson's",
       "keywords": "mnd|motor neuron|myasthen|parkinson|bulbar"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Infective oesophagitis (Candida, HSV, CMV)",
       "keywords": "candid|thrush|hsv|cmv|infective|oesophagitis|esophagitis"
-     }
-    ],
-    "Inflammatory and autoimmune": [
+     },
      {
       "label": "Eosinophilic oesophagitis",
       "keywords": "eosinophil|eoe"
@@ -3945,7 +3841,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Solids vs liquids / progressive",
       "keywords": "solid|liquid|progress|both"
@@ -3955,7 +3851,7 @@
       "keywords": "level|throat|chest|where|stick"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Odynophagia",
       "keywords": "odynophag|painful swallow|pain on swallow"
@@ -3977,7 +3873,7 @@
       "keywords": "heartburn|acid|indigest"
      }
     ],
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "Neuro symptoms (weakness, slurred speech, fatigability)",
       "keywords": "weak|slur|dysarth|neuro|fatig"
@@ -4058,7 +3954,7 @@
   "Dyspnoea": {
    "prompt": "",
    "differentials": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "HF / APO",
       "keywords": "heart failure|hf|ccf|apo|pulmonary oedema|pulmonary edema"
@@ -4070,9 +3966,7 @@
      {
       "label": "Valvular disease / tamponade",
       "keywords": "valv|stenosis|regurg|tamponade"
-     }
-    ],
-    "Respiratory": [
+     },
      {
       "label": "Asthma",
       "keywords": "asthma"
@@ -4094,25 +3988,27 @@
       "keywords": "ild|interstitial|fibrosis"
      }
     ],
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Neuromuscular / obesity hypoventilation",
       "keywords": "neuromusc|gbs|guillain|myasthen|hypovent|obesity"
+     },
+     {
+      "label": "Anxiety / hyperventilation",
+      "keywords": "anxiety|panic|hyperventil"
      }
     ],
-    "Haematological": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Anaemia",
       "keywords": "anaem|anem"
-     }
-    ],
-    "Endocrine and metabolic": [
+     },
      {
       "label": "Metabolic acidosis (DKA)",
       "keywords": "acidosis|dka|kussmaul"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Pneumonia",
       "keywords": "pneumon|lrti|chest infection"
@@ -4129,16 +4025,10 @@
       "label": "Anaphylaxis / upper airway obstruction",
       "keywords": "anaphyla|upper airway|stridor|foreign body|angioedema"
      }
-    ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Anxiety / hyperventilation",
-      "keywords": "anxiety|panic|hyperventil"
-     }
     ]
    },
    "associated": {
-    "Onset and course": [
+    "Characteristics and course": [
      {
       "label": "Onset / exercise tolerance",
       "keywords": "onset|sudden|gradual|exercise toler|how far|nyha|mmrc"
@@ -4182,13 +4072,11 @@
       "keywords": "smok|occupat|asbestos|exposure|dust"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Allergen exposure / rash / lip swelling",
       "keywords": "allerg|rash|lip|swelling|sting"
-     }
-    ],
-    "Risk factors": [
+     },
      {
       "label": "VTE risk (immobility, surgery, OCP, cancer)",
       "keywords": "immobil|surg|ocp|flight|travel|calf|leg pain|vte risk|clot"
@@ -4267,7 +4155,7 @@
   "Ear pain": {
    "prompt": "",
    "differentials": {
-    "Ear, nose and throat": [
+    "Eye, ear, nose and throat": [
      {
       "label": "Eustachian tube dysfunction / barotrauma",
       "keywords": "eustach|etd|barotrauma"
@@ -4277,7 +4165,7 @@
       "keywords": "referred|dental|tooth|tmj|temporomandibular|tonsil|pharyn|throat|cancer"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Otitis externa",
       "keywords": "otitis externa|oe|swimmer|external ear|canal infection"
@@ -4325,7 +4213,7 @@
       "keywords": "fever|unwell|systemic"
      }
     ],
-    "Eye, ear, nose and throat": [
+    "Neurological and special senses": [
      {
       "label": "Discharge / hearing loss / tinnitus",
       "keywords": "discharg|otorrh|hearing|tinnitus|deaf"
@@ -4345,7 +4233,7 @@
       "keywords": "diabet|immunosup|immunocomp"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Recent URTI / flying / diving",
       "keywords": "urti|cold|flying|flight|diving|pressure"
@@ -4353,9 +4241,7 @@
      {
       "label": "Swimming / cotton buds / hearing aids",
       "keywords": "swim|cotton|bud|hearing aid|water"
-     }
-    ],
-    "Risk factors": [
+     },
      {
       "label": "Smoking / alcohol / weight loss / hoarseness",
       "keywords": "smok|alcohol|weight|hoarse"
@@ -4412,13 +4298,17 @@
   "Erectile dysfunction": {
    "prompt": "",
    "differentials": {
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Neurological (MS, spinal cord injury, pelvic surgery)",
       "keywords": "neuro|ms|spinal|pelvic surg|prostatectomy|radical|nerve"
+     },
+     {
+      "label": "Psychogenic (anxiety, depression, relationship)",
+      "keywords": "psychogen|anxiety|depress|performance|relationship|psycholog"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Diabetes",
       "keywords": "diabet|dm"
@@ -4457,22 +4347,14 @@
       "label": "Smoking / alcohol / recreational drugs",
       "keywords": "smok|alcohol|drug use|recreational|cannabis"
      }
-    ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Psychogenic (anxiety, depression, relationship)",
-      "keywords": "psychogen|anxiety|depress|performance|relationship|psycholog"
-     }
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Morning / nocturnal erections",
       "keywords": "morning|nocturnal|early morning"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Onset (sudden suggests psychogenic) / situational",
       "keywords": "onset|sudden|gradual|situational"
@@ -4484,7 +4366,7 @@
       "keywords": "chest pain|claudicat|exertion|angina"
      }
     ],
-    "Genitourinary and reproductive": [
+    "Abdominal and pelvic": [
      {
       "label": "Libido",
       "keywords": "libido|desire|sex drive"
@@ -4502,16 +4384,16 @@
       "keywords": "gynaecomast|gynecomast|testicular|atrophy|small test"
      }
     ],
+    "Psychological and social": [
+     {
+      "label": "Partner / mood / stress",
+      "keywords": "partner|mood|stress"
+     }
+    ],
     "Drugs and substances": [
      {
       "label": "Nitrate use (contraindicates PDE5i)",
       "keywords": "nitrate|gtn"
-     }
-    ],
-    "Social and function": [
-     {
-      "label": "Partner / mood / stress",
-      "keywords": "partner|mood|stress"
      }
     ]
    },
@@ -4571,13 +4453,13 @@
   "Eye pain": {
    "prompt": "",
    "differentials": {
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Migraine / cluster headache",
       "keywords": "migraine|cluster"
      }
     ],
-    "Eye": [
+    "Eye, ear, nose and throat": [
      {
       "label": "Anterior uveitis / iritis",
       "keywords": "uveit|iritis|iridocyclit"
@@ -4599,7 +4481,7 @@
       "keywords": "optic neurit|neuritis"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Orbital / preseptal cellulitis",
       "keywords": "orbital|preseptal|periorbital|cellulit"
@@ -4611,9 +4493,7 @@
      {
       "label": "Herpes zoster ophthalmicus",
       "keywords": "zoster|shingles|hzo|herpes"
-     }
-    ],
-    "Inflammatory and autoimmune": [
+     },
      {
       "label": "Giant cell arteritis",
       "keywords": "gca|giant cell|temporal arter"
@@ -4631,13 +4511,11 @@
     ]
    },
    "associated": {
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "Headache / nausea / vomiting / haloes",
       "keywords": "headache|nausea|vomit|halo"
-     }
-    ],
-    "Eye, ear, nose and throat": [
+     },
      {
       "label": "Vision loss / blurring",
       "keywords": "vision|visual|blur"
@@ -4669,7 +4547,7 @@
       "keywords": "arthrit|ibd|systemic|jaw claud|autoimmune|back pain|psoria|sarcoid"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Contact lens wear",
       "keywords": "contact lens|lens"
@@ -4734,13 +4612,13 @@
   "Facial pain": {
    "prompt": "Differentials (incl. jaw pain)",
    "differentials": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Cardiac (angina referred to jaw)",
       "keywords": "angina|cardiac|acs|mi|ischaem"
      }
     ],
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Trigeminal neuralgia",
       "keywords": "trigeminal|neuralgia|tn"
@@ -4754,13 +4632,13 @@
       "keywords": "migraine|cluster"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "TMJ dysfunction / bruxism",
       "keywords": "tmj|tmd|temporomandib|brux|grinding|jaw joint"
      }
     ],
-    "Ear, nose and throat": [
+    "Eye, ear, nose and throat": [
      {
       "label": "Dental (abscess, caries, pulpitis)",
       "keywords": "dental|tooth|teeth|abscess|caries|pulpit"
@@ -4778,13 +4656,11 @@
       "keywords": "parotit|salivary|sialaden|sialolith|mumps|parotid"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Herpes zoster / post-herpetic neuralgia",
       "keywords": "zoster|shingles|post-herpetic|postherpetic|phn"
-     }
-    ],
-    "Inflammatory and autoimmune": [
+     },
      {
       "label": "Giant cell arteritis (jaw claudication)",
       "keywords": "gca|giant cell|temporal arter|jaw claud"
@@ -4798,19 +4674,15 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Character: electric shock-like vs dull / throbbing",
       "keywords": "character|electric|shock|stabbing|dull|throbbing|burning"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Duration / pattern",
       "keywords": "duration|pattern|episod|seconds|constant"
-     }
-    ],
-    "Aggravating and relieving": [
+     },
      {
       "label": "Triggers: chewing, touch, cold, wind",
       "keywords": "trigger|chew|touch|cold|wind|eating|brush"
@@ -4822,10 +4694,18 @@
       "keywords": "exert|chest pain|sob|breath|dysp"
      }
     ],
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "Numbness / neuro deficit",
       "keywords": "numb|neuro|weak|deficit"
+     },
+     {
+      "label": "Dental symptoms / recent dental work",
+      "keywords": "dental work|toothache|dentist|sensitiv"
+     },
+     {
+      "label": "Nasal congestion / discharge / fever",
+      "keywords": "nasal|congest|discharge|fever|post-nasal|smell"
      }
     ],
     "Musculoskeletal and skin": [
@@ -4836,16 +4716,6 @@
      {
       "label": "Rash / vesicles",
       "keywords": "rash|vesic|blister"
-     }
-    ],
-    "Eye, ear, nose and throat": [
-     {
-      "label": "Dental symptoms / recent dental work",
-      "keywords": "dental work|toothache|dentist|sensitiv"
-     },
-     {
-      "label": "Nasal congestion / discharge / fever",
-      "keywords": "nasal|congest|discharge|fever|post-nasal|smell"
      }
     ],
     "Red flags": [
@@ -4901,7 +4771,7 @@
   "Falls": {
    "prompt": "Causes",
    "differentials": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Postural hypotension",
       "keywords": "postural|orthostat|hypotens"
@@ -4911,7 +4781,7 @@
       "keywords": "arrhythm|syncop|heart block|brady|af"
      }
     ],
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Cognitive impairment / delirium",
       "keywords": "cognit|dementia|delirium|confus"
@@ -4925,25 +4795,25 @@
       "keywords": "seiz|epilep|fit"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Muscle weakness / deconditioning / sarcopenia",
       "keywords": "weak|decondit|sarcopen|frail"
      }
     ],
-    "Eye": [
+    "Eye, ear, nose and throat": [
      {
       "label": "Visual impairment",
       "keywords": "vision|visual|cataract|eyes"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Hypoglycaemia",
       "keywords": "hypogly"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Acute illness (UTI, pneumonia)",
       "keywords": "acute illness|infect|uti|pneumon|sepsis"
@@ -4991,6 +4861,16 @@
       "keywords": "chest pain|palpit"
      }
     ],
+    "Psychological and social": [
+     {
+      "label": "Mobility aids / function / ADLs",
+      "keywords": "aid|frame|stick|function|adl|mobility"
+     },
+     {
+      "label": "Home environment / supports",
+      "keywords": "home|stairs|rug|lighting|support|live alone|lives alone"
+     }
+    ],
     "Past history": [
      {
       "label": "Number of falls / fear of falling",
@@ -5005,16 +4885,6 @@
      {
       "label": "Anticoagulation",
       "keywords": "anticoag|warfarin|doac|bleed"
-     }
-    ],
-    "Social and function": [
-     {
-      "label": "Mobility aids / function / ADLs",
-      "keywords": "aid|frame|stick|function|adl|mobility"
-     },
-     {
-      "label": "Home environment / supports",
-      "keywords": "home|stairs|rug|lighting|support|live alone|lives alone"
      }
     ]
    },
@@ -5092,7 +4962,7 @@
   "Fever": {
    "prompt": "Differentials (incl. post-operative fever)",
    "differentials": {
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Respiratory infection (pneumonia, influenza, COVID)",
       "keywords": "pneumon|urti|lrti|covid|influenza|flu|chest infection|respiratory"
@@ -5132,9 +5002,7 @@
      {
       "label": "Travel infections (malaria, dengue, typhoid)",
       "keywords": "malaria|dengue|typhoid|travel infect|travel-related"
-     }
-    ],
-    "Inflammatory and autoimmune": [
+     },
      {
       "label": "Autoimmune / vasculitis (Still's, SLE)",
       "keywords": "autoimm|vasculit|still|sle|lupus|rheumat|pmr"
@@ -5166,13 +5034,11 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Localising symptoms: cough, dysuria, pain, rash, headache",
       "keywords": "localis|cough|dysuria|headache|rash|diarrh|focus"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Pattern / duration / rigors",
       "keywords": "pattern|duration|rigor|how long|chills"
@@ -5204,7 +5070,7 @@
       "keywords": "new med|recent med|antibiotic"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Travel / animal / occupational exposure",
       "keywords": "travel|animal|occupat|exposure|insect|mosquito|tick"
@@ -5212,9 +5078,7 @@
      {
       "label": "Sick contacts",
       "keywords": "sick contact|contact|unwell family"
-     }
-    ],
-    "Risk factors": [
+     },
      {
       "label": "Immunosuppression (steroids, biologics, transplant)",
       "keywords": "immunosup|immunocomp|steroid|biolog|transplant"
@@ -5299,7 +5163,7 @@
   "Haematemesis": {
    "prompt": "",
    "differentials": {
-    "Gastrointestinal": [
+    "Gastrointestinal and hepatobiliary": [
      {
       "label": "Peptic ulcer disease",
       "keywords": "peptic|ulcer|pud|duodenal|gastric ulcer"
@@ -5313,13 +5177,13 @@
       "keywords": "varice|variceal|portal hypert"
      }
     ],
-    "Ear, nose and throat": [
+    "Eye, ear, nose and throat": [
      {
       "label": "Swallowed blood (epistaxis, haemoptysis)",
       "keywords": "swallowed|epistax|nose bleed|haemopt|hemopt"
      }
     ],
-    "Haematological": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Coagulopathy / anticoagulants",
       "keywords": "coagulopath|anticoag|warfarin|doac"
@@ -5353,13 +5217,11 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Volume / fresh vs coffee-ground",
       "keywords": "volume|amount|fresh|bright|coffee|ground"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Preceding retching / vomiting",
       "keywords": "retch|vomit"
@@ -5371,7 +5233,7 @@
       "keywords": "syncop|dizz|faint|postural|collapse|lighthead"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Melaena",
       "keywords": "melaena|melena|black stool"
@@ -5462,13 +5324,13 @@
   "Haematuria": {
    "prompt": "",
    "differentials": {
-    "Renal and urological": [
+    "Renal, urological and reproductive": [
      {
       "label": "Prostate (BPH, cancer, prostatitis)",
       "keywords": "prostat|bph"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "UTI / cystitis / pyelonephritis",
       "keywords": "uti|cystit|pyelo|infection"
@@ -5476,9 +5338,7 @@
      {
       "label": "Schistosomiasis / TB",
       "keywords": "schisto|tb|tuberc"
-     }
-    ],
-    "Inflammatory and autoimmune": [
+     },
      {
       "label": "Glomerulonephritis (IgA, post-strep, ANCA)",
       "keywords": "glomerul|gn|iga|post-strep|nephritic|alport|thin basement"
@@ -5530,7 +5390,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Visible vs non-visible",
       "keywords": "visible|non-visible|microscopic|macroscopic|gross"
@@ -5550,7 +5410,7 @@
       "keywords": "fever|rigor"
      }
     ],
-    "Genitourinary and reproductive": [
+    "Abdominal and pelvic": [
      {
       "label": "LUTS / dysuria",
       "keywords": "luts|dysuria|frequency|urgency|hesitan"
@@ -5576,13 +5436,11 @@
       "keywords": "urti|sore throat|recent infect"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Travel (schistosomiasis)",
       "keywords": "travel|africa|swimming in fresh"
-     }
-    ],
-    "Risk factors": [
+     },
      {
       "label": "Smoking / occupational dyes (aniline)",
       "keywords": "smok|dye|aniline|rubber|occupat"
@@ -5661,25 +5519,23 @@
   "Haemoptysis": {
    "prompt": "",
    "differentials": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "HF / mitral stenosis",
       "keywords": "heart failure|hf|mitral|pulmonary oedema|apo"
-     }
-    ],
-    "Respiratory": [
+     },
      {
       "label": "Bronchiectasis",
       "keywords": "bronchiect"
      }
     ],
-    "Haematological": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Coagulopathy / anticoagulants",
       "keywords": "coagulopath|anticoag|warfarin|doac"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Bronchitis / pneumonia",
       "keywords": "bronchit|pneumon|lrti|chest infection|infection"
@@ -5691,9 +5547,7 @@
      {
       "label": "Lung abscess / aspergilloma",
       "keywords": "abscess|aspergill|mycetoma|fungal"
-     }
-    ],
-    "Inflammatory and autoimmune": [
+     },
      {
       "label": "Vasculitis (GPA, anti-GBM disease)",
       "keywords": "vasculit|gpa|wegener|goodpasture|sle"
@@ -5729,13 +5583,11 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Volume (massive >200 mL / 24 h)",
       "keywords": "volume|amount|massive|how much|streak|frank"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Sputum / cough duration",
       "keywords": "sputum|cough|purulent"
@@ -5765,7 +5617,7 @@
       "keywords": "smok|pack year"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "TB risk (travel, contacts, incarceration, HIV)",
       "keywords": "travel|contact|prison|country of birth|immunosup|hiv|migrant"
@@ -5838,13 +5690,13 @@
   "Headache": {
    "prompt": "",
    "differentials": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Hypertensive emergency / pre-eclampsia",
       "keywords": "hypertensive|pre-eclamp|preeclamp|eclampsia"
      }
     ],
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Tension-type headache",
       "keywords": "tension|tth"
@@ -5862,19 +5714,19 @@
       "keywords": "iih|idiopathic intracranial|pseudotumour|pseudotumor"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Cervicogenic / post-traumatic",
       "keywords": "cervicogen|neck|post-traumatic|concussion"
      }
     ],
-    "Eye": [
+    "Eye, ear, nose and throat": [
      {
       "label": "Acute angle-closure glaucoma",
       "keywords": "glaucoma|angle closure"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Meningitis / encephalitis",
       "keywords": "mening|encephalit"
@@ -5882,9 +5734,7 @@
      {
       "label": "Sinusitis",
       "keywords": "sinusit"
-     }
-    ],
-    "Inflammatory and autoimmune": [
+     },
      {
       "label": "Giant cell arteritis",
       "keywords": "gca|giant cell|temporal arter"
@@ -5922,25 +5772,21 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Character / site / duration / pattern",
       "keywords": "character|site|pattern|throbbing|band|duration|unilateral"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Onset: thunderclap / worst ever",
       "keywords": "worst|sudden|maximal|onset|seconds|thunder"
-     }
-    ],
-    "Aggravating and relieving": [
+     },
      {
       "label": "Worse lying / on waking / with Valsalva",
       "keywords": "lying|morning|valsalva|cough|strain|wak"
      }
     ],
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "Aura / visual disturbance",
       "keywords": "aura|visual|vision|zigzag|scotoma"
@@ -5982,7 +5828,7 @@
       "keywords": "analgesic use|painkiller|how often|days per month"
      }
     ],
-    "Risk factors": [
+    "Risk factors and exposures": [
      {
       "label": "Pregnancy / postpartum / OCP",
       "keywords": "pregnan|postpartum|ocp|pill"
@@ -6049,7 +5895,7 @@
   "Hearing loss": {
    "prompt": "",
    "differentials": {
-    "Ear, nose and throat": [
+    "Eye, ear, nose and throat": [
      {
       "label": "Wax impaction",
       "keywords": "wax|cerumen"
@@ -6079,7 +5925,7 @@
       "keywords": "acoustic|schwannoma|vestibular schwannoma|cpa"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Otitis media with effusion / AOM",
       "keywords": "otitis media|ome|glue ear|effusion|aom|middle ear"
@@ -6117,13 +5963,13 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Unilateral vs bilateral / sudden vs gradual",
       "keywords": "unilat|bilat|side|onset|gradual"
      }
     ],
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "Vertigo / imbalance",
       "keywords": "vertigo|dizz|balance|imbalance"
@@ -6131,9 +5977,7 @@
      {
       "label": "Facial weakness / numbness",
       "keywords": "facial|weak|numb"
-     }
-    ],
-    "Eye, ear, nose and throat": [
+     },
      {
       "label": "Tinnitus",
       "keywords": "tinnitus"
@@ -6147,23 +5991,7 @@
       "keywords": "fullness|blocked|pressure"
      }
     ],
-    "Drugs and substances": [
-     {
-      "label": "Medications",
-      "keywords": "med|drug"
-     }
-    ],
-    "Exposures and contacts": [
-     {
-      "label": "Noise exposure / occupation",
-      "keywords": "occupat|exposure|music|machinery|gun"
-     },
-     {
-      "label": "Recent URTI / flying / diving",
-      "keywords": "urti|cold|fly|flight|diving"
-     }
-    ],
-    "Social and function": [
+    "Psychological and social": [
      {
       "label": "Hearing aid use",
       "keywords": "hearing aid|aid"
@@ -6171,6 +5999,22 @@
      {
       "label": "Impact on communication / social isolation",
       "keywords": "communicat|social|isolation|impact|work"
+     }
+    ],
+    "Drugs and substances": [
+     {
+      "label": "Medications",
+      "keywords": "med|drug"
+     }
+    ],
+    "Risk factors and exposures": [
+     {
+      "label": "Noise exposure / occupation",
+      "keywords": "occupat|exposure|music|machinery|gun"
+     },
+     {
+      "label": "Recent URTI / flying / diving",
+      "keywords": "urti|cold|fly|flight|diving"
      }
     ]
    },
@@ -6220,7 +6064,7 @@
   "High blood pressure": {
    "prompt": "",
    "differentials": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Essential (primary) hypertension",
       "keywords": "essential|primary hypertension|primary|idiopathic"
@@ -6228,27 +6072,23 @@
      {
       "label": "Hypertensive emergency (end-organ damage)",
       "keywords": "emergency|urgency|malignant hypert|crisis"
-     }
-    ],
-    "Respiratory": [
+     },
      {
       "label": "Obstructive sleep apnoea",
       "keywords": "osa|sleep apnoea|sleep apnea"
      }
     ],
-    "Renal and urological": [
+    "Renal, urological and reproductive": [
      {
       "label": "Renal parenchymal disease (CKD)",
       "keywords": "ckd|renal|kidney|parenchym"
-     }
-    ],
-    "Gynaecological and obstetric": [
+     },
      {
       "label": "Pre-eclampsia / gestational hypertension",
       "keywords": "pre-eclamp|preeclamp|pregnan|gestational"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Primary aldosteronism",
       "keywords": "aldosteron|conn|hyperaldo"
@@ -6296,7 +6136,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Measurement: home readings, cuff size",
       "keywords": "home|cuff|reading|measure"
@@ -6318,13 +6158,13 @@
       "keywords": "headache|visual|vision|chest pain|sob|breath|dysp"
      }
     ],
-    "Genitourinary and reproductive": [
+    "Abdominal and pelvic": [
      {
       "label": "Haematuria / frothy urine / oedema",
       "keywords": "haematuria|hematuria|froth|oedema|swelling|urine"
      }
     ],
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "Neuro symptoms (stroke / TIA)",
       "keywords": "neuro|weak|numb|speech|tia"
@@ -6336,13 +6176,13 @@
       "keywords": "cramp|muscle weak|hypokal|weakness"
      }
     ],
-    "Psychological": [
+    "Psychological and social": [
      {
       "label": "Snoring / daytime sleepiness",
       "keywords": "snor|daytime|sleepi"
      }
     ],
-    "Risk factors": [
+    "Risk factors and exposures": [
      {
       "label": "Lifestyle: salt, activity, weight, smoking",
       "keywords": "salt|lifestyle|diet|exercise|smok"
@@ -6419,13 +6259,13 @@
   "Inguinoscrotal lumps": {
    "prompt": "",
    "differentials": {
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Lipoma of the cord",
       "keywords": "lipoma"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Epididymo-orchitis",
       "keywords": "epididym|orchit"
@@ -6479,7 +6319,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Reducibility / cough impulse",
       "keywords": "reduc|cough impulse|cough|impulse|disappear|lying"
@@ -6491,15 +6331,11 @@
      {
       "label": "Pain",
       "keywords": "pain|tender|ache"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Duration / onset / change in size",
       "keywords": "duration|onset|size|grow|change"
-     }
-    ],
-    "Aggravating and relieving": [
+     },
      {
       "label": "Heavy lifting / chronic cough / straining",
       "keywords": "lifting|strain|chronic cough|heavy lifting"
@@ -6511,7 +6347,7 @@
       "keywords": "weight|back pain|constitution|gynaecomast"
      }
     ],
-    "Genitourinary and reproductive": [
+    "Abdominal and pelvic": [
      {
       "label": "Fever / urinary symptoms / discharge",
       "keywords": "fever|urinary|dysuria|discharge"
@@ -6529,7 +6365,7 @@
       "keywords": "infertil|orchidopexy|history of undescended"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Sexual history",
       "keywords": "sexual|sti|partner"
@@ -6574,7 +6410,7 @@
   "Inguinoscrotal pain": {
    "prompt": "",
    "differentials": {
-    "Renal and urological": [
+    "Renal, urological and reproductive": [
      {
       "label": "Renal colic (referred)",
       "keywords": "renal colic|stone|calcul|ureteric|referred"
@@ -6584,13 +6420,13 @@
       "keywords": "varicocel|orchialgia|chronic"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "AAA (referred) / hip / nerve entrapment",
       "keywords": "aaa|aneurysm|hip|nerve|entrapment|ilioinguinal"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Epididymo-orchitis",
       "keywords": "epididym|orchit"
@@ -6636,25 +6472,21 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Lump / swelling",
       "keywords": "lump|swell|mass"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Onset (sudden = torsion) / time since onset",
       "keywords": "onset|sudden|time|hours|duration"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Nausea / vomiting",
       "keywords": "nausea|vomit"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "Fever / dysuria / discharge",
       "keywords": "fever|dysuria|discharge|urinary"
@@ -6674,13 +6506,11 @@
       "keywords": "vaccin|parotid|cheek"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Sexual history",
       "keywords": "sexual|sti|partner"
-     }
-    ],
-    "Risk factors": [
+     },
      {
       "label": "Sport / activity",
       "keywords": "sport|activity|exercise|kick"
@@ -6745,7 +6575,7 @@
   "Jaundice": {
    "prompt": "",
    "differentials": {
-    "Hepatobiliary and pancreatic": [
+    "Gastrointestinal and hepatobiliary": [
      {
       "label": "Gilbert's syndrome",
       "keywords": "gilbert"
@@ -6759,25 +6589,23 @@
       "keywords": "nafld|masld|fatty liver|nash|mash"
      }
     ],
-    "Gynaecological and obstetric": [
+    "Renal, urological and reproductive": [
      {
       "label": "Pregnancy-related (cholestasis, AFLP, HELLP)",
       "keywords": "pregnan|cholestasis of pregnancy|aflp|hellp"
      }
     ],
-    "Haematological": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Haemolysis (pre-hepatic)",
       "keywords": "haemoly|hemoly|pre-hepatic|prehepatic"
-     }
-    ],
-    "Endocrine and metabolic": [
+     },
      {
       "label": "Haemochromatosis / Wilson's",
       "keywords": "haemochromat|hemochromat|wilson"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Viral hepatitis (A, B, C, E)",
       "keywords": "viral hepatit|hepatitis|hav|hbv|hcv|hev"
@@ -6785,9 +6613,7 @@
      {
       "label": "Sepsis / TPN cholestasis",
       "keywords": "sepsis|tpn"
-     }
-    ],
-    "Inflammatory and autoimmune": [
+     },
      {
       "label": "Autoimmune hepatitis / PBC / PSC",
       "keywords": "autoimmune|aih|pbc|primary biliary|psc|sclerosing"
@@ -6823,7 +6649,7 @@
     ]
    },
    "associated": {
-    "Onset and course": [
+    "Characteristics and course": [
      {
       "label": "Onset / duration",
       "keywords": "onset|duration|how long"
@@ -6839,7 +6665,7 @@
       "keywords": "fatigue|arthralg|tired"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Pale stools / dark urine",
       "keywords": "pale stool|dark urine|urine|stool|tea"
@@ -6875,13 +6701,11 @@
       "keywords": "med|herbal|supplement|otc"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Travel / food / contacts",
       "keywords": "travel|food|contact|shellfish"
-     }
-    ],
-    "Risk factors": [
+     },
      {
       "label": "IVDU / tattoos / sexual history / transfusions",
       "keywords": "ivdu|inject|tattoo|sexual|transfus|needle"
@@ -6954,7 +6778,7 @@
   "Joint pain": {
    "prompt": "Differentials (incl. back, hip, knee, neck, shoulder, SIJ)",
    "differentials": {
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Osteoarthritis",
       "keywords": "osteoarth|oa|degenerat"
@@ -6980,7 +6804,7 @@
       "keywords": "fibromyalg"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Septic arthritis",
       "keywords": "septic"
@@ -6988,9 +6812,7 @@
      {
       "label": "Viral arthritis (parvovirus, hepatitis B/C, Ross River)",
       "keywords": "viral|parvo|ross river|chikungunya|rubella"
-     }
-    ],
-    "Inflammatory and autoimmune": [
+     },
      {
       "label": "Rheumatoid arthritis",
       "keywords": "rheumatoid|ra"
@@ -7022,7 +6844,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Pattern: mono / oligo / poly, symmetry, small vs large joints",
       "keywords": "pattern|mono|oligo|poly|symmetr|small joint|large joint|number"
@@ -7030,9 +6852,7 @@
      {
       "label": "Inflammatory vs mechanical (morning stiffness >30 min)",
       "keywords": "inflamm|mechanical pain|morning stiff|stiff|rest|activity"
-     }
-    ],
-    "Aggravating and relieving": [
+     },
      {
       "label": "Trauma / overuse",
       "keywords": "overuse|injur|fall"
@@ -7044,7 +6864,7 @@
       "keywords": "fever|systemic|unwell|weight"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Eye (uveitis), bowel (IBD), urethritis",
       "keywords": "eye|uveit|bowel|ibd|diarrh|urethrit|sexual|conjunctiv"
@@ -7064,6 +6884,12 @@
       "keywords": "raynaud|dry|sicca|mouth ulcer|ulcer|alopecia"
      }
     ],
+    "Psychological and social": [
+     {
+      "label": "Function / ADLs / work",
+      "keywords": "function|adl|work|grip|walk"
+     }
+    ],
     "Red flags": [
      {
       "label": "Back pain red flags (night pain, cauda equina symptoms)",
@@ -7074,12 +6900,6 @@
      {
       "label": "Medications (diuretics) / alcohol / diet",
       "keywords": "diuret|alcohol|diet|med"
-     }
-    ],
-    "Social and function": [
-     {
-      "label": "Function / ADLs / work",
-      "keywords": "function|adl|work|grip|walk"
      }
     ]
    },
@@ -7143,7 +6963,7 @@
   "Joint swelling": {
    "prompt": "",
    "differentials": {
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Gout",
       "keywords": "gout"
@@ -7165,7 +6985,7 @@
       "keywords": "baker|popliteal cyst"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Septic arthritis",
       "keywords": "septic"
@@ -7177,9 +6997,7 @@
      {
       "label": "Viral / Lyme arthritis",
       "keywords": "viral|parvo|ross river|lyme"
-     }
-    ],
-    "Inflammatory and autoimmune": [
+     },
      {
       "label": "Rheumatoid arthritis",
       "keywords": "rheumatoid|ra"
@@ -7211,13 +7029,11 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Number / pattern of joints",
       "keywords": "number|pattern|mono|poly|oligo|symmetr"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Onset (acute <24 h vs gradual)",
       "keywords": "onset|sudden|acute|gradual|hours"
@@ -7259,13 +7075,11 @@
       "keywords": "diet|alcohol|diuret|seafood|meat"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Sexual history / urethritis / diarrhoea",
       "keywords": "sexual|urethrit|discharge|diarrh|dysentery"
-     }
-    ],
-    "Risk factors": [
+     },
      {
       "label": "Prosthetic joint / immunosuppression / IVDU",
       "keywords": "prosthet|replacement|immunosup|ivdu|inject"
@@ -7338,31 +7152,39 @@
   "Lack of energy": {
    "prompt": "Differentials (lethargy, fatigue, malaise)",
    "differentials": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "HF",
       "keywords": "heart failure|hf|ccf"
      }
     ],
-    "Gastrointestinal": [
+    "Gastrointestinal and hepatobiliary": [
      {
       "label": "Coeliac disease",
       "keywords": "coeliac|celiac"
      }
     ],
-    "Renal and urological": [
+    "Renal, urological and reproductive": [
      {
       "label": "CKD / liver disease",
       "keywords": "ckd|kidney|renal|liver|hepatic"
      }
     ],
-    "Haematological": [
+    "Neurological and psychiatric": [
+     {
+      "label": "Depression / anxiety",
+      "keywords": "depress|anxiety|mood"
+     },
+     {
+      "label": "Sleep disorders (OSA, insomnia)",
+      "keywords": "osa|sleep|insomnia|apnoea|apnea"
+     }
+    ],
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Anaemia",
       "keywords": "anaem|anem"
-     }
-    ],
-    "Endocrine and metabolic": [
+     },
      {
       "label": "Vitamin deficiency (B12, vitamin D)",
       "keywords": "deficien|vit d defic|vitamin d defic"
@@ -7384,7 +7206,7 @@
       "keywords": "hypercalc|hyponat|electrolyte disturb|electrolyte abnorm|electrolyte derang"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Infection (EBV, HIV, hepatitis, TB)",
       "keywords": "infect|ebv|glandular|mono|hiv|hepatit|tb|viral"
@@ -7406,16 +7228,6 @@
       "keywords": "med|beta|sedativ|opioid|antihist|drug"
      }
     ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Depression / anxiety",
-      "keywords": "depress|anxiety|mood"
-     },
-     {
-      "label": "Sleep disorders (OSA, insomnia)",
-      "keywords": "osa|sleep|insomnia|apnoea|apnea"
-     }
-    ],
     "Physiological and functional": [
      {
       "label": "Pregnancy",
@@ -7428,13 +7240,11 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Fatigue vs sleepiness vs weakness",
       "keywords": "sleepi|weak|tired|exhaust|define"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Duration / onset / pattern",
       "keywords": "duration|onset|pattern|how long|worse"
@@ -7460,7 +7270,7 @@
       "keywords": "sob|breath|exercise|dysp"
      }
     ],
-    "Genitourinary and reproductive": [
+    "Abdominal and pelvic": [
      {
       "label": "Menstrual / GI blood loss",
       "keywords": "menstru|period|bleed|melaena|heavy"
@@ -7470,7 +7280,7 @@
       "keywords": "polyur|polydips|thirst"
      }
     ],
-    "Psychological": [
+    "Psychological and social": [
      {
       "label": "Low mood / anhedonia / stress",
       "keywords": "low mood|anhedon|stress|interest"
@@ -7478,18 +7288,16 @@
      {
       "label": "Sleep quality / snoring",
       "keywords": "sleep quality|snor|sleep hygiene"
+     },
+     {
+      "label": "Diet / work / social stressors",
+      "keywords": "diet|work|social|lifestyle|caffeine"
      }
     ],
     "Red flags": [
      {
       "label": "Lumps / bone pain",
       "keywords": "lump|node|bone pain"
-     }
-    ],
-    "Social and function": [
-     {
-      "label": "Diet / work / social stressors",
-      "keywords": "diet|work|social|lifestyle|caffeine"
      }
     ]
    },
@@ -7579,7 +7387,7 @@
   "Loss of consciousness": {
    "prompt": "Differentials (transient, trauma, anaesthetised)",
    "differentials": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Orthostatic hypotension",
       "keywords": "orthostat|postural|hypotens"
@@ -7597,13 +7405,17 @@
       "keywords": "aortic stenosis|stenosis|hocm|hcm|structural|outflow"
      }
     ],
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Seizure",
       "keywords": "seiz|epilep|fit"
+     },
+     {
+      "label": "Functional (PNES)",
+      "keywords": "pnes|psychogenic|non-epileptic|functional"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Hypoglycaemia",
       "keywords": "hypogly"
@@ -7639,12 +7451,6 @@
       "keywords": "anaesthe|anesthe|airway|sedation"
      }
     ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Functional (PNES)",
-      "keywords": "pnes|psychogenic|non-epileptic|functional"
-     }
-    ],
     "Physiological and functional": [
      {
       "label": "Vasovagal syncope",
@@ -7653,7 +7459,7 @@
     ]
    },
    "associated": {
-    "Aggravating and relieving": [
+    "Characteristics and course": [
      {
       "label": "Posture / triggers (standing, exertion, micturition, pain)",
       "keywords": "posture|standing|exert|trigger|micturition|cough|pain|neck turn"
@@ -7691,16 +7497,16 @@
       "keywords": "palpit|chest pain|sob|breath|dysp"
      }
     ],
+    "Psychological and social": [
+     {
+      "label": "Driving / occupation",
+      "keywords": "driv|occupat|pilot|work"
+     }
+    ],
     "Past history": [
      {
       "label": "Cardiac history / medications (QT-prolonging, antihypertensives)",
       "keywords": "cardiac hist|heart disease|med|antihypert|qt"
-     }
-    ],
-    "Social and function": [
-     {
-      "label": "Driving / occupation",
-      "keywords": "driv|occupat|pilot|work"
      }
     ]
    },
@@ -7770,7 +7576,7 @@
   "Low blood pressure": {
    "prompt": "",
    "differentials": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Hypovolaemia (haemorrhage, dehydration, burns)",
       "keywords": "hypovol|haemorrhag|hemorrhag|bleed|dehydrat|burn|fluid loss"
@@ -7784,19 +7590,19 @@
       "keywords": "obstructive|pe|pulmonary embol|tamponade|tension|pneumothorax"
      }
     ],
-    "Gynaecological and obstetric": [
+    "Renal, urological and reproductive": [
      {
       "label": "Ruptured ectopic pregnancy",
       "keywords": "ectopic|pregnan"
      }
     ],
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Autonomic dysfunction / orthostatic hypotension",
       "keywords": "autonom|orthostat|postural|pots"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Adrenal crisis",
       "keywords": "adrenal|addison"
@@ -7806,13 +7612,11 @@
       "keywords": "hypothyro|myxoed|hypotherm"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Septic shock",
       "keywords": "sepsis|septic|distributive"
-     }
-    ],
-    "Inflammatory and autoimmune": [
+     },
      {
       "label": "Anaphylaxis",
       "keywords": "anaphyla"
@@ -7856,13 +7660,11 @@
       "keywords": "chest pain|sob|breath|palpit|dysp"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Fluid losses: vomiting, diarrhoea, bleeding, melaena",
       "keywords": "vomit|diarrh|melaena|losses|intake"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "Urine output",
       "keywords": "urine output|oligur|anur|output"
@@ -7872,7 +7674,7 @@
       "keywords": "lmp|period|missed period"
      }
     ],
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "Dizziness / syncope / confusion",
       "keywords": "dizz|syncop|confus|lighthead"
@@ -7884,7 +7686,7 @@
       "keywords": "steroid|new med|dose"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Allergen exposure / rash / swelling",
       "keywords": "allerg|rash|swell|sting|food|wheez"
@@ -7969,13 +7771,13 @@
   "Lump": {
    "prompt": "",
    "differentials": {
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Neurofibroma / schwannoma",
       "keywords": "neurofibrom|nf1|schwannoma"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Lipoma",
       "keywords": "lipoma"
@@ -7983,9 +7785,7 @@
      {
       "label": "Ganglion",
       "keywords": "ganglion"
-     }
-    ],
-    "Skin": [
+     },
      {
       "label": "Epidermoid / sebaceous cyst",
       "keywords": "epidermoid|sebaceous|cyst|epidermal|pilar"
@@ -7995,13 +7795,13 @@
       "keywords": "dermatofibrom|keratoacanth"
      }
     ],
-    "Haematological": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Lymphadenopathy (reactive, infective, malignant)",
       "keywords": "lymph|node|adenopath"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Abscess",
       "keywords": "abscess|boil|furuncle|collection"
@@ -8039,7 +7839,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Pain / tenderness",
       "keywords": "pain|tender"
@@ -8055,9 +7855,7 @@
      {
       "label": "Other lumps elsewhere",
       "keywords": "other lump|elsewhere|multiple"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Duration / rate of growth",
       "keywords": "duration|growth|grow|how long|change"
@@ -8075,13 +7873,11 @@
       "keywords": "trauma|injur"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Local infection / bites / itch",
       "keywords": "itch|infect|bite|scratch"
-     }
-    ],
-    "Risk factors": [
+     },
      {
       "label": "Cancer history / smoking / sun exposure",
       "keywords": "cancer hist|smok|sun|previous cancer"
@@ -8138,7 +7934,7 @@
   "Melaena": {
    "prompt": "",
    "differentials": {
-    "Gastrointestinal": [
+    "Gastrointestinal and hepatobiliary": [
      {
       "label": "Peptic ulcer disease",
       "keywords": "peptic|ulcer|pud|duodenal|gastric ulcer"
@@ -8156,13 +7952,13 @@
       "keywords": "small bowel|meckel|right colon|caecal|ileal"
      }
     ],
-    "Ear, nose and throat": [
+    "Eye, ear, nose and throat": [
      {
       "label": "Swallowed blood (epistaxis)",
       "keywords": "swallow|epistax|nose"
      }
     ],
-    "Haematological": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Coagulopathy / anticoagulants",
       "keywords": "coagulopath|anticoag|warfarin|doac"
@@ -8194,7 +7990,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Black tarry offensive stool / frequency",
       "keywords": "tarry|black|offensive|sticky|frequency|consisten"
@@ -8206,7 +8002,7 @@
       "keywords": "syncop|dizz|faint|sob|chest pain|lighthead|dysp"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Haematemesis / coffee-ground vomit",
       "keywords": "haematemesis|hematemesis|vomit|coffee"
@@ -8301,7 +8097,7 @@
   "Muscle weakness": {
    "prompt": "Differentials (generalised and regional)",
    "differentials": {
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Multiple sclerosis",
       "keywords": "ms|multiple sclerosis|demyelin"
@@ -8323,7 +8119,7 @@
       "keywords": "myasthen|mg|lems|lambert|eaton"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Rhabdomyolysis",
       "keywords": "rhabdo"
@@ -8333,7 +8129,7 @@
       "keywords": "dystroph|duchenne|becker|myotonic"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Electrolytes (K, Ca, PO4, Mg)",
       "keywords": "hypokal|potassium|hypercalc|hypophos|hypomag|electrolyte disturb|electrolyte abnorm|electrolyte derang"
@@ -8343,7 +8139,7 @@
       "keywords": "thyro|cushing|addison|endocrine"
      }
     ],
-    "Inflammatory and autoimmune": [
+    "Infective and inflammatory": [
      {
       "label": "Inflammatory myopathy (polymyositis, dermatomyositis, IBM)",
       "keywords": "myositis|dermatomyos|polymyos|ibm|inclusion body"
@@ -8379,13 +8175,11 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Distribution: proximal vs distal, UMN vs LMN, symmetric",
       "keywords": "proximal|distal|umn|lmn|symmetr|distribut|pattern|focal|generalis"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Onset / progression (e.g. ascending)",
       "keywords": "onset|progress|sudden|ascending"
@@ -8397,7 +8191,7 @@
       "keywords": "breath|sob|respiratory|orthopn"
      }
     ],
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "Fatigability / diplopia / ptosis / bulbar",
       "keywords": "fatigab|diplop|ptosis|bulbar|swallow|speech"
@@ -8437,7 +8231,7 @@
       "keywords": "med|alcohol"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Recent infection / diarrhoea / vaccination",
       "keywords": "recent infect|diarrh|campylobacter|urti|vaccin"
@@ -8522,13 +8316,13 @@
   "Musculoskeletal pain": {
    "prompt": "Differentials (bone, muscle, limb, loin, pelvic floor)",
    "differentials": {
-    "Renal and urological": [
+    "Renal, urological and reproductive": [
      {
       "label": "Referred (renal colic, AAA, pyelonephritis)",
       "keywords": "referred|renal colic|loin|aaa|pyelo"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Mechanical / muscle strain / soft tissue",
       "keywords": "mechanical|strain|sprain|soft tissue"
@@ -8546,7 +8340,7 @@
       "keywords": "pelvic floor|perine|pudendal|levator"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Vitamin D deficiency / osteomalacia / Paget's",
       "keywords": "vitamin d defic|osteomalac|paget"
@@ -8556,13 +8350,11 @@
       "keywords": "hypothyro|thyroid"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Osteomyelitis / septic arthritis / discitis",
       "keywords": "osteomyel|septic|discit|infect"
-     }
-    ],
-    "Inflammatory and autoimmune": [
+     },
      {
       "label": "Inflammatory arthritis",
       "keywords": "inflammat|rheumatoid|ra|spondylo|psoriatic"
@@ -8596,7 +8388,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Site / radiation / onset",
       "keywords": "site|radiat|onset|where|localis"
@@ -8604,15 +8396,13 @@
      {
       "label": "Mechanical vs inflammatory (stiffness, rest vs activity)",
       "keywords": "stiff|morning|rest|activity|inflammatory pattern|night"
-     }
-    ],
-    "Aggravating and relieving": [
+     },
      {
       "label": "Trauma / overuse",
       "keywords": "trauma|injur|overuse|fall"
      }
     ],
-    "Genitourinary and reproductive": [
+    "Abdominal and pelvic": [
      {
       "label": "Urinary symptoms (loin pain)",
       "keywords": "urinary|haematuria|dysuria"
@@ -8624,10 +8414,14 @@
       "keywords": "swell|red|joint|erythem"
      }
     ],
-    "Psychological": [
+    "Psychological and social": [
      {
       "label": "Sleep / mood / fatigue",
       "keywords": "sleep|mood|fatigue|tired"
+     },
+     {
+      "label": "Function / work",
+      "keywords": "function|work|adl"
      }
     ],
     "Red flags": [
@@ -8644,12 +8438,6 @@
      {
       "label": "Medications (statins, steroids, fluoroquinolones)",
       "keywords": "med|fluoroquin|quinolone"
-     }
-    ],
-    "Social and function": [
-     {
-      "label": "Function / work",
-      "keywords": "function|work|adl"
      }
     ]
    },
@@ -8725,25 +8513,25 @@
   "Neck lump": {
    "prompt": "",
    "differentials": {
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Lipoma / sebaceous cyst",
       "keywords": "lipoma|sebaceous|epidermoid|cyst"
      }
     ],
-    "Ear, nose and throat": [
+    "Eye, ear, nose and throat": [
      {
       "label": "Salivary gland (pleomorphic adenoma, stone, sialadenitis)",
       "keywords": "salivary|parotid|submandibular|pleomorphic|warthin|sialaden|sialolith"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Thyroid nodule / goitre / thyroid cancer",
       "keywords": "thyroid|goitre|goiter|nodule"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Reactive lymphadenopathy",
       "keywords": "reactive|lymphadenop|lymph node|node|lymphaden"
@@ -8789,7 +8577,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Pain / tenderness",
       "keywords": "pain|tender"
@@ -8797,9 +8585,7 @@
      {
       "label": "Moves with swallowing / tongue protrusion",
       "keywords": "moves with swallow|tongue protru|tongue"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Duration / growth",
       "keywords": "duration|grow|how long|size|change"
@@ -8815,7 +8601,7 @@
       "keywords": "hyperthyro|hypothyro|heat|cold intoler|palpit"
      }
     ],
-    "Eye, ear, nose and throat": [
+    "Neurological and special senses": [
      {
       "label": "Referred otalgia",
       "keywords": "otalgia|ear pain"
@@ -8833,7 +8619,7 @@
       "keywords": "smok|alcohol"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Recent URTI / dental infection / sore throat",
       "keywords": "urti|sore throat|dental|tooth|cold"
@@ -8841,9 +8627,7 @@
      {
       "label": "Radiation exposure / cancer history / pets / travel",
       "keywords": "radiation|previous cancer|cat|travel|animal|dog"
-     }
-    ],
-    "Risk factors": [
+     },
      {
       "label": "HPV risk / oral sex",
       "keywords": "hpv|oral sex|sexual"
@@ -8914,7 +8698,7 @@
   "Nipple discharge": {
    "prompt": "Differentials (incl. lactation)",
    "differentials": {
-    "Gynaecological and obstetric": [
+    "Renal, urological and reproductive": [
      {
       "label": "Pregnancy / breastfeeding",
       "keywords": "pregnan|breastfe|postpartum"
@@ -8932,7 +8716,7 @@
       "keywords": "fibrocystic"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Prolactinoma / pituitary adenoma",
       "keywords": "prolactinoma|pituitary|adenoma|macroadenoma"
@@ -8942,7 +8726,7 @@
       "keywords": "hypothyro|thyroid"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Mastitis / abscess",
       "keywords": "mastitis|abscess|infect"
@@ -8972,7 +8756,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Unilateral vs bilateral",
       "keywords": "unilat|bilat|side"
@@ -8990,7 +8774,7 @@
       "keywords": "colour|color|bloody|blood|serous|milky|green|clear"
      }
     ],
-    "Genitourinary and reproductive": [
+    "Abdominal and pelvic": [
      {
       "label": "Breast lump / skin change",
       "keywords": "lump|mass|skin|dimpl|retract|inversion"
@@ -9000,13 +8784,13 @@
       "keywords": "amenorr|period|menstru|infertil|libido"
      }
     ],
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "Headache / visual field loss",
       "keywords": "headache|visual|vision|field"
      }
     ],
-    "Risk factors": [
+    "Risk factors and exposures": [
      {
       "label": "Male patient",
       "keywords": "male|man|gynaecomast"
@@ -9069,13 +8853,13 @@
   "Pallor": {
    "prompt": "",
    "differentials": {
-    "Hepatobiliary and pancreatic": [
+    "Gastrointestinal and hepatobiliary": [
      {
       "label": "Chronic liver disease / alcohol",
       "keywords": "liver|alcohol|cirrho"
      }
     ],
-    "Haematological": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Iron deficiency anaemia",
       "keywords": "iron defic|ida"
@@ -9103,9 +8887,7 @@
      {
       "label": "Marrow failure / leukaemia / myelodysplasia",
       "keywords": "marrow failure|leukaem|leukem|mds|myelodysplas|aplastic|marrow infiltrat"
-     }
-    ],
-    "Endocrine and metabolic": [
+     },
      {
       "label": "Hypothyroidism",
       "keywords": "hypothyro|thyroid"
@@ -9127,7 +8909,7 @@
     ]
    },
    "associated": {
-    "Onset and course": [
+    "Characteristics and course": [
      {
       "label": "Onset (acute vs chronic)",
       "keywords": "onset|acute|chronic|how long"
@@ -9145,7 +8927,7 @@
       "keywords": "fatigue|tired|sob|breath|chest pain|palpit|dysp"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Menstrual / GI bleeding (melaena, PR blood)",
       "keywords": "menstru|period|menorrh|melaena|pr blood|rectal"
@@ -9171,7 +8953,7 @@
       "keywords": "nsaid|anticoag|aspirin|med"
      }
     ],
-    "Risk factors": [
+    "Risk factors and exposures": [
      {
       "label": "Diet (vegetarian / vegan)",
       "keywords": "diet|vegetarian|vegan|meat"
@@ -9256,7 +9038,7 @@
   "Palpitations": {
    "prompt": "",
    "differentials": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "AF / atrial flutter",
       "keywords": "af|atrial fib|flutter"
@@ -9274,13 +9056,11 @@
       "keywords": "structural|cardiomyop|valv|hocm|hcm"
      }
     ],
-    "Haematological": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Anaemia",
       "keywords": "anaem|anem"
-     }
-    ],
-    "Endocrine and metabolic": [
+     },
      {
       "label": "Thyrotoxicosis",
       "keywords": "thyrotox|hyperthyro|thyroid"
@@ -9316,19 +9096,15 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Regular vs irregular / fast vs slow (tap it out)",
       "keywords": "regular|irregular|fast|slow|tap|rate|rhythm"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Onset / offset (sudden vs gradual) / duration",
       "keywords": "onset|offset|sudden|gradual|duration|how long|stop"
-     }
-    ],
-    "Aggravating and relieving": [
+     },
      {
       "label": "Terminated by vagal manoeuvres",
       "keywords": "vagal|valsalva|terminat"
@@ -9350,22 +9126,22 @@
       "keywords": "syncop|faint|chest pain|sob|breath|dizz|dysp"
      }
     ],
-    "Genitourinary and reproductive": [
+    "Abdominal and pelvic": [
      {
       "label": "Menstrual / bleeding",
       "keywords": "menstru|bleed|period"
+     }
+    ],
+    "Psychological and social": [
+     {
+      "label": "Driving / occupation",
+      "keywords": "driv|occupat"
      }
     ],
     "Past history": [
      {
       "label": "Cardiac history / antiarrhythmics",
       "keywords": "cardiac hist|heart disease|qt drug|antiarrhythm"
-     }
-    ],
-    "Social and function": [
-     {
-      "label": "Driving / occupation",
-      "keywords": "driv|occupat"
      }
     ]
    },
@@ -9431,13 +9207,13 @@
   "Perianal lump": {
    "prompt": "",
    "differentials": {
-    "Gastrointestinal": [
+    "Gastrointestinal and hepatobiliary": [
      {
       "label": "Haemorrhoids (internal prolapsed / external)",
       "keywords": "haemorrhoid|hemorrhoid|piles"
      }
     ],
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Skin tags (incl. sentinel pile)",
       "keywords": "skin tag|tag|sentinel"
@@ -9447,7 +9223,7 @@
       "keywords": "pilonidal"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Perianal abscess",
       "keywords": "abscess"
@@ -9463,9 +9239,7 @@
      {
       "label": "Molluscum / secondary syphilis (condylomata lata)",
       "keywords": "molluscum|syphilis|condylomata lata"
-     }
-    ],
-    "Inflammatory and autoimmune": [
+     },
      {
       "label": "Perianal Crohn's disease",
       "keywords": "crohn|ibd"
@@ -9491,7 +9265,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Prolapse on straining / reducible",
       "keywords": "reduc|comes out|push back"
@@ -9499,9 +9273,7 @@
      {
       "label": "Pain (on defecation / constant)",
       "keywords": "pain|tender|defecat"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Duration / growth",
       "keywords": "duration|grow|how long|size"
@@ -9513,7 +9285,7 @@
       "keywords": "fever|discharg|pus|smell"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Bleeding (bright red, on paper)",
       "keywords": "bleed|blood|bright red|paper"
@@ -9539,7 +9311,7 @@
       "keywords": "hiv|immunosup"
      }
     ],
-    "Risk factors": [
+    "Risk factors and exposures": [
      {
       "label": "Sexual history / receptive anal sex",
       "keywords": "sexual|anal sex|partner|msm"
@@ -9602,25 +9374,25 @@
   "Perianal pain": {
    "prompt": "",
    "differentials": {
-    "Gastrointestinal": [
+    "Gastrointestinal and hepatobiliary": [
      {
       "label": "Proctitis (STI, IBD, radiation)",
       "keywords": "proctit|sti|herpes|gonorrh|chlamydia|lgv|radiation"
      }
     ],
-    "Renal and urological": [
+    "Renal, urological and reproductive": [
      {
       "label": "Prostatitis / coccydynia",
       "keywords": "prostatit|coccyd|coccyx|tailbone"
      }
     ],
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Pruritus ani / dermatitis / candida",
       "keywords": "prurit|dermatit|eczema|candid"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Perianal / ischiorectal abscess",
       "keywords": "abscess|ischiorectal"
@@ -9636,9 +9408,7 @@
      {
       "label": "Fournier's gangrene",
       "keywords": "fournier|necrotising|necrotizing"
-     }
-    ],
-    "Inflammatory and autoimmune": [
+     },
      {
       "label": "Perianal Crohn's disease",
       "keywords": "crohn|ibd"
@@ -9670,7 +9440,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Pain with defecation (tearing, lasting hours)",
       "keywords": "defecat|bowel motion|tearing|after stool|passing stool"
@@ -9686,7 +9456,7 @@
       "keywords": "fever|discharg|pus"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Bleeding (bright red on paper)",
       "keywords": "bleed|blood|bright red|paper"
@@ -9698,9 +9468,7 @@
      {
       "label": "Diarrhoea / mucus",
       "keywords": "diarrh|mucus"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "Urinary symptoms / ejaculatory pain",
       "keywords": "urinary|dysuria|ejacul"
@@ -9716,7 +9484,7 @@
       "keywords": "diabet|immunosup"
      }
     ],
-    "Risk factors": [
+    "Risk factors and exposures": [
      {
       "label": "Sexual history / anal intercourse",
       "keywords": "sexual|anal sex|partner|msm"
@@ -9775,19 +9543,25 @@
   "Polydipsia": {
    "prompt": "",
    "differentials": {
-    "Renal and urological": [
+    "Renal, urological and reproductive": [
      {
       "label": "CKD",
       "keywords": "ckd|renal|kidney"
      }
     ],
-    "Ear, nose and throat": [
+    "Neurological and psychiatric": [
+     {
+      "label": "Primary polydipsia",
+      "keywords": "primary polydips|psychogenic|habitual|compulsive"
+     }
+    ],
+    "Eye, ear, nose and throat": [
      {
       "label": "Dry mouth (anticholinergics, Sjögren's)",
       "keywords": "dry mouth|xerostom|sjogren|sjögren|anticholin"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Diabetes mellitus",
       "keywords": "diabetes mellitus|dm|t1dm|t2dm|hypergly|mellitus"
@@ -9818,16 +9592,10 @@
       "label": "Medications (diuretics, steroids, SGLT2i)",
       "keywords": "diuret|steroid|sglt|~gliflozin|med"
      }
-    ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Primary polydipsia",
-      "keywords": "primary polydips|psychogenic|habitual|compulsive"
-     }
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Intake volume / urine output",
       "keywords": "volume|intake|output|litres|how much"
@@ -9847,7 +9615,7 @@
       "keywords": "weight|polyphag|blur|vision"
      }
     ],
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "Headache / visual fields / head injury / neurosurgery",
       "keywords": "headache|visual field|pituitar|head injur|neurosurg"
@@ -9855,15 +9623,13 @@
      {
       "label": "Bone pain / constipation / confusion",
       "keywords": "bone pain|constipat|confus|abdominal pain"
-     }
-    ],
-    "Eye, ear, nose and throat": [
+     },
      {
       "label": "Dry eyes / sicca",
       "keywords": "dry eye|sicca"
      }
     ],
-    "Psychological": [
+    "Psychological and social": [
      {
       "label": "Psychiatric history",
       "keywords": "psychiatric|schizo|mental health"
@@ -9940,37 +9706,33 @@
   "Pre-operative assessment": {
    "prompt": "Risks to consider",
    "differentials": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Cardiac risk (IHD, HF, arrhythmia, valve disease)",
       "keywords": "cardiac|ihd|heart|arrhythm|valv|rcri|revised cardiac|hf|heart failure"
-     }
-    ],
-    "Respiratory": [
+     },
      {
       "label": "Respiratory risk (COPD, asthma, OSA)",
       "keywords": "respiratory|copd|asthma|osa|lung|pulmonary"
      }
     ],
-    "Renal and urological": [
+    "Renal, urological and reproductive": [
      {
       "label": "Renal impairment / AKI risk",
       "keywords": "renal|kidney|ckd|aki"
-     }
-    ],
-    "Gynaecological and obstetric": [
+     },
      {
       "label": "Pregnancy",
       "keywords": "pregnan"
      }
     ],
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Frailty / cognitive impairment / delirium risk",
       "keywords": "frail|cognit|dementia|delirium"
      }
     ],
-    "Haematological": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Bleeding risk (anticoagulants, bleeding disorders)",
       "keywords": "bleeding risk|anticoag|bleed|coagulopath"
@@ -9978,15 +9740,13 @@
      {
       "label": "Nutrition / anaemia",
       "keywords": "nutrition|malnut|anaem|anem"
-     }
-    ],
-    "Endocrine and metabolic": [
+     },
      {
       "label": "Diabetes / glycaemic control",
       "keywords": "diabet|glycaem|insulin|sglt"
      }
     ],
-    "Inflammatory and autoimmune": [
+    "Infective and inflammatory": [
      {
       "label": "Allergies (antibiotics, latex, chlorhexidine)",
       "keywords": "allerg|latex|chlorhex"
@@ -10012,7 +9772,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Dentition / neck mobility / mouth opening",
       "keywords": "dent|teeth|tooth|neck mobil|jaw|mouth opening"
@@ -10028,10 +9788,24 @@
       "keywords": "chest pain|sob|breath|orthopn|syncop|dysp"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Fasting / reflux",
       "keywords": "fasting|nil by mouth|nbm|reflux|gord"
+     }
+    ],
+    "Psychological and social": [
+     {
+      "label": "Functional capacity (METs, stairs)",
+      "keywords": "met|functional capacity|stairs|exercise toler|duke|dasi"
+     },
+     {
+      "label": "Home supports / discharge planning / goals of care",
+      "keywords": "support|discharge|home|goals|acp|advance care"
+     },
+     {
+      "label": "Consent / understanding",
+      "keywords": "consent|understand|capacity"
      }
     ],
     "Past history": [
@@ -10048,20 +9822,6 @@
      {
       "label": "Smoking / alcohol / drugs",
       "keywords": "smok|alcohol|drug|substance"
-     }
-    ],
-    "Social and function": [
-     {
-      "label": "Functional capacity (METs, stairs)",
-      "keywords": "met|functional capacity|stairs|exercise toler|duke|dasi"
-     },
-     {
-      "label": "Home supports / discharge planning / goals of care",
-      "keywords": "support|discharge|home|goals|acp|advance care"
-     },
-     {
-      "label": "Consent / understanding",
-      "keywords": "consent|understand|capacity"
      }
     ]
    },
@@ -10137,43 +9897,47 @@
   "Preventative health assessment": {
    "prompt": "Screening targets",
    "differentials": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Cardiovascular disease (absolute CVD risk)",
       "keywords": "cardiovasc|cvd|absolute risk|heart disease|cv risk"
      }
     ],
-    "Renal and urological": [
+    "Renal, urological and reproductive": [
      {
       "label": "Kidney disease",
       "keywords": "kidney|ckd|renal"
      }
     ],
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Falls / cognition (older adults)",
       "keywords": "falls|cognit|dementia"
+     },
+     {
+      "label": "Mental health / depression",
+      "keywords": "mental health|depress|anxiety|mood"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Osteoporosis",
       "keywords": "osteopor|bone health"
      }
     ],
-    "Eye": [
+    "Eye, ear, nose and throat": [
      {
       "label": "Vision / hearing / dental",
       "keywords": "vision|hearing|dental|eye|teeth"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Type 2 diabetes (AUSDRISK)",
       "keywords": "diabet|ausdrisk"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "STIs / BBVs",
       "keywords": "sti|bbv|chlamydia|hiv|hepatitis|sexual health"
@@ -10210,16 +9974,10 @@
       "label": "AAA",
       "keywords": "aaa|aneurysm|aortic"
      }
-    ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Mental health / depression",
-      "keywords": "mental health|depress|anxiety|mood"
-     }
     ]
    },
    "associated": {
-    "Genitourinary and reproductive": [
+    "Abdominal and pelvic": [
      {
       "label": "Contraception / pregnancy intentions",
       "keywords": "contracep|family plan|pregnancy intent|preconception|folate"
@@ -10227,6 +9985,16 @@
      {
       "label": "Sexual history",
       "keywords": "sexual hist|partner|safe sex"
+     }
+    ],
+    "Psychological and social": [
+     {
+      "label": "Psychosocial: relationships, safety (family violence), sleep",
+      "keywords": "relationship|safety|violence|fdv|sleep|stress|social"
+     },
+     {
+      "label": "Aboriginal and Torres Strait Islander status (715 health check)",
+      "keywords": "aboriginal|torres|atsi|indigenous|715|first nations"
      }
     ],
     "Past history": [
@@ -10249,13 +10017,11 @@
       "keywords": "med|supplement"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Occupation / sun exposure / driving",
       "keywords": "occupat|sun|driv|work"
-     }
-    ],
-    "Risk factors": [
+     },
      {
       "label": "SNAP: nutrition, alcohol, physical activity",
       "keywords": "snap|nutrition|diet|alcohol|physical activ|exercise"
@@ -10263,16 +10029,6 @@
      {
       "label": "Weight / BMI / waist",
       "keywords": "weight|bmi|waist"
-     }
-    ],
-    "Social and function": [
-     {
-      "label": "Psychosocial: relationships, safety (family violence), sleep",
-      "keywords": "relationship|safety|violence|fdv|sleep|stress|social"
-     },
-     {
-      "label": "Aboriginal and Torres Strait Islander status (715 health check)",
-      "keywords": "aboriginal|torres|atsi|indigenous|715|first nations"
      }
     ]
    },
@@ -10350,31 +10106,29 @@
   "Pruritus": {
    "prompt": "",
    "differentials": {
-    "Hepatobiliary and pancreatic": [
+    "Gastrointestinal and hepatobiliary": [
      {
       "label": "Cholestasis (PBC, obstruction, pregnancy)",
       "keywords": "cholesta|pbc|biliary|obstetric cholestasis|liver"
      }
     ],
-    "Renal and urological": [
+    "Renal, urological and reproductive": [
      {
       "label": "CKD (uraemic pruritus)",
       "keywords": "ckd|uraem|uremi|renal|kidney"
-     }
-    ],
-    "Gynaecological and obstetric": [
+     },
      {
       "label": "Pregnancy dermatoses",
       "keywords": "pregnan|pupp|polymorphic eruption"
      }
     ],
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Neuropathic / psychogenic",
       "keywords": "psychogen|neuropath|anxiety|brachioradial|notalgia"
      }
     ],
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Dry skin (xerosis)",
       "keywords": "xerosis|dry skin|dry"
@@ -10396,7 +10150,7 @@
       "keywords": "bite|insect|contact|allergic contact"
      }
     ],
-    "Haematological": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Iron deficiency",
       "keywords": "iron defic"
@@ -10404,15 +10158,13 @@
      {
       "label": "Haematological (polycythaemia vera, lymphoma)",
       "keywords": "polycyth|pv|lymphoma|hodgkin|myeloprolif"
-     }
-    ],
-    "Endocrine and metabolic": [
+     },
      {
       "label": "Thyroid disease / diabetes",
       "keywords": "thyro|thyroid|diabet"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Scabies / lice",
       "keywords": "scabies|lice|pedicul|mite"
@@ -10430,7 +10182,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Generalised vs localised",
       "keywords": "generalis|localis|distribut|where"
@@ -10438,15 +10190,11 @@
      {
       "label": "Primary rash present or not",
       "keywords": "rash|lesion|primary lesion|skin change"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Nocturnal / worse after bathing",
       "keywords": "noctur|night|bath|shower|aquagenic|water"
-     }
-    ],
-    "Aggravating and relieving": [
+     },
      {
       "label": "Stress / sleep",
       "keywords": "stress|sleep|mood"
@@ -10462,13 +10210,13 @@
       "keywords": "fatigue|tired|period|menorrh"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Jaundice / dark urine / pale stools",
       "keywords": "jaund|yellow|dark urine|pale stool"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Household / close contacts itchy",
       "keywords": "household|close contact|family itchy|others itchy"
@@ -10551,7 +10299,7 @@
   "Rash": {
    "prompt": "",
    "differentials": {
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Eczema / dermatitis",
       "keywords": "eczema|dermatit"
@@ -10573,7 +10321,7 @@
       "keywords": "erythema multiforme|em|erythema nodosum|nodosum|multiforme"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Viral exanthem (measles, varicella, HFMD, parvovirus)",
       "keywords": "viral|exanthem|measles|chickenpox|varicella|rubella|hfmd|hand foot|parvo|slapped"
@@ -10601,9 +10349,7 @@
      {
       "label": "Secondary syphilis",
       "keywords": "syphilis"
-     }
-    ],
-    "Inflammatory and autoimmune": [
+     },
      {
       "label": "Kawasaki disease",
       "keywords": "kawasaki"
@@ -10625,7 +10371,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Onset / evolution / distribution",
       "keywords": "onset|evolut|distribut|spread|where|started"
@@ -10637,9 +10383,7 @@
      {
       "label": "Mucosal involvement",
       "keywords": "mucos|mouth|genital|lip"
-     }
-    ],
-    "Aggravating and relieving": [
+     },
      {
       "label": "Triggers: sun, food, products, plants",
       "keywords": "sun|food|soap|product|plant|trigger|cosmetic"
@@ -10677,7 +10421,7 @@
       "keywords": "new drug|new med|recent med"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Contacts / travel / sexual history",
       "keywords": "contact|travel|sexual|outbreak"
@@ -10750,7 +10494,7 @@
   "Rectal bleeding": {
    "prompt": "",
    "differentials": {
-    "Gastrointestinal": [
+    "Gastrointestinal and hepatobiliary": [
      {
       "label": "Haemorrhoids",
       "keywords": "haemorrhoid|hemorrhoid|piles"
@@ -10772,13 +10516,11 @@
       "keywords": "upper gi|brisk"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Infective colitis (Campylobacter, Shigella, STEC)",
       "keywords": "infective|campylobacter|shigella|e coli|stec|dysentery|gastroenteritis"
-     }
-    ],
-    "Inflammatory and autoimmune": [
+     },
      {
       "label": "IBD",
       "keywords": "ibd|crohn|ulcerative|colitis"
@@ -10812,7 +10554,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Colour: bright red vs dark / mixed with stool",
       "keywords": "bright|dark|maroon|colour|mixed|on paper|surface|in pan"
@@ -10834,7 +10576,7 @@
       "keywords": "dizz|syncop|faint"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Pain on defecation / lump / itch",
       "keywords": "pain|lump|itch|tear"
@@ -10925,7 +10667,7 @@
   "Red eye": {
    "prompt": "",
    "differentials": {
-    "Eye": [
+    "Eye, ear, nose and throat": [
      {
       "label": "Conjunctivitis (viral, bacterial, allergic)",
       "keywords": "conjunctiv|pink eye"
@@ -10955,7 +10697,7 @@
       "keywords": "glaucoma|angle closure|aacg"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Keratitis / corneal ulcer (contact lens)",
       "keywords": "keratit|corneal ulcer|ulcer|acanthamoeba"
@@ -10985,7 +10727,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Pain vs gritty / itchy",
       "keywords": "pain|gritty|itch|ache|discomfort"
@@ -10999,7 +10741,7 @@
       "keywords": "unilat|bilat|one eye|both eyes|side"
      }
     ],
-    "Eye, ear, nose and throat": [
+    "Neurological and special senses": [
      {
       "label": "Vision change",
       "keywords": "vision|visual|blur"
@@ -11027,7 +10769,7 @@
       "keywords": "anticoag|bp|hypertens|valsalva|cough|strain"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Contact lens wear",
       "keywords": "contact lens|lens"
@@ -11088,7 +10830,7 @@
   "Rhinorrhoea": {
    "prompt": "",
    "differentials": {
-    "Ear, nose and throat": [
+    "Eye, ear, nose and throat": [
      {
       "label": "Chronic rhinosinusitis ± nasal polyps",
       "keywords": "chronic rhinosinus|polyp|crs"
@@ -11098,13 +10840,13 @@
       "keywords": "vasomotor|non-allergic|gustatory|idiopathic rhinitis"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Pregnancy / hypothyroidism",
       "keywords": "pregnan|hypothyro"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Viral URTI (common cold)",
       "keywords": "urti|cold|viral|common cold"
@@ -11112,9 +10854,7 @@
      {
       "label": "Acute bacterial rhinosinusitis",
       "keywords": "bacterial|rhinosinus|sinusit"
-     }
-    ],
-    "Inflammatory and autoimmune": [
+     },
      {
       "label": "Allergic rhinitis",
       "keywords": "allergic rhinitis|allerg|hay fever"
@@ -11152,7 +10892,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Unilateral vs bilateral",
       "keywords": "unilat|bilat|side"
@@ -11160,15 +10900,11 @@
      {
       "label": "Colour / consistency (clear, purulent, bloody)",
       "keywords": "clear|purulent|colour|bloody|blood|thick|green|yellow"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Duration / seasonal vs perennial",
       "keywords": "duration|seasonal|perennial|how long|weeks"
-     }
-    ],
-    "Aggravating and relieving": [
+     },
      {
       "label": "Triggers (pets, dust, pollen, work)",
       "keywords": "trigger|pet|dust|pollen|mould|occupat|work"
@@ -11180,7 +10916,7 @@
       "keywords": "fever"
      }
     ],
-    "Eye, ear, nose and throat": [
+    "Neurological and special senses": [
      {
       "label": "Sneezing / itchy watery eyes",
       "keywords": "sneez|itchy eye|itch|watery eye"
@@ -11257,19 +10993,19 @@
   "Seizure": {
    "prompt": "",
    "differentials": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Convulsive syncope",
       "keywords": "syncop|convulsive syncope|faint|vasovagal"
      }
     ],
-    "Gynaecological and obstetric": [
+    "Renal, urological and reproductive": [
      {
       "label": "Eclampsia",
       "keywords": "eclamps|pre-eclamp|preeclamp"
      }
     ],
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Epilepsy (generalised / focal)",
       "keywords": "epilep|generalis|focal|idiopathic"
@@ -11277,9 +11013,13 @@
      {
       "label": "Febrile convulsion (child)",
       "keywords": "febrile"
+     },
+     {
+      "label": "Functional seizures (PNES)",
+      "keywords": "pnes|functional|psychogenic|non-epileptic|dissociat"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Hypoglycaemia",
       "keywords": "hypogly"
@@ -11289,7 +11029,7 @@
       "keywords": "hyponat|hypocalc|hypomag|electrolyte disturb|electrolyte abnorm|electrolyte derang"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "CNS infection (meningitis, encephalitis, abscess)",
       "keywords": "mening|encephalit|abscess|cns infect"
@@ -11322,22 +11062,14 @@
       "label": "Drug toxicity (TCAs, tramadol, bupropion, stimulants)",
       "keywords": "toxic|overdose|tca|tramadol|bupropion|stimulant|amphet|cocaine|drug"
      }
-    ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Functional seizures (PNES)",
-      "keywords": "pnes|functional|psychogenic|non-epileptic|dissociat"
-     }
     ]
    },
    "associated": {
-    "Onset and course": [
+    "Characteristics and course": [
      {
       "label": "First vs recurrent",
       "keywords": "first|recurrent|previous|history of seiz"
-     }
-    ],
-    "Aggravating and relieving": [
+     },
      {
       "label": "Triggers: sleep deprivation, alcohol, missed meds, flashing lights",
       "keywords": "sleep|missed|adheren|flashing|light|trigger"
@@ -11361,16 +11093,22 @@
       "keywords": "post-ictal|postictal|confus|todd|drows"
      }
     ],
-    "Genitourinary and reproductive": [
+    "Abdominal and pelvic": [
      {
       "label": "Pregnancy",
       "keywords": "pregnan"
      }
     ],
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "Neuro symptoms",
       "keywords": "neuro|weak|numb|speech"
+     }
+    ],
+    "Psychological and social": [
+     {
+      "label": "Driving / occupation / swimming / safety",
+      "keywords": "driv|occupat|work|swim|safety"
      }
     ],
     "Red flags": [
@@ -11383,12 +11121,6 @@
      {
       "label": "Medications / recreational drugs",
       "keywords": "med|recreational|substance"
-     }
-    ],
-    "Social and function": [
-     {
-      "label": "Driving / occupation / swimming / safety",
-      "keywords": "driv|occupat|work|swim|safety"
      }
     ]
    },
@@ -11470,7 +11202,7 @@
   "Sensory disturbance": {
    "prompt": "",
    "differentials": {
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Peripheral neuropathy (diabetes, B12, alcohol)",
       "keywords": "neuropath|polyneuropath"
@@ -11492,19 +11224,17 @@
       "keywords": "migraine|aura"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Hypocalcaemia / hyperventilation",
       "keywords": "hypocalc|hypervent|panic|anxiety"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Herpes zoster",
       "keywords": "zoster|shingles"
-     }
-    ],
-    "Inflammatory and autoimmune": [
+     },
      {
       "label": "GBS / CIDP",
       "keywords": "gbs|guillain|cidp"
@@ -11544,7 +11274,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Distribution (dermatome, glove-stocking, hemisensory, sensory level)",
       "keywords": "distribut|dermatom|glove|stocking|hemisens|level|where|one side"
@@ -11552,21 +11282,17 @@
      {
       "label": "Type: numbness, tingling, burning, pain",
       "keywords": "numb|tingl|burn|pins|paraesth|pain|character"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Onset (sudden vs gradual) / progression",
       "keywords": "onset|sudden|gradual|progress"
-     }
-    ],
-    "Aggravating and relieving": [
+     },
      {
       "label": "Night symptoms / repetitive activities (CTS)",
       "keywords": "night|wake|shake|repetit|typing|vibrat"
      }
     ],
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "Weakness",
       "keywords": "weak"
@@ -11592,13 +11318,11 @@
       "keywords": "bladder|bowel|sexual|saddle|erectile"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Recent infection / vaccination",
       "keywords": "recent infect|diarrh|vaccin|urti"
-     }
-    ],
-    "Risk factors": [
+     },
      {
       "label": "Diabetes / alcohol / B12 risk (vegan, metformin, PPI)",
       "keywords": "diabet|alcohol|vegan|metformin|ppi|diet"
@@ -11677,7 +11401,7 @@
   "Skin lumps": {
    "prompt": "",
    "differentials": {
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Seborrhoeic keratosis",
       "keywords": "seborrh|seb k|sk|keratosis"
@@ -11711,7 +11435,7 @@
       "keywords": "pyogenic|granuloma|haemangioma|hemangioma|cherry"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Viral wart / molluscum",
       "keywords": "wart|verruca|molluscum"
@@ -11741,7 +11465,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Bleeding / ulceration / itch",
       "keywords": "bleed|ulcer|itch|crust"
@@ -11757,9 +11481,7 @@
      {
       "label": "Discharge / punctum",
       "keywords": "discharg|punctum|pus"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Duration / change (ABCDE)",
       "keywords": "duration|change|abcde|asymmetr|border|colour|diameter|evolv|grow"
@@ -11771,13 +11493,11 @@
       "keywords": "previous skin|previous cancer|previous bcc|history of skin|skin cancer hist"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Sun exposure / sunburn / solarium",
       "keywords": "sun|sunburn|solarium|outdoor|uv"
-     }
-    ],
-    "Risk factors": [
+     },
      {
       "label": "Number of naevi / skin type",
       "keywords": "number of moles|skin type|fitzpatrick|fair|freckl"
@@ -11826,25 +11546,23 @@
   "Skin ulcers": {
    "prompt": "",
    "differentials": {
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Neuropathic (diabetic foot) ulcer",
       "keywords": "neuropath|diabet|diabetic foot"
      }
     ],
-    "Haematological": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Sickle cell / haematological",
       "keywords": "sickle|haematolog"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Infection (Buruli ulcer, mycobacterial, ecthyma)",
       "keywords": "infect|cellulit|buruli|mycobact|ecthyma"
-     }
-    ],
-    "Inflammatory and autoimmune": [
+     },
      {
       "label": "Pyoderma gangrenosum",
       "keywords": "pyoderma"
@@ -11890,7 +11608,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Site (gaiter area vs toes vs pressure points)",
       "keywords": "site|gaiter|malleol|toe|heel|sacrum|where|location"
@@ -11898,9 +11616,7 @@
      {
       "label": "Pain (rest pain, better or worse with elevation)",
       "keywords": "pain|rest pain|elevat|dependent|night"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Duration / healing",
       "keywords": "duration|healing|how long|non-healing"
@@ -11922,10 +11638,16 @@
       "keywords": "swell|varicose|dvt|oedema|heavy"
      }
     ],
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "Numbness / diabetes control",
       "keywords": "numb|sensation|glycaem|control"
+     }
+    ],
+    "Psychological and social": [
+     {
+      "label": "Mobility / nutrition / continence",
+      "keywords": "mobil|nutrition|continen|immobil|bed-bound"
      }
     ],
     "Past history": [
@@ -11942,12 +11664,6 @@
      {
       "label": "Smoking",
       "keywords": "smok"
-     }
-    ],
-    "Social and function": [
-     {
-      "label": "Mobility / nutrition / continence",
-      "keywords": "mobil|nutrition|continen|immobil|bed-bound"
      }
     ]
    },
@@ -12011,25 +11727,23 @@
   "Sore throat": {
    "prompt": "",
    "differentials": {
-    "Gastrointestinal": [
+    "Gastrointestinal and hepatobiliary": [
      {
       "label": "GORD / postnasal drip",
       "keywords": "gord|reflux|postnasal|post-nasal|lpr"
      }
     ],
-    "Haematological": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Agranulocytosis (carbimazole, clozapine)",
       "keywords": "agranulocyt|neutropen|carbimazole|clozapine"
-     }
-    ],
-    "Endocrine and metabolic": [
+     },
      {
       "label": "Subacute thyroiditis",
       "keywords": "thyroidit|de quervain"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Viral pharyngitis",
       "keywords": "viral|pharyngit|urti|cold"
@@ -12091,7 +11805,7 @@
       "keywords": "cough|coryza|runny nose|rhinorrh|sneez"
      }
     ],
-    "Eye, ear, nose and throat": [
+    "Neurological and special senses": [
      {
       "label": "Tonsillar exudate / tender anterior nodes (Centor)",
       "keywords": "exudate|centor|feverpain|nodes|lymph"
@@ -12119,7 +11833,7 @@
       "keywords": "smok|alcohol|hoarse|otalgia|ear pain"
      }
     ],
-    "Risk factors": [
+    "Risk factors and exposures": [
      {
       "label": "Sexual history",
       "keywords": "sexual|oral sex|partner"
@@ -12184,19 +11898,23 @@
   "Sweating": {
    "prompt": "",
    "differentials": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Acute coronary syndrome",
       "keywords": "acs|mi|infarct|cardiac|heart attack"
      }
     ],
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Autonomic dysreflexia (spinal cord injury)",
       "keywords": "autonomic dysreflex|dysreflex|spinal cord injury|sci"
+     },
+     {
+      "label": "Anxiety / panic",
+      "keywords": "anxiety|panic"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Menopause",
       "keywords": "menopaus|hot flush|vasomotor|perimenopaus"
@@ -12218,7 +11936,7 @@
       "keywords": "acromegal|autonomic|diabet"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Infection (TB, endocarditis, abscess, HIV)",
       "keywords": "infect|tb|tuberc|endocard|abscess|sepsis"
@@ -12244,12 +11962,6 @@
       "keywords": "serotonin|nms|neuroleptic"
      }
     ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Anxiety / panic",
-      "keywords": "anxiety|panic"
-     }
-    ],
     "Physiological and functional": [
      {
       "label": "Primary hyperhidrosis",
@@ -12262,7 +11974,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Night sweats (drenching) vs daytime",
       "keywords": "night|drench|daytime|day|soak|nocturnal"
@@ -12296,25 +12008,23 @@
       "keywords": "chest pain|sob|breath|dysp"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Flushing / diarrhoea",
       "keywords": "flush|diarrh"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "LMP / menstrual changes",
       "keywords": "lmp|period|menstru"
      }
     ],
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "Headache / paroxysms / hypertension",
       "keywords": "headache|paroxys|episod|hypertens|bp"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Cough / travel / TB contacts / IVDU",
       "keywords": "cough|travel|contact|ivdu|inject"
@@ -12397,55 +12107,49 @@
   "Swelling": {
    "prompt": "Differentials (generalised, regional, lower limb, peripheral oedema)",
    "differentials": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "HF",
       "keywords": "heart failure|hf|ccf|cardiac failure"
      }
     ],
-    "Gastrointestinal": [
+    "Gastrointestinal and hepatobiliary": [
      {
       "label": "Malnutrition / protein-losing enteropathy",
       "keywords": "malnut|protein-losing|protein losing|kwashiork"
-     }
-    ],
-    "Hepatobiliary and pancreatic": [
+     },
      {
       "label": "Liver cirrhosis (hypoalbuminaemia)",
       "keywords": "cirrho|liver|hypoalbumin"
      }
     ],
-    "Renal and urological": [
+    "Renal, urological and reproductive": [
      {
       "label": "Nephrotic syndrome / CKD",
       "keywords": "nephrotic|ckd|renal|kidney"
-     }
-    ],
-    "Gynaecological and obstetric": [
+     },
      {
       "label": "Pregnancy / pre-eclampsia",
       "keywords": "pregnan|pre-eclamp|preeclamp"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Ruptured Baker's cyst / trauma / compartment syndrome",
       "keywords": "baker|ruptur|trauma|compartment"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Hypothyroidism (myxoedema)",
       "keywords": "hypothyro|myxoed"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Cellulitis",
       "keywords": "cellulit"
-     }
-    ],
-    "Inflammatory and autoimmune": [
+     },
      {
       "label": "Angioedema / anaphylaxis",
       "keywords": "angioedema|anaphyla|allerg"
@@ -12485,7 +12189,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Unilateral vs bilateral / distribution",
       "keywords": "unilat|bilat|distribut|where|both legs|one leg"
@@ -12497,9 +12201,7 @@
      {
       "label": "Facial / periorbital swelling",
       "keywords": "facial|periorbital|eyelid|face"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Onset / duration",
       "keywords": "onset|sudden|duration|how long|acute"
@@ -12517,13 +12219,11 @@
       "keywords": "sob|breath|orthopn|pnd|dysp"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Jaundice / abdominal distension / alcohol",
       "keywords": "jaund|abdominal distension|distension|alcohol|distend"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "Frothy urine / reduced urine output",
       "keywords": "froth|foam|urine|output"
@@ -12541,7 +12241,7 @@
       "keywords": "new med|recent med"
      }
     ],
-    "Risk factors": [
+    "Risk factors and exposures": [
      {
       "label": "VTE risk factors (immobility, surgery, cancer, OCP, travel)",
       "keywords": "surg|travel|flight|ocp|cancer|vte risk|clot"
@@ -12622,13 +12322,19 @@
   "Tinnitus": {
    "prompt": "",
    "differentials": {
-    "Musculoskeletal": [
+    "Neurological and psychiatric": [
+     {
+      "label": "Anxiety / depression / insomnia",
+      "keywords": "anxiety|depress|insomnia|stress"
+     }
+    ],
+    "Musculoskeletal and skin": [
      {
       "label": "TMJ / cervical",
       "keywords": "tmj|temporomandib|cervical|neck"
      }
     ],
-    "Ear, nose and throat": [
+    "Eye, ear, nose and throat": [
      {
       "label": "Presbycusis / sensorineural hearing loss",
       "keywords": "presbycus|snhl|sensorineural|age-related"
@@ -12650,7 +12356,7 @@
       "keywords": "meniere|ménière"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Hypertension / anaemia / thyroid disease",
       "keywords": "hypertens|anaem|thyro"
@@ -12673,16 +12379,10 @@
       "label": "Ototoxic drugs (aspirin, aminoglycosides, loop diuretics, cisplatin)",
       "keywords": "ototox|aspirin|salicyl|aminoglycos|gentamicin|loop|furosemide|cisplatin|quinine"
      }
-    ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Anxiety / depression / insomnia",
-      "keywords": "anxiety|depress|insomnia|stress"
-     }
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Unilateral vs bilateral",
       "keywords": "unilat|bilat|one ear|both ears|side"
@@ -12692,7 +12392,7 @@
       "keywords": "pulsat|character|ringing|buzz|hiss|whoosh|click"
      }
     ],
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "Headache / visual symptoms (IIH)",
       "keywords": "headache|visual|vision|obes"
@@ -12700,9 +12400,7 @@
      {
       "label": "Head injury / neuro symptoms",
       "keywords": "head injur|neuro|facial|numb|weak"
-     }
-    ],
-    "Eye, ear, nose and throat": [
+     },
      {
       "label": "Hearing loss",
       "keywords": "hearing|deaf"
@@ -12716,22 +12414,22 @@
       "keywords": "otalgia|ear pain|discharg|otorrh"
      }
     ],
+    "Psychological and social": [
+     {
+      "label": "Impact on sleep / mood / concentration",
+      "keywords": "sleep|mood|concentrat|impact|distress"
+     }
+    ],
     "Drugs and substances": [
      {
       "label": "Medications",
       "keywords": "med|drug"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Noise exposure / occupation",
       "keywords": "occupat|exposure|music|gun|machinery"
-     }
-    ],
-    "Social and function": [
-     {
-      "label": "Impact on sleep / mood / concentration",
-      "keywords": "sleep|mood|concentrat|impact|distress"
      }
     ]
    },
@@ -12847,7 +12545,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Pain / location of injuries",
       "keywords": "pain|location|where"
@@ -12869,7 +12567,7 @@
       "keywords": "sob|breath|chest pain|abdominal pain|dysp"
      }
     ],
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "LOC / amnesia / vomiting / headache",
       "keywords": "loc|amnesia|vomit|headache|consciousness"
@@ -12877,6 +12575,12 @@
      {
       "label": "Neck pain / numbness / weakness",
       "keywords": "neck pain|numb|weak|tingl|neuro"
+     }
+    ],
+    "Psychological and social": [
+     {
+      "label": "Hand dominance / occupation (limb injuries)",
+      "keywords": "dominan|handed|occupat"
      }
     ],
     "Red flags": [
@@ -12899,12 +12603,6 @@
      {
       "label": "Alcohol / drugs",
       "keywords": "alcohol|drug|intox"
-     }
-    ],
-    "Social and function": [
-     {
-      "label": "Hand dominance / occupation (limb injuries)",
-      "keywords": "dominan|handed|occupat"
      }
     ]
    },
@@ -12984,7 +12682,7 @@
   "Tremor": {
    "prompt": "",
    "differentials": {
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Essential tremor",
       "keywords": "essential"
@@ -13002,7 +12700,7 @@
       "keywords": "cerebell|intention|ms|multiple sclerosis"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Hyperthyroidism",
       "keywords": "hyperthyro|thyrotox|thyroid"
@@ -13046,7 +12744,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Rest vs postural vs intention / action",
       "keywords": "rest|postur|action|kinetic|intention tremor"
@@ -13054,15 +12752,11 @@
      {
       "label": "Body parts (hands, head, voice, legs) / unilateral vs bilateral",
       "keywords": "unilat|bilat|head|voice|leg|jaw|side"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Onset / progression / age",
       "keywords": "onset|progress|age|how long"
-     }
-    ],
-    "Aggravating and relieving": [
+     },
      {
       "label": "Improves with alcohol",
       "keywords": "better with alcohol|alcohol responsive|improves with alcohol"
@@ -13074,13 +12768,13 @@
       "keywords": "heat|weight|palpit|sweat"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Liver disease / jaundice",
       "keywords": "liver|jaund"
      }
     ],
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "Bradykinesia / rigidity / gait / falls / anosmia / RBD",
       "keywords": "bradykin|rigid|stiff|slow|gait|shuffl|fall|micrograph|smell|anosmia|rem sleep"
@@ -13090,7 +12784,7 @@
       "keywords": "ataxi|dysarth|diplop|unsteady|coordinat"
      }
     ],
-    "Social and function": [
+    "Psychological and social": [
      {
       "label": "Impact on ADLs (writing, drinking, eating)",
       "keywords": "adl|writing|drinking|eating|function|spill"
@@ -13153,7 +12847,7 @@
   "Unusual thoughts or behaviours": {
    "prompt": "",
    "differentials": {
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Delirium",
       "keywords": "delirium"
@@ -13165,37 +12859,7 @@
      {
       "label": "Brain tumour / stroke / temporal lobe epilepsy",
       "keywords": "tumour|sol|stroke|epilep|temporal lobe|seizure"
-     }
-    ],
-    "Endocrine and metabolic": [
-     {
-      "label": "Endocrine / metabolic (thyroid, Cushing's, Wilson's, B12, porphyria)",
-      "keywords": "thyro|cushing|wilson|porphyria|metabolic|hypercalc|b12 defic"
-     }
-    ],
-    "Infective": [
-     {
-      "label": "Infection (HIV, syphilis, sepsis)",
-      "keywords": "hiv|syphilis|neurosyph|sepsis|infect"
-     }
-    ],
-    "Inflammatory and autoimmune": [
-     {
-      "label": "Autoimmune encephalitis (anti-NMDA)",
-      "keywords": "autoimmune encephalit|nmda|limbic|encephalit"
-     }
-    ],
-    "Drugs and toxins": [
-     {
-      "label": "Substance-induced psychosis (methamphetamine, cannabis)",
-      "keywords": "substance|meth|ice|amphet|cannabis|drug-induced|stimulant"
      },
-     {
-      "label": "Medications (steroids, levodopa, anticholinergics)",
-      "keywords": "steroid|levodopa|anticholin|med|drug|isoniazid|mefloquine"
-     }
-    ],
-    "Psychiatric and behavioural": [
      {
       "label": "Schizophrenia / schizophreniform disorder",
       "keywords": "schizo"
@@ -13224,10 +12888,36 @@
       "label": "Autism / neurodevelopmental",
       "keywords": "autis|asd|neurodevelop|adhd"
      }
+    ],
+    "Endocrine, metabolic and haematological": [
+     {
+      "label": "Endocrine / metabolic (thyroid, Cushing's, Wilson's, B12, porphyria)",
+      "keywords": "thyro|cushing|wilson|porphyria|metabolic|hypercalc|b12 defic"
+     }
+    ],
+    "Infective and inflammatory": [
+     {
+      "label": "Infection (HIV, syphilis, sepsis)",
+      "keywords": "hiv|syphilis|neurosyph|sepsis|infect"
+     },
+     {
+      "label": "Autoimmune encephalitis (anti-NMDA)",
+      "keywords": "autoimmune encephalit|nmda|limbic|encephalit"
+     }
+    ],
+    "Drugs and toxins": [
+     {
+      "label": "Substance-induced psychosis (methamphetamine, cannabis)",
+      "keywords": "substance|meth|ice|amphet|cannabis|drug-induced|stimulant"
+     },
+     {
+      "label": "Medications (steroids, levodopa, anticholinergics)",
+      "keywords": "steroid|levodopa|anticholin|med|drug|isoniazid|mefloquine"
+     }
     ]
    },
    "associated": {
-    "Onset and course": [
+    "Characteristics and course": [
      {
       "label": "Onset / duration / prodrome / collateral",
       "keywords": "onset|duration|prodrom|collateral|family report|how long"
@@ -13237,13 +12927,13 @@
       "keywords": "childbirth|stressor|life event|stress"
      }
     ],
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "Neuro symptoms / headache / fever / confusion",
       "keywords": "neuro|headache|fever|weak|confus"
      }
     ],
-    "Psychological": [
+    "Psychological and social": [
      {
       "label": "Delusions (content, conviction)",
       "keywords": "delusion|paranoi|persecut|grandios|belief|conviction"
@@ -13259,6 +12949,10 @@
      {
       "label": "Mood / sleep / energy",
       "keywords": "mood|sleep|energy|elat|irritab"
+     },
+     {
+      "label": "Function / self-care / social withdrawal",
+      "keywords": "function|work|self-care|withdraw|social|hygiene|neglect"
      }
     ],
     "Red flags": [
@@ -13281,12 +12975,6 @@
      {
       "label": "Alcohol / recreational drug use",
       "keywords": "alcohol|recreational|drug use"
-     }
-    ],
-    "Social and function": [
-     {
-      "label": "Function / self-care / social withdrawal",
-      "keywords": "function|work|self-care|withdraw|social|hygiene|neglect"
      }
     ]
    },
@@ -13372,13 +13060,13 @@
   "Urinary symptoms": {
    "prompt": "Differentials (frequency, dysuria, nocturia, LUTS, incontinence)",
    "differentials": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Nocturnal polyuria (HF, OSA)",
       "keywords": "nocturnal polyuria|osa|heart failure|ccf|hf"
      }
     ],
-    "Renal and urological": [
+    "Renal, urological and reproductive": [
      {
       "label": "BPH",
       "keywords": "bph|benign prostat|prostatic hyperplas|enlarged prostate"
@@ -13398,27 +13086,25 @@
      {
       "label": "Bladder cancer / bladder stones",
       "keywords": "bladder cancer|bladder stone|stone|bladder ca"
-     }
-    ],
-    "Gynaecological and obstetric": [
+     },
      {
       "label": "Genitourinary syndrome of menopause / prolapse",
       "keywords": "atrophic|gsm|genitourinary syndrome|vaginitis|prolapse"
      }
     ],
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Neurogenic bladder (MS, spinal cord, cauda equina)",
       "keywords": "neurogenic|ms|spinal|cauda|multiple sclerosis"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Diabetes mellitus / insipidus (polyuria)",
       "keywords": "diabet|polyuri|insipidus"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "UTI / cystitis",
       "keywords": "uti|cystit|urinary tract infection|infection"
@@ -13456,7 +13142,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Storage symptoms (frequency, urgency, nocturia)",
       "keywords": "storage|frequen|urgency|noctur"
@@ -13480,16 +13166,20 @@
       "keywords": "fever|loin|flank|rigor"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Constipation",
       "keywords": "constipat|bowel habit"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "Discharge / sexual history",
       "keywords": "discharg|sexual|partner"
+     }
+    ],
+    "Psychological and social": [
+     {
+      "label": "Bother / impact (IPSS)",
+      "keywords": "impact|qol|quality|bother|ipss"
      }
     ],
     "Red flags": [
@@ -13512,12 +13202,6 @@
      {
       "label": "Fluid intake / caffeine",
       "keywords": "fluid intake|intake|drink"
-     }
-    ],
-    "Social and function": [
-     {
-      "label": "Bother / impact (IPSS)",
-      "keywords": "impact|qol|quality|bother|ipss"
      }
     ]
    },
@@ -13593,13 +13277,13 @@
   "Vision loss": {
    "prompt": "",
    "differentials": {
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Papilloedema / IIH / pituitary tumour (field loss)",
       "keywords": "papilloed|iih|pituitar|chiasm|bitemporal"
      }
     ],
-    "Eye": [
+    "Eye, ear, nose and throat": [
      {
       "label": "Neovascular (wet) AMD",
       "keywords": "amd|macular degen|wet amd|age-related macular"
@@ -13633,7 +13317,7 @@
       "keywords": "endophthalm|uveit"
      }
     ],
-    "Inflammatory and autoimmune": [
+    "Infective and inflammatory": [
      {
       "label": "Giant cell arteritis (arteritic AION)",
       "keywords": "gca|giant cell|arteritic|aion|temporal arter"
@@ -13675,7 +13359,7 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Painful vs painless",
       "keywords": "painful|painless|pain"
@@ -13687,9 +13371,7 @@
      {
       "label": "Flashes / floaters / shadow",
       "keywords": "flash|floater|shadow"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Sudden vs gradual onset",
       "keywords": "sudden|gradual|onset|how long"
@@ -13699,13 +13381,11 @@
       "keywords": "unilat|bilat|transient|persistent|one eye|curtain"
      }
     ],
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "Neuro symptoms (weakness, speech)",
       "keywords": "neuro|weak|speech|numb"
-     }
-    ],
-    "Eye, ear, nose and throat": [
+     },
      {
       "label": "Red eye / photophobia / haloes",
       "keywords": "red eye|photophob|halo|red"
@@ -13733,7 +13413,7 @@
       "keywords": "med|hydroxychloroquine|amiodarone|drug"
      }
     ],
-    "Risk factors": [
+    "Risk factors and exposures": [
      {
       "label": "Vascular risk / diabetes / AF",
       "keywords": "vascular risk|diabet|af|hypertens|smok|risk factor"
@@ -13816,7 +13496,7 @@
   "Vomiting": {
    "prompt": "Differentials (incl. nausea)",
    "differentials": {
-    "Gastrointestinal": [
+    "Gastrointestinal and hepatobiliary": [
      {
       "label": "Appendicitis / peritonitis",
       "keywords": "append|peritonit"
@@ -13824,33 +13504,35 @@
      {
       "label": "Peptic ulcer / gastric outlet obstruction / gastroparesis",
       "keywords": "peptic|ulcer|gastric outlet|pyloric|gastroparesis"
-     }
-    ],
-    "Hepatobiliary and pancreatic": [
+     },
      {
       "label": "Biliary / pancreatitis / hepatitis",
       "keywords": "biliary|cholecyst|gallstone|pancreatit|hepatit"
      }
     ],
-    "Gynaecological and obstetric": [
+    "Renal, urological and reproductive": [
      {
       "label": "Pregnancy / hyperemesis gravidarum",
       "keywords": "pregnan|hyperemesis|morning sickness"
      }
     ],
-    "Neurological": [
+    "Neurological and psychiatric": [
      {
       "label": "Raised ICP / migraine / meningitis",
       "keywords": "icp|intracranial|migraine|mening|tumour|sol"
+     },
+     {
+      "label": "Eating disorder / psychogenic",
+      "keywords": "bulimia|eating disorder|psychogen|anxiety"
      }
     ],
-    "Ear, nose and throat": [
+    "Eye, ear, nose and throat": [
      {
       "label": "Vestibular (BPPV, labyrinthitis, motion sickness)",
       "keywords": "vestibul|bppv|labyrinth|motion sick|vertigo"
      }
     ],
-    "Endocrine and metabolic": [
+    "Endocrine, metabolic and haematological": [
      {
       "label": "DKA / uraemia / hypercalcaemia / hyponatraemia",
       "keywords": "dka|ketoacid|uraem|hypercalc|hyponat|metabolic"
@@ -13860,7 +13542,7 @@
       "keywords": "adrenal|addison"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Gastroenteritis",
       "keywords": "gastro|viral|food poison"
@@ -13891,16 +13573,10 @@
       "label": "Alcohol / cannabinoid hyperemesis",
       "keywords": "alcohol|cannabis|cannabinoid hyperemesis|chs"
      }
-    ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Eating disorder / psychogenic",
-      "keywords": "bulimia|eating disorder|psychogen|anxiety"
-     }
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Content: bilious / faeculent / blood / undigested food",
       "keywords": "content|bilious|bile|faeculent|blood|coffee|undigested"
@@ -13930,7 +13606,7 @@
       "keywords": "chest pain"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Abdominal pain / distension",
       "keywords": "pain|distension|bloat|distend"
@@ -13942,15 +13618,13 @@
      {
       "label": "Weight loss / dysphagia",
       "keywords": "weight|dysphag"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "LMP",
       "keywords": "lmp|period|missed"
      }
     ],
-    "Neurological": [
+    "Neurological and special senses": [
      {
       "label": "Headache / vertigo / neuro symptoms",
       "keywords": "headache|dizz|neuro|vision"
@@ -13962,7 +13636,7 @@
       "keywords": "previous surg|adhesion|operation|surg"
      }
     ],
-    "Exposures and contacts": [
+    "Risk factors and exposures": [
      {
       "label": "Sick contacts / food / travel",
       "keywords": "contact|food|takeaway|travel"
@@ -14047,13 +13721,19 @@
   "Weight gain": {
    "prompt": "",
    "differentials": {
-    "Gynaecological and obstetric": [
+    "Renal, urological and reproductive": [
      {
       "label": "Pregnancy",
       "keywords": "pregnan"
      }
     ],
-    "Endocrine and metabolic": [
+    "Neurological and psychiatric": [
+     {
+      "label": "Depression / binge eating disorder",
+      "keywords": "depress|binge|eating disorder|bed"
+     }
+    ],
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Hypothyroidism",
       "keywords": "hypothyro|thyroid"
@@ -14085,12 +13765,6 @@
       "keywords": "antipsychot|olanzapine|steroid|insulin|sulfonyl|sulphonyl|valproate|mirtazapine|med|drug|lithium|beta|progest"
      }
     ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Depression / binge eating disorder",
-      "keywords": "depress|binge|eating disorder|bed"
-     }
-    ],
     "Physiological and functional": [
      {
       "label": "Increased intake / reduced activity",
@@ -14111,13 +13785,11 @@
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Eating patterns / night eating",
       "keywords": "eating pattern|night eating|snack|portion|takeaway|sugary"
-     }
-    ],
-    "Onset and course": [
+     },
      {
       "label": "Timeline / amount of gain",
       "keywords": "timeline|amount|how much|how fast|duration|kg"
@@ -14135,7 +13807,7 @@
       "keywords": "sob|breath|orthopn|swell|ankle|dysp"
      }
     ],
-    "Genitourinary and reproductive": [
+    "Abdominal and pelvic": [
      {
       "label": "Menstrual irregularity / hirsutism / acne",
       "keywords": "menstru|period|irregular|hirsut|acne|hair growth"
@@ -14147,7 +13819,7 @@
       "keywords": "striae|bruis|proximal|moon|buffalo"
      }
     ],
-    "Psychological": [
+    "Psychological and social": [
      {
       "label": "Mood / stress / sleep",
       "keywords": "mood|stress|sleep"
@@ -14155,6 +13827,10 @@
      {
       "label": "Snoring / daytime sleepiness",
       "keywords": "snor|daytime|sleepi"
+     },
+     {
+      "label": "Physical activity / mobility",
+      "keywords": "physical activ|exercise|mobil|steps"
      }
     ],
     "Past history": [
@@ -14165,12 +13841,6 @@
      {
       "label": "Comorbidities (diabetes, OSA, OA, CVD)",
       "keywords": "comorbid|diabet|knee|cvd|hypertens"
-     }
-    ],
-    "Social and function": [
-     {
-      "label": "Physical activity / mobility",
-      "keywords": "physical activ|exercise|mobil|steps"
      }
     ]
    },
@@ -14240,13 +13910,13 @@
   "Weight loss": {
    "prompt": "",
    "differentials": {
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "COPD / HF (cachexia)",
       "keywords": "copd|heart failure|cachexia|hf"
      }
     ],
-    "Gastrointestinal": [
+    "Gastrointestinal and hepatobiliary": [
      {
       "label": "Malabsorption (coeliac, pancreatic insufficiency)",
       "keywords": "malabsor|coeliac|celiac|pancreatic insuff"
@@ -14256,13 +13926,27 @@
       "keywords": "peptic|ulcer|dysphag|oesophag"
      }
     ],
-    "Renal and urological": [
+    "Renal, urological and reproductive": [
      {
       "label": "CKD / liver disease",
       "keywords": "ckd|renal|kidney|liver|cirrho"
      }
     ],
-    "Endocrine and metabolic": [
+    "Neurological and psychiatric": [
+     {
+      "label": "Depression",
+      "keywords": "depress"
+     },
+     {
+      "label": "Eating disorder (anorexia nervosa, bulimia, ARFID)",
+      "keywords": "anorexia nervosa|eating disorder|bulimia|arfid"
+     },
+     {
+      "label": "Dementia / social (poverty, isolation, dentition)",
+      "keywords": "dementia|social|poverty|isolation|dentition|teeth|food access|financ"
+     }
+    ],
+    "Endocrine, metabolic and haematological": [
      {
       "label": "Hyperthyroidism",
       "keywords": "hyperthyro|thyrotox|thyroid"
@@ -14276,13 +13960,11 @@
       "keywords": "adrenal|addison"
      }
     ],
-    "Infective": [
+    "Infective and inflammatory": [
      {
       "label": "Chronic infection (TB, HIV, endocarditis)",
       "keywords": "tb|tuberc|hiv|endocard|chronic infect|infection"
-     }
-    ],
-    "Inflammatory and autoimmune": [
+     },
      {
       "label": "IBD",
       "keywords": "ibd|crohn|colitis"
@@ -14299,24 +13981,10 @@
       "label": "Medications / substances (GLP-1 RA, stimulants, alcohol)",
       "keywords": "metformin|glp|semaglutide|topiramate|stimulant|amphet|med|drug|substance|alcohol"
      }
-    ],
-    "Psychiatric and behavioural": [
-     {
-      "label": "Depression",
-      "keywords": "depress"
-     },
-     {
-      "label": "Eating disorder (anorexia nervosa, bulimia, ARFID)",
-      "keywords": "anorexia nervosa|eating disorder|bulimia|arfid"
-     },
-     {
-      "label": "Dementia / social (poverty, isolation, dentition)",
-      "keywords": "dementia|social|poverty|isolation|dentition|teeth|food access|financ"
-     }
     ]
    },
    "associated": {
-    "Characteristics": [
+    "Characteristics and course": [
      {
       "label": "Amount and timeframe (>5% over 6-12 months), intentional or not",
       "keywords": "amount|timeframe|how much|kg|percent|6 months|intentional|unintentional"
@@ -14350,19 +14018,17 @@
       "keywords": "cough|haemopt|hemopt|sob|breath|dysp"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "GI: abdominal pain, vomiting, bowel change, blood",
       "keywords": "abdominal pain|vomit|bowel|diarrh|blood|melaena|change in bowel"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "Polyuria / polydipsia",
       "keywords": "polyur|polydips|thirst"
      }
     ],
-    "Psychological": [
+    "Psychological and social": [
      {
       "label": "Mood / anhedonia / body image / restriction",
       "keywords": "mood|anhedon|body image|fear of weight|restrict"

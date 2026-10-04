@@ -18,24 +18,16 @@
     "def": "Symptoms after the main event (postictal, post-attack recovery)"
    },
    {
-    "name": "Constitutional",
-    "def": "Fever, sweats, weight change, fatigue, appetite, malaise"
+    "name": "Constitutional and endocrine",
+    "def": "Fever, sweats, weight change, fatigue, appetite, malaise; heat/cold intolerance, thirst, polyuria, hormonal symptoms"
    },
    {
-    "name": "Cardiovascular",
-    "def": "Chest pain, palpitations, oedema, syncope, claudication, perfusion and rhythm symptoms"
+    "name": "Cardiorespiratory",
+    "def": "Chest pain, palpitations, oedema, syncope, claudication, perfusion and rhythm symptoms; breathlessness, cough, sputum, wheeze, haemoptysis, upper-airway symptoms"
    },
    {
-    "name": "Respiratory",
-    "def": "Breathlessness, cough, sputum, wheeze, haemoptysis, upper-airway symptoms"
-   },
-   {
-    "name": "Gastrointestinal",
-    "def": "Dysphagia, reflux, nausea, abdominal pain, bowel habit change, bleeding, jaundice"
-   },
-   {
-    "name": "Genitourinary and reproductive",
-    "def": "Urinary, sexual, menstrual, fertility and obstetric symptoms"
+    "name": "Abdominal and pelvic",
+    "def": "Dysphagia, reflux, nausea, abdominal pain, bowel habit change, bleeding, jaundice; urinary, sexual, menstrual, fertility and obstetric symptoms"
    },
    {
     "name": "Neurological",
@@ -58,24 +50,12 @@
     "def": "Speech, swallowing, drooling and facial symptoms (neurological conditions)"
    },
    {
-    "name": "Musculoskeletal",
-    "def": "Joint, bone, muscle and back symptoms, stiffness, deformity"
+    "name": "Musculoskeletal and skin",
+    "def": "Joint, bone, muscle and back symptoms, stiffness, deformity; rash, ulcers, lumps, pruritus, mouth and mucosal symptoms"
    },
    {
-    "name": "Skin and mucosa",
-    "def": "Rash, ulcers, lumps, pruritus, mouth and mucosal symptoms"
-   },
-   {
-    "name": "Eyes and vision",
-    "def": "Visual loss, red eye, visual disturbance"
-   },
-   {
-    "name": "Ear and hearing",
-    "def": "Hearing loss, tinnitus, otalgia, vertigo of ear origin"
-   },
-   {
-    "name": "Endocrine and metabolic",
-    "def": "Heat/cold intolerance, thirst, polyuria, hormonal symptoms"
+    "name": "Special senses",
+    "def": "Visual loss, red eye, visual disturbance; hearing loss, tinnitus, otalgia, vertigo of ear origin"
    },
    {
     "name": "Complications",
@@ -131,19 +111,15 @@
   "examination": [
    {
     "name": "General and vitals",
-    "def": "Appearance, observations, nutrition, hydration, general inspection"
+    "def": "Appearance, observations, nutrition, hydration, general inspection; signs of severity or decompensation"
    },
    {
     "name": "Head and neck",
     "def": "Eyes, mouth, ENT, neck, thyroid, lymph nodes of the neck, JVP"
    },
    {
-    "name": "Cardiovascular",
-    "def": "Pulses, heart sounds, murmurs, BP, perfusion, vascular signs, oedema"
-   },
-   {
-    "name": "Respiratory",
-    "def": "Chest inspection, percussion, auscultation, breathing pattern, sputum"
+    "name": "Cardiorespiratory",
+    "def": "Pulses, heart sounds, murmurs, BP, perfusion, vascular signs, oedema; chest inspection, percussion, auscultation, breathing pattern, sputum"
    },
    {
     "name": "Abdomen",
@@ -154,28 +130,16 @@
     "def": "Cranial nerves, tone, power, reflexes, sensation, coordination, gait, cognition"
    },
    {
-    "name": "Musculoskeletal",
-    "def": "Joints, spine, muscles, deformity, range of motion"
+    "name": "Musculoskeletal and skin",
+    "def": "Joints, spine, muscles, deformity, range of motion; skin, nails, hair, rash, bruising, skin ulcers"
    },
    {
-    "name": "Skin",
-    "def": "Skin, nails, hair, ulcers of skin, rash, bruising"
-   },
-   {
-    "name": "Local findings",
-    "def": "Findings at a specific site: ulcer, lump, stoma, access site, wound, prostate, genitalia"
-   },
-   {
-    "name": "Peripheral signs",
-    "def": "Signs outside the primary organ: stigmata, extra-articular, extra-intestinal, associated disease"
+    "name": "Local and peripheral signs",
+    "def": "Findings at a specific site (ulcer, lump, stoma, access site, wound, prostate, genitalia) and signs outside the primary organ (stigmata, extra-articular, extra-intestinal, associated disease)"
    },
    {
     "name": "Special tests",
     "def": "Named signs and manoeuvres and bedside severity tests"
-   },
-   {
-    "name": "Severity",
-    "def": "Signs of severity or decompensation"
    },
    {
     "name": "Complications",
@@ -270,64 +234,36 @@
  "presentations": {
   "differentials": [
    {
-    "name": "Cardiovascular",
-    "def": "Heart and rhythm causes that don't fit a mechanism category"
+    "name": "Cardiorespiratory",
+    "def": "Heart, rhythm, lung and airway causes that don't fit a mechanism category"
    },
    {
-    "name": "Respiratory",
-    "def": "Lung and airway causes that don't fit a mechanism category"
+    "name": "Gastrointestinal and hepatobiliary",
+    "def": "Oesophageal, gastric, bowel, anorectal, liver, biliary and pancreatic causes that don't fit a mechanism category"
    },
    {
-    "name": "Gastrointestinal",
-    "def": "Oesophageal, gastric, bowel and anorectal causes that don't fit a mechanism category"
+    "name": "Renal, urological and reproductive",
+    "def": "Kidney, bladder, prostate, genital, gynaecological, breast and obstetric causes that don't fit a mechanism category"
    },
    {
-    "name": "Hepatobiliary and pancreatic",
-    "def": "Liver, biliary, gallbladder and pancreatic causes that don't fit a mechanism category"
+    "name": "Neurological and psychiatric",
+    "def": "Central and peripheral nervous system, mental health and behavioural causes that don't fit a mechanism category"
    },
    {
-    "name": "Renal and urological",
-    "def": "Kidney, bladder, prostate and genital causes that don't fit a mechanism category"
+    "name": "Musculoskeletal and skin",
+    "def": "Bone, joint, muscle, soft-tissue and dermatological causes that don't fit a mechanism category"
    },
    {
-    "name": "Gynaecological and obstetric",
-    "def": "Gynaecological, breast and obstetric causes"
+    "name": "Eye, ear, nose and throat",
+    "def": "Ocular and ENT causes that don't fit a mechanism category"
    },
    {
-    "name": "Neurological",
-    "def": "Central and peripheral nervous system causes that don't fit a mechanism category"
+    "name": "Endocrine, metabolic and haematological",
+    "def": "Endocrine, metabolic, nutritional, electrolyte, blood, coagulation and platelet causes"
    },
    {
-    "name": "Musculoskeletal",
-    "def": "Bone, joint, muscle and soft-tissue causes that don't fit a mechanism category"
-   },
-   {
-    "name": "Skin",
-    "def": "Dermatological causes that don't fit a mechanism category"
-   },
-   {
-    "name": "Eye",
-    "def": "Ocular causes that don't fit a mechanism category"
-   },
-   {
-    "name": "Ear, nose and throat",
-    "def": "ENT causes that don't fit a mechanism category"
-   },
-   {
-    "name": "Haematological",
-    "def": "Blood, coagulation and platelet disorders, anaemias"
-   },
-   {
-    "name": "Endocrine and metabolic",
-    "def": "Endocrine, metabolic, nutritional and electrolyte causes"
-   },
-   {
-    "name": "Infective",
-    "def": "Infections of any organ, when the item is clearly an infection"
-   },
-   {
-    "name": "Inflammatory and autoimmune",
-    "def": "Inflammatory and autoimmune causes, when clearly so"
+    "name": "Infective and inflammatory",
+    "def": "Infections and inflammatory or autoimmune causes of any organ, when clearly so"
    },
    {
     "name": "Malignant",
@@ -346,26 +282,14 @@
     "def": "Medicines, alcohol, substances, poisons and withdrawal"
    },
    {
-    "name": "Psychiatric and behavioural",
-    "def": "Mental health and behavioural causes"
-   },
-   {
     "name": "Physiological and functional",
     "def": "Normal physiology, variants and functional disorders"
    }
   ],
   "associated": [
    {
-    "name": "Characteristics",
-    "def": "Nature, severity, location, distribution, quality and pattern of the main symptom"
-   },
-   {
-    "name": "Onset and course",
-    "def": "Onset, duration, progression, timing, frequency, pattern over time"
-   },
-   {
-    "name": "Aggravating and relieving",
-    "def": "Triggers, exacerbating and relieving factors"
+    "name": "Characteristics and course",
+    "def": "Nature, severity, location, distribution and quality of the main symptom; onset, duration, progression, timing, pattern; triggers and aggravating or relieving factors"
    },
    {
     "name": "Event and collateral",
@@ -380,28 +304,20 @@
     "def": "Cardiac and respiratory symptoms"
    },
    {
-    "name": "Gastrointestinal",
-    "def": "GI symptoms, including bowel and rectal"
+    "name": "Abdominal and pelvic",
+    "def": "GI symptoms including bowel and rectal; urinary, sexual, gynaecological and breast symptoms"
    },
    {
-    "name": "Genitourinary and reproductive",
-    "def": "Urinary, sexual, gynaecological and breast symptoms"
-   },
-   {
-    "name": "Neurological",
-    "def": "Neurological symptoms"
+    "name": "Neurological and special senses",
+    "def": "Neurological symptoms; eye, ear, nose and throat symptoms"
    },
    {
     "name": "Musculoskeletal and skin",
     "def": "Joint, muscle, bone and skin symptoms"
    },
    {
-    "name": "Eye, ear, nose and throat",
-    "def": "Eye, ear, nose and throat symptoms"
-   },
-   {
-    "name": "Psychological",
-    "def": "Mood, anxiety, cognition, psychosis, sleep and psychiatric history"
+    "name": "Psychological and social",
+    "def": "Mood, anxiety, cognition, psychosis, sleep, psychiatric history; social circumstances, function, independence, impact on life"
    },
    {
     "name": "Red flags",
@@ -416,16 +332,8 @@
     "def": "Medications, alcohol, tobacco and recreational substances"
    },
    {
-    "name": "Exposures and contacts",
-    "def": "Travel, occupational, environmental, infective contacts, allergens"
-   },
-   {
-    "name": "Risk factors",
-    "def": "Demographic, lifestyle and family risk factors"
-   },
-   {
-    "name": "Social and function",
-    "def": "Social circumstances, function, independence, impact on life"
+    "name": "Risk factors and exposures",
+    "def": "Demographic, lifestyle and family risk factors; travel, occupational, environmental, infective contacts, allergens"
    }
   ],
   "investigations": [

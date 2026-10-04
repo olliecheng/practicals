@@ -3,7 +3,7 @@
   "Heart failure": {
    "prompt": "Symptoms to ask about",
    "presentation": {
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Weight gain / daily weights",
       "keywords": "weight gain|daily weigh|weigh|scales"
@@ -17,7 +17,7 @@
       "keywords": "weight loss|cachex|muscle wast"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Ankle/leg swelling",
       "keywords": "oedema|edema|swell|ankle"
@@ -33,9 +33,7 @@
      {
       "label": "Chest pain / angina",
       "keywords": "chest pain|angina"
-     }
-    ],
-    "Respiratory": [
+     },
      {
       "label": "Exertional SOB + distance/stairs (NYHA)",
       "keywords": "dysp|sob|short of breath|breathless|exercise tol|nyha|stairs|walk"
@@ -53,13 +51,11 @@
       "keywords": "cough|frothy|sputum"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Abdo swelling / early satiety / RUQ pain",
       "keywords": "abdo|satiety|ascites|ruq|bloat|appetite"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "Nocturia",
       "keywords": "nocturia|urinat.*night|night.*urin"
@@ -81,7 +77,7 @@
       "keywords": "jvp|jugular|neck vein"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Peripheral / sacral oedema",
       "keywords": "sacral|pitting|oedema|edema"
@@ -101,9 +97,7 @@
      {
       "label": "Cool peripheries / tachycardia / hypotension",
       "keywords": "cool|cold|tachy|hypotens|perfusion"
-     }
-    ],
-    "Respiratory": [
+     },
      {
       "label": "Bibasal crepitations",
       "keywords": "crep|crackle|creps"
@@ -200,13 +194,13 @@
       "keywords": "palpit"
      }
     ],
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fatigue",
       "keywords": "fatigue|tired"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Dizziness / syncope",
       "keywords": "dizz|syncop|faint|lighthead"
@@ -218,9 +212,7 @@
      {
       "label": "HF symptoms",
       "keywords": "orthop|pnd|oedema|swell|heart failure|hf"
-     }
-    ],
-    "Respiratory": [
+     },
      {
       "label": "SOB / reduced exercise tolerance",
       "keywords": "dysp|sob|breath|exercise"
@@ -252,7 +244,7 @@
     ]
    },
    "examination": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Irregularly irregular pulse",
       "keywords": "irregular|pulse"
@@ -266,7 +258,7 @@
       "keywords": "rate|tachy|bp|hypotens"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Thyrotoxicosis signs (tremor, goitre, warm hands)",
       "keywords": "goitre|goiter|warm"
@@ -355,7 +347,7 @@
       "keywords": "unstable|crescendo|at rest|nocturnal|worsening|frequency"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Palpitations / syncope",
       "keywords": "palpit|syncop|faint"
@@ -386,7 +378,7 @@
       "keywords": "bmi|obes|waist|nicotine|stain"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Carotid / femoral bruits",
       "keywords": "bruit|carotid|femoral"
@@ -400,7 +392,7 @@
       "keywords": "murmur|mitral|aortic|regurg"
      }
     ],
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Xanthelasma / xanthomata / arcus",
       "keywords": "xanthel|xanthom|arcus|lipid"
@@ -483,7 +475,7 @@
   "Infective endocarditis": {
    "prompt": "Symptoms and history to ask about",
    "presentation": {
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fever / rigors / night sweats",
       "keywords": "fever|rigor|sweat"
@@ -493,7 +485,7 @@
       "keywords": "fatigue|weight|malaise"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "SOB / HF symptoms",
       "keywords": "sob|breath|orthop|swell|dysp|hf|heart failure"
@@ -553,13 +545,13 @@
       "keywords": "pyrexi|temp|febrile|fever"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "New or changing regurgitant murmur",
       "keywords": "murmur|regurg"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Roth spots (fundoscopy)",
       "keywords": "roth|fundos|retin"
@@ -652,7 +644,7 @@
   "Hypertension": {
    "prompt": "History to ask about",
    "presentation": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Claudication",
       "keywords": "claudic"
@@ -664,7 +656,7 @@
       "keywords": "headache"
      }
     ],
-    "Eyes and vision": [
+    "Special senses": [
      {
       "label": "Visual disturbance",
       "keywords": "vision|visual|blur"
@@ -728,7 +720,7 @@
       "keywords": "bmi|obes|waist"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Elevated BP (repeat, both arms, postural)",
       "keywords": "bp|blood pressure|both arms|elevat|repeat"
@@ -742,7 +734,7 @@
       "keywords": "bruit"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Cushingoid features / abdominal mass (PCKD)",
       "keywords": "moon|striae|mass|ballot|polycyst"
@@ -843,13 +835,13 @@
       "keywords": "dysp|sob|breath|exercise|stairs|walk"
      }
     ],
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fatigue",
       "keywords": "fatigue|tired"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Orthopnoea / PND / oedema (HF)",
       "keywords": "orthop|pnd|oedema|swell|hf|heart failure"
@@ -885,7 +877,7 @@
     ]
    },
    "examination": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Ejection systolic murmur at right upper sternal edge radiating to carotids",
       "keywords": "ejection|systolic|murmur|carotid|radiat"
@@ -982,7 +974,7 @@
   "COPD": {
    "prompt": "Symptoms to ask about",
    "presentation": {
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "SOB + exercise tolerance (mMRC)",
       "keywords": "dysp|sob|breath|exercise tol|mmrc|walk|stairs"
@@ -1054,7 +1046,7 @@
       "keywords": "nicotine|stain|flap|asterixis"
      }
     ],
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "Tachypnoea, pursed-lip breathing, accessory muscle use",
       "keywords": "tachyp|pursed|accessory|resp rate|rr"
@@ -1165,7 +1157,7 @@
       "keywords": "night|nocturnal|wak|sleep"
      }
     ],
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "Wheeze",
       "keywords": "wheez"
@@ -1215,13 +1207,21 @@
     ]
    },
    "examination": {
-    "Cardiovascular": [
+    "General and vitals": [
+     {
+      "label": "Reduced peak flow / unable to speak full sentences",
+      "keywords": "peak flow|pefr|sentences|speak"
+     },
+     {
+      "label": "Silent chest / cyanosis (life-threatening)",
+      "keywords": "silent|cyano|spo2|life.?threat"
+     }
+    ],
+    "Cardiorespiratory": [
      {
       "label": "Tachycardia, pulsus paradoxus",
       "keywords": "tachycard|pulsus|paradox"
-     }
-    ],
-    "Respiratory": [
+     },
      {
       "label": "Prolonged expiratory phase",
       "keywords": "prolong|expir"
@@ -1235,20 +1235,10 @@
       "keywords": "hyperinfl|barrel"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Atopic features (eczema, nasal polyps, rhinitis)",
       "keywords": "polyp"
-     }
-    ],
-    "Severity": [
-     {
-      "label": "Reduced peak flow / unable to speak full sentences",
-      "keywords": "peak flow|pefr|sentences|speak"
-     },
-     {
-      "label": "Silent chest / cyanosis (life-threatening)",
-      "keywords": "silent|cyano|spo2|life.?threat"
      }
     ]
    },
@@ -1322,13 +1312,13 @@
   "Interstitial lung disease": {
    "prompt": "Symptoms and history to ask about",
    "presentation": {
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fatigue / weight loss",
       "keywords": "fatigue|weight loss|tired"
      }
     ],
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "Progressive exertional SOB",
       "keywords": "dysp|sob|breath|exercise"
@@ -1392,7 +1382,7 @@
       "keywords": "cyano|spo2|sat|desat"
      }
     ],
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "Bibasal fine end-inspiratory ('velcro') crackles",
       "keywords": "crack|crep|velcro|fine"
@@ -1406,13 +1396,13 @@
       "keywords": "squawk|wheez|pneumonitis"
      }
     ],
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Rash / skin signs (heliotrope, Gottron's)",
       "keywords": "heliotrope|gottron|skin|rash"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Digital clubbing",
       "keywords": "club"
@@ -1503,7 +1493,7 @@
       "keywords": "chest pain|shoulder|pain"
      }
     ],
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Weight loss / anorexia",
       "keywords": "weight loss|anorex|appetite"
@@ -1513,7 +1503,7 @@
       "keywords": "fatigue|sweat|fever"
      }
     ],
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "Cough / change in cough",
       "keywords": "cough"
@@ -1535,7 +1525,7 @@
       "keywords": "hoarse|voice"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Dysphagia",
       "keywords": "dysphag|swallow"
@@ -1583,13 +1573,13 @@
       "keywords": "cachex|wast|pallor|pale"
      }
     ],
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "Focal chest signs (consolidation, collapse, effusion, localised wheeze)",
       "keywords": "consolid|collapse|effusion|wheez|dull|focal"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Clubbing / hypertrophic pulmonary osteoarthropathy",
       "keywords": "club|hpoa|osteoarthropathy"
@@ -1698,13 +1688,13 @@
       "keywords": "sleepi|epworth|drows|daytime"
      }
     ],
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Unrefreshing sleep / fatigue",
       "keywords": "unrefresh|fatigue|tired"
      }
     ],
-    "Genitourinary and reproductive": [
+    "Abdominal and pelvic": [
      {
       "label": "Nocturia",
       "keywords": "nocturia|night"
@@ -1754,13 +1744,13 @@
       "keywords": "nasal|septum|septal|polyp|obstruct"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Hypertension",
       "keywords": "blood pressure|hypertens"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Hypothyroidism / acromegaly features",
       "keywords": "thyroid|acromeg|macroglos"
@@ -1833,7 +1823,7 @@
   "Bronchiectasis": {
    "prompt": "Symptoms to ask about",
    "presentation": {
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fatigue / weight loss",
       "keywords": "fatigue|weight"
@@ -1843,7 +1833,7 @@
       "keywords": "fever|sweat"
      }
     ],
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "Chronic productive cough",
       "keywords": "cough"
@@ -1915,7 +1905,7 @@
       "keywords": "polyp"
      }
     ],
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "Coarse crackles (often bibasal)",
       "keywords": "crack|crep|coarse"
@@ -1933,7 +1923,7 @@
       "keywords": "tachyp|spo2|sat|resp rate"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Digital clubbing",
       "keywords": "club"
@@ -2028,13 +2018,17 @@
   "Cystic fibrosis": {
    "prompt": "Multisystem symptoms to ask about",
    "presentation": {
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Weight / BMI / nutrition",
       "keywords": "weight|bmi|nutrit|calori"
+     },
+     {
+      "label": "CF-related diabetes (thirst, BSLs)",
+      "keywords": "diabet|thirst|bsl|glucose|insulin"
      }
     ],
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "Cough / sputum",
       "keywords": "cough|sputum"
@@ -2052,7 +2046,7 @@
       "keywords": "sinus|polyp|nasal"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Steatorrhoea / Creon adherence",
       "keywords": "steator|greasy|creon|enzyme|pert"
@@ -2060,18 +2054,10 @@
      {
       "label": "Abdo pain / constipation / DIOS",
       "keywords": "abdo|constip|dios|obstruct"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "Fertility / sexual health",
       "keywords": "fertil|sexual|pregnan"
-     }
-    ],
-    "Endocrine and metabolic": [
-     {
-      "label": "CF-related diabetes (thirst, BSLs)",
-      "keywords": "diabet|thirst|bsl|glucose|insulin"
      }
     ],
     "Complications": [
@@ -2097,7 +2083,7 @@
       "keywords": "stature|short|underweight"
      }
     ],
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "Coarse crackles, wheeze",
       "keywords": "crack|crep|wheez|coarse"
@@ -2117,13 +2103,11 @@
       "keywords": "hepatosplen|mass|distens|distend"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Port / PICC / PEG sites",
       "keywords": "port|picc|peg|line|scar"
-     }
-    ],
-    "Peripheral signs": [
+     },
      {
       "label": "Digital clubbing",
       "keywords": "club"
@@ -2228,13 +2212,11 @@
       "keywords": "chest pain|pleurit"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Syncope / palpitations",
       "keywords": "syncop|faint|palpit"
-     }
-    ],
-    "Respiratory": [
+     },
      {
       "label": "SOB",
       "keywords": "dysp|sob|breath"
@@ -2286,7 +2268,13 @@
     ]
    },
    "examination": {
-    "Cardiovascular": [
+    "General and vitals": [
+     {
+      "label": "Hypotension / syncope (massive PE)",
+      "keywords": "hypotens|shock"
+     }
+    ],
+    "Cardiorespiratory": [
      {
       "label": "Unilateral leg swelling, calf tenderness, pitting oedema",
       "keywords": "tender|oedema|edema|unilateral"
@@ -2306,9 +2294,7 @@
      {
       "label": "Raised JVP / loud P2 / RV heave (large PE)",
       "keywords": "jvp|p2|heave|right heart|rv"
-     }
-    ],
-    "Respiratory": [
+     },
      {
       "label": "Tachypnoea / hypoxia",
       "keywords": "tachyp|hypox|spo2|sat|resp rate"
@@ -2318,16 +2304,10 @@
       "keywords": "rub|pleural"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Low-grade fever; signs of malignancy (Virchow's, mass)",
       "keywords": "fever|temp|virchow|mass"
-     }
-    ],
-    "Severity": [
-     {
-      "label": "Hypotension / syncope (massive PE)",
-      "keywords": "hypotens|shock"
      }
     ]
    },
@@ -2405,31 +2385,27 @@
   "Chronic kidney disease": {
    "prompt": "Symptoms to ask about",
    "presentation": {
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fatigue / lethargy",
       "keywords": "fatigue|tired|letharg"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Swelling / fluid overload",
       "keywords": "oedema|swell|fluid|ankle"
-     }
-    ],
-    "Respiratory": [
+     },
      {
       "label": "SOB",
       "keywords": "dysp|sob|breath"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Anorexia / nausea / vomiting",
       "keywords": "anorex|appetite|nausea|vomit"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "Urine: output, frothy, haematuria, nocturia",
       "keywords": "urine|frothy|foam|haematur|blood in|nocturia|output"
@@ -2449,7 +2425,7 @@
       "keywords": "neuropath|numb|tingl|pins"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Bone pain / fractures",
       "keywords": "bone|fracture"
@@ -2457,9 +2433,7 @@
      {
       "label": "Gout",
       "keywords": "gout"
-     }
-    ],
-    "Skin and mucosa": [
+     },
      {
       "label": "Itch",
       "keywords": "itch|prurit"
@@ -2495,7 +2469,7 @@
       "keywords": "edema|jvp|crep|weight|overload|oedema"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Hypertension",
       "keywords": "blood pressure|hypertens"
@@ -2507,19 +2481,17 @@
       "keywords": "kidney|pckd|ballot|mass"
      }
     ],
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Uraemic frost / sallow skin / scratch marks",
       "keywords": "uraem|uremic|frost|sallow|scratch|excoriat"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "AV fistula / dialysis catheter (thrill, bruit)",
       "keywords": "catheter|thrill|av "
-     }
-    ],
-    "Peripheral signs": [
+     },
      {
       "label": "Signs of underlying cause (diabetic retinopathy/neuropathy, rash, joint disease)",
       "keywords": "retinopathy|rash|joint|lupus|cause"
@@ -2606,7 +2578,7 @@
   "BPH / LUTS": {
    "prompt": "Symptoms to ask about",
    "presentation": {
-    "Genitourinary and reproductive": [
+    "Abdominal and pelvic": [
      {
       "label": "Frequency",
       "keywords": "frequen"
@@ -2700,7 +2672,7 @@
       "keywords": "neuro|cauda|limb|sensation|power"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "DRE: enlarged, smooth, firm, rubbery, symmetrical prostate",
       "keywords": "dre|rectal|prostate|enlarg|smooth|sulcus|digital"
@@ -2777,25 +2749,25 @@
   "Haemodialysis / peritoneal dialysis": {
    "prompt": "History to ask about",
    "presentation": {
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fatigue / washed out after",
       "keywords": "fatigue|tired|washed"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "SOB / oedema",
       "keywords": "sob|breath|oedema|swell|dysp"
      }
     ],
-    "Genitourinary and reproductive": [
+    "Abdominal and pelvic": [
      {
       "label": "Urine output",
       "keywords": "urine output|pass urine|urin"
      }
     ],
-    "Skin and mucosa": [
+    "Musculoskeletal and skin": [
      {
       "label": "Itch / restless legs",
       "keywords": "itch|prurit|restless"
@@ -2833,13 +2805,13 @@
       "keywords": "pallor|pale|anaem|anem"
      }
     ],
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Skin: excoriations, uraemic frost, calciphylaxis",
       "keywords": "excoriat|scratch|uraem|uremic|calciphylaxis|skin"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "AV fistula: thrill, bruit, aneurysm, steal, infection",
       "keywords": "thrill|bruit|aneurysm|steal|av "
@@ -2942,13 +2914,13 @@
   "Kidney transplant": {
    "prompt": "History to ask about",
    "presentation": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Cardiovascular disease",
       "keywords": "cardio|heart|chest pain|stroke"
      }
     ],
-    "Genitourinary and reproductive": [
+    "Abdominal and pelvic": [
      {
       "label": "Urine output / swelling / graft pain",
       "keywords": "urine|swell|graft pain|tender"
@@ -2980,13 +2952,13 @@
       "keywords": "gingival|hirsut|ciclosporin|cyclosporin|gum"
      }
     ],
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Skin cancers / warts",
       "keywords": "wart|lesion"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Iliac fossa scar and palpable graft",
       "keywords": "scar|iliac|graft|palpable|transplant"
@@ -3075,13 +3047,11 @@
       "keywords": "colic|loin|groin|flank|pain"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Nausea / vomiting",
       "keywords": "nausea|vomit"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "Haematuria",
       "keywords": "haematur|hematur|blood"
@@ -3139,6 +3109,14 @@
      {
       "label": "Restlessness, unable to lie still",
       "keywords": "restless|writh|still|move"
+     },
+     {
+      "label": "Fever / tachycardia (infected obstructed system)",
+      "keywords": "temp|tachycard|sepsis|fever"
+     },
+     {
+      "label": "Hypotension (urosepsis)",
+      "keywords": "hypotens|bp|shock|urosepsis"
      }
     ],
     "Abdomen": [
@@ -3151,13 +3129,11 @@
       "keywords": "abdo|bladder|kidney|palpable"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Genital examination (testicular / hernia mimics)",
       "keywords": "genital|testic|hernia|torsion"
-     }
-    ],
-    "Peripheral signs": [
+     },
      {
       "label": "Gout tophi / signs of hyperparathyroidism",
       "keywords": "tophi"
@@ -3167,16 +3143,6 @@
      {
       "label": "Haematuria on urinalysis",
       "keywords": "dipstick|urinalysis"
-     }
-    ],
-    "Severity": [
-     {
-      "label": "Fever / tachycardia (infected obstructed system)",
-      "keywords": "temp|tachycard|sepsis|fever"
-     },
-     {
-      "label": "Hypotension (urosepsis)",
-      "keywords": "hypotens|bp|shock|urosepsis"
      }
     ]
    },
@@ -3260,13 +3226,11 @@
       "keywords": "continuous|dribbl|retention|empty|overflow"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Bowel symptoms / constipation / faecal incontinence",
       "keywords": "bowel|constip|faecal"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "Frequency",
       "keywords": "frequen"
@@ -3366,7 +3330,7 @@
       "keywords": "limb|gait|power|reflex"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Pelvic exam: prolapse (cystocele, rectocele, uterine)",
       "keywords": "cystocele|rectocele|pelvic|uterine"
@@ -3465,13 +3429,13 @@
       "keywords": "psa|found|screen|diagnos"
      }
     ],
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Weight loss / fatigue",
       "keywords": "weight|fatigue"
      }
     ],
-    "Genitourinary and reproductive": [
+    "Abdominal and pelvic": [
      {
       "label": "LUTS",
       "keywords": "luts|stream|frequen|nocturia|urgen"
@@ -3496,7 +3460,13 @@
    },
    "risks": [],
    "examination": {
-    "Local findings": [
+    "General and vitals": [
+     {
+      "label": "Cachexia / pallor in advanced disease",
+      "keywords": "cachex|wast|pallor|pale"
+     }
+    ],
+    "Local and peripheral signs": [
      {
       "label": "DRE: hard, nodular, asymmetric prostate",
       "keywords": "dre|hard|nodul|irregular|asymmet|prostate"
@@ -3504,12 +3474,6 @@
      {
       "label": "Loss of median sulcus, fixed gland (extracapsular)",
       "keywords": "sulcus|fixed|extracapsular"
-     }
-    ],
-    "Severity": [
-     {
-      "label": "Cachexia / pallor in advanced disease",
-      "keywords": "cachex|wast|pallor|pale"
      }
     ],
     "Complications": [
@@ -3617,19 +3581,23 @@
   "Cirrhosis": {
    "prompt": "Symptoms of decompensation and cause",
    "presentation": {
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fatigue / weight loss / muscle wasting",
       "keywords": "fatigue|weight|muscle|wast|appetite"
+     },
+     {
+      "label": "Gynaecomastia / ED / menstrual changes",
+      "keywords": "gynaec|erect|libido|menstru|period"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Ankle oedema",
       "keywords": "oedema|ankle"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Jaundice",
       "keywords": "jaund|yellow|icter"
@@ -3653,16 +3621,10 @@
       "keywords": "confus|enceph|sleep|drows"
      }
     ],
-    "Skin and mucosa": [
+    "Musculoskeletal and skin": [
      {
       "label": "Itch",
       "keywords": "itch|prurit"
-     }
-    ],
-    "Endocrine and metabolic": [
-     {
-      "label": "Gynaecomastia / ED / menstrual changes",
-      "keywords": "gynaec|erect|libido|menstru|period"
      }
     ],
     "Complications": [
@@ -3701,6 +3663,16 @@
     ]
    },
    "examination": {
+    "General and vitals": [
+     {
+      "label": "Asterixis (flap)",
+      "keywords": "asterixis|flap|tremor"
+     },
+     {
+      "label": "Fetor hepaticus / confusion",
+      "keywords": "fetor"
+     }
+    ],
     "Abdomen": [
      {
       "label": "Ascites (shifting dullness, fluid thrill)",
@@ -3715,7 +3687,7 @@
       "keywords": "hepatomeg|liver|shrunk|small"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Spider naevi",
       "keywords": "spider|naevi|nevi|naevus"
@@ -3735,16 +3707,6 @@
      {
       "label": "Gynaecomastia / testicular atrophy / loss of body hair",
       "keywords": "gynec|testic|atroph|body hair|gynaecomast"
-     }
-    ],
-    "Severity": [
-     {
-      "label": "Asterixis (flap)",
-      "keywords": "asterixis|flap|tremor"
-     },
-     {
-      "label": "Fetor hepaticus / confusion",
-      "keywords": "fetor"
      }
     ],
     "Complications": [
@@ -3824,7 +3786,7 @@
   "Crohn's disease": {
    "prompt": "GI and extraintestinal symptoms",
    "presentation": {
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Weight loss",
       "keywords": "weight loss|weight"
@@ -3838,7 +3800,7 @@
       "keywords": "fatigue|anaem|tired"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Bowel frequency / consistency",
       "keywords": "frequen|stool|bowel|diarr|consisten"
@@ -3868,7 +3830,7 @@
       "keywords": "steator|malabsor|greasy|fatty"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Joints (peripheral arthritis)",
       "keywords": "joint|arthr"
@@ -3876,9 +3838,7 @@
      {
       "label": "Back pain / stiffness (sacroiliitis)",
       "keywords": "back|sacroil|spondyl"
-     }
-    ],
-    "Skin and mucosa": [
+     },
      {
       "label": "Mouth ulcers",
       "keywords": "ulcer|mouth|oral"
@@ -3888,7 +3848,7 @@
       "keywords": "erythema|pyoderma|skin|rash"
      }
     ],
-    "Eyes and vision": [
+    "Special senses": [
      {
       "label": "Eyes (uveitis, episcleritis)",
       "keywords": "eye|uveit|iritis|episcler|red eye"
@@ -3944,7 +3904,7 @@
       "keywords": "distend|abdo|distens"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Surgical scars / stoma",
       "keywords": "scar|stoma"
@@ -3952,9 +3912,7 @@
      {
       "label": "Perianal disease: fistulae, skin tags, abscess, fissure",
       "keywords": "tag|fissure"
-     }
-    ],
-    "Peripheral signs": [
+     },
      {
       "label": "Clubbing",
       "keywords": "club"
@@ -4041,13 +3999,13 @@
   "Ulcerative colitis": {
    "prompt": "Symptoms to ask about",
    "presentation": {
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Weight loss / fatigue",
       "keywords": "weight|fatigue|tired"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Bloody diarrhoea",
       "keywords": "blood|bloody"
@@ -4073,19 +4031,17 @@
       "keywords": "pain|cramp"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Joints / back",
       "keywords": "joint|arthr|back"
-     }
-    ],
-    "Skin and mucosa": [
+     },
      {
       "label": "Skin",
       "keywords": "erythema|pyoderma|skin"
      }
     ],
-    "Eyes and vision": [
+    "Special senses": [
      {
       "label": "Eyes",
       "keywords": "eye|uveit|episcler"
@@ -4117,6 +4073,14 @@
      {
       "label": "Pallor",
       "keywords": "pallor|pale|anaem|anem"
+     },
+     {
+      "label": "Tachycardia / fever / hypotension (severe colitis)",
+      "keywords": "hypotens|toxic|temp|tachycardia"
+     },
+     {
+      "label": "Colonic dilatation / peritonism (toxic megacolon)",
+      "keywords": "megacolon|dilat|peritonism|rigid|guarding"
      }
     ],
     "Head and neck": [
@@ -4135,7 +4099,7 @@
       "keywords": "dre|rectal|glove"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Clubbing",
       "keywords": "club"
@@ -4147,16 +4111,6 @@
      {
       "label": "Arthritis (peripheral / axial)",
       "keywords": "spondyl|sacroil|arthritis"
-     }
-    ],
-    "Severity": [
-     {
-      "label": "Tachycardia / fever / hypotension (severe colitis)",
-      "keywords": "hypotens|toxic|temp|tachycardia"
-     },
-     {
-      "label": "Colonic dilatation / peritonism (toxic megacolon)",
-      "keywords": "megacolon|dilat|peritonism|rigid|guarding"
      }
     ],
     "Complications": [
@@ -4238,7 +4192,7 @@
   "Colorectal cancer": {
    "prompt": "Symptoms to ask about",
    "presentation": {
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Weight loss / anorexia",
       "keywords": "weight|anorex|appetite"
@@ -4248,7 +4202,7 @@
       "keywords": "fatigue|anaem|tired|sob|breath|dysp"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Change in bowel habit",
       "keywords": "bowel habit|change|diarr|constip"
@@ -4310,7 +4264,7 @@
       "keywords": "dre|rectal|glove"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Hernia / stoma / surgical scars",
       "keywords": "hernia|scar"
@@ -4407,19 +4361,19 @@
   "Upper GI (GORD / PUD / dysphagia)": {
    "prompt": "Symptoms to ask about",
    "presentation": {
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Anaemia symptoms",
       "keywords": "anaem|fatigue|tired"
      }
     ],
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "Cough / hoarseness (laryngopharyngeal)",
       "keywords": "cough|hoarse|throat"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Heartburn",
       "keywords": "heartburn|burn"
@@ -4616,13 +4570,17 @@
       "keywords": "episode|admi|attack|flare"
      }
     ],
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Weight loss / malnutrition",
       "keywords": "weight|nutrit"
+     },
+     {
+      "label": "Diabetes symptoms (endocrine)",
+      "keywords": "diabet|thirst|polyur|bsl|glucose"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Nausea / vomiting",
       "keywords": "nausea|vomit"
@@ -4634,12 +4592,6 @@
      {
       "label": "Jaundice",
       "keywords": "jaund"
-     }
-    ],
-    "Endocrine and metabolic": [
-     {
-      "label": "Diabetes symptoms (endocrine)",
-      "keywords": "diabet|thirst|polyur|bsl|glucose"
      }
     ]
    },
@@ -4682,6 +4634,10 @@
      {
       "label": "Weight loss / cachexia (chronic)",
       "keywords": "cachex|wast|weight loss"
+     },
+     {
+      "label": "Tachycardia / fever / hypotension",
+      "keywords": "tachycard|fever|hypotens|temp|shock"
      }
     ],
     "Abdomen": [
@@ -4698,7 +4654,7 @@
       "keywords": "mass|pseudocyst|palpable"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Signs of alcohol use / chronic liver disease",
       "keywords": "liver|spider|palmar|stigmata"
@@ -4706,12 +4662,6 @@
      {
       "label": "Steatorrhoea features / diabetes signs",
       "keywords": "steato|malnutrition|fat"
-     }
-    ],
-    "Severity": [
-     {
-      "label": "Tachycardia / fever / hypotension",
-      "keywords": "tachycard|fever|hypotens|temp|shock"
      }
     ],
     "Complications": [
@@ -4799,7 +4749,7 @@
   "Pancreatic cancer": {
    "prompt": "Symptoms to ask about",
    "presentation": {
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Weight loss / anorexia",
       "keywords": "weight|anorex|appetite"
@@ -4807,9 +4757,13 @@
      {
       "label": "Fatigue / mood",
       "keywords": "fatigue|mood|depress"
+     },
+     {
+      "label": "New-onset diabetes",
+      "keywords": "diabet|glucose|bsl"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Painless jaundice",
       "keywords": "jaund|yellow"
@@ -4831,16 +4785,10 @@
       "keywords": "steator|greasy|fatty|oily"
      }
     ],
-    "Skin and mucosa": [
+    "Musculoskeletal and skin": [
      {
       "label": "Itch",
       "keywords": "itch|prurit"
-     }
-    ],
-    "Endocrine and metabolic": [
-     {
-      "label": "New-onset diabetes",
-      "keywords": "diabet|glucose|bsl"
      }
     ],
     "Complications": [
@@ -4887,13 +4835,13 @@
       "keywords": "ascites|shifting|dullness|distens|distend"
      }
     ],
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Scratch marks (pruritus)",
       "keywords": "scratch|excoriat"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Migratory thrombophlebitis (Trousseau's)",
       "keywords": "migrat"
@@ -4984,7 +4932,7 @@
   "Coeliac disease": {
    "prompt": "Symptoms to ask about",
    "presentation": {
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Weight loss / poor growth",
       "keywords": "weight|growth"
@@ -4994,7 +4942,7 @@
       "keywords": "fatigue|anaem|tired|iron"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Diarrhoea / steatorrhoea",
       "keywords": "diarr|steator|stool|loose"
@@ -5006,9 +4954,7 @@
      {
       "label": "Constipation",
       "keywords": "constip"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "Infertility / miscarriage",
       "keywords": "fertil|miscarr|pregnan"
@@ -5020,13 +4966,11 @@
       "keywords": "neuropath|tingl|numb|ataxi|balance"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Bone pain / fractures",
       "keywords": "bone|fracture|osteopor"
-     }
-    ],
-    "Skin and mucosa": [
+     },
      {
       "label": "Mouth ulcers",
       "keywords": "ulcer|mouth"
@@ -5066,7 +5010,7 @@
       "keywords": "dental|enamel|teeth"
      }
     ],
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Dermatitis herpetiformis",
       "keywords": "herpetiform"
@@ -5167,13 +5111,13 @@
       "keywords": "previous|episode|attack|recurr"
      }
     ],
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fever / rigors",
       "keywords": "fever|rigor"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Nausea / vomiting",
       "keywords": "nausea|vomit"
@@ -5187,7 +5131,7 @@
       "keywords": "dark urine|pale stool"
      }
     ],
-    "Skin and mucosa": [
+    "Musculoskeletal and skin": [
      {
       "label": "Itch",
       "keywords": "itch|prurit"
@@ -5213,6 +5157,10 @@
      {
       "label": "Fever / tachycardia",
       "keywords": "tachycard|temp|fever"
+     },
+     {
+      "label": "Hypotension / confusion (sepsis)",
+      "keywords": "hypotens|confus|sepsis|shock"
      }
     ],
     "Abdomen": [
@@ -5229,7 +5177,7 @@
       "keywords": "guard|peritonism|rigid|rebound"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Scars (previous cholecystectomy)",
       "keywords": "scar|laparoscop"
@@ -5239,12 +5187,6 @@
      {
       "label": "Murphy's sign",
       "keywords": "murphy"
-     }
-    ],
-    "Severity": [
-     {
-      "label": "Hypotension / confusion (sepsis)",
-      "keywords": "hypotens|confus|sepsis|shock"
      }
     ],
     "Complications": [
@@ -5330,13 +5272,13 @@
       "keywords": "previous|episode|admi|surgery|hartmann"
      }
     ],
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fever",
       "keywords": "fever"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Change in bowel habit",
       "keywords": "bowel habit|diarr|constip|change"
@@ -5539,7 +5481,7 @@
     ]
    },
    "examination": {
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Visible lump at the site (inguinal, femoral, umbilical, incisional)",
       "keywords": "visible|umbilical"
@@ -5547,9 +5489,7 @@
      {
       "label": "Scrotal examination (testicle separate, transillumination)",
       "keywords": "scrotum|scrotal|testic|transillum"
-     }
-    ],
-    "Peripheral signs": [
+     },
      {
       "label": "Predisposing signs (obesity, ascites, prostate)",
       "keywords": "ascites|bph|predispos"
@@ -5632,13 +5572,13 @@
   "Stoma (post-op)": {
    "prompt": "History to ask about",
    "presentation": {
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Output: volume, consistency",
       "keywords": "output|volume|consisten|thick|watery"
      }
     ],
-    "Skin and mucosa": [
+    "Musculoskeletal and skin": [
      {
       "label": "Skin around stoma",
       "keywords": "skin|irritat|sore"
@@ -5684,13 +5624,13 @@
       "keywords": "high.?output|dry|hypotens|tachycard"
      }
     ],
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Peristomal skin: excoriation, dermatitis",
       "keywords": "peristomal|excoriat|dermatitis|rash"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Stoma type, site (ileostomy RIF vs colostomy LIF), spouted vs flush",
       "keywords": "site|spout|flush|rif|lif"
@@ -5795,19 +5735,17 @@
       "keywords": "pica|ice|crav"
      }
     ],
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fatigue",
       "keywords": "fatigue|tired|letharg"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Palpitations / chest pain",
       "keywords": "palpit|chest pain|angina"
-     }
-    ],
-    "Respiratory": [
+     },
      {
       "label": "SOB / reduced exercise tolerance",
       "keywords": "dysp|sob|breath|exercise"
@@ -5877,7 +5815,7 @@
       "keywords": "angular|stomatitis|glossitis|tongue"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Tachycardia / flow murmur",
       "keywords": "tachycard|flow murmur|murmur"
@@ -5901,7 +5839,7 @@
       "keywords": "hepatosplen|splen|lymph|liver|node"
      }
     ],
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Koilonychia",
       "keywords": "koilonychia|spoon"
@@ -5968,7 +5906,7 @@
       "keywords": "polyur|polydip|thirst|weight|osmotic"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Claudication",
       "keywords": "claudic|leg pain"
@@ -5978,13 +5916,13 @@
       "keywords": "chest pain|angina|stroke|tia"
      }
     ],
-    "Genitourinary and reproductive": [
+    "Abdominal and pelvic": [
      {
       "label": "Erectile dysfunction",
       "keywords": "erect|sexual|ed"
      }
     ],
-    "Eyes and vision": [
+    "Special senses": [
      {
       "label": "Vision changes / last eye check",
       "keywords": "vision|eye|retin|blur"
@@ -6033,7 +5971,7 @@
       "keywords": "bp|blood pressure|hypertens"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Foot pulses / ankle-brachial index",
       "keywords": "pulses|abi|ankle.?brachial|dorsalis|tibial"
@@ -6049,13 +5987,13 @@
       "keywords": "monofil|vibrat|reflex|sensation|tuning fork|neuropath"
      }
     ],
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Acanthosis nigricans",
       "keywords": "acanthosis|nigricans"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Injection / lipohypertrophy sites",
       "keywords": "inject|lipohypertroph|lipodystroph|site"
@@ -6160,7 +6098,7 @@
       "keywords": "goitre|goiter|neck|swell"
      }
     ],
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fatigue",
       "keywords": "fatigue|tired|letharg"
@@ -6168,15 +6106,17 @@
      {
       "label": "Weight gain",
       "keywords": "weight gain|weight"
+     },
+     {
+      "label": "Cold intolerance",
+      "keywords": "cold"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Constipation",
       "keywords": "constip"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "Menorrhagia / menstrual change",
       "keywords": "menorr|period|menstru|heavy"
@@ -6192,22 +6132,14 @@
       "keywords": "carpal|tingl|numb"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Muscle aches / cramps",
       "keywords": "muscle|cramp|ache|myalg"
-     }
-    ],
-    "Skin and mucosa": [
+     },
      {
       "label": "Dry skin / hair loss",
       "keywords": "dry skin|hair|skin"
-     }
-    ],
-    "Endocrine and metabolic": [
-     {
-      "label": "Cold intolerance",
-      "keywords": "cold"
      }
     ]
    },
@@ -6240,7 +6172,7 @@
       "keywords": "macroglos|tongue|hoarse"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Bradycardia",
       "keywords": "bradycard|pulse|heart rate"
@@ -6252,13 +6184,13 @@
       "keywords": "relaxation|ankle jerk|reflex"
      }
     ],
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Dry, coarse skin; hair thinning; lateral eyebrow loss",
       "keywords": "dry|coarse|eyebrow|alopecia"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Peripheral oedema / non-pitting facial puffiness (myxoedema)",
       "keywords": "oedema|edema|puff|myxoedema|myxedema|facial"
@@ -6335,25 +6267,27 @@
       "keywords": "neck|goitre|goiter|swell|pain"
      }
     ],
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Weight loss despite appetite",
       "keywords": "weight loss|appetite"
+     },
+     {
+      "label": "Heat intolerance / sweating",
+      "keywords": "heat|sweat"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Palpitations",
       "keywords": "palpit"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Diarrhoea / frequent stools",
       "keywords": "diarr|stool|bowel"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "Oligomenorrhoea",
       "keywords": "period|menstru|oligo"
@@ -6369,22 +6303,16 @@
       "keywords": "anxi|irrit|sleep|insomn|nerv"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Proximal weakness",
       "keywords": "weak|muscle|stairs"
      }
     ],
-    "Eyes and vision": [
+    "Special senses": [
      {
       "label": "Eye symptoms (grittiness, diplopia, bulging)",
       "keywords": "eye|gritt|diplop|bulg|protru|vision"
-     }
-    ],
-    "Endocrine and metabolic": [
-     {
-      "label": "Heat intolerance / sweating",
-      "keywords": "heat|sweat"
      }
     ]
    },
@@ -6415,7 +6343,7 @@
       "keywords": "proptosis|exophthalm|chemosis|ophthalmoplegia|ophthalmopathy"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Tachycardia / atrial fibrillation",
       "keywords": "tachycard|fibrillation|af|pulse|heart rate"
@@ -6431,13 +6359,11 @@
       "keywords": "reflex|brisk|hyperreflex"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Proximal myopathy",
       "keywords": "proximal|myopath|sit.?to.?stand"
-     }
-    ],
-    "Skin": [
+     },
      {
       "label": "Warm, sweaty, moist palms",
       "keywords": "warm|moist|palm|hyperhidros"
@@ -6447,7 +6373,7 @@
       "keywords": "onycholysis|erythema|vitiligo|nail"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Pretibial myxoedema / thyroid acropachy",
       "keywords": "pretibial|myxoedema|myxedema|acropachy|clubbing"
@@ -6555,30 +6481,26 @@
      {
       "label": "Blood pressure",
       "keywords": "bp|blood pressure|hypertens"
+     },
+     {
+      "label": "Signs of DKA: Kussmaul breathing, dehydration, ketotic breath, tachycardia",
+      "keywords": "kussmaul|dehydrat|ketotic|acetone|tachycard"
      }
     ],
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Necrobiosis lipoidica",
       "keywords": "necrobiosis|shin|skin"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Injection sites: lipohypertrophy / lipoatrophy",
       "keywords": "inject"
-     }
-    ],
-    "Peripheral signs": [
+     },
      {
       "label": "Other autoimmune signs: vitiligo, thyroid goitre",
       "keywords": "vitiligo|goitre|goiter|autoimmune"
-     }
-    ],
-    "Severity": [
-     {
-      "label": "Signs of DKA: Kussmaul breathing, dehydration, ketotic breath, tachycardia",
-      "keywords": "kussmaul|dehydrat|ketotic|acetone|tachycard"
      }
     ],
     "Complications": [
@@ -6684,13 +6606,11 @@
       "keywords": "face|moon|hump"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Dyspepsia / GI bleed",
       "keywords": "dyspeps|epigast|bleed|indigest"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "Menstrual / libido changes",
       "keywords": "menstru|period|libido"
@@ -6702,19 +6622,17 @@
       "keywords": "mood|insomn|sleep|psychos|depress|irrit"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Proximal weakness",
       "keywords": "weak|muscle|stairs|chair"
-     }
-    ],
-    "Skin and mucosa": [
+     },
      {
       "label": "Bruising / thin skin / striae",
       "keywords": "bruis|skin|stria"
      }
     ],
-    "Eyes and vision": [
+    "Special senses": [
      {
       "label": "Eye: cataract / glaucoma",
       "keywords": "eye|cataract|glaucom|vision"
@@ -6764,13 +6682,13 @@
       "keywords": "visual field|bitemporal|cataract"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Peripheral oedema",
       "keywords": "oedema|edema"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Proximal myopathy (can't rise from chair)",
       "keywords": "proximal|myopath|rise|squat"
@@ -6778,9 +6696,7 @@
      {
       "label": "Kyphosis / vertebral tenderness (fractures)",
       "keywords": "kyphosis|vertebr|spinal|tender"
-     }
-    ],
-    "Skin": [
+     },
      {
       "label": "Purple abdominal striae",
       "keywords": "purple|abdominal"
@@ -6873,7 +6789,7 @@
   "Adrenal insufficiency (Addison's)": {
    "prompt": "Symptoms to ask about",
    "presentation": {
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fatigue / weakness",
       "keywords": "fatigue|weak|tired"
@@ -6881,36 +6797,32 @@
      {
       "label": "Weight loss / anorexia",
       "keywords": "weight|anorex|appetite"
+     },
+     {
+      "label": "Salt craving",
+      "keywords": "salt"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Postural dizziness",
       "keywords": "postural|dizz|lighthead|faint"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Nausea / vomiting / abdo pain",
       "keywords": "nausea|vomit|abdo"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Myalgia / arthralgia",
       "keywords": "myalg|arthral|muscle|joint"
-     }
-    ],
-    "Skin and mucosa": [
+     },
      {
       "label": "Skin darkening",
       "keywords": "pigment|dark|tan"
-     }
-    ],
-    "Endocrine and metabolic": [
-     {
-      "label": "Salt craving",
-      "keywords": "salt"
      }
     ],
     "Complications": [
@@ -6945,9 +6857,13 @@
      {
       "label": "Weight loss / dehydration",
       "keywords": "dehydrat|dry|weight loss"
+     },
+     {
+      "label": "Signs of adrenal crisis: shock, abdominal tenderness, confusion",
+      "keywords": "shock|confus|tender"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Postural hypotension",
       "keywords": "orthostat|bp|blood pressure"
@@ -6957,7 +6873,7 @@
       "keywords": "tachycard|heart rate|pulse"
      }
     ],
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Hyperpigmentation: palmar creases, buccal mucosa, scars",
       "keywords": "palmar|crease|buccal|scar|bronz"
@@ -6967,16 +6883,10 @@
       "keywords": "axillary|pubic|hair"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Other autoimmune signs (thyroid, vitiligo)",
       "keywords": "goitre|goiter"
-     }
-    ],
-    "Severity": [
-     {
-      "label": "Signs of adrenal crisis: shock, abdominal tenderness, confusion",
-      "keywords": "shock|confus|tender"
      }
     ],
     "Complications": [
@@ -7116,7 +7026,7 @@
       "keywords": "underweight|low bmi|bmi below"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Height loss (measure height, compare with previous)",
       "keywords": "stature|loss|measure|shorter"
@@ -7138,7 +7048,7 @@
       "keywords": "strength|sarcopen|power|grip|wast"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Blue sclerae (osteogenesis imperfecta)",
       "keywords": "sclera|blue|osteogenesis"
@@ -7231,7 +7141,7 @@
       "keywords": "weight history|onset|gain|trigger|when"
      }
     ],
-    "Genitourinary and reproductive": [
+    "Abdominal and pelvic": [
      {
       "label": "PCOS / menstrual / fertility",
       "keywords": "pcos|menstru|period|fertil"
@@ -7305,7 +7215,7 @@
       "keywords": "neck|oropharyn|mallampati|crowded"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Blood pressure (correct cuff size)",
       "keywords": "bp|blood pressure|cuff"
@@ -7317,19 +7227,17 @@
       "keywords": "hepatomeg|nafld"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Joints: knee / hip OA, mobility",
       "keywords": "hip|oa|osteoarth|mobil"
-     }
-    ],
-    "Skin": [
+     },
      {
       "label": "Acanthosis nigricans",
       "keywords": "acanthosis|nigricans"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Striae, hirsutism, moon face (Cushing's / PCOS)",
       "keywords": "striae|hirsut|moon"
@@ -7422,25 +7330,23 @@
       "keywords": "swell|pain"
      }
     ],
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fatigue / fever / weight loss",
       "keywords": "fatigue|fever|weight"
      }
     ],
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "SOB / cough (ILD, effusion)",
       "keywords": "sob|breath|cough|dysp|lung"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Morning stiffness > 1 h",
       "keywords": "stiff|morning"
-     }
-    ],
-    "Skin and mucosa": [
+     },
      {
       "label": "Dry eyes/mouth",
       "keywords": "dry|sicca"
@@ -7450,7 +7356,7 @@
       "keywords": "nodul|lump"
      }
     ],
-    "Eyes and vision": [
+    "Special senses": [
      {
       "label": "Red / painful eye",
       "keywords": "eye|scler"
@@ -7475,7 +7381,7 @@
    },
    "risks": [],
    "examination": {
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Symmetrical small joint synovitis: MCPs, PIPs, wrists (swelling, warmth, tenderness)",
       "keywords": "synovit|mcp|pip|warm|tender"
@@ -7497,7 +7403,7 @@
       "keywords": "ulnar|swan|boutonni|z.?thumb|deform"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Rheumatoid nodules (elbows)",
       "keywords": "elbow"
@@ -7600,13 +7506,13 @@
   "SLE": {
    "prompt": "Symptoms to ask about",
    "presentation": {
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fatigue / fever / weight loss",
       "keywords": "fatigue|fever|weight"
      }
     ],
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "Pleuritic chest pain / SOB",
       "keywords": "pleurit|chest pain|sob|breath|dysp"
@@ -7618,13 +7524,11 @@
       "keywords": "seiz|psychos|headache|mood|cognit|confus"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Joint pain / swelling",
       "keywords": "joint|arthr|swell"
-     }
-    ],
-    "Skin and mucosa": [
+     },
      {
       "label": "Rash (malar, photosensitive, discoid)",
       "keywords": "rash|malar|photosens|sun|discoid"
@@ -7671,13 +7575,11 @@
       "keywords": "neuro|neuropath"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Non-erosive arthritis (small joints)",
       "keywords": "synovit"
-     }
-    ],
-    "Skin": [
+     },
      {
       "label": "Malar (butterfly) rash",
       "keywords": "butterfly|malar"
@@ -7798,7 +7700,7 @@
       "keywords": "frequen|how many|attack"
      }
     ],
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fever (?septic)",
       "keywords": "fever|sept"
@@ -7860,7 +7762,7 @@
       "keywords": "systemic|differential|fever"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Acutely inflamed joint: red, hot, swollen, exquisitely tender",
       "keywords": "swollen|tender|inflam|erythem|warm|redness|red"
@@ -7876,15 +7778,13 @@
      {
       "label": "Signs of chronic arthropathy / joint deformity",
       "keywords": "chronic|deform|erosion|arthropathy"
-     }
-    ],
-    "Skin": [
+     },
      {
       "label": "Skin desquamation overlying joint",
       "keywords": "desquam|peel|flak|skin"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Tophi: ears, elbows, hands, Achilles",
       "keywords": "toph|ear|elbow|achilles|hand"
@@ -7973,7 +7873,7 @@
       "keywords": "pain|activit|night"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Stiffness < 30 min",
       "keywords": "stiff"
@@ -8017,7 +7917,7 @@
     ]
    },
    "examination": {
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Bony enlargement: Heberden's, Bouchard's nodes",
       "keywords": "heberden|bouchard|node|enlarge"
@@ -8055,7 +7955,7 @@
       "keywords": "quad|wast|atroph"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Surgical scar; prosthesis stability, leg-length discrepancy",
       "keywords": "scar|prosthes|leg length|stable|instab"
@@ -8158,19 +8058,19 @@
       "keywords": "buttock"
      }
     ],
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "SOB / chest expansion",
       "keywords": "sob|breath|chest expans|dysp"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Bowel symptoms (IBD)",
       "keywords": "bowel|diarr|ibd|crohn|colitis"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Morning stiffness > 30 min",
       "keywords": "morning|stiff"
@@ -8182,15 +8082,13 @@
      {
       "label": "Dactylitis",
       "keywords": "dactyl|sausage"
-     }
-    ],
-    "Skin and mucosa": [
+     },
      {
       "label": "Psoriasis",
       "keywords": "psoria|skin|rash"
      }
     ],
-    "Eyes and vision": [
+    "Special senses": [
      {
       "label": "Red painful eye (uveitis)",
       "keywords": "eye|uveit|iritis"
@@ -8205,7 +8103,7 @@
    },
    "risks": [],
    "examination": {
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "Reduced chest expansion",
       "keywords": "expansion"
@@ -8215,7 +8113,7 @@
       "keywords": "apical|fibrosis|lung"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Reduced lumbar spine flexion (modified Schober's)",
       "keywords": "schober|lumbar|flexion|spine"
@@ -8237,7 +8135,7 @@
       "keywords": "peripheral|arthritis"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Psoriasis / nail changes",
       "keywords": "nail|psoria"
@@ -8332,13 +8230,13 @@
       "keywords": "jaw|chew"
      }
     ],
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fever / weight loss / fatigue",
       "keywords": "fever|weight|fatigue"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Arm claudication",
       "keywords": "arm"
@@ -8350,7 +8248,7 @@
       "keywords": "headache"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Morning stiffness",
       "keywords": "morning"
@@ -8358,15 +8256,13 @@
      {
       "label": "Difficulty rising / combing hair",
       "keywords": "rising|chair|comb|arms up"
-     }
-    ],
-    "Skin and mucosa": [
+     },
      {
       "label": "Scalp tenderness",
       "keywords": "scalp|comb"
      }
     ],
-    "Eyes and vision": [
+    "Special senses": [
      {
       "label": "Visual loss / diplopia / amaurosis",
       "keywords": "vision|visual|diplop|amauros|blind"
@@ -8399,13 +8295,13 @@
       "keywords": "optic|disc|pale|swollen|papill"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Absent / asymmetric upper limb pulses and BP, bruits (large-vessel GCA)",
       "keywords": "asymmetr|bruit|subclavian|large.?vessel|bp"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Proximal muscle tenderness / stiffness (shoulders, hips)",
       "keywords": "proximal|muscle"
@@ -8419,7 +8315,7 @@
       "keywords": "range|motion|active|abduct"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Carpal tunnel / peripheral synovitis (distal)",
       "keywords": "carpal|synovit|distal|wrist"
@@ -8593,7 +8489,7 @@
    },
    "risks": [],
    "examination": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Postural hypotension (autonomic)",
       "keywords": "hypotens|autonomic"
@@ -8722,7 +8618,7 @@
       "keywords": "relapse|attack|flare"
      }
     ],
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fatigue",
       "keywords": "fatigue|tired"
@@ -8780,7 +8676,7 @@
       "keywords": "sexual|erect"
      }
     ],
-    "Eyes and vision": [
+    "Special senses": [
      {
       "label": "Visual loss / painful eye movements (optic neuritis)",
       "keywords": "vision|visual|optic|eye pain|blur"
@@ -8912,7 +8808,7 @@
       "keywords": "headache|onset|sudden|time"
      }
     ],
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fatigue",
       "keywords": "fatigue"
@@ -8958,7 +8854,7 @@
       "keywords": "swallow|dysphag|choke|cough when"
      }
     ],
-    "Eyes and vision": [
+    "Special senses": [
      {
       "label": "Vision loss / field cut",
       "keywords": "vision|visual|field|hemianop"
@@ -8996,7 +8892,7 @@
     ]
    },
    "examination": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Carotid bruit",
       "keywords": "bruit|carotid"
@@ -9189,7 +9085,7 @@
       "keywords": "withdraw|drug|intoxic|substance"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Cardiovascular exam: pulse, BP, murmur (exclude syncope)",
       "keywords": "pulse|bp|blood pressure|murmur|syncope|cardio|postural"
@@ -9213,7 +9109,7 @@
       "keywords": "post.?ictal"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Neurocutaneous stigmata (café-au-lait, ash-leaf, adenoma sebaceum)",
       "keywords": "cafe|café|ash.?leaf|adenoma|sebaceum|port.?wine"
@@ -9432,7 +9328,7 @@
       "keywords": "gds|pseudodementia"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Hypothyroid, B12 / alcohol-related signs",
       "keywords": "thyroid|b12|reversible"
@@ -9513,13 +9409,13 @@
       "keywords": "sensory|bladder|bowel"
      }
     ],
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Weight loss",
       "keywords": "weight"
      }
     ],
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "SOB / orthopnoea / morning headache (resp)",
       "keywords": "sob|breath|orthop|headache|sleep|dysp"
@@ -9566,7 +9462,7 @@
    },
    "risks": [],
    "examination": {
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "Respiratory weakness: FVC, orthopnoea, accessory muscle use",
       "keywords": "fvc|resp|accessory|vital capacity"
@@ -9691,7 +9587,7 @@
   "Myasthenia gravis": {
    "prompt": "Symptoms to ask about",
    "presentation": {
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "SOB / crisis history",
       "keywords": "sob|breath|crisis|icu|ventil|dysp"
@@ -9717,7 +9613,7 @@
       "keywords": "speech|nasal|voice"
      }
     ],
-    "Eyes and vision": [
+    "Special senses": [
      {
       "label": "Ptosis",
       "keywords": "ptosis|droop|eyelid"
@@ -9753,7 +9649,7 @@
       "keywords": "upgaze|ptosis"
      }
     ],
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "Respiratory function (FVC, single-breath count)",
       "keywords": "fvc|resp|vital capacity"
@@ -9785,7 +9681,7 @@
       "keywords": "reflex|sensation|normal"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Thymoma signs / thymectomy scar",
       "keywords": "scar|sternotomy"
@@ -9978,13 +9874,11 @@
       "keywords": "thickened|nerve|palpable|hypertroph"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Feet: ulcers, pes cavus, Charcot joint, callus",
       "keywords": "feet|charcot|callus"
-     }
-    ],
-    "Peripheral signs": [
+     },
      {
       "label": "Autonomic: postural hypotension, dry skin",
       "keywords": "orthostat|dry|hypotens"
@@ -10065,7 +9959,7 @@
   "Brain tumour / subdural": {
    "prompt": "Symptoms to ask about",
    "presentation": {
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Nausea / vomiting",
       "keywords": "nausea|vomit"
@@ -10105,7 +9999,7 @@
       "keywords": "balance|fall|gait"
      }
     ],
-    "Eyes and vision": [
+    "Special senses": [
      {
       "label": "Visual changes",
       "keywords": "vision|visual|diplop|blur"
@@ -10127,6 +10021,16 @@
     ]
    },
    "examination": {
+    "General and vitals": [
+     {
+      "label": "Cushing's reflex (hypertension, bradycardia, irregular breathing)",
+      "keywords": "cushing|reflex|bradycard|hypertens|irregular|breath"
+     },
+     {
+      "label": "Unequal pupils (blown pupil)",
+      "keywords": "pupil|blown|unequal|dilated|anisocor"
+     }
+    ],
     "Head and neck": [
      {
       "label": "Papilloedema on fundoscopy",
@@ -10159,20 +10063,10 @@
       "keywords": "gcs|glasgow|conscious|alert"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Signs of primary cancer (breast mass, lung, melanoma)",
       "keywords": "breast|lung|melanoma|skin|mass"
-     }
-    ],
-    "Severity": [
-     {
-      "label": "Cushing's reflex (hypertension, bradycardia, irregular breathing)",
-      "keywords": "cushing|reflex|bradycard|hypertens|irregular|breath"
-     },
-     {
-      "label": "Unequal pupils (blown pupil)",
-      "keywords": "pupil|blown|unequal|dilated|anisocor"
      }
     ]
    },
@@ -10356,13 +10250,13 @@
       "keywords": "cranial|neuro|gait|deficit"
      }
     ],
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Rash (petechial / purpuric; zoster)",
       "keywords": "petechia|purpur|zoster|shingles|rash"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Head trauma signs",
       "keywords": "trauma|haematoma|hematoma|bruis|battle"
@@ -10451,7 +10345,7 @@
       "keywords": "rest pain|night|hang|dangle"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Cold / pale / numb foot",
       "keywords": "cold|pale|numb|colour"
@@ -10461,7 +10355,7 @@
       "keywords": "chest pain|angina|stroke|tia"
      }
     ],
-    "Genitourinary and reproductive": [
+    "Abdominal and pelvic": [
      {
       "label": "Erectile dysfunction (Leriche)",
       "keywords": "erect|sexual"
@@ -10495,7 +10389,13 @@
     ]
    },
    "examination": {
-    "Cardiovascular": [
+    "General and vitals": [
+     {
+      "label": "Signs of acute limb ischaemia (6 Ps)",
+      "keywords": "6 ?p|pain|paraesthesia|paralysis|perishing|acute"
+     }
+    ],
+    "Cardiorespiratory": [
      {
       "label": "Cool, pale limb; capillary refill delay",
       "keywords": "cool|capillary|refill|temperature"
@@ -10509,13 +10409,13 @@
       "keywords": "bruit|carotid"
      }
     ],
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Hair loss, shiny atrophic skin, thickened nails",
       "keywords": "hair|shiny|atroph|nail|skin"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Ulcers: pressure points, toes, heel (punched-out, dry)",
       "keywords": "toe|heel|punched|ulcer"
@@ -10533,12 +10433,6 @@
      {
       "label": "Ankle-brachial pressure index",
       "keywords": "abi|abpi|ankle.?brachial|doppler"
-     }
-    ],
-    "Severity": [
-     {
-      "label": "Signs of acute limb ischaemia (6 Ps)",
-      "keywords": "6 ?p|pain|paraesthesia|paralysis|perishing|acute"
      }
     ],
     "Complications": [
@@ -10640,7 +10534,7 @@
       "keywords": "discharge|odour|smell|pus"
      }
     ],
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fever / rigors / unwell",
       "keywords": "fever|rigor|unwell|sepsis"
@@ -10686,7 +10580,13 @@
     ]
    },
    "examination": {
-    "Cardiovascular": [
+    "General and vitals": [
+     {
+      "label": "Systemic upset (fever, tachycardia, hypotension)",
+      "keywords": "tachycard|hypotens|systemic"
+     }
+    ],
+    "Cardiorespiratory": [
      {
       "label": "Foot pulses / ABI / capillary refill",
       "keywords": "pulse|abi|ankle.?brachial|capillary|refill|perfusion|doppler"
@@ -10698,13 +10598,13 @@
       "keywords": "monofil|vibrat|ankle jerk|neuropath"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Charcot foot (warm, swollen, collapsed arch)",
       "keywords": "collapsed|arch|swollen|rocker"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Ulcer site, size, depth, base, edges, probe-to-bone",
       "keywords": "ulcer|site|size|depth|base|edge|probe|bone"
@@ -10724,12 +10624,6 @@
      {
       "label": "Footwear",
       "keywords": "sock|footwear exam|poorly fitting|shoe fit"
-     }
-    ],
-    "Severity": [
-     {
-      "label": "Systemic upset (fever, tachycardia, hypotension)",
-      "keywords": "tachycard|hypotens|systemic"
      }
     ],
     "Complications": [
@@ -10851,7 +10745,13 @@
     ]
    },
    "examination": {
-    "Cardiovascular": [
+    "General and vitals": [
+     {
+      "label": "Signs of rupture: shock, hypotension, tachycardia, back/flank tenderness",
+      "keywords": "rupture|shock|hypotens|tachycard|tender"
+     }
+    ],
+    "Cardiorespiratory": [
      {
       "label": "Abdominal / femoral bruit",
       "keywords": "bruit"
@@ -10875,7 +10775,7 @@
       "keywords": "diameter|width|palpat|ultrasound"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Marfan / connective tissue features",
       "keywords": "marfan|connective|tall|arachnodactyly|ehlers"
@@ -10883,12 +10783,6 @@
      {
       "label": "Signs of atherosclerosis / smoking (nicotine staining, PAD, carotid bruit)",
       "keywords": "atheroscl|nicotine|stain|carotid"
-     }
-    ],
-    "Severity": [
-     {
-      "label": "Signs of rupture: shock, hypotension, tachycardia, back/flank tenderness",
-      "keywords": "rupture|shock|hypotens|tachycard|tender"
      }
     ],
     "Complications": [
@@ -10982,7 +10876,7 @@
       "keywords": "duration|how long|previous|recurr"
      }
     ],
-    "Skin and mucosa": [
+    "Musculoskeletal and skin": [
      {
       "label": "Itch / eczema / skin changes",
       "keywords": "itch|eczema|skin|pigment|brown"
@@ -11022,7 +10916,7 @@
     ]
    },
    "examination": {
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Varicose veins on standing inspection (long / short saphenous territory)",
       "keywords": "varices"
@@ -11036,7 +10930,7 @@
       "keywords": "pulse|abi|abpi|doppler|ankle.?brachial"
      }
     ],
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Lipodermatosclerosis / 'inverted champagne bottle' leg",
       "keywords": "lipodermatoscl|champagne|fibrosis|woody|induration"
@@ -11054,7 +10948,7 @@
       "keywords": "atrophie|blanche|white scar"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Ulcer: gaiter area (medial malleolus), shallow, irregular, sloughy, exudate",
       "keywords": "gaiter|malleol|shallow|irregular|slough|ulcer|medial"
@@ -11151,19 +11045,19 @@
   "HIV": {
    "prompt": "History to ask about",
    "presentation": {
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fever / night sweats / weight loss",
       "keywords": "fever|sweat|weight"
      }
     ],
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "SOB / cough",
       "keywords": "sob|cough|breath|dysp"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Diarrhoea",
       "keywords": "diarr"
@@ -11175,7 +11069,7 @@
       "keywords": "headache|neuro|cognit|confus|memory"
      }
     ],
-    "Skin and mucosa": [
+    "Musculoskeletal and skin": [
      {
       "label": "Oral thrush / mouth",
       "keywords": "thrush|oral|mouth"
@@ -11185,7 +11079,7 @@
       "keywords": "skin|kaposi|rash|lesion"
      }
     ],
-    "Eyes and vision": [
+    "Special senses": [
      {
       "label": "Vision changes",
       "keywords": "vision|visual|eye"
@@ -11245,7 +11139,7 @@
       "keywords": "fundos|retinitis|retina"
      }
     ],
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "Chest: crackles (PJP), lung signs",
       "keywords": "chest|crackle|crep|pneumocystis|lung"
@@ -11263,13 +11157,13 @@
       "keywords": "focal|toxoplasm"
      }
     ],
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Skin: seborrhoeic dermatitis, Kaposi's sarcoma, molluscum, zoster scars",
       "keywords": "seborrh|molluscum|zoster|shingles|purple"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Genital / anal warts, ulcers (other STIs)",
       "keywords": "genital|anal|wart|ulcer|herpes"
@@ -11344,7 +11238,7 @@
   "Tuberculosis": {
    "prompt": "Symptoms and history to ask about",
    "presentation": {
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fever",
       "keywords": "fever"
@@ -11362,7 +11256,7 @@
       "keywords": "fatigue|tired"
      }
     ],
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "Cough > 3 weeks",
       "keywords": "cough"
@@ -11378,13 +11272,11 @@
       "keywords": "headache|confus|mening"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Back pain (Pott's)",
       "keywords": "back"
-     }
-    ],
-    "Skin and mucosa": [
+     },
      {
       "label": "Lymph node swelling",
       "keywords": "lymph|node|lump|neck"
@@ -11436,7 +11328,7 @@
       "keywords": "cervical|supraclav|scrofula"
      }
     ],
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "Chest: apical crackles, bronchial breathing, signs of cavitation (amphoric breath sounds)",
       "keywords": "apical|crackle|crep|bronchial|cavit|amphoric|consolid"
@@ -11446,19 +11338,17 @@
       "keywords": "pleural|dull|stony|breath sounds"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Spinal tenderness / gibbus (Pott's disease)",
       "keywords": "spin|gibbus|pott|tender|kyphosis"
-     }
-    ],
-    "Skin": [
+     },
      {
       "label": "Skin: erythema nodosum, scrofuloderma",
       "keywords": "erythema nodosum|nodosum|scrofuloderma|skin"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Clubbing",
       "keywords": "club"
@@ -11547,7 +11437,7 @@
   "Hepatitis B / C": {
    "prompt": "History to ask about",
    "presentation": {
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Jaundice / dark urine",
       "keywords": "jaund|dark urine"
@@ -11619,13 +11509,13 @@
       "keywords": "splen|caput|portal|ascites|distens|distend"
      }
     ],
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Injection track marks / tattoos",
       "keywords": "track|piercing|scar"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Stigmata of chronic liver disease (spider naevi, palmar erythema)",
       "keywords": "spider|naevi|nevi|palmar|erythema"
@@ -11706,13 +11596,11 @@
   "Sexual health / STI": {
    "prompt": "Sexual history to ask about",
    "presentation": {
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Anal symptoms",
       "keywords": "anal|rectal"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "Symptoms: discharge, dysuria",
       "keywords": "discharge|dysur"
@@ -11726,7 +11614,7 @@
       "keywords": "testic|scrot"
      }
     ],
-    "Skin and mucosa": [
+    "Musculoskeletal and skin": [
      {
       "label": "Genital ulcers / lumps / warts",
       "keywords": "ulcer|sore|lump|wart"
@@ -11794,13 +11682,13 @@
       "keywords": "proctitis|anoscop"
      }
     ],
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Skin: pubic lice, scabies, molluscum",
       "keywords": "lice|scabies|molluscum|skin|crab|nit"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Genital inspection: ulcers, vesicles, warts, discharge, rash",
       "keywords": "genital|vesicle"
@@ -11824,9 +11712,7 @@
      {
       "label": "Bimanual: cervical motion / adnexal tenderness (PID)",
       "keywords": "bimanual|adnexal|pid|chandelier"
-     }
-    ],
-    "Peripheral signs": [
+     },
      {
       "label": "Secondary syphilis: palmar/plantar rash, condylomata lata, mucous patches",
       "keywords": "plantar|condylomata|mucous patch"
@@ -11903,19 +11789,17 @@
   "Recurrent UTI / pyelonephritis": {
    "prompt": "Symptoms and history to ask about",
    "presentation": {
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fever / rigors",
       "keywords": "fever|rigor"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Nausea / vomiting",
       "keywords": "nausea|vomit"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "Dysuria / frequency / urgency",
       "keywords": "dysur|frequen|urgen"
@@ -11999,7 +11883,7 @@
       "keywords": "mass|kidney|renal|hydroneph"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Pelvic exam: atrophic vaginitis, prolapse",
       "keywords": "pelvic|vagin|speculum"
@@ -12090,13 +11974,13 @@
   "Osteomyelitis": {
    "prompt": "Symptoms and history to ask about",
    "presentation": {
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fever / rigors / night sweats",
       "keywords": "fever|rigor|sweat"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Localised bone pain",
       "keywords": "pain|bone"
@@ -12108,9 +11992,7 @@
      {
       "label": "Back pain (vertebral)",
       "keywords": "back"
-     }
-    ],
-    "Skin and mucosa": [
+     },
      {
       "label": "Discharging sinus / wound",
       "keywords": "sinus|discharg|wound|pus"
@@ -12170,19 +12052,17 @@
       "keywords": "spin|vertebr|deficit|cord"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Reduced range of motion / pain on weight-bearing / limp",
       "keywords": "range|motion|weight|limp|gait"
-     }
-    ],
-    "Skin": [
+     },
      {
       "label": "Injection sites; cellulitis; pressure sores",
       "keywords": "cellulitis|pressure|sacral"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Localised bone tenderness, warmth, swelling, erythema",
       "keywords": "erythem|local|redness|red"
@@ -12198,9 +12078,7 @@
      {
       "label": "Prosthetic joint / hardware / surgical scar",
       "keywords": "hardware|scar"
-     }
-    ],
-    "Peripheral signs": [
+     },
      {
       "label": "Diabetic foot ulcer, pulses, neuropathy",
       "keywords": "pulse"
@@ -12299,7 +12177,7 @@
       "keywords": "axill|armpit|node"
      }
     ],
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Weight loss / fatigue",
       "keywords": "weight|fatigue"
@@ -12327,7 +12205,7 @@
     ]
    },
    "examination": {
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Skin changes: dimpling, peau d'orange, erythema, ulceration",
       "keywords": "orange|erythema|ulcer|tether|redness|red"
@@ -12454,7 +12332,7 @@
       "keywords": "dysphag|swallow|sob|breath|stridor|dysp"
      }
     ],
-    "Endocrine and metabolic": [
+    "Constitutional and endocrine": [
      {
       "label": "Hyper / hypothyroid symptoms",
       "keywords": "thyro|weight|heat|cold|palpit|tired"
@@ -12500,13 +12378,11 @@
       "keywords": "laryng|hoarse"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Collar incision scar (post-thyroidectomy)",
       "keywords": "scar|collar|incision"
-     }
-    ],
-    "Peripheral signs": [
+     },
      {
       "label": "Thyroid status: pulse, tremor, reflexes, eyes",
       "keywords": "pulse|tremor|reflex|eyes|status|euthyroid"
@@ -12679,7 +12555,7 @@
       "keywords": "visual|acuity|hearing|cataract"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Postural BP (lying and standing)",
       "keywords": "postural|orthostat|lying|standing|bp"
@@ -12707,13 +12583,11 @@
       "keywords": "mmse|moca|delirium|dementia"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Feet and footwear",
       "keywords": "feet|foot"
-     }
-    ],
-    "Skin": [
+     },
      {
       "label": "Bruising / injuries; head injury signs",
       "keywords": "bruis|injur|trauma|laceration"
@@ -12723,7 +12597,7 @@
       "keywords": "pressure|sacral|skin"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Hip fracture: shortened, externally rotated leg; pain on log-roll / axial loading",
       "keywords": "shortened|external|rotat|log.?roll|axial|hip|leg"
@@ -12900,7 +12774,7 @@
       "keywords": "perianal|anal tone|sacral|cauda|saddle"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Inspection: posture, scoliosis, kyphosis, muscle spasm",
       "keywords": "inspect|posture|scolios|kyphos|spasm"
@@ -13061,7 +12935,7 @@
     ]
    },
    "examination": {
-    "Skin": [
+    "Musculoskeletal and skin": [
      {
       "label": "Full skin examination (head to toe including scalp, nails, soles)",
       "keywords": "full skin|scalp|nail|sole|whole body|total body|head to toe"
@@ -13184,13 +13058,13 @@
       "keywords": "plaque|site|extent|scalp|elbow|knee|bsa"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Bowel symptoms (IBD)",
       "keywords": "bowel|diarr|ibd"
      }
     ],
-    "Musculoskeletal": [
+    "Musculoskeletal and skin": [
      {
       "label": "Joint pain / swelling (PsA)",
       "keywords": "joint|arthr|swell"
@@ -13198,9 +13072,7 @@
      {
       "label": "Back stiffness",
       "keywords": "back|stiff"
-     }
-    ],
-    "Skin and mucosa": [
+     },
      {
       "label": "Itch / pain / bleeding",
       "keywords": "itch|pain|bleed"
@@ -13210,7 +13082,7 @@
       "keywords": "nail"
      }
     ],
-    "Eyes and vision": [
+    "Special senses": [
      {
       "label": "Eyes (uveitis)",
       "keywords": "eye|uveit"
@@ -13238,7 +13110,13 @@
     ]
    },
    "examination": {
-    "Skin": [
+    "General and vitals": [
+     {
+      "label": "BSA affected / PASI",
+      "keywords": "pasi|body surface|severity"
+     }
+    ],
+    "Musculoskeletal and skin": [
      {
       "label": "Well-demarcated erythematous plaques with silvery scale",
       "keywords": "erythem|silver|scale|scaly|demarcat|redness|red"
@@ -13264,7 +13142,7 @@
       "keywords": "pitting|onycholysis|oil.?drop|subungual"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Psoriatic arthritis: dactylitis, DIP synovitis, enthesitis",
       "keywords": "dactylitis|dip|enthes|synovit"
@@ -13278,12 +13156,6 @@
      {
       "label": "Koebner phenomenon",
       "keywords": "koebner|köbner|trauma|scratch"
-     }
-    ],
-    "Severity": [
-     {
-      "label": "BSA affected / PASI",
-      "keywords": "pasi|body surface|severity"
      }
     ]
    },
@@ -13391,7 +13263,13 @@
     ]
    },
    "examination": {
-    "Skin": [
+    "General and vitals": [
+     {
+      "label": "Severity: SCORAD / EASI; sleep disturbance",
+      "keywords": "scorad|easi|severity"
+     }
+    ],
+    "Musculoskeletal and skin": [
      {
       "label": "Dry skin (xerosis)",
       "keywords": "dry|xerosis"
@@ -13413,16 +13291,10 @@
       "keywords": "dennie|morgan|hyperlinear|pityriasis"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Atopic stigmata: allergic rhinitis, asthma signs, nasal polyps",
       "keywords": "atopic|wheez|polyp"
-     }
-    ],
-    "Severity": [
-     {
-      "label": "Severity: SCORAD / EASI; sleep disturbance",
-      "keywords": "scorad|easi|severity"
      }
     ],
     "Complications": [
@@ -13592,7 +13464,7 @@
       "keywords": "gonioscop|angle|van herick|anterior chamber"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Laser iridotomy / trabeculectomy / surgical bleb",
       "keywords": "bleb"
@@ -13759,7 +13631,7 @@
       "keywords": "slit lamp|sclerosis|cortical|subcapsular|nuclear"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Pseudophakia (intraocular lens) / post-surgical changes",
       "keywords": "pseudophak"
@@ -13844,7 +13716,7 @@
       "keywords": "sudden|gradual|onset"
      }
     ],
-    "Ear and hearing": [
+    "Special senses": [
      {
       "label": "Tinnitus",
       "keywords": "tinnit|ringing"
@@ -14029,7 +13901,7 @@
       "keywords": "ulcer|mouth|lesion|tongue"
      }
     ],
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Weight loss",
       "keywords": "weight"
@@ -14089,13 +13961,11 @@
       "keywords": "nasal|nasopharyn|otitis|effusion"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Post-treatment: radiotherapy skin changes, trismus, lymphoedema, stoma / tracheostomy",
       "keywords": "radiation|stoma"
-     }
-    ],
-    "Peripheral signs": [
+     },
      {
       "label": "Dentition / smoking and alcohol stigmata",
       "keywords": "dentition|nicotine|stigmata"
@@ -14206,13 +14076,13 @@
       "keywords": "position|turn|bed|head move|roll"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Nausea / vomiting",
       "keywords": "nausea|vomit"
      }
     ],
-    "Ear and hearing": [
+    "Special senses": [
      {
       "label": "Hearing loss",
       "keywords": "hearing"
@@ -14276,7 +14146,7 @@
       "keywords": "otoscop|cholesteatoma|vesicle|ramsay|hunt"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Postural BP / cardiac exam (non-vestibular dizziness)",
       "keywords": "postural|orthostat|bp|blood pressure|murmur|arrhythm|cardiac"
@@ -14475,7 +14345,7 @@
       "keywords": "parotid|telangiect|plethor|facial|flush"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Cardiomyopathy / AF signs; hypertension",
       "keywords": "cardiomyopath|af|fibrillation|hypertens|bp|blood pressure|irregular"
@@ -14497,7 +14367,7 @@
       "keywords": "sensation|glove|stocking"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Signs of chronic liver disease (spider naevi, palmar erythema, jaundice, ascites)",
       "keywords": "spider|naevi|palmar|erythema|stigmata"
@@ -14624,7 +14494,7 @@
       "keywords": "oral|leukoplakia|dentition|mouth"
      }
     ],
-    "Cardiovascular": [
+    "Cardiorespiratory": [
      {
       "label": "Peripheral pulses / bruits (vascular disease)",
       "keywords": "pulse|bruit|vascular|pad|carotid|femoral"
@@ -14632,9 +14502,7 @@
      {
       "label": "Blood pressure",
       "keywords": "bp|blood pressure|hypertens"
-     }
-    ],
-    "Respiratory": [
+     },
      {
       "label": "Tachypnoea, pursed-lip breathing, hyperinflated chest (COPD)",
       "keywords": "tachyp|pursed|hyperinfl|barrel"
@@ -14644,7 +14512,7 @@
       "keywords": "wheez|crack|crep|air entry|breath sounds"
      }
     ],
-    "Peripheral signs": [
+    "Local and peripheral signs": [
      {
       "label": "Nicotine staining of fingers / teeth / hair",
       "keywords": "nicotine|stain|yellow|finger"
@@ -14749,13 +14617,13 @@
       "keywords": "wound|redness|discharg|ooz|incision"
      }
     ],
-    "Constitutional": [
+    "Constitutional and endocrine": [
      {
       "label": "Fever / sweats / rigors",
       "keywords": "fever|sweat|rigor|chill|hot"
      }
     ],
-    "Gastrointestinal": [
+    "Abdominal and pelvic": [
      {
       "label": "Nausea / vomiting",
       "keywords": "nause|vomit|sick|retch"
@@ -14767,9 +14635,7 @@
      {
       "label": "Bowels: flatus, bowels opened (ileus)",
       "keywords": "flatus|fart|wind|bowel|bo|constipat|ileus|stool|poo"
-     }
-    ],
-    "Genitourinary and reproductive": [
+     },
      {
       "label": "Urine: voiding, retention, catheter",
       "keywords": "urin|void|wee|pass.*water|retention|catheter"
@@ -14841,7 +14707,7 @@
       "keywords": "fluid status|hydrat|dehydr|mucous|cap refill|capillary|jvp|turgor"
      }
     ],
-    "Respiratory": [
+    "Cardiorespiratory": [
      {
       "label": "Chest: basal crackles, reduced air entry (atelectasis, pneumonia)",
       "keywords": "chest|crackle|crep|air entry|atelecta|consolidat"
@@ -14859,7 +14725,7 @@
       "keywords": "delirium|confus|orient|attention|gcs|conscious|4at|cam"
      }
     ],
-    "Local findings": [
+    "Local and peripheral signs": [
      {
       "label": "Wound: erythema, discharge, dehiscence, haematoma",
       "keywords": "wound|incision|erythem|discharg|dehisc|haematoma|hematoma|cellulit|dressing"
