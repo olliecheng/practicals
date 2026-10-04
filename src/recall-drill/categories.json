@@ -42,6 +42,10 @@
     "def": "Visual loss, red eye, visual disturbance; hearing loss, tinnitus, otalgia, vertigo of ear origin"
    },
    {
+    "name": "Acute on chronic",
+    "def": "Features of an acute exacerbation or decompensation on top of the chronic condition (heart failure exacerbation, uraemia in CKD, COPD exacerbation, DKA, adrenal crisis)"
+   },
+   {
     "name": "Complications",
     "def": "Complications of the disease or its treatment that the patient may report"
    },
@@ -160,6 +164,10 @@
    {
     "name": "Prevention and monitoring",
     "def": "Primary and secondary prevention, prophylaxis, vaccination, risk-factor control; follow-up, drug monitoring, safety checks, surveillance"
+   },
+   {
+    "name": "Avoid",
+    "def": "Drugs, interventions and behaviours to avoid or use with caution because they are contraindicated, harmful or precipitate decompensation (e.g. nitrates in aortic stenosis, NSAIDs in heart failure and CKD)"
    }
   ]
  },
