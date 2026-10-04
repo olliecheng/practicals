@@ -27,6 +27,13 @@ const firstPending = (drill, s) => {
 // A section is complete once every tile is named, credited, ignored or revealed
 export const sectionComplete = (drill, s, code) =>
   sectionIdx(drill, code).every((i) => settled(s, i) || s.revealed.has(i));
+// Tiles of a section that were revealed rather than named (credited ones included)
+const missedIdx = (drill, s, code) =>
+  sectionIdx(drill, code).filter(
+    (i) => s.revealed.has(i) && !s.found.has(i) && !s.ignored.has(i),
+  );
+export const hasMissed = (drill, s, code) =>
+  missedIdx(drill, s, code).length > 0;
 const allSettled = (drill, s) =>
   drill.items.every((_, i) => settled(s, i) || s.revealed.has(i));
 
@@ -213,7 +220,7 @@ export function useDrillGame({ drill, account, inc }) {
     items.forEach((_, i) => pending(st, i) && revealed.add(i));
     const ns = { ...st, revealed, over: true };
     // "Add to history" starts ticked (unticked after a redo round): remember the record as it was so unticking can restore it
-    if (account.acct) {
+    if (account.acct && !counted.current) {
       const r = account.user.drills[drill.key];
       prevRec.current = r ? JSON.parse(JSON.stringify(r)) : null;
     }
@@ -324,6 +331,28 @@ export function useDrillGame({ drill, account, inc }) {
     apply(items.some((_, i) => pending(ns, i)) ? ns : finishRound(ns));
   };
 
+  // Hide a section's missed tiles again so they can be retried. Local only: the saved record is not touched.
+  const redoSec = (code) => {
+    const st = sRef.current,
+      miss = missedIdx(drill, st, code);
+    if (!miss.length) return;
+    clearTimeout(deferT.current);
+    const revealed = new Set(st.revealed),
+      credited = new Set(st.credited);
+    miss.forEach((i) => {
+      revealed.delete(i);
+      credited.delete(i);
+    });
+    apply({
+      ...st,
+      revealed,
+      credited,
+      over: false,
+      active: collapsedRef.current ? code : st.active,
+    });
+    answerRef.current?.focus();
+  };
+
   const toggleIgnore = (i) => {
     const st = sRef.current,
       ignored = new Set(st.ignored),
@@ -432,6 +461,7 @@ export function useDrillGame({ drill, account, inc }) {
     revealSec,
     revealLabel,
     revealDisabled,
+    redoSec,
     hintCode,
     toggleHint,
     toggleIgnore,

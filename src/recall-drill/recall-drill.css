@@ -571,6 +571,26 @@ button.chip[aria-pressed="true"] {
   align-items: center;
   gap: 4px;
 }
+.redo {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--panel);
+  color: var(--teal);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.redo:hover {
+  background: var(--teal-soft);
+  border-color: var(--teal);
+}
 .sect.collapsible.closed .tg {
   cursor: pointer;
 }

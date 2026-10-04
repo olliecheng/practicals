@@ -4,7 +4,11 @@ import { MODES } from "../lib/data";
 import { decodeDrill, drillPath } from "../lib/drillId";
 import { useAccount } from "../state/AccountContext";
 import { useFilters } from "../state/FilterContext";
-import { sectionComplete, useDrillGame } from "../state/useDrillGame";
+import {
+  hasMissed,
+  sectionComplete,
+  useDrillGame,
+} from "../state/useDrillGame";
 
 function Tile({ i, n, label, s, complete, onCredit, onIgnore }) {
   const cls = s.ignored.has(i)
@@ -236,6 +240,17 @@ function Game({ drill, inc, restart }) {
                       {sec.count ? `${sec.got} of ${sec.total}` : ""}
                     </span>
                   </button>
+                  {hasMissed(drill, s, sec.code) && (
+                    <button
+                      className="redo"
+                      type="button"
+                      title="Redo the missed items in this section"
+                      aria-label="Redo the missed items in this section"
+                      onClick={() => g.redoSec(sec.code)}
+                    >
+                      ↺
+                    </button>
+                  )}
                 </h3>
                 {!idx.length && (
                   <p className="note" style={{ margin: 0 }}>
