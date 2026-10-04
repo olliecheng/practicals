@@ -1,0 +1,95 @@
+import COND from "../conditions.json";
+import PRESENT from "../presentations.json";
+import icP from "../assets/presentation.svg";
+import icR from "../assets/risks.svg";
+import icE from "../assets/examination.svg";
+import icM from "../assets/investigations.svg";
+import icT from "../assets/medications.svg";
+import { rx, literals } from "./match";
+
+// Section codes. cond: P presentation, R risk factors / etiology, E examination findings, M investigations,
+// T medications, treatment, and management. pres: D differentials, A associated features (history), I investigations.
+export const MODES = {
+  cond: {
+    noun: "condition",
+    label: "Conditions",
+    sections: [
+      { code: "P", name: "Presentation", icon: icP, short: "presentation" },
+      {
+        code: "R",
+        name: "Risk factors / etiology",
+        icon: icR,
+        short: "risk factors",
+      },
+      {
+        code: "E",
+        name: "Examination findings",
+        icon: icE,
+        short: "examination findings",
+      },
+      { code: "M", name: "Investigations", icon: icM, short: "investigations" },
+      {
+        code: "T",
+        name: "Medications, treatment, and management",
+        icon: icT,
+        short: "medications",
+      },
+    ],
+  },
+  pres: {
+    noun: "presentation",
+    label: "Presentations",
+    sections: [
+      { code: "D", name: "Differentials", icon: icR, short: "differentials" },
+      {
+        code: "A",
+        name: "Associated features (history)",
+        icon: icP,
+        short: "associated features",
+      },
+      { code: "I", name: "Investigations", icon: icM, short: "investigations" },
+    ],
+  },
+};
+
+// Saved-record keys: drill "mode|system|name", item "code:label". Renaming a label orphans its saved state.
+export const dk = (mode, system, name) => `${mode}|${system}|${name}`;
+export const ik = (it) => `${it.code}:${it.label}`;
+
+// A drill is {key, mode, system, name, prompt, items:[{label, keywords, code, key, re, lits}]}
+const flatten = (src, mode, keys) =>
+  Object.entries(src).flatMap(([system, drills]) =>
+    Object.entries(drills).map(([name, c]) => ({
+      key: dk(mode, system, name),
+      mode,
+      system,
+      name,
+      prompt: c.prompt,
+      items: keys.flatMap(([k, code]) =>
+        c[k].map((it) => {
+          const item = { label: it.label, keywords: it.keywords, code };
+          item.key = ik(item);
+          item.re = rx(it.keywords);
+          item.lits = literals(it.keywords);
+          return item;
+        }),
+      ),
+    })),
+  );
+
+export const DATA = flatten(COND, "cond", [
+  ["presentation", "P"],
+  ["risks", "R"],
+  ["examination", "E"],
+  ["investigations", "M"],
+  ["medications", "T"],
+]);
+export const PRES = flatten(PRESENT, "pres", [
+  ["differentials", "D"],
+  ["associated", "A"],
+  ["investigations", "I"],
+]);
+export const SYSTEMS = Object.keys(COND);
+export const PRES_SYSTEM = Object.keys(PRESENT)[0];
+
+export const byKey = new Map([...DATA, ...PRES].map((d) => [d.key, d]));
