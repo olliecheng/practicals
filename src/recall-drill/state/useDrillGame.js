@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { MODES } from "../lib/data";
-import { expandAbbr, judge } from "../lib/match";
+import { judge, variants } from "../lib/match";
 import { confetti } from "../lib/confetti";
 import { loadCollapsed, saveCollapsed } from "../lib/storage";
 
@@ -244,10 +244,13 @@ export function useDrillGame({ drill, account, inc }) {
       };
     let r = judge(items, isFound, v, submit, skip);
     if (!r) {
-      const x = expandAbbr(v);
-      if (x !== v) {
+      const xs = variants(v);
+      if (xs.length) {
         if (!submit) return later();
-        r = judge(items, isFound, x, submit, skip);
+        for (const x of xs) {
+          r = judge(items, isFound, x, submit, skip);
+          if (r) break;
+        }
       }
     }
     if (!r) {

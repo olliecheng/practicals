@@ -48,6 +48,7 @@ Layout: `routes/` (Home, Drill, Login), `components/` (Layout, DrillActions), `s
   - Don't use `(`, `)`, `[`, `]` or `\` unless you intend regex syntax; never put a literal `|` inside an alternative.
   - If several tiles match, the one whose match starts earliest, then is longest, wins (ties credit all). If the typed text is still a proper prefix of a longer literal keyword of another tile, found or not (e.g. `sputum` vs `sputum culture`), nothing fires while typing; after a 0.7s pause it credits a new tile, but never flashes yellow for an already-named one (Enter still does).
   - Abbreviations: `ABBR` in `lib/match.js` maps common abbreviations (htn, af, ckd, ...) to full terms. It is only tried when the typed text matches no tile, and while typing only after the 0.7s idle pause (so `ra` can't fire mid-`radiotherapy`). A keyword that already contains the abbreviation takes precedence. Add new entries to `ABBR`; avoid ambiguous ones (pe, mr, pd, ca, ed, us, cf).
+  - Synonyms: `lib/synonyms.js` lists groups of interchangeable terms (erythema / redness, fever / pyrexia, kidney / renal, ...). Same fallback rules as `ABBR`: tried only when the typed text matches no tile, and while typing only after the idle pause. Whole words / phrases only; keep groups specific. Add a group there rather than widening individual tiles' keywords when the equivalence is general.
   - Where one word could name both a diagnosis and its test (iron, B12, electrolytes, urate), the diagnosis tile needs a qualifier (e.g. `iron deficiency`).
 
 ## Editing guidelines

@@ -1,3 +1,5 @@
+import { SYNONYMS } from "./synonyms";
+
 // Matching. Keywords are word-start stems; "~x" matches anywhere (drug suffixes like ~pril).
 // Short keywords (<=3 chars) need a following delimiter so "ed" doesn't fire while typing "edema".
 export const rx = (kws) =>
@@ -84,6 +86,29 @@ const ABBR = {
 };
 export const expandAbbr = (v) =>
   v.replace(/[a-z0-9]+/gi, (w) => ABBR[w.toLowerCase()] || w);
+
+// Synonym variants: for each group with a term in the typed text (whole word / phrase), one variant per
+// other term in that group. Applied on top of abbreviation expansion, and only when nothing matched.
+const esc = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const SYN_RX = SYNONYMS.map((g) =>
+  g.map((t) => new RegExp("\\b" + esc(t) + "\\b", "i")),
+);
+export const variants = (v) => {
+  const base = [v],
+    x = expandAbbr(v);
+  if (x !== v) base.push(x);
+  const out = x !== v ? [x] : [];
+  for (const b of base)
+    SYNONYMS.forEach((g, gi) =>
+      g.forEach((t, ti) => {
+        if (!SYN_RX[gi][ti].test(b)) return;
+        g.forEach((u, ui) => {
+          if (ui !== ti) out.push(b.replace(SYN_RX[gi][ti], u));
+        });
+      }),
+    );
+  return [...new Set(out)].filter((o) => o !== v);
+};
 
 // Earliest match wins, then longest; if what's typed could still become a longer keyword of any other
 // item, found or not (e.g. "sputum" -> "sputum culture"), defer instead of firing.
