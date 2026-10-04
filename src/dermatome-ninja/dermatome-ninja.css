@@ -7,20 +7,47 @@
   height: 100vh;
   padding-bottom: 16px;
 }
+/* The figure is sized to the crop's shape: as tall as the window allows, and no wider than the room beside the side column */
+/* The panel is full height with the figure centred in it; wide crops (upper limb) are capped and so sit centred vertically */
 .dn-diagram {
-  flex: none;
+  flex: 0 1 auto;
+  height: 100%;
   padding: 10px;
-  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  --maxw: calc((min(100vw, 1100px) - 32px) * 0.62 - 20px);
+  --avail: calc(100vh - 82px);
+}
+.dn-fig {
+  width: min(var(--maxw), calc(var(--avail) * var(--r)));
 }
 .dn-figure {
   display: block;
-  height: 100%;
-  width: auto;
+  width: 100%;
+  height: auto;
   user-select: none;
+}
+/* Same size in every region; centred under each half of the figure */
+.dn-labels {
+  position: relative;
+  height: 26px;
+  margin-top: 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.dn-labels span {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  white-space: nowrap;
 }
 .dn-side {
   flex: 1;
-  min-width: 0;
+  min-width: 320px;
   display: flex;
   flex-direction: column;
 }
@@ -62,16 +89,25 @@
     flex-direction: column;
     height: auto;
   }
-  .dn-figure {
-    height: 70vh;
-    margin: 0 auto;
+  .dn-diagram {
+    height: auto;
+    --maxw: calc(100vw - 72px);
+    --avail: 70vh;
   }
 }
 .dn-bar {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 12px;
+  margin-bottom: 12px;
+}
+.dn-opts {
+  flex-basis: 100%;
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 12px;
+  gap: 12px;
 }
 /* Floating segmented Pick | Answer switch */
 .dn-toggle {
@@ -94,4 +130,19 @@
   color: var(--ink);
   font-weight: 600;
   box-shadow: 0 1px 3px rgb(0 0 0 / 0.18);
+}
+.dn-region {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--mute);
+}
+.dn-region select {
+  font: inherit;
+  padding: 6px 10px;
+  border-radius: var(--r);
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--ink);
 }

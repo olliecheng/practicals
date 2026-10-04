@@ -1,14 +1,20 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import {
   answerable,
   byId,
   DERMATOMES,
-  H,
   parseAnswer,
   pickable,
   randomPoint,
+  inRegion,
+  REGIONS,
   silhouette,
-  W,
 } from "./geometry";
 
 // Colours of the feedback scheme (recall-drill theme variables, so dark mode follows)
@@ -24,9 +30,12 @@ const sample = (pool, last) => {
   return p[Math.floor(Math.random() * p.length)];
 };
 
-const newQuestion = (mode, last) => {
+const newQuestion = (mode, region, last) => {
   if (mode === "learn") return { target: null, point: null, guess: null };
-  const d = sample(mode === "locate" ? pickable : answerable, last);
+  const d = sample(
+    inRegion(mode === "locate" ? pickable : answerable, region),
+    last,
+  );
   return {
     target: d.id,
     point: mode === "name" ? randomPoint(d) : null,
@@ -34,8 +43,20 @@ const newQuestion = (mode, last) => {
   };
 };
 
-function Diagram({ q, mode, outlines, hover, onPick, onHover }) {
+function Diagram({ q, mode, region, outlines, hover, onPick, onHover }) {
   const done = q.guess !== null;
+  const { x, y, w, h, centres } = REGIONS[region].crop;
+  // Line weights and the marker are sized in screen pixels, whatever the zoom
+  const ref = useRef(null);
+  const [px, setPx] = useState(1.6);
+  useLayoutEffect(() => {
+    const el = ref.current;
+    const measure = () => el.clientWidth && setPx(w / el.clientWidth);
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [w]);
   const status = (id) =>
     mode === "learn"
       ? id === hover && TEAL
@@ -47,100 +68,96 @@ function Diagram({ q, mode, outlines, hover, onPick, onHover }) {
             ? BLUE
             : id === q.guess && RED;
   return (
-    <svg
-      viewBox={`0 0 ${W} ${H}`}
-      className="dn-figure"
-      role="img"
-      aria-label="Dermatome diagram, anterior view on the left and posterior view on the right"
-    >
-      <g
-        fill="var(--tile)"
-        stroke="var(--mute)"
-        strokeWidth="2"
-        strokeLinejoin="round"
-        fillRule="evenodd"
+    <div className="dn-fig" style={{ "--r": w / h }}>
+      <svg
+        ref={ref}
+        viewBox={`${x} ${y} ${w} ${h}`}
+        className="dn-figure"
+        role="img"
+        aria-label="Dermatome diagram, anterior view on the left and posterior view on the right"
       >
-        {silhouette.map((s) => (
-          <path key={s.view} d={s.d} />
-        ))}
-      </g>
-      <g strokeLinejoin="round" fillRule="evenodd">
-        {DERMATOMES.map((d) => {
-          const fill = status(d.id);
-          return (
-            <g
-              key={d.id}
-              data-dermatome={d.id}
-              fill={fill || "transparent"}
-              fillOpacity={fill ? 0.8 : 1}
-              stroke={fill || (outlines ? "var(--mute)" : "none")}
-              strokeWidth={fill ? 2 : 1}
-              style={{
-                cursor: mode === "locate" && !done ? "crosshair" : "default",
-              }}
-              onClick={() => mode === "locate" && !done && onPick(d.id)}
-              onMouseEnter={() => mode === "learn" && onHover(d.id)}
-              onMouseLeave={() => mode === "learn" && onHover(null)}
-            >
-              {d.paths.map((p, i) => (
-                <path key={i} d={p.d} />
-              ))}
-            </g>
-          );
-        })}
-      </g>
-      {mode === "name" && q.point && (
-        <g pointerEvents="none">
-          <circle
-            cx={q.point.x}
-            cy={q.point.y}
-            r="16"
-            fill="var(--ink)"
-            opacity="0.18"
-          >
-            {!done && (
-              <animate
-                attributeName="r"
-                values="9;20;9"
-                dur="1.6s"
-                repeatCount="indefinite"
-              />
-            )}
-          </circle>
-          <circle
-            cx={q.point.x}
-            cy={q.point.y}
-            r="7"
-            fill="var(--ink)"
-            stroke="var(--panel)"
-            strokeWidth="2.5"
-          />
+        <g
+          fill="var(--tile)"
+          stroke="var(--mute)"
+          strokeWidth={1.2 * px}
+          strokeLinejoin="round"
+          fillRule="evenodd"
+        >
+          {silhouette.map((s) => (
+            <path key={s.view} d={s.d} />
+          ))}
         </g>
-      )}
-      <g
-        fill="var(--mute)"
-        fontSize="20"
-        fontWeight="600"
-        letterSpacing="2"
-        textAnchor="middle"
-        pointerEvents="none"
-      >
-        <text x="228" y="1268">
-          ANTERIOR
-        </text>
-        <text x="522" y="1268">
-          POSTERIOR
-        </text>
-      </g>
-    </svg>
+        <g strokeLinejoin="round" fillRule="evenodd">
+          {DERMATOMES.map((d) => {
+            const fill = status(d.id);
+            return (
+              <g
+                key={d.id}
+                data-dermatome={d.id}
+                fill={fill || "transparent"}
+                fillOpacity={fill ? 0.8 : 1}
+                stroke={fill || (outlines ? "var(--mute)" : "none")}
+                strokeWidth={(fill ? 2 : 1) * px}
+                style={{
+                  cursor: mode === "locate" && !done ? "crosshair" : "default",
+                }}
+                onClick={() => mode === "locate" && !done && onPick(d.id)}
+                onMouseEnter={() => mode === "learn" && onHover(d.id)}
+                onMouseLeave={() => mode === "learn" && onHover(null)}
+              >
+                {d.paths.map((p, i) => (
+                  <path key={i} d={p.d} />
+                ))}
+              </g>
+            );
+          })}
+        </g>
+        {mode === "name" && q.point && (
+          <g pointerEvents="none">
+            <circle
+              cx={q.point.x}
+              cy={q.point.y}
+              r={11 * px}
+              fill="var(--ink)"
+              opacity="0.18"
+            >
+              {!done && (
+                <animate
+                  attributeName="r"
+                  values={`${6 * px};${13 * px};${6 * px}`}
+                  dur="1.6s"
+                  repeatCount="indefinite"
+                />
+              )}
+            </circle>
+            <circle
+              cx={q.point.x}
+              cy={q.point.y}
+              r={5 * px}
+              fill="var(--ink)"
+              stroke="var(--panel)"
+              strokeWidth={1.8 * px}
+            />
+          </g>
+        )}
+      </svg>
+      <div className="dn-labels">
+        {["Anterior", "Posterior"].map((text, i) => (
+          <span key={text} style={{ left: `${((centres[i] - x) / w) * 100}%` }}>
+            {text}
+          </span>
+        ))}
+      </div>
+    </div>
   );
 }
 
 export default function DermatomeNinja() {
   const [mode, setMode] = useState("locate");
   const [outlines, setOutlines] = useState(false);
+  const [region, setRegion] = useState("all");
   const [hover, setHover] = useState(null);
-  const [q, setQ] = useState(() => newQuestion("locate", null));
+  const [q, setQ] = useState(() => newQuestion("locate", "all", null));
   const [text, setText] = useState("");
   const [error, setError] = useState("");
   const [score, setScore] = useState({ right: 0, total: 0, streak: 0 });
@@ -149,8 +166,8 @@ export default function DermatomeNinja() {
   const done = q.guess !== null;
   const correct = done && q.guess === q.target;
 
-  const reset = useCallback((m, last) => {
-    setQ(newQuestion(m, last));
+  const reset = useCallback((m, r, last) => {
+    setQ(newQuestion(m, r, last));
     setText("");
     setError("");
   }, []);
@@ -167,16 +184,22 @@ export default function DermatomeNinja() {
 
   const submit = (e) => {
     e.preventDefault();
-    if (done) return reset(mode, q.target);
+    if (done) return reset(mode, region, q.target);
     const guess = parseAnswer(text);
     if (!guess) return setError("Enter a dermatome such as C6, T10 or L4.");
     answer(guess);
   };
 
+  const changeRegion = (r) => {
+    setRegion(r);
+    setHover(null);
+    reset(mode, r, null);
+  };
+
   const changeMode = (m) => {
     setMode(m);
     setHover(null);
-    reset(m, null);
+    reset(m, region, null);
   };
 
   // Focus the input for each new question; once answered, Enter or Space moves on
@@ -187,11 +210,11 @@ export default function DermatomeNinja() {
       if (e.key !== "Enter" && e.key !== " ") return;
       if (e.ctrlKey || e.metaKey || e.altKey || e.repeat) return;
       e.preventDefault();
-      reset(mode, q.target);
+      reset(mode, region, q.target);
     };
     window.addEventListener("keydown", key);
     return () => window.removeEventListener("keydown", key);
-  }, [done, q, mode, reset]);
+  }, [done, q, mode, region, reset]);
 
   return (
     <div className="wrap dn">
@@ -199,6 +222,7 @@ export default function DermatomeNinja() {
         <Diagram
           q={q}
           mode={mode}
+          region={region}
           outlines={outlines || mode === "learn"}
           hover={hover}
           onPick={(id) => answer(id)}
@@ -232,16 +256,31 @@ export default function DermatomeNinja() {
                 </button>
               ))}
             </div>
-            {mode !== "learn" && (
-              <button
-                className="hintbtn"
-                aria-pressed={outlines}
-                onClick={() => setOutlines(!outlines)}
-              >
-                <span className="hintbox" />
-                Show outlines
-              </button>
-            )}
+            <div className="dn-opts">
+              <label className="dn-region">
+                Region
+                <select
+                  value={region}
+                  onChange={(e) => changeRegion(e.target.value)}
+                >
+                  {Object.entries(REGIONS).map(([r, { label }]) => (
+                    <option key={r} value={r}>
+                      {label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              {mode !== "learn" && (
+                <button
+                  className="hintbtn dn-outlines"
+                  aria-pressed={outlines}
+                  onClick={() => setOutlines(!outlines)}
+                >
+                  <span className="hintbox" />
+                  Show outlines
+                </button>
+              )}
+            </div>
           </div>
           <div className="panel">
             <div role="tabpanel">

@@ -1,6 +1,8 @@
 import data from "./dermatomes.json";
 
-export const { width: W, height: H, silhouette } = data;
+export const W = data.width;
+export const H = data.height;
+export const { silhouette } = data;
 export const DERMATOMES = data.dermatomes;
 export const byId = Object.fromEntries(DERMATOMES.map((d) => [d.id, d]));
 
@@ -39,6 +41,7 @@ for (const d of DERMATOMES) {
     const xs = pts.map((q) => q[0]);
     const ys = pts.map((q) => q[1]);
     return {
+      view: p.view,
       pts,
       area: area(pts),
       box: [Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys)],
@@ -53,6 +56,71 @@ export const pickable = DERMATOMES.filter(
   (d) => d.quiz && d.area >= MIN_PICK_AREA,
 );
 export const answerable = DERMATOMES.filter((d) => d.quiz);
+
+// Quiz regions: the dermatomes asked about, and the crop of the diagram showing them (anterior and posterior)
+const run = (from, to) => {
+  const all = DERMATOMES.map((d) => d.id);
+  return all.slice(all.indexOf(from), all.indexOf(to) + 1);
+};
+const PAD = 14;
+const box = (ps) => [
+  Math.min(...ps.map((p) => p.box[0])),
+  Math.min(...ps.map((p) => p.box[1])),
+  Math.max(...ps.map((p) => p.box[2])),
+  Math.max(...ps.map((p) => p.box[3])),
+];
+const centres = (polys) =>
+  ["anterior", "posterior"].map((v) => {
+    const b = box(polys.filter((p) => p.view === v));
+    return (b[0] + b[2]) / 2;
+  });
+const crop = (members) => {
+  if (!members) {
+    const sil = silhouette.map((s) => {
+      const pts = parse(s.d);
+      const xs = pts.map((q) => q[0]);
+      const ys = pts.map((q) => q[1]);
+      return {
+        view: s.view,
+        box: [
+          Math.min(...xs),
+          Math.min(...ys),
+          Math.max(...xs),
+          Math.max(...ys),
+        ],
+      };
+    });
+    return { x: 0, y: 0, w: W, h: 1245, centres: centres(sil) };
+  }
+  // Ignore slivers (e.g. the posterior C5 strip beside the spine) so they don't stretch the crop
+  const polys = members.flatMap((id) =>
+    byId[id].polys.filter((p) => p.area >= MIN_PICK_AREA),
+  );
+  const [x0, y0, x1, y1] = box(polys);
+  const x = Math.max(0, x0 - PAD);
+  const y = Math.max(0, y0 - PAD);
+  return {
+    x,
+    y,
+    w: Math.min(W, x1 + PAD) - x,
+    h: Math.min(H, y1 + PAD) - y,
+    centres: centres(polys),
+  };
+};
+export const REGIONS = {
+  all: { label: "All", ids: null },
+  upper: { label: "Upper limb", ids: run("C5", "T1") },
+  lower: { label: "Lower limb", ids: run("T12", "S5") },
+  // The trunk from the shoulder tip down to the upper thigh; the arm dermatomes (C5-T1) are left out
+  abdomen: { label: "Abdomen", ids: ["C4", ...run("T2", "L2")] },
+};
+for (const r of Object.values(REGIONS)) r.crop = crop(r.ids);
+
+// The dermatomes to ask about in a region
+export const inRegion = (pool, region) => {
+  const m = REGIONS[region].ids;
+  return m ? pool.filter((d) => m.includes(d.id)) : pool;
+};
 
 // The point (x, y) lies at least `margin` inside polygon `poly`
 const wellInside = (poly, x, y, margin) =>
