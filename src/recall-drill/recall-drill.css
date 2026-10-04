@@ -1268,3 +1268,23 @@ body.drilling .hintbtn:disabled {
 .tile.shown .b {
   border-style: dashed;
 }
+.mini {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--panel);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+.mini b {
+  color: var(--teal);
+  font-size: 0.95rem;
+}
+.mini:hover {
+  border-color: var(--teal);
+  background: var(--teal-soft);
+}

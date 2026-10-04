@@ -231,7 +231,9 @@ export default function Home() {
           )}
         </div>
         <div className="panel tabpanel" role="tabpanel">
-          {mode === "minis" ? null : (
+          {mode === "minis" ? (
+            <Minis />
+          ) : (
             <>
               {mode === "cond" && (
                 <div>
@@ -284,6 +286,16 @@ export default function Home() {
     </section>
   );
 }
+
+// Standalone minigames, separate from the drills
+const Minis = () => (
+  <div className="condlist">
+    <a className="mini" href="/dermatome-ninja.html">
+      <b>Dermatome Ninja</b>
+      <span>Learn the dermatomes: locate a region or name a point.</span>
+    </a>
+  </div>
+);
 
 // condlist is a grid and the system headings span it, so the group is a fragment rather than a wrapper element
 const Group = ({ system, drills }) => (
