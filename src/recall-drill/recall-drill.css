@@ -694,6 +694,7 @@ button.tab[aria-selected="true"] {
   cursor: pointer;
 }
 .sect.closed .board,
+.sect.closed .cats,
 .sect.closed > .note {
   display: none;
 }
