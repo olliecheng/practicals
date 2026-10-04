@@ -234,20 +234,6 @@ export default function Home() {
             Random {MODES[mode].noun}
           </button>
         </div>
-        <p className="note">
-          Conditions: history, risk factors, examination findings,
-          investigations and medications, treatment, and management.
-          Presentations: differentials, associated features and investigations.
-          Name one item at a time. Press Collapse to work on one section at a
-          time (click a heading to switch); only the open section is matched,
-          but the counter still covers everything. The box flashes green and
-          clears when you hit something on the list, or yellow if you've already
-          named it. Press "I'm done" to reveal the ones you missed in orange;
-          tap a missed tile to credit it if you had it. Hover a tile and press −
-          to ignore an item you can't recall: it's greyed out and left out of
-          your score. Log in with a username to save your history, stars and
-          ignored items.
-        </p>
         <p className="lbl" style={{ marginTop: 18 }}>
           Or pick one
         </p>

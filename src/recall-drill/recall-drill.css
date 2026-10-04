@@ -15,6 +15,7 @@
   --bad: #c62f3a;
   --bad-soft: #f7d3d6;
   --tile: #dce5e3;
+  --grid: #d3dfdc;
   --r: 5px;
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
@@ -38,6 +39,7 @@
     --bad: #f2737c;
     --bad-soft: #421b20;
     --tile: #1f3437;
+    --grid: #1a2e31;
   }
 }
 :root[data-theme="dark"] {
@@ -57,6 +59,7 @@
   --bad: #f2737c;
   --bad-soft: #421b20;
   --tile: #1f3437;
+  --grid: #1a2e31;
 }
 *,
 *:before,
@@ -68,7 +71,12 @@ html {
 }
 body {
   margin: 0;
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 0.95cm 0.95cm;
+  background-attachment: fixed;
   color: var(--ink);
   font-family:
     -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;

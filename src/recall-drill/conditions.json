@@ -93,7 +93,7 @@
     },
     {
      "label": "Hepatomegaly / ascites",
-     "keywords": "hepatomeg|liver"
+     "keywords": "hepatomeg|liver|ascites"
     },
     {
      "label": "Cool peripheries / tachycardia / hypotension",
@@ -1697,7 +1697,7 @@
     },
     {
      "label": "Abdominal: hepatosplenomegaly, DIOS mass, abdominal distension",
-     "keywords": "hepatosplen|mass|distens"
+     "keywords": "hepatosplen|mass|distens|distend"
     },
     {
      "label": "Port / PICC / PEG sites",
@@ -2869,7 +2869,7 @@
     },
     {
      "label": "Abdominal distension (ascites)",
-     "keywords": "ascit|distens|swell|abdo"
+     "keywords": "ascit|distens|swell|abdo|distend"
     },
     {
      "label": "Ankle oedema",
@@ -2953,7 +2953,7 @@
     },
     {
      "label": "Ascites (shifting dullness, fluid thrill)",
-     "keywords": "shifting|dullness|thrill|distend|ascites"
+     "keywords": "shifting|dullness|thrill|distend|ascites|distens|distens"
     },
     {
      "label": "Splenomegaly / caput medusae",
@@ -3050,7 +3050,7 @@
     },
     {
      "label": "Obstructive: post-prandial pain, bloating, vomiting",
-     "keywords": "obstruct|bloat|distens|vomit|post.?prandial"
+     "keywords": "obstruct|bloat|distens|vomit|post.?prandial|distend"
     },
     {
      "label": "Weight loss",
@@ -3118,7 +3118,7 @@
     },
     {
      "label": "Abdominal distension / tenderness",
-     "keywords": "distend|abdo"
+     "keywords": "distend|abdo|distens"
     },
     {
      "label": "Perianal disease: fistulae, skin tags, abscess, fissure",
@@ -3376,7 +3376,7 @@
     },
     {
      "label": "Obstruction: distension, vomiting, constipation",
-     "keywords": "obstruct|distens|vomit|absolute"
+     "keywords": "obstruct|distens|vomit|absolute|distend"
     },
     {
      "label": "Jaundice / RUQ pain (liver mets)",
@@ -3404,7 +3404,7 @@
     },
     {
      "label": "Abdominal distension / tenderness (obstruction)",
-     "keywords": "distend|tender|tinkling|bowel sounds"
+     "keywords": "distend|tender|tinkling|bowel sounds|distens"
     },
     {
      "label": "Hepatomegaly (liver metastases)",
@@ -3412,7 +3412,7 @@
     },
     {
      "label": "Ascites",
-     "keywords": "ascites|shifting|dullness"
+     "keywords": "ascites|shifting|dullness|distens|distend"
     },
     {
      "label": "Virchow's node (left supraclavicular)",
@@ -3863,7 +3863,7 @@
     },
     {
      "label": "Ascites",
-     "keywords": "ascites|shifting|dullness"
+     "keywords": "ascites|shifting|dullness|distens|distend"
     },
     {
      "label": "Virchow's node / Sister Mary Joseph nodule",
@@ -4004,7 +4004,7 @@
     },
     {
      "label": "Peripheral oedema / ascites (hypoalbuminaemia)",
-     "keywords": "oedema|edema|ascites|albumin"
+     "keywords": "oedema|edema|ascites|albumin|distens|distend"
     },
     {
      "label": "Bruising (vitamin K deficiency)",
@@ -4214,7 +4214,7 @@
     },
     {
      "label": "Nausea / vomiting / distension (obstruction)",
-     "keywords": "nausea|vomit|distens|obstruct"
+     "keywords": "nausea|vomit|distens|obstruct|distend"
     },
     {
      "label": "Pneumaturia / faecaluria / recurrent UTI (colovesical)",
@@ -4266,7 +4266,7 @@
     },
     {
      "label": "Abdominal distension (obstruction)",
-     "keywords": "distend|bowel sounds"
+     "keywords": "distend|bowel sounds|distens"
     },
     {
      "label": "DRE: blood, mass, tenderness",
@@ -4343,7 +4343,7 @@
     },
     {
      "label": "Obstruction: vomiting, distension, constipation",
-     "keywords": "vomit|distens|constip|obstruct"
+     "keywords": "vomit|distens|constip|obstruct|distend"
     },
     {
      "label": "Strangulation: severe pain, red, irreducible",
@@ -4391,7 +4391,7 @@
     },
     {
      "label": "Abdominal distension / bowel sounds (obstruction)",
-     "keywords": "distend|bowel sounds"
+     "keywords": "distend|bowel sounds|distens"
     },
     {
      "label": "Examine standing and lying",
@@ -9185,7 +9185,7 @@
     },
     {
      "label": "Ascites / splenomegaly / caput medusae (cirrhosis)",
-     "keywords": "splen|caput|portal|ascites"
+     "keywords": "splen|caput|portal|ascites|distens|distend"
     },
     {
      "label": "Asterixis / encephalopathy",

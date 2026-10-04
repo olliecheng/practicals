@@ -2287,7 +2287,7 @@
     },
     {
      "label": "Abdominal pain / distension / vomiting",
-     "keywords": "pain|distension|bloat|vomit"
+     "keywords": "pain|distension|bloat|vomit|distend"
     },
     {
      "label": "Passing flatus",
@@ -10051,7 +10051,7 @@
     },
     {
      "label": "Jaundice / abdominal distension / alcohol",
-     "keywords": "jaund|abdominal distension|distension|alcohol"
+     "keywords": "jaund|abdominal distension|distension|alcohol|distend"
     },
     {
      "label": "VTE risk factors (immobility, surgery, cancer, OCP, travel)",
@@ -11194,7 +11194,7 @@
     },
     {
      "label": "Abdominal pain / distension",
-     "keywords": "pain|distension|bloat"
+     "keywords": "pain|distension|bloat|distend"
     },
     {
      "label": "Bowel habit / flatus",
