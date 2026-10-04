@@ -95,7 +95,7 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .tile.cred .b{background:var(--teal-soft);border-color:var(--teal);border-style:dashed}
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}
 .result{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter',sans-serif;font-weight:600;font-size:1.25rem;line-height:1.2}
-.hist{display:flex;align-items:center;gap:6px;font-size:.88rem;color:var(--mute);cursor:pointer;flex-basis:100%}
+.histck{display:flex;align-items:center;gap:6px;font-size:.88rem;color:var(--mute);cursor:pointer;flex-basis:100%}
 .hidden{display:none!important}
 .cf{position:fixed;top:-20px;width:8px;height:12px;border-radius:2px;pointer-events:none;z-index:50;opacity:0;animation:cf 2.2s cubic-bezier(.5,0,1,1) both}
 @keyframes cf{0%{opacity:1;transform:translate(0,0) rotate(0)}85%{opacity:1}100%{opacity:0;transform:translate(var(--dx),calc(100vh + 40px)) rotate(var(--r))}}
@@ -124,7 +124,8 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .cell.open .menu{display:block}
 @media(max-width:780px){.menu,.menu.l{top:100%;left:0;right:auto;padding:4px 0 0}}
 .hist{display:flex;flex-direction:column;gap:6px;margin-top:8px}
-.hrow{display:flex;flex-direction:column;gap:2px;padding:6px 10px;border:1px solid var(--line);border-radius:var(--r);background:var(--panel);cursor:pointer;font-size:.88rem}
+.hrow{display:flex;flex-direction:column;gap:2px;padding:6px 8px;border-radius:var(--r);cursor:pointer;font-size:.88rem}
+.hrow:hover{background:var(--teal-soft)}
 .hl1{display:flex;justify-content:space-between;gap:8px}
 .hl1 .nm{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .hl1 .bdg{margin-left:0}
@@ -169,7 +170,7 @@ button.star[aria-pressed="true"]{color:var(--amber);border-color:var(--amber)}
   <div class="cond" id="gCond"></div>
   <p class="prompt" id="gPrompt"></p>
   <div id="playActs"><div class="actions"><button class="primary" id="finish"></button><button id="quit">Back</button><button id="newCond">New</button></div></div>
-  <div class="actions hidden" id="doneActs"><span class="result" id="result"></span><button class="primary" id="next">Next condition</button><button id="retryInc">Retry incorrect</button><button id="retry">Retry this one</button><button id="menu">Menu</button><label class="hist hidden" id="histWrap"><input type="checkbox" id="histCk" checked> Add to history</label><span class="note" style="flex-basis:100%;margin:0">Tap a missed tile if you had it.</span></div>
+  <div class="actions hidden" id="doneActs"><span class="result" id="result"></span><button class="primary" id="next">Next condition</button><button id="retryInc">Retry incorrect</button><button id="retry">Retry this one</button><button id="menu">Menu</button><label class="histck hidden" id="histWrap"><input type="checkbox" id="histCk" checked> Add to history</label><span class="note" style="flex-basis:100%;margin:0">Tap a missed tile if you had it.</span></div>
  </div>
  <div class="panel" id="inCard">
   <input id="answer" type="text" placeholder="Type an item…" aria-label="Your answer" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
@@ -271,7 +272,7 @@ function renderHist(){
   const d=byKey.get(k),m=k.split('|')[0],r=document.createElement('div');r.className='hrow';r.tabIndex=0;
   r.innerHTML='<div class="hl1"><span class="nm"></span><span class="bdg"></span></div><div class="hl2"><div class="meta"></div><div class="acts"><button class="scr" title="Start from scratch">Restart</button><button class="inc">Redo incorrect</button><button class="rst" title="Delete from history">Delete</button></div></div>';
   r.querySelector('.nm').textContent=d[1];r.querySelector('.bdg').textContent=sv.score+'%';
-  r.querySelector('.meta').textContent=`${m==='pres'?'Presentation':d[0]} · ${new Date(sv.last).toLocaleDateString()} · ${sv.runs}×`;
+  r.querySelector('.meta').textContent=`${m==='pres'?'Presentation':d[0]} · ${new Date(sv.last).toLocaleDateString()}`;
   wireActs(r,d,m,sv);
   r.onclick=e=>{if(!e.target.closest('button'))r.classList.toggle('open')};
   r.onkeydown=e=>{if(e.target===r&&(e.key==='Enter'||e.key===' ')){e.preventDefault();r.classList.toggle('open')}};
