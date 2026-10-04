@@ -217,14 +217,6 @@
      "keywords": "rate|tachy|bp|hypotens"
     },
     {
-     "label": "Signs of valve disease (mitral stenosis murmur)",
-     "keywords": "murmur|mitral|valve|stenosis"
-    },
-    {
-     "label": "Signs of HF (raised JVP, oedema, creps)",
-     "keywords": "jvp|edema|crep|oedema"
-    },
-    {
      "label": "Thyrotoxicosis signs (tremor, goitre, warm hands)",
      "keywords": "goitre|goiter|warm"
     },
@@ -327,10 +319,6 @@
     {
      "label": "Peripheral pulses / signs of PAD",
      "keywords": "pad|peripheral|vascular"
-    },
-    {
-     "label": "Signs of HF (raised JVP, creps, oedema)",
-     "keywords": "heart failure|jvp|crep|edema|hf|oedema"
     },
     {
      "label": "New murmur (mitral regurgitation / aortic stenosis)",
@@ -474,10 +462,6 @@
      "keywords": "splen"
     },
     {
-     "label": "Signs of HF",
-     "keywords": "heart failure|jvp|crep|oedema|edema|hf"
-    },
-    {
      "label": "Embolic / stroke signs; injection sites",
      "keywords": "neuro|track|needle"
     }
@@ -617,10 +601,6 @@
     {
      "label": "Obesity / BMI / waist",
      "keywords": "bmi|obes|waist"
-    },
-    {
-     "label": "Signs of end-organ damage / HF",
-     "keywords": "end.?organ|heart failure|oedema|edema|jvp|hf"
     }
    ],
    "investigations": [
@@ -746,10 +726,6 @@
     {
      "label": "Thrill",
      "keywords": "thrill"
-    },
-    {
-     "label": "Signs of HF",
-     "keywords": "heart failure|jvp|crep|edema|hf|oedema"
     }
    ],
    "investigations": [
@@ -1149,10 +1125,6 @@
      "keywords": "cyano|spo2|sat|desat"
     },
     {
-     "label": "Signs of pulmonary hypertension (loud P2, raised JVP, oedema)",
-     "keywords": "p2|pulmonary hyper|jvp|oedema|edema|cor pulm"
-    },
-    {
      "label": "Connective tissue disease signs (sclerodactyly, telangiectasia, synovitis, mechanic's hands)",
      "keywords": "telang|synovit|mechanic|ctd|connective"
     },
@@ -1437,10 +1409,6 @@
     {
      "label": "Nasal obstruction (septal deviation, polyps)",
      "keywords": "nasal|septum|septal|polyp|obstruct"
-    },
-    {
-     "label": "Signs of cor pulmonale / HF",
-     "keywords": "cor pulmonale|heart failure|jvp|oedema|edema|hf"
     },
     {
      "label": "Hypothyroidism / acromegaly features",
@@ -1734,10 +1702,6 @@
     {
      "label": "Port / PICC / PEG sites",
      "keywords": "port|picc|peg|line|scar"
-    },
-    {
-     "label": "Signs of CF-related diabetes / liver disease",
-     "keywords": "cirrho"
     }
    ],
    "investigations": [
@@ -2038,10 +2002,6 @@
     {
      "label": "Palpable kidneys (PCKD) / renal bruit",
      "keywords": "kidney|pckd|ballot|mass"
-    },
-    {
-     "label": "Signs of underlying cause (diabetic retinopathy/neuropathy, rash, joint disease)",
-     "keywords": "retinopathy|rash|joint|lupus|cause"
     }
    ],
    "investigations": [
@@ -2546,10 +2506,6 @@
     {
      "label": "Hypotension (urosepsis)",
      "keywords": "hypotens|bp|shock|urosepsis"
-    },
-    {
-     "label": "Gout tophi / signs of hyperparathyroidism",
-     "keywords": "tophi"
     }
    ],
    "investigations": [
@@ -3612,10 +3568,6 @@
      "keywords": "dental|erosion|laryng|voice"
     },
     {
-     "label": "Signs of systemic sclerosis / chronic liver disease",
-     "keywords": "sclero|systemic|liver|cirrho"
-    },
-    {
      "label": "Melaena on DRE",
      "keywords": "melena|dre|rectal"
     }
@@ -3763,10 +3715,6 @@
     {
      "label": "Weight loss / cachexia (chronic)",
      "keywords": "cachex|wast|weight loss"
-    },
-    {
-     "label": "Signs of alcohol use / chronic liver disease",
-     "keywords": "liver|spider|palmar|stigmata"
     },
     {
      "label": "Steatorrhoea features / diabetes signs",
@@ -4057,10 +4005,6 @@
     {
      "label": "Peripheral neuropathy / ataxia",
      "keywords": "neuro|sensation"
-    },
-    {
-     "label": "Signs of osteomalacia (bone tenderness, proximal myopathy)",
-     "keywords": "osteomalac|myopath|tender"
     }
    ],
    "investigations": [
@@ -4706,10 +4650,6 @@
     {
      "label": "Hepatosplenomegaly / lymphadenopathy",
      "keywords": "hepatosplen|splen|lymph|liver|node"
-    },
-    {
-     "label": "Telangiectasia (HHT) / signs of malabsorption",
-     "keywords": "telangiect|hht|malabsorp|celiac"
     }
    ],
    "investigations": [
@@ -4838,16 +4778,8 @@
      "keywords": "inject|lipohypertroph|lipodystroph|site"
     },
     {
-     "label": "Xanthelasma / signs of dyslipidaemia",
-     "keywords": "xanthel|xanthom|lipid|cholesterol"
-    },
-    {
      "label": "Carotid bruits / peripheral vascular disease",
      "keywords": "bruit|carotid|pvd|pad|vascular"
-    },
-    {
-     "label": "Features of Cushing's / acromegaly (secondary causes)",
-     "keywords": "cushing|acromeg|secondary"
     }
    ],
    "investigations": [
@@ -5679,10 +5611,6 @@
      "keywords": "strength|sarcopen|power|grip|wast"
     },
     {
-     "label": "Signs of secondary causes (Cushing's, thyrotoxicosis, hypogonadism)",
-     "keywords": "cushing|secondary|rheum"
-    },
-    {
      "label": "Blue sclerae (osteogenesis imperfecta)",
      "keywords": "sclera|blue|osteogenesis"
     }
@@ -5810,10 +5738,6 @@
     {
      "label": "Striae, hirsutism, moon face (Cushing's / PCOS)",
      "keywords": "striae|hirsut|moon"
-    },
-    {
-     "label": "Goitre / signs of hypothyroidism",
-     "keywords": "goitre|goiter|hypothyroid"
     },
     {
      "label": "Neck circumference / crowded oropharynx (OSA)",
@@ -6265,10 +6189,6 @@
     {
      "label": "Signs of chronic arthropathy / joint deformity",
      "keywords": "chronic|deform|erosion|arthropathy"
-    },
-    {
-     "label": "Features of metabolic syndrome (BMI, BP)",
-     "keywords": "bmi|bp|blood pressure|metabolic|obes"
     },
     {
      "label": "Fever / systemic upset (consider septic arthritis)",
@@ -7364,10 +7284,6 @@
      "keywords": "pulse|bp|blood pressure|murmur|syncope|cardio|postural"
     },
     {
-     "label": "Signs of alcohol / drug withdrawal, intoxication",
-     "keywords": "withdraw|drug|intoxic|substance"
-    },
-    {
      "label": "Cognitive / mood screen",
      "keywords": "cognit|memory|depress"
     }
@@ -7523,10 +7439,6 @@
     {
      "label": "Hearing / vision impairment",
      "keywords": "hearing|vision|visual|sensory"
-    },
-    {
-     "label": "Signs of delirium (fluctuating consciousness, inattention)",
-     "keywords": "delirium|inattention|conscious"
     },
     {
      "label": "Hypothyroid, B12 / alcohol-related signs",
@@ -7975,10 +7887,6 @@
      "keywords": "orthostat|dry|hypotens"
     },
     {
-     "label": "Signs of cause: diabetes, alcohol, B12 (glossitis, pallor), hypothyroid",
-     "keywords": "glossitis|pallor|cause"
-    },
-    {
      "label": "Mononeuropathy / entrapment (Tinel's, wrist drop)",
      "keywords": "mononeuro|entrap|tinel|wrist drop|carpal|ulnar|peroneal"
     }
@@ -8112,10 +8020,6 @@
      "keywords": "pupil|blown|unequal|dilated|anisocor"
     },
     {
-     "label": "Scalp haematoma / signs of head injury (subdural)",
-     "keywords": "scalp|haematoma|hematoma|trauma|injur|bruis|battle"
-    },
-    {
      "label": "Cerebellar signs (posterior fossa)",
      "keywords": "cerebell|ataxi|nystagmus|dysmetria"
     },
@@ -8126,10 +8030,6 @@
     {
      "label": "Seizure / postictal state",
      "keywords": "postictal|post.?ictal|seizure"
-    },
-    {
-     "label": "Signs of primary cancer (breast mass, lung, melanoma)",
-     "keywords": "breast|lung|melanoma|skin|mass"
     }
    ],
    "investigations": [
@@ -8688,10 +8588,6 @@
     {
      "label": "Marfan / connective tissue features",
      "keywords": "marfan|connective|tall|arachnodactyly|ehlers"
-    },
-    {
-     "label": "Signs of atherosclerosis / smoking (nicotine staining, PAD, carotid bruit)",
-     "keywords": "atheroscl|nicotine|stain|carotid"
     }
    ],
    "investigations": [
@@ -9137,10 +9033,6 @@
     {
      "label": "Skin: erythema nodosum, scrofuloderma",
      "keywords": "erythema nodosum|nodosum|scrofuloderma|skin"
-    },
-    {
-     "label": "Signs of HIV co-infection",
-     "keywords": "thrush|candid"
     }
    ],
    "investigations": [
@@ -10317,10 +10209,6 @@
     {
      "label": "Abdominal exam: AAA, kidney tenderness; peripheral pulses",
      "keywords": "abdo|aaa|aneurysm|kidney|pulses|renal"
-    },
-    {
-     "label": "Signs of malignancy / infection: fever, lymph nodes, weight loss, breast / prostate exam",
-     "keywords": "lymph|node|infect|prostate|breast"
     }
    ],
    "investigations": [
