@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>History Recall Drill</title>
 <style>
-:root{--bg:#E6EDEB;--panel:#F7FAF9;--ink:#13262A;--mute:#5B6E70;--line:#C9D6D3;--teal:#1F6F6B;--teal-soft:#D3E8E5;--miss:#B8461B;--miss-soft:#F6DED3;--amber:#C98A12;--amber-soft:#F8E7B8;--ok:#2F8F4E;--ok-soft:#CDEBD5;--bad:#C62F3A;--bad-soft:#F7D3D6;--tile:#DCE5E3;--r:5px;
+:root{--bg:#E6EDEB;--panel:#F7FAF9;--ink:#13262A;--mute:#5B6E70;--line:#C9D6D3;--teal:#1F6F6B;--teal-soft:#D3E8E5;--miss:#B8461B;--miss-soft:#F6DED3;--amber:#C98A12;--amber-soft:#F8E7B8;--ok:#2F8F4E;--ok-soft:#CDEBD5;--bad:#C62F3A;--bad-soft:#F7D3D6;--tile:#DCE5E3;--grid:#D3DFDC;--r:5px;
  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1D1F;--panel:#16282A;--ink:#E3EEEC;--mute:#93A9A9;--line:#2A4245;--teal:#4FB3AA;--teal-soft:#1D3F3D;--miss:#F08A5D;--miss-soft:#3E2419;--amber:#E9B44C;--amber-soft:#43360F;--ok:#5FCB80;--ok-soft:#173A24;--bad:#F2737C;--bad-soft:#421B20;--tile:#1F3437}}
-:root[data-theme="dark"]{--bg:#0F1D1F;--panel:#16282A;--ink:#E3EEEC;--mute:#93A9A9;--line:#2A4245;--teal:#4FB3AA;--teal-soft:#1D3F3D;--miss:#F08A5D;--miss-soft:#3E2419;--amber:#E9B44C;--amber-soft:#43360F;--ok:#5FCB80;--ok-soft:#173A24;--bad:#F2737C;--bad-soft:#421B20;--tile:#1F3437}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1D1F;--panel:#16282A;--ink:#E3EEEC;--mute:#93A9A9;--line:#2A4245;--teal:#4FB3AA;--teal-soft:#1D3F3D;--miss:#F08A5D;--miss-soft:#3E2419;--amber:#E9B44C;--amber-soft:#43360F;--ok:#5FCB80;--ok-soft:#173A24;--bad:#F2737C;--bad-soft:#421B20;--tile:#1F3437;--grid:#1A2E31}}
+:root[data-theme="dark"]{--bg:#0F1D1F;--panel:#16282A;--ink:#E3EEEC;--mute:#93A9A9;--line:#2A4245;--teal:#4FB3AA;--teal-soft:#1D3F3D;--miss:#F08A5D;--miss-soft:#3E2419;--amber:#E9B44C;--amber-soft:#43360F;--ok:#5FCB80;--ok-soft:#173A24;--bad:#F2737C;--bad-soft:#421B20;--tile:#1F3437;--grid:#1A2E31}
 *,*:before,*:after{box-sizing:inherit}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter',sans-serif;font-size:16px;line-height:1.5}
+body{margin:0;background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:0.95cm 0.95cm;background-attachment:fixed;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter',sans-serif;font-size:16px;line-height:1.5}
 .wrap{max-width:1180px;margin:0 auto;padding:16px 16px 40px}
 h1,h2,.display,.cond,.sh>span:first-child{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter',sans-serif}
 header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
@@ -172,7 +172,6 @@ button.star[aria-pressed="true"]{color:var(--amber);border-color:var(--amber)}
   <p class="lbl">Mode</p><div class="row" id="modeChips"></div>
   <div id="sysWrap"><p class="lbl">Systems</p><div class="row" id="sysChips"></div></div>
   <div class="big"><button class="primary" id="goRandom">Random condition</button></div>
-  <p class="note">Conditions: history, risk factors, examination findings, investigations and medications, treatment, and management. Presentations: differentials, associated features and investigations. Name one item at a time. Press Collapse to work on one section at a time (click a heading to switch); only the open section is matched, but the counter still covers everything. The box flashes green and clears when you hit something on the list, or yellow if you've already named it. Press "I'm done" to reveal the ones you missed in orange; tap a missed tile to credit it if you had it. Hover a tile and press − to ignore an item you can't recall: it's greyed out and left out of your score. Log in with a username to save your history, stars and ignored items.</p>
   <p class="lbl" style="margin-top:18px">Or pick one</p><div class="condlist" id="condList"></div>
  </div>
  <div class="panel hidden" id="hist"><p class="lbl">History</p><div class="hist" id="histList"></div></div>
