@@ -6,23 +6,26 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "api": "mkdir -p dist && npx wrangler dev --port 8788"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@fontsource-variable/bricolage-grotesque": "^5.2.8",
     "@fontsource-variable/hanken-grotesk": "^5.2.6",
     "@fontsource-variable/work-sans": "^5.2.6",
+    "hono": "^4.13.13",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.18.4"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.62.5",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
+    "@vitejs/plugin-react": "^5.2.0",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.41",
     "tailwindcss": "^3.4.10",
-    "vite": "^5.4.1"
+    "vite": "^7.3.6",
+    "wrangler": "^4.147.0"
   }
 }

@@ -1,5 +1,6 @@
-// Username-only accounts: the whole user record is one JSON blob behind /api/user (see functions/api/user.js).
+// Username-only accounts: the whole user record is one JSON blob behind /api/user (see worker/app.js).
 const KEY = "recallDrillUser";
+const CKEY = "recallDrillCollapsed";
 
 export const blankUser = () => ({ v: 1, stars: [], drills: {} });
 
@@ -14,6 +15,19 @@ export const lastUser = () => {
 export const rememberUser = (name) => {
   try {
     name ? localStorage.setItem(KEY, name) : localStorage.removeItem(KEY);
+  } catch {}
+};
+
+export const loadCollapsed = () => {
+  try {
+    return localStorage.getItem(CKEY) === "1";
+  } catch {
+    return false;
+  }
+};
+export const saveCollapsed = (v) => {
+  try {
+    localStorage.setItem(CKEY, v ? "1" : "0");
   } catch {}
 };
 

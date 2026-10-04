@@ -17,7 +17,7 @@ Use `npx prettier` for formatting. Run it after every change.
 
 # Deployment
 
-- The website is deployed as a Cloudflare Worker with static assets (Workers Builds, `wrangler.jsonc`): `dist/` is served as assets and only `/api/*` runs Worker code (`worker/index.js`, D1 binding `DB`).
+- The website is deployed as a Cloudflare Worker with static assets (Workers Builds, `wrangler.jsonc`): built by `@cloudflare/vite-plugin` (it generates the deploy config from `wrangler.jsonc`). Only `/api/*` and `/recall-drill/*` run Worker code (`worker/index.js`, D1 binding `DB`; the latter serves the Recall Drill SPA shell for client routes).
 - Don't run build tests, only use the dev server.
 - Add new pages to @vite.config.js so they can be deployed
 

@@ -1,74 +1,21 @@
-// Recall Drill accounts: one JSON blob per username in the D1 `users` table.
-// Only /api/* reaches this Worker (see run_worker_first in wrangler.jsonc); everything else is static assets.
-// GET /api/user returns the blob (404 if the user doesn't exist); PUT replaces it (and creates the user).
-const NAME = /^[a-z0-9_-]{1,100}$/;
-const MAX = 256 * 1024;
+// Cloudflare Worker entry. Only /api/* and /recall-drill/* reach it (see run_worker_first in wrangler.jsonc);
+// everything else is served straight from the static assets.
+import { createApp } from "./app.js";
+import { d1Store } from "./d1-store.js";
 
-const json = (body, status = 200) =>
-  new Response(JSON.stringify(body), {
-    status,
-    headers: {
-      "content-type": "application/json",
-      "cache-control": "no-store",
-    },
-  });
-
-// Created on first use, so there is no migration step to run.
-let ready;
-const init = (db) =>
-  (ready ??= db
-    .prepare(
-      "CREATE TABLE IF NOT EXISTS users (name TEXT PRIMARY KEY, data TEXT NOT NULL, updated INTEGER NOT NULL)",
-    )
-    .run()
-    .catch((e) => {
-      ready = undefined;
-      throw e;
-    }));
-
-async function user(request, env) {
-  const name = (request.headers.get("x-username") || "").trim().toLowerCase();
-  if (!NAME.test(name)) return json({ error: "bad username" }, 400);
-  await init(env.DB);
-
-  if (request.method === "GET") {
-    const row = await env.DB.prepare("SELECT data FROM users WHERE name = ?")
-      .bind(name)
-      .first();
-    if (!row) return json({ error: "not found" }, 404);
-    return new Response(row.data, {
-      headers: {
-        "content-type": "application/json",
-        "cache-control": "no-store",
-      },
-    });
-  }
-
-  if (request.method === "PUT") {
-    const text = await request.text();
-    if (text.length > MAX) return json({ error: "too large" }, 413);
-    let data;
-    try {
-      data = JSON.parse(text);
-    } catch {
-      return json({ error: "bad json" }, 400);
-    }
-    if (!data || data.v !== 1) return json({ error: "bad data" }, 400);
-    await env.DB.prepare(
-      "INSERT INTO users (name, data, updated) VALUES (?1, ?2, ?3) ON CONFLICT(name) DO UPDATE SET data = excluded.data, updated = excluded.updated",
-    )
-      .bind(name, text, Date.now())
-      .run();
-    return json({ ok: true });
-  }
-
-  return json({ error: "method not allowed" }, 405);
-}
+const api = createApp((c) => d1Store(c.env.DB));
 
 export default {
-  async fetch(request, env) {
-    const { pathname } = new URL(request.url);
-    if (pathname === "/api/user") return user(request, env);
-    return json({ error: "not found" }, 404);
+  async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+    if (url.pathname.startsWith("/api/")) return api.fetch(request, env, ctx);
+
+    // Recall Drill is a client-routed SPA: a real file is served as is, any other path gets the app shell.
+    const res = await env.ASSETS.fetch(request);
+    if (res.status !== 404) return res;
+    if (request.method !== "GET" && request.method !== "HEAD") return res;
+    return env.ASSETS.fetch(
+      new Request(new URL("/recall-drill/", url), request),
+    );
   },
 };
