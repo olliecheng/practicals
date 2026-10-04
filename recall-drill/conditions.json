@@ -2002,6 +2002,10 @@
     {
      "label": "Palpable kidneys (PCKD) / renal bruit",
      "keywords": "kidney|pckd|ballot|mass"
+    },
+    {
+     "label": "Signs of underlying cause (diabetic retinopathy/neuropathy, rash, joint disease)",
+     "keywords": "retinopathy|rash|joint|lupus|cause"
     }
    ],
    "investigations": [
@@ -2506,6 +2510,10 @@
     {
      "label": "Hypotension (urosepsis)",
      "keywords": "hypotens|bp|shock|urosepsis"
+    },
+    {
+     "label": "Gout tophi / signs of hyperparathyroidism",
+     "keywords": "tophi"
     }
    ],
    "investigations": [
@@ -3715,6 +3723,10 @@
     {
      "label": "Weight loss / cachexia (chronic)",
      "keywords": "cachex|wast|weight loss"
+    },
+    {
+     "label": "Signs of alcohol use / chronic liver disease",
+     "keywords": "liver|spider|palmar|stigmata"
     },
     {
      "label": "Steatorrhoea features / diabetes signs",
@@ -5611,6 +5623,10 @@
      "keywords": "strength|sarcopen|power|grip|wast"
     },
     {
+     "label": "Signs of secondary causes (Cushing's, thyrotoxicosis, hypogonadism)",
+     "keywords": "cushing|secondary|rheum"
+    },
+    {
      "label": "Blue sclerae (osteogenesis imperfecta)",
      "keywords": "sclera|blue|osteogenesis"
     }
@@ -7284,6 +7300,10 @@
      "keywords": "pulse|bp|blood pressure|murmur|syncope|cardio|postural"
     },
     {
+     "label": "Signs of alcohol / drug withdrawal, intoxication",
+     "keywords": "withdraw|drug|intoxic|substance"
+    },
+    {
      "label": "Cognitive / mood screen",
      "keywords": "cognit|memory|depress"
     }
@@ -7887,6 +7907,10 @@
      "keywords": "orthostat|dry|hypotens"
     },
     {
+     "label": "Signs of cause: diabetes, alcohol, B12 (glossitis, pallor), hypothyroid",
+     "keywords": "glossitis|pallor|cause"
+    },
+    {
      "label": "Mononeuropathy / entrapment (Tinel's, wrist drop)",
      "keywords": "mononeuro|entrap|tinel|wrist drop|carpal|ulnar|peroneal"
     }
@@ -8030,6 +8054,10 @@
     {
      "label": "Seizure / postictal state",
      "keywords": "postictal|post.?ictal|seizure"
+    },
+    {
+     "label": "Signs of primary cancer (breast mass, lung, melanoma)",
+     "keywords": "breast|lung|melanoma|skin|mass"
     }
    ],
    "investigations": [
@@ -8588,6 +8616,10 @@
     {
      "label": "Marfan / connective tissue features",
      "keywords": "marfan|connective|tall|arachnodactyly|ehlers"
+    },
+    {
+     "label": "Signs of atherosclerosis / smoking (nicotine staining, PAD, carotid bruit)",
+     "keywords": "atheroscl|nicotine|stain|carotid"
     }
    ],
    "investigations": [
