@@ -210,7 +210,7 @@
     },
     {
      "label": "Pulse deficit (apex-radial)",
-     "keywords": "apex.?radial"
+     "keywords": "apex.?radial|pulse deficit"
     },
     {
      "label": "Rate (tachycardia) and blood pressure",
@@ -2085,7 +2085,7 @@
     },
     {
      "label": "CKD-MBD: phosphate binders, calcitriol, cinacalcet",
-     "keywords": "phosphate binder|binder|calcium carbonate|sevelamer|lanthanum|calcitriol|vitamin d|cinacalcet"
+     "keywords": "phosphate binder|binder|calcium carbonate|sevelamer|lanthanum|calcitriol|vitamin d|cinacalcet|ckd.?mbd|mbd"
     },
     {
      "label": "Renal dose adjustment / avoid nephrotoxins",
@@ -2321,7 +2321,7 @@
     },
     {
      "label": "Ca / phosphate / PTH (CKD-MBD monitoring)",
-     "keywords": "pth|parathyroid|ca.?phos|phosphate level|mineral bone"
+     "keywords": "pth|parathyroid|ca.?phos|phosphate level|mineral bone|ckd.?mbd|mbd"
     },
     {
      "label": "Access surveillance: duplex US / fistulogram for stenosis, low flow",
@@ -2870,7 +2870,7 @@
     },
     {
      "label": "ADT: GnRH agonist (goserelin, leuprorelin) / degarelix",
-     "keywords": "gnrh|goserelin|zoladex|leuprorelin|lucrin|eligard|degarelix|firmagon|relugolix|lhrh"
+     "keywords": "gnrh|goserelin|zoladex|leuprorelin|lucrin|eligard|degarelix|firmagon|relugolix|lhrh|adt|androgen depriv"
     },
     {
      "label": "Androgen receptor pathway inhibitors (enzalutamide, abiraterone)",
