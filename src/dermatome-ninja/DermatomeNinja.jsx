@@ -352,10 +352,9 @@ export default function DermatomeNinja() {
                     id="answer"
                     value={text}
                     onChange={(e) => {
-                      setText(e.target.value);
+                      setText(e.target.value.toUpperCase());
                       setError("");
                     }}
-                    placeholder="e.g. L4, then Enter"
                     autoComplete="off"
                     autoCapitalize="characters"
                     spellCheck={false}
