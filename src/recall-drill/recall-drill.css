@@ -576,13 +576,17 @@ button.chip[aria-pressed="true"] {
   max-width: 100%;
   padding: 2px 8px 8px;
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 6px;
 }
 .cat legend {
   padding: 0 6px;
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--teal);
+  color: var(--mute);
+}
+.cat .tile .f,
+.cat .tile .b {
+  border-radius: 3px;
 }
 .cat .board {
   display: flex;
