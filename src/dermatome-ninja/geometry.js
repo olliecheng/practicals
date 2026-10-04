@@ -57,6 +57,18 @@ export const pickable = DERMATOMES.filter(
 );
 export const answerable = DERMATOMES.filter((d) => d.quiz);
 
+// Anatomical landmarks, in diagram coordinates. `side` is which way the label runs from the marker (1 = right).
+// The figures show the right half of the body, so midline landmarks sit on the inner edge of each figure.
+export const LANDMARKS = [
+  { name: "Nipple", x: 244, y: 318, side: 1 }, // T4
+  { name: "Umbilicus", x: 303, y: 490, side: 1 }, // T10
+  { name: "Elbow", x: 150, y: 425, side: -1 },
+  { name: "Knee", x: 254, y: 890, side: -1 },
+  { name: "Elbow", x: 597, y: 430, side: 1 },
+  { name: "Knee", x: 497, y: 900, side: 1 },
+  { name: "Anus", x: 444, y: 679, side: -1 }, // S5
+];
+
 // Quiz regions: the dermatomes asked about, and the crop of the diagram showing them (anterior and posterior)
 const run = (from, to) => {
   const all = DERMATOMES.map((d) => d.id);
@@ -109,12 +121,16 @@ const crop = (members) => {
 };
 export const REGIONS = {
   all: { label: "All", ids: null },
-  upper: { label: "Upper limb", ids: run("C5", "T1") },
+  upper: { label: "Upper limb", ids: run("C4", "T4") },
   lower: { label: "Lower limb", ids: run("T12", "S5") },
   // The trunk from the shoulder tip down to the upper thigh; the arm dermatomes (C5-T1) are left out
   abdomen: { label: "Abdomen", ids: ["C4", ...run("T2", "L2")] },
 };
-for (const r of Object.values(REGIONS)) r.crop = crop(r.ids);
+for (const r of Object.values(REGIONS)) {
+  r.crop = crop(r.ids);
+  // The dermatomes the region spans, e.g. "C4–T4", for the dropdown
+  r.span = r.ids && `${r.ids[0]}\u2013${r.ids.at(-1)}`;
+}
 
 // The dermatomes to ask about in a region
 export const inRegion = (pool, region) => {

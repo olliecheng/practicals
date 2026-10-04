@@ -8,19 +8,21 @@
   padding-bottom: 16px;
 }
 /* The figure is sized to the crop's shape: as tall as the window allows, and no wider than the room beside the side column */
-/* The panel is full height with the figure centred in it; wide crops (upper limb) are capped and so sit centred vertically */
+/* The panel is always the size of the "All" view; every other crop is centred inside it, so only the figure changes */
 .dn-diagram {
-  flex: 0 1 auto;
+  flex: none;
   height: 100%;
+  width: calc(var(--boxw) + 20px);
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   --maxw: calc((min(100vw, 1100px) - 32px) * 0.62 - 20px);
   --avail: calc(100vh - 82px);
+  --boxw: min(var(--maxw), calc(var(--avail) * var(--rall)));
 }
 .dn-fig {
-  width: min(var(--maxw), calc(var(--avail) * var(--r)));
+  width: min(var(--boxw), calc(var(--avail) * var(--r)));
 }
 .dn-figure {
   display: block;
@@ -104,10 +106,6 @@
 }
 .dn-opts {
   flex-basis: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
 }
 /* Floating segmented Pick | Answer switch */
 .dn-toggle {
@@ -138,11 +136,39 @@
   font-size: 0.9rem;
   color: var(--mute);
 }
+.dn-select {
+  position: relative;
+  display: inline-block;
+}
+/* Custom chevron so it can sit inside the right padding */
+.dn-select::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border: solid var(--mute);
+  border-width: 0 1.5px 1.5px 0;
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
 .dn-region select {
+  appearance: none;
   font: inherit;
-  padding: 6px 10px;
+  padding: 6px 32px 6px 10px;
   border-radius: var(--r);
   border: 1px solid var(--line);
   background: var(--panel);
   color: var(--ink);
+}
+/* Checkbox buttons sit in their own row, with no background until checked */
+.dn-checks {
+  flex-basis: 100%;
+  display: flex;
+  gap: 6px;
+}
+.dn-checks .hintbtn:not([aria-pressed="true"]) {
+  background: transparent;
+  border-color: transparent;
 }

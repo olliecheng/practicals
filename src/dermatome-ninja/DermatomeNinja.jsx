@@ -13,6 +13,7 @@ import {
   pickable,
   randomPoint,
   inRegion,
+  LANDMARKS,
   REGIONS,
   silhouette,
 } from "./geometry";
@@ -43,7 +44,16 @@ const newQuestion = (mode, region, last) => {
   };
 };
 
-function Diagram({ q, mode, region, outlines, hover, onPick, onHover }) {
+function Diagram({
+  q,
+  mode,
+  region,
+  outlines,
+  labels,
+  hover,
+  onPick,
+  onHover,
+}) {
   const done = q.guess !== null;
   const { x, y, w, h, centres } = REGIONS[region].crop;
   // Line weights and the marker are sized in screen pixels, whatever the zoom
@@ -140,6 +150,37 @@ function Diagram({ q, mode, region, outlines, hover, onPick, onHover }) {
             />
           </g>
         )}
+        <g pointerEvents="none" fontSize={11.5 * px} fontWeight="600">
+          {LANDMARKS.filter(
+            (l) => l.x >= x && l.x <= x + w && l.y >= y && l.y <= y + h,
+          ).map((l) => (
+            <g key={l.name + l.x} className="dn-landmark">
+              <circle
+                cx={l.x}
+                cy={l.y}
+                r={4.5 * px}
+                fill="var(--panel)"
+                stroke="var(--teal)"
+                strokeWidth={1.6 * px}
+              />
+              <circle cx={l.x} cy={l.y} r={1.5 * px} fill="var(--teal)" />
+              {labels && (
+                <text
+                  x={l.x + l.side * 9 * px}
+                  y={l.y + 4 * px}
+                  textAnchor={l.side > 0 ? "start" : "end"}
+                  fill="var(--ink)"
+                  stroke="var(--panel)"
+                  strokeWidth={3 * px}
+                  strokeLinejoin="round"
+                  paintOrder="stroke"
+                >
+                  {l.name}
+                </text>
+              )}
+            </g>
+          ))}
+        </g>
       </svg>
       <div className="dn-labels">
         {["Anterior", "Posterior"].map((text, i) => (
@@ -156,11 +197,11 @@ export default function DermatomeNinja() {
   const [mode, setMode] = useState("locate");
   const [outlines, setOutlines] = useState(false);
   const [region, setRegion] = useState("all");
+  const [hideLabels, setHideLabels] = useState(false);
   const [hover, setHover] = useState(null);
   const [q, setQ] = useState(() => newQuestion("locate", "all", null));
   const [text, setText] = useState("");
   const [error, setError] = useState("");
-  const [score, setScore] = useState({ right: 0, total: 0, streak: 0 });
   const input = useRef(null);
 
   const done = q.guess !== null;
@@ -172,15 +213,7 @@ export default function DermatomeNinja() {
     setError("");
   }, []);
 
-  const answer = (guess) => {
-    const ok = guess === q.target;
-    setQ({ ...q, guess });
-    setScore((s) => ({
-      right: s.right + ok,
-      total: s.total + 1,
-      streak: ok ? s.streak + 1 : 0,
-    }));
-  };
+  const answer = (guess) => setQ({ ...q, guess });
 
   const submit = (e) => {
     e.preventDefault();
@@ -218,12 +251,16 @@ export default function DermatomeNinja() {
 
   return (
     <div className="wrap dn">
-      <div className="panel dn-diagram">
+      <div
+        className="panel dn-diagram"
+        style={{ "--rall": REGIONS.all.crop.w / REGIONS.all.crop.h }}
+      >
         <Diagram
           q={q}
           mode={mode}
           region={region}
           outlines={outlines || mode === "learn"}
+          labels={!hideLabels}
           hover={hover}
           onPick={(id) => answer(id)}
           onHover={setHover}
@@ -259,20 +296,24 @@ export default function DermatomeNinja() {
             <div className="dn-opts">
               <label className="dn-region">
                 Region
-                <select
-                  value={region}
-                  onChange={(e) => changeRegion(e.target.value)}
-                >
-                  {Object.entries(REGIONS).map(([r, { label }]) => (
-                    <option key={r} value={r}>
-                      {label}
-                    </option>
-                  ))}
-                </select>
+                <span className="dn-select">
+                  <select
+                    value={region}
+                    onChange={(e) => changeRegion(e.target.value)}
+                  >
+                    {Object.entries(REGIONS).map(([r, { label, span }]) => (
+                      <option key={r} value={r}>
+                        {span ? `${label} (${span})` : label}
+                      </option>
+                    ))}
+                  </select>
+                </span>
               </label>
+            </div>
+            <div className="dn-checks">
               {mode !== "learn" && (
                 <button
-                  className="hintbtn dn-outlines"
+                  className="hintbtn"
                   aria-pressed={outlines}
                   onClick={() => setOutlines(!outlines)}
                 >
@@ -280,6 +321,14 @@ export default function DermatomeNinja() {
                   Show outlines
                 </button>
               )}
+              <button
+                className="hintbtn"
+                aria-pressed={hideLabels}
+                onClick={() => setHideLabels(!hideLabels)}
+              >
+                <span className="hintbox" />
+                Hide labels
+              </button>
             </div>
           </div>
           <div className="panel">
@@ -355,12 +404,6 @@ export default function DermatomeNinja() {
           </div>
         </div>
 
-        {mode !== "learn" && (
-          <p className="note">
-            <b>{score.right}</b> / {score.total} correct
-            {score.streak > 1 && <span> · streak {score.streak}</span>}
-          </p>
-        )}
         <p className="note dn-credit">
           Stylised map adapted from Dermatoms.svg by Ralf Stephan (public
           domain). Both figures show the right side of the body.
