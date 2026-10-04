@@ -632,27 +632,10 @@ button.chip[aria-pressed="true"] {
   background: var(--teal-soft);
   border-color: var(--teal);
 }
-.redo.soft {
-  border-color: transparent;
-  background: none;
-}
-.redo.soft:hover {
-  border-color: var(--teal);
-  background: var(--teal-soft);
-}
 .redo[aria-pressed="true"] {
   background: var(--blue);
   border-color: var(--blue);
   color: #fff;
-}
-.redo.soft[aria-pressed="true"] {
-  background: none;
-  border-color: transparent;
-  color: var(--blue);
-}
-.redo.soft[aria-pressed="true"]:hover {
-  background: var(--blue-soft);
-  border-color: var(--blue);
 }
 .sect.collapsible.closed .tg {
   cursor: pointer;
@@ -680,34 +663,15 @@ body.drilling button.primary.drill {
   border-color: var(--blue);
   color: var(--on-blue);
 }
-.drilling .seg.locked {
-  pointer-events: none;
-}
-.drilling .seg .pill {
-  border-color: var(--blue);
-  background: var(--blue-soft);
-}
 body.drilling .redo {
   border-color: var(--blue);
   color: var(--blue);
 }
-body.drilling .redo.soft {
-  border-color: transparent;
-}
 body.drilling .redo:hover,
-body.drilling .redo.soft:hover {
-  background: var(--blue-soft);
-  border-color: var(--blue);
-}
 body.drilling .redo[aria-pressed="true"] {
   background: var(--blue);
   border-color: var(--blue);
   color: var(--on-blue);
-}
-body.drilling .redo.soft[aria-pressed="true"] {
-  background: none;
-  border-color: transparent;
-  color: var(--blue);
 }
 body.drilling .sect .sh .sc {
   color: var(--blue);
@@ -1229,4 +1193,25 @@ button.star[aria-pressed="true"] {
 body.drilling .hintbtn:disabled {
   opacity: 0.5;
   cursor: default;
+}
+
+/* Drill mode: bold status text replaces Collapse | Expand; the drilled section's button is shown pressed and disabled */
+.drillchip {
+  flex: none;
+  color: var(--blue);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.redo:disabled {
+  cursor: default;
+}
+.sh .sc {
+  min-width: 3.2em;
+  text-align: right;
+}
+.sect.collapsible.closed .sc {
+  cursor: pointer;
+}
+.tile.shown .b {
+  border-style: dashed;
 }

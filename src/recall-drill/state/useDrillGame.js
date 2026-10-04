@@ -9,6 +9,7 @@ import { loadCollapsed, saveCollapsed } from "../lib/storage";
 // over (round finished), hint (code of the section whose category boxes are shown, "" if off; it only applies while that section is still the hinted one, so finishing it hides the hint), active (the open section while collapsed).
 // Collapsed: only the section `active` is open and matched (counter and score still cover everything). Remembered across drills.
 // Drill: retrying a section's missed tiles. drill (code of the section, "" if off), drilling (the tiles hidden again for it), recalled (tiles answered in a drill).
+// shown: tiles a drill ended on without an answer (shown in purple, dashed). A drill ends only through endDrill.
 // Recalled tiles never reach found/credited, so history, the score and the counters ignore them. While drilling the view is forced to Collapse on that section.
 
 const settled = (s, i) =>
@@ -83,6 +84,7 @@ function init(drill, user, inc) {
       ignored: new Set(),
       recalled: new Set(),
       drilling: new Set(),
+      shown: new Set(),
       drill: "",
       over: false,
       hint: "",
@@ -148,7 +150,17 @@ export function useDrillGame({ drill, account, inc }) {
   };
   const act = (st, i) =>
     !collapsedRef.current || st.over || items[i].code === st.active;
-  const endDrillState = (st) => ({ ...st, drilling: new Set(), drill: "" });
+  // Ending a drill shows every unanswered drilled tile (as "shown")
+  const endDrillState = (st) => ({
+    ...st,
+    shown: new Set([
+      ...st.shown,
+      ...[...st.drilling].filter((i) => !st.recalled.has(i)),
+    ]),
+    drilling: new Set(),
+    drill: "",
+  });
+  const drillCelebrated = useRef(false);
   const nextSec = (st) =>
     sections.find(
       (sec) =>
@@ -296,11 +308,15 @@ export function useDrillGame({ drill, account, inc }) {
     if (r.hit.length && st.drill) {
       const recalled = new Set(st.recalled);
       r.hit.forEach((i) => recalled.add(i));
-      let ns = { ...st, recalled };
+      const ns = { ...st, recalled };
       retrigger(inp, "ok");
-      if ([...st.drilling].every((i) => recalled.has(i))) {
+      // Naming every drilled tile earns confetti once, but the drill stays on until End drill
+      if (
+        !drillCelebrated.current &&
+        [...st.drilling].every((i) => recalled.has(i))
+      ) {
+        drillCelebrated.current = true;
         confetti();
-        ns = endDrillState(ns);
       }
       apply(ns);
     } else if (r.hit.length) {
@@ -356,18 +372,21 @@ export function useDrillGame({ drill, account, inc }) {
     apply(items.some((_, i) => pending(ns, i)) ? ns : finishRound(ns));
   };
 
-  // Hide a section's missed tiles again so they can be retried (clicking the active drill's button stops it). Local only: the saved record is not touched.
+  // Hide a section's missed tiles again so they can be retried. Local only: the saved record is not touched. Only endDrill stops it.
   const endDrill = () => {
     clearTimeout(deferT.current);
     apply(endDrillState(sRef.current));
   };
   const startDrill = (code) => {
     const st = sRef.current;
-    if (st.drill === code) return endDrill();
+    if (st.drill) return;
     const miss = missedIdx(drill, st, code);
     if (!miss.length) return;
     clearTimeout(deferT.current);
-    apply({ ...st, drill: code, drilling: new Set(miss) });
+    drillCelebrated.current = false;
+    const shown = new Set(st.shown);
+    miss.forEach((i) => shown.delete(i));
+    apply({ ...st, drill: code, drilling: new Set(miss), shown });
     answerRef.current?.focus();
   };
 
@@ -462,7 +481,7 @@ export function useDrillGame({ drill, account, inc }) {
   // One button, labelled with the next section that still has unfound tiles (expanded) or the open section (collapsed)
   const n = nextSec(s);
   const revealLabel = s.drill
-    ? "Reveal " + sections.find((x) => x.code === s.drill).short
+    ? "End drill"
     : n
       ? "Reveal " + n.short
       : collapsed
@@ -483,6 +502,7 @@ export function useDrillGame({ drill, account, inc }) {
     revealLabel,
     revealDisabled,
     startDrill,
+    endDrill,
     hintCode,
     toggleHint,
     toggleIgnore,

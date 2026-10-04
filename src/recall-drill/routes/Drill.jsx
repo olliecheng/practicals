@@ -21,9 +21,11 @@ function Tile({ i, n, label, s, complete, onCredit, onIgnore }) {
           ? " on rec"
           : s.drilling.has(i)
             ? ""
-            : s.revealed.has(i)
-              ? " on miss"
-              : "";
+            : s.shown.has(i)
+              ? " on rec shown"
+              : s.revealed.has(i)
+                ? " on miss"
+                : "";
   const ok = complete && (s.found.has(i) || s.credited.has(i));
   return (
     <div
@@ -191,18 +193,24 @@ function Game({ drill, inc, restart }) {
           <p className="counter">
             {stats.got} <span>of {stats.total} found</span>
           </p>
-          <div
-            className={"seg" + (drilling ? " locked" : "")}
-            id="allToggle"
-            role="group"
-            aria-label="Sections"
-            data-state={collapsed ? "collapsed" : "expanded"}
-            onClick={() => g.setCollapsed(!collapsed)}
-          >
-            <span className="pill" />
-            <button aria-pressed={collapsed}>Collapse</button>
-            <button aria-pressed={!collapsed}>Expand</button>
-          </div>
+          {drilling ? (
+            <div className="drillchip" role="status">
+              <span aria-hidden="true">↺</span> Drill mode
+            </div>
+          ) : (
+            <div
+              className="seg"
+              id="allToggle"
+              role="group"
+              aria-label="Sections"
+              data-state={collapsed ? "collapsed" : "expanded"}
+              onClick={() => g.setCollapsed(!collapsed)}
+            >
+              <span className="pill" />
+              <button aria-pressed={collapsed}>Collapse</button>
+              <button aria-pressed={!collapsed}>Expand</button>
+            </div>
+          )}
         </div>
         <div>
           {stats.sections.map((sec) => {
@@ -213,27 +221,9 @@ function Game({ drill, inc, restart }) {
             );
             const complete = sectionComplete(drill, s, sec.code);
             const active = s.drill === sec.code;
-            const canDrill = active || hasMissed(drill, s, sec.code);
-            const drillBtn = (cls) => (
-              <button
-                className={cls}
-                type="button"
-                aria-pressed={active}
-                title={
-                  active
-                    ? "Stop drilling this section"
-                    : "Drill the missed items in this section"
-                }
-                aria-label={
-                  active
-                    ? "Stop drilling this section"
-                    : "Drill the missed items in this section"
-                }
-                onClick={() => g.startDrill(sec.code)}
-              >
-                ↺
-              </button>
-            );
+            // One drill at a time: the drilled section shows its button disabled, the others hide theirs
+            const canDrill =
+              active || (!drilling && hasMissed(drill, s, sec.code));
             // A finished section has nothing left to spoil, so its categories are always shown
             const hasCats = idx.some((i) => drill.items[i].cat);
             // n is the tile's number within its section, whatever the grouping
@@ -275,12 +265,27 @@ function Game({ drill, inc, restart }) {
                       />
                       {sec.name}
                     </span>
-                    <span className="sc">
-                      {sec.count ? `${sec.got} of ${sec.total}` : ""}
-                    </span>
                   </button>
-                  {canDrill && drillBtn("redo soft")}
-                  {canDrill && drillBtn("redo")}
+                  {canDrill && (
+                    <button
+                      className="redo"
+                      type="button"
+                      aria-pressed={active}
+                      disabled={active}
+                      title={
+                        active
+                          ? "Drilling this section"
+                          : "Drill the missed items in this section"
+                      }
+                      aria-label="Drill the missed items in this section"
+                      onClick={() => g.startDrill(sec.code)}
+                    >
+                      ↺
+                    </button>
+                  )}
+                  <span className="sc" onClick={() => g.setActive(sec.code)}>
+                    {sec.count ? `${sec.got} of ${sec.total}` : ""}
+                  </span>
                 </h3>
                 {!idx.length && (
                   <p className="note" style={{ margin: 0 }}>
