@@ -4,9 +4,9 @@ import { MODES } from "../lib/data";
 import { decodeDrill, drillPath } from "../lib/drillId";
 import { useAccount } from "../state/AccountContext";
 import { useFilters } from "../state/FilterContext";
-import { useDrillGame } from "../state/useDrillGame";
+import { sectionComplete, useDrillGame } from "../state/useDrillGame";
 
-function Tile({ i, n, label, s, onCredit, onIgnore }) {
+function Tile({ i, n, label, s, complete, onCredit, onIgnore }) {
   const cls = s.ignored.has(i)
     ? " on ign"
     : s.credited.has(i)
@@ -16,8 +16,13 @@ function Tile({ i, n, label, s, onCredit, onIgnore }) {
         : s.revealed.has(i)
           ? " on miss"
           : "";
+  const ok = complete && (s.found.has(i) || s.credited.has(i));
   return (
-    <div id={"t" + i} className={"tile" + cls} onClick={() => onCredit(i)}>
+    <div
+      id={"t" + i}
+      className={"tile" + cls + (ok ? " ok" : "")}
+      onClick={() => onCredit(i)}
+    >
       <div className="in">
         <div className="f">{n + 1}</div>
         <div className="b">{label}</div>
@@ -205,6 +210,7 @@ function Game({ drill, inc, restart }) {
                       n={n}
                       label={drill.items[i].label}
                       s={s}
+                      complete={sectionComplete(drill, s, sec.code)}
                       onCredit={g.toggleCredit}
                       onIgnore={g.toggleIgnore}
                     />

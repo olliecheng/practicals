@@ -966,8 +966,9 @@ button.star[aria-pressed="true"] {
 .tile.ign .ig {
   opacity: 1;
 }
-/* Ignore is offered only on revealed (missed) tiles; ignored tiles keep theirs to restore */
+/* Ignore is offered on missed tiles and, once their section is complete, on correct ones; ignored tiles keep theirs to restore */
 .tile.miss .ig,
+.tile.ok .ig,
 .tile.ign .ig {
   display: flex;
 }

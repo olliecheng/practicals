@@ -24,6 +24,9 @@ const firstPending = (drill, s) => {
     ) || sections[0]
   ).code;
 };
+// A section is complete once every tile is named, credited, ignored or revealed
+export const sectionComplete = (drill, s, code) =>
+  sectionIdx(drill, code).every((i) => settled(s, i) || s.revealed.has(i));
 const allSettled = (drill, s) =>
   drill.items.every((_, i) => settled(s, i) || s.revealed.has(i));
 
@@ -31,7 +34,9 @@ const allSettled = (drill, s) =>
 export function stats(drill, s) {
   const idx = drill.items.map((_, i) => i);
   const total = idx.filter((i) => !s.ignored.has(i)).length;
-  const got = idx.filter((i) => s.found.has(i) || s.credited.has(i)).length;
+  const got = idx.filter(
+    (i) => !s.ignored.has(i) && (s.found.has(i) || s.credited.has(i)),
+  ).length;
   return {
     total,
     got,
@@ -39,7 +44,9 @@ export function stats(drill, s) {
     sections: MODES[drill.mode].sections.map((sec) => {
       const si = sectionIdx(drill, sec.code),
         n = si.filter((i) => !s.ignored.has(i)).length,
-        g = si.filter((i) => s.found.has(i) || s.credited.has(i)).length;
+        g = si.filter(
+          (i) => !s.ignored.has(i) && (s.found.has(i) || s.credited.has(i)),
+        ).length;
       return {
         ...sec,
         count: si.length,
@@ -324,7 +331,12 @@ export function useDrillGame({ drill, account, inc }) {
       ignored.delete(i);
       if (st.over) revealed.add(i);
     } else {
-      if (st.found.has(i) || st.credited.has(i)) return;
+      // A correct tile can only be ignored once its section is complete
+      if (
+        (st.found.has(i) || st.credited.has(i)) &&
+        !sectionComplete(drill, st, items[i].code)
+      )
+        return;
       ignored.add(i);
     }
     const ns = { ...st, ignored, revealed };
