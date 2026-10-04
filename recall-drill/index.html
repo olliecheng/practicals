@@ -417,7 +417,7 @@ function retrigger(el,cls){el.classList.remove('ok','dup','bad');void el.offsetW
 // After a stem matches mid-word (e.g. "orthop" of "orthopnoea"), eat the rest of that answer
 // until a pause or a comma, so the tail doesn't land in the empty box.
 let swallowing=false,swT=null,deferT=null;
-function swallow(){swallowing=true;clearTimeout(swT);swT=setTimeout(()=>{swallowing=false},400)}
+function swallow(){swallowing=true;clearTimeout(swT);swT=setTimeout(()=>{swallowing=false},200)}
 function evaluate(submit,idle){
  clearTimeout(deferT);
  if(over)return;const inp=$('#answer');const v=inp.value;if(!v.trim())return;
