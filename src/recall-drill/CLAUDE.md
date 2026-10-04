@@ -55,6 +55,14 @@ Layout: `routes/` (Home, Drill, Login), `components/` (Layout, DrillActions), `s
 
 Off by default; a "Hint" button beside Reveal (a checkbox toggle button, aria-pressed) toggles category boxes (`fieldset.cat` with a `legend`, wrapping flex, `.cats` in `recall-drill.css`) around the tiles of the current section only: the one Reveal names, or the open one when collapsed (`hintCode` from `useDrillGame`). Other sections stay flat, except that a complete section (every tile named, credited, ignored or revealed) always shows its category boxes, hint or not. The button is disabled when that section has no named categories and hidden once the round is over. `hint` lives in the round state (`s.hint`) as the code of the section it was switched on for; it only applies while `hintCode` still equals it, so completing that section (by typing or Reveal) or moving to the next hides it again and the next section isn't spoiled. It resets on every round/restart and is never saved. Tile index, number, matching, scoring, ignore and saved keys are unaffected.
 
+## Category vocabulary (strict)
+
+Every section in both JSON files is `{ "Category": [items] }`, and every category name must come from `categories.json` (per file, per section; list order = display order, each entry has a one-line `def` assignment rule). Categories appear only for entries that use them; single-item categories are allowed; there is no "Other". Items keep their original relative order within a category.
+
+- To add or rename a category: edit `categories.json` first, then reassign items, then run `npm run check:categories` (it fails on any out-of-vocabulary or out-of-order category, empty category, or malformed item). It must pass before committing JSON changes.
+- Conditions presentation includes special cases (Prodromal, Postdromal, Motor, Sensory, Autonomic, Bulbar), used only where they fit. Presentations differentials: when an item's mechanism is unambiguous (pneumonia, lung cancer, PE) use the mechanism category (Infective, Malignant, Vascular), otherwise the organ system. Presentations investigations share the conditions investigations list.
+- Tool-assisted remapping (subagents): they may only use vocabulary names and must report items that fit nothing as vocabulary gaps rather than inventing categories.
+
 ## Editing guidelines
 
 - Keep the JSON valid (no trailing commas, double quotes). The file uses one-space indent.
