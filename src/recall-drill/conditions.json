@@ -483,7 +483,7 @@
     ]
    },
    "risks": {
-    "Bacteraemia and valve risks": [
+    "Behaviours and procedures": [
      {
       "label": "IVDU",
       "keywords": "ivdu|inject"
@@ -491,7 +491,9 @@
      {
       "label": "Dental work / poor dentition",
       "keywords": "dental|teeth|dentist"
-     },
+     }
+    ],
+    "Devices and valves": [
      {
       "label": "Lines / devices / dialysis",
       "keywords": "line|picc|device|pacemaker|dialys"
@@ -4966,11 +4968,17 @@
     ]
    },
    "investigations": {
-    "Bloods, imaging and endoscopy": [
+    "Acute work-up": [
      {
       "label": "CRP / WCC raised; lactate if septic; Hb if bleeding",
       "keywords": "crp|wcc|white cell|inflammatory markers|lactate|fbc"
      },
+     {
+      "label": "Erect CXR: free air under diaphragm (perforation)",
+      "keywords": "erect|cxr|chest x|free air|pneumoperitoneum"
+     }
+    ],
+    "Imaging and endoscopy": [
      {
       "label": "CT abdomen / pelvis with IV contrast: diverticula, wall thickening, pericolic fat stranding, free gas (Hinchey)",
       "keywords": "ct|hinchey|stranding|free gas"
@@ -4980,17 +4988,13 @@
       "keywords": "cta|ct angio|angiograph|extravasation|tagged"
      },
      {
-      "label": "Erect CXR: free air under diaphragm (perforation)",
-      "keywords": "erect|cxr|chest x|free air|pneumoperitoneum"
-     },
-     {
       "label": "Colonoscopy 6-8 weeks after acute episode: exclude cancer",
       "keywords": "colonoscop|scope|6 weeks|exclude cancer"
      }
     ]
    },
    "medications": {
-    "Treatment by severity and prevention": [
+    "Conservative and medical": [
      {
       "label": "Uncomplicated: analgesia, clear fluids, often no antibiotics",
       "keywords": "conservative|no antibiotic|analges|paracetamol|clear fluids|observ"
@@ -4998,7 +5002,9 @@
      {
       "label": "Antibiotics if complicated / systemic (amoxicillin-clavulanate)",
       "keywords": "antibiot|abx|augmentin|amoxicillin|clavulan|metronidazole|ceftriaxone"
-     },
+     }
+    ],
+    "Procedures and prevention": [
      {
       "label": "Percutaneous drainage (abscess)",
       "keywords": "drain|percutaneous"
@@ -5107,7 +5113,7 @@
     ]
    },
    "investigations": {
-    "Imaging and bloods": [
+    "Imaging": [
      {
       "label": "Dynamic ultrasound: occult hernia, vs hydrocele / lymph node / lipoma",
       "keywords": "ultrasound|usg|dynamic|occult"
@@ -5115,7 +5121,9 @@
      {
       "label": "CT abdomen / pelvis: incisional / complex hernia; closed-loop, bowel wall enhancement",
       "keywords": "ct|closed.?loop|bowel wall|enhancement"
-     },
+     }
+    ],
+    "Complications": [
      {
       "label": "Abdominal X-ray: dilated bowel, air-fluid levels (obstruction)",
       "keywords": "axr|x-?ray|abdominal x|air.?fluid|fluid level|dilated bowel"
@@ -5409,7 +5417,7 @@
     ]
    },
    "investigations": {
-    "Bloods and endoscopy": [
+    "Bloods": [
      {
       "label": "FBC: low Hb, low MCV / MCH, high RDW, pencil cells on film",
       "keywords": "fbc|full blood|hb|haemoglobin|mcv|microcytic|hypochrom|film"
@@ -5417,7 +5425,9 @@
      {
       "label": "Iron studies: low ferritin (<30 ug/L), low TSAT, high TIBC",
       "keywords": "ferritin|iron studies|tsat|transferrin|tibc|iron deficiency"
-     },
+     }
+    ],
+    "Cause work-up": [
      {
       "label": "Coeliac serology (tTG-IgA)",
       "keywords": "ttg|tissue transglut|celiac serolog|coeliac serolog|coeliac screen"
@@ -6607,11 +6617,17 @@
   "Obesity": {
    "prompt": "History to ask about",
    "presentation": {
-    "Weight history and complications": [
+    "Weight and hormonal": [
      {
       "label": "Weight history / onset / triggers",
       "keywords": "weight history|onset|gain|trigger|when"
      },
+     {
+      "label": "PCOS / menstrual / fertility",
+      "keywords": "pcos|menstru|period|fertil"
+     }
+    ],
+    "Complications": [
      {
       "label": "Sleep / snoring / OSA",
       "keywords": "sleep|snor|osa|apnoea"
@@ -6627,10 +6643,6 @@
      {
       "label": "Diabetes / HTN / lipids / MASLD",
       "keywords": "diabet|hypertens|lipid|cholest|liver|fatty"
-     },
-     {
-      "label": "PCOS / menstrual / fertility",
-      "keywords": "pcos|menstru|period|fertil"
      }
     ]
    },
@@ -8332,11 +8344,21 @@
     ]
    },
    "medications": {
-    "Acute, secondary prevention and rehab": [
+    "Acute, procedural and rehab": [
      {
       "label": "Acute: thrombolysis / thrombectomy",
       "keywords": "thromboly|tpa|alteplase|tenecteplase|lysis|thrombectomy|ecr|clot retrieval"
      },
+     {
+      "label": "Carotid endarterectomy / stenting",
+      "keywords": "endarterect|carotid stent"
+     },
+     {
+      "label": "Rehab (physio, OT, speech)",
+      "keywords": "rehab|physio|speech|ot|occupational|allied"
+     }
+    ],
+    "Secondary prevention": [
      {
       "label": "Antiplatelet (aspirin, clopidogrel; short-term DAPT)",
       "keywords": "aspirin|antiplatelet|clopidogrel|plavix|dapt|ticagrelor"
@@ -8352,14 +8374,6 @@
      {
       "label": "BP lowering (ACEi ± thiazide-like)",
       "keywords": "antihypert|blood pressure|acei|~pril|~sartan|indapamide"
-     },
-     {
-      "label": "Carotid endarterectomy / stenting",
-      "keywords": "endarterect|carotid stent"
-     },
-     {
-      "label": "Rehab (physio, OT, speech)",
-      "keywords": "rehab|physio|speech|ot|occupational|allied"
      }
     ]
    }
@@ -10593,7 +10607,7 @@
   "Hepatitis B / C": {
    "prompt": "History to ask about",
    "presentation": {
-    "Acute, chronic and psychosocial": [
+    "Liver symptoms": [
      {
       "label": "Jaundice / dark urine",
       "keywords": "jaund|dark urine"
@@ -10601,7 +10615,9 @@
      {
       "label": "Fatigue / RUQ discomfort",
       "keywords": "fatigue|ruq|discomfort"
-     },
+     }
+    ],
+    "Advanced disease and psychosocial": [
      {
       "label": "Cirrhosis symptoms (ascites, confusion, bleeding)",
       "keywords": "ascit|swell|confus|bleed|cirrho"
@@ -11240,7 +11256,7 @@
     ]
    },
    "medications": {
-    "Antibiotics and surgery": [
+    "Empirical antibiotics": [
      {
       "label": "IV flucloxacillin / cefazolin (S. aureus)",
       "keywords": "flucloxacillin|fluclox|cefazolin|antistaph"
@@ -11248,7 +11264,9 @@
      {
       "label": "Vancomycin (MRSA)",
       "keywords": "vancomycin|vanc|mrsa"
-     },
+     }
+    ],
+    "Duration and surgery": [
      {
       "label": "Prolonged course (~6 weeks) ± oral switch",
       "keywords": "6 weeks|six weeks|prolonged|oral switch|step down"
@@ -11573,7 +11591,7 @@
   "Falls / hip fracture": {
    "prompt": "History to ask about",
    "presentation": {
-    "The fall, fear and impact": [
+    "The event": [
      {
       "label": "Mechanism of the fall",
       "keywords": "mechanis|trip|slip|how"
@@ -11581,7 +11599,9 @@
      {
       "label": "Loss of consciousness",
       "keywords": "loss of conscious|loc|blackout|syncop"
-     },
+     }
+    ],
+    "Consequences and fear": [
      {
       "label": "Long lie / getting up",
       "keywords": "long lie|get up|lie"
@@ -12436,7 +12456,7 @@
   "Glaucoma": {
    "prompt": "History to ask about",
    "presentation": {
-    "Chronic and acute": [
+    "Chronic": [
      {
       "label": "Peripheral vision loss / bumping into things",
       "keywords": "peripheral|field|bump|tunnel"
@@ -12444,7 +12464,9 @@
      {
       "label": "Blurred vision",
       "keywords": "blur|vision"
-     },
+     }
+    ],
+    "Function and acute": [
      {
       "label": "Falls / function",
       "keywords": "fall|function|adl"
@@ -13365,11 +13387,17 @@
     ]
    },
    "investigations": {
-    "Screening, bloods and liver assessment": [
+    "Screening and biomarkers": [
      {
       "label": "AUDIT (>=8 hazardous, >=20 dependence) / AUDIT-C",
       "keywords": "audit|cage"
      },
+     {
+      "label": "CDT / PEth / blood alcohol level",
+      "keywords": "cdt|carbohydrate|transferrin|peth|phosphatidyl|blood alcohol|breath alcohol"
+     }
+    ],
+    "Routine bloods": [
      {
       "label": "GGT raised, AST:ALT >2:1, ALP, bilirubin (LFTs)",
       "keywords": "ggt|lft|liver function|ast|alt|alp|transaminase"
@@ -13377,11 +13405,9 @@
      {
       "label": "MCV raised (macrocytosis), FBC (thrombocytopenia)",
       "keywords": "mcv|macrocyt|fbc|full blood|platelet"
-     },
-     {
-      "label": "CDT / PEth / blood alcohol level",
-      "keywords": "cdt|carbohydrate|transferrin|peth|phosphatidyl|blood alcohol|breath alcohol"
-     },
+     }
+    ],
+    "Complications": [
      {
       "label": "Withdrawal monitoring: electrolytes (Mg, K, phosphate), glucose",
       "keywords": "magnesium|phosph|electrolyte|uec|euc|u&e|withdrawal score|glucose"
@@ -13422,11 +13448,17 @@
   "Smoking history": {
    "prompt": "History to ask about",
    "presentation": {
-    "Status, quantity and type": [
+    "Status and type": [
      {
       "label": "Current / ex / never",
       "keywords": "current|ex.?smok|quit|never"
      },
+     {
+      "label": "Type (cigarettes, roll-your-own, vapes, cannabis)",
+      "keywords": "roll|vape|vaping|e.?cig|cannab|cigar|type"
+     }
+    ],
+    "Quantity": [
      {
       "label": "Cigarettes per day",
       "keywords": "per day|a day|how many|packet"
@@ -13438,10 +13470,6 @@
      {
       "label": "Pack-years calculated",
       "keywords": "pack.?year"
-     },
-     {
-      "label": "Type (cigarettes, roll-your-own, vapes, cannabis)",
-      "keywords": "roll|vape|vaping|e.?cig|cannab|cigar|type"
      }
     ]
    },
