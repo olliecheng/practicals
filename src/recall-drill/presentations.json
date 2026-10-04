@@ -137,7 +137,7 @@
       "keywords": "ca-125|ca125|ca 125|tumour marker"
      }
     ],
-    "Microbiology": [
+    "Urine, stool and microbiology": [
      {
       "label": "Ascitic tap (SAAG, cell count, cytology)",
       "keywords": "ascitic|paracent|tap|saag|cytology"
@@ -300,7 +300,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Urinalysis",
       "keywords": "urinalys|dipstick|udip|urine dip|ua"
@@ -495,7 +495,7 @@
       "keywords": "pfa|platelet function"
      }
     ],
-    "Tissue and genetics": [
+    "Endoscopy and tissue": [
      {
       "label": "Bone marrow biopsy",
       "keywords": "bone marrow|marrow biopsy|bmat|trephine"
@@ -616,7 +616,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "BSL",
       "keywords": "bsl|bgl|glucose|finger prick|blood sugar"
@@ -624,6 +624,18 @@
      {
       "label": "ECG",
       "keywords": "ecg|ekg|electrocardiogram|12 lead|12-lead"
+     },
+     {
+      "label": "Speech pathology assessment",
+      "keywords": "speech path|slp|speech assess|language assess"
+     },
+     {
+      "label": "AChR antibodies / EMG",
+      "keywords": "achr|acetylcholine receptor|antibod|emg|nerve conduction|ncs"
+     },
+     {
+      "label": "Audiometry",
+      "keywords": "audio|hearing test|pta"
      }
     ],
     "Bloods": [
@@ -650,21 +662,7 @@
       "keywords": "mri brain|mri head|brain mri|mri"
      }
     ],
-    "Functional": [
-     {
-      "label": "Speech pathology assessment",
-      "keywords": "speech path|slp|speech assess|language assess"
-     },
-     {
-      "label": "AChR antibodies / EMG",
-      "keywords": "achr|acetylcholine receptor|antibod|emg|nerve conduction|ncs"
-     },
-     {
-      "label": "Audiometry",
-      "keywords": "audio|hearing test|pta"
-     }
-    ],
-    "Endoscopy": [
+    "Endoscopy and tissue": [
      {
       "label": "Nasendoscopy / laryngoscopy",
       "keywords": "nasendoscop|laryngoscop|scope|ent"
@@ -777,7 +775,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "BSL",
       "keywords": "bsl|bgl|glucose|finger prick|blood sugar"
@@ -817,13 +815,11 @@
       "keywords": "cmp|calcium|magnesium|phosphate|po4"
      }
     ],
-    "Urine and stool": [
+    "Urine, stool and microbiology": [
      {
       "label": "Urine drug screen",
       "keywords": "uds|urine drug|drug screen|tox screen|toxicology"
-     }
-    ],
-    "Microbiology": [
+     },
      {
       "label": "LP (if CNS infection suspected)",
       "keywords": "lp|lumbar punct|csf"
@@ -950,7 +946,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "BSL",
       "keywords": "bsl|bgl|glucose|finger prick|blood sugar"
@@ -990,7 +986,7 @@
       "keywords": "blood alcohol|bal|ethanol level|alcohol level"
      }
     ],
-    "Urine and stool": [
+    "Urine, stool and microbiology": [
      {
       "label": "Urine drug screen",
       "keywords": "uds|urine drug|drug screen|tox screen|toxicology"
@@ -1147,7 +1143,7 @@
       "keywords": "cmp|calcium|magnesium|phosphate|po4"
      }
     ],
-    "Urine and stool": [
+    "Urine, stool and microbiology": [
      {
       "label": "Faecal calprotectin",
       "keywords": "calprotectin"
@@ -1155,9 +1151,7 @@
      {
       "label": "iFOBT",
       "keywords": "ifobt|fobt|fit|faecal occult|occult blood"
-     }
-    ],
-    "Microbiology": [
+     },
      {
       "label": "Stool MC&S / PCR / OCP",
       "keywords": "stool|faecal mcs|ocp|parasite|stool culture|stool pcr|multiplex"
@@ -1169,7 +1163,7 @@
       "keywords": "ct abdo|ct ap|ct a/p|abdominal ct|ct abdomen|ct pelvis|ctap"
      }
     ],
-    "Endoscopy": [
+    "Endoscopy and tissue": [
      {
       "label": "Colonoscopy",
       "keywords": "colonoscop|scope"
@@ -1288,7 +1282,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "BSL",
       "keywords": "bsl|bgl|glucose|finger prick|blood sugar"
@@ -1300,6 +1294,10 @@
      {
       "label": "ECG",
       "keywords": "ecg|ekg|electrocardiogram|12 lead|12-lead"
+     },
+     {
+      "label": "EEG",
+      "keywords": "eeg|electroenceph"
      }
     ],
     "Bloods": [
@@ -1340,13 +1338,11 @@
       "keywords": "ammonia"
      }
     ],
-    "Urine and stool": [
+    "Urine, stool and microbiology": [
      {
       "label": "Urine drug screen",
       "keywords": "uds|urine drug|drug screen|tox screen|toxicology"
-     }
-    ],
-    "Microbiology": [
+     },
      {
       "label": "Blood cultures",
       "keywords": "blood culture|bcs|cultures"
@@ -1360,12 +1356,6 @@
      {
       "label": "CT head",
       "keywords": "ct head|ct brain|head ct|brain ct|cth|non-contrast ct"
-     }
-    ],
-    "Functional": [
-     {
-      "label": "EEG",
-      "keywords": "eeg|electroenceph"
      }
     ]
    }
@@ -1479,7 +1469,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Sleep diary",
       "keywords": "diary|sleep log"
@@ -1491,6 +1481,18 @@
      {
       "label": "PHQ-9 / GAD-7",
       "keywords": "phq|gad-7|gad7|k10|dass"
+     },
+     {
+      "label": "Polysomnography",
+      "keywords": "psg|polysomno|sleep study"
+     },
+     {
+      "label": "Actigraphy",
+      "keywords": "actigraph"
+     },
+     {
+      "label": "MSLT",
+      "keywords": "mslt|multiple sleep latency"
      }
     ],
     "Bloods": [
@@ -1509,20 +1511,6 @@
      {
       "label": "UEC",
       "keywords": "uec|euc|u&e|urea|electrolyte|creat|renal function|kidney function|egfr"
-     }
-    ],
-    "Functional": [
-     {
-      "label": "Polysomnography",
-      "keywords": "psg|polysomno|sleep study"
-     },
-     {
-      "label": "Actigraphy",
-      "keywords": "actigraph"
-     },
-     {
-      "label": "MSLT",
-      "keywords": "mslt|multiple sleep latency"
      }
     ]
    }
@@ -1634,7 +1622,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Urinalysis",
       "keywords": "urinalys|dipstick|udip|urine dip|ua"
@@ -1650,6 +1638,10 @@
      {
       "label": "VBG / ABG (lactate)",
       "keywords": "vbg|abg|blood gas|lactate"
+     },
+     {
+      "label": "Water deprivation / copeptin test",
+      "keywords": "water deprivation|desmopressin|ddavp|copeptin"
      }
     ],
     "Bloods": [
@@ -1686,12 +1678,6 @@
      {
       "label": "Renal tract US",
       "keywords": "renal us|kidney us|ultrasound|us|hydroneph"
-     }
-    ],
-    "Functional": [
-     {
-      "label": "Water deprivation / copeptin test",
-      "keywords": "water deprivation|desmopressin|ddavp|copeptin"
      }
     ]
    }
@@ -1791,7 +1777,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Clinical breast examination",
       "keywords": "exam|clinical|cbe|palpat"
@@ -1811,19 +1797,17 @@
       "keywords": "mri"
      }
     ],
-    "Tissue and genetics": [
+    "Endoscopy and tissue": [
      {
       "label": "Core biopsy / FNA",
       "keywords": "core|biopsy|fna|fine needle"
      }
     ],
-    "Screening and risk": [
+    "Screening and monitoring": [
      {
       "label": "Triple assessment",
       "keywords": "triple"
-     }
-    ],
-    "Monitoring and staging": [
+     },
      {
       "label": "Staging (CT, bone scan) if malignant",
       "keywords": "staging|ct|bone scan|pet"
@@ -1922,7 +1906,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Breast examination",
       "keywords": "exam|palpat|cbe|clinical"
@@ -2069,7 +2053,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "ECG",
       "keywords": "ecg|ekg|electrocardiogram|12 lead|12-lead"
@@ -2077,6 +2061,10 @@
      {
       "label": "VBG / ABG (lactate)",
       "keywords": "vbg|abg|blood gas|lactate"
+     },
+     {
+      "label": "Stress testing",
+      "keywords": "stress test|exercise ecg|stress echo|treadmill|ett|mpi|sestamibi"
      }
     ],
     "Bloods": [
@@ -2125,12 +2113,6 @@
      {
       "label": "Coronary angiography / CTCA",
       "keywords": "coronary angio|angiogram|ctca|ct coronary|cath"
-     }
-    ],
-    "Functional": [
-     {
-      "label": "Stress testing",
-      "keywords": "stress test|exercise ecg|stress echo|treadmill|ett|mpi|sestamibi"
      }
     ]
    }
@@ -2248,7 +2230,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "BP / weight / BMI",
       "keywords": "bp|blood pressure|bmi|waist"
@@ -2264,6 +2246,10 @@
      {
       "label": "PHQ-9 / K10",
       "keywords": "phq|k10|kessler|dass|gad-7|epds"
+     },
+     {
+      "label": "Spirometry / peak flow",
+      "keywords": "spiro|fev1|lung function|pft|peak flow"
      }
     ],
     "Bloods": [
@@ -2288,7 +2274,7 @@
       "keywords": "lft|liver function|bilirubin|alt|ast|ggt|alp|albumin"
      }
     ],
-    "Urine and stool": [
+    "Urine, stool and microbiology": [
      {
       "label": "Urine ACR",
       "keywords": "acr|albumin creatinine|albumin:creatinine|microalbumin|proteinuria"
@@ -2304,13 +2290,7 @@
       "keywords": "dexa|bone density|bmd"
      }
     ],
-    "Functional": [
-     {
-      "label": "Spirometry / peak flow",
-      "keywords": "spiro|fev1|lung function|pft|peak flow"
-     }
-    ],
-    "Monitoring and staging": [
+    "Screening and monitoring": [
      {
       "label": "Disease activity (CRP / ESR, DAS28)",
       "keywords": "crp|esr|das28|das|disease activity"
@@ -2433,7 +2413,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Cognitive screen (MMSE, MoCA, ACE-III, RUDAS)",
       "keywords": "mmse|moca|ace|rudas|cognitive screen|cognitive test|mini-mental"
@@ -2445,6 +2425,10 @@
      {
       "label": "Urinalysis",
       "keywords": "urinalys|dipstick|udip|urine dip|ua"
+     },
+     {
+      "label": "Neuropsychology assessment",
+      "keywords": "neuropsych"
      }
     ],
     "Bloods": [
@@ -2485,12 +2469,6 @@
      {
       "label": "FDG-PET / amyloid PET",
       "keywords": "pet|amyloid|fdg|spect"
-     }
-    ],
-    "Functional": [
-     {
-      "label": "Neuropsychology assessment",
-      "keywords": "neuropsych"
      }
     ]
    }
@@ -2612,7 +2590,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "4AT / CAM",
       "keywords": "4at|cam|confusion assessment"
@@ -2668,7 +2646,7 @@
       "keywords": "b12|folate|cobalamin"
      }
     ],
-    "Microbiology": [
+    "Urine, stool and microbiology": [
      {
       "label": "MSU / blood cultures",
       "keywords": "msu|urine culture|blood culture|cultures"
@@ -2805,10 +2783,14 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "BSL",
       "keywords": "bsl|bgl|glucose|finger prick|blood sugar"
+     },
+     {
+      "label": "Anorectal manometry / defecating proctogram",
+      "keywords": "manometry|proctogram|defecograph|transit study|sitz"
      }
     ],
     "Bloods": [
@@ -2829,7 +2811,7 @@
       "keywords": "tft|tsh|thyroid function|ft4"
      }
     ],
-    "Urine and stool": [
+    "Urine, stool and microbiology": [
      {
       "label": "iFOBT",
       "keywords": "ifobt|fobt|fit|faecal occult"
@@ -2845,13 +2827,7 @@
       "keywords": "ct abdo|ct ap|ct a/p|abdominal ct|ct abdomen|ct pelvis|ctap"
      }
     ],
-    "Functional": [
-     {
-      "label": "Anorectal manometry / defecating proctogram",
-      "keywords": "manometry|proctogram|defecograph|transit study|sitz"
-     }
-    ],
-    "Endoscopy": [
+    "Endoscopy and tissue": [
      {
       "label": "Colonoscopy (red flags / age)",
       "keywords": "colonoscop|scope"
@@ -2988,6 +2964,16 @@
     ]
    },
    "investigations": {
+    "Bedside and functional": [
+     {
+      "label": "Spirometry with bronchodilator reversibility",
+      "keywords": "spiro|lung function|pft|fev1|bronchodilator revers"
+     },
+     {
+      "label": "FeNO / bronchial provocation",
+      "keywords": "feno|nitric oxide|mannitol challenge|provocation|methacholine"
+     }
+    ],
     "Bloods": [
      {
       "label": "FBE",
@@ -3002,7 +2988,7 @@
       "keywords": "bnp|nt-probnp|natriuretic"
      }
     ],
-    "Microbiology": [
+    "Urine, stool and microbiology": [
      {
       "label": "Sputum MC&S / AFB",
       "keywords": "sputum culture|sputum mcs|afb|acid fast|mcs"
@@ -3022,17 +3008,7 @@
       "keywords": "hrct|ct chest|high res"
      }
     ],
-    "Functional": [
-     {
-      "label": "Spirometry with bronchodilator reversibility",
-      "keywords": "spiro|lung function|pft|fev1|bronchodilator revers"
-     },
-     {
-      "label": "FeNO / bronchial provocation",
-      "keywords": "feno|nitric oxide|mannitol challenge|provocation|methacholine"
-     }
-    ],
-    "Endoscopy": [
+    "Endoscopy and tissue": [
      {
       "label": "Bronchoscopy",
       "keywords": "bronchoscop"
@@ -3167,7 +3143,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "VBG / ABG (lactate)",
       "keywords": "vbg|abg|blood gas|lactate"
@@ -3199,7 +3175,7 @@
       "keywords": "blood culture|bcs|cultures"
      }
     ],
-    "Urine and stool": [
+    "Urine, stool and microbiology": [
      {
       "label": "Faecal calprotectin",
       "keywords": "calprotectin"
@@ -3207,9 +3183,7 @@
      {
       "label": "Faecal elastase",
       "keywords": "elastase"
-     }
-    ],
-    "Microbiology": [
+     },
      {
       "label": "Stool MC&S / PCR / OCP",
       "keywords": "stool|faecal mcs|ocp|parasite|stool culture|stool pcr|multiplex"
@@ -3219,7 +3193,7 @@
       "keywords": "toxin|c diff toxin|cdiff toxin|c diff pcr"
      }
     ],
-    "Endoscopy": [
+    "Endoscopy and tissue": [
      {
       "label": "Colonoscopy + biopsies",
       "keywords": "colonoscop|scope|biops|flexi|sigmoidoscop"
@@ -3352,10 +3326,14 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Gait assessment / neuro exam",
       "keywords": "gait|neuro exam|examination|timed up and go|tug"
+     },
+     {
+      "label": "Nerve conduction studies / EMG",
+      "keywords": "ncs|nerve conduction|emg"
      }
     ],
     "Bloods": [
@@ -3408,12 +3386,6 @@
      {
       "label": "ABI / arterial duplex",
       "keywords": "abi|ankle brachial|duplex|arterial doppler"
-     }
-    ],
-    "Functional": [
-     {
-      "label": "Nerve conduction studies / EMG",
-      "keywords": "ncs|nerve conduction|emg"
      }
     ]
    }
@@ -3541,7 +3513,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Lying-standing BP",
       "keywords": "lying|standing bp|postural bp|orthostatic bp|lsbp"
@@ -3561,6 +3533,14 @@
      {
       "label": "BSL",
       "keywords": "bsl|bgl|glucose|finger prick|blood sugar"
+     },
+     {
+      "label": "Holter / event monitor",
+      "keywords": "holter|ambulatory ecg|event monitor|loop recorder|cardiac monitor"
+     },
+     {
+      "label": "Audiometry",
+      "keywords": "audio|hearing test|pta"
      }
     ],
     "Bloods": [
@@ -3581,16 +3561,6 @@
      {
       "label": "MRI brain / CT angiogram",
       "keywords": "mri|ct angio|cta|ct head|ct brain|imaging"
-     }
-    ],
-    "Functional": [
-     {
-      "label": "Holter / event monitor",
-      "keywords": "holter|ambulatory ecg|event monitor|loop recorder|cardiac monitor"
-     },
-     {
-      "label": "Audiometry",
-      "keywords": "audio|hearing test|pta"
      }
     ]
    }
@@ -3700,7 +3670,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "BSL",
       "keywords": "bsl|bgl|glucose|finger prick|blood sugar"
@@ -3748,13 +3718,11 @@
       "keywords": "sti screen|chlamydia|gonorrh|sti"
      }
     ],
-    "Urine and stool": [
+    "Urine, stool and microbiology": [
      {
       "label": "Urine drug screen",
       "keywords": "uds|urine drug|drug screen|tox screen|toxicology"
-     }
-    ],
-    "Microbiology": [
+     },
      {
       "label": "Blood cultures",
       "keywords": "blood culture|bcs|cultures"
@@ -3901,6 +3869,12 @@
     ]
    },
    "investigations": {
+    "Bedside and functional": [
+     {
+      "label": "Oesophageal manometry",
+      "keywords": "manometry|hrm"
+     }
+    ],
     "Bloods": [
      {
       "label": "FBE",
@@ -3937,13 +3911,7 @@
       "keywords": "videofluoro|vfss|mbs|speech path|swallow assess|fees"
      }
     ],
-    "Functional": [
-     {
-      "label": "Oesophageal manometry",
-      "keywords": "manometry|hrm"
-     }
-    ],
-    "Endoscopy": [
+    "Endoscopy and tissue": [
      {
       "label": "Gastroscopy + biopsies",
       "keywords": "gastroscop|endoscop|ogd|egd|scope|biops"
@@ -4084,7 +4052,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "SpO2 / blood gas",
       "keywords": "spo2|sats|saturation|oximetry|abg|vbg|blood gas"
@@ -4092,6 +4060,10 @@
      {
       "label": "ECG",
       "keywords": "ecg|ekg|electrocardiogram|12 lead|12-lead"
+     },
+     {
+      "label": "Spirometry / peak flow",
+      "keywords": "spiro|peak flow|pef|lung function|pft|fev1"
      }
     ],
     "Bloods": [
@@ -4116,7 +4088,7 @@
       "keywords": "d-dimer|ddimer|d dimer|dimer"
      }
     ],
-    "Microbiology": [
+    "Urine, stool and microbiology": [
      {
       "label": "Sputum MC&S",
       "keywords": "sputum culture|sputum mcs|mcs"
@@ -4142,12 +4114,6 @@
      {
       "label": "HRCT",
       "keywords": "hrct|high res|ct chest"
-     }
-    ],
-    "Functional": [
-     {
-      "label": "Spirometry / peak flow",
-      "keywords": "spiro|peak flow|pef|lung function|pft|fev1"
      }
     ]
    }
@@ -4249,7 +4215,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Otoscopy",
       "keywords": "otoscop|auroscop|examin|look in"
@@ -4257,6 +4223,10 @@
      {
       "label": "BSL",
       "keywords": "bsl|bgl|glucose|finger prick|blood sugar"
+     },
+     {
+      "label": "Audiometry / tympanometry",
+      "keywords": "audio|tympano|hearing test|pta"
      }
     ],
     "Bloods": [
@@ -4269,7 +4239,7 @@
       "keywords": "fbe|fbc|cbc|full blood|blood count|haemoglobin|hb"
      }
     ],
-    "Microbiology": [
+    "Urine, stool and microbiology": [
      {
       "label": "Swab of discharge",
       "keywords": "swab|culture|mcs"
@@ -4281,13 +4251,7 @@
       "keywords": "ct temporal|ct|mri|imaging|temporal bone"
      }
     ],
-    "Functional": [
-     {
-      "label": "Audiometry / tympanometry",
-      "keywords": "audio|tympano|hearing test|pta"
-     }
-    ],
-    "Endoscopy": [
+    "Endoscopy and tissue": [
      {
       "label": "Nasendoscopy (referred pain)",
       "keywords": "nasendoscop|scope|laryngoscop"
@@ -4398,7 +4362,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "BSL",
       "keywords": "bsl|bgl|glucose|finger prick|blood sugar"
@@ -4559,7 +4523,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Visual acuity",
       "keywords": "acuity|snellen|va|visual acuity"
@@ -4591,7 +4555,7 @@
       "keywords": "crp|esr|c-reactive|inflammatory marker"
      }
     ],
-    "Microbiology": [
+    "Urine, stool and microbiology": [
      {
       "label": "Swab / corneal scrape",
       "keywords": "swab|scrape|culture|pcr"
@@ -4726,7 +4690,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "ECG",
       "keywords": "ecg|ekg|electrocardiogram|12 lead|12-lead"
@@ -4760,7 +4724,7 @@
       "keywords": "sialogra|salivary us|salivary ultrasound"
      }
     ],
-    "Tissue and genetics": [
+    "Endoscopy and tissue": [
      {
       "label": "Temporal artery US / biopsy",
       "keywords": "temporal artery biopsy|tab|biopsy|halo|ultrasound"
@@ -4889,7 +4853,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Lying-standing BP",
       "keywords": "lying|standing bp|postural bp|lsbp|orthostatic bp"
@@ -4913,6 +4877,10 @@
      {
       "label": "Cognitive screen",
       "keywords": "mmse|moca|cognitive screen|rudas|ace"
+     },
+     {
+      "label": "Holter / echo",
+      "keywords": "holter|echo|ambulatory ecg"
      }
     ],
     "Bloods": [
@@ -4949,12 +4917,6 @@
      {
       "label": "DEXA",
       "keywords": "dexa|bone density"
-     }
-    ],
-    "Functional": [
-     {
-      "label": "Holter / echo",
-      "keywords": "holter|echo|ambulatory ecg"
      }
     ]
    }
@@ -5112,13 +5074,11 @@
       "keywords": "lft|liver function|bilirubin|alt|ast|ggt|alp|albumin"
      }
     ],
-    "Urine and stool": [
+    "Urine, stool and microbiology": [
      {
       "label": "Urinalysis / MSU",
       "keywords": "urinalys|dipstick|msu|urine culture|urine mcs|ua|udip"
-     }
-    ],
-    "Microbiology": [
+     },
      {
       "label": "Blood cultures",
       "keywords": "blood culture|bcs|cultures"
@@ -5271,7 +5231,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "VBG / ABG (lactate)",
       "keywords": "vbg|abg|blood gas|lactate"
@@ -5313,7 +5273,7 @@
       "keywords": "cta|ct angio|angiogra|ct mesenteric"
      }
     ],
-    "Endoscopy": [
+    "Endoscopy and tissue": [
      {
       "label": "Gastroscopy (within 24 h)",
       "keywords": "gastroscop|endoscop|ogd|egd|scope"
@@ -5448,7 +5408,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Urinalysis",
       "keywords": "urinalys|dipstick|udip|urine dip|ua"
@@ -5476,7 +5436,7 @@
       "keywords": "gn screen|anca|ana|complement|c3|c4|anti-gbm|aso|asot|serology"
      }
     ],
-    "Urine and stool": [
+    "Urine, stool and microbiology": [
      {
       "label": "Urine ACR / PCR (proteinuria)",
       "keywords": "acr|pcr|protein|albumin creatinine"
@@ -5484,9 +5444,7 @@
      {
       "label": "Urine microscopy (dysmorphic RBCs, casts)",
       "keywords": "microscopy|dysmorphic|cast|red cell cast"
-     }
-    ],
-    "Microbiology": [
+     },
      {
       "label": "MSU",
       "keywords": "msu|urine culture|urine mcs|mcs"
@@ -5502,13 +5460,11 @@
       "keywords": "renal us|ultrasound|us|uss"
      }
     ],
-    "Endoscopy": [
+    "Endoscopy and tissue": [
      {
       "label": "Flexible cystoscopy",
       "keywords": "cystoscop|flexi|scope"
-     }
-    ],
-    "Tissue and genetics": [
+     },
      {
       "label": "Urine cytology",
       "keywords": "cytology"
@@ -5629,7 +5585,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "SpO2 / blood gas",
       "keywords": "spo2|sats|oximetry|abg|vbg|blood gas"
@@ -5657,13 +5613,11 @@
       "keywords": "anca|anti-gbm|vasculitis screen|ana"
      }
     ],
-    "Urine and stool": [
+    "Urine, stool and microbiology": [
      {
       "label": "Urinalysis / urine microscopy",
       "keywords": "urinalys|dipstick|ua|urine microscopy"
-     }
-    ],
-    "Microbiology": [
+     },
      {
       "label": "Sputum MC&S / AFB ×3 / cytology",
       "keywords": "sputum culture|sputum mcs|afb|acid fast|cytology|mcs|sputum cytology"
@@ -5679,7 +5633,7 @@
       "keywords": "ct chest|ct|ctpa|hrct"
      }
     ],
-    "Endoscopy": [
+    "Endoscopy and tissue": [
      {
       "label": "Bronchoscopy",
       "keywords": "bronchoscop"
@@ -5836,7 +5790,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Neuro exam + fundoscopy (papilloedema)",
       "keywords": "fundoscop|papilloed|neuro exam|ophthalmoscop"
@@ -5864,7 +5818,7 @@
       "keywords": "carboxyhaem|cohb|carboxy"
      }
     ],
-    "Microbiology": [
+    "Urine, stool and microbiology": [
      {
       "label": "LP (xanthochromia, opening pressure, CSF)",
       "keywords": "lp|lumbar punct|csf|xanthochrom|opening pressure"
@@ -5884,7 +5838,7 @@
       "keywords": "mri brain|mri head|brain mri|mri"
      }
     ],
-    "Tissue and genetics": [
+    "Endoscopy and tissue": [
      {
       "label": "Temporal artery US / biopsy",
       "keywords": "temporal artery biopsy|tab|biopsy|halo sign"
@@ -6019,7 +5973,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Otoscopy",
       "keywords": "otoscop|auroscop|examin"
@@ -6031,6 +5985,14 @@
      {
       "label": "BSL",
       "keywords": "bsl|bgl|glucose|finger prick|blood sugar"
+     },
+     {
+      "label": "Pure tone audiometry",
+      "keywords": "audio|pta|pure tone|hearing test"
+     },
+     {
+      "label": "Tympanometry",
+      "keywords": "tympano"
      }
     ],
     "Bloods": [
@@ -6047,16 +6009,6 @@
      {
       "label": "CT temporal bone",
       "keywords": "ct temporal|ct|temporal bone"
-     }
-    ],
-    "Functional": [
-     {
-      "label": "Pure tone audiometry",
-      "keywords": "audio|pta|pure tone|hearing test"
-     },
-     {
-      "label": "Tympanometry",
-      "keywords": "tympano"
      }
     ]
    }
@@ -6194,7 +6146,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "ECG",
       "keywords": "ecg|ekg|electrocardiogram|12 lead|12-lead"
@@ -6238,7 +6190,7 @@
       "keywords": "dexamethasone|dst|cortisol|urine free cortisol|late night saliv"
      }
     ],
-    "Urine and stool": [
+    "Urine, stool and microbiology": [
      {
       "label": "Urinalysis / urine ACR",
       "keywords": "urinalys|dipstick|acr|albumin creatinine|ua|urine protein"
@@ -6373,7 +6325,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Examination (get above it, transilluminate, separate from testis)",
       "keywords": "transillum|get above|examin|separate|palpat"
@@ -6385,7 +6337,7 @@
       "keywords": "tumour marker|tumor marker|afp|alpha-fetoprotein|hcg|ldh"
      }
     ],
-    "Microbiology": [
+    "Urine, stool and microbiology": [
      {
       "label": "First-void urine PCR / MSU",
       "keywords": "first void|fvu|pcr|chlamydia|gonorrh|msu|urine culture"
@@ -6522,7 +6474,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Examination (cremasteric reflex, high-riding testis)",
       "keywords": "cremaster|prehn|examin|lie|high-riding"
@@ -6542,13 +6494,11 @@
       "keywords": "afp|hcg|ldh|tumour marker"
      }
     ],
-    "Urine and stool": [
+    "Urine, stool and microbiology": [
      {
       "label": "Urinalysis / MSU",
       "keywords": "urinalys|dipstick|msu|urine culture|ua"
-     }
-    ],
-    "Microbiology": [
+     },
      {
       "label": "First-void urine PCR",
       "keywords": "first void|fvu|pcr|chlamydia|gonorrh"
@@ -6564,7 +6514,7 @@
       "keywords": "ctkub|ct kub|ct"
      }
     ],
-    "Endoscopy": [
+    "Endoscopy and tissue": [
      {
       "label": "Urgent scrotal exploration (don't delay for imaging)",
       "keywords": "exploration|explore|surgical exploration|theatre|surgery"
@@ -6952,7 +6902,7 @@
       "keywords": "ultrasound|us|mri"
      }
     ],
-    "Tissue and genetics": [
+    "Endoscopy and tissue": [
      {
       "label": "Joint aspiration (cell count, Gram stain, crystals, culture)",
       "keywords": "aspirat|arthrocent|tap|synovial|crystal|gram|joint fluid"
@@ -7117,7 +7067,7 @@
       "keywords": "coag|inr|aptt|clotting|fibrinogen"
      }
     ],
-    "Microbiology": [
+    "Urine, stool and microbiology": [
      {
       "label": "Blood cultures",
       "keywords": "blood culture|bcs|cultures"
@@ -7141,7 +7091,7 @@
       "keywords": "mri"
      }
     ],
-    "Tissue and genetics": [
+    "Endoscopy and tissue": [
      {
       "label": "Joint aspiration: cell count, Gram stain, culture, crystals",
       "keywords": "aspirat|arthrocent|tap|synovial|gram|crystal|joint fluid|polarised"
@@ -7302,10 +7252,14 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Urinalysis",
       "keywords": "urinalys|dipstick|udip|urine dip|ua"
+     },
+     {
+      "label": "Sleep study",
+      "keywords": "sleep study|psg|polysomno"
      }
     ],
     "Bloods": [
@@ -7374,12 +7328,6 @@
      {
       "label": "CXR",
       "keywords": "cxr|chest x|chest radiograph|chest film|chest xr"
-     }
-    ],
-    "Functional": [
-     {
-      "label": "Sleep study",
-      "keywords": "sleep study|psg|polysomno"
      }
     ]
    }
@@ -7511,7 +7459,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "ECG",
       "keywords": "ecg|ekg|electrocardiogram|12 lead|12-lead"
@@ -7523,6 +7471,22 @@
      {
       "label": "BSL",
       "keywords": "bsl|bgl|glucose|finger prick|blood sugar"
+     },
+     {
+      "label": "Holter / event monitor / ILR",
+      "keywords": "holter|event monitor|loop recorder|ilr|ambulatory ecg|telemetry"
+     },
+     {
+      "label": "EEG",
+      "keywords": "eeg"
+     },
+     {
+      "label": "Tilt-table test",
+      "keywords": "tilt"
+     },
+     {
+      "label": "Exercise stress test",
+      "keywords": "stress test|exercise test|ett|treadmill"
      }
     ],
     "Bloods": [
@@ -7551,24 +7515,6 @@
      {
       "label": "CT head",
       "keywords": "ct head|ct brain|head ct|brain ct|cth|non-contrast ct"
-     }
-    ],
-    "Functional": [
-     {
-      "label": "Holter / event monitor / ILR",
-      "keywords": "holter|event monitor|loop recorder|ilr|ambulatory ecg|telemetry"
-     },
-     {
-      "label": "EEG",
-      "keywords": "eeg"
-     },
-     {
-      "label": "Tilt-table test",
-      "keywords": "tilt"
-     },
-     {
-      "label": "Exercise stress test",
-      "keywords": "stress test|exercise test|ett|treadmill"
      }
     ]
    }
@@ -7694,7 +7640,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "VBG / ABG (lactate)",
       "keywords": "vbg|abg|blood gas|lactate"
@@ -7754,7 +7700,7 @@
       "keywords": "hcg|bhcg|b-hcg|beta hcg|βhcg|pregnancy test|upt|urine pregnancy"
      }
     ],
-    "Microbiology": [
+    "Urine, stool and microbiology": [
      {
       "label": "Blood cultures",
       "keywords": "blood culture|bcs|cultures"
@@ -7885,7 +7831,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Examination (site, size, shape, consistency, mobility, transillumination)",
       "keywords": "examin|size|consisten|mobil|transillum|fluctuan|feel"
@@ -7919,7 +7865,7 @@
       "keywords": "ct|staging"
      }
     ],
-    "Tissue and genetics": [
+    "Endoscopy and tissue": [
      {
       "label": "FNA / core biopsy",
       "keywords": "fna|fine needle|core|biopsy"
@@ -8036,7 +7982,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "VBG / ABG (lactate)",
       "keywords": "vbg|abg|blood gas|lactate"
@@ -8082,7 +8028,7 @@
       "keywords": "capsule|cta|ct angio|angiogra"
      }
     ],
-    "Endoscopy": [
+    "Endoscopy and tissue": [
      {
       "label": "Gastroscopy",
       "keywords": "gastroscop|endoscop|ogd|egd|scope"
@@ -8239,7 +8185,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Neuro exam (power, reflexes, tone)",
       "keywords": "neuro exam|power|reflex|tone|examin"
@@ -8247,6 +8193,14 @@
      {
       "label": "BSL",
       "keywords": "bsl|bgl|glucose|finger prick|blood sugar"
+     },
+     {
+      "label": "Forced vital capacity / NIF",
+      "keywords": "fvc|vital capacity|nif|spirometry|negative inspiratory"
+     },
+     {
+      "label": "Nerve conduction studies / EMG",
+      "keywords": "ncs|nerve conduction|emg"
      }
     ],
     "Bloods": [
@@ -8279,7 +8233,7 @@
       "keywords": "achr|acetylcholine|musk|antibod"
      }
     ],
-    "Microbiology": [
+    "Urine, stool and microbiology": [
      {
       "label": "LP (albuminocytological dissociation)",
       "keywords": "lp|lumbar punct|csf"
@@ -8295,17 +8249,7 @@
       "keywords": "ct head|ct brain|head ct|brain ct|cth|non-contrast ct"
      }
     ],
-    "Functional": [
-     {
-      "label": "Forced vital capacity / NIF",
-      "keywords": "fvc|vital capacity|nif|spirometry|negative inspiratory"
-     },
-     {
-      "label": "Nerve conduction studies / EMG",
-      "keywords": "ncs|nerve conduction|emg"
-     }
-    ],
-    "Tissue and genetics": [
+    "Endoscopy and tissue": [
      {
       "label": "Myositis antibodies / muscle biopsy",
       "keywords": "myositis antibod|muscle biopsy|biopsy|jo-1|myositis panel"
@@ -8442,7 +8386,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Urinalysis",
       "keywords": "urinalys|dipstick|udip|urine dip|ua"
@@ -8635,7 +8579,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Examination (site: anterior / posterior triangle, thyroid)",
       "keywords": "examin|triangle|palpat|site"
@@ -8677,13 +8621,11 @@
       "keywords": "pet"
      }
     ],
-    "Endoscopy": [
+    "Endoscopy and tissue": [
      {
       "label": "Nasendoscopy / panendoscopy",
       "keywords": "nasendoscop|panendoscop|scope|laryngoscop"
-     }
-    ],
-    "Tissue and genetics": [
+     },
      {
       "label": "US-guided FNA",
       "keywords": "fna|fine needle|cytology"
@@ -8798,6 +8740,12 @@
     ]
    },
    "investigations": {
+    "Bedside and functional": [
+     {
+      "label": "Formal visual fields",
+      "keywords": "visual field|perimetry|confrontation"
+     }
+    ],
     "Bloods": [
      {
       "label": "β-hCG",
@@ -8830,19 +8778,11 @@
       "keywords": "mri pituitary|pituitary mri|mri"
      }
     ],
-    "Functional": [
-     {
-      "label": "Formal visual fields",
-      "keywords": "visual field|perimetry|confrontation"
-     }
-    ],
-    "Endoscopy": [
+    "Endoscopy and tissue": [
      {
       "label": "Ductogram / ductoscopy",
       "keywords": "ductogra|galactogra|ductoscop"
-     }
-    ],
-    "Tissue and genetics": [
+     },
      {
       "label": "Discharge cytology / occult blood",
       "keywords": "cytology|haemoccult|discharge test|blood in discharge"
@@ -9015,19 +8955,17 @@
       "keywords": "crp|esr|c-reactive|inflammatory marker"
      }
     ],
-    "Urine and stool": [
+    "Urine, stool and microbiology": [
      {
       "label": "iFOBT",
       "keywords": "fobt|ifobt|fit|occult"
      }
     ],
-    "Endoscopy": [
+    "Endoscopy and tissue": [
      {
       "label": "Gastroscopy / colonoscopy",
       "keywords": "gastroscop|colonoscop|scope|endoscop"
-     }
-    ],
-    "Tissue and genetics": [
+     },
      {
       "label": "Bone marrow biopsy",
       "keywords": "bone marrow|bmat|trephine|marrow biopsy"
@@ -9146,7 +9084,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "ECG",
       "keywords": "ecg|ekg|electrocardiogram|12 lead|12-lead"
@@ -9154,6 +9092,18 @@
      {
       "label": "BSL",
       "keywords": "bsl|bgl|glucose|finger prick|blood sugar"
+     },
+     {
+      "label": "Holter / event monitor / ILR / wearable",
+      "keywords": "holter|event monitor|loop recorder|ilr|ambulatory ecg|kardia|smartwatch|wearable"
+     },
+     {
+      "label": "Exercise stress test",
+      "keywords": "stress test|exercise test|ett|treadmill"
+     },
+     {
+      "label": "Electrophysiology study",
+      "keywords": "eps|electrophysiolog|ep study"
      }
     ],
     "Bloods": [
@@ -9186,20 +9136,6 @@
      {
       "label": "Echocardiogram",
       "keywords": "echo|tte|echocardiogram"
-     }
-    ],
-    "Functional": [
-     {
-      "label": "Holter / event monitor / ILR / wearable",
-      "keywords": "holter|event monitor|loop recorder|ilr|ambulatory ecg|kardia|smartwatch|wearable"
-     },
-     {
-      "label": "Exercise stress test",
-      "keywords": "stress test|exercise test|ett|treadmill"
-     },
-     {
-      "label": "Electrophysiology study",
-      "keywords": "eps|electrophysiolog|ep study"
      }
     ]
    }
@@ -9319,7 +9255,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "DRE / perianal examination",
       "keywords": "dre|digital rectal|pr exam|examin|inspection"
@@ -9353,7 +9289,7 @@
       "keywords": "endoanal|eus|endorectal"
      }
     ],
-    "Endoscopy": [
+    "Endoscopy and tissue": [
      {
       "label": "Proctoscopy / anoscopy",
       "keywords": "proctoscop|anoscop|rigid sigmoid"
@@ -9361,9 +9297,7 @@
      {
       "label": "Colonoscopy / flexible sigmoidoscopy",
       "keywords": "colonoscop|flexi|sigmoidoscop"
-     }
-    ],
-    "Tissue and genetics": [
+     },
      {
       "label": "Biopsy / EUA",
       "keywords": "biopsy|eua|examination under anaesth"
@@ -9492,7 +9426,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Inspection (fissure usually posterior midline)",
       "keywords": "inspect|examin|posterior midline|part buttocks"
@@ -9516,7 +9450,7 @@
       "keywords": "crp|esr|c-reactive|inflammatory marker"
      }
     ],
-    "Microbiology": [
+    "Urine, stool and microbiology": [
      {
       "label": "STI swabs (PCR incl. HSV)",
       "keywords": "swab|pcr|hsv swab|sti screen"
@@ -9528,7 +9462,7 @@
       "keywords": "mri|endoanal|eus"
      }
     ],
-    "Endoscopy": [
+    "Endoscopy and tissue": [
      {
       "label": "Proctoscopy / EUA",
       "keywords": "proctoscop|anoscop|eua|examination under"
@@ -9643,7 +9577,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "BSL",
       "keywords": "bsl|bgl|glucose|finger prick|blood sugar"
@@ -9651,6 +9585,10 @@
      {
       "label": "Urinalysis",
       "keywords": "urinalys|dipstick|udip|urine dip|ua"
+     },
+     {
+      "label": "Water deprivation / copeptin testing",
+      "keywords": "water deprivation|copeptin|hypertonic saline|desmopressin|ddavp"
      }
     ],
     "Bloods": [
@@ -9683,7 +9621,7 @@
       "keywords": "osmolal|osm|serum osm|urine osm"
      }
     ],
-    "Urine and stool": [
+    "Urine, stool and microbiology": [
      {
       "label": "24 h urine volume / urine sodium",
       "keywords": "urine volume|24 hour urine|24-hour urine|urine sodium"
@@ -9693,12 +9631,6 @@
      {
       "label": "MRI pituitary",
       "keywords": "mri|pituitary mri"
-     }
-    ],
-    "Functional": [
-     {
-      "label": "Water deprivation / copeptin testing",
-      "keywords": "water deprivation|copeptin|hypertonic saline|desmopressin|ddavp"
      }
     ]
    }
@@ -9826,10 +9758,18 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "ECG",
       "keywords": "ecg|ekg|electrocardiogram|12 lead|12-lead"
+     },
+     {
+      "label": "Spirometry (selected)",
+      "keywords": "spiro|pft|lung function"
+     },
+     {
+      "label": "Functional / stress testing (selected)",
+      "keywords": "stress test|stress echo|mpi|cpet|cardiopulmonary exercise"
      }
     ],
     "Bloods": [
@@ -9866,7 +9806,7 @@
       "keywords": "iron|ferritin|transferrin"
      }
     ],
-    "Microbiology": [
+    "Urine, stool and microbiology": [
      {
       "label": "MRSA screen",
       "keywords": "mrsa|nasal swab|screen swab"
@@ -9880,16 +9820,6 @@
      {
       "label": "Echocardiogram",
       "keywords": "echo|tte|echocardiogram"
-     }
-    ],
-    "Functional": [
-     {
-      "label": "Spirometry (selected)",
-      "keywords": "spiro|pft|lung function"
-     },
-     {
-      "label": "Functional / stress testing (selected)",
-      "keywords": "stress test|stress echo|mpi|cpet|cardiopulmonary exercise"
      }
     ]
    }
@@ -10033,7 +9963,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "BP",
       "keywords": "bp|blood pressure"
@@ -10065,7 +9995,7 @@
       "keywords": "sti screen|chlamydia pcr|serology|hiv test|syphilis"
      }
     ],
-    "Urine and stool": [
+    "Urine, stool and microbiology": [
      {
       "label": "iFOBT (NBCSP, 45-74, 2-yearly)",
       "keywords": "ifobt|fobt|fit|nbcsp|faecal occult|bowel screen"
@@ -10089,13 +10019,13 @@
       "keywords": "aaa us|aaa ultrasound|aortic ultrasound|abdominal ultrasound|ultrasound"
      }
     ],
-    "Tissue and genetics": [
+    "Endoscopy and tissue": [
      {
       "label": "Cervical screening test (HPV, 25-74, 5-yearly)",
       "keywords": "cst|cervical screen|hpv test|pap|self-collect|self collect"
      }
     ],
-    "Screening and risk": [
+    "Screening and monitoring": [
      {
       "label": "Absolute CVD risk calculator",
       "keywords": "risk calculator|calculator|risk score|aus cvd risk|absolute cvd"
@@ -10232,7 +10162,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "BSL",
       "keywords": "bsl|bgl|glucose|finger prick|blood sugar"
@@ -10276,7 +10206,7 @@
       "keywords": "jak2|jak"
      }
     ],
-    "Microbiology": [
+    "Urine, stool and microbiology": [
      {
       "label": "Skin scrapings (scabies, fungal)",
       "keywords": "scraping|scrape|skin scrap|microscopy|koh"
@@ -10288,7 +10218,7 @@
       "keywords": "cxr|chest x|chest radiograph|chest film|chest xr"
      }
     ],
-    "Tissue and genetics": [
+    "Endoscopy and tissue": [
      {
       "label": "Skin biopsy",
       "keywords": "biopsy|punch"
@@ -10429,7 +10359,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Examination (morphology, blanching, distribution)",
       "keywords": "morpholog|blanch|glass test|examin|describe"
@@ -10473,7 +10403,7 @@
       "keywords": "ana|complement|c3|dsdna"
      }
     ],
-    "Microbiology": [
+    "Urine, stool and microbiology": [
      {
       "label": "Skin swab / viral PCR",
       "keywords": "swab|viral pcr|pcr|vesicle swab"
@@ -10483,7 +10413,7 @@
       "keywords": "scraping|scrape|koh"
      }
     ],
-    "Tissue and genetics": [
+    "Endoscopy and tissue": [
      {
       "label": "Skin biopsy",
       "keywords": "biopsy|punch"
@@ -10608,7 +10538,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "DRE / proctoscopy",
       "keywords": "dre|digital rectal|pr exam|proctoscop|anoscop"
@@ -10640,7 +10570,7 @@
       "keywords": "crp|esr|c-reactive|inflammatory marker"
      }
     ],
-    "Urine and stool": [
+    "Urine, stool and microbiology": [
      {
       "label": "Stool MC&S / calprotectin",
       "keywords": "stool|calprotectin|culture"
@@ -10652,7 +10582,7 @@
       "keywords": "cta|ct angio|angiogra|mesenteric angio"
      }
     ],
-    "Endoscopy": [
+    "Endoscopy and tissue": [
      {
       "label": "Colonoscopy",
       "keywords": "colonoscop|scope"
@@ -10785,7 +10715,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Visual acuity",
       "keywords": "acuity|snellen|va"
@@ -10819,7 +10749,7 @@
       "keywords": "ophthalmolog|eye clinic|referral|refer"
      }
     ],
-    "Microbiology": [
+    "Urine, stool and microbiology": [
      {
       "label": "Conjunctival swab (PCR / culture)",
       "keywords": "swab|pcr|culture"
@@ -10946,7 +10876,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Usually a clinical diagnosis",
       "keywords": "clinical|none|no investigation|not needed|nothing"
@@ -10970,7 +10900,7 @@
       "keywords": "anca"
      }
     ],
-    "Microbiology": [
+    "Urine, stool and microbiology": [
      {
       "label": "Nasal swab (viral PCR)",
       "keywords": "swab|pcr|viral pcr"
@@ -10982,7 +10912,7 @@
       "keywords": "ct sinus|ct|sinus ct"
      }
     ],
-    "Endoscopy": [
+    "Endoscopy and tissue": [
      {
       "label": "Anterior rhinoscopy / nasendoscopy",
       "keywords": "rhinoscop|nasendoscop|scope|speculum"
@@ -11125,7 +11055,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "BSL",
       "keywords": "bsl|bgl|glucose|finger prick|blood sugar"
@@ -11133,6 +11063,10 @@
      {
       "label": "ECG",
       "keywords": "ecg|ekg|electrocardiogram|12 lead|12-lead"
+     },
+     {
+      "label": "EEG",
+      "keywords": "eeg"
      }
     ],
     "Bloods": [
@@ -11169,13 +11103,11 @@
       "keywords": "aed level|drug level|antiepileptic level|levels|valproate level|phenytoin level"
      }
     ],
-    "Urine and stool": [
+    "Urine, stool and microbiology": [
      {
       "label": "Urine drug screen",
       "keywords": "uds|urine drug|drug screen|tox screen|toxicology"
-     }
-    ],
-    "Microbiology": [
+     },
      {
       "label": "LP (if infection suspected)",
       "keywords": "lp|lumbar punct|csf"
@@ -11189,12 +11121,6 @@
      {
       "label": "MRI brain",
       "keywords": "mri brain|mri head|brain mri|mri"
-     }
-    ],
-    "Functional": [
-     {
-      "label": "EEG",
-      "keywords": "eeg"
      }
     ]
    }
@@ -11330,7 +11256,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Neuro exam (sensory modalities, reflexes)",
       "keywords": "neuro exam|modalit|reflex|examin|monofilament|vibration sense"
@@ -11338,6 +11264,10 @@
      {
       "label": "BSL",
       "keywords": "bsl|bgl|glucose|finger prick|blood sugar"
+     },
+     {
+      "label": "Nerve conduction studies / EMG",
+      "keywords": "ncs|nerve conduction|emg"
      }
     ],
     "Bloods": [
@@ -11374,7 +11304,7 @@
       "keywords": "spep|electrophoresis|paraprotein|light chain"
      }
     ],
-    "Microbiology": [
+    "Urine, stool and microbiology": [
      {
       "label": "LP (GBS, MS)",
       "keywords": "lp|lumbar punct|csf|oligoclonal"
@@ -11388,12 +11318,6 @@
      {
       "label": "CT head",
       "keywords": "ct head|ct brain|head ct|brain ct|cth|non-contrast ct"
-     }
-    ],
-    "Functional": [
-     {
-      "label": "Nerve conduction studies / EMG",
-      "keywords": "ncs|nerve conduction|emg"
      }
     ]
    }
@@ -11509,7 +11433,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Dermoscopy",
       "keywords": "dermoscop|dermatoscop"
@@ -11525,7 +11449,7 @@
       "keywords": "ultrasound|us|uss"
      }
     ],
-    "Tissue and genetics": [
+    "Endoscopy and tissue": [
      {
       "label": "Excision biopsy (suspected melanoma, 2 mm margins)",
       "keywords": "excision|excis"
@@ -11535,7 +11459,7 @@
       "keywords": "punch|shave|biopsy"
      }
     ],
-    "Monitoring and staging": [
+    "Screening and monitoring": [
      {
       "label": "Sentinel node biopsy / staging (if melanoma)",
       "keywords": "sentinel|staging|slnb|pet"
@@ -11668,7 +11592,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "ABI / toe pressures",
       "keywords": "abi|ankle brachial|toe pressure|tbi|doppler"
@@ -11696,7 +11620,7 @@
       "keywords": "anca|ana|cryoglob|vasculitis screen|complement"
      }
     ],
-    "Microbiology": [
+    "Urine, stool and microbiology": [
      {
       "label": "Wound swab (if clinically infected)",
       "keywords": "swab|culture|mcs"
@@ -11716,7 +11640,7 @@
       "keywords": "probe to bone|probe-to-bone|x-ray|xray|mri"
      }
     ],
-    "Tissue and genetics": [
+    "Endoscopy and tissue": [
      {
       "label": "Biopsy (atypical / non-healing)",
       "keywords": "biopsy|punch"
@@ -11871,7 +11795,7 @@
       "keywords": "aso|asot|anti-streptolysin|anti-dnase"
      }
     ],
-    "Microbiology": [
+    "Urine, stool and microbiology": [
      {
       "label": "Throat swab (culture / rapid antigen)",
       "keywords": "swab|throat swab|culture|rapid strep|rat|antigen"
@@ -11887,7 +11811,7 @@
       "keywords": "ct neck|ct|lateral neck|soft tissue neck|x-ray|xray"
      }
     ],
-    "Endoscopy": [
+    "Endoscopy and tissue": [
      {
       "label": "Nasendoscopy / laryngoscopy",
       "keywords": "nasendoscop|laryngoscop|scope|flexible"
@@ -12032,7 +11956,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "BSL",
       "keywords": "bsl|bgl|glucose|finger prick|blood sugar"
@@ -12249,7 +12173,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "ECG",
       "keywords": "ecg|ekg|electrocardiogram|12 lead|12-lead"
@@ -12289,7 +12213,7 @@
       "keywords": "hcg|bhcg|b-hcg|beta hcg|βhcg|pregnancy test|upt|urine pregnancy"
      }
     ],
-    "Urine and stool": [
+    "Urine, stool and microbiology": [
      {
       "label": "Urinalysis + urine ACR / PCR",
       "keywords": "urinalys|dipstick|acr|pcr|urine protein|proteinuria|ua"
@@ -12434,7 +12358,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Otoscopy",
       "keywords": "otoscop|auroscop|examin"
@@ -12446,6 +12370,14 @@
      {
       "label": "Tinnitus Handicap Inventory",
       "keywords": "thi|questionnaire|tinnitus handicap"
+     },
+     {
+      "label": "Pure tone audiometry",
+      "keywords": "audio|pta|pure tone|hearing test"
+     },
+     {
+      "label": "Tympanometry",
+      "keywords": "tympano"
      }
     ],
     "Bloods": [
@@ -12466,16 +12398,6 @@
      {
       "label": "CT / CT angiography (pulsatile)",
       "keywords": "ct angio|cta|ct|mra|angiogra"
-     }
-    ],
-    "Functional": [
-     {
-      "label": "Pure tone audiometry",
-      "keywords": "audio|pta|pure tone|hearing test"
-     },
-     {
-      "label": "Tympanometry",
-      "keywords": "tympano"
      }
     ]
    }
@@ -12607,7 +12529,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Primary survey (ABCDE) + adjuncts",
       "keywords": "primary survey|abcde|atls|adjunct|catastrophic"
@@ -12792,7 +12714,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Examination (rest / posture / finger-nose, spiral drawing)",
       "keywords": "examin|finger-nose|finger nose|spiral|archimedes|handwriting|observe"
@@ -12979,7 +12901,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Mental state examination",
       "keywords": "mse|mental state"
@@ -12995,6 +12917,10 @@
      {
       "label": "ECG",
       "keywords": "ecg|ekg|electrocardiogram|12 lead|12-lead"
+     },
+     {
+      "label": "EEG",
+      "keywords": "eeg"
      }
     ],
     "Bloods": [
@@ -13031,13 +12957,11 @@
       "keywords": "hcg|bhcg|b-hcg|beta hcg|βhcg|pregnancy test|upt|urine pregnancy"
      }
     ],
-    "Urine and stool": [
+    "Urine, stool and microbiology": [
      {
       "label": "Urine drug screen",
       "keywords": "uds|urine drug|drug screen|tox screen|toxicology"
-     }
-    ],
-    "Microbiology": [
+     },
      {
       "label": "LP / autoimmune encephalitis antibodies",
       "keywords": "lp|lumbar punct|csf|nmda antibod|anti-nmda"
@@ -13047,12 +12971,6 @@
      {
       "label": "CT / MRI brain",
       "keywords": "ct|mri|neuroimag|brain imaging|ct head|mri brain"
-     }
-    ],
-    "Functional": [
-     {
-      "label": "EEG",
-      "keywords": "eeg"
      }
     ]
    }
@@ -13206,7 +13124,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Urinalysis",
       "keywords": "urinalys|dipstick|udip|urine dip|ua"
@@ -13222,6 +13140,10 @@
      {
       "label": "DRE",
       "keywords": "dre|digital rectal|pr exam|prostate exam"
+     },
+     {
+      "label": "Urodynamics",
+      "keywords": "urodynam|uroflow|flow rate"
      }
     ],
     "Bloods": [
@@ -13238,7 +13160,7 @@
       "keywords": "psa|prostate specific"
      }
     ],
-    "Microbiology": [
+    "Urine, stool and microbiology": [
      {
       "label": "MSU",
       "keywords": "msu|urine culture|urine mcs|mcs"
@@ -13254,19 +13176,11 @@
       "keywords": "ultrasound|us|uss|renal us|bladder us"
      }
     ],
-    "Functional": [
-     {
-      "label": "Urodynamics",
-      "keywords": "urodynam|uroflow|flow rate"
-     }
-    ],
-    "Endoscopy": [
+    "Endoscopy and tissue": [
      {
       "label": "Flexible cystoscopy",
       "keywords": "cystoscop|flexi"
-     }
-    ],
-    "Tissue and genetics": [
+     },
      {
       "label": "Urine cytology",
       "keywords": "cytology"
@@ -13421,7 +13335,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Visual acuity (with pinhole)",
       "keywords": "acuity|snellen|pinhole|va"
@@ -13445,6 +13359,10 @@
      {
       "label": "BSL / HbA1c",
       "keywords": "bsl|glucose|hba1c"
+     },
+     {
+      "label": "Visual fields (confrontation / perimetry)",
+      "keywords": "visual field|confrontation|perimetr|humphrey"
      }
     ],
     "Bloods": [
@@ -13479,13 +13397,7 @@
       "keywords": "b-scan|bscan|ocular ultrasound|ultrasound"
      }
     ],
-    "Functional": [
-     {
-      "label": "Visual fields (confrontation / perimetry)",
-      "keywords": "visual field|confrontation|perimetr|humphrey"
-     }
-    ],
-    "Tissue and genetics": [
+    "Endoscopy and tissue": [
      {
       "label": "Temporal artery biopsy / US",
       "keywords": "temporal artery biopsy|tab|biopsy|halo sign"
@@ -13644,7 +13556,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "VBG / ABG (lactate)",
       "keywords": "vbg|abg|blood gas|lactate"
@@ -13710,7 +13622,7 @@
       "keywords": "gastric emptying"
      }
     ],
-    "Endoscopy": [
+    "Endoscopy and tissue": [
      {
       "label": "Gastroscopy",
       "keywords": "gastroscop|endoscop|ogd|scope"
@@ -13845,7 +13757,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "BMI / waist circumference",
       "keywords": "bmi|waist|weight|height"
@@ -13853,6 +13765,10 @@
      {
       "label": "BP",
       "keywords": "bp|blood pressure"
+     },
+     {
+      "label": "Sleep study",
+      "keywords": "sleep study|psg|polysomno"
      }
     ],
     "Bloods": [
@@ -13897,12 +13813,6 @@
      {
       "label": "Pelvic US",
       "keywords": "pelvic us|ultrasound|transvaginal|us"
-     }
-    ],
-    "Functional": [
-     {
-      "label": "Sleep study",
-      "keywords": "sleep study|psg|polysomno"
      }
     ]
    }
@@ -14048,7 +13958,7 @@
     ]
    },
    "investigations": {
-    "Bedside": [
+    "Bedside and functional": [
      {
       "label": "Urinalysis",
       "keywords": "urinalys|dipstick|udip|urine dip|ua"
@@ -14112,7 +14022,7 @@
       "keywords": "cortisol|synacthen"
      }
     ],
-    "Urine and stool": [
+    "Urine, stool and microbiology": [
      {
       "label": "Faecal elastase",
       "keywords": "elastase"
@@ -14128,7 +14038,7 @@
       "keywords": "ct|ct cap|cat scan"
      }
     ],
-    "Endoscopy": [
+    "Endoscopy and tissue": [
      {
       "label": "iFOBT / colonoscopy",
       "keywords": "ifobt|fobt|colonoscop"
