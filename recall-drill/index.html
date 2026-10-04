@@ -95,7 +95,11 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .tile.cred .b{background:var(--teal-soft);border-color:var(--teal);border-style:dashed}
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}
 .result{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter',sans-serif;font-weight:600;font-size:1.25rem;line-height:1.2}
-.histck{display:flex;align-items:center;gap:6px;font-size:.88rem;color:var(--mute);cursor:pointer;flex-basis:100%}
+.histrow{flex-basis:100%}
+.histck{display:inline-flex;align-items:center;gap:8px;font-size:.88rem;color:var(--ink);cursor:pointer;user-select:none}
+.histck input{appearance:none;-webkit-appearance:none;flex:none;width:18px;height:18px;margin:0;border:1.5px solid var(--mute);border-radius:4px;background:var(--panel) center/12px no-repeat;cursor:pointer;transition:background-color .12s,border-color .12s}
+.histck input:checked{background-color:var(--teal);border-color:var(--teal);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 6.4l2.4 2.4 4.6-5.2'/%3E%3C/svg%3E")}
+.histck input:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
 .hidden{display:none!important}
 .cf{position:fixed;top:-20px;width:8px;height:12px;border-radius:2px;pointer-events:none;z-index:50;opacity:0;animation:cf 2.2s cubic-bezier(.5,0,1,1) both}
 @keyframes cf{0%{opacity:1;transform:translate(0,0) rotate(0)}85%{opacity:1}100%{opacity:0;transform:translate(var(--dx),calc(100vh + 40px)) rotate(var(--r))}}
@@ -176,7 +180,7 @@ button.star[aria-pressed="true"]{color:var(--amber);border-color:var(--amber)}
   <div class="cond" id="gCond"></div>
   <p class="prompt" id="gPrompt"></p>
   <div id="playActs"><div class="actions"><button class="primary" id="finish"></button><button id="quit">Back</button><button id="newCond">New</button></div></div>
-  <div class="actions hidden" id="doneActs"><span class="result" id="result"></span><button class="primary" id="next">Next condition</button><button id="retryInc">Retry incorrect</button><button id="retry">Retry this one</button><button id="menu">Menu</button><label class="histck hidden" id="histWrap"><input type="checkbox" id="histCk" checked> Add to history</label><span class="note" style="flex-basis:100%;margin:0">Tap a missed tile if you had it.</span></div>
+  <div class="actions hidden" id="doneActs"><span class="result" id="result"></span><button class="primary" id="next">Next condition</button><button id="retryInc">Retry incorrect</button><button id="retry">Retry everything</button><button id="menu">Menu</button><div class="histrow hidden" id="histWrap"><label class="histck"><input type="checkbox" id="histCk" checked> Add to history</label></div><span class="note" style="flex-basis:100%;margin:0">Tap a missed tile if you had it.</span></div>
  </div>
  <div class="panel" id="inCard">
   <input id="answer" type="text" placeholder="Type an item…" aria-label="Your answer" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
