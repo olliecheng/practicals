@@ -148,20 +148,11 @@ function Game({ drill, inc, restart }) {
             role="group"
             aria-label="Sections"
             data-state={collapsed ? "collapsed" : "expanded"}
+            onClick={() => g.setCollapsed(!collapsed)}
           >
             <span className="pill" />
-            <button
-              aria-pressed={collapsed}
-              onClick={() => g.setCollapsed(true)}
-            >
-              Collapse
-            </button>
-            <button
-              aria-pressed={!collapsed}
-              onClick={() => g.setCollapsed(false)}
-            >
-              Expand
-            </button>
+            <button aria-pressed={collapsed}>Collapse</button>
+            <button aria-pressed={!collapsed}>Expand</button>
           </div>
         </div>
         <div>
