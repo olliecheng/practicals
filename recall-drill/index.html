@@ -113,6 +113,7 @@ button.chip[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--
 .cell{position:relative}
 .rw .rstar{flex:none;padding:0 2px;border:0;background:none;color:var(--mute);font-size:1rem;line-height:1;opacity:0;cursor:pointer}
 .rw .lb+.rstar{margin-left:auto}
+.rw .rstar+.bdg{margin-left:0}
 .rw .rstar[aria-pressed="true"]{color:var(--amber);opacity:1}
 .rw:hover .rstar,.rw .rstar:focus-visible{opacity:1}
 @media(hover:none){.rw .rstar{opacity:.6}.rw .rstar[aria-pressed="true"]{opacity:1}}
@@ -302,7 +303,7 @@ function row(d,m){
   const sb=document.createElement('button');sb.className='rstar';sb.textContent='★';sb.setAttribute('aria-pressed',!!starred(d,m));
   const lab=()=>{sb.title=sb.getAttribute('aria-pressed')==='true'?'Unstar':'Star this drill';sb.setAttribute('aria-label',sb.title)};lab();
   sb.onclick=e=>{e.stopPropagation();sb.setAttribute('aria-pressed',toggleStar(d,m));lab();if(starOnly)list()};
-  r.appendChild(sb);
+  r.insertBefore(sb,r.querySelector('.bdg'));
  }
  return c;
 }
