@@ -13,4 +13,12 @@
       "database_id": "bf5d70fd-b6b6-41e4-bd5a-5567018d866b",
     },
   ],
+  "previews": {
+    "d1_databases": [
+      {
+        "binding": "DB",
+        "database_id": "bf5d70fd-b6b6-41e4-bd5a-5567018d866b",
+      },
+    ],
+  },
 }
