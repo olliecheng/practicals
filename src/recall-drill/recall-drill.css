@@ -452,6 +452,9 @@ button.tab[aria-selected="true"] {
     padding: 6px 11px;
     font-size: 0.92rem;
   }
+  .actions.two .arow:first-child {
+    --h: 36px;
+  }
   .result {
     font-size: 1.05rem;
   }
@@ -674,12 +677,39 @@ button.tab[aria-selected="true"] {
   align-items: center;
   justify-content: center;
   border: 1px solid var(--line);
-  border-radius: 0;
+  border-radius: var(--r);
   background: var(--panel);
   color: var(--teal);
   font-size: 1rem;
   line-height: 1;
   cursor: pointer;
+}
+/* The top Drill button is a bare icon until it is pressed */
+.redo.bare {
+  border-color: transparent;
+  background: transparent;
+  width: var(--h);
+  height: var(--h);
+  box-sizing: border-box;
+  font-size: 1.2rem;
+}
+.redo.bare:disabled:not([aria-pressed="true"]) {
+  opacity: 0.4;
+}
+.redo.bare:not(:disabled):hover {
+  border-color: transparent;
+}
+.actions.two {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+.actions.two .arow {
+  --h: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 .redo:hover {
   background: var(--teal-soft);
@@ -1243,11 +1273,6 @@ button.star[aria-pressed="true"] {
 .wrap a.link {
   color: var(--teal);
 }
-/* Hints stay off during a drill (the button is disabled) */
-body.drilling .hintbtn:disabled {
-  opacity: 0.5;
-  cursor: default;
-}
 
 /* Drill mode: bold status text replaces Collapse | Expand; the drilled section's button is shown pressed and disabled */
 .drillchip {
@@ -1288,4 +1313,10 @@ body.drilling .hintbtn:disabled {
 .mini:hover {
   border-color: var(--teal);
   background: var(--teal-soft);
+}
+
+/* The top Drill icon is exactly as tall as the Reveal / End drill button beside it */
+.actions.two .arow button.primary {
+  height: var(--h);
+  box-sizing: border-box;
 }

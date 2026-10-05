@@ -90,6 +90,14 @@ function Game({ drill, inc, restart }) {
   // Hint needs named categories in the section Reveal names
   // The hint only holds for the section it was switched on for
   const hintOn = !!g.hintCode && s.hint === g.hintCode && (!s.over || drilling);
+  // The top Drill button drills the open section (collapsed) or else the last section with missed tiles
+  const drillCode = drilling
+    ? s.drill
+    : g.collapsed
+      ? s.active
+      : ([...stats.sections].reverse().find((x) => hasMissed(drill, s, x.code))
+          ?.code ?? "");
+  const drillable = !!drillCode && hasMissed(drill, s, drillCode);
   const hintable = drill.items.some((it) => it.code === g.hintCode && it.cat);
 
   return (
@@ -116,26 +124,45 @@ function Game({ drill, inc, restart }) {
           <div className="cond">{drill.name}</div>
           <p className="prompt">{drill.prompt}</p>
           {!s.over || drilling ? (
-            <div className="actions">
-              <button
-                className={"primary" + (drilling ? " drill" : "")}
-                onClick={g.revealSec}
-                disabled={g.revealDisabled}
-              >
-                {g.revealLabel}
-              </button>
-              <button
-                className="hintbtn"
-                aria-pressed={hintOn}
-                onClick={() => g.toggleHint(g.hintCode)}
-                disabled={!hintable}
-                title="Show the categories for this section"
-              >
-                <span className="hintbox" aria-hidden="true" />
-                Hint
-              </button>
-              <button onClick={menu}>Back</button>
-              <button onClick={another}>New</button>
+            <div className="actions two">
+              <div className="arow">
+                <button
+                  className={"primary" + (drilling ? " drill" : "")}
+                  onClick={g.revealSec}
+                  disabled={g.revealDisabled}
+                >
+                  {g.revealLabel}
+                </button>
+                <button
+                  className="redo bare"
+                  type="button"
+                  aria-pressed={drilling}
+                  disabled={drilling || !drillable}
+                  title={
+                    drilling
+                      ? "Drilling this section"
+                      : "Drill the missed items in this section"
+                  }
+                  aria-label="Drill the missed items in this section"
+                  onClick={() => g.startDrill(drillCode)}
+                >
+                  ↺
+                </button>
+              </div>
+              <div className="arow">
+                <button
+                  className="hintbtn"
+                  aria-pressed={hintOn}
+                  onClick={() => g.toggleHint(g.hintCode)}
+                  disabled={!hintable}
+                  title="Show the categories for this section"
+                >
+                  <span className="hintbox" aria-hidden="true" />
+                  Hint
+                </button>
+                <button onClick={menu}>Back</button>
+                <button onClick={another}>New</button>
+              </div>
             </div>
           ) : (
             <div className="actions">
