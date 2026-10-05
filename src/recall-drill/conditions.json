@@ -6736,7 +6736,7 @@
      },
      {
       "label": "Skin darkening",
-      "keywords": "pigment|dark|tan"
+      "keywords": "~pigment|dark|tan|bronz"
      }
     ],
     "Complications": [
@@ -6790,7 +6790,7 @@
     "Musculoskeletal and skin": [
      {
       "label": "Hyperpigmentation: palmar creases, buccal mucosa, scars",
-      "keywords": "palmar|crease|buccal|scar|bronz"
+      "keywords": "~pigment|dark|tan|palmar|crease|buccal|scar|bronz"
      },
      {
       "label": "Reduced axillary / pubic hair (women)",
