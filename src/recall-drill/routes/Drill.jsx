@@ -89,7 +89,7 @@ function Game({ drill, inc, restart }) {
   const menu = () => nav("/");
   // Hint needs named categories in the section Reveal names
   // The hint only holds for the section it was switched on for
-  const hintOn = !!g.hintCode && s.hint === g.hintCode && !s.over;
+  const hintOn = !!g.hintCode && s.hint === g.hintCode && (!s.over || drilling);
   const hintable = drill.items.some((it) => it.code === g.hintCode && it.cat);
 
   return (
@@ -179,7 +179,7 @@ function Game({ drill, inc, restart }) {
             autoCapitalize="off"
             autoCorrect="off"
             spellCheck={false}
-            disabled={s.over}
+            disabled={s.over && !drilling}
             onInput={g.onInput}
             onKeyDown={g.onKeyDown}
           />

@@ -434,7 +434,7 @@ export function useDrillGame({ drill, account, inc }) {
   // Show or hide the category boxes (per round, not saved)
   const toggleHint = (code) => {
     const st = sRef.current;
-    if (st.over) return;
+    if (st.over && !st.drill) return;
     apply({ ...st, hint: st.hint === code ? "" : code });
   };
   const setActive = (code) => {
@@ -488,7 +488,7 @@ export function useDrillGame({ drill, account, inc }) {
         ? "Reveal " + sections.find((x) => x.code === s.active).short
         : "Finish";
   // The section the hint applies to: the one Reveal names (the open one when collapsed)
-  const hintCode = s.drill ? "" : n ? n.code : collapsed ? s.active : "";
+  const hintCode = s.drill ? s.drill : n ? n.code : collapsed ? s.active : "";
   const revealDisabled = s.drill ? false : collapsed ? !n : !items.length;
 
   return {
