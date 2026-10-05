@@ -1320,3 +1320,7 @@ button.star[aria-pressed="true"] {
   height: var(--h);
   box-sizing: border-box;
 }
+
+.sect {
+  scroll-margin-top: 12px;
+}

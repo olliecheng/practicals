@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { MODES } from "../lib/data";
 import { decodeDrill, drillPath } from "../lib/drillId";
@@ -78,6 +78,29 @@ function Game({ drill, inc, restart }) {
     document.body.classList.toggle("drilling", drilling);
     return () => document.body.classList.remove("drilling");
   }, [drilling]);
+  // Expanding (the toggle, or Reveal ending the round) scrolls the section just revealed or left open into view
+  const scrollTo = useRef("");
+  const compact = g.collapsed && !s.over;
+  const was = useRef({ compact, over: s.over });
+  useEffect(() => {
+    const prev = was.current;
+    was.current = { compact, over: s.over };
+    const code = scrollTo.current;
+    scrollTo.current = "";
+    if (!code || !((prev.compact && !compact) || (!prev.over && s.over)))
+      return;
+    document
+      .getElementById("s" + code)
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+  const reveal = () => {
+    scrollTo.current = g.hintCode;
+    g.revealSec();
+  };
+  const toggleCollapsed = () => {
+    if (collapsed) scrollTo.current = s.active;
+    g.setCollapsed(!collapsed);
+  };
   const { acct, user } = account;
   const noun = MODES[drill.mode].noun;
   const starred = !!acct && user.stars.includes(drill.key);
@@ -128,26 +151,28 @@ function Game({ drill, inc, restart }) {
               <div className="arow">
                 <button
                   className={"primary" + (drilling ? " drill" : "")}
-                  onClick={g.revealSec}
+                  onClick={reveal}
                   disabled={g.revealDisabled}
                 >
                   {g.revealLabel}
                 </button>
-                <button
-                  className="redo bare"
-                  type="button"
-                  aria-pressed={drilling}
-                  disabled={drilling || !drillable}
-                  title={
-                    drilling
-                      ? "Drilling this section"
-                      : "Drill the missed items in this section"
-                  }
-                  aria-label="Drill the missed items in this section"
-                  onClick={() => g.startDrill(drillCode)}
-                >
-                  ↺
-                </button>
+                {(drilling || s.revealed.size > 0) && (
+                  <button
+                    className="redo bare"
+                    type="button"
+                    aria-pressed={drilling}
+                    disabled={drilling || !drillable}
+                    title={
+                      drilling
+                        ? "Drilling this section"
+                        : "Drill the missed items in this section"
+                    }
+                    aria-label="Drill the missed items in this section"
+                    onClick={() => g.startDrill(drillCode)}
+                  >
+                    ↺
+                  </button>
+                )}
               </div>
               <div className="arow">
                 <button
@@ -231,7 +256,7 @@ function Game({ drill, inc, restart }) {
               role="group"
               aria-label="Sections"
               data-state={collapsed ? "collapsed" : "expanded"}
-              onClick={() => g.setCollapsed(!collapsed)}
+              onClick={toggleCollapsed}
             >
               <span className="pill" />
               <button aria-pressed={collapsed}>Collapse</button>
