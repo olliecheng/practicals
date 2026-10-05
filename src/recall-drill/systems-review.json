@@ -1,0 +1,3254 @@
+{
+ "Systems review": {
+  "General and constitutional": {
+   "prompt": "Symptoms to ask about",
+   "symptoms": {
+    "Constitutional": [
+     {
+      "label": "Fever / rigors",
+      "keywords": "fever|pyrexia|febrile|rigor|chills"
+     },
+     {
+      "label": "Night sweats (drenching)",
+      "keywords": "night sweat|sweats|drenching"
+     },
+     {
+      "label": "Weight loss (amount over what time)",
+      "keywords": "weight loss|lost weight|losing weight"
+     },
+     {
+      "label": "Weight gain",
+      "keywords": "weight gain|gained weight|gaining weight"
+     },
+     {
+      "label": "Appetite change / anorexia",
+      "keywords": "appetite|anorexia|eating less|not eating"
+     },
+     {
+      "label": "Fatigue / lethargy",
+      "keywords": "fatigue|tired|letharg|exhaust|energy"
+     },
+     {
+      "label": "General malaise",
+      "keywords": "malaise|unwell|generally sick|run down"
+     }
+    ],
+    "Lymphatic and haematological": [
+     {
+      "label": "Lumps or swollen glands",
+      "keywords": "lump|swollen gland|swollen node|lymph node|glands"
+     },
+     {
+      "label": "Easy bruising or bleeding",
+      "keywords": "bruis|bleed|petechia"
+     },
+     {
+      "label": "Itch (generalised pruritus)",
+      "keywords": "itch|prurit"
+     },
+     {
+      "label": "Pallor / anaemia symptoms",
+      "keywords": "pallor|pale|anaemi|anemi"
+     }
+    ],
+    "Endocrine and metabolic": [
+     {
+      "label": "Heat or cold intolerance",
+      "keywords": "heat intol|cold intol|intoleran.*heat|intoleran.*cold|feel the cold|feel hot"
+     },
+     {
+      "label": "Excess thirst / polyuria",
+      "keywords": "thirst|polydips|polyur|passing a lot of urine"
+     },
+     {
+      "label": "Skin or hair changes",
+      "keywords": "hair loss|dry skin|skin change|hair change|thinning"
+     }
+    ],
+    "Pain, sleep and mood": [
+     {
+      "label": "Generalised aches or pains",
+      "keywords": "generalised|widespread|aches|body pain"
+     },
+     {
+      "label": "Sleep disturbance",
+      "keywords": "sleep|insomnia|waking"
+     },
+     {
+      "label": "Low mood / anxiety",
+      "keywords": "low mood|depress|anxi|mood"
+     },
+     {
+      "label": "Recent infection or illness",
+      "keywords": "recent infection|recent illness|recent cold|recent viral|sick contact"
+     }
+    ]
+   }
+  },
+  "Cardiovascular": {
+   "prompt": "Symptoms to ask about on cardiovascular review",
+   "symptoms": {
+    "Chest pain": [
+     {
+      "label": "Chest pain / tightness / pressure",
+      "keywords": "chest pain|chest tight|chest pressure|chest discomfort|angina"
+     },
+     {
+      "label": "Exertional, relieved by rest or GTN",
+      "keywords": "exertion|relieved by rest|gtn|nitrate|brought on|on exertion"
+     },
+     {
+      "label": "Radiation to arm, jaw or neck",
+      "keywords": "radiat|left arm|jaw|neck"
+     },
+     {
+      "label": "Autonomic features (sweating, nausea)",
+      "keywords": "diaphor|clammy|sweat|nausea"
+     },
+     {
+      "label": "Pleuritic or positional pain (pericarditis)",
+      "keywords": "pleurit|position|sitting forward|leaning forward|lying flat.*pain|worse.*lying"
+     },
+     {
+      "label": "Tearing pain radiating to the back (dissection)",
+      "keywords": "tear|ripping|radiat.*back|to the back"
+     }
+    ],
+    "Dyspnoea and fluid": [
+     {
+      "label": "Dyspnoea / exertional tolerance (stairs, distance)",
+      "keywords": "dyspn|breathless|short of breath|exercise tol|exertional|stairs|how far|nyha"
+     },
+     {
+      "label": "Orthopnoea (number of pillows)",
+      "keywords": "orthop|pillow|lying flat"
+     },
+     {
+      "label": "Paroxysmal nocturnal dyspnoea",
+      "keywords": "pnd|paroxysmal|wake.*breath|night.*breath"
+     },
+     {
+      "label": "Cough / frothy pink sputum",
+      "keywords": "cough|frothy|pink sputum"
+     },
+     {
+      "label": "Ankle or leg swelling",
+      "keywords": "oedema|edema|ankle swell|leg swell|swollen ankle|swollen leg|swelling"
+     },
+     {
+      "label": "Abdominal swelling / ascites",
+      "keywords": "abdominal swell|ascites|bloat|distend"
+     },
+     {
+      "label": "Weight gain (daily weights)",
+      "keywords": "weight gain|daily weigh|scales"
+     },
+     {
+      "label": "Nocturia",
+      "keywords": "nocturia"
+     }
+    ],
+    "Rhythm and perfusion": [
+     {
+      "label": "Palpitations (rate, regularity, onset and offset)",
+      "keywords": "palpit|racing heart|irregular heart|skipped|fluttering|thumping"
+     },
+     {
+      "label": "Syncope / presyncope",
+      "keywords": "syncop|faint|blackout|collapse|presyncop|lighthead|dizz"
+     },
+     {
+      "label": "Exertional syncope (aortic stenosis, HOCM)",
+      "keywords": "exertional syncope|syncope on exertion|faint.*exert|collapse.*exert|blackout.*exert"
+     },
+     {
+      "label": "Fatigue / reduced exercise capacity",
+      "keywords": "fatigue|tired|letharg"
+     }
+    ],
+    "Peripheral vascular": [
+     {
+      "label": "Claudication (distance, site)",
+      "keywords": "claudic|calf pain|leg pain.*walk|cramp.*walking"
+     },
+     {
+      "label": "Rest pain / cold feet",
+      "keywords": "rest pain|cold feet|cold leg|night pain|dangle"
+     },
+     {
+      "label": "Non-healing ulcers or wounds",
+      "keywords": "ulcer|non-healing|non healing|wound"
+     },
+     {
+      "label": "Cold or colour-changing digits (Raynaud)",
+      "keywords": "raynaud|cold finger|colour change|white finger|blue finger"
+     }
+    ],
+    "Embolic and infective": [
+     {
+      "label": "Fever / sweats (endocarditis)",
+      "keywords": "fever|sweats|rigor"
+     },
+     {
+      "label": "Stroke / TIA symptoms (embolic)",
+      "keywords": "tia|stroke|transient|amaurosis|face droop|slurred|weakness"
+     },
+     {
+      "label": "Recent dental work or procedures",
+      "keywords": "dental|dentist|procedure"
+     },
+     {
+      "label": "Easy bruising / bleeding on anticoagulation",
+      "keywords": "bruis|bleeding|anticoag"
+     }
+    ]
+   }
+  },
+  "Respiratory": {
+   "prompt": "Symptoms to ask about on respiratory review",
+   "symptoms": {
+    "Cough and sputum": [
+     {
+      "label": "Cough (duration, dry or productive, nocturnal)",
+      "keywords": "cough"
+     },
+     {
+      "label": "Sputum (volume, colour, purulence)",
+      "keywords": "sputum|phlegm|purulent|green|yellow"
+     },
+     {
+      "label": "Haemoptysis",
+      "keywords": "haemopt|hemopt|coughing blood|coughing up blood|blood.*sputum|blood.*cough"
+     },
+     {
+      "label": "Chronic cough over 8 weeks",
+      "keywords": "chronic cough|8 weeks|more than 3 weeks|persistent cough"
+     }
+    ],
+    "Breathlessness": [
+     {
+      "label": "Dyspnoea (onset, exertional tolerance, MRC grade)",
+      "keywords": "dyspn|breathless|short of breath|exertional|mrc|stairs|how far"
+     },
+     {
+      "label": "Wheeze",
+      "keywords": "wheez"
+     },
+     {
+      "label": "Chest tightness",
+      "keywords": "tight"
+     },
+     {
+      "label": "Orthopnoea / PND",
+      "keywords": "orthop|pnd|pillow|paroxysmal|lying flat"
+     },
+     {
+      "label": "Platypnoea / positional dyspnoea",
+      "keywords": "platypn|position"
+     },
+     {
+      "label": "Stridor / noisy breathing",
+      "keywords": "stridor|noisy breath|croak"
+     }
+    ],
+    "Chest pain and infection": [
+     {
+      "label": "Pleuritic chest pain",
+      "keywords": "pleurit|sharp.*breath|worse.*breathing|pain.*inspir"
+     },
+     {
+      "label": "Fever / rigors",
+      "keywords": "fever|rigor|chills|pyrexia"
+     },
+     {
+      "label": "Night sweats",
+      "keywords": "night sweat|sweats"
+     },
+     {
+      "label": "Weight loss",
+      "keywords": "weight loss|lost weight"
+     },
+     {
+      "label": "Recent upper respiratory tract infection",
+      "keywords": "recent infection|recent cold|urti|recent illness|sick contact|cold"
+     }
+    ],
+    "Upper airway and sleep": [
+     {
+      "label": "Rhinitis / sneezing / nasal congestion",
+      "keywords": "rhinit|sneez|nasal|runny nose|hay fever|congest"
+     },
+     {
+      "label": "Snoring and witnessed apnoeas",
+      "keywords": "snor|apnoea|apnea|witnessed|choking at night"
+     },
+     {
+      "label": "Daytime sleepiness",
+      "keywords": "daytime sleep|somnolen|epworth|unrefreshing|sleepy"
+     },
+     {
+      "label": "Hoarseness",
+      "keywords": "hoarse|voice change|dysphon"
+     }
+    ],
+    "Thromboembolic and malignancy": [
+     {
+      "label": "Unilateral leg swelling or calf pain (DVT)",
+      "keywords": "calf|unilateral leg|leg swell|dvt|clot"
+     },
+     {
+      "label": "Facial or neck swelling (SVC obstruction)",
+      "keywords": "facial swell|face swell|neck swell|plethora|svc|distended neck veins"
+     },
+     {
+      "label": "Bone pain / paraneoplastic symptoms",
+      "keywords": "bone pain|clubbing|paraneoplastic"
+     }
+    ]
+   }
+  },
+  "Gastrointestinal": {
+   "prompt": "Symptoms to ask about on gastrointestinal review",
+   "symptoms": {
+    "Swallowing and upper GI": [
+     {
+      "label": "Dysphagia (solids vs liquids, level)",
+      "keywords": "dysphag|difficulty swallowing|trouble swallowing|food stick|food sticking"
+     },
+     {
+      "label": "Odynophagia",
+      "keywords": "odynophag|painful swallowing|pain.*swallow"
+     },
+     {
+      "label": "Heartburn / reflux / regurgitation",
+      "keywords": "heartburn|reflux|gord|acid|regurg"
+     },
+     {
+      "label": "Dyspepsia / epigastric pain",
+      "keywords": "dyspep|epigastr|indigest|upper abdominal"
+     },
+     {
+      "label": "Nausea",
+      "keywords": "nausea|feel sick|feeling sick"
+     },
+     {
+      "label": "Vomiting (bilious, faeculent, projectile)",
+      "keywords": "vomit|emesis|retch|bilious|faeculent|projectile"
+     },
+     {
+      "label": "Haematemesis / coffee-ground vomitus",
+      "keywords": "haematem|hematem|vomit.*blood|blood.*vomit|coffee ground"
+     },
+     {
+      "label": "Early satiety / bloating",
+      "keywords": "satiety|bloat|fullness|full quickly"
+     }
+    ],
+    "Abdominal pain (SOCRATES)": [
+     {
+      "label": "Abdominal pain: site and onset",
+      "keywords": "abdominal pain|abdo pain|tummy pain|stomach pain|belly pain|site|onset"
+     },
+     {
+      "label": "Radiation (back, shoulder tip, groin)",
+      "keywords": "radiat|back|shoulder|groin"
+     },
+     {
+      "label": "Colicky vs constant",
+      "keywords": "colic|constant|waves|comes and goes"
+     },
+     {
+      "label": "Relation to meals / fatty food",
+      "keywords": "meal|eating|fasting|fatty|food"
+     },
+     {
+      "label": "Worse on movement or coughing (peritonism)",
+      "keywords": "peritoni|movement|coughing|jar|speed bump"
+     },
+     {
+      "label": "Relieved by defecation (IBS)",
+      "keywords": "defecat|passing stool|bowel opening|relieved by"
+     }
+    ],
+    "Bowel habit and bleeding": [
+     {
+      "label": "Change in bowel habit",
+      "keywords": "bowel habit|change in bowel|stool frequency|stool consistency"
+     },
+     {
+      "label": "Diarrhoea (frequency, nocturnal)",
+      "keywords": "diarrh|loose stool|loose motion|nocturnal"
+     },
+     {
+      "label": "Constipation",
+      "keywords": "constipat|hard stool|straining"
+     },
+     {
+      "label": "Fresh rectal bleeding",
+      "keywords": "rectal bleed|pr bleed|per rectum|bright red|haematochez|blood.*stool|blood.*toilet|blood on"
+     },
+     {
+      "label": "Melaena",
+      "keywords": "melaena|melena|black stool|tarry|black motion"
+     },
+     {
+      "label": "Mucus in the stool",
+      "keywords": "mucus|slime"
+     },
+     {
+      "label": "Steatorrhoea (pale, offensive, floating)",
+      "keywords": "steat|greasy|pale stool|float|offensive stool"
+     },
+     {
+      "label": "Tenesmus / urgency",
+      "keywords": "tenesm|urgency|incomplete evacuation"
+     },
+     {
+      "label": "Faecal incontinence / soiling",
+      "keywords": "incontinen|soiling|faecal leak"
+     },
+     {
+      "label": "Perianal pain, itch or swelling",
+      "keywords": "perianal|anal|fissure|haemorrhoid|pruritus ani|prolapse"
+     }
+    ],
+    "Hepatobiliary": [
+     {
+      "label": "Jaundice",
+      "keywords": "jaundice|yellow skin|yellow eye|icterus|scleral"
+     },
+     {
+      "label": "Dark urine / pale stools",
+      "keywords": "dark urine|pale stool|cholesta"
+     },
+     {
+      "label": "Pruritus",
+      "keywords": "prurit|itch"
+     },
+     {
+      "label": "Abdominal distension / ascites",
+      "keywords": "distension|distention|ascites|swelling"
+     },
+     {
+      "label": "Easy bruising / bleeding",
+      "keywords": "bruis|bleed|coagul"
+     },
+     {
+      "label": "Confusion / sleep reversal",
+      "keywords": "encephalopath|confus|sleep reversal|drows"
+     }
+    ],
+    "Systemic and extra-intestinal": [
+     {
+      "label": "Weight loss",
+      "keywords": "weight loss|lost weight"
+     },
+     {
+      "label": "Appetite loss",
+      "keywords": "appetite|anorexia"
+     },
+     {
+      "label": "Fever / night sweats",
+      "keywords": "fever|night sweat|sweats"
+     },
+     {
+      "label": "Symptoms of anaemia (fatigue, pallor, dyspnoea)",
+      "keywords": "anaemi|anemi|fatigue|tired|pallor"
+     },
+     {
+      "label": "Mouth ulcers",
+      "keywords": "mouth ulcer|aphth|oral ulcer"
+     },
+     {
+      "label": "Joint pain or back stiffness",
+      "keywords": "joint|arthr|back stiff"
+     },
+     {
+      "label": "Red painful eye (uveitis / episcleritis)",
+      "keywords": "red eye|uveit|iritis|episcleritis|eye pain"
+     },
+     {
+      "label": "Skin lesions (erythema nodosum, pyoderma gangrenosum)",
+      "keywords": "erythema nodosum|pyoderma|rash|skin lesion|skin"
+     }
+    ]
+   }
+  },
+  "Genitourinary": {
+   "prompt": "Symptoms to ask about on renal and urological review",
+   "symptoms": {
+    "Lower urinary tract": [
+     {
+      "label": "Frequency",
+      "keywords": "frequen"
+     },
+     {
+      "label": "Urgency",
+      "keywords": "urgen"
+     },
+     {
+      "label": "Nocturia",
+      "keywords": "nocturia|night.*urinat|up at night"
+     },
+     {
+      "label": "Hesitancy / delay starting",
+      "keywords": "hesit|delay|slow to start"
+     },
+     {
+      "label": "Poor or intermittent stream",
+      "keywords": "stream|weak flow|dribbl"
+     },
+     {
+      "label": "Straining",
+      "keywords": "strain"
+     },
+     {
+      "label": "Incomplete emptying",
+      "keywords": "incomplete|not emptying|emptying"
+     },
+     {
+      "label": "Terminal dribbling",
+      "keywords": "terminal dribbl|post-micturition|after urinating"
+     },
+     {
+      "label": "Urge incontinence",
+      "keywords": "urge incontinen|urge|leak.*urge"
+     },
+     {
+      "label": "Stress incontinence",
+      "keywords": "stress incontinen|leak.*cough|leak.*sneez|leak.*laugh"
+     },
+     {
+      "label": "Dysuria",
+      "keywords": "dysuria|burning|stinging|painful urination|pain.*passing urine"
+     }
+    ],
+    "Haematuria and urine appearance": [
+     {
+      "label": "Visible haematuria",
+      "keywords": "haematuria|hematuria|blood.*urine|red urine|pink urine"
+     },
+     {
+      "label": "Clots / timing in the stream",
+      "keywords": "clots|timing|initial|terminal haem|throughout"
+     },
+     {
+      "label": "Foamy urine (proteinuria)",
+      "keywords": "foam|froth|bubbly"
+     },
+     {
+      "label": "Dark or cola-coloured urine",
+      "keywords": "dark urine|cola|tea-coloured|tea coloured"
+     },
+     {
+      "label": "Pneumaturia / faecaluria",
+      "keywords": "pneumaturia|air.*urine|faecaluria|bubbles in urine"
+     }
+    ],
+    "Upper tract and infection": [
+     {
+      "label": "Loin pain / renal colic",
+      "keywords": "loin|flank|renal colic|colic"
+     },
+     {
+      "label": "Radiation to the groin or testis",
+      "keywords": "radiat|groin|testi"
+     },
+     {
+      "label": "Fever / rigors",
+      "keywords": "fever|rigor|chills"
+     },
+     {
+      "label": "Nausea / vomiting",
+      "keywords": "nausea|vomit"
+     },
+     {
+      "label": "Recurrent urinary tract infections",
+      "keywords": "recurrent|uti|urinary tract infection"
+     }
+    ],
+    "Volume status and uraemia": [
+     {
+      "label": "Periorbital or peripheral oedema",
+      "keywords": "oedema|edema|periorbital|puffy|swell"
+     },
+     {
+      "label": "Change in urine volume (oliguria, polyuria)",
+      "keywords": "oliguria|anuria|polyuria|urine output|urine volume|passing less"
+     },
+     {
+      "label": "Pruritus",
+      "keywords": "prurit|itch"
+     },
+     {
+      "label": "Metallic taste / anorexia / nausea",
+      "keywords": "metallic|taste|anorexia|appetite"
+     },
+     {
+      "label": "Restless legs / cramps",
+      "keywords": "restless|cramp"
+     },
+     {
+      "label": "Fatigue / breathlessness",
+      "keywords": "fatigue|tired|breathless|short of breath"
+     }
+    ],
+    "Male genitourinary and sexual": [
+     {
+      "label": "Urethral discharge",
+      "keywords": "urethral|penile discharge|discharge"
+     },
+     {
+      "label": "Genital ulcers, lesions or rash",
+      "keywords": "ulcer|lesion|wart|rash|sore"
+     },
+     {
+      "label": "Scrotal pain or swelling / lump",
+      "keywords": "testic|scrot|lump|torsion"
+     },
+     {
+      "label": "Erectile dysfunction",
+      "keywords": "erect|impoten"
+     },
+     {
+      "label": "Reduced libido",
+      "keywords": "libido|sex drive"
+     },
+     {
+      "label": "Haematospermia",
+      "keywords": "haematosperm|blood.*semen|blood.*ejacul"
+     }
+    ]
+   }
+  },
+  "Female reproductive and gynaecological": {
+   "prompt": "Symptoms to ask about on gynaecological review",
+   "symptoms": {
+    "Menstrual history": [
+     {
+      "label": "LMP and cycle length / regularity",
+      "keywords": "lmp|last menstrual|last period|cycle length|regular|menarche"
+     },
+     {
+      "label": "Heavy menstrual bleeding (pads, clots, flooding)",
+      "keywords": "heavy|menorrh|flooding|clots|pads|tampons"
+     },
+     {
+      "label": "Intermenstrual bleeding",
+      "keywords": "intermenstrual|between periods|spotting|breakthrough"
+     },
+     {
+      "label": "Postcoital bleeding",
+      "keywords": "postcoital|after sex|after intercourse"
+     },
+     {
+      "label": "Postmenopausal bleeding",
+      "keywords": "postmenopausal|post menopausal|after menopause"
+     },
+     {
+      "label": "Dysmenorrhoea",
+      "keywords": "dysmenorr|painful period|period pain"
+     },
+     {
+      "label": "Amenorrhoea",
+      "keywords": "amenorr|missed period|absent period|no period"
+     },
+     {
+      "label": "Menopausal symptoms (flushes, dryness)",
+      "keywords": "hot flush|flash|menopaus|vaginal dry"
+     }
+    ],
+    "Pelvic pain and sexual function": [
+     {
+      "label": "Pelvic pain (site, cyclical or not)",
+      "keywords": "pelvic pain|lower abdominal|suprapubic|cyclical"
+     },
+     {
+      "label": "Dyspareunia (superficial or deep)",
+      "keywords": "dyspareun|painful sex|pain.*intercourse|pain.*sex"
+     },
+     {
+      "label": "Dyschezia or cyclical bowel/bladder symptoms",
+      "keywords": "dyschezia|painful bowel|cyclical.*bowel|cyclical.*bladder"
+     },
+     {
+      "label": "Libido",
+      "keywords": "libido|sex drive"
+     },
+     {
+      "label": "Sexual history and partners",
+      "keywords": "sexual history|partners|sti|unprotected|sexually active"
+     }
+    ],
+    "Discharge and infection": [
+     {
+      "label": "Vaginal discharge (colour, odour, itch)",
+      "keywords": "discharge|odour|thrush"
+     },
+     {
+      "label": "Vulval itching or soreness",
+      "keywords": "vulv|itch|sore"
+     },
+     {
+      "label": "Genital ulcers or warts",
+      "keywords": "ulcer|wart|herpes|lesion"
+     },
+     {
+      "label": "Fever / pelvic inflammatory symptoms",
+      "keywords": "fever|pid|pelvic inflammatory"
+     }
+    ],
+    "Contraception, fertility and screening": [
+     {
+      "label": "Contraception",
+      "keywords": "contracept|pill|iud|implant|condom"
+     },
+     {
+      "label": "Possibility of pregnancy",
+      "keywords": "pregnan|pregnancy test"
+     },
+     {
+      "label": "Trying to conceive / infertility",
+      "keywords": "fertil|conceive|trying for|infertil"
+     },
+     {
+      "label": "Cervical screening history",
+      "keywords": "cervical screen|pap|csp|hpv"
+     },
+     {
+      "label": "Breast lump, pain or nipple discharge",
+      "keywords": "breast lump|breast pain|breast discharge|nipple discharge|breast"
+     }
+    ],
+    "Endocrine": [
+     {
+      "label": "Hirsutism",
+      "keywords": "hirsut|excess hair|facial hair"
+     },
+     {
+      "label": "Acne",
+      "keywords": "acne|spots"
+     },
+     {
+      "label": "Galactorrhoea",
+      "keywords": "galactorr|milky|milk discharge"
+     },
+     {
+      "label": "Weight change",
+      "keywords": "weight"
+     }
+    ]
+   }
+  },
+  "Pregnancy and antenatal": {
+   "prompt": "Symptoms to ask about at an antenatal review",
+   "symptoms": {
+    "Common symptoms": [
+     {
+      "label": "Nausea and vomiting (hyperemesis)",
+      "keywords": "nausea|vomit|morning sickness|hyperemesis"
+     },
+     {
+      "label": "Heartburn",
+      "keywords": "heartburn|reflux"
+     },
+     {
+      "label": "Constipation",
+      "keywords": "constipat"
+     },
+     {
+      "label": "Back or pelvic girdle pain",
+      "keywords": "back pain|pelvic girdle|symphysis"
+     },
+     {
+      "label": "Urinary symptoms (UTI)",
+      "keywords": "dysuria|urinary|uti|frequen"
+     },
+     {
+      "label": "Vaginal discharge",
+      "keywords": "discharge|thrush"
+     },
+     {
+      "label": "Polyuria and thirst (gestational diabetes)",
+      "keywords": "polyur|thirst|polydips|diabet"
+     },
+     {
+      "label": "Low mood or anxiety (perinatal)",
+      "keywords": "low mood|depress|anxi|perinatal|mood|edinburgh"
+     }
+    ],
+    "Danger signs": [
+     {
+      "label": "Vaginal bleeding (antepartum haemorrhage)",
+      "keywords": "bleed|spotting|antepartum|haemorrhage"
+     },
+     {
+      "label": "Abdominal pain (ectopic, abruption, labour)",
+      "keywords": "abdominal pain|pain|cramp|ectopic|shoulder tip|abruption"
+     },
+     {
+      "label": "Reduced fetal movements",
+      "keywords": "fetal movement|foetal movement|kicks|reduced movement|baby moving"
+     },
+     {
+      "label": "Leaking of fluid (ruptured membranes)",
+      "keywords": "liquor|waters|rupture|pprom|leaking|gush"
+     },
+     {
+      "label": "Regular contractions / tightenings",
+      "keywords": "contraction|tightening|labour|braxton"
+     },
+     {
+      "label": "Severe headache",
+      "keywords": "headache"
+     },
+     {
+      "label": "Visual disturbance (flashing lights, blurring)",
+      "keywords": "visual|flashing|blur|spots"
+     },
+     {
+      "label": "Epigastric or right upper quadrant pain",
+      "keywords": "epigastric|ruq|right upper"
+     },
+     {
+      "label": "Sudden facial or hand swelling",
+      "keywords": "swelling|oedema|edema|face swell"
+     },
+     {
+      "label": "Palm and sole itch (cholestasis)",
+      "keywords": "prurit|itch|palms|soles"
+     },
+     {
+      "label": "Unilateral leg swelling / calf pain (DVT)",
+      "keywords": "calf|unilateral|dvt|leg swell"
+     },
+     {
+      "label": "Dyspnoea / palpitations",
+      "keywords": "dyspn|breathless|short of breath|palpit"
+     },
+     {
+      "label": "Fever / rigors",
+      "keywords": "fever|rigor|chills"
+     }
+    ],
+    "Safety": [
+     {
+      "label": "Domestic violence screening",
+      "keywords": "violence|abuse|safe at home|feel safe|dv"
+     },
+     {
+      "label": "Smoking, alcohol and drug use",
+      "keywords": "smok|alcohol|drug|substance"
+     }
+    ]
+   }
+  },
+  "Neurological": {
+   "prompt": "Symptoms to ask about on neurological review",
+   "symptoms": {
+    "Headache": [
+     {
+      "label": "Headache (site, character, severity)",
+      "keywords": "headache|head pain"
+     },
+     {
+      "label": "Thunderclap / sudden-onset headache",
+      "keywords": "thunderclap|sudden onset|worst headache"
+     },
+     {
+      "label": "Aura (visual, sensory)",
+      "keywords": "aura|zigzag|scotoma|flickering"
+     },
+     {
+      "label": "Photophobia / phonophobia",
+      "keywords": "photophob|phonophob|light sensitiv|sound sensitiv"
+     },
+     {
+      "label": "Fever and neck stiffness",
+      "keywords": "neck stiff|meningism|fever"
+     },
+     {
+      "label": "Worse lying, straining or in the morning (raised ICP)",
+      "keywords": "morning|lying|straining|valsalva|raised icp|cough"
+     },
+     {
+      "label": "Jaw claudication / scalp tenderness (GCA)",
+      "keywords": "jaw|scalp|temporal|gca"
+     }
+    ],
+    "Consciousness and cognition": [
+     {
+      "label": "Loss of consciousness / collapse",
+      "keywords": "loc|loss of consciousness|blackout|collapse|faint"
+     },
+     {
+      "label": "Seizures (aura, tongue-biting, incontinence, postictal)",
+      "keywords": "seiz|fit|convuls|jerking|tongue bit|postictal"
+     },
+     {
+      "label": "Memory loss / confusion",
+      "keywords": "memory|confus|forget|cognit|dementia"
+     },
+     {
+      "label": "Personality or behaviour change",
+      "keywords": "personality|behaviour|apathy|disinhib"
+     },
+     {
+      "label": "Speech disturbance (dysphasia, dysarthria)",
+      "keywords": "dysphas|aphasia|slurr|speech|dysarth|word finding"
+     }
+    ],
+    "Motor": [
+     {
+      "label": "Focal weakness (distribution, onset, proximal vs distal)",
+      "keywords": "weak|hemipar|foot drop|paraly"
+     },
+     {
+      "label": "Facial droop",
+      "keywords": "face|facial droop|droop"
+     },
+     {
+      "label": "Falls / unsteady gait",
+      "keywords": "fall|gait|balance|unsteady|ataxi|walking"
+     },
+     {
+      "label": "Tremor (rest, postural, intention)",
+      "keywords": "tremor|shak"
+     },
+     {
+      "label": "Stiffness / slowness of movement",
+      "keywords": "stiff|slow|bradykin|rigid"
+     },
+     {
+      "label": "Muscle wasting, cramps or fasciculations",
+      "keywords": "wast|fasciculat|twitch|cramp"
+     },
+     {
+      "label": "Involuntary movements (chorea, dystonia, tics)",
+      "keywords": "chorea|dystonia|tic|involuntary|jerk"
+     },
+     {
+      "label": "Swallowing difficulty / choking (bulbar)",
+      "keywords": "swallow|choke|dysphag|bulbar"
+     }
+    ],
+    "Sensory": [
+     {
+      "label": "Numbness",
+      "keywords": "numb|loss of sensation|sensory loss"
+     },
+     {
+      "label": "Pins and needles",
+      "keywords": "paraesth|pins|tingl"
+     },
+     {
+      "label": "Neuropathic pain (burning, shooting)",
+      "keywords": "burning|neuropath|shooting|electric|lhermitte"
+     },
+     {
+      "label": "Distribution (glove and stocking, dermatomal, hemisensory)",
+      "keywords": "glove|stocking|dermatom|hemisens|distribution"
+     },
+     {
+      "label": "Band-like sensation / sensory level",
+      "keywords": "band|girdle|sensory level"
+     }
+    ],
+    "Cranial nerves and special senses": [
+     {
+      "label": "Visual loss / blurred vision",
+      "keywords": "vision loss|visual loss|blind|amaurosis|blurred|blurring|field"
+     },
+     {
+      "label": "Diplopia",
+      "keywords": "diplop|double vision"
+     },
+     {
+      "label": "Vertigo",
+      "keywords": "vertig|spinning|room spinning"
+     },
+     {
+      "label": "Tinnitus or hearing loss",
+      "keywords": "tinnit|hearing|deaf"
+     },
+     {
+      "label": "Ptosis",
+      "keywords": "ptosis|eyelid|drooping lid"
+     },
+     {
+      "label": "Loss of smell or taste",
+      "keywords": "smell|anosmia|taste"
+     },
+     {
+      "label": "Facial pain (trigeminal)",
+      "keywords": "facial pain|trigemin|jaw pain"
+     }
+    ],
+    "Autonomic and sphincter": [
+     {
+      "label": "Bladder symptoms (incontinence, retention, urgency)",
+      "keywords": "incontinen|retention|bladder|urgency"
+     },
+     {
+      "label": "Bowel symptoms (constipation, incontinence)",
+      "keywords": "constipat|bowel"
+     },
+     {
+      "label": "Postural dizziness",
+      "keywords": "postural|orthostatic|dizz|lighthead"
+     },
+     {
+      "label": "Abnormal sweating",
+      "keywords": "sweat|anhidros"
+     },
+     {
+      "label": "Saddle anaesthesia / sexual dysfunction (cauda equina)",
+      "keywords": "saddle|perineal|cauda|erectile|sexual"
+     }
+    ]
+   }
+  },
+  "Musculoskeletal": {
+   "prompt": "Symptoms to ask about on musculoskeletal review",
+   "symptoms": {
+    "Joint symptoms": [
+     {
+      "label": "Joint pain (site, onset, duration)",
+      "keywords": "joint pain|arthralg|arthr|painful joint"
+     },
+     {
+      "label": "Distribution (number, symmetry, small vs large joints)",
+      "keywords": "symmetr|distribution|small joint|large joint|which joints|polyarth|oligoarth|monoarth"
+     },
+     {
+      "label": "Swelling, redness and warmth",
+      "keywords": "swell|red|hot|warm|inflam"
+     },
+     {
+      "label": "Morning stiffness (duration)",
+      "keywords": "morning stiff|stiffness|how long"
+     },
+     {
+      "label": "Inflammatory vs mechanical pattern (rest vs activity)",
+      "keywords": "inflammatory|mechanical|worse.*rest|worse.*activity|improve.*exercise"
+     },
+     {
+      "label": "Locking or giving way",
+      "keywords": "lock|give way|giving way|instability|catching"
+     },
+     {
+      "label": "Functional loss (grip, dressing, walking)",
+      "keywords": "function|adl|grip|dress|button|walking"
+     },
+     {
+      "label": "Recent trauma",
+      "keywords": "trauma|injur|fall"
+     }
+    ],
+    "Back pain": [
+     {
+      "label": "Back pain (site, onset, radiation)",
+      "keywords": "back pain|spine|low back"
+     },
+     {
+      "label": "Sciatica / radiation down the leg",
+      "keywords": "sciatic|radiat|down the leg"
+     },
+     {
+      "label": "Night or rest pain",
+      "keywords": "night pain|rest pain|wakes"
+     },
+     {
+      "label": "Leg weakness or numbness",
+      "keywords": "weak|numb|foot drop"
+     },
+     {
+      "label": "Bladder or bowel dysfunction (cauda equina)",
+      "keywords": "retention|incontinen|bowel|bladder|cauda"
+     },
+     {
+      "label": "Saddle anaesthesia",
+      "keywords": "saddle|perineal"
+     }
+    ],
+    "Muscle": [
+     {
+      "label": "Myalgia",
+      "keywords": "myalg|muscle pain|aches"
+     },
+     {
+      "label": "Proximal weakness (stairs, combing hair)",
+      "keywords": "proximal|stairs|chair|combing|hair|lifting"
+     },
+     {
+      "label": "Shoulder or hip girdle stiffness (PMR)",
+      "keywords": "shoulder|hip girdle|girdle|pelvic girdle|pmr"
+     },
+     {
+      "label": "Dark urine after exertion (rhabdomyolysis)",
+      "keywords": "dark urine|cola|myoglobin|rhabdo"
+     }
+    ],
+    "Extra-articular": [
+     {
+      "label": "Rash (malar, psoriasis, nails)",
+      "keywords": "rash|malar|psoriasis|nail"
+     },
+     {
+      "label": "Photosensitivity",
+      "keywords": "photosens|sun"
+     },
+     {
+      "label": "Dry eyes / dry mouth",
+      "keywords": "sicca|dry eye|dry mouth|gritty"
+     },
+     {
+      "label": "Raynaud phenomenon",
+      "keywords": "raynaud|cold finger|colour change"
+     },
+     {
+      "label": "Mouth ulcers",
+      "keywords": "mouth ulcer|oral ulcer|aphth"
+     },
+     {
+      "label": "Red painful eye (uveitis)",
+      "keywords": "red eye|uveit|iritis|eye pain"
+     },
+     {
+      "label": "Hair loss",
+      "keywords": "alopecia|hair loss"
+     },
+     {
+      "label": "Skin tightening",
+      "keywords": "skin thicken|tight skin|sclerodactyl"
+     },
+     {
+      "label": "Fever / weight loss / fatigue",
+      "keywords": "fever|weight loss|fatigue|malaise"
+     },
+     {
+      "label": "Urethritis / diarrhoea (reactive arthritis)",
+      "keywords": "urethritis|diarrh|dysuria|conjunctiv"
+     },
+     {
+      "label": "Pleuritic chest pain",
+      "keywords": "pleurit|chest pain"
+     }
+    ],
+    "Crystal arthritis and bone": [
+     {
+      "label": "First MTP (big toe) pain",
+      "keywords": "podagra|big toe|great toe|first mtp|toe"
+     },
+     {
+      "label": "Recurrent acute attacks",
+      "keywords": "recurrent|episod|attacks"
+     },
+     {
+      "label": "Triggers (alcohol, diet, diuretics)",
+      "keywords": "alcohol|diet|diuretic|trigger"
+     },
+     {
+      "label": "Tophi",
+      "keywords": "tophi|tophus"
+     },
+     {
+      "label": "Fragility fractures / height loss",
+      "keywords": "fracture|fragil|osteopor|height loss|kyphos"
+     }
+    ]
+   }
+  },
+  "Endocrine": {
+   "prompt": "Symptoms to ask about on endocrine review",
+   "symptoms": {
+    "Thyroid": [
+     {
+      "label": "Weight change despite appetite",
+      "keywords": "weight loss|weight gain|weight"
+     },
+     {
+      "label": "Heat intolerance / sweating",
+      "keywords": "heat intol|sweat|hot"
+     },
+     {
+      "label": "Cold intolerance",
+      "keywords": "cold intol|feel the cold|cold"
+     },
+     {
+      "label": "Palpitations",
+      "keywords": "palpit|racing heart"
+     },
+     {
+      "label": "Tremor",
+      "keywords": "tremor|shak"
+     },
+     {
+      "label": "Anxiety / irritability",
+      "keywords": "anxi|irritab|nerv|mood"
+     },
+     {
+      "label": "Diarrhoea or constipation",
+      "keywords": "diarrh|constipat|bowel"
+     },
+     {
+      "label": "Hair thinning / dry skin",
+      "keywords": "hair|dry skin"
+     },
+     {
+      "label": "Menstrual disturbance",
+      "keywords": "menstru|period|oligomenorr|amenorr|menorrh"
+     },
+     {
+      "label": "Neck lump / swallowing difficulty / hoarseness",
+      "keywords": "neck|goitre|goiter|lump|swallow|hoarse"
+     },
+     {
+      "label": "Eye symptoms (gritty, bulging, double vision)",
+      "keywords": "gritty|proptos|bulging|diplop|double|eye"
+     },
+     {
+      "label": "Fatigue / lethargy",
+      "keywords": "fatigue|tired|letharg"
+     },
+     {
+      "label": "Proximal muscle weakness",
+      "keywords": "proximal|stairs|weak"
+     },
+     {
+      "label": "Slowed thinking / low mood",
+      "keywords": "depress|low mood|slow|memory|concentrat"
+     }
+    ],
+    "Glucose": [
+     {
+      "label": "Polyuria / polydipsia",
+      "keywords": "polyur|polydips|thirst|urinat"
+     },
+     {
+      "label": "Weight loss",
+      "keywords": "weight loss|lost weight"
+     },
+     {
+      "label": "Blurred vision",
+      "keywords": "blur|vision|retinop"
+     },
+     {
+      "label": "Recurrent infections (thrush, skin, UTI)",
+      "keywords": "infection|thrush|candid|boil|uti"
+     },
+     {
+      "label": "Poor wound healing / foot ulcers",
+      "keywords": "ulcer|wound|heal|foot"
+     },
+     {
+      "label": "Numbness / tingling / burning feet (neuropathy)",
+      "keywords": "numb|tingl|burning|neuropath"
+     },
+     {
+      "label": "Hypoglycaemia symptoms (sweating, tremor, hunger)",
+      "keywords": "hypo|sweating|hunger|awareness|shaky"
+     },
+     {
+      "label": "Gastroparesis symptoms (early satiety, vomiting)",
+      "keywords": "gastroparesis|early satiety|vomit"
+     },
+     {
+      "label": "Erectile dysfunction",
+      "keywords": "erect|impoten"
+     },
+     {
+      "label": "Chest pain or claudication",
+      "keywords": "chest pain|claudic|angina"
+     }
+    ],
+    "Adrenal": [
+     {
+      "label": "Postural dizziness / hypotension",
+      "keywords": "postural|dizz|lighthead|faint"
+     },
+     {
+      "label": "Salt craving",
+      "keywords": "salt"
+     },
+     {
+      "label": "Skin pigmentation",
+      "keywords": "pigment|tan|darkening"
+     },
+     {
+      "label": "Central weight gain / striae",
+      "keywords": "central|striae|stretch marks|weight gain"
+     },
+     {
+      "label": "Easy bruising / poor wound healing",
+      "keywords": "bruis|poor wound"
+     },
+     {
+      "label": "Fractures",
+      "keywords": "fracture"
+     },
+     {
+      "label": "Paroxysmal headache, sweating and palpitations (phaeochromocytoma)",
+      "keywords": "paroxysm|episod|headache|spells|phaeo"
+     }
+    ],
+    "Pituitary": [
+     {
+      "label": "Headache / bitemporal visual loss",
+      "keywords": "bitemporal|visual field|tunnel|headache"
+     },
+     {
+      "label": "Hand, foot or jaw enlargement (acromegaly)",
+      "keywords": "acromegal|hands|feet|jaw|ring|shoe"
+     },
+     {
+      "label": "Amenorrhoea / reduced libido",
+      "keywords": "amenorr|libido|sex drive"
+     },
+     {
+      "label": "Galactorrhoea",
+      "keywords": "galactorr|milky"
+     },
+     {
+      "label": "Polyuria and nocturia (diabetes insipidus)",
+      "keywords": "diabetes insipidus|nocturia|polyur"
+     }
+    ],
+    "Calcium and bone": [
+     {
+      "label": "Hypercalcaemia (stones, bones, groans, moans)",
+      "keywords": "stones|bones|groans|moans|kidney stone|constipat|abdominal pain"
+     },
+     {
+      "label": "Muscle cramps / perioral tingling (hypocalcaemia)",
+      "keywords": "cramp|perioral|tetany|carpopedal|tingl"
+     }
+    ]
+   }
+  },
+  "Haematological": {
+   "prompt": "Symptoms to ask about on haematological review",
+   "symptoms": {
+    "Anaemia": [
+     {
+      "label": "Fatigue",
+      "keywords": "fatigue|tired|letharg"
+     },
+     {
+      "label": "Pallor",
+      "keywords": "pallor|pale"
+     },
+     {
+      "label": "Exertional dyspnoea / palpitations",
+      "keywords": "dyspn|breathless|palpit|short of breath"
+     },
+     {
+      "label": "Headache / dizziness / tinnitus",
+      "keywords": "headache|dizz|tinnit"
+     },
+     {
+      "label": "Pica / restless legs",
+      "keywords": "pica|ice|restless"
+     },
+     {
+      "label": "Spoon nails / sore tongue",
+      "keywords": "koilonychia|spoon|glossitis|sore tongue|angular"
+     },
+     {
+      "label": "Angina in older patients",
+      "keywords": "angina|chest pain"
+     }
+    ],
+    "Bleeding": [
+     {
+      "label": "Easy bruising",
+      "keywords": "bruis"
+     },
+     {
+      "label": "Epistaxis",
+      "keywords": "epistax|nosebleed|nose bleed"
+     },
+     {
+      "label": "Gum bleeding",
+      "keywords": "gum"
+     },
+     {
+      "label": "Heavy menstrual bleeding",
+      "keywords": "menorrh|heavy period|heavy menstrual"
+     },
+     {
+      "label": "Melaena / haematuria",
+      "keywords": "melaena|melena|haematuria|hematuria|blood in urine|black stool"
+     },
+     {
+      "label": "Petechiae / purpura",
+      "keywords": "petechia|purpura|pinpoint"
+     },
+     {
+      "label": "Prolonged bleeding after cuts, dental extraction or surgery",
+      "keywords": "prolonged|dental|extraction|surgery|cuts|after surgery"
+     },
+     {
+      "label": "Family history of bleeding disorder",
+      "keywords": "family|hereditary|inherit"
+     }
+    ],
+    "B symptoms and lymphoma": [
+     {
+      "label": "Fever",
+      "keywords": "fever"
+     },
+     {
+      "label": "Drenching night sweats",
+      "keywords": "night sweat|drenching"
+     },
+     {
+      "label": "Weight loss over 10 percent in 6 months",
+      "keywords": "weight loss|lost weight"
+     },
+     {
+      "label": "Painless enlarged lymph node",
+      "keywords": "lymph node|lump|gland|painless"
+     },
+     {
+      "label": "Alcohol-induced node pain",
+      "keywords": "alcohol"
+     },
+     {
+      "label": "Pruritus",
+      "keywords": "prurit|itch"
+     },
+     {
+      "label": "Early satiety / left upper quadrant fullness (splenomegaly)",
+      "keywords": "satiety|left upper|splen|fullness"
+     }
+    ],
+    "Thrombosis": [
+     {
+      "label": "Unilateral leg swelling (DVT)",
+      "keywords": "leg swell|calf|dvt|unilateral"
+     },
+     {
+      "label": "Pleuritic chest pain / dyspnoea (PE)",
+      "keywords": "pleurit|chest pain|embol"
+     },
+     {
+      "label": "Unusual-site thrombosis",
+      "keywords": "unusual|cerebral venous|portal|mesenteric|budd"
+     },
+     {
+      "label": "Recurrent miscarriage",
+      "keywords": "miscarr|pregnancy loss"
+     }
+    ],
+    "Other": [
+     {
+      "label": "Recurrent infections",
+      "keywords": "recurrent infection|infection"
+     },
+     {
+      "label": "Bone pain",
+      "keywords": "bone pain"
+     },
+     {
+      "label": "Headache, visual disturbance or confusion (hyperviscosity)",
+      "keywords": "hyperviscosity|visual|confus"
+     },
+     {
+      "label": "Paraesthesia / ataxia / memory loss (B12)",
+      "keywords": "paraesth|ataxia|memory|b12|numb"
+     },
+     {
+      "label": "Vegetarian or vegan diet",
+      "keywords": "vegetarian|vegan|diet"
+     },
+     {
+      "label": "Malabsorption (diarrhoea, coeliac)",
+      "keywords": "malabsorp|diarrh|coeliac|celiac"
+     }
+    ]
+   }
+  },
+  "Dermatological": {
+   "prompt": "Symptoms to ask about on dermatological review",
+   "symptoms": {
+    "Lesion characteristics": [
+     {
+      "label": "Onset and duration",
+      "keywords": "onset|duration|how long|started"
+     },
+     {
+      "label": "Distribution (flexural, extensor, sun-exposed)",
+      "keywords": "distribution|site|where|flexur|extensor|sun-exposed|trunk"
+     },
+     {
+      "label": "Itch",
+      "keywords": "itch|prurit"
+     },
+     {
+      "label": "Pain or burning",
+      "keywords": "pain|burning|stinging|tender"
+     },
+     {
+      "label": "Blistering",
+      "keywords": "blister|bullae|vesicle"
+     },
+     {
+      "label": "Scale / dryness",
+      "keywords": "scale|scaly|dry|flaky"
+     },
+     {
+      "label": "Ulceration",
+      "keywords": "ulcer"
+     },
+     {
+      "label": "Bleeding or crusting",
+      "keywords": "bleed|crust"
+     }
+    ],
+    "Lumps, moles and growths": [
+     {
+      "label": "Changing mole (ABCDE)",
+      "keywords": "mole|naevus|nevus|change|colour|border|asymmetr|growing"
+     },
+     {
+      "label": "Non-healing sore",
+      "keywords": "non-healing|non healing|sore|rolled edge"
+     },
+     {
+      "label": "New lump or growth",
+      "keywords": "lump|growth|nodule|bump|wart"
+     }
+    ],
+    "Hair and nails": [
+     {
+      "label": "Hair loss",
+      "keywords": "hair loss|alopecia|hair"
+     },
+     {
+      "label": "Nail changes",
+      "keywords": "nail|pitting|onycholysis"
+     }
+    ],
+    "Triggers and exposures": [
+     {
+      "label": "Sun exposure / photosensitivity",
+      "keywords": "sun|photosens|uv|burn"
+     },
+     {
+      "label": "New medications",
+      "keywords": "medication|drug|new tablet"
+     },
+     {
+      "label": "Contact exposures (soaps, plants, occupational)",
+      "keywords": "contact|soap|plant|occupation|detergent|chemical|allerg"
+     },
+     {
+      "label": "Pets or insect bites",
+      "keywords": "pet|animal|bites|bug"
+     },
+     {
+      "label": "Travel",
+      "keywords": "travel|overseas"
+     },
+     {
+      "label": "Family history of skin disease or atopy",
+      "keywords": "family|atopy|asthma|eczema|hay fever"
+     }
+    ],
+    "Associated features": [
+     {
+      "label": "Fever / malaise",
+      "keywords": "fever|malaise|unwell"
+     },
+     {
+      "label": "Joint pain",
+      "keywords": "joint"
+     },
+     {
+      "label": "Mucosal involvement (mouth, genital, eye)",
+      "keywords": "mucos|mouth|genital|eye"
+     },
+     {
+      "label": "Treatments tried",
+      "keywords": "treatment|cream|steroid|moisturis|topical|tried"
+     }
+    ]
+   }
+  },
+  "Ear nose and throat": {
+   "prompt": "Symptoms to ask about on ENT and head and neck review",
+   "symptoms": {
+    "Ear": [
+     {
+      "label": "Hearing loss (unilateral or bilateral)",
+      "keywords": "hearing|deaf|muffled"
+     },
+     {
+      "label": "Tinnitus",
+      "keywords": "tinnit|ringing"
+     },
+     {
+      "label": "Otalgia",
+      "keywords": "ear pain|otalg"
+     },
+     {
+      "label": "Otorrhoea",
+      "keywords": "otorrh|ear discharge|discharge"
+     },
+     {
+      "label": "Vertigo",
+      "keywords": "vertig|spinning"
+     },
+     {
+      "label": "Aural fullness / blocked ear",
+      "keywords": "fullness|blocked ear|pressure"
+     }
+    ],
+    "Nose and sinuses": [
+     {
+      "label": "Nasal obstruction",
+      "keywords": "obstruct|blocked|stuffy|congest"
+     },
+     {
+      "label": "Rhinorrhoea / postnasal drip",
+      "keywords": "runny|rhinorr|drip"
+     },
+     {
+      "label": "Epistaxis",
+      "keywords": "epistax|nosebleed|nose bleed"
+     },
+     {
+      "label": "Sneezing / itchy nose (allergy)",
+      "keywords": "sneez|itch|allerg"
+     },
+     {
+      "label": "Loss of smell",
+      "keywords": "smell|anosmia"
+     },
+     {
+      "label": "Facial pain or pressure",
+      "keywords": "facial pain|pressure|sinus"
+     },
+     {
+      "label": "Snoring",
+      "keywords": "snor"
+     }
+    ],
+    "Throat and neck": [
+     {
+      "label": "Sore throat",
+      "keywords": "sore throat|pharyng|tonsill"
+     },
+     {
+      "label": "Hoarseness over 3 weeks",
+      "keywords": "hoarse|voice change|dysphon"
+     },
+     {
+      "label": "Dysphagia / odynophagia",
+      "keywords": "dysphag|odynophag|swallow"
+     },
+     {
+      "label": "Globus (lump in the throat)",
+      "keywords": "globus|lump in.*throat"
+     },
+     {
+      "label": "Painless neck lump",
+      "keywords": "neck lump|neck mass|lump in.*neck"
+     },
+     {
+      "label": "Stridor / noisy breathing",
+      "keywords": "stridor|noisy breath"
+     },
+     {
+      "label": "Mouth ulcer not healing",
+      "keywords": "mouth ulcer|oral ulcer"
+     },
+     {
+      "label": "Red or white patch in the mouth",
+      "keywords": "leukoplak|erythroplak|white patch|red patch"
+     },
+     {
+      "label": "Dental pain",
+      "keywords": "dental|tooth|teeth"
+     },
+     {
+      "label": "Unilateral tonsil swelling",
+      "keywords": "unilateral tonsil|tonsil swell"
+     },
+     {
+      "label": "Weight loss / haemoptysis",
+      "keywords": "weight loss|haemopt|hemopt"
+     }
+    ]
+   }
+  },
+  "Eyes and vision": {
+   "prompt": "Symptoms to ask about on ophthalmic review",
+   "symptoms": {
+    "Visual loss": [
+     {
+      "label": "Vision loss: sudden or gradual",
+      "keywords": "sudden|gradual|vision loss|visual loss|blind|loss of vision"
+     },
+     {
+      "label": "Monocular vs binocular",
+      "keywords": "monocular|binocular|one eye|both eyes"
+     },
+     {
+      "label": "Blurred vision",
+      "keywords": "blur"
+     },
+     {
+      "label": "Floaters and flashes",
+      "keywords": "floater|flash|curtain|shadow|retinal detach"
+     },
+     {
+      "label": "Visual field loss",
+      "keywords": "field|tunnel|peripheral|scotoma"
+     },
+     {
+      "label": "Distortion (straight lines wavy)",
+      "keywords": "distort|wavy|metamorph|straight line"
+     },
+     {
+      "label": "Diplopia",
+      "keywords": "diplop|double vision"
+     },
+     {
+      "label": "Halos around lights",
+      "keywords": "halo|angle closure|glaucoma"
+     },
+     {
+      "label": "Poor night vision",
+      "keywords": "night vision|dark adapt"
+     }
+    ],
+    "Red and painful eye": [
+     {
+      "label": "Red eye",
+      "keywords": "red eye|redness|bloodshot"
+     },
+     {
+      "label": "Eye pain",
+      "keywords": "eye pain|ache|painful eye"
+     },
+     {
+      "label": "Photophobia",
+      "keywords": "photophob|light sensitiv"
+     },
+     {
+      "label": "Discharge (watery, purulent, sticky)",
+      "keywords": "discharge|watery|sticky|purulent|crust"
+     },
+     {
+      "label": "Itch / gritty sensation",
+      "keywords": "itch|gritty|foreign body|dry"
+     },
+     {
+      "label": "Headache, nausea and vomiting (angle closure)",
+      "keywords": "headache|nausea|vomit"
+     },
+     {
+      "label": "Watering (epiphora)",
+      "keywords": "epiphora|watering|tearing"
+     }
+    ],
+    "Exposures": [
+     {
+      "label": "Trauma or chemical exposure",
+      "keywords": "trauma|chemical|foreign|injur|welding"
+     },
+     {
+      "label": "Contact lens wear",
+      "keywords": "contact lens|lenses"
+     },
+     {
+      "label": "Jaw claudication / scalp tenderness (GCA)",
+      "keywords": "jaw|scalp|temporal|gca"
+     }
+    ],
+    "Associated": [
+     {
+      "label": "Eyelid swelling or lump",
+      "keywords": "eyelid|lump|stye|chalazion|lid swelling"
+     },
+     {
+      "label": "Joint pain, bowel or skin symptoms (uveitis)",
+      "keywords": "joint|bowel|rash|skin"
+     },
+     {
+      "label": "Diabetes or hypertension",
+      "keywords": "diabet|hypertens|blood pressure"
+     }
+    ]
+   }
+  },
+  "Psychiatric": {
+   "prompt": "Symptoms to ask about on mental state and psychiatric review",
+   "symptoms": {
+    "Mood": [
+     {
+      "label": "Low mood",
+      "keywords": "low mood|depress|sad|feeling down"
+     },
+     {
+      "label": "Anhedonia",
+      "keywords": "anhedon|interest|enjoy|pleasure"
+     },
+     {
+      "label": "Fatigue / low energy",
+      "keywords": "fatigue|energy|tired"
+     },
+     {
+      "label": "Sleep disturbance (early waking, hypersomnia)",
+      "keywords": "sleep|insomnia|early morning|hypersomn|waking"
+     },
+     {
+      "label": "Appetite or weight change",
+      "keywords": "appetite|weight"
+     },
+     {
+      "label": "Poor concentration",
+      "keywords": "concentrat|focus"
+     },
+     {
+      "label": "Guilt / worthlessness / hopelessness",
+      "keywords": "guilt|worthless|hopeless"
+     },
+     {
+      "label": "Psychomotor change",
+      "keywords": "psychomotor|agitat|retard|slowed"
+     },
+     {
+      "label": "Elevated mood / grandiosity (mania)",
+      "keywords": "elevated|manic|mania|hypoman|grandios|high mood"
+     },
+     {
+      "label": "Decreased need for sleep / pressured speech",
+      "keywords": "need for sleep|pressured|racing thoughts|flight of ideas"
+     },
+     {
+      "label": "Reckless spending or behaviour",
+      "keywords": "spending|reckless|risk-taking|risk taking"
+     }
+    ],
+    "Risk": [
+     {
+      "label": "Suicidal ideation",
+      "keywords": "suicid|end my life|kill myself|better off dead|thoughts of death"
+     },
+     {
+      "label": "Suicide plan, intent and means",
+      "keywords": "plan|intent|means|method"
+     },
+     {
+      "label": "Past self-harm or attempts",
+      "keywords": "self harm|self-harm|attempt|past"
+     },
+     {
+      "label": "Thoughts of harming others",
+      "keywords": "harm.*others|homicid|violence|hurt someone"
+     },
+     {
+      "label": "Protective factors / supports",
+      "keywords": "protective|support|family|reasons for living|future"
+     }
+    ],
+    "Anxiety": [
+     {
+      "label": "Excessive worry",
+      "keywords": "worr|anxiety|anxious|nerv"
+     },
+     {
+      "label": "Panic attacks",
+      "keywords": "panic"
+     },
+     {
+      "label": "Phobias / avoidance",
+      "keywords": "phobi|avoid"
+     },
+     {
+      "label": "Obsessions and compulsions",
+      "keywords": "obsess|compuls|ocd|checking|washing"
+     },
+     {
+      "label": "Trauma / flashbacks / nightmares",
+      "keywords": "trauma|flashback|nightmare|ptsd|hypervigil"
+     },
+     {
+      "label": "Somatic anxiety (palpitations, sweating, tremor)",
+      "keywords": "palpit|sweat|trembl|chest tight"
+     }
+    ],
+    "Psychosis": [
+     {
+      "label": "Auditory hallucinations",
+      "keywords": "halluc|voices|hear voices|auditory"
+     },
+     {
+      "label": "Visual hallucinations",
+      "keywords": "visual halluc|see things|seeing things"
+     },
+     {
+      "label": "Delusions (persecutory, grandiose)",
+      "keywords": "delusion|paranoi|persecut|beliefs"
+     },
+     {
+      "label": "Passivity / thought insertion / broadcast",
+      "keywords": "thought insertion|thought broadcast|thought withdrawal|passivity|control"
+     },
+     {
+      "label": "Disorganised speech or behaviour",
+      "keywords": "disorganis|incoheren|bizarre"
+     },
+     {
+      "label": "Negative symptoms (flat affect, withdrawal)",
+      "keywords": "negative|flat affect|apathy|withdraw|alogia"
+     },
+     {
+      "label": "Insight",
+      "keywords": "insight"
+     }
+    ],
+    "Substances, eating and function": [
+     {
+      "label": "Alcohol use",
+      "keywords": "alcohol|drink|audit"
+     },
+     {
+      "label": "Drug use (cannabis, stimulants, opioids)",
+      "keywords": "drug|substance|cannabis|amphetamine|opioid|illicit"
+     },
+     {
+      "label": "Eating disorder symptoms (restriction, bingeing, purging)",
+      "keywords": "eating|binge|purge|restrict|body image"
+     },
+     {
+      "label": "Cognition / orientation",
+      "keywords": "memory|orientation|confus"
+     },
+     {
+      "label": "Work, relationships and daily function",
+      "keywords": "work|relationship|function|adl|social"
+     }
+    ]
+   }
+  },
+  "Cancer: suspected or newly diagnosed": {
+   "prompt": "Symptoms to ask about on a cancer-focused systems review",
+   "symptoms": {
+    "Constitutional": [
+     {
+      "label": "Unexplained weight loss",
+      "keywords": "weight loss|lost weight|losing weight"
+     },
+     {
+      "label": "Anorexia / early satiety",
+      "keywords": "anorexia|appetite|satiety"
+     },
+     {
+      "label": "Fatigue",
+      "keywords": "fatigue|tired|letharg"
+     },
+     {
+      "label": "Fever",
+      "keywords": "fever|pyrexia"
+     },
+     {
+      "label": "Drenching night sweats",
+      "keywords": "night sweat|drenching|sweats"
+     },
+     {
+      "label": "Generalised itch",
+      "keywords": "itch|prurit"
+     }
+    ],
+    "Lumps and nodes": [
+     {
+      "label": "New or enlarging lump anywhere",
+      "keywords": "lump|mass|swelling"
+     },
+     {
+      "label": "Swollen lymph nodes",
+      "keywords": "lymph node|gland|node"
+     },
+     {
+      "label": "Breast lump or nipple change",
+      "keywords": "breast|nipple"
+     },
+     {
+      "label": "Testicular lump",
+      "keywords": "testic|testis|scrot"
+     }
+    ],
+    "Bleeding and discharge": [
+     {
+      "label": "Haemoptysis",
+      "keywords": "haemopt|hemopt|coughing blood"
+     },
+     {
+      "label": "Rectal bleeding / melaena",
+      "keywords": "rectal bleed|melaena|melena|blood.*stool|blood.*toilet|black stool"
+     },
+     {
+      "label": "Haematuria",
+      "keywords": "haematuria|hematuria|blood.*urine"
+     },
+     {
+      "label": "Postmenopausal or abnormal vaginal bleeding",
+      "keywords": "postmenopausal|vaginal bleed|intermenstrual|postcoital"
+     },
+     {
+      "label": "Haematemesis",
+      "keywords": "haematem|hematem|vomit.*blood"
+     }
+    ],
+    "Symptoms by organ": [
+     {
+      "label": "Persistent cough or hoarseness",
+      "keywords": "persistent cough|cough|hoarse"
+     },
+     {
+      "label": "Dysphagia",
+      "keywords": "dysphag|swallow"
+     },
+     {
+      "label": "Persistent dyspepsia / epigastric pain",
+      "keywords": "dyspep|epigastr|indigest"
+     },
+     {
+      "label": "Change in bowel habit",
+      "keywords": "bowel habit|constipat|diarrh"
+     },
+     {
+      "label": "Jaundice",
+      "keywords": "jaundice|yellow"
+     },
+     {
+      "label": "Persistent bloating (ovarian)",
+      "keywords": "bloat|distension|distention"
+     },
+     {
+      "label": "Urinary obstruction (hesitancy, poor stream)",
+      "keywords": "hesit|stream|retention|nocturia"
+     },
+     {
+      "label": "Changing mole / non-healing ulcer",
+      "keywords": "mole|naevus|non-healing|ulcer|skin lesion"
+     },
+     {
+      "label": "Persistent headaches / seizures / focal neurology",
+      "keywords": "headache|seiz|focal|neurolog"
+     }
+    ],
+    "Pain and impact": [
+     {
+      "label": "Bone pain (site, night pain)",
+      "keywords": "bone pain|back pain|night pain"
+     },
+     {
+      "label": "New persistent pain",
+      "keywords": "pain"
+     },
+     {
+      "label": "Impact on function and work",
+      "keywords": "function|work|adl|performance"
+     },
+     {
+      "label": "Mood and anxiety about diagnosis",
+      "keywords": "mood|anxi|depress|distress|worr"
+     }
+    ],
+    "Risk": [
+     {
+      "label": "Family history of cancer",
+      "keywords": "family|brca|lynch|hereditary"
+     },
+     {
+      "label": "Smoking and alcohol",
+      "keywords": "smok|alcohol"
+     },
+     {
+      "label": "Occupational or radiation exposure",
+      "keywords": "occupation|asbestos|radiation|exposure|sun"
+     },
+     {
+      "label": "Screening history",
+      "keywords": "screen|mammogra|bowel screen|cervical|colonoscop"
+     }
+    ]
+   }
+  },
+  "Cancer: metastasis screen": {
+   "prompt": "Symptoms to ask about to look for metastatic disease",
+   "symptoms": {
+    "Bone": [
+     {
+      "label": "Bone pain (worse at night, localised)",
+      "keywords": "bone pain|night pain|localised"
+     },
+     {
+      "label": "Pathological fracture",
+      "keywords": "fracture|break"
+     },
+     {
+      "label": "Hypercalcaemia (thirst, constipation, confusion, polyuria)",
+      "keywords": "hypercalc|thirst|constipat|confus|polyur"
+     },
+     {
+      "label": "Back pain with leg weakness (cord compression)",
+      "keywords": "cord|back pain|leg weakness|weak"
+     },
+     {
+      "label": "Bladder or bowel dysfunction",
+      "keywords": "retention|incontinen|bladder|bowel"
+     },
+     {
+      "label": "Sensory level / numbness",
+      "keywords": "sensory level|numb|band"
+     }
+    ],
+    "Lung and pleura": [
+     {
+      "label": "Persistent cough",
+      "keywords": "cough"
+     },
+     {
+      "label": "Haemoptysis",
+      "keywords": "haemopt|hemopt|blood"
+     },
+     {
+      "label": "Dyspnoea",
+      "keywords": "dyspn|breathless|short of breath"
+     },
+     {
+      "label": "Pleuritic pain",
+      "keywords": "pleurit|chest pain"
+     },
+     {
+      "label": "Wheeze / stridor",
+      "keywords": "wheez|stridor"
+     }
+    ],
+    "Liver": [
+     {
+      "label": "Right upper quadrant pain",
+      "keywords": "ruq|right upper|hepatic|liver pain"
+     },
+     {
+      "label": "Jaundice",
+      "keywords": "jaundice|yellow"
+     },
+     {
+      "label": "Anorexia / nausea",
+      "keywords": "anorexia|appetite|nausea"
+     },
+     {
+      "label": "Abdominal swelling / ascites",
+      "keywords": "ascites|distension|swelling|bloat"
+     },
+     {
+      "label": "Pruritus",
+      "keywords": "prurit|itch"
+     }
+    ],
+    "Brain": [
+     {
+      "label": "Headache (morning, worse lying)",
+      "keywords": "headache|morning|lying"
+     },
+     {
+      "label": "Seizures",
+      "keywords": "seiz|fit"
+     },
+     {
+      "label": "Focal weakness or sensory loss",
+      "keywords": "focal|weak|numb|hemipar"
+     },
+     {
+      "label": "Speech or visual disturbance",
+      "keywords": "speech|visual|vision|dysphas"
+     },
+     {
+      "label": "Nausea / vomiting",
+      "keywords": "nausea|vomit"
+     },
+     {
+      "label": "Confusion / personality change",
+      "keywords": "confus|personality|behaviour|memory"
+     }
+    ],
+    "Peritoneal and nodal": [
+     {
+      "label": "Abdominal distension",
+      "keywords": "distension|distention|ascites"
+     },
+     {
+      "label": "Vomiting / obstructive symptoms",
+      "keywords": "vomit|obstruct|constipat|colic"
+     },
+     {
+      "label": "Lymph node swelling",
+      "keywords": "lymph|node|gland"
+     },
+     {
+      "label": "Leg swelling",
+      "keywords": "leg swell|oedema|edema"
+     }
+    ],
+    "Adrenal and general": [
+     {
+      "label": "Postural dizziness / fatigue (adrenal insufficiency)",
+      "keywords": "postural|dizz|fatigue|adrenal"
+     },
+     {
+      "label": "Weight loss",
+      "keywords": "weight loss|lost weight"
+     }
+    ]
+   }
+  },
+  "Cancer: on treatment": {
+   "prompt": "Symptoms to ask about for a patient on chemotherapy, radiotherapy or immunotherapy",
+   "symptoms": {
+    "Chemotherapy toxicity": [
+     {
+      "label": "Nausea and vomiting",
+      "keywords": "nausea|vomit"
+     },
+     {
+      "label": "Mouth sores (mucositis)",
+      "keywords": "mucositis|mouth sore|mouth ulcer|stomatitis"
+     },
+     {
+      "label": "Diarrhoea",
+      "keywords": "diarrh"
+     },
+     {
+      "label": "Constipation",
+      "keywords": "constipat"
+     },
+     {
+      "label": "Fever or rigors (febrile neutropenia)",
+      "keywords": "fever|rigor|neutropen|chills"
+     },
+     {
+      "label": "Bruising or bleeding (thrombocytopenia)",
+      "keywords": "bruis|bleed|petechia"
+     },
+     {
+      "label": "Fatigue (anaemia)",
+      "keywords": "fatigue|tired|anaemi"
+     },
+     {
+      "label": "Hair loss",
+      "keywords": "hair loss|alopecia"
+     },
+     {
+      "label": "Numbness or tingling in hands and feet",
+      "keywords": "numb|tingl|neuropath|paraesth"
+     },
+     {
+      "label": "Hand-foot syndrome",
+      "keywords": "hand-foot|hand foot|palmar|plantar|palms"
+     },
+     {
+      "label": "Hearing loss or tinnitus (platinum)",
+      "keywords": "hearing|tinnit|ototox"
+     },
+     {
+      "label": "Palpitations / ankle swelling / dyspnoea (cardiotoxicity)",
+      "keywords": "palpit|oedema|edema|dyspn|cardiotox|breathless"
+     },
+     {
+      "label": "Haematuria / dysuria (haemorrhagic cystitis)",
+      "keywords": "haematuria|cystitis|dysuria"
+     },
+     {
+      "label": "Cognitive change (\"chemo brain\")",
+      "keywords": "cognit|memory|chemo brain|concentrat|fog"
+     }
+    ],
+    "Radiotherapy toxicity": [
+     {
+      "label": "Skin reaction in the field",
+      "keywords": "skin|burn|redness|desquam"
+     },
+     {
+      "label": "Dysphagia / odynophagia (oesophagitis)",
+      "keywords": "dysphag|odynophag|swallow"
+     },
+     {
+      "label": "Cough or dyspnoea (pneumonitis)",
+      "keywords": "cough|dyspn|pneumonitis|breathless"
+     },
+     {
+      "label": "Diarrhoea / rectal bleeding (proctitis)",
+      "keywords": "diarrh|rectal|proctitis|bleed"
+     },
+     {
+      "label": "Urinary frequency or dysuria (cystitis)",
+      "keywords": "urinary|frequen|dysuria|cystitis"
+     },
+     {
+      "label": "Dry mouth / taste change",
+      "keywords": "dry mouth|taste|xerostom"
+     }
+    ],
+    "Immunotherapy toxicity": [
+     {
+      "label": "Rash / pruritus",
+      "keywords": "rash|itch|prurit"
+     },
+     {
+      "label": "Diarrhoea / abdominal pain (colitis)",
+      "keywords": "colitis|diarrh|abdominal pain"
+     },
+     {
+      "label": "Cough / dyspnoea (pneumonitis)",
+      "keywords": "pneumonitis|cough|dyspn"
+     },
+     {
+      "label": "Jaundice / dark urine (hepatitis)",
+      "keywords": "jaundice|hepatitis|dark urine"
+     },
+     {
+      "label": "Fatigue / cold or heat intolerance (thyroid, hypophysitis)",
+      "keywords": "thyroid|hypophysitis|heat intol|cold intol|headache"
+     },
+     {
+      "label": "Polyuria / polydipsia (diabetes)",
+      "keywords": "polyur|polydips|thirst|diabet"
+     },
+     {
+      "label": "Postural dizziness (adrenal insufficiency)",
+      "keywords": "postural|dizz|adrenal"
+     }
+    ],
+    "Supportive care and impact": [
+     {
+      "label": "Pain control",
+      "keywords": "pain|analges"
+     },
+     {
+      "label": "Appetite / weight",
+      "keywords": "appetite|weight"
+     },
+     {
+      "label": "Sleep",
+      "keywords": "sleep|insomnia"
+     },
+     {
+      "label": "Mood and anxiety",
+      "keywords": "mood|anxi|depress|distress"
+     },
+     {
+      "label": "Fertility concerns",
+      "keywords": "fertil|pregnan|contracept"
+     },
+     {
+      "label": "Financial and social supports",
+      "keywords": "financ|support|carer|family|social"
+     }
+    ]
+   }
+  },
+  "Cancer: emergencies": {
+   "prompt": "Symptoms to ask about to identify oncological emergencies",
+   "symptoms": {
+    "Neurological": [
+     {
+      "label": "Back pain with leg weakness or sensory level (cord compression)",
+      "keywords": "cord|back pain|leg weak|sensory level"
+     },
+     {
+      "label": "Urinary retention or bowel incontinence",
+      "keywords": "retention|incontinen|bladder|bowel"
+     },
+     {
+      "label": "Headache with vomiting or papilloedema (raised ICP)",
+      "keywords": "headache|vomit|raised icp|morning|papilloedema"
+     },
+     {
+      "label": "New seizures",
+      "keywords": "seiz|fit"
+     },
+     {
+      "label": "Confusion or drowsiness (hypercalcaemia, brain metastases)",
+      "keywords": "confus|drows|hypercalc|brain"
+     }
+    ],
+    "Cardiorespiratory": [
+     {
+      "label": "Facial or neck swelling (SVC obstruction)",
+      "keywords": "facial swell|face swell|neck swell|svc|plethora"
+     },
+     {
+      "label": "Dyspnoea / stridor",
+      "keywords": "dyspn|stridor|breathless"
+     },
+     {
+      "label": "Pleuritic chest pain / dyspnoea (PE)",
+      "keywords": "pleurit|embol|chest pain"
+     },
+     {
+      "label": "Dyspnoea and chest pain (pericardial effusion)",
+      "keywords": "pericardial|tamponade|dyspn"
+     },
+     {
+      "label": "Haemoptysis",
+      "keywords": "haemopt|hemopt"
+     }
+    ],
+    "Metabolic and haematological": [
+     {
+      "label": "Thirst, polyuria, constipation (hypercalcaemia)",
+      "keywords": "thirst|polyur|constipat|hypercalc"
+     },
+     {
+      "label": "Fever with recent chemotherapy (febrile neutropenia)",
+      "keywords": "fever|neutropen|recent chemo|rigor"
+     },
+     {
+      "label": "Nausea, muscle cramps, reduced urine after chemotherapy (tumour lysis)",
+      "keywords": "tumour lysis|cramp|reduced urine|nausea"
+     },
+     {
+      "label": "Bleeding or bruising",
+      "keywords": "bleed|bruis"
+     },
+     {
+      "label": "Unilateral leg swelling (DVT)",
+      "keywords": "leg swell|calf|dvt"
+     },
+     {
+      "label": "Headache, visual blurring, confusion (hyperviscosity)",
+      "keywords": "hyperviscosity|blur|visual|confus"
+     }
+    ],
+    "Abdominal": [
+     {
+      "label": "Vomiting and absolute constipation (bowel obstruction)",
+      "keywords": "vomit|constipat|obstruct|flatus"
+     },
+     {
+      "label": "Severe abdominal pain (perforation)",
+      "keywords": "perforat|severe abdominal|peritoni"
+     },
+     {
+      "label": "Haematemesis or melaena",
+      "keywords": "haematem|hematem|melaena|melena"
+     },
+     {
+      "label": "Jaundice with fever (cholangitis)",
+      "keywords": "jaundice|cholangitis|fever"
+     }
+    ]
+   }
+  },
+  "Post-operative patient: early": {
+   "prompt": "Symptoms to ask about on day 0 to 7 after surgery",
+   "symptoms": {
+    "Pain and anaesthesia": [
+     {
+      "label": "Pain: site, severity, adequacy of analgesia",
+      "keywords": "pain|analges|pca|site|severity"
+     },
+     {
+      "label": "Nausea and vomiting",
+      "keywords": "nausea|vomit|ponv"
+     },
+     {
+      "label": "Sore throat or hoarseness (intubation)",
+      "keywords": "sore throat|hoarse|intubat"
+     },
+     {
+      "label": "Shivering",
+      "keywords": "shiver|rigor"
+     },
+     {
+      "label": "Headache after spinal (post-dural puncture)",
+      "keywords": "headache|spinal|dural"
+     },
+     {
+      "label": "Numbness or weakness after regional block",
+      "keywords": "numb|weak|block|epidural"
+     },
+     {
+      "label": "Drowsiness",
+      "keywords": "drows|sedat|sleepy"
+     }
+    ],
+    "Gastrointestinal and urinary": [
+     {
+      "label": "Passing flatus / bowel opened",
+      "keywords": "flatus|wind|bowel|opened|ileus"
+     },
+     {
+      "label": "Abdominal distension",
+      "keywords": "distension|distention|bloat"
+     },
+     {
+      "label": "Eating and drinking",
+      "keywords": "eating|drinking|diet|oral intake|tolerat"
+     },
+     {
+      "label": "Passing urine / catheter function",
+      "keywords": "urine|void|catheter|retention"
+     },
+     {
+      "label": "Stoma output",
+      "keywords": "stoma"
+     },
+     {
+      "label": "Drain output",
+      "keywords": "drain"
+     }
+    ],
+    "Wound": [
+     {
+      "label": "Wound pain, redness or swelling",
+      "keywords": "wound|redness|swelling|infect"
+     },
+     {
+      "label": "Wound discharge or bleeding",
+      "keywords": "discharge|bleed|ooz|dehisc"
+     }
+    ],
+    "Cardiorespiratory and thromboembolic": [
+     {
+      "label": "Cough / sputum (atelectasis, pneumonia)",
+      "keywords": "cough|sputum|phlegm|atelect|pneumonia"
+     },
+     {
+      "label": "Dyspnoea",
+      "keywords": "dyspn|breathless|short of breath"
+     },
+     {
+      "label": "Chest pain",
+      "keywords": "chest pain|angina"
+     },
+     {
+      "label": "Palpitations",
+      "keywords": "palpit"
+     },
+     {
+      "label": "Calf pain or leg swelling (DVT)",
+      "keywords": "calf|leg swell|dvt"
+     },
+     {
+      "label": "Pleuritic pain (PE)",
+      "keywords": "pleurit|embol"
+     }
+    ],
+    "Systemic": [
+     {
+      "label": "Fever or rigors",
+      "keywords": "fever|rigor|chills"
+     },
+     {
+      "label": "Confusion or agitation (delirium)",
+      "keywords": "confus|agitat|delirium|disorient"
+     },
+     {
+      "label": "Dizziness on standing",
+      "keywords": "dizz|postural|lighthead"
+     },
+     {
+      "label": "Mobilisation",
+      "keywords": "mobilis|mobiliz|walking|out of bed|physio"
+     },
+     {
+      "label": "Sleep",
+      "keywords": "sleep|insomnia"
+     },
+     {
+      "label": "Mood",
+      "keywords": "mood|anxi|low"
+     },
+     {
+      "label": "Features of anastomotic leak (pain, fever, tachycardia, ileus)",
+      "keywords": "anastomotic|leak|tachycardia"
+     }
+    ]
+   }
+  },
+  "Post-operative patient: late": {
+   "prompt": "Symptoms to ask about weeks to months after surgery",
+   "symptoms": {
+    "Wound and local": [
+     {
+      "label": "Wound pain, redness or discharge",
+      "keywords": "wound|redness|discharge|infect"
+     },
+     {
+      "label": "Wound bulge (incisional hernia)",
+      "keywords": "hernia|bulge|lump"
+     },
+     {
+      "label": "Persistent pain (chronic post-surgical)",
+      "keywords": "persistent pain|chronic pain|pain"
+     },
+     {
+      "label": "Scar problems",
+      "keywords": "scar|keloid|numb"
+     }
+    ],
+    "Gastrointestinal": [
+     {
+      "label": "Colicky pain / vomiting / constipation (adhesive obstruction)",
+      "keywords": "colic|vomit|constipat|obstruct|adhesion"
+     },
+     {
+      "label": "Diarrhoea",
+      "keywords": "diarrh"
+     },
+     {
+      "label": "Weight loss",
+      "keywords": "weight loss"
+     },
+     {
+      "label": "Malabsorption (steatorrhoea, anaemia)",
+      "keywords": "steat|malabsorp|anaemi|b12"
+     },
+     {
+      "label": "Reflux / dumping symptoms",
+      "keywords": "reflux|dumping"
+     }
+    ],
+    "Cardiorespiratory and thromboembolic": [
+     {
+      "label": "Dyspnoea",
+      "keywords": "dyspn|breathless"
+     },
+     {
+      "label": "Calf pain or leg swelling",
+      "keywords": "calf|leg swell|dvt"
+     },
+     {
+      "label": "Pleuritic chest pain",
+      "keywords": "pleurit|chest pain"
+     }
+    ],
+    "Recovery and function": [
+     {
+      "label": "Return to normal activities",
+      "keywords": "activit|exercise|normal"
+     },
+     {
+      "label": "Return to work",
+      "keywords": "work|return to work"
+     },
+     {
+      "label": "Driving",
+      "keywords": "driv"
+     },
+     {
+      "label": "Mood, anxiety or low mood",
+      "keywords": "mood|anxi|depress"
+     },
+     {
+      "label": "Sexual function",
+      "keywords": "sexual|erect|libido"
+     },
+     {
+      "label": "Urinary symptoms",
+      "keywords": "urinary|incontinen|frequen"
+     },
+     {
+      "label": "Cosmetic concerns or body image",
+      "keywords": "cosmetic|body image|appearance"
+     },
+     {
+      "label": "Medication side effects",
+      "keywords": "side effect|medication|opioid|analges"
+     }
+    ]
+   }
+  },
+  "Pre-operative assessment": {
+   "prompt": "Symptoms and history to ask about before surgery",
+   "symptoms": {
+    "Functional capacity": [
+     {
+      "label": "Exercise tolerance (4 METs: two flights of stairs)",
+      "keywords": "exercise tol|met|stairs|flights|walk|functional capacity"
+     },
+     {
+      "label": "Frailty / activities of daily living",
+      "keywords": "frail|adl|daily living|independen"
+     }
+    ],
+    "Cardiac": [
+     {
+      "label": "Chest pain or angina",
+      "keywords": "chest pain|angina"
+     },
+     {
+      "label": "Dyspnoea / orthopnoea",
+      "keywords": "dyspn|breathless|orthop|short of breath"
+     },
+     {
+      "label": "Palpitations",
+      "keywords": "palpit"
+     },
+     {
+      "label": "Syncope",
+      "keywords": "syncop|faint|blackout"
+     },
+     {
+      "label": "Ankle swelling",
+      "keywords": "oedema|edema|swell|ankle"
+     },
+     {
+      "label": "Known murmur, valve disease, stents or pacemaker",
+      "keywords": "murmur|valve|stent|pacemaker"
+     }
+    ],
+    "Respiratory and airway": [
+     {
+      "label": "Cough / wheeze (asthma, COPD)",
+      "keywords": "cough|wheez|asthma|copd"
+     },
+     {
+      "label": "Snoring and witnessed apnoeas (OSA)",
+      "keywords": "snor|apnoea|apnea|sleep|osa"
+     },
+     {
+      "label": "Smoking",
+      "keywords": "smok"
+     },
+     {
+      "label": "Recent chest infection",
+      "keywords": "recent infection|chest infection|urti|cold"
+     },
+     {
+      "label": "Loose teeth, dentures or limited mouth opening",
+      "keywords": "teeth|denture|dentition|mouth open|jaw"
+     },
+     {
+      "label": "Neck mobility",
+      "keywords": "neck"
+     }
+    ],
+    "Anaesthetic and bleeding": [
+     {
+      "label": "Previous anaesthetic problems (PONV, difficult airway)",
+      "keywords": "previous anaesth|anaesthetic|ponv|difficult airway|nausea"
+     },
+     {
+      "label": "Family history of anaesthetic complications (malignant hyperthermia)",
+      "keywords": "malignant hyperthermia|family"
+     },
+     {
+      "label": "Bleeding tendency / anticoagulants",
+      "keywords": "bleed|anticoag|warfarin|doac|bruis|aspirin"
+     },
+     {
+      "label": "Reflux or delayed gastric emptying (aspiration risk)",
+      "keywords": "reflux|heartburn|gastroparesis|aspiration"
+     }
+    ],
+    "Other": [
+     {
+      "label": "Allergies (latex, antibiotics, anaesthetics)",
+      "keywords": "allerg|latex|antibiotic"
+     },
+     {
+      "label": "Diabetes and glycaemic control",
+      "keywords": "diabet|glucose|hba1c|insulin|sugar"
+     },
+     {
+      "label": "Alcohol and recreational drug use",
+      "keywords": "alcohol|drug|substance"
+     },
+     {
+      "label": "Possibility of pregnancy",
+      "keywords": "pregnan"
+     },
+     {
+      "label": "Cognitive impairment",
+      "keywords": "cognit|memory|confus|dementia"
+     },
+     {
+      "label": "Steroid use",
+      "keywords": "steroid|prednisolone"
+     }
+    ]
+   }
+  },
+  "Older person": {
+   "prompt": "Symptoms and domains to ask about in a geriatric review",
+   "symptoms": {
+    "Falls and mobility": [
+     {
+      "label": "Falls (circumstances, injuries, ability to get up)",
+      "keywords": "fall|trip|slip"
+     },
+     {
+      "label": "Dizziness on standing",
+      "keywords": "postural|orthostatic|dizz|lighthead"
+     },
+     {
+      "label": "Gait and walking aids",
+      "keywords": "gait|walking aid|frame|stick|mobil"
+     },
+     {
+      "label": "Fear of falling",
+      "keywords": "fear|afraid"
+     },
+     {
+      "label": "Footwear and foot problems",
+      "keywords": "footwear|shoes|foot|podiat"
+     }
+    ],
+    "Cognition and mood": [
+     {
+      "label": "Memory loss",
+      "keywords": "memory|forget|cognit|dementia"
+     },
+     {
+      "label": "Acute confusion (delirium)",
+      "keywords": "confus|delirium|disorient"
+     },
+     {
+      "label": "Low mood",
+      "keywords": "low mood|depress"
+     },
+     {
+      "label": "Loneliness",
+      "keywords": "lonel|isolat"
+     },
+     {
+      "label": "Sleep",
+      "keywords": "sleep|insomnia"
+     }
+    ],
+    "Continence and nutrition": [
+     {
+      "label": "Urinary incontinence",
+      "keywords": "urinary incontinen|incontinen|leak"
+     },
+     {
+      "label": "Faecal incontinence or constipation",
+      "keywords": "faecal|constipat|bowel"
+     },
+     {
+      "label": "Weight loss / poor appetite",
+      "keywords": "weight loss|appetite|nutrition"
+     },
+     {
+      "label": "Swallowing difficulty",
+      "keywords": "swallow|dysphag|choke"
+     },
+     {
+      "label": "Dentition",
+      "keywords": "dent|teeth|denture"
+     }
+    ],
+    "Senses and pain": [
+     {
+      "label": "Vision",
+      "keywords": "vision|glasses|cataract"
+     },
+     {
+      "label": "Hearing",
+      "keywords": "hearing|deaf|hearing aid"
+     },
+     {
+      "label": "Chronic pain",
+      "keywords": "pain"
+     },
+     {
+      "label": "Pressure injuries",
+      "keywords": "pressure|sore|ulcer|skin"
+     }
+    ],
+    "Function and social": [
+     {
+      "label": "Basic ADLs (bathing, dressing, toileting, feeding)",
+      "keywords": "adl|bath|dress|toilet|feeding|transfer"
+     },
+     {
+      "label": "Instrumental ADLs (cooking, shopping, finances, medications)",
+      "keywords": "iadl|cook|shop|finance|manage medic|transport"
+     },
+     {
+      "label": "Medications and polypharmacy / adherence",
+      "keywords": "medic|polyphar|adheren|webster|pill"
+     },
+     {
+      "label": "Carers and social supports",
+      "keywords": "carer|support|family|services"
+     },
+     {
+      "label": "Living situation / home safety",
+      "keywords": "living|home|stairs|safety|alone"
+     },
+     {
+      "label": "Driving",
+      "keywords": "driv"
+     },
+     {
+      "label": "Elder abuse / safety",
+      "keywords": "abuse|neglect|safe"
+     },
+     {
+      "label": "Advance care planning",
+      "keywords": "advance care|goals of care|enduring|power of attorney|resuscitat"
+     },
+     {
+      "label": "Alcohol",
+      "keywords": "alcohol"
+     }
+    ]
+   }
+  },
+  "Palliative care": {
+   "prompt": "Symptoms to ask about on a palliative symptom review",
+   "symptoms": {
+    "Physical symptoms": [
+     {
+      "label": "Pain (site, severity, response to analgesia)",
+      "keywords": "pain|analges|opioid"
+     },
+     {
+      "label": "Breathlessness",
+      "keywords": "breathless|dyspn|short of breath"
+     },
+     {
+      "label": "Nausea and vomiting",
+      "keywords": "nausea|vomit"
+     },
+     {
+      "label": "Constipation (opioid-induced)",
+      "keywords": "constipat|opioid"
+     },
+     {
+      "label": "Anorexia / cachexia",
+      "keywords": "anorexia|appetite|cachexia|weight loss"
+     },
+     {
+      "label": "Fatigue / weakness",
+      "keywords": "fatigue|weak|tired"
+     },
+     {
+      "label": "Dry mouth / mouth care",
+      "keywords": "dry mouth|mouth|xerostom"
+     },
+     {
+      "label": "Pruritus",
+      "keywords": "prurit|itch"
+     },
+     {
+      "label": "Swallowing difficulty",
+      "keywords": "swallow|dysphag"
+     },
+     {
+      "label": "Hiccups",
+      "keywords": "hiccup"
+     },
+     {
+      "label": "Excess secretions (death rattle)",
+      "keywords": "secretion|rattle"
+     },
+     {
+      "label": "Pressure areas",
+      "keywords": "pressure|skin|sore"
+     },
+     {
+      "label": "Sleep",
+      "keywords": "sleep|insomnia"
+     }
+    ],
+    "Neuropsychiatric": [
+     {
+      "label": "Delirium / agitation",
+      "keywords": "delirium|agitat|confus|restless"
+     },
+     {
+      "label": "Anxiety",
+      "keywords": "anxi|worr"
+     },
+     {
+      "label": "Depression",
+      "keywords": "depress|low mood"
+     }
+    ],
+    "Psychosocial and spiritual": [
+     {
+      "label": "Fears about dying",
+      "keywords": "fear|dying|death"
+     },
+     {
+      "label": "Spiritual or existential distress",
+      "keywords": "spiritual|existential|meaning|faith|religio"
+     },
+     {
+      "label": "Goals of care and preferred place of death",
+      "keywords": "goals of care|preferred place|place of death|advance care|resuscitat"
+     },
+     {
+      "label": "Carer coping and support",
+      "keywords": "carer|family|coping|support"
+     },
+     {
+      "label": "Practical concerns (finances, will, legal)",
+      "keywords": "financ|will|legal|practical"
+     }
+    ]
+   }
+  },
+  "Child": {
+   "prompt": "Symptoms to ask about for a paediatric patient",
+   "symptoms": {
+    "General": [
+     {
+      "label": "Fever (duration, height)",
+      "keywords": "fever|temperature|pyrexia"
+     },
+     {
+      "label": "Activity / lethargy / floppiness",
+      "keywords": "lethar|floppy|drows|activity|alert"
+     },
+     {
+      "label": "Irritability / inconsolable crying",
+      "keywords": "irritab|cry|inconsol"
+     },
+     {
+      "label": "Poor feeding / reduced intake",
+      "keywords": "feeding|intake|appetite|breast|bottle|drinking"
+     },
+     {
+      "label": "Wet nappies / urine output",
+      "keywords": "nappies|nappy|urine output|wet"
+     },
+     {
+      "label": "Weight loss or poor weight gain",
+      "keywords": "weight|growth|failure to thrive"
+     },
+     {
+      "label": "Sleep",
+      "keywords": "sleep"
+     }
+    ],
+    "Respiratory and ENT": [
+     {
+      "label": "Cough (barking, whooping, wet)",
+      "keywords": "cough|barking|whoop"
+     },
+     {
+      "label": "Wheeze",
+      "keywords": "wheez"
+     },
+     {
+      "label": "Fast breathing / grunting / recession",
+      "keywords": "fast breathing|grunt|recession|work of breathing|tachypn"
+     },
+     {
+      "label": "Stridor",
+      "keywords": "stridor"
+     },
+     {
+      "label": "Runny nose",
+      "keywords": "runny|coryza|nasal"
+     },
+     {
+      "label": "Ear pulling / ear pain",
+      "keywords": "ear"
+     },
+     {
+      "label": "Sore throat",
+      "keywords": "sore throat|tonsil"
+     }
+    ],
+    "Gastrointestinal and urinary": [
+     {
+      "label": "Vomiting (bilious, projectile)",
+      "keywords": "vomit|bilious|projectile"
+     },
+     {
+      "label": "Diarrhoea",
+      "keywords": "diarrh"
+     },
+     {
+      "label": "Constipation",
+      "keywords": "constipat"
+     },
+     {
+      "label": "Blood or mucus in the stool",
+      "keywords": "blood|mucus|redcurrant"
+     },
+     {
+      "label": "Abdominal pain",
+      "keywords": "abdominal pain|tummy|stomach"
+     },
+     {
+      "label": "Dysuria / urinary frequency",
+      "keywords": "dysuria|urinary|frequen"
+     }
+    ],
+    "Neurological, skin and musculoskeletal": [
+     {
+      "label": "Rash (non-blanching)",
+      "keywords": "rash|non-blanching|petechia|purpura"
+     },
+     {
+      "label": "Neck stiffness / photophobia",
+      "keywords": "neck stiff|photophob|meningism"
+     },
+     {
+      "label": "Seizure",
+      "keywords": "seiz|fit|convuls"
+     },
+     {
+      "label": "Limp / refusal to weight bear",
+      "keywords": "limp|weight bear|walking"
+     }
+    ],
+    "Background": [
+     {
+      "label": "Birth history (gestation, complications)",
+      "keywords": "birth|gestation|prem|neonatal|nicu"
+     },
+     {
+      "label": "Immunisation status",
+      "keywords": "immunis|immuniz|vaccin"
+     },
+     {
+      "label": "Developmental milestones",
+      "keywords": "development|milestone|speech|walking|smile"
+     },
+     {
+      "label": "Sick contacts / childcare",
+      "keywords": "sick contact|childcare|daycare|school|contact"
+     },
+     {
+      "label": "Safeguarding concerns",
+      "keywords": "abuse|safeguard|bruis|neglect|injur"
+     }
+    ]
+   }
+  },
+  "Infection and travel": {
+   "prompt": "Symptoms and exposures to ask about for a suspected infection",
+   "symptoms": {
+    "Symptoms": [
+     {
+      "label": "Fever pattern (duration, rigors)",
+      "keywords": "fever|rigor|chills|pyrexia"
+     },
+     {
+      "label": "Night sweats",
+      "keywords": "night sweat|sweats"
+     },
+     {
+      "label": "Headache / neck stiffness / photophobia",
+      "keywords": "headache|neck stiff|photophob|meningism"
+     },
+     {
+      "label": "Rash",
+      "keywords": "rash|petechia|purpura"
+     },
+     {
+      "label": "Cough / dyspnoea",
+      "keywords": "cough|dyspn|breathless"
+     },
+     {
+      "label": "Diarrhoea / vomiting",
+      "keywords": "diarrh|vomit"
+     },
+     {
+      "label": "Abdominal pain",
+      "keywords": "abdominal pain"
+     },
+     {
+      "label": "Jaundice",
+      "keywords": "jaundice"
+     },
+     {
+      "label": "Dysuria / urinary symptoms",
+      "keywords": "dysuria|urinary"
+     },
+     {
+      "label": "Genital symptoms (discharge, ulcers)",
+      "keywords": "genital|discharge|ulcer"
+     },
+     {
+      "label": "Skin or wound redness and swelling",
+      "keywords": "skin|wound|cellulitis|abscess|redness"
+     },
+     {
+      "label": "Joint swelling",
+      "keywords": "joint"
+     },
+     {
+      "label": "Lymph node swelling",
+      "keywords": "lymph|node|gland"
+     },
+     {
+      "label": "Weight loss",
+      "keywords": "weight loss"
+     },
+     {
+      "label": "Confusion",
+      "keywords": "confus"
+     }
+    ],
+    "Exposures": [
+     {
+      "label": "Recent travel (where, when, duration)",
+      "keywords": "travel|overseas|abroad|where"
+     },
+     {
+      "label": "Malaria prophylaxis / vaccinations",
+      "keywords": "malaria|prophyla|vaccin|immunis"
+     },
+     {
+      "label": "Sick contacts",
+      "keywords": "sick contact|contact"
+     },
+     {
+      "label": "Animal contact or insect or tick bites",
+      "keywords": "animal|pet|bite|tick|mosquito"
+     },
+     {
+      "label": "Undercooked food or untreated water",
+      "keywords": "food|water|undercooked|raw"
+     },
+     {
+      "label": "Freshwater exposure",
+      "keywords": "freshwater|swimming|lake|river"
+     },
+     {
+      "label": "Sexual history and partners",
+      "keywords": "sexual|partners|sti|condom|unprotected"
+     },
+     {
+      "label": "Intravenous drug use",
+      "keywords": "iv drug|intravenous|injecting|needle|drug"
+     },
+     {
+      "label": "Needlestick or blood exposure",
+      "keywords": "needlestick|blood exposure|sharps"
+     }
+    ],
+    "Host factors": [
+     {
+      "label": "Immunosuppression (steroids, chemotherapy, HIV)",
+      "keywords": "immunosupp|steroid|chemo|hiv|transplant"
+     },
+     {
+      "label": "Recent hospitalisation or antibiotics",
+      "keywords": "hospital|antibiotic"
+     },
+     {
+      "label": "Indwelling devices",
+      "keywords": "catheter|line|device|prosthe|implant"
+     }
+    ]
+   }
+  }
+ }
+}

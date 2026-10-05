@@ -1,5 +1,5 @@
 import { createContext, useContext, useMemo, useState } from "react";
-import { DATA, PRES, SYSTEMS } from "../lib/data";
+import { DATA, PRES, SYS, SYSTEMS } from "../lib/data";
 
 // What the home screen has selected; also decides which drills "Random" / "Next" / "New" pick from.
 const Ctx = createContext(null);
@@ -24,7 +24,9 @@ export function FilterProvider({ children }) {
         ? DATA.filter((d) => selSys.has(d.system))
         : m === "pres"
           ? PRES
-          : []
+          : m === "sys"
+            ? SYS
+            : []
       ).filter((d) => !starOnly || (user && user.stars.includes(d.key)));
     const randPick = (m, user, cur) => {
       const p = pool(m, user).filter((d) => d !== cur);

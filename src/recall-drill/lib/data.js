@@ -1,5 +1,6 @@
 import COND from "../conditions.json";
 import PRESENT from "../presentations.json";
+import SYSREV from "../systems-review.json";
 import icP from "../assets/presentation.svg";
 import icR from "../assets/risks.svg";
 import icE from "../assets/examination.svg";
@@ -9,6 +10,7 @@ import { rx, literals } from "./match";
 
 // Section codes. cond: P presentation, R risk factors / etiology, E examination findings, M investigations,
 // T medications, treatment, and management. pres: D differentials, A associated features (history), I investigations.
+// sys: S symptoms to ask about on a systems review (categories are free-form, per drill).
 export const MODES = {
   cond: {
     noun: "condition",
@@ -48,6 +50,18 @@ export const MODES = {
         short: "associated features",
       },
       { code: "I", name: "Investigations", icon: icM, short: "investigations" },
+    ],
+  },
+  sys: {
+    noun: "systems review",
+    label: "Systems review",
+    sections: [
+      {
+        code: "S",
+        name: "Symptoms to ask about",
+        icon: icP,
+        short: "symptoms",
+      },
     ],
   },
 };
@@ -99,7 +113,9 @@ export const PRES = flatten(PRESENT, "pres", [
   ["associated", "A"],
   ["investigations", "I"],
 ]);
+export const SYS = flatten(SYSREV, "sys", [["symptoms", "S"]]);
 export const SYSTEMS = Object.keys(COND);
 export const PRES_SYSTEM = Object.keys(PRESENT)[0];
+export const SYS_SYSTEM = Object.keys(SYSREV)[0];
 
-export const byKey = new Map([...DATA, ...PRES].map((d) => [d.key, d]));
+export const byKey = new Map([...DATA, ...PRES, ...SYS].map((d) => [d.key, d]));

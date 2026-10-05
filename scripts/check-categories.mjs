@@ -58,6 +58,22 @@ for (const file of ["conditions", "presentations"]) {
   }
 }
 
+// Systems review: one section, free-form categories (symptom clusters); only the shape is checked
+for (const [system, entries] of Object.entries(read("systems-review.json")))
+  for (const [name, entry] of Object.entries(entries)) {
+    const at = `systems-review/${system}/${name}`;
+    if (name.includes(".")) errors.push(`${at}: name must not contain "."`);
+    if (!entry.symptoms || Array.isArray(entry.symptoms))
+      errors.push(`${at}: symptoms must be {category: [items]}`);
+    for (const [cat, items] of Object.entries(entry.symptoms || {})) {
+      if (!Array.isArray(items) || !items.length)
+        errors.push(`${at}/${cat}: empty or not an array`);
+      for (const it of items || [])
+        if (typeof it?.label !== "string" || typeof it?.keywords !== "string")
+          errors.push(`${at}/${cat}: item needs string label and keywords`);
+    }
+  }
+
 for (const file of Object.keys(usage))
   for (const [section, u] of Object.entries(usage[file])) {
     const unused = vocab[file][section].map((c) => c.name).filter((n) => !u[n]);

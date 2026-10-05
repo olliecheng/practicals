@@ -1,6 +1,6 @@
 // URL form of a drill: base64url of "<system>.<name>". Names and systems contain no "." (checked against the data),
-// and the split is on the first "." anyway. The presentations file's single system, "Presentation", marks that mode.
-import { byKey, dk, PRES_SYSTEM } from "./data";
+// and the split is on the first "." anyway. The presentations file's single system, "Presentation", and the systems review file's, "Systems review", mark those modes.
+import { byKey, dk, PRES_SYSTEM, SYS_SYSTEM } from "./data";
 
 const toB64url = (s) => {
   const bin = String.fromCharCode(...new TextEncoder().encode(s));
@@ -29,8 +29,17 @@ export function decodeDrill(id) {
   const system = text.slice(0, dot),
     name = text.slice(dot + 1);
   return (
-    byKey.get(dk(system === PRES_SYSTEM ? "pres" : "cond", system, name)) ||
-    null
+    byKey.get(
+      dk(
+        system === PRES_SYSTEM
+          ? "pres"
+          : system === SYS_SYSTEM
+            ? "sys"
+            : "cond",
+        system,
+        name,
+      ),
+    ) || null
   );
 }
 

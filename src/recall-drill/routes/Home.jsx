@@ -141,7 +141,7 @@ function HistoryRow({ drill, sv }) {
       </div>
       <div className="hl2">
         <div className="meta">
-          {drill.mode === "pres" ? "Presentation" : drill.system} ·{" "}
+          {drill.mode === "cond" ? drill.system : MODES[drill.mode].label} ·{" "}
           {new Date(sv.last).toLocaleDateString()}
         </div>
         <div className="acts">
@@ -264,7 +264,7 @@ export default function Home() {
                   <p className="note" style={{ gridColumn: "1/-1", margin: 0 }}>
                     No starred drills here yet.
                   </p>
-                ) : mode === "pres" ? (
+                ) : mode !== "cond" ? (
                   ds.map((d) => <Row key={d.key} drill={d} />)
                 ) : (
                   SYSTEMS.filter((s) => ds.some((d) => d.system === s)).map(
