@@ -1216,8 +1216,9 @@ button.star[aria-pressed="true"] {
 .tile.ign .ig {
   opacity: 1;
 }
-/* Ignore is offered on missed tiles and, once their section is complete, on correct ones; ignored tiles keep theirs to restore */
+/* Ignore is offered on missed and drill (purple) tiles and, once their section is complete, on correct ones; ignored tiles keep theirs to restore */
 .tile.miss .ig,
+.tile.rec .ig,
 .tile.ok .ig,
 .tile.ign .ig {
   display: flex;
