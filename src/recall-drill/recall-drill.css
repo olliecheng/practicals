@@ -1287,13 +1287,26 @@ button.star[aria-pressed="true"] {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 14px 4px;
-  border-top: 1px solid var(--line);
+  position: relative;
+  margin: 0 -8px;
+  padding: 14px 12px;
+  border-radius: 8px;
   color: var(--ink);
   text-decoration: none;
 }
-.pl:first-child {
-  border-top: none;
+/* Inset hairline between rows; hidden around the hovered row so the rounded tint isn't cut by a line */
+.pl + .pl::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12px;
+  right: 12px;
+  height: 1px;
+  background: var(--line);
+}
+.pl:hover::before,
+.pl:hover + .pl::before {
+  opacity: 0;
 }
 .pl:hover {
   background: var(--teal-soft);
@@ -1306,7 +1319,7 @@ button.star[aria-pressed="true"] {
   gap: 2px;
 }
 .pltitle-row {
-  font-size: 1.05rem;
+  font-size: 0.9rem;
   color: var(--teal);
 }
 .plcount {
@@ -1328,7 +1341,7 @@ button.star[aria-pressed="true"] {
 .pldesc {
   margin: 0;
   font-size: 0.85rem;
-  color: var(--mute);
+  color: var(--ink);
 }
 
 /* The top Drill icon is exactly as tall as the Reveal / End drill button beside it */
