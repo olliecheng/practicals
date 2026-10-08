@@ -3,6 +3,7 @@ import { AccountProvider } from "./state/AccountContext";
 import { FilterProvider } from "./state/FilterContext";
 import Layout from "./components/Layout";
 import Home from "./routes/Home";
+import Playlist from "./routes/Playlist";
 import Drill from "./routes/Drill";
 import Login from "./routes/Login";
 
@@ -24,6 +25,7 @@ export default function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<Home />} />
+            <Route path="p/:playlist" element={<Playlist />} />
             <Route path="login" element={<Login />} />
             <Route path="q/:id" element={<Drill />} />
             <Route path="*" element={<NotFound />} />

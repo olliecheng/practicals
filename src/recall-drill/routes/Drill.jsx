@@ -109,7 +109,7 @@ function Game({ drill, inc, restart }) {
     const d = filters.randPick(drill.mode, user, drill);
     if (d) nav(drillPath(d));
   };
-  const menu = () => nav("/");
+  const menu = () => nav(`/p/${drill.mode}`);
   // Hint needs named categories in the section Reveal names
   // The hint only holds for the section it was switched on for
   const hintOn = !!g.hintCode && s.hint === g.hintCode && (!s.over || drilling);

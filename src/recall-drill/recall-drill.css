@@ -33,7 +33,6 @@
   --purple: #7a4fb3;
   --purple-soft: #e6dcf3;
   --r: 5px;
-  --tabh: 38px;
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -247,14 +246,8 @@ button.chip[aria-pressed="true"] {
     grid-template-columns: minmax(0, 760px);
   }
 }
-.tabs {
-  display: flex;
-  gap: 2px;
-  height: var(--tabh);
-  align-items: flex-end;
-}
 button.starfilter {
-  margin: 0 0 4px auto;
+  margin-left: auto;
   padding: 3px 12px;
   font-size: 0.85rem;
   color: var(--mute);
@@ -266,38 +259,6 @@ button.starfilter[aria-pressed="true"] {
   background: var(--teal-soft);
   border-color: var(--teal);
   color: var(--ink);
-}
-button.tab {
-  position: relative;
-  height: 34px;
-  padding: 0 20px;
-  font-size: 0.9rem;
-  color: var(--mute);
-  background: var(--tile);
-  border: 1px solid var(--line);
-  border-bottom: none;
-  border-radius: 10px 10px 0 0;
-  margin-bottom: 0;
-}
-button.tab[aria-selected="true"] {
-  height: 38px;
-  background: var(--panel);
-  color: var(--ink);
-  font-weight: 600;
-  z-index: 1;
-  margin-bottom: -1px;
-}
-.tabpanel {
-  min-height: 200px;
-  border-radius: 0 var(--r) var(--r) var(--r);
-}
-#hist {
-  margin-top: var(--tabh);
-}
-@media (max-width: 900px) {
-  #hist {
-    margin-top: 0;
-  }
 }
 .row {
   display: flex;
@@ -1316,6 +1277,60 @@ button.star[aria-pressed="true"] {
   background: var(--teal-soft);
 }
 
+/* Home: playlists as a plain list, hairline-separated rows with the attempted counter on the right */
+.plist {
+  display: flex;
+  flex-direction: column;
+  margin-top: 6px;
+}
+.pl {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 4px;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  text-decoration: none;
+}
+.pl:first-child {
+  border-top: none;
+}
+.pl:hover {
+  background: var(--teal-soft);
+}
+.plmeta {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.pltitle-row {
+  font-size: 1.05rem;
+  color: var(--teal);
+}
+.plcount {
+  flex: none;
+  font-size: 1rem;
+  color: var(--mute);
+}
+.plchev {
+  flex: none;
+  color: var(--mute);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+.pltitle {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+  color: var(--teal);
+}
+.pldesc {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--mute);
+}
+
 /* The top Drill icon is exactly as tall as the Reveal / End drill button beside it */
 .actions.two .arow button.primary {
   height: var(--h);
@@ -1324,4 +1339,7 @@ button.star[aria-pressed="true"] {
 
 .sect {
   scroll-margin-top: 12px;
+}
+.pltitle + .pldesc {
+  margin-bottom: 16px;
 }
