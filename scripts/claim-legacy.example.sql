@@ -6,6 +6,6 @@
 UPDATE history SET user_id = :real WHERE user_id = :legacy
   AND NOT EXISTS (SELECT 1 FROM history h WHERE h.user_id = :real AND h.quiz_id = history.quiz_id);
 
--- Once quizzes and playlists exist (Phase 2), also hand over ownership of the built-in content:
--- UPDATE quizzes   SET owner_id = :real WHERE owner_id = :legacy;
--- UPDATE playlists SET owner_id = :real WHERE owner_id = :legacy;
+-- The built-in quizzes and playlists (migration 0003) are owned by the placeholder user 'ollie'; to take them over, run:
+UPDATE quizzes   SET owner_id = :real WHERE owner_id = :legacy;
+UPDATE playlists SET owner_id = :real WHERE owner_id = :legacy;

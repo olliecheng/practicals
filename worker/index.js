@@ -7,6 +7,7 @@ import { d1Store } from "./d1-store.js";
 const api = createApp({
   getAuth: (c) => createAuth(c.env),
   getStore: (c) => d1Store(c.env.DB),
+  getDb: (c) => c.env.DB,
   // The binding may be absent (e.g. a preview config that doesn't repeat it): then don't limit
   limitWrites: async (c, key) =>
     !c.env.WRITE_LIMITER || (await c.env.WRITE_LIMITER.limit({ key })).success,
