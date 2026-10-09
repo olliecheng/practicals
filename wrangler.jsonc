@@ -1,11 +1,26 @@
 {
   "name": "practicals",
   "main": "worker/index.js",
+  // Better Auth uses node:async_hooks
+  "compatibility_flags": ["nodejs_compat"],
+  // Not secret. GOOGLE_CLIENT_SECRET and BETTER_AUTH_SECRET are Worker secrets (wrangler secret put).
+  "vars": {
+    "BETTER_AUTH_URL": "https://practicals.oyc.id.au",
+    "GOOGLE_CLIENT_ID": "832814291289-hrsilj0i37m3v3e19ljt9pebb9p1mr7v.apps.googleusercontent.com",
+  },
   "compatibility_date": "2025-10-01",
   "assets": {
     "binding": "ASSETS",
     "run_worker_first": ["/api/*", "/recall-drill/*"],
   },
+  // Per-user cap on history saves (abuse guard; the client debounces saves to about one per 500 ms)
+  "ratelimits": [
+    {
+      "name": "WRITE_LIMITER",
+      "namespace_id": "1001",
+      "simple": { "limit": 60, "period": 60 },
+    },
+  ],
   "d1_databases": [
     {
       "binding": "DB",

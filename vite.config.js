@@ -19,6 +19,7 @@ export default defineConfig({
             lft: resolve(__dirname, "liver-function.html"),
             bacteria: resolve(__dirname, "bacteria.html"),
             dermatomeNinja: resolve(__dirname, "dermatome-ninja.html"),
+            privacy: resolve(__dirname, "privacy.html"),
             // SPA shell for /recall-drill/*; the Worker serves it for every client route
             recallDrill: resolve(__dirname, "recall-drill/index.html"),
           },

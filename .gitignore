@@ -63,3 +63,6 @@ tmp/
 temp/
 # Wrangler local state
 .wrangler/
+
+# Local Worker secrets (see .dev.vars.example)
+.dev.vars

@@ -6,6 +6,7 @@ The sitemap looks like this:
 
 - /: contains links and brief descriptions to each of the tests
 - /dexamethasone: dexamethasone suppression test
+- /privacy: privacy policy (linked from the Google sign-in consent screen)
 - /dermatome-ninja: Dermatome Ninja minigame (listed under Minis in /recall-drill) with Locate, Name and Learn modes; data in src/dermatome-ninja/dermatomes.json
 
 The style should be minimal, with a beige background colour, and modern theme.

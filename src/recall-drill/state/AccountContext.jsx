@@ -7,32 +7,40 @@ import {
   useRef,
   useState,
 } from "react";
-import { fetchUser, lastUser, putUser, rememberUser } from "../lib/storage";
+import { authClient, displayName } from "../lib/auth";
+import {
+  expectSignedIn,
+  fetchHistory,
+  putHistory,
+  setSignedInHint,
+} from "../lib/storage";
 
-// Accounts: user = {v:1, stars:[drillKey], drills:{drillKey:{runs,last,score,found:[itemKey],credited:[itemKey],ignored:[itemKey]}}}
-// The record is mutated in place (mutate) and saved with a debounced whole-record PUT. Guests save nothing.
+// Accounts: Google sign-in via Better Auth (session cookie). user = {v:1, stars:[drillKey], drills:{drillKey:{runs,last,score,found:[itemKey],credited:[itemKey],ignored:[itemKey]}}}
+// The record is mutated in place (mutate) and saved with a debounced whole-record PUT to /api/history. Guests save nothing.
 const Ctx = createContext(null);
 export const useAccount = () => useContext(Ctx);
 
 export function AccountProvider({ children }) {
-  const [acct, setAcct] = useState(null); // username
-  const [ready, setReady] = useState(!lastUser()); // false while the remembered user is being restored
+  const { data: session, isPending } = authClient.useSession();
+  const uid = session?.user?.id ?? null;
+  const [loaded, setLoaded] = useState(null); // id of the user whose record is in userRef
+  const [ready, setReady] = useState(!expectSignedIn()); // false while the saved record is being restored
   const [version, bump] = useState(0); // bumped on every in-place change so consumers re-render
   const [saveMsg, setSaveMsg] = useState("");
   const userRef = useRef(null);
-  const acctRef = useRef(null);
+  const acctRef = useRef(null); // id of the signed-in user once their record is loaded; saves are skipped while null
   const saveT = useRef(null);
   const chain = useRef(Promise.resolve());
+  const acct = uid && loaded === uid ? displayName(session.user) : null;
 
   const flush = useCallback(() => {
     if (!acctRef.current || saveT.current == null) return;
     clearTimeout(saveT.current);
     saveT.current = null;
-    const n = acctRef.current,
-      body = JSON.stringify(userRef.current);
+    const body = JSON.stringify(userRef.current);
     // serialised so an older state can't land last
     chain.current = chain.current
-      .then(() => putUser(n, body))
+      .then(() => putHistory(body))
       .then(
         () => setSaveMsg(""),
         () => setSaveMsg("Save failed"),
@@ -64,40 +72,47 @@ export function AccountProvider({ children }) {
     [mutate],
   );
 
-  const signIn = useCallback((name, user) => {
-    acctRef.current = name;
-    userRef.current = user;
-    rememberUser(name);
-    setAcct(name);
-    bump((n) => n + 1);
-  }, []);
-
-  const logout = useCallback(() => {
+  const logout = useCallback(async () => {
     flush();
-    acctRef.current = null;
-    userRef.current = null;
-    rememberUser("");
-    setAcct(null);
-    setSaveMsg("");
+    await chain.current;
+    try {
+      await authClient.signOut(); // the session goes null; the effect below resets the state
+      setSignedInHint(false);
+    } catch {
+      setSaveMsg("Could not log out");
+    }
   }, [flush]);
 
-  // Silently restore the remembered user, falling back to guest
+  // Load the saved record whenever the signed-in user changes
   useEffect(() => {
-    const n = lastUser();
-    if (!n) return;
+    if (isPending) return;
+    acctRef.current = null;
+    userRef.current = null;
+    setLoaded(null);
+    if (!uid) {
+      setSignedInHint(false);
+      setSaveMsg("");
+      setReady(true);
+      return;
+    }
     let live = true;
-    fetchUser(n)
+    setReady(false);
+    fetchHistory()
       .then((u) => {
         if (!live) return;
-        if (!u) rememberUser("");
-        else signIn(n, u);
+        if (!u) return setSignedInHint(false);
+        userRef.current = u;
+        acctRef.current = uid;
+        setSignedInHint(true);
+        setLoaded(uid);
+        bump((n) => n + 1);
       })
-      .catch(() => {})
+      .catch(() => live && setSaveMsg("Could not load your history"))
       .finally(() => live && setReady(true));
     return () => {
       live = false;
     };
-  }, [signIn]);
+  }, [isPending, uid]);
 
   useEffect(() => {
     const f = () => document.hidden && flush();
@@ -108,6 +123,7 @@ export function AccountProvider({ children }) {
   const value = useMemo(
     () => ({
       acct,
+      profile: acct ? session.user : null,
       ready,
       user: userRef.current,
       version,
@@ -115,10 +131,9 @@ export function AccountProvider({ children }) {
       mutate,
       toggleStar,
       flush,
-      signIn,
       logout,
     }),
-    [acct, ready, version, saveMsg, mutate, toggleStar, flush, signIn, logout],
+    [acct, session, ready, version, saveMsg, mutate, toggleStar, flush, logout],
   );
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }

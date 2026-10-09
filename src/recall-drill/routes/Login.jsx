@@ -1,75 +1,69 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { blankUser, fetchUser, putUser } from "../lib/storage";
+import { Link, useSearchParams } from "react-router-dom";
+import { authClient } from "../lib/auth";
+import { setSignedInHint } from "../lib/storage";
 import { useAccount } from "../state/AccountContext";
 
 export default function Login() {
-  const { signIn } = useAccount();
-  const nav = useNavigate();
-  const [name, setName] = useState("");
+  const { acct } = useAccount();
+  const [params] = useSearchParams();
+  const failed = params.get("error");
   const [msg, setMsg] = useState("");
   const [busy, setBusy] = useState(false);
 
-  // create: false = log in (user must exist), true = create (name must be free)
-  async function go(create) {
-    const n = name.trim().toLowerCase();
-    if (!/^[a-z0-9_-]+$/.test(n))
-      return setMsg("Use only letters, numbers, - or _.");
+  async function google() {
     setMsg("");
     setBusy(true);
-    try {
-      let u = await fetchUser(n);
-      if (create) {
-        if (u) throw "That username is taken.";
-        u = blankUser();
-        await putUser(n, JSON.stringify(u));
-      } else if (!u) throw "No account with that username. Use Create account.";
-      signIn(n, u);
-      nav("/");
-    } catch (e) {
-      setMsg(typeof e === "string" ? e : "Could not reach the server.");
+    setSignedInHint(true); // so the drill route waits for the saved record after the redirect back
+    const { error } = await authClient.signIn.social({
+      provider: "google",
+      callbackURL: "/recall-drill/",
+      newUserCallbackURL: "/recall-drill/profile",
+      errorCallbackURL: "/recall-drill/login",
+    });
+    if (error) {
+      setSignedInHint(false);
+      setMsg(error.message || "Could not start Google sign-in.");
       setBusy(false);
     }
   }
 
   return (
-    <form
-      className="panel login"
-      noValidate
-      onSubmit={(e) => {
-        e.preventDefault();
-        go(false);
-      }}
-    >
-      <label htmlFor="un">Username</label>
-      <input
-        id="un"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        autoComplete="username"
-        autoCapitalize="off"
-        autoCorrect="off"
-        spellCheck={false}
-        maxLength={100}
-        autoFocus
-      />
-      <p className="note">Pick a unique name that others won't guess.</p>
-      <p className="msg" role="alert">
-        {msg}
-      </p>
-      <div className="row">
-        <button className="primary" type="submit" disabled={busy}>
-          Log in
-        </button>
-        <button type="button" disabled={busy} onClick={() => go(true)}>
-          Create account
-        </button>
-      </div>
+    <div className="panel login">
+      {acct ? (
+        <p>
+          You're signed in as <b>{acct}</b>.
+        </p>
+      ) : (
+        <>
+          <p className="note">
+            Sign in with your Google account to save your progress and stars. We
+            only receive your name, email and profile picture.
+          </p>
+          <p className="msg" role="alert">
+            {msg || (failed && "Sign-in failed. Please try again.")}
+          </p>
+          <div className="row">
+            <button
+              className="primary"
+              type="button"
+              disabled={busy}
+              onClick={google}
+            >
+              Sign in with Google
+            </button>
+          </div>
+        </>
+      )}
       <p className="note" style={{ marginTop: 14 }}>
         <Link className="link" to="/">
-          ← Back to the drill (as guest)
+          ← Back to the drill{acct ? "s" : " (as guest)"}
         </Link>
+        {" · "}
+        <a className="link" href="/privacy">
+          Privacy
+        </a>
       </p>
-    </form>
+    </div>
   );
 }

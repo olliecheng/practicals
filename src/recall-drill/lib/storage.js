@@ -1,20 +1,19 @@
-// Username-only accounts: the whole user record is one JSON blob behind /api/user (see worker/app.js).
-const KEY = "recallDrillUser";
+// The signed-in user's record lives behind /api/history (see worker/app.js); the session is a cookie set by Better Auth.
+const HINT = "recallDrillSignedIn";
 const CKEY = "recallDrillCollapsed";
 
-export const blankUser = () => ({ v: 1, stars: [], drills: {} });
-
-export const lastUser = () => {
+// Remembered across loads so the drill route can wait for the saved record only when one is expected
+export const expectSignedIn = () => {
   try {
-    return localStorage.getItem(KEY) || "";
+    return localStorage.getItem(HINT) === "1";
   } catch {
-    return "";
+    return false;
   }
 };
 
-export const rememberUser = (name) => {
+export const setSignedInHint = (v) => {
   try {
-    name ? localStorage.setItem(KEY, name) : localStorage.removeItem(KEY);
+    v ? localStorage.setItem(HINT, "1") : localStorage.removeItem(HINT);
   } catch {}
 };
 
@@ -31,17 +30,10 @@ export const saveCollapsed = (v) => {
   } catch {}
 };
 
-// Resolves to the user record, or null if the user doesn't exist. Throws if the server can't be reached.
-export async function fetchUser(name) {
-  const r = await fetch("/api/user", {
-    headers: { "x-username": name },
-    cache: "no-store",
-  });
-  if (r.status === 404) {
-    const j = await r.json().catch(() => null);
-    if (j && j.error === "not found") return null;
-    throw new Error("bad response");
-  }
+// Resolves to the user record, or null if there is no session. Throws if the server can't be reached.
+export async function fetchHistory() {
+  const r = await fetch("/api/history", { cache: "no-store" });
+  if (r.status === 401) return null;
   if (!r.ok) throw new Error("status " + r.status);
   const u = await r.json();
   if (!u || u.v !== 1) throw new Error("bad data");
@@ -55,10 +47,10 @@ export async function fetchUser(name) {
   return u;
 }
 
-export async function putUser(name, body) {
-  const r = await fetch("/api/user", {
+export async function putHistory(body) {
+  const r = await fetch("/api/history", {
     method: "PUT",
-    headers: { "x-username": name, "content-type": "application/json" },
+    headers: { "content-type": "application/json" },
     body,
   });
   if (!r.ok) throw new Error("status " + r.status);

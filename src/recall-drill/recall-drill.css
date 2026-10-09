@@ -940,6 +940,19 @@ body.drilling .sect .sh .sc {
   padding: 5px 12px;
   font-size: 0.85rem;
 }
+.acct .avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--line);
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
 .cell {
   display: flex;
   flex-direction: column;
