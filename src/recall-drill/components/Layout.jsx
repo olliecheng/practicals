@@ -3,6 +3,23 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 import { useAccount } from "../state/AccountContext";
 import Avatar from "./Avatar";
 
+// 16px outline icon (see DESIGN.md)
+const Icon = ({ d }) => (
+  <svg
+    viewBox="0 0 24 24"
+    width="16"
+    height="16"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d={d} />
+  </svg>
+);
+
 // Signed in: avatar + name + arrow form one button; clicking it opens a dropdown with Profile and Log out.
 // Escape, a click outside, or navigating closes it.
 function AccountMenu() {
@@ -42,16 +59,19 @@ function AccountMenu() {
       </button>
       {open && (
         <div className="acctmenu" role="menu">
-          <Link role="menuitem" to="/profile">
+          <Link role="menuitem" className="subbtn" to="/profile">
+            <Icon d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" />
             Profile
           </Link>
           <button
             role="menuitem"
+            className="subbtn"
             onClick={() => {
               setOpen(false);
               logout();
             }}
           >
+            <Icon d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" />
             Log out
           </button>
         </div>

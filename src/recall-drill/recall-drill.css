@@ -1076,25 +1076,20 @@ body.drilling .sect .sh .sc {
   border-radius: var(--r);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
 }
-.acctin .acctmenu a,
-.acctin .acctmenu button {
-  display: block;
+/* Entries are .subbtn (icon + small label) with black text, like the other menus */
+.acctmenu .subbtn {
   width: 100%;
-  padding: 8px 12px;
-  border: 0;
-  border-radius: 3px;
+  border: 0; /* .acct a / .acct button give the header's Log in link and buttons a border */
   background: none;
+  padding: 6px 8px 6px 4px;
   color: var(--ink);
-  font: inherit;
-  font-size: 0.9rem;
   text-align: left;
   text-decoration: none;
+  white-space: nowrap;
   cursor: pointer;
 }
-.acctin .acctmenu a:hover,
-.acctin .acctmenu button:hover,
-.acctin .acctmenu a:focus-visible,
-.acctin .acctmenu button:focus-visible {
+.acctmenu .subbtn:hover,
+.acctmenu .subbtn:focus-visible {
   background: var(--teal-soft);
 }
 .avatar {
