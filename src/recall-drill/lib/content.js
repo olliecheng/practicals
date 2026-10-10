@@ -59,6 +59,13 @@ export const savePlaylist = async (id, data) => {
   return r;
 };
 
+// Replaces a quiz's data (see lib/data.js) and drops the cached reads
+export const saveQuiz = async (id, data) => {
+  const r = await api("PUT", `/api/quizzes/${id}`, data);
+  bust();
+  return r;
+};
+
 // The playlist with its quizzes grouped by section; meta leaves the quiz bodies out
 export const usePlaylist = (id, { meta } = {}) =>
   useLoad(id ? `/api/playlists/${id}${meta ? "?quizzes=meta" : ""}` : null);

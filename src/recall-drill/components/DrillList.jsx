@@ -30,13 +30,22 @@ export function Row({ drill }) {
     <div
       ref={ref}
       className={"cell" + (open ? " open" : "")}
-      onMouseEnter={hist ? place : undefined}
+      onMouseEnter={acct ? place : undefined}
     >
       <div
         className="rw"
         tabIndex={0}
         role="button"
         onClick={click}
+        onContextMenu={
+          acct
+            ? (e) => {
+                e.preventDefault();
+                setOpen(true);
+                place();
+              }
+            : undefined
+        }
         onKeyDown={(e) => {
           if (
             e.target === e.currentTarget &&
@@ -71,7 +80,7 @@ export function Row({ drill }) {
           </span>
         )}
       </div>
-      {hist && (
+      {acct && (
         <div className={"menu" + (left ? " l" : "")}>
           <div className="mi">
             <DrillActions

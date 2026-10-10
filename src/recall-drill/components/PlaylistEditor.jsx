@@ -89,24 +89,26 @@ function Section({ sec, index, count, set, onMove }) {
           aria-label="Section title"
           onChange={(e) => set({ ...sec, title: e.target.value })}
         />
-        <button
-          type="button"
-          className="edicon"
-          disabled={index === 0}
-          aria-label="Move section up"
-          onClick={() => onMove(-1)}
-        >
-          ↑
-        </button>
-        <button
-          type="button"
-          className="edicon"
-          disabled={index === count - 1}
-          aria-label="Move section down"
-          onClick={() => onMove(1)}
-        >
-          ↓
-        </button>
+        {index > 0 && (
+          <button
+            type="button"
+            className="subbtn"
+            aria-label="Move section up"
+            onClick={() => onMove(-1)}
+          >
+            ↑ Up
+          </button>
+        )}
+        {index < count - 1 && (
+          <button
+            type="button"
+            className="subbtn"
+            aria-label="Move section down"
+            onClick={() => onMove(1)}
+          >
+            ↓ Down
+          </button>
+        )}
       </div>
       <SortableContext
         items={sec.items.map((i) => i.id)}

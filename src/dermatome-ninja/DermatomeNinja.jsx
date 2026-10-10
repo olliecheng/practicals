@@ -277,7 +277,7 @@ export default function DermatomeNinja() {
 
         <div>
           <div className="dn-bar">
-            <div className="dn-toggle" role="tablist" aria-label="Mode">
+            <div className="segmented" role="tablist" aria-label="Mode">
               {[
                 ["locate", "Locate"],
                 ["name", "Name"],

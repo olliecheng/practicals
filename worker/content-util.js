@@ -67,3 +67,40 @@ export const page = (items, limit) => ({
   items,
   next: items.length === limit ? items[items.length - 1].id : null,
 });
+
+// Section keys of a quiz's data per mode (the same as SECTION_KEYS in src/recall-drill/lib/data.js)
+const QUIZ_SECTIONS = {
+  cond: [
+    "presentation",
+    "risks",
+    "examination",
+    "investigations",
+    "medications",
+  ],
+  pres: ["differentials", "associated", "investigations"],
+  sys: ["symptoms"],
+};
+const validItems = (list) =>
+  Array.isArray(list) &&
+  list.every(
+    (it) =>
+      it && typeof it.label === "string" && typeof it.keywords === "string",
+  );
+// A section is a list of items or {"Category": [items]}; a missing one counts as empty
+const validSection = (sec) =>
+  sec === undefined ||
+  validItems(sec) ||
+  (!!sec &&
+    typeof sec === "object" &&
+    !Array.isArray(sec) &&
+    Object.values(sec).every(validItems));
+
+// True if a quiz body has the shape the app reads (any signed-in user can now PUT a quiz, so it is checked)
+export const validQuiz = (b) =>
+  !!QUIZ_SECTIONS[b.mode] &&
+  typeof b.system === "string" &&
+  typeof b.name === "string" &&
+  !!b.name &&
+  !b.name.includes(".") &&
+  typeof b.prompt === "string" &&
+  QUIZ_SECTIONS[b.mode].every((k) => validSection(b[k]));

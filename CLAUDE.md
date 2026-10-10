@@ -13,6 +13,8 @@ The style should be minimal, with a beige background colour, and modern theme.
 
 The typeface can be found in @tailwind.config.js and is installed using FontSource.
 
+See @DESIGN.md for design information.
+
 Use `npx prettier` for formatting. Run it after every change.
 
 - Only look at the background dev shell to see if your changes have compiled properly.

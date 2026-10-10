@@ -11,6 +11,7 @@ import {
   quizFull,
   quizMeta,
   readObject,
+  validQuiz,
 } from "./content-util.js";
 
 export function mountQuizzes(app, { getDb, getSession, auth }) {
@@ -87,20 +88,21 @@ export function mountQuizzes(app, { getDb, getSession, auth }) {
     return c.json(await getQuiz(db, id), 201);
   });
 
-  // Replaces the data in place: every playlist that references the quiz sees the change. `deleted` is kept as it is.
+  // Replaces the data in place (any signed-in user may): every playlist that references the quiz sees the change. `deleted` is kept as it is.
   app.put("/api/quizzes/:id", auth, async (c) => {
     const id = c.req.param("id");
     if (!isId(id)) return c.json({ error: "not found" }, 404);
     const body = await readObject(c);
     if (!body) return c.json({ error: "bad json" }, 400);
+    if (!validQuiz(body)) return c.json({ error: "bad quiz" }, 400);
     const db = getDb(c);
     const r = await db
       .prepare(
         `UPDATE quizzes
          SET data = json_set(?1, '$.deleted', json(CASE WHEN json_extract(data, '$.deleted') THEN 'true' ELSE 'false' END))
-         WHERE id = ?2 AND owner_id = ?3`,
+         WHERE id = ?2`,
       )
-      .bind(JSON.stringify(body), id, c.get("userId"))
+      .bind(JSON.stringify(body), id)
       .run();
     if (!r.meta.changes) return c.json({ error: "not found" }, 404);
     return c.json(await getQuiz(db, id));

@@ -30,6 +30,7 @@ export default function App() {
             <Route path="login" element={<Login />} />
             <Route path="profile" element={<Profile />} />
             <Route path="q/:id" element={<Drill />} />
+            <Route path="q/:id/edit" element={<Drill edit />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

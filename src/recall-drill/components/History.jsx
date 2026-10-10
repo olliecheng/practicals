@@ -18,6 +18,10 @@ function HistoryRow({ drill, sv }) {
       className={"hrow" + (open ? " open" : "")}
       tabIndex={0}
       onClick={(e) => !e.target.closest("button") && toggle()}
+      onContextMenu={(e) => {
+        e.preventDefault();
+        setOpen(true);
+      }}
       onKeyDown={(e) => {
         if (
           e.target === e.currentTarget &&

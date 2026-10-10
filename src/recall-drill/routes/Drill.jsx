@@ -9,6 +9,8 @@ import {
 import { drillFromQuiz, MODES } from "../lib/data";
 import { playlistQuizzes, useLoad, usePlaylist, useQuiz } from "../lib/content";
 import { decodeLegacyDrill, drillPath, isQuizId } from "../lib/legacy";
+import PencilIcon from "../components/PencilIcon";
+import QuizEditor from "../components/QuizEditor";
 import { useAccount } from "../state/AccountContext";
 import { useFilters } from "../state/FilterContext";
 import {
@@ -85,27 +87,38 @@ function Game({ drill, inc, restart }) {
     document.body.classList.toggle("drilling", drilling);
     return () => document.body.classList.remove("drilling");
   }, [drilling]);
-  // Expanding (the toggle, or Reveal ending the round) scrolls the section just revealed or left open into view
+  // Expanding (the toggle, or Reveal ending the round) scrolls the section just revealed or left open into view; the toggle only if it is off screen
   const scrollTo = useRef("");
+  const scrollOnlyIfHidden = useRef(false);
   const compact = g.collapsed && !s.over;
   const was = useRef({ compact, over: s.over });
   useEffect(() => {
     const prev = was.current;
     was.current = { compact, over: s.over };
     const code = scrollTo.current;
+    const onlyIfHidden = scrollOnlyIfHidden.current;
     scrollTo.current = "";
+    scrollOnlyIfHidden.current = false;
     if (!code || !((prev.compact && !compact) || (!prev.over && s.over)))
       return;
-    document
-      .getElementById("s" + code)
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const el = document.getElementById("s" + code);
+    if (!el) return;
+    // The Expand toggle only scrolls when the section Reveal names is off screen
+    if (onlyIfHidden) {
+      const r = el.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < window.innerHeight) return;
+    }
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
   });
   const reveal = () => {
     scrollTo.current = g.hintCode;
     g.revealSec();
   };
   const toggleCollapsed = () => {
-    if (collapsed) scrollTo.current = s.active;
+    if (collapsed) {
+      scrollTo.current = s.active;
+      scrollOnlyIfHidden.current = true;
+    }
     g.setCollapsed(!collapsed);
   };
   const { acct, user } = account;
@@ -152,15 +165,26 @@ function Game({ drill, inc, restart }) {
               <Link to={inCtx ? `/p/${ctxId}` : "/"}>{plTitle}</Link>
             </div>
             {acct && (
-              <button
-                className="star"
-                aria-pressed={starred}
-                title="Star this drill"
-                aria-label="Star this drill"
-                onClick={() => account.toggleStar(drill.key)}
-              >
-                ★
-              </button>
+              <div className="ttlbtns">
+                <button
+                  className="subbtn"
+                  aria-pressed={starred}
+                  title="Star this drill"
+                  aria-label="Star this drill"
+                  onClick={() => account.toggleStar(drill.key)}
+                >
+                  ★ {starred ? "Starred" : "Star"}
+                </button>
+                <Link
+                  className="subbtn"
+                  to={`${drillPath(drill.key)}/edit`}
+                  title="Edit quiz"
+                  aria-label="Edit quiz"
+                >
+                  <PencilIcon />
+                  Edit
+                </Link>
+              </div>
             )}
           </div>
           <div className="cond">{drill.name}</div>
@@ -417,9 +441,14 @@ const NotFound = ({ children = "Drill not found" }) => (
   </div>
 );
 
-export default function Drill() {
+// edit: /q/<id>/edit, the quiz editor instead of the drill
+export default function Drill({ edit }) {
   const { id } = useParams();
-  return isQuizId(id) ? <QuizDrill id={id} /> : <LegacyDrill id={id} />;
+  return isQuizId(id) ? (
+    <QuizDrill id={id} edit={edit} />
+  ) : (
+    <LegacyDrill id={id} />
+  );
 }
 
 // /q/<base64 of "<system>.<name>"> was the URL before drills were quizzes: find the quiz and go to its own address
@@ -436,9 +465,10 @@ function LegacyDrill({ id }) {
   return <Navigate to={drillPath(hit.id)} replace state={location.state} />;
 }
 
-function QuizDrill({ id }) {
+function QuizDrill({ id, edit }) {
   const location = useLocation();
-  const { ready } = useAccount();
+  const nav = useNavigate();
+  const { ready, acct } = useAccount();
   const st = useQuiz(id);
   const drill = useMemo(
     () => (st.status === "ok" ? drillFromQuiz(st.data) : null),
@@ -465,6 +495,12 @@ function QuizDrill({ id }) {
   if (!drill) return <NotFound />;
   if (drill.deleted)
     return <NotFound>This quiz was deleted by its owner.</NotFound>;
+  if (edit) {
+    // Only signed-in users edit; guests are sent to the drill
+    if (!acct) return <Navigate to={drillPath(id)} replace />;
+    const back = () => nav(drillPath(id), { replace: true });
+    return <QuizEditor id={id} quiz={st.data} onDone={back} onCancel={back} />;
+  }
   // location.key changes on every navigation, so Next / New start a fresh round even if the drill repeats
   return <Run key={location.key} drill={drill} inc={location.state?.inc} />;
 }
