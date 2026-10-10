@@ -7,7 +7,6 @@ import { useAccount } from "../state/AccountContext";
 import { useFilters } from "../state/FilterContext";
 import { Group, Row } from "../components/DrillList";
 import History from "../components/History";
-import Owner from "../components/Owner";
 
 const NotFound = ({ children = "Playlist not found" }) => (
   <div className="panel">
@@ -89,9 +88,6 @@ function PlaylistView({ id }) {
       <div className="panel">
         <h2 className="pltitle">{pl.title}</h2>
         <p className="pldesc">{pl.description}</p>
-        <p className="pldesc">
-          <Owner owner={pl.owner} />
-        </p>
         <div className="big">
           <button className="primary" onClick={random} disabled={!ids.length}>
             Random {noun}
@@ -118,17 +114,10 @@ function PlaylistView({ id }) {
             shown
               .filter((s) => s.drills.length)
               .map((s, i) => (
-                <Group
-                  key={i}
-                  system={s.title}
-                  drills={s.drills}
-                  ownerId={pl.owner.id}
-                />
+                <Group key={i} system={s.title} drills={s.drills} />
               ))
           ) : (
-            shown[0].drills.map((d) => (
-              <Row key={d.key} drill={d} ownerId={pl.owner.id} />
-            ))
+            shown[0].drills.map((d) => <Row key={d.key} drill={d} />)
           )}
         </div>
       </div>

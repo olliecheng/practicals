@@ -33,6 +33,9 @@
   --purple: #7a4fb3;
   --purple-soft: #e6dcf3;
   --r: 5px;
+  --font-body: "Inter Variable", "Inter", system-ui, sans-serif;
+  --font-head:
+    "Hanken Grotesk Variable", "Hanken Grotesk", system-ui, sans-serif;
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -107,8 +110,7 @@ body {
   background-size: 0.95cm 0.95cm;
   background-attachment: fixed;
   color: var(--ink);
-  font-family:
-    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.5;
 }
@@ -122,8 +124,7 @@ h2,
 .display,
 .cond,
 .sh > span:first-child {
-  font-family:
-    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+  font-family: var(--font-head);
 }
 header {
   display: flex;
@@ -196,6 +197,7 @@ button.chip[aria-pressed="true"] {
   border-color: var(--teal);
   font-weight: 400;
 }
+/* Hint: a pill with a small checkbox embedded in it */
 .hintbtn {
   display: inline-flex;
   align-items: center;
@@ -236,9 +238,8 @@ button.chip[aria-pressed="true"] {
 }
 .home {
   display: grid;
-  grid-template-columns: minmax(0, 760px) minmax(240px, 340px);
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 340px);
   gap: 14px;
-  max-width: 1180px;
   align-items: start;
 }
 @media (max-width: 900px) {
@@ -434,6 +435,14 @@ button.starfilter[aria-pressed="true"] {
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
+.sys a {
+  color: inherit;
+  text-decoration: none;
+}
+.sys a:hover,
+.sys a:focus-visible {
+  text-decoration: underline;
+}
 .tline {
   display: flex;
   justify-content: flex-end;
@@ -503,8 +512,7 @@ button.starfilter[aria-pressed="true"] {
   }
 }
 .counter {
-  font-family:
-    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+  font-family: var(--font-head);
   font-weight: 600;
   font-size: 1.1rem;
   margin: 0 0 10px;
@@ -800,8 +808,7 @@ body.drilling .sect .sh .sc {
   background: var(--tile);
   color: var(--mute);
   justify-content: center;
-  font-family:
-    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+  font-family: var(--font-body);
   font-weight: 500;
   font-size: 0.85rem;
   border: 1px solid var(--line);
@@ -836,8 +843,7 @@ body.drilling .sect .sh .sc {
   align-items: center;
 }
 .result {
-  font-family:
-    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+  font-family: var(--font-head);
   font-weight: 600;
   font-size: 1.25rem;
   line-height: 1.2;
@@ -953,11 +959,12 @@ body.drilling .sect .sh .sc {
   font-size: 0.875rem;
 }
 .prefhead {
-  padding: 9px 12px;
-  text-align: center;
+  padding: 16px 20px 12px;
+  font-family: var(--font-head);
+  font-size: 1.25rem;
   font-weight: 600;
+  line-height: 1.2;
   border-bottom: 1px solid var(--line);
-  background: linear-gradient(var(--tile), var(--panel));
 }
 .prefrow {
   display: grid;
@@ -971,7 +978,8 @@ body.drilling .sect .sh .sc {
   border-bottom: 0;
 }
 .preflabel {
-  padding-top: 6px;
+  padding-top: 9px;
+  font-family: var(--font-head);
   text-align: right;
   font-weight: 600;
   color: var(--mute);
@@ -1054,7 +1062,7 @@ body.drilling .sect .sh .sc {
 }
 .acctmenu {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 6px);
   right: 0;
   z-index: 20;
   min-width: 150px;
@@ -1065,6 +1073,15 @@ body.drilling .sect .sh .sc {
   border: 1px solid var(--line);
   border-radius: var(--r);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
+}
+/* Invisible bridge over the gap so the hover-opened menu doesn't close while the pointer crosses it */
+.acctmenu::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 6px;
 }
 .acctin .acctmenu a,
 .acctin .acctmenu button {
@@ -1111,22 +1128,9 @@ body.drilling .sect .sh .sc {
   height: 16px;
   font-size: 0.6rem;
 }
-/* "by <name>" under a title */
-.byline {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.8rem;
-  color: var(--mute);
-}
 .byrow {
   margin: 4px 0 0;
   font-size: 0.8rem;
-  color: var(--mute);
-}
-.by {
-  font-size: 0.75em;
-  font-weight: 400;
   color: var(--mute);
 }
 .cell {
@@ -1156,6 +1160,8 @@ body.drilling .sect .sh .sc {
 }
 .cell {
   position: relative;
+  /* Don't stretch to the tallest cell in the grid row, or the popover (top: 100% on narrow screens) opens below that gap */
+  align-self: start;
 }
 .rw .rstar {
   flex: none;

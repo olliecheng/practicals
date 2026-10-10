@@ -3,8 +3,7 @@ import { useAccount } from "../state/AccountContext";
 import { useOutsideClose, useStart } from "../lib/useDrillUi";
 import DrillActions from "./DrillActions";
 
-// ownerId: the playlist owner; a quiz owned by someone else says so
-export function Row({ drill, ownerId }) {
+export function Row({ drill }) {
   const { acct, user, toggleStar } = useAccount();
   const start = useStart(drill);
   const sv = acct && user.drills[drill.key],
@@ -48,12 +47,7 @@ export function Row({ drill, ownerId }) {
           }
         }}
       >
-        <span className="lb">
-          {drill.name}
-          {ownerId && drill.owner && drill.owner.id !== ownerId && (
-            <small className="by"> by {drill.owner.name}</small>
-          )}
-        </span>
+        <span className="lb">{drill.name}</span>
         {acct && (
           <button
             className="rstar"
@@ -94,11 +88,11 @@ export function Row({ drill, ownerId }) {
 }
 
 // condlist is a grid and the system headings span it, so the group is a fragment rather than a wrapper element
-export const Group = ({ system, drills, ownerId }) => (
+export const Group = ({ system, drills }) => (
   <>
     {system && <h3 className="sysh">{system}</h3>}
     {drills.map((d) => (
-      <Row key={d.key} drill={d} ownerId={ownerId} />
+      <Row key={d.key} drill={d} />
     ))}
   </>
 );

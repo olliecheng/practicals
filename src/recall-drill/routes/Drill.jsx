@@ -11,7 +11,6 @@ import { playlistQuizzes, useLoad, usePlaylist, useQuiz } from "../lib/content";
 import { decodeLegacyDrill, drillPath, isQuizId } from "../lib/legacy";
 import { useAccount } from "../state/AccountContext";
 import { useFilters } from "../state/FilterContext";
-import Owner from "../components/Owner";
 import {
   hasMissed,
   sectionComplete,
@@ -126,6 +125,8 @@ function Game({ drill, inc, restart }) {
     if (pick) nav(drillPath(pick), { state: { playlist: ctxId } });
   };
   const menu = () => nav(inCtx ? `/p/${ctxId}` : "/");
+  // Header label: the playlist, linking back to it
+  const plTitle = inCtx ? ctx.data.title : MODES[drill.mode].label;
   // Hint needs named categories in the section Reveal names
   // The hint only holds for the section it was switched on for
   const hintOn = !!g.hintCode && s.hint === g.hintCode && (!s.over || drilling);
@@ -147,7 +148,9 @@ function Game({ drill, inc, restart }) {
       <div className="side">
         <div className="panel">
           <div className="ttl">
-            <div className="sys">{drill.system}</div>
+            <div className="sys">
+              <Link to={inCtx ? `/p/${ctxId}` : "/"}>{plTitle}</Link>
+            </div>
             {acct && (
               <button
                 className="star"
@@ -385,23 +388,19 @@ function Game({ drill, inc, restart }) {
   );
 }
 
-// Who made the quiz, and what it was forked from
+// What the quiz was forked from, if anything
 function Byline({ drill }) {
   const from = useQuiz(drill.forked_from || null);
+  if (!drill.forked_from) return null;
   return (
     <p className="byrow">
-      <Owner owner={drill.owner} />
-      {drill.forked_from && (
-        <>
-          {" · forked from "}
-          {from.status === "ok" ? (
-            <Link className="link" to={drillPath(drill.forked_from)}>
-              {from.data.data?.name || "the original"}
-            </Link>
-          ) : (
-            "another quiz"
-          )}
-        </>
+      {"Forked from "}
+      {from.status === "ok" ? (
+        <Link className="link" to={drillPath(drill.forked_from)}>
+          {from.data.data?.name || "the original"}
+        </Link>
+      ) : (
+        "another quiz"
       )}
     </p>
   );
