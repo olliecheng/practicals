@@ -3,13 +3,12 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 import { useAccount } from "../state/AccountContext";
 import Avatar from "./Avatar";
 
-// Signed in: avatar + name (opens Profile) with a dropdown for Profile and Log out. It opens on mouse hover and on keyboard focus;
-// on touch the small arrow toggles it. Escape, a tap outside, or navigating closes it.
+// Signed in: avatar + name + arrow form one button; clicking it opens a dropdown with Profile and Log out.
+// Escape, a click outside, or navigating closes it.
 function AccountMenu() {
   const { acct, profile, saveMsg, logout } = useAccount();
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
-  const pointer = useRef("mouse");
   const { pathname } = useLocation();
   useEffect(() => setOpen(false), [pathname]);
   useEffect(() => {
@@ -25,35 +24,22 @@ function AccountMenu() {
     };
   }, [open]);
   return (
-    <div
-      className="acct acctin"
-      ref={ref}
-      onPointerDown={(e) => (pointer.current = e.pointerType)}
-      onPointerEnter={(e) => e.pointerType === "mouse" && setOpen(true)}
-      onPointerLeave={(e) => e.pointerType === "mouse" && setOpen(false)}
-      onFocus={(e) => e.target.matches(":focus-visible") && setOpen(true)}
-      onBlur={(e) =>
-        !e.currentTarget.contains(e.relatedTarget) && setOpen(false)
-      }
-    >
+    <div className="acct acctin" ref={ref}>
       {saveMsg && <span className="savemsg">{saveMsg}</span>}
-      <div className="acctbtn">
-        <Link className="acctname" to="/profile">
+      <button
+        className="acctbtn"
+        aria-haspopup="menu"
+        aria-expanded={open}
+        onClick={() => setOpen((o) => !o)}
+      >
+        <span className="acctname">
           <Avatar user={{ name: acct, image: profile.image }} />
           <span>{acct}</span>
-        </Link>
-        <button
-          className="acctchev"
-          aria-haspopup="menu"
-          aria-expanded={open}
-          aria-label="Account menu"
-          onClick={() =>
-            pointer.current === "mouse" ? setOpen(true) : setOpen((o) => !o)
-          }
-        >
+        </span>
+        <span className="acctchev" aria-hidden="true">
           ▾
-        </button>
-      </div>
+        </span>
+      </button>
       {open && (
         <div className="acctmenu" role="menu">
           <Link role="menuitem" to="/profile">

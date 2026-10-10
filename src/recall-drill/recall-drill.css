@@ -1023,7 +1023,7 @@ body.drilling .sect .sh .sc {
   }
 }
 
-/* Signed-in account control in the header: avatar + name (opens Profile) with a hover / focus dropdown */
+/* Signed-in account control in the header: one button (avatar + name + arrow) that opens a dropdown on click */
 .acctin {
   position: relative;
   gap: 10px;
@@ -1031,13 +1031,19 @@ body.drilling .sect .sh .sc {
 .acctin .savemsg {
   color: var(--bad);
 }
-.acctbtn {
+.acct .acctbtn {
   display: flex;
   align-items: center;
+  padding: 0;
+  border: 0;
   border-radius: var(--r);
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
 }
-.acctin:hover .acctbtn,
-.acctin:focus-within .acctbtn {
+.acct .acctbtn:hover,
+.acct .acctbtn[aria-expanded="true"] {
   background: var(--teal-soft);
 }
 .acctin .acctname {
@@ -1053,12 +1059,9 @@ body.drilling .sect .sh .sc {
 }
 .acctin .acctchev {
   padding: 4px 8px 4px 2px;
-  border: 0;
-  background: none;
   color: var(--mute);
   font-size: 0.8rem;
   line-height: 1;
-  cursor: pointer;
 }
 .acctmenu {
   position: absolute;
@@ -1073,15 +1076,6 @@ body.drilling .sect .sh .sc {
   border: 1px solid var(--line);
   border-radius: var(--r);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
-}
-/* Invisible bridge over the gap so the hover-opened menu doesn't close while the pointer crosses it */
-.acctmenu::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 100%;
-  height: 6px;
 }
 .acctin .acctmenu a,
 .acctin .acctmenu button {
