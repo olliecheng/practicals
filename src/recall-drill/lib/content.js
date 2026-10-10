@@ -1,5 +1,5 @@
 // Loading quizzes and playlists from the API. Responses are remembered for the session (they only change when someone edits
-// content, which this UI doesn't do yet; bust() drops them), so moving between screens doesn't flash a loading state.
+// content, bust() drops them, as savePlaylist does), so moving between screens doesn't flash a loading state.
 import { useEffect, useState } from "react";
 import { api } from "./api";
 import { FEATURED } from "./legacy";
@@ -51,6 +51,13 @@ export function useLoad(path) {
   }, [path, attempt]);
   return { ...state, retry: () => setAttempt((n) => n + 1) };
 }
+
+// Replaces a playlist's data ({title, description, sections:[{title, quiz_ids}]}) and drops the cached reads
+export const savePlaylist = async (id, data) => {
+  const r = await api("PUT", `/api/playlists/${id}`, data);
+  bust();
+  return r;
+};
 
 // The playlist with its quizzes grouped by section; meta leaves the quiz bodies out
 export const usePlaylist = (id, { meta } = {}) =>

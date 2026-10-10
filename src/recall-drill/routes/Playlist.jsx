@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { drillFromQuiz, MODES } from "../lib/data";
 import { usePlaylist } from "../lib/content";
@@ -7,6 +7,7 @@ import { useAccount } from "../state/AccountContext";
 import { useFilters } from "../state/FilterContext";
 import { Group, Row } from "../components/DrillList";
 import History from "../components/History";
+import PlaylistEditor from "../components/PlaylistEditor";
 
 const NotFound = ({ children = "Playlist not found" }) => (
   <div className="panel">
@@ -32,6 +33,7 @@ function PlaylistView({ id }) {
   const { acct, user } = useAccount();
   const f = useFilters();
   const nav = useNavigate();
+  const [editing, setEditing] = useState(false);
   const { setPlaylist, starOnly, setStarOnly } = f;
 
   // The filter context decides what Random / Next / New pick from, so keep it on this playlist
@@ -83,6 +85,23 @@ function PlaylistView({ id }) {
     if (pick) nav(drillPath(pick), { state: { playlist: id } });
   };
 
+  if (editing)
+    return (
+      <section className="home">
+        <div className="panel">
+          <PlaylistEditor
+            id={id}
+            pl={pl}
+            onCancel={() => setEditing(false)}
+            onDone={() => {
+              setEditing(false);
+              st.retry();
+            }}
+          />
+        </div>
+      </section>
+    );
+
   return (
     <section className="home">
       <div className="panel">
@@ -99,6 +118,28 @@ function PlaylistView({ id }) {
               onClick={() => setStarOnly(!starOnly)}
             >
               ★ Starred
+            </button>
+          )}
+          {acct && (
+            <button
+              className="iconbtn"
+              aria-label="Edit playlist"
+              title="Edit playlist"
+              onClick={() => setEditing(true)}
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+              </svg>
             </button>
           )}
         </div>

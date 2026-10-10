@@ -126,9 +126,24 @@ export function mountPlaylists(app, { getDb, getSession, auth }) {
     if (!isId(id)) return notFound(c);
     const body = await readObject(c);
     if (!body) return c.json({ error: "bad json" }, 400);
+    // Any signed-in user may edit a playlist, so check the shape the editor relies on
+    const str = (v) => typeof v === "string";
+    if (
+      !str(body.title) ||
+      !str(body.description) ||
+      !Array.isArray(body.sections) ||
+      !body.sections.every(
+        (s) =>
+          s &&
+          str(s.title) &&
+          Array.isArray(s.quiz_ids) &&
+          s.quiz_ids.every(str),
+      )
+    )
+      return c.json({ error: "bad playlist" }, 400);
     const r = await getDb(c)
-      .prepare("UPDATE playlists SET data = ?1 WHERE id = ?2 AND owner_id = ?3")
-      .bind(JSON.stringify(body), id, c.get("userId"))
+      .prepare("UPDATE playlists SET data = ?1 WHERE id = ?2")
+      .bind(JSON.stringify(body), id)
       .run();
     return r.meta.changes ? c.json({ id, data: body }) : notFound(c);
   });

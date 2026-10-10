@@ -1545,3 +1545,120 @@ button.star[aria-pressed="true"] {
 .pltitle + .pldesc {
   margin-bottom: 16px;
 }
+
+/* Playlist editor */
+.pledit {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pledit input,
+.pledit textarea {
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--panel);
+  color: var(--ink);
+  min-width: 0;
+}
+.edsection {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+.edhead {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+/* The title looks like the section heading and only shows it is editable on hover or focus */
+.pledit .edhead input.edtitle {
+  flex: 1;
+  padding: 2px 6px;
+  margin-left: -7px;
+  border: 1px solid transparent;
+  background: transparent;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--teal);
+  cursor: text;
+}
+.pledit .edhead input.edtitle:hover {
+  border-color: var(--line);
+}
+.pledit .edhead input.edtitle:focus {
+  border-color: var(--teal);
+  outline: none;
+  background: var(--panel);
+}
+.edicon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: none;
+  color: var(--mute);
+  padding: 4px 6px;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+.edicon:hover:not(:disabled) {
+  color: var(--ink);
+}
+.edicon:disabled {
+  opacity: 0.3;
+}
+.edlist {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 34px;
+}
+.edlist .note {
+  margin: 0;
+}
+.edrow {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--panel);
+}
+.edrow .lb {
+  flex: 1;
+  min-width: 0;
+}
+.edrow.gone .lb {
+  opacity: 0.55;
+}
+.edrow.dragging {
+  opacity: 0.4;
+}
+.edrow.eddrag {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  cursor: grabbing;
+}
+.edhandle {
+  cursor: grab;
+  touch-action: none;
+  border: 0;
+  background: none;
+  color: var(--mute);
+  padding: 2px 4px;
+  letter-spacing: -2px;
+}
+
+/* A button holding only an icon: centre it (buttons are display:block elsewhere, which leaves the inline SVG off-centre) */
+button.iconbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center; /* don't stretch to the row's height */
+  padding: 8px;
+}
