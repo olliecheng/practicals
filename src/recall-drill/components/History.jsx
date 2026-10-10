@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
-import { byKey, MODES } from "../lib/data";
+import { drillFromQuiz, MODES } from "../lib/data";
+import { useQuizzesById } from "../lib/content";
+import { isQuizId } from "../lib/legacy";
 import { useOutsideClose, useStart } from "../lib/useDrillUi";
 import { useAccount } from "../state/AccountContext";
 import DrillActions from "./DrillActions";
@@ -48,29 +50,40 @@ function HistoryRow({ drill, sv }) {
   );
 }
 
-// mode: only show history from that playlist; omitted = every playlist
-export default function History({ mode }) {
+const PAGE = 50;
+
+// ids: only show history for those quizzes (a playlist's); omitted = every quiz. Deleted quizzes never appear.
+export default function History({ ids }) {
   const { user } = useAccount();
-  const es = Object.entries(user.drills)
-    .filter(
-      ([k, v]) =>
-        v.runs && byKey.has(k) && (!mode || byKey.get(k).mode === mode),
-    )
+  const [limit, setLimit] = useState(PAGE);
+  const entries = Object.entries(user.drills)
+    .filter(([k, v]) => v.runs && isQuizId(k) && (!ids || ids.has(k)))
     .sort((a, b) => b[1].last - a[1].last);
+  const shown = entries.slice(0, limit);
+  const quizzes = useQuizzesById(shown.map(([k]) => k));
+  const rows = shown.flatMap(([k, sv]) => {
+    const quiz = quizzes.map.get(k);
+    const drill = quiz && drillFromQuiz(quiz);
+    return drill && !drill.deleted ? [{ k, sv, drill }] : [];
+  });
   return (
     <div className="panel" id="hist">
       <p className="lbl">History</p>
       <div className="hist">
-        {es.length ? (
-          es.map(([k, sv]) => (
-            <HistoryRow key={k} drill={byKey.get(k)} sv={sv} />
-          ))
-        ) : (
+        {rows.map(({ k, sv, drill }) => (
+          <HistoryRow key={k} drill={drill} sv={sv} />
+        ))}
+        {!rows.length && (
           <p className="note" style={{ margin: 0 }}>
-            {mode
-              ? "No history in this playlist yet."
-              : "No history yet. Finish a drill from scratch to see it here."}
+            {quizzes.status === "loading" && shown.length
+              ? "Loading…"
+              : ids
+                ? "No history in this playlist yet."
+                : "No history yet. Finish a drill from scratch to see it here."}
           </p>
+        )}
+        {entries.length > limit && (
+          <button onClick={() => setLimit(limit + PAGE)}>Show more</button>
         )}
       </div>
     </div>

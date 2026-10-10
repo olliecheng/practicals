@@ -26,7 +26,7 @@ export default function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="p/:playlist" element={<Playlist />} />
+            <Route path="p/:id" element={<Playlist />} />
             <Route path="login" element={<Login />} />
             <Route path="profile" element={<Profile />} />
             <Route path="q/:id" element={<Drill />} />

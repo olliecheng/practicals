@@ -940,7 +940,7 @@ body.drilling .sect .sh .sc {
   padding: 5px 12px;
   font-size: 0.85rem;
 }
-.acct .avatar {
+.avatar {
   width: 24px;
   height: 24px;
   border-radius: 50%;
@@ -948,10 +948,34 @@ body.drilling .sect .sh .sc {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex: none;
   background: var(--line);
   color: var(--ink);
   font-size: 0.75rem;
   font-weight: 600;
+}
+.avatar.sm {
+  width: 16px;
+  height: 16px;
+  font-size: 0.6rem;
+}
+/* "by <name>" under a title */
+.byline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--mute);
+}
+.byrow {
+  margin: 4px 0 0;
+  font-size: 0.8rem;
+  color: var(--mute);
+}
+.by {
+  font-size: 0.75em;
+  font-weight: 400;
+  color: var(--mute);
 }
 .cell {
   display: flex;

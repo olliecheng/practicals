@@ -1,6 +1,3 @@
-import COND from "../conditions.json";
-import PRESENT from "../presentations.json";
-import SYSREV from "../systems-review.json";
 import icP from "../assets/presentation.svg";
 import icR from "../assets/risks.svg";
 import icE from "../assets/examination.svg";
@@ -66,8 +63,7 @@ export const MODES = {
   },
 };
 
-// Saved-record keys: drill "mode|system|name", item "code:label". Renaming a label orphans its saved state.
-export const dk = (mode, system, name) => `${mode}|${system}|${name}`;
+// Item keys in saved records: "code:label" (renaming a label orphans its saved state). Drills are keyed by their quiz id.
 export const ik = (it) => `${it.code}:${it.label}`;
 
 // A section is a plain array (one unnamed category) or {"Category": [items]} (key order = category order).
@@ -75,47 +71,66 @@ export const ik = (it) => `${it.code}:${it.label}`;
 const categories = (sec) =>
   (Array.isArray(sec)
     ? [[null, sec]]
-    : Object.entries(sec).map(([cat, list]) => [cat || null, list])
-  ).filter(([, list]) => list.length);
+    : Object.entries(sec || {}).map(([cat, list]) => [cat || null, list])
+  ).filter(([, list]) => Array.isArray(list) && list.length);
 
-// A drill is {key, mode, system, name, prompt, items:[{label, keywords, code, cat, key, re, lits}]}
-const flatten = (src, mode, keys) =>
-  Object.entries(src).flatMap(([system, drills]) =>
-    Object.entries(drills).map(([name, c]) => ({
-      key: dk(mode, system, name),
-      mode,
-      system,
-      name,
-      prompt: c.prompt,
-      items: keys.flatMap(([k, code]) =>
-        categories(c[k]).flatMap(([cat, list]) =>
-          list.map((it) => {
+// The keys of a quiz's data that hold each mode's sections, with their section codes (see MODES above)
+export const SECTION_KEYS = {
+  cond: [
+    ["presentation", "P"],
+    ["risks", "R"],
+    ["examination", "E"],
+    ["investigations", "M"],
+    ["medications", "T"],
+  ],
+  pres: [
+    ["differentials", "D"],
+    ["associated", "A"],
+    ["investigations", "I"],
+  ],
+  sys: [["symptoms", "S"]],
+};
+
+// The game's view of a quiz from the API ({id, owner, forked_from, data}):
+// {key (the quiz id), mode, system, name, prompt, owner, forked_from, deleted, items:[{label, keywords, code, cat, key, re, lits}]}.
+// The API stores quiz data as sent, so anything malformed is skipped rather than allowed to crash the page; an unknown mode gives null.
+// Memoised per quiz object so the regexes compile once.
+const memo = new WeakMap();
+export function drillFromQuiz(quiz) {
+  if (memo.has(quiz)) return memo.get(quiz);
+  const d = quiz.data || {};
+  const keys = SECTION_KEYS[d.mode];
+  let drill = null;
+  if (keys) {
+    const items = keys.flatMap(([k, code]) =>
+      categories(d[k]).flatMap(([cat, list]) =>
+        list.flatMap((it) => {
+          if (typeof it?.label !== "string" || typeof it?.keywords !== "string")
+            return [];
+          try {
             const item = { label: it.label, keywords: it.keywords, code, cat };
             item.key = ik(item);
             item.re = rx(it.keywords);
             item.lits = literals(it.keywords);
-            return item;
-          }),
-        ),
+            return [item];
+          } catch {
+            return []; // a keyword that isn't a valid regex
+          }
+        }),
       ),
-    })),
-  );
-
-export const DATA = flatten(COND, "cond", [
-  ["presentation", "P"],
-  ["risks", "R"],
-  ["examination", "E"],
-  ["investigations", "M"],
-  ["medications", "T"],
-]);
-export const PRES = flatten(PRESENT, "pres", [
-  ["differentials", "D"],
-  ["associated", "A"],
-  ["investigations", "I"],
-]);
-export const SYS = flatten(SYSREV, "sys", [["symptoms", "S"]]);
-export const SYSTEMS = Object.keys(COND);
-export const PRES_SYSTEM = Object.keys(PRESENT)[0];
-export const SYS_SYSTEM = Object.keys(SYSREV)[0];
-
-export const byKey = new Map([...DATA, ...PRES, ...SYS].map((d) => [d.key, d]));
+    );
+    drill = {
+      key: quiz.id,
+      mode: d.mode,
+      system: d.system,
+      name: d.name,
+      prompt: d.prompt,
+      owner: quiz.owner,
+      forked_from: quiz.forked_from,
+      deleted: !!d.deleted,
+      items,
+    };
+  }
+  memo.set(quiz, drill);
+  return drill;
+}

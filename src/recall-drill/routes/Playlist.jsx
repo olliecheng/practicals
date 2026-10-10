@@ -1,57 +1,100 @@
-import { useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { MODES, SYSTEMS } from "../lib/data";
-import { drillPath } from "../lib/drillId";
-import { playlistById } from "../lib/playlists";
+import { useEffect, useMemo } from "react";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
+import { drillFromQuiz, MODES } from "../lib/data";
+import { usePlaylist } from "../lib/content";
+import { drillPath, featuredId, playlistPath } from "../lib/legacy";
 import { useAccount } from "../state/AccountContext";
 import { useFilters } from "../state/FilterContext";
 import { Group, Row } from "../components/DrillList";
 import History from "../components/History";
+import Owner from "../components/Owner";
 
+const NotFound = ({ children = "Playlist not found" }) => (
+  <div className="panel">
+    <p className="lbl">{children}</p>
+    <p className="note">
+      <Link className="link" to="/">
+        ← Back to the playlists
+      </Link>
+    </p>
+  </div>
+);
+
+// /p/cond, /p/pres and /p/sys were the three built-in playlists before playlists were stored in the database
 export default function Playlist() {
-  const { playlist } = useParams();
-  const pl = playlistById(playlist);
+  const { id } = useParams();
+  const built = featuredId(id);
+  if (built) return <Navigate to={playlistPath(built)} replace />;
+  return <PlaylistView id={id} />;
+}
+
+function PlaylistView({ id }) {
+  const st = usePlaylist(id);
   const { acct, user } = useAccount();
   const f = useFilters();
   const nav = useNavigate();
-  const { mode, setMode, starOnly, setStarOnly } = f;
+  const { setPlaylist, starOnly, setStarOnly } = f;
 
   // The filter context decides what Random / Next / New pick from, so keep it on this playlist
   useEffect(() => {
-    if (pl) setMode(pl.id);
-  }, [pl, setMode]);
+    setPlaylist(id);
+  }, [id, setPlaylist]);
 
   // Logging out drops the starred filter
   useEffect(() => {
     if (!acct && starOnly) setStarOnly(false);
   }, [acct, starOnly, setStarOnly]);
 
-  if (!pl)
-    return (
-      <div className="panel">
-        <p className="lbl">Playlist not found</p>
-        <p className="note">
-          <Link className="link" to="/">
-            ← Back to the playlists
-          </Link>
-        </p>
-      </div>
+  const pl = st.status === "ok" ? st.data : null;
+  // [{title, drills}] without deleted or unreadable quizzes
+  const sections = useMemo(
+    () =>
+      pl
+        ? pl.sections.map((s) => ({
+            title: s.title,
+            drills: s.quizzes.map(drillFromQuiz).filter((d) => d && !d.deleted),
+          }))
+        : [],
+    [pl],
+  );
+
+  if (st.status === "loading") return <p className="note">Loading…</p>;
+  if (st.status === "error")
+    return st.error?.status === 404 ? (
+      <NotFound />
+    ) : (
+      <NotFound>
+        Could not load this playlist. <button onClick={st.retry}>Retry</button>
+      </NotFound>
     );
 
-  const ds = f.pool(pl.id, user);
+  const all = sections.flatMap((s) => s.drills);
+  const modes = [...new Set(all.map((d) => d.mode))];
+  const noun = modes.length === 1 ? MODES[modes[0]].noun : "quiz";
+  const ids = all.map((d) => d.key);
+  const shown = sections.map((s) => ({
+    ...s,
+    drills: s.drills.filter(
+      (d) => !starOnly || (user && user.stars.includes(d.key)),
+    ),
+  }));
+  const any = shown.some((s) => s.drills.length);
   const random = () => {
-    const d = f.randPick(pl.id, user, null);
-    if (d) nav(drillPath(d));
+    const pick = f.randPick(ids, user, null);
+    if (pick) nav(drillPath(pick), { state: { playlist: id } });
   };
 
   return (
     <section className="home">
       <div className="panel">
         <h2 className="pltitle">{pl.title}</h2>
-        <p className="pldesc">{pl.desc}</p>
+        <p className="pldesc">{pl.description}</p>
+        <p className="pldesc">
+          <Owner owner={pl.owner} />
+        </p>
         <div className="big">
-          <button className="primary" onClick={random}>
-            Random {MODES[pl.id].noun}
+          <button className="primary" onClick={random} disabled={!ids.length}>
+            Random {noun}
           </button>
           {acct && (
             <button
@@ -67,24 +110,29 @@ export default function Playlist() {
           Or pick one
         </p>
         <div className="condlist">
-          {!ds.length ? (
+          {!any ? (
             <p className="note" style={{ gridColumn: "1/-1", margin: 0 }}>
-              No starred drills here yet.
+              {starOnly ? "No starred drills here yet." : "Nothing here yet."}
             </p>
-          ) : pl.id !== "cond" ? (
-            ds.map((d) => <Row key={d.key} drill={d} />)
+          ) : sections.length > 1 ? (
+            shown
+              .filter((s) => s.drills.length)
+              .map((s, i) => (
+                <Group
+                  key={i}
+                  system={s.title}
+                  drills={s.drills}
+                  ownerId={pl.owner.id}
+                />
+              ))
           ) : (
-            SYSTEMS.filter((s) => ds.some((d) => d.system === s)).map((s) => (
-              <Group
-                key={s}
-                system={s}
-                drills={ds.filter((d) => d.system === s)}
-              />
+            shown[0].drills.map((d) => (
+              <Row key={d.key} drill={d} ownerId={pl.owner.id} />
             ))
           )}
         </div>
       </div>
-      {acct && <History mode={pl.id} />}
+      {acct && <History ids={new Set(ids)} />}
     </section>
   );
 }

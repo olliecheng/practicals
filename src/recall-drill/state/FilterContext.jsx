@@ -1,48 +1,39 @@
 import { createContext, useContext, useMemo, useState } from "react";
-import { DATA, PRES, SYS, SYSTEMS } from "../lib/data";
 
-// What the home screen has selected; also decides which drills "Random" / "Next" / "New" pick from.
+// The playlist being browsed (remembered for the session so a reload of a drill keeps its context) and the starred filter.
+// They decide which quizzes "Random" / "Next" / "New" pick from: pool and randPick work on arrays of quiz ids.
 const Ctx = createContext(null);
 export const useFilters = () => useContext(Ctx);
 
+const KEY = "recallDrillPlaylist";
+const read = () => {
+  try {
+    return sessionStorage.getItem(KEY) || "";
+  } catch {
+    return "";
+  }
+};
+
 export function FilterProvider({ children }) {
-  const [mode, setMode] = useState("cond");
-  const [selSys, setSelSys] = useState(() => new Set(SYSTEMS));
+  const [playlistId, setId] = useState(read);
   const [starOnly, setStarOnly] = useState(false);
 
   const value = useMemo(() => {
-    const toggleSys = (s) =>
-      setSelSys((cur) => {
-        const n = new Set(cur);
-        n.has(s) ? n.delete(s) : n.add(s);
-        if (!n.size) n.add(s);
-        return n;
-      });
+    const setPlaylist = (id) => {
+      setId(id);
+      try {
+        sessionStorage.setItem(KEY, id);
+      } catch {}
+    };
     // user: the account's record (or null) for the starred filter
-    const pool = (m, user) =>
-      (m === "cond"
-        ? DATA.filter((d) => selSys.has(d.system))
-        : m === "pres"
-          ? PRES
-          : m === "sys"
-            ? SYS
-            : []
-      ).filter((d) => !starOnly || (user && user.stars.includes(d.key)));
-    const randPick = (m, user, cur) => {
-      const p = pool(m, user).filter((d) => d !== cur);
-      const q = p.length ? p : pool(m, user);
+    const pool = (ids, user) =>
+      ids.filter((id) => !starOnly || (user && user.stars.includes(id)));
+    const randPick = (ids, user, current) => {
+      const p = pool(ids, user).filter((id) => id !== current);
+      const q = p.length ? p : pool(ids, user);
       return q[Math.floor(Math.random() * q.length)];
     };
-    return {
-      mode,
-      setMode,
-      selSys,
-      toggleSys,
-      starOnly,
-      setStarOnly,
-      pool,
-      randPick,
-    };
-  }, [mode, selSys, starOnly]);
+    return { playlistId, setPlaylist, starOnly, setStarOnly, pool, randPick };
+  }, [playlistId, starOnly]);
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }

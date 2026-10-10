@@ -1,9 +1,17 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
-import { MODES } from "../lib/data";
-import { decodeDrill, drillPath } from "../lib/drillId";
+import {
+  Link,
+  Navigate,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
+import { drillFromQuiz, MODES } from "../lib/data";
+import { playlistQuizzes, useLoad, usePlaylist, useQuiz } from "../lib/content";
+import { decodeLegacyDrill, drillPath, isQuizId } from "../lib/legacy";
 import { useAccount } from "../state/AccountContext";
 import { useFilters } from "../state/FilterContext";
+import Owner from "../components/Owner";
 import {
   hasMissed,
   sectionComplete,
@@ -105,11 +113,19 @@ function Game({ drill, inc, restart }) {
   const noun = MODES[drill.mode].noun;
   const starred = !!acct && user.stars.includes(drill.key);
 
+  // New / Next / Back stay in the playlist the drill was opened from, if it is one of its quizzes
+  const location = useLocation();
+  const ctxId = location.state?.playlist || filters.playlistId;
+  const ctx = usePlaylist(ctxId || null, { meta: true });
+  const ctxIds = (ctx.status === "ok" ? playlistQuizzes(ctx.data) : []).map(
+    (q) => q.id,
+  );
+  const inCtx = ctxIds.includes(drill.key);
   const another = () => {
-    const d = filters.randPick(drill.mode, user, drill);
-    if (d) nav(drillPath(d));
+    const pick = filters.randPick(ctxIds, user, drill.key);
+    if (pick) nav(drillPath(pick), { state: { playlist: ctxId } });
   };
-  const menu = () => nav(`/p/${drill.mode}`);
+  const menu = () => nav(inCtx ? `/p/${ctxId}` : "/");
   // Hint needs named categories in the section Reveal names
   // The hint only holds for the section it was switched on for
   const hintOn = !!g.hintCode && s.hint === g.hintCode && (!s.over || drilling);
@@ -145,6 +161,7 @@ function Game({ drill, inc, restart }) {
             )}
           </div>
           <div className="cond">{drill.name}</div>
+          <Byline drill={drill} />
           <p className="prompt">{drill.prompt}</p>
           {!s.over || drilling ? (
             <div className="actions two">
@@ -186,15 +203,17 @@ function Game({ drill, inc, restart }) {
                   Hint
                 </button>
                 <button onClick={menu}>Back</button>
-                <button onClick={another}>New</button>
+                {inCtx && <button onClick={another}>New</button>}
               </div>
             </div>
           ) : (
             <div className="actions">
               <span className="result">{stats.pct}%</span>
-              <button className="primary" onClick={another}>
-                Next {noun}
-              </button>
+              {inCtx && (
+                <button className="primary" onClick={another}>
+                  Next {noun}
+                </button>
+              )}
               {!g.nothingMissed && (
                 <button onClick={() => restart(g.outcome())}>
                   Retry incorrect
@@ -366,11 +385,66 @@ function Game({ drill, inc, restart }) {
   );
 }
 
+// Who made the quiz, and what it was forked from
+function Byline({ drill }) {
+  const from = useQuiz(drill.forked_from || null);
+  return (
+    <p className="byrow">
+      <Owner owner={drill.owner} />
+      {drill.forked_from && (
+        <>
+          {" · forked from "}
+          {from.status === "ok" ? (
+            <Link className="link" to={drillPath(drill.forked_from)}>
+              {from.data.data?.name || "the original"}
+            </Link>
+          ) : (
+            "another quiz"
+          )}
+        </>
+      )}
+    </p>
+  );
+}
+
+const NotFound = ({ children = "Drill not found" }) => (
+  <div className="panel">
+    <p className="lbl">{children}</p>
+    <p className="note">
+      <Link className="link" to="/">
+        ← Back to the drills
+      </Link>
+    </p>
+  </div>
+);
+
 export default function Drill() {
   const { id } = useParams();
+  return isQuizId(id) ? <QuizDrill id={id} /> : <LegacyDrill id={id} />;
+}
+
+// /q/<base64 of "<system>.<name>"> was the URL before drills were quizzes: find the quiz and go to its own address
+function LegacyDrill({ id }) {
+  const location = useLocation();
+  const legacy = useMemo(() => decodeLegacyDrill(id), [id]);
+  const st = useLoad(
+    legacy ? `/api/quizzes?${new URLSearchParams(legacy)}` : null,
+  );
+  if (!legacy) return <NotFound />;
+  if (st.status === "loading") return <p className="note">Loading…</p>;
+  const hit = st.status === "ok" && st.data.items[0];
+  if (!hit) return <NotFound />;
+  return <Navigate to={drillPath(hit.id)} replace state={location.state} />;
+}
+
+function QuizDrill({ id }) {
   const location = useLocation();
   const { ready } = useAccount();
-  const drill = useMemo(() => decodeDrill(id), [id]);
+  const st = useQuiz(id);
+  const drill = useMemo(
+    () => (st.status === "ok" ? drillFromQuiz(st.data) : null),
+    [st],
+  );
   useEffect(() => {
     document.title = drill
       ? `${drill.name} – History Recall Drill`
@@ -380,19 +454,18 @@ export default function Drill() {
     };
   }, [drill]);
 
-  // The saved record (ignored items, redo rounds) is needed to start, so wait for the remembered user to load
-  if (!ready) return <p className="note">Loading…</p>;
-  if (!drill)
+  // The saved record (ignored items, redo rounds) is needed to start, so wait for the signed-in user's record to load
+  if (!ready || st.status === "loading")
+    return <p className="note">Loading…</p>;
+  if (st.status === "error" && st.error?.status !== 404)
     return (
-      <div className="panel">
-        <p className="lbl">Drill not found</p>
-        <p className="note">
-          <Link className="link" to="/">
-            ← Back to the drills
-          </Link>
-        </p>
-      </div>
+      <NotFound>
+        Could not load this drill. <button onClick={st.retry}>Retry</button>
+      </NotFound>
     );
+  if (!drill) return <NotFound />;
+  if (drill.deleted)
+    return <NotFound>This quiz was deleted by its owner.</NotFound>;
   // location.key changes on every navigation, so Next / New start a fresh round even if the drill repeats
   return <Run key={location.key} drill={drill} inc={location.state?.inc} />;
 }
