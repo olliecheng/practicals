@@ -248,7 +248,6 @@ button.chip[aria-pressed="true"] {
   }
 }
 button.starfilter {
-  margin-left: auto;
   padding: 3px 12px;
   font-size: 0.85rem;
   color: var(--mute);
@@ -1157,38 +1156,19 @@ body.drilling .sect .sh .sc {
   /* Don't stretch to the tallest cell in the grid row, or the popover (top: 100% on narrow screens) opens below that gap */
   align-self: start;
 }
+/* A starred row shows a plain star; starring is done from the row's menu */
 .rw .rstar {
   flex: none;
   padding: 0 2px;
-  border: 0;
-  background: none;
-  color: var(--mute);
+  color: var(--amber);
   font-size: 1rem;
   line-height: 1;
-  opacity: 0;
-  cursor: pointer;
 }
 .rw .lb + .rstar {
   margin-left: auto;
 }
 .rw .rstar + .bdg {
   margin-left: 0;
-}
-.rw .rstar[aria-pressed="true"] {
-  color: var(--amber);
-  opacity: 1;
-}
-.rw:hover .rstar,
-.rw .rstar:focus-visible {
-  opacity: 1;
-}
-@media (hover: none) {
-  .rw .rstar {
-    opacity: 0.6;
-  }
-  .rw .rstar[aria-pressed="true"] {
-    opacity: 1;
-  }
 }
 /* Options popover for drills with history: right of the cell, over everything else; .l flips it left near the viewport edge */
 .menu {
@@ -1209,36 +1189,46 @@ body.drilling .sect .sh .sc {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  padding: 6px;
+  padding: 4px;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: var(--r);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
 }
-.menu button {
+/* Entries are .subbtn (icon + small label); black text, as menus are for choosing */
+.menu .subbtn {
   white-space: nowrap;
   justify-content: flex-start;
-  font-size: 0.85rem;
-  padding: 6px 10px;
+  padding: 6px 8px 6px 4px; /* menu edge to icon is about the same as icon to text */
+  color: var(--ink);
+  cursor: pointer;
 }
-:is(.menu, .acts) button:disabled {
+/* Colour coding: icon, text and hover tint. Start green, Redo incorrect red, Star amber */
+.menu .subbtn.ok,
+.menu .subbtn.ok:hover {
+  color: var(--ok);
+}
+.menu .subbtn.bad,
+.menu .subbtn.bad:hover {
+  color: var(--bad);
+}
+.menu .subbtn.amber,
+.menu .subbtn.amber:hover {
+  color: var(--amber);
+}
+.menu .subbtn.ok:hover {
+  background: var(--ok-soft);
+}
+.menu .subbtn.bad:not(:disabled):hover {
+  background: var(--bad-soft);
+}
+.menu .subbtn.amber:hover {
+  background: var(--amber-soft);
+}
+.menu .subbtn:disabled,
+.acts .subbtn:disabled {
   opacity: 0.5;
   cursor: default;
-}
-:is(.menu, .acts) .scr {
-  background: var(--ok-soft);
-  border-color: var(--ok);
-}
-:is(.menu, .acts) .inc {
-  background: var(--bad-soft);
-  border-color: var(--bad);
-}
-:is(.menu, .acts) .scr:hover,
-:is(.menu, .acts) .inc:not(:disabled):hover {
-  filter: brightness(0.96);
-}
-:is(.menu, .acts) .rst:hover {
-  border-color: var(--mute);
 }
 .cell.open .menu {
   display: block;
@@ -1301,11 +1291,17 @@ body.drilling .sect .sh .sc {
   gap: 4px;
   width: 100%;
 }
-.acts button {
+/* The history row's actions sit in one line, so no icons there */
+.acts .subbtn {
   flex: 1;
+  justify-content: center;
   font-size: 0.72rem;
   padding: 3px 4px;
   white-space: nowrap;
+  color: var(--ink);
+}
+.acts .subbtn svg {
+  display: none;
 }
 /* a history row swaps its meta line for the actions on hover/tap, so its height never changes */
 .hrow.open .meta {
@@ -1646,6 +1642,14 @@ button.iconbtn {
   padding: 8px;
 }
 
+/* The playlist's Edit sits at the right end of the Random / Starred row */
+.big .pl-edit {
+  margin-left: auto;
+  align-self: center; /* the row stretches its buttons to Random's height otherwise */
+  padding: 4px 6px; /* .big button would make it as big as Random */
+  font-size: 0.8rem;
+}
+
 /* Quiz editor */
 .ttlbtns {
   display: flex;
@@ -1658,9 +1662,6 @@ button.iconbtn {
 }
 .subbtn[aria-pressed="true"] {
   color: var(--amber);
-}
-:is(.menu, .acts) .edt:hover {
-  border-color: var(--mute);
 }
 .qe-section {
   margin-top: 22px;
@@ -1980,4 +1981,68 @@ button.iconbtn {
 .qe .segmented {
   align-self: flex-start;
   margin-bottom: 8px;
+}
+
+/* Right-click menu of a revealed tile, and the Teach keyword / Edit item modal */
+.tilemenu {
+  position: fixed;
+  z-index: 60;
+  min-width: 170px;
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
+}
+/* Entries are .subbtn (icon + small label); black text, as menus are for choosing */
+.tilemenu .subbtn {
+  width: 100%;
+  padding: 6px 8px 6px 4px; /* menu edge to icon is about the same as icon to text */
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+.modal-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.35);
+}
+.modal {
+  width: min(440px, 100%);
+  padding: 16px;
+}
+.modal .qe-kwlbl {
+  display: block;
+  margin: 10px 0 4px;
+}
+.modal .modal-in,
+.modal textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+  resize: none;
+}
+.modal textarea.qe-matchbox {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.85rem;
+}
+.modal-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
 }

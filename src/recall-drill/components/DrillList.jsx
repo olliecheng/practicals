@@ -4,7 +4,7 @@ import { useOutsideClose, useStart } from "../lib/useDrillUi";
 import DrillActions from "./DrillActions";
 
 export function Row({ drill }) {
-  const { acct, user, toggleStar } = useAccount();
+  const { acct, user } = useAccount();
   const start = useStart(drill);
   const sv = acct && user.drills[drill.key],
     hist = !!(sv && sv.runs),
@@ -20,9 +20,8 @@ export function Row({ drill }) {
       ref.current.getBoundingClientRect().right + 170 >
         document.documentElement.clientWidth,
     );
-  // With history, clicking opens the options popover (it also shows on hover); otherwise start straight away.
+  // Clicking a row only opens the menu (it also shows on hover); a quiz is started from "Start quiz" or "Start from scratch" in it.
   const click = () => {
-    if (!hist) return start();
     setOpen((o) => !o);
     place();
   };
@@ -30,22 +29,18 @@ export function Row({ drill }) {
     <div
       ref={ref}
       className={"cell" + (open ? " open" : "")}
-      onMouseEnter={acct ? place : undefined}
+      onMouseEnter={place}
     >
       <div
         className="rw"
         tabIndex={0}
         role="button"
         onClick={click}
-        onContextMenu={
-          acct
-            ? (e) => {
-                e.preventDefault();
-                setOpen(true);
-                place();
-              }
-            : undefined
-        }
+        onContextMenu={(e) => {
+          e.preventDefault();
+          setOpen(true);
+          place();
+        }}
         onKeyDown={(e) => {
           if (
             e.target === e.currentTarget &&
@@ -57,19 +52,10 @@ export function Row({ drill }) {
         }}
       >
         <span className="lb">{drill.name}</span>
-        {acct && (
-          <button
-            className="rstar"
-            aria-pressed={starred}
-            title={starred ? "Unstar" : "Star this drill"}
-            aria-label={starred ? "Unstar" : "Star this drill"}
-            onClick={(e) => {
-              e.stopPropagation();
-              toggleStar(drill.key);
-            }}
-          >
+        {starred && (
+          <span className="rstar" title="Starred" aria-label="Starred">
             ★
-          </button>
+          </span>
         )}
         {hist && (
           <span
@@ -80,18 +66,17 @@ export function Row({ drill }) {
           </span>
         )}
       </div>
-      {acct && (
-        <div className={"menu" + (left ? " l" : "")}>
-          <div className="mi">
-            <DrillActions
-              drill={drill}
-              sv={sv}
-              labels={["Start from scratch", "Reset progress"]}
-              onStart={start}
-            />
-          </div>
+      <div className={"menu" + (left ? " l" : "")}>
+        <div className="mi">
+          <DrillActions
+            drill={drill}
+            sv={sv}
+            labels={["Start from scratch", "Reset progress"]}
+            onStart={start}
+            star
+          />
         </div>
-      )}
+      </div>
     </div>
   );
 }

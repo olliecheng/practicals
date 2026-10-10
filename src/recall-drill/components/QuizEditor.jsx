@@ -21,23 +21,10 @@ import { MODES, SECTION_KEYS } from "../lib/data";
 import { saveQuiz } from "../lib/content";
 import ItemCard from "./ItemCard";
 import { rx } from "../lib/match";
+import { toKeywords, toText } from "../lib/editItem";
 
 let nextKey = 0;
 const newKey = () => "k" + nextKey++;
-
-// Keywords are stored as "a|b|c" and edited as "a, b, c"
-const toText = (kw) =>
-  kw
-    .split("|")
-    .map((k) => k.trim())
-    .filter(Boolean)
-    .join(", ");
-const toKeywords = (text) =>
-  text
-    .split(",")
-    .map((k) => k.trim())
-    .filter(Boolean)
-    .join("|");
 
 // A stored section (plain array, or {"Category": [items]}) as [{key, cat, items:[{key, label, matches}]}]
 const toGroups = (sec) =>

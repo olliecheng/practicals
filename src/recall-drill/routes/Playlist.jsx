@@ -123,12 +123,12 @@ function PlaylistView({ id }) {
           )}
           {acct && (
             <button
-              className="iconbtn"
-              aria-label="Edit playlist"
+              className="subbtn pl-edit"
               title="Edit playlist"
               onClick={() => setEditing(true)}
             >
               <PencilIcon />
+              Edit
             </button>
           )}
         </div>

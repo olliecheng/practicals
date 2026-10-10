@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   Link,
   Navigate,
@@ -7,10 +7,18 @@ import {
   useParams,
 } from "react-router-dom";
 import { drillFromQuiz, MODES } from "../lib/data";
-import { playlistQuizzes, useLoad, usePlaylist, useQuiz } from "../lib/content";
+import {
+  playlistQuizzes,
+  saveQuiz,
+  useLoad,
+  usePlaylist,
+  useQuiz,
+} from "../lib/content";
 import { decodeLegacyDrill, drillPath, isQuizId } from "../lib/legacy";
 import PencilIcon from "../components/PencilIcon";
 import QuizEditor from "../components/QuizEditor";
+import { ICONS, ItemDialog, TileMenu } from "../components/TileMenu";
+import { applyToItem, updateItem } from "../lib/editItem";
 import { useAccount } from "../state/AccountContext";
 import { useFilters } from "../state/FilterContext";
 import {
@@ -19,7 +27,7 @@ import {
   useDrillGame,
 } from "../state/useDrillGame";
 
-function Tile({ i, n, label, s, complete, onCredit, onIgnore }) {
+function Tile({ i, n, label, s, complete, onCredit, onIgnore, onMenu }) {
   const cls = s.ignored.has(i)
     ? " on ign"
     : s.credited.has(i)
@@ -41,6 +49,12 @@ function Tile({ i, n, label, s, complete, onCredit, onIgnore }) {
       id={"t" + i}
       className={"tile" + cls + (ok ? " ok" : "")}
       onClick={() => onCredit(i)}
+      onContextMenu={(e) => {
+        // Face-down tiles keep the browser's menu so nothing is given away
+        if (!cls.includes("on") && !s.revealed.has(i)) return;
+        e.preventDefault();
+        onMenu(i, e.clientX, e.clientY);
+      }}
     >
       <div className="in">
         <div className="f">{n + 1}</div>
@@ -72,7 +86,7 @@ const groups = (drill, idx) =>
   }, []);
 
 // One round. Remounted (via key) for every restart, so each round starts from fresh state.
-function Game({ drill, inc, restart }) {
+function Game({ drill, inc, restart, quiz }) {
   const account = useAccount();
   const filters = useFilters();
   const nav = useNavigate();
@@ -122,6 +136,55 @@ function Game({ drill, inc, restart }) {
     g.setCollapsed(!collapsed);
   };
   const { acct, user } = account;
+  // Right-click menu on a revealed tile, and the modal (teach / edit) it opens
+  const [tileMenu, setTileMenu] = useState(null); // {i, x, y}
+  const [dialog, setDialog] = useState(null); // {mode, i}
+  const quizData = useRef(quiz.data);
+  const closeMenu = useCallback(() => setTileMenu(null), []);
+  const closeDialog = useCallback(() => setDialog(null), []);
+  const saveItem = async (i, patch) => {
+    const item = drill.items[i];
+    const data = updateItem(quizData.current, item, patch);
+    if (!data)
+      throw new Error("This item changed in the quiz; reload to edit it.");
+    await saveQuiz(quiz.id, data);
+    quizData.current = data;
+    applyToItem(item, patch);
+  };
+  const menuEntries = (i) => {
+    const out = [];
+    if (!s.ignored.has(i)) {
+      if (s.credited.has(i))
+        out.push({
+          label: "I didn't get this",
+          onClick: () => g.toggleCredit(i),
+        });
+      else if (!s.found.has(i) && s.revealed.has(i) && !s.drilling.has(i))
+        out.push({
+          icon: ICONS.got,
+          label: "I got this",
+          onClick: () => g.toggleCredit(i),
+        });
+    }
+    out.push({
+      icon: s.ignored.has(i) ? ICONS.restore : ICONS.ignore,
+      label: s.ignored.has(i) ? "Restore" : "Ignore",
+      onClick: () => g.toggleIgnore(i),
+    });
+    if (acct) {
+      out.push({
+        icon: ICONS.teach,
+        label: "Teach new keyword",
+        onClick: () => setDialog({ mode: "teach", i }),
+      });
+      out.push({
+        icon: ICONS.edit,
+        label: "Edit",
+        onClick: () => setDialog({ mode: "edit", i }),
+      });
+    }
+    return out;
+  };
   const noun = MODES[drill.mode].noun;
   const starred = !!acct && user.stars.includes(drill.key);
 
@@ -335,6 +398,7 @@ function Game({ drill, inc, restart }) {
                 complete={complete}
                 onCredit={g.toggleCredit}
                 onIgnore={g.toggleIgnore}
+                onMenu={(i, x, y) => setTileMenu({ i, x, y })}
               />
             );
             return (
@@ -408,6 +472,22 @@ function Game({ drill, inc, restart }) {
           })}
         </div>
       </div>
+      {tileMenu && (
+        <TileMenu
+          x={tileMenu.x}
+          y={tileMenu.y}
+          entries={menuEntries(tileMenu.i)}
+          onClose={closeMenu}
+        />
+      )}
+      {dialog && (
+        <ItemDialog
+          mode={dialog.mode}
+          item={drill.items[dialog.i]}
+          onSave={(patch) => saveItem(dialog.i, patch)}
+          onClose={closeDialog}
+        />
+      )}
     </section>
   );
 }
@@ -502,16 +582,24 @@ function QuizDrill({ id, edit }) {
     return <QuizEditor id={id} quiz={st.data} onDone={back} onCancel={back} />;
   }
   // location.key changes on every navigation, so Next / New start a fresh round even if the drill repeats
-  return <Run key={location.key} drill={drill} inc={location.state?.inc} />;
+  return (
+    <Run
+      key={location.key}
+      drill={drill}
+      quiz={st.data}
+      inc={location.state?.inc}
+    />
+  );
 }
 
 // A round plus its restarts (Retry everything / Retry incorrect)
-function Run({ drill, inc }) {
+function Run({ drill, quiz, inc }) {
   const [run, setRun] = useState({ n: 0, inc });
   return (
     <Game
       key={run.n}
       drill={drill}
+      quiz={quiz}
       inc={run.inc}
       restart={(inc) => setRun((r) => ({ n: r.n + 1, inc }))}
     />
