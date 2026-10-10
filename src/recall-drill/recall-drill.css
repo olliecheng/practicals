@@ -940,6 +940,78 @@ body.drilling .sect .sh .sc {
   padding: 5px 12px;
   font-size: 0.85rem;
 }
+/* Signed-in account control in the header: avatar + name (opens Profile) with a hover / focus dropdown */
+.acctin {
+  position: relative;
+  gap: 10px;
+}
+.acctin .savemsg {
+  color: var(--bad);
+}
+.acctbtn {
+  display: flex;
+  align-items: center;
+  border-radius: var(--r);
+}
+.acctin:hover .acctbtn,
+.acctin:focus-within .acctbtn {
+  background: var(--teal-soft);
+}
+.acctin .acctname {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 4px 4px 6px;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+.acctin .acctchev {
+  padding: 4px 8px 4px 2px;
+  border: 0;
+  background: none;
+  color: var(--mute);
+  font-size: 0.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.acctmenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 20;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
+}
+.acctin .acctmenu a,
+.acctin .acctmenu button {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 3px;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.9rem;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+.acctin .acctmenu a:hover,
+.acctin .acctmenu button:hover,
+.acctin .acctmenu a:focus-visible,
+.acctin .acctmenu button:focus-visible {
+  background: var(--teal-soft);
+}
 .avatar {
   width: 24px;
   height: 24px;
