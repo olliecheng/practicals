@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { authClient } from "../lib/auth";
 import { useAccount } from "../state/AccountContext";
+import Avatar from "../components/Avatar";
 
 const OK = /^[A-Za-z0-9_-]{3,30}$/;
 
+// Styled like an old macOS preferences pane: a title strip, then rows with the category heading in the left column and its
+// content in the right.
 export default function Profile() {
-  const { acct, profile } = useAccount();
+  const { acct, profile, logout } = useAccount();
   const [name, setName] = useState("");
   const [msg, setMsg] = useState("");
   const [busy, setBusy] = useState(false);
@@ -22,7 +25,7 @@ export default function Profile() {
           <Link className="link" to="/login">
             Sign in
           </Link>{" "}
-          to choose a username.
+          to see your profile.
         </p>
       </div>
     );
@@ -54,36 +57,61 @@ export default function Profile() {
   }
 
   return (
-    <form className="panel login" noValidate onSubmit={save}>
-      <p className="note">
-        Signed in with Google as <b>{profile.name}</b>. An optional username is
-        shown instead of your Google name.
-      </p>
-      <label htmlFor="un">Username</label>
-      <input
-        id="un"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        autoComplete="off"
-        autoCapitalize="off"
-        autoCorrect="off"
-        spellCheck={false}
-        maxLength={30}
-        autoFocus
-      />
-      <p className="msg" role="alert">
-        {msg}
-      </p>
-      <div className="row">
-        <button className="primary" type="submit" disabled={busy}>
-          Save
-        </button>
+    <div className="pref">
+      <div className="prefhead">Profile</div>
+
+      <div className="prefrow">
+        <div className="preflabel">Account</div>
+        <div className="prefbody prefwho">
+          <Avatar user={{ name: acct, image: profile.image }} size="lg" />
+          <div>
+            <b>{acct}</b>
+            <div className="note" style={{ margin: 0 }}>
+              {acct !== profile.name && `${profile.name} · `}
+              {profile.email}
+            </div>
+            <div className="note" style={{ margin: 0 }}>
+              Signed in with Google
+            </div>
+          </div>
+        </div>
       </div>
-      <p className="note" style={{ marginTop: 14 }}>
-        <Link className="link" to="/">
-          ← Back to the drills
-        </Link>
-      </p>
-    </form>
+
+      <form className="prefrow" noValidate onSubmit={save}>
+        <label className="preflabel" htmlFor="un">
+          Username
+        </label>
+        <div className="prefbody">
+          <div className="prefinput">
+            <input
+              id="un"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              autoComplete="off"
+              autoCapitalize="off"
+              autoCorrect="off"
+              spellCheck={false}
+              maxLength={30}
+            />
+            <button className="primary" type="submit" disabled={busy}>
+              Save
+            </button>
+          </div>
+          <p className="note" style={{ margin: "6px 0 0" }}>
+            Shown instead of your Google name. 3-30 letters, numbers, - or _.
+          </p>
+          <p className="msg" role="alert">
+            {msg}
+          </p>
+        </div>
+      </form>
+
+      <div className="prefrow">
+        <div className="preflabel">Session</div>
+        <div className="prefbody">
+          <button onClick={logout}>Log out</button>
+        </div>
+      </div>
+    </div>
   );
 }

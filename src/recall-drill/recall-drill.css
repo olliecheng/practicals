@@ -940,6 +940,81 @@ body.drilling .sect .sh .sc {
   padding: 5px 12px;
   font-size: 0.85rem;
 }
+/* Profile: an old-macOS preferences pane. A title strip, then rows whose category heading sits in the left column and
+   whose content sits in the right. Stacks under 600px. */
+.pref {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  font-size: 0.875rem;
+}
+.prefhead {
+  padding: 9px 12px;
+  text-align: center;
+  font-weight: 600;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(var(--tile), var(--panel));
+}
+.prefrow {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  column-gap: 18px;
+  align-items: start;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+}
+.prefrow:last-child {
+  border-bottom: 0;
+}
+.preflabel {
+  padding-top: 6px;
+  text-align: right;
+  font-weight: 600;
+  color: var(--mute);
+}
+.prefwho {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.prefwho .preflabel {
+  padding-top: 0;
+}
+.prefinput {
+  display: flex;
+  gap: 8px;
+}
+.pref input {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  padding: 7px 10px;
+  border-radius: var(--r);
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+}
+.pref .msg {
+  min-height: 1.3em;
+  margin: 4px 0 0;
+  color: var(--mute);
+}
+@media (max-width: 600px) {
+  .prefrow {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 6px;
+    padding: 14px 16px;
+  }
+  .preflabel {
+    padding-top: 0;
+    text-align: left;
+  }
+}
+
 /* Signed-in account control in the header: avatar + name (opens Profile) with a hover / focus dropdown */
 .acctin {
   position: relative;
@@ -1025,6 +1100,11 @@ body.drilling .sect .sh .sc {
   color: var(--ink);
   font-size: 0.75rem;
   font-weight: 600;
+}
+.avatar.lg {
+  width: 56px;
+  height: 56px;
+  font-size: 1.4rem;
 }
 .avatar.sm {
   width: 16px;
