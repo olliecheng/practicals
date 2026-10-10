@@ -7,6 +7,7 @@
 // ({v:1, stars, drills}); PUT replaces it. /api/quizzes and /api/playlists are readable by anyone and writable by
 // their owner. Everything else under /api is 404. The user is always the session's, never a client claim.
 import { Hono } from "hono";
+import { etag } from "hono/etag";
 import { checkRecord, recordToRows, rowsToRecord } from "./history.js";
 import { mountPlaylists } from "./playlists.js";
 import { mountQuizzes } from "./quizzes.js";
@@ -16,10 +17,16 @@ const MAX = 256 * 1024;
 export function createApp({ getAuth, getStore, getDb, limitWrites }) {
   const app = new Hono();
 
+  // Public reads (quizzes and playlists, not "mine") set `cacheable`: they get an ETag and the browser revalidates every
+  // time (a 304 for an unchanged 320 KB playlist). Everything else is never stored.
   app.use("/api/*", async (c, next) => {
     await next();
-    c.header("cache-control", "no-store");
+    c.header("cache-control", c.get("cacheable") ? "no-cache" : "no-store");
   });
+  app.use("/api/quizzes", etag());
+  app.use("/api/quizzes/:id", etag());
+  app.use("/api/playlists", etag());
+  app.use("/api/playlists/:id", etag());
 
   app.on(["GET", "POST"], "/api/auth/*", (c) => getAuth(c).handler(c.req.raw));
 

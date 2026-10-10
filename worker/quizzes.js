@@ -2,47 +2,76 @@
 // Anyone can read; only the owner changes a quiz (every write carries `AND owner_id = ?`, and 0 changes means 404).
 import { v7 } from "uuid";
 import {
+  OWNER_COLS,
   QUIZ_META_COLS,
   getQuiz,
   isId,
   page,
   pageParams,
+  quizFull,
   quizMeta,
   readObject,
 } from "./content-util.js";
 
 export function mountQuizzes(app, { getDb, getSession, auth }) {
   // List quiz summaries, newest first. ?owner=me (needs a session) or ?owner=<id>; deleted quizzes are hidden unless
-  // the caller asks for their own with &deleted=1.
+  // the caller asks for their own with &deleted=1. More filters: ?ids=<id,id,...> (up to 100), ?mode=, ?system=, ?name=
+  // (exact), and &full=1 to include each quiz's data instead of just its summary.
   app.get("/api/quizzes", async (c) => {
     let ownerId = null;
     let withDeleted = 0;
     const o = c.req.query("owner");
-    if (o === "me") {
+    const mine = o === "me";
+    if (mine) {
       const s = await getSession(c);
       if (!s) return c.json({ error: "unauthorized" }, 401);
       ownerId = s.user.id;
       withDeleted = c.req.query("deleted") === "1" ? 1 : 0;
     } else if (o) ownerId = o;
-    const { before, limit } = pageParams(c);
+    let ids = null;
+    if (c.req.query("ids") !== undefined) {
+      const list = c.req.query("ids").split(",").filter(Boolean);
+      if (!list.length || list.length > 100 || !list.every(isId))
+        return c.json({ error: "bad ids" }, 400);
+      ids = JSON.stringify(list);
+    }
+    const full = c.req.query("full") === "1";
+    const { before, limit } = pageParams(c, ids ? 100 : 50);
     if (before === false) return c.json({ error: "bad cursor" }, 400);
     const { results } = await getDb(c)
       .prepare(
-        `SELECT ${QUIZ_META_COLS} FROM quizzes q LEFT JOIN users u ON u.id = q.owner_id
+        `SELECT ${full ? `q.id, q.owner_id, q.forked_from, q.data, ${OWNER_COLS}` : QUIZ_META_COLS}
+         FROM quizzes q LEFT JOIN users u ON u.id = q.owner_id
          WHERE (?1 IS NULL OR q.owner_id = ?1)
            AND (?2 = 1 OR json_extract(q.data, '$.deleted') IS NOT 1)
            AND (?3 IS NULL OR q.id < ?3)
+           AND (?5 IS NULL OR q.id IN (SELECT value FROM json_each(?5)))
+           AND (?6 IS NULL OR json_extract(q.data, '$.mode') = ?6)
+           AND (?7 IS NULL OR json_extract(q.data, '$.system') = ?7)
+           AND (?8 IS NULL OR json_extract(q.data, '$.name') = ?8)
          ORDER BY q.id DESC LIMIT ?4`,
       )
-      .bind(ownerId, withDeleted, before, limit)
+      .bind(
+        ownerId,
+        withDeleted,
+        before,
+        limit,
+        ids,
+        c.req.query("mode") ?? null,
+        c.req.query("system") ?? null,
+        c.req.query("name") ?? null,
+      )
       .all();
-    return c.json(page(results.map(quizMeta), limit));
+    if (!mine) c.set("cacheable", true);
+    return c.json(page(results.map(full ? quizFull : quizMeta), limit));
   });
 
   app.get("/api/quizzes/:id", async (c) => {
     const id = c.req.param("id");
     const quiz = isId(id) && (await getQuiz(getDb(c), id));
-    return quiz ? c.json(quiz) : c.json({ error: "not found" }, 404);
+    if (!quiz) return c.json({ error: "not found" }, 404);
+    c.set("cacheable", true);
+    return c.json(quiz);
   });
 
   // The body is the quiz data

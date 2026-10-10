@@ -49,6 +49,7 @@ export function mountPlaylists(app, { getDb, getSession, auth }) {
       )
       .bind(ownerId, before, limit)
       .all();
+    if (o !== "me") c.set("cacheable", true);
     return c.json(
       page(
         results.map((r) => ({
@@ -91,6 +92,7 @@ export function mountPlaylists(app, { getDb, getSession, auth }) {
         .all();
       for (const r of results) byId.set(r.id, meta ? quizMeta(r) : quizFull(r));
     }
+    c.set("cacheable", true);
     return c.json({
       id: pl.id,
       owner: owner(pl),

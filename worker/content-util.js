@@ -54,11 +54,11 @@ export const readObject = async (c) => {
 };
 
 // ?before=<id>&limit=<n>: ids are UUIDv7, so `id < before` pages newest first. before === false means a bad cursor.
-export const pageParams = (c) => {
+export const pageParams = (c, defaultLimit = 50) => {
   const before = c.req.query("before");
   const limit = Math.min(
     100,
-    Math.max(1, parseInt(c.req.query("limit")) || 50),
+    Math.max(1, parseInt(c.req.query("limit")) || defaultLimit),
   );
   if (before !== undefined && !isId(before)) return { before: false, limit };
   return { before: before ?? null, limit };
