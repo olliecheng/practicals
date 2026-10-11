@@ -1273,8 +1273,11 @@ body.drilling .sect .sh .sc {
   opacity: 0.5;
   cursor: default;
 }
-.cell.open .menu {
-  display: block;
+/* Where there is no hover (touch), a tap opens the menu and it stays until a tap elsewhere */
+@media (hover: none) {
+  .cell.open .menu {
+    display: block;
+  }
 }
 @media (max-width: 780px) {
   .menu,
@@ -1379,8 +1382,10 @@ body.drilling .sect .sh .sc {
     display: flex;
   }
 }
+/* With a mouse the menu follows the pointer (a click doesn't pin it), and keyboard focus on the row or in the menu also shows it */
 @media (hover: hover) {
-  .cell:hover .menu {
+  .cell:hover .menu,
+  .cell:has(:focus-visible) .menu {
     display: block;
   }
 }
