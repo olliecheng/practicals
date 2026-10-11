@@ -32,6 +32,7 @@
   --blue-soft: #dbe8f6;
   --purple: #7a4fb3;
   --purple-soft: #e6dcf3;
+  --logo-check: var(--teal);
   --r: 5px;
   --font-body: "Inter Variable", "Inter", system-ui, sans-serif;
   --font-head:
@@ -64,6 +65,7 @@
     --blue-soft: #1c2f45;
     --purple: #b693e6;
     --purple-soft: #33284a;
+    --logo-check: #8fe3b8;
   }
 }
 :root[data-theme="dark"] {
@@ -89,6 +91,7 @@
   --blue-soft: #1c2f45;
   --purple: #b693e6;
   --purple-soft: #33284a;
+  --logo-check: #8fe3b8;
 }
 *,
 *:before,
@@ -150,7 +153,8 @@ header:has(.mp-logo) {
 .mp-logo {
   display: block;
   height: 1.2rem;
-  aspect-ratio: 174 / 24.5;
+  aspect-ratio: 175.5 / 24.5;
+  margin-left: 3px;
 }
 .mp-logo svg {
   display: block;
@@ -167,7 +171,7 @@ header:has(.mp-logo) {
   stroke: var(--line);
 }
 .mp-check {
-  stroke: var(--teal);
+  stroke: var(--logo-check);
 }
 .stats {
   display: flex;
