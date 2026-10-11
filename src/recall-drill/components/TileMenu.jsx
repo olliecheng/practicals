@@ -88,9 +88,8 @@ export function ItemDialog({ mode, item, onSave, onClose }) {
   const [kw, setKw] = useState(mode === "edit" ? toText(item.keywords) : "");
   const [err, setErr] = useState("");
   const [busy, setBusy] = useState(false);
-  const input = useRef(null);
   useEffect(() => {
-    input.current?.focus();
+    document.getElementById("teach-kw")?.focus();
     const key = (e) => e.key === "Escape" && onClose();
     document.addEventListener("keydown", key);
     return () => document.removeEventListener("keydown", key);
@@ -98,11 +97,16 @@ export function ItemDialog({ mode, item, onSave, onClose }) {
 
   const submit = async (e) => {
     e.preventDefault();
-    const add = toKeywords(kw);
-    let keywords = add;
+    let keywords = toKeywords(kw);
     if (mode === "teach") {
-      if (!add) return setErr("Enter a keyword.");
-      keywords = item.keywords ? `${item.keywords}|${add}` : add;
+      if (!keywords) return setErr("Enter a keyword.");
+      // Skip keywords the item already has (and repeats within the input)
+      const seen = new Set(item.keywords.toLowerCase().split("|"));
+      const fresh = keywords
+        .split("|")
+        .filter((k) => !seen.has(k.toLowerCase()) && seen.add(k.toLowerCase()));
+      if (!fresh.length) return setErr("Those keywords already match.");
+      keywords = [item.keywords, ...fresh].filter(Boolean).join("|");
     } else if (!label.trim()) return setErr("The item needs a name.");
     try {
       rx(keywords);
@@ -141,17 +145,21 @@ export function ItemDialog({ mode, item, onSave, onClose }) {
             <p className="note" style={{ margin: "0 0 10px" }}>
               Typing this will now count as “{item.label}”.
             </p>
+            <div className="qe-kwlbl">Current keywords</div>
+            <div className="qe-current">
+              {item.keywords ? toText(item.keywords) : "None yet"}
+            </div>
             <label className="qe-kwlbl" htmlFor="teach-kw">
               New keyword
             </label>
-            <input
+            <AutoArea
               id="teach-kw"
-              ref={input}
-              className="modal-in"
+              className="qe-matchbox"
               value={kw}
-              onChange={(e) => setKw(e.target.value)}
-              placeholder="e.g. a synonym or abbreviation"
-              autoComplete="off"
+              fitKey
+              placeholder="e.g. synonym, abbreviation (comma separated)"
+              aria-label="New keyword"
+              onChange={setKw}
             />
           </>
         ) : (
@@ -188,7 +196,7 @@ export function ItemDialog({ mode, item, onSave, onClose }) {
           <button type="button" className="subbtn" onClick={onClose}>
             Cancel
           </button>
-          <button className="primary" disabled={busy}>
+          <button className="subbtn primary" disabled={busy}>
             {mode === "teach" ? "Add" : "Save"}
           </button>
         </div>
