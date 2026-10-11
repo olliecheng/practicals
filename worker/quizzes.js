@@ -10,9 +10,11 @@ import {
   pageParams,
   quizFull,
   quizMeta,
+  quizSummary,
   readObject,
-  validQuiz,
+  validateQuiz,
 } from "./content-util.js";
+import { readSettings } from "./settings.js";
 
 export function mountQuizzes(app, { getDb, getSession, auth }) {
   // List quiz summaries, newest first. ?owner=me (needs a session) or ?owner=<id>; deleted quizzes are hidden unless
@@ -88,14 +90,29 @@ export function mountQuizzes(app, { getDb, getSession, auth }) {
     return c.json(await getQuiz(db, id), 201);
   });
 
+  // Checks a quiz body without saving it (the editor's Validate button): {ok: true, summary} or {ok: false, errors}.
+  // Always 200: an invalid quiz is a normal answer here. PUT runs the same check.
+  app.post("/api/quizzes/validate", auth, async (c) => {
+    const body = await readObject(c);
+    if (!body) return c.json({ error: "bad json" }, 400);
+    const { categories } = await readSettings(getDb(c));
+    const errors = validateQuiz(body, categories);
+    return c.json(
+      errors.length
+        ? { ok: false, errors }
+        : { ok: true, summary: quizSummary(body) },
+    );
+  });
+
   // Replaces the data in place (any signed-in user may): every playlist that references the quiz sees the change. `deleted` is kept as it is.
   app.put("/api/quizzes/:id", auth, async (c) => {
     const id = c.req.param("id");
     if (!isId(id)) return c.json({ error: "not found" }, 404);
     const body = await readObject(c);
     if (!body) return c.json({ error: "bad json" }, 400);
-    if (!validQuiz(body)) return c.json({ error: "bad quiz" }, 400);
     const db = getDb(c);
+    const errors = validateQuiz(body, (await readSettings(db)).categories);
+    if (errors.length) return c.json({ error: errors.join("\n"), errors }, 400);
     const r = await db
       .prepare(
         `UPDATE quizzes

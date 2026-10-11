@@ -2040,6 +2040,142 @@ button.iconbtn {
 .qe-error strong {
   font-weight: 600;
 }
+.qe-error span {
+  white-space: pre-line; /* the server's problems come one per line */
+}
+
+/* The editor's page heading, above the Manual / Agentic tabs */
+.qe-pagetitle {
+  margin: 0 0 8px 2px;
+  font-family: var(--font-head);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Agentic tab: numbered steps, a section title with an action beside it, the read-only brief, the pasted JSON and the valid note */
+.qe-steps {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.9rem;
+}
+/* The brief is one box of spans (so selecting across it works like one text); a plain white box where each part is told apart by
+   its coloured heading and a hairline. It scrolls both ways: the JSON parts keep their line breaks (one long line for the categories), so the parts
+   share a width as wide as the widest of them, while the prose wraps at the box width. */
+.qe-brief {
+  display: block;
+  container-type: inline-size;
+  max-height: 26rem;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--panel);
+}
+.qe-parts {
+  display: block;
+  width: max-content;
+  min-width: 100%;
+}
+.qe-part {
+  display: block;
+  padding: 8px 12px;
+}
+.qe-part + .qe-part {
+  border-top: 1px solid var(--line);
+}
+.qe-part.teal {
+  --hue: var(--teal);
+}
+.qe-part.amber {
+  --hue: var(--amber);
+}
+.qe-part.blue {
+  --hue: var(--blue);
+}
+.qe-briefhead {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--hue);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.qe-body {
+  display: block;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+/* The brief's title is a toggle: plain text until hovered, like the other quiet controls */
+.qe-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 4px 0 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.qe-toggle:hover,
+.qe-toggle:focus-visible {
+  background: var(--teal-soft);
+  border-radius: var(--r);
+}
+.qe-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.qe-copyrow {
+  display: flex;
+  margin-top: 8px;
+}
+.qe-mono,
+.pledit textarea.qe-paste {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  line-height: 1.35;
+}
+.qe-mono {
+  font-size: 0.7rem;
+  color: var(--mute);
+  white-space: pre;
+}
+/* Wide parts scroll sideways; the headings and the prose stay in view (the prose wraps at the visible box width, less the part's
+   padding and edge, not at the widest part's) */
+.qe-briefhead,
+.qe-body:not(.qe-mono) {
+  position: sticky;
+  left: 12px;
+}
+.qe-briefhead {
+  width: max-content;
+}
+.qe-body:not(.qe-mono) {
+  width: calc(100cqw - 24px);
+}
+.pledit textarea.qe-paste {
+  font-size: 0.8rem;
+}
+.pledit textarea.qe-paste {
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  white-space: pre;
+  overflow: auto;
+}
+.qe-ok {
+  padding: 10px 14px;
+  border: 1px solid var(--teal);
+  border-radius: var(--r);
+  background: var(--teal-soft);
+  color: var(--ink);
+  font-size: 0.9rem;
+}
 
 /* Tab slider (a tablist switching between a few modes or tabs): a tinted track with the selected tab as a raised panel.
    Used for Locate / Name / Learn in Dermatome Ninja and the Manual / Agentic tabs of the quiz editor. */

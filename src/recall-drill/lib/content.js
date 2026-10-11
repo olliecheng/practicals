@@ -66,6 +66,10 @@ export const saveQuiz = async (id, data) => {
   return r;
 };
 
+// Asks the server to check a quiz body without saving it: {ok: true, summary} or {ok: false, errors}
+export const validateQuiz = (data) =>
+  api("POST", "/api/quizzes/validate", data);
+
 // The playlist with its quizzes grouped by section; meta leaves the quiz bodies out
 export const usePlaylist = (id, { meta } = {}) =>
   useLoad(id ? `/api/playlists/${id}${meta ? "?quizzes=meta" : ""}` : null);

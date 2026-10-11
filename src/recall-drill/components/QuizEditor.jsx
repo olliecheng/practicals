@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useMemo, useState } from "react";
 import {
   closestCenter,
   DndContext,
@@ -18,12 +18,14 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { MODES, SECTION_KEYS } from "../lib/data";
-import { saveQuiz, useSettings } from "../lib/content";
+import { saveQuiz, useSettings, validateQuiz } from "../lib/content";
 import ItemCard from "./ItemCard";
+import AgenticTab from "./AgenticTab";
 import CategoryPicker from "./CategoryPicker";
 import PencilIcon from "./PencilIcon";
 import { rx } from "../lib/match";
 import { toKeywords, toText } from "../lib/editItem";
+import { briefParts } from "../lib/agentBrief";
 
 let nextKey = 0;
 const newKey = () => "k" + nextKey++;
@@ -259,7 +261,9 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
   const [picking, setPicking] = useState(null); // {key: section, gi: index of the category being changed, or null for a new one}
   const settings = useSettings();
   const [busy, setBusy] = useState(false);
-  const [msg, setMsg] = useState("");
+  const [msg, setMsg] = useState(""); // problems, one per line
+  const [ok, setOk] = useState(""); // the Agentic tab's "Valid: ..." note
+  const [agentText, setAgentText] = useState(""); // the JSON pasted on the Agentic tab
 
   // A new item takes the cursor once it is on the page
   useEffect(() => {
@@ -407,17 +411,63 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
     return out;
   };
 
+  // The quiz as it is now (the Manual tab's edits included), for the Agentic tab's brief; `deleted` is the Worker's, so it is left out
+  const current = useMemo(() => {
+    if (tab !== "agentic") return null;
+    const built = build();
+    const { deleted, ...data } = typeof built === "string" ? d : built;
+    return data;
+  }, [tab, name, prompt, groups]);
+
+  // The pasted JSON as an object, or null after showing why it can't be one
+  const parseAgentic = () => {
+    try {
+      const data = JSON.parse(agentText);
+      if (data && typeof data === "object" && !Array.isArray(data)) return data;
+      setMsg("The quiz must be a single JSON object ({ ... }).");
+    } catch (err) {
+      setMsg("This isn't valid JSON: " + err.message);
+    }
+    return null;
+  };
+
+  // The server's problems (one per line), else a general message
+  const failure = (err, what) =>
+    err.errors?.length
+      ? err.errors.join("\n")
+      : `Could not ${what}: ${err.message}`;
+
+  // Validate (Agentic tab): the server checks the pasted quiz, nothing is saved
+  const validate = async () => {
+    setOk("");
+    setMsg("");
+    const data = parseAgentic();
+    if (!data) return;
+    setBusy(true);
+    try {
+      const r = await validateQuiz(data);
+      if (r.ok) setOk(`Valid: ${r.summary}.`);
+      else setMsg(r.errors.join("\n"));
+    } catch (err) {
+      setMsg(failure(err, "validate"));
+    }
+    setBusy(false);
+  };
+
+  // Save: the Manual tab saves its own state, the Agentic tab the pasted JSON; the server checks both the same way
   const save = async (e) => {
     e.preventDefault();
-    const data = build();
+    setOk("");
+    setMsg("");
+    const data = tab === "agentic" ? parseAgentic() : build();
+    if (!data) return;
     if (typeof data === "string") return setMsg(data);
     setBusy(true);
-    setMsg("");
     try {
       await saveQuiz(id, data);
       onDone();
     } catch (err) {
-      setMsg("Could not save: " + err.message);
+      setMsg(failure(err, "save"));
       setBusy(false);
     }
   };
@@ -425,6 +475,7 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
   return (
     <section className="home">
       <form className="pledit qe" onSubmit={save} noValidate>
+        <h2 className="qe-pagetitle">Edit quiz: {name.trim() || d.name}</h2>
         <div className="segmented" role="tablist">
           {[
             ["manual", "Manual"],
@@ -435,14 +486,31 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
               type="button"
               role="tab"
               aria-selected={tab === k}
-              onClick={() => setTab(k)}
+              onClick={() => {
+                setTab(k);
+                setMsg("");
+                setOk("");
+              }}
             >
               {label}
             </button>
           ))}
         </div>
         {tab === "agentic" ? (
-          <p className="note">Agentic editing is coming soon.</p>
+          <AgenticTab
+            parts={
+              settings.status === "ok"
+                ? briefParts({
+                    prompt: settings.data.agentQuizPrompt,
+                    categories: settings.data.categories,
+                    quiz: current,
+                  })
+                : null
+            }
+            text={agentText}
+            setText={setAgentText}
+            busy={busy}
+          />
         ) : (
           <>
             <div className="qe-card qe-details">
@@ -548,13 +616,27 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
             <span>{msg}</span>
           </div>
         )}
+        {ok && (
+          <div className="qe-ok" role="status">
+            {ok}
+          </div>
+        )}
         <div className="big">
+          {tab === "agentic" && (
+            <button
+              type="button"
+              disabled={busy || !agentText.trim()}
+              onClick={validate}
+            >
+              Validate
+            </button>
+          )}
           <button
             className="primary"
             type="submit"
-            disabled={busy || tab !== "manual"}
+            disabled={busy || (tab === "agentic" && !agentText.trim())}
           >
-            {busy ? "Saving…" : "Save"}
+            {busy ? "Working…" : "Save"}
           </button>
           <button type="button" disabled={busy} onClick={onCancel}>
             Cancel

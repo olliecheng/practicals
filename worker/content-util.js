@@ -1,4 +1,5 @@
 // Helpers shared by the quiz and playlist routes (D1 / SQLite).
+import { rx } from "../src/recall-drill/lib/match.js";
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
 export const isId = (s) => typeof s === "string" && UUID.test(s);
@@ -80,27 +81,72 @@ const QUIZ_SECTIONS = {
   pres: ["differentials", "associated", "investigations"],
   sys: ["symptoms"],
 };
-const validItems = (list) =>
-  Array.isArray(list) &&
-  list.every(
-    (it) =>
-      it && typeof it.label === "string" && typeof it.keywords === "string",
-  );
-// A section is a list of items or {"Category": [items]}; a missing one counts as empty
-const validSection = (sec) =>
-  sec === undefined ||
-  validItems(sec) ||
-  (!!sec &&
-    typeof sec === "object" &&
-    !Array.isArray(sec) &&
-    Object.values(sec).every(validItems));
+// The key every quiz carries besides its sections; `deleted` is owned by the Worker (it is stripped from the body on save)
+const QUIZ_FIELDS = ["mode", "system", "name", "prompt", "deleted"];
 
-// True if a quiz body has the shape the app reads (any signed-in user can now PUT a quiz, so it is checked)
-export const validQuiz = (b) =>
-  !!QUIZ_SECTIONS[b.mode] &&
-  typeof b.system === "string" &&
-  typeof b.name === "string" &&
-  !!b.name &&
-  !b.name.includes(".") &&
-  typeof b.prompt === "string" &&
-  QUIZ_SECTIONS[b.mode].every((k) => validSection(b[k]));
+// The problems with one section ({"Category": [items]}), as messages. Items are {label, keywords}; keywords must compile as the game compiles them.
+const sectionErrors = (key, sec, vocab) => {
+  if (sec === undefined) return [];
+  if (!sec || typeof sec !== "object" || Array.isArray(sec))
+    return [`${key}: must be an object of {"Category": [items]}.`];
+  const errors = [];
+  for (const [cat, list] of Object.entries(sec)) {
+    const where = `${key} / ${cat}`;
+    if (!vocab.has(cat.toLowerCase()))
+      errors.push(`${key}: "${cat}" is not a valid category.`);
+    if (!Array.isArray(list)) {
+      errors.push(`${where}: must be a list of items.`);
+      continue;
+    }
+    list.forEach((it, i) => {
+      const n = `${where}, item ${i + 1}`;
+      if (!it || typeof it !== "object" || Array.isArray(it))
+        return errors.push(`${n}: must be {"label", "keywords"}.`);
+      if (typeof it.label !== "string" || !it.label.trim())
+        return errors.push(`${n}: needs a label.`);
+      if (typeof it.keywords !== "string" || !it.keywords.trim())
+        return errors.push(`${n} ("${it.label}"): needs keywords.`);
+      try {
+        rx(it.keywords);
+      } catch {
+        errors.push(`${n} ("${it.label}"): the keywords aren't valid.`);
+      }
+    });
+  }
+  return errors;
+};
+
+// The problems with a quiz body as a list of messages (empty when valid). `categories` is the Settings vocabulary: every category
+// in every section must be one of its names (any case). Any signed-in user can PUT a quiz, so this is the only guard on what is stored.
+export function validateQuiz(b, categories) {
+  if (!b || typeof b !== "object" || Array.isArray(b))
+    return ["The quiz must be a JSON object."];
+  const sections = QUIZ_SECTIONS[b.mode];
+  if (!sections)
+    return [`"mode" must be one of ${Object.keys(QUIZ_SECTIONS).join(", ")}.`];
+  const errors = [];
+  if (typeof b.system !== "string") errors.push('"system" must be text.');
+  if (typeof b.name !== "string" || !b.name.trim())
+    errors.push('"name" is required.');
+  else if (b.name.includes("."))
+    errors.push('"name" can\'t contain a full stop.');
+  if (typeof b.prompt !== "string") errors.push('"prompt" must be text.');
+  for (const k of Object.keys(b))
+    if (!QUIZ_FIELDS.includes(k) && !sections.includes(k))
+      errors.push(`"${k}" isn't a field of a ${b.mode} quiz.`);
+  const vocab = new Set(categories.map((c) => c.toLowerCase()));
+  for (const k of sections) errors.push(...sectionErrors(k, b[k], vocab));
+  return errors;
+}
+
+// "12 items in 5 categories", for the editor's Validate button
+export function quizSummary(b) {
+  let items = 0;
+  let cats = 0;
+  for (const k of QUIZ_SECTIONS[b.mode])
+    for (const list of Object.values(b[k] ?? {})) {
+      cats++;
+      items += list.length;
+    }
+  return `${items} items in ${cats} categories`;
+}
