@@ -110,8 +110,10 @@ export const variants = (v) => {
   return [...new Set(out)].filter((o) => o !== v);
 };
 
-// Earliest match wins, then longest; if what's typed could still become a longer keyword of any other
-// item, found or not (e.g. "sputum" -> "sputum culture"), defer instead of firing.
+// The earliest match, then the longest, is the strict winner. It only decides whether to wait: if what's
+// typed could still become a longer keyword of any other item, found or not (e.g. "sputum" -> "sputum
+// culture"), defer instead of firing. Once an answer fires (live, after the idle pause, or on Enter) every
+// matching item is credited, so a bare "swell" tile isn't shadowed by a longer "swelling" keyword elsewhere.
 export function judge(items, isFound, v, submit, skip = () => false) {
   const t = submit ? v + " " : v,
     c = [];
@@ -135,9 +137,10 @@ export function judge(items, isFound, v, submit, skip = () => false) {
         it.lits.some((k) => k.length > low.length && k.startsWith(low)),
     );
   }
+  const all = c.map((x) => x[0]);
   return {
-    hit: win.filter((i) => !isFound(i)),
-    dup: win.filter((i) => isFound(i)),
+    hit: all.filter((i) => !isFound(i)),
+    dup: all.filter((i) => isFound(i)),
     defer,
   };
 }
