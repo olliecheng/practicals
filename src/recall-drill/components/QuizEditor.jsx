@@ -23,6 +23,8 @@ import ItemCard from "./ItemCard";
 import AgenticTab from "./AgenticTab";
 import CategoryPicker from "./CategoryPicker";
 import PencilIcon from "./PencilIcon";
+import PlusIcon from "./PlusIcon";
+import TrashIcon from "./TrashIcon";
 import { rx } from "../lib/match";
 import { toKeywords, toText } from "../lib/editItem";
 import { briefParts } from "../lib/agentBrief";
@@ -43,22 +45,6 @@ const toGroups = (sec) =>
         matches: toText(String(it.keywords ?? "")),
       })),
     }));
-
-const PlusIcon = () => (
-  <svg
-    viewBox="0 0 24 24"
-    width="16"
-    height="16"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <path d="M12 5v14M5 12h14" />
-  </svg>
-);
 
 // Every cell of a category's grid is placed explicitly (column 1 = hint, column 2 = items; odd rows are gaps, even rows items),
 // so the heading keeps its place in the tree when the first item goes away and doesn't remount
@@ -247,14 +233,21 @@ function Group({
 
 export default function QuizEditor({ id, quiz, onDone, onCancel }) {
   const d = quiz.data;
-  const sections = Object.keys(d.items).map((key) => ({
-    key,
-    name: cap(key),
-  }));
   const [tab, setTab] = useState("manual");
   const [name, setName] = useState(d.name);
+  // The sections in order, [{id, name}]; the id stays put while the name is edited. `groups` holds each section's categories by id.
+  const [start] = useState(() =>
+    Object.entries(d.items).map(([name, sec]) => ({
+      id: newKey(),
+      name,
+      groups: toGroups(sec),
+    })),
+  );
+  const [sections, setSections] = useState(() =>
+    start.map(({ id, name }) => ({ id, name })),
+  );
   const [groups, setGroups] = useState(() =>
-    Object.fromEntries(sections.map((s) => [s.key, toGroups(d.items[s.key])])),
+    Object.fromEntries(start.map((s) => [s.id, s.groups])),
   );
   const [focus, setFocus] = useState(null);
   const [picking, setPicking] = useState(null); // {key: section, gi: index of the category being changed, or null for a new one}
@@ -289,6 +282,24 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
     });
   const removeGroup = (key, gi) =>
     setSec(key, (gs) => gs.filter((_, j) => j !== gi));
+
+  // Sections: rename, move up (-1) or down (1), add (blank, at the end) and delete (only offered when it has no categories)
+  // Names are stored lowercase and shown with the first letter capitalised (as the game does)
+  const renameSection = (id, name) =>
+    setSections((ss) =>
+      ss.map((s) => (s.id === id ? { ...s, name: name.toLowerCase() } : s)),
+    );
+  const moveSection = (i, by) => setSections((ss) => arrayMove(ss, i, i + by));
+  const addSection = () => {
+    const sec = { id: newKey(), name: "" };
+    setSections((ss) => [...ss, sec]);
+    setGroups((g) => ({ ...g, [sec.id]: [] }));
+    setFocus(sec.id);
+  };
+  const removeSection = (id) => {
+    setSections((ss) => ss.filter((s) => s.id !== id));
+    setGroups(({ [id]: _, ...rest }) => rest);
+  };
 
   // Drag and drop: an item can go to any place in any category of any section
   const [dragging, setDragging] = useState(null);
@@ -388,24 +399,34 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
   const build = () => {
     if (!name.trim()) return "The quiz needs a name.";
     if (name.includes(".")) return "The name can't contain a full stop.";
+    if (!sections.length) return "The quiz needs at least one section.";
+    const seen = new Set();
+    for (const s of sections) {
+      const n = s.name.trim().toLowerCase();
+      if (!n) return "Every section needs a name.";
+      if (seen.has(n.toLowerCase()))
+        return `Two sections are called "${cap(n)}"; give them different names.`;
+      seen.add(n.toLowerCase());
+    }
     const out = { ...d, name: name.trim(), items: {} };
     for (const s of sections) {
+      const n = s.name.trim().toLowerCase();
       const sec = {};
-      for (const g of groups[s.key]) {
+      for (const g of groups[s.id]) {
         for (const it of g.items) {
           if (!it.label.trim() && !it.matches.trim()) continue;
-          if (!it.label.trim()) return `${s.name}: an item has no text.`;
+          if (!it.label.trim()) return `${n}: an item has no text.`;
           const keywords = toKeywords(it.matches);
-          if (!keywords) return `${s.name}: "${it.label}" needs matches.`;
+          if (!keywords) return `${n}: "${it.label}" needs matches.`;
           try {
             rx(keywords);
           } catch {
-            return `${s.name}: the matches for "${it.label}" aren't valid.`;
+            return `${n}: the matches for "${it.label}" aren't valid.`;
           }
           (sec[g.cat.trim()] ||= []).push({ label: it.label.trim(), keywords });
         }
       }
-      out.items[s.key] = sec;
+      out.items[n] = sec;
     }
     return out;
   };
@@ -416,7 +437,7 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
     const built = build();
     const { deleted, ...data } = typeof built === "string" ? d : built;
     return data;
-  }, [tab, name, groups]);
+  }, [tab, name, sections, groups]);
 
   // The pasted JSON as an object, or null after showing why it can't be one
   const parseAgentic = () => {
@@ -533,29 +554,82 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
               onDragEnd={onDragEnd}
               onDragCancel={() => setDragging(null)}
             >
-              {sections.map((s) => (
-                <div key={s.key} className="qe-section">
-                  <h3 className="qe-title">{s.name}</h3>
+              {sections.map((s, si) => (
+                <div key={s.id} className="qe-section">
+                  <div className="qe-sechead">
+                    <input
+                      className="qe-sectitle"
+                      value={cap(s.name)}
+                      placeholder="Section name"
+                      aria-label="Section name"
+                      data-id={s.id}
+                      onChange={(e) => {
+                        // Capitalising the shown text makes React reset the caret, so put it back
+                        const { target } = e;
+                        const caret = target.selectionStart;
+                        renameSection(s.id, target.value);
+                        requestAnimationFrame(() =>
+                          target.setSelectionRange(caret, caret),
+                        );
+                      }}
+                    />
+                    {si > 0 && (
+                      <button
+                        type="button"
+                        className="subbtn"
+                        aria-label="Move section up"
+                        title="Move section up"
+                        onClick={() => moveSection(si, -1)}
+                      >
+                        ↑ Up
+                      </button>
+                    )}
+                    {si < sections.length - 1 && (
+                      <button
+                        type="button"
+                        className="subbtn"
+                        aria-label="Move section down"
+                        title="Move section down"
+                        onClick={() => moveSection(si, 1)}
+                      >
+                        ↓ Down
+                      </button>
+                    )}
+                    {!groups[s.id].length && (
+                      <button
+                        type="button"
+                        className="subbtn danger"
+                        onClick={() =>
+                          confirm(
+                            `Delete the section ${cap(s.name.trim()) || "(unnamed)"}?`,
+                          ) && removeSection(s.id)
+                        }
+                      >
+                        <TrashIcon />
+                        Delete section
+                      </button>
+                    )}
+                  </div>
                   <div className="qe-card">
-                    {groups[s.key].map((g, gi) => (
+                    {groups[s.id].map((g, gi) => (
                       <Group
                         key={g.key}
                         group={g}
                         index={gi}
-                        count={groups[s.key].length}
-                        onMove={(d) => moveGroup(s.key, gi, d)}
-                        onEdit={() => setPicking({ key: s.key, gi })}
-                        set={(next) => setGroup(s.key, gi, next)}
-                        remove={(i) => removeItem(s.key, gi, i)}
-                        removeGroup={() => removeGroup(s.key, gi)}
-                        addItem={(at) => addItem(s.key, gi, at)}
+                        count={groups[s.id].length}
+                        onMove={(d) => moveGroup(s.id, gi, d)}
+                        onEdit={() => setPicking({ key: s.id, gi })}
+                        set={(next) => setGroup(s.id, gi, next)}
+                        remove={(i) => removeItem(s.id, gi, i)}
+                        removeGroup={() => removeGroup(s.id, gi)}
+                        addItem={(at) => addItem(s.id, gi, at)}
                       />
                     ))}
                     <div className="qe-addcat">
                       <button
                         type="button"
                         className="subbtn"
-                        onClick={() => setPicking({ key: s.key, gi: null })}
+                        onClick={() => setPicking({ key: s.id, gi: null })}
                       >
                         <PlusIcon />
                         New category
@@ -568,6 +642,12 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
                 {draggedItem && <ItemRow it={draggedItem} overlay />}
               </DragOverlay>
             </DndContext>
+            <div className="qe-addsec">
+              <button type="button" className="subbtn" onClick={addSection}>
+                <PlusIcon />
+                Add section
+              </button>
+            </div>
           </>
         )}
         {picking && (

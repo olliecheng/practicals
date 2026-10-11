@@ -16,6 +16,18 @@ import {
 
 const arr = (x) => (Array.isArray(x) ? x : []);
 
+// The playlist's default quiz sections, {sections: [name]}: names are non-empty, trimmed and unique (any case). Optional, so older clients can still save.
+const validQuizSettings = (qs) => {
+  if (qs === undefined) return true;
+  if (!qs || typeof qs !== "object" || Array.isArray(qs)) return false;
+  const names = qs.sections;
+  return (
+    Array.isArray(names) &&
+    names.every((n) => typeof n === "string" && n && n === n.trim()) &&
+    new Set(names.map((n) => n.toLowerCase())).size === names.length
+  );
+};
+
 export function mountPlaylists(app, { getDb, getSession, auth }) {
   const PLAYLIST = `SELECT p.id, p.owner_id, p.forked_from, p.data, ${OWNER_COLS} FROM playlists p LEFT JOIN users u ON u.id = p.owner_id`;
   const getPlaylist = async (db, id) => {
@@ -99,6 +111,11 @@ export function mountPlaylists(app, { getDb, getSession, auth }) {
       forked_from: pl.forked_from,
       title: pl.data.title,
       description: pl.data.description,
+      quiz_settings: {
+        sections: arr(pl.data.quiz_settings?.sections).filter(
+          (s) => typeof s === "string",
+        ),
+      },
       sections: sections.map((s) => ({
         title: s?.title,
         quizzes: arr(s?.quiz_ids)
@@ -138,7 +155,8 @@ export function mountPlaylists(app, { getDb, getSession, auth }) {
           str(s.title) &&
           Array.isArray(s.quiz_ids) &&
           s.quiz_ids.every(str),
-      )
+      ) ||
+      !validQuizSettings(body.quiz_settings)
     )
       return c.json({ error: "bad playlist" }, 400);
     const r = await getDb(c)

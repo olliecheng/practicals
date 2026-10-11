@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   closestCenter,
   DndContext,
@@ -17,8 +17,10 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { drillFromQuiz } from "../lib/data";
+import { cap, drillFromQuiz } from "../lib/data";
 import { savePlaylist } from "../lib/content";
+import PlusIcon from "./PlusIcon";
+import TrashIcon from "./TrashIcon";
 
 let nextKey = 0;
 const newKey = () => "s" + nextKey++;
@@ -129,6 +131,14 @@ export default function PlaylistEditor({ id, pl, onDone, onCancel }) {
   const [title, setTitle] = useState(pl.title);
   const [description, setDescription] = useState(pl.description);
   const [sections, setSections] = useState(() => fromPlaylist(pl));
+  // The default sections for new quizzes: [{key, name}]. They are only stored here; quizzes that already exist keep their own sections.
+  const [defaults, setDefaults] = useState(() =>
+    (pl.quiz_settings?.sections ?? []).map((name) => ({
+      key: newKey(),
+      name: name.toLowerCase(),
+    })),
+  );
+  const [focus, setFocus] = useState(null);
   const [active, setActive] = useState(null);
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState("");
@@ -185,14 +195,35 @@ export default function PlaylistEditor({ id, pl, onDone, onCancel }) {
     });
   };
 
+  // A new default section takes the cursor once it is on the page
+  useEffect(() => {
+    if (!focus) return;
+    document.querySelector(`[data-id="${focus}"]`)?.focus();
+    setFocus(null);
+  }, [focus]);
+
+  // Names are stored lowercase (as quiz sections are) and shown with the first letter capitalised
+  const setDefault = (key, name) =>
+    setDefaults((ds) =>
+      ds.map((d) => (d.key === key ? { ...d, name: name.toLowerCase() } : d)),
+    );
+  const moveDefault = (i, by) => setDefaults((ds) => arrayMove(ds, i, i + by));
+
   const save = async (e) => {
     e.preventDefault();
-    setBusy(true);
     setMsg("");
+    // Blank rows are dropped; the names must be unique (any case), as the server checks
+    const names = defaults
+      .map((d) => d.name.trim().toLowerCase())
+      .filter(Boolean);
+    if (new Set(names.map((n) => n.toLowerCase())).size < names.length)
+      return setMsg("The default sections must have different names.");
+    setBusy(true);
     try {
       await savePlaylist(id, {
         title: title.trim(),
         description,
+        quiz_settings: { sections: names },
         sections: sections.map((s) => ({
           title: s.title.trim(),
           quiz_ids: s.items.map((i) => i.id),
@@ -232,6 +263,83 @@ export default function PlaylistEditor({ id, pl, onDone, onCancel }) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
+      </div>
+      <div className="qe-section">
+        <h3 className="qe-title">Quiz settings</h3>
+        <div className="qe-card qe-details">
+          <span className="lbl">Default sections</span>
+          <p className="note" style={{ margin: 0 }}>
+            The sections a new quiz in this playlist starts with. Changing them
+            doesn't change quizzes that already exist.
+          </p>
+          <div className="defsecs">
+            {defaults.map((d, i) => (
+              <div key={d.key} className="defsec">
+                <input
+                  value={cap(d.name)}
+                  placeholder="Section name"
+                  aria-label="Default section name"
+                  data-id={d.key}
+                  onChange={(e) => {
+                    // Capitalising the shown text makes React reset the caret, so put it back
+                    const { target } = e;
+                    const caret = target.selectionStart;
+                    setDefault(d.key, target.value);
+                    requestAnimationFrame(() =>
+                      target.setSelectionRange(caret, caret),
+                    );
+                  }}
+                />
+                {i > 0 && (
+                  <button
+                    type="button"
+                    className="subbtn"
+                    aria-label={`Move ${d.name || "section"} up`}
+                    onClick={() => moveDefault(i, -1)}
+                  >
+                    ↑ Up
+                  </button>
+                )}
+                {i < defaults.length - 1 && (
+                  <button
+                    type="button"
+                    className="subbtn"
+                    aria-label={`Move ${d.name || "section"} down`}
+                    onClick={() => moveDefault(i, 1)}
+                  >
+                    ↓ Down
+                  </button>
+                )}
+                <button
+                  type="button"
+                  className="subbtn danger"
+                  aria-label={`Delete ${d.name || "section"}`}
+                  title="Delete"
+                  onClick={() =>
+                    setDefaults((ds) => ds.filter((x) => x.key !== d.key))
+                  }
+                >
+                  <TrashIcon />
+                </button>
+              </div>
+            ))}
+            {!defaults.length && <p className="note">No default sections</p>}
+          </div>
+          <div>
+            <button
+              type="button"
+              className="subbtn"
+              onClick={() => {
+                const key = newKey();
+                setDefaults((ds) => [...ds, { key, name: "" }]);
+                setFocus(key);
+              }}
+            >
+              <PlusIcon />
+              Add section
+            </button>
+          </div>
+        </div>
       </div>
       <div className="qe-section">
         <h3 className="qe-title">Sections</h3>
