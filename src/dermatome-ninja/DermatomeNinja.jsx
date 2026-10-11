@@ -17,6 +17,7 @@ import {
   REGIONS,
   silhouette,
 } from "./geometry";
+import Segmented from "../components/Segmented";
 
 // Colours of the feedback scheme (recall-drill theme variables, so dark mode follows)
 const GREEN = "var(--ok)";
@@ -277,22 +278,16 @@ export default function DermatomeNinja() {
 
         <div>
           <div className="dn-bar">
-            <div className="segmented" role="tablist" aria-label="Mode">
-              {[
+            <Segmented
+              label="Mode"
+              tabs={[
                 ["locate", "Locate"],
                 ["name", "Name"],
                 ["learn", "Learn"],
-              ].map(([m, text]) => (
-                <button
-                  key={m}
-                  role="tab"
-                  aria-selected={mode === m}
-                  onClick={() => changeMode(m)}
-                >
-                  {text}
-                </button>
-              ))}
-            </div>
+              ]}
+              value={mode}
+              onChange={changeMode}
+            />
             <div className="dn-opts">
               <label className="dn-region">
                 Region

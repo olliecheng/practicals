@@ -53,7 +53,7 @@ A slide switch between a few tabs or modes, such as Manual / Agentic in the quiz
 
 - Track: inline flex, `--tile` background with an inset 1px `--line` outline, padding 4px, 2px between tabs, radius 10px.
 - Tab: padding `6px 22px`, radius 7px, 0.9rem, no border, transparent, `--mute` text.
-- Selected tab: `--panel` background (a raised white panel), `--ink` text, weight 600, shadow `0 1px 3px rgb(0 0 0 / 0.18)`.
+- Selected tab: `--ink` text, weight 600, on a raised `--panel` thumb (shadow `0 1px 3px rgb(0 0 0 / 0.18)`) that slides to the selected tab (0.25s). The thumb is a separate element positioned by `components/Segmented.jsx`; always use that component. It slides even when the user prefers reduced motion.
 - Place it left-aligned above the content it switches, with 8px below it.
 
 ### Cards (`.qe-card`)

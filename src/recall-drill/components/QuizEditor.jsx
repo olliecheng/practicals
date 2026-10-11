@@ -18,6 +18,7 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { cap } from "../lib/data";
+import Segmented from "../../components/Segmented";
 import {
   categoryErrors,
   saveQuiz,
@@ -521,26 +522,18 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
     <section className="home">
       <form className="pledit qe" onSubmit={save} noValidate>
         <h2 className="qe-pagetitle">Edit quiz: {name.trim() || d.name}</h2>
-        <div className="segmented" role="tablist">
-          {[
+        <Segmented
+          tabs={[
             ["manual", "Manual"],
             ["agentic", "Agentic"],
-          ].map(([k, label]) => (
-            <button
-              key={k}
-              type="button"
-              role="tab"
-              aria-selected={tab === k}
-              onClick={() => {
-                setTab(k);
-                setMsg("");
-                setOk("");
-              }}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
+          ]}
+          value={tab}
+          onChange={(k) => {
+            setTab(k);
+            setMsg("");
+            setOk("");
+          }}
+        />
         {tab === "agentic" ? (
           <AgenticTab
             parts={
