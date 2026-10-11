@@ -595,20 +595,6 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
                         ↓ Down
                       </button>
                     )}
-                    {!groups[s.id].length && (
-                      <button
-                        type="button"
-                        className="subbtn danger"
-                        onClick={() =>
-                          confirm(
-                            `Delete the section ${cap(s.name.trim()) || "(unnamed)"}?`,
-                          ) && removeSection(s.id)
-                        }
-                      >
-                        <TrashIcon />
-                        Delete section
-                      </button>
-                    )}
                   </div>
                   <div className="qe-card">
                     {groups[s.id].map((g, gi) => (
@@ -634,6 +620,20 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
                         <PlusIcon />
                         New category
                       </button>
+                      {!groups[s.id].length && (
+                        <button
+                          type="button"
+                          className="subbtn danger"
+                          onClick={() =>
+                            confirm(
+                              `Delete the section ${cap(s.name.trim()) || "(unnamed)"}?`,
+                            ) && removeSection(s.id)
+                          }
+                        >
+                          <TrashIcon />
+                          Delete section
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>

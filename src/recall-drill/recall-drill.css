@@ -2074,8 +2074,14 @@ button.iconbtn {
 }
 .qe-addcat {
   display: flex;
+  align-items: center;
   justify-content: center;
+  gap: 14px;
   margin-top: 4px;
+}
+/* In an empty section the row is the card's only content: equal space above and below (the card pads 14px above, 8px below) */
+.qe-card > .qe-addcat:first-child {
+  margin: 0 0 6px;
 }
 
 /* An open item has no handle, so its keywords line up with its text */
