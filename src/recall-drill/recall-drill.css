@@ -1631,6 +1631,9 @@ button.star[aria-pressed="true"] {
   gap: 6px;
   margin-top: 8px;
 }
+.qe-card > .edsection:first-child {
+  margin-top: 0;
+}
 .edhead {
   display: flex;
   align-items: center;
@@ -1643,6 +1646,7 @@ button.star[aria-pressed="true"] {
   margin-left: -7px;
   border: 1px solid transparent;
   background: transparent;
+  font-family: var(--font-head);
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--teal);
@@ -1860,6 +1864,22 @@ button.iconbtn {
   }
   .qe-newlbl {
     display: none;
+  }
+  /* The name sits on the left and its buttons share its row on the right */
+  .qe-head {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .qe-catmoves {
+    flex-direction: row;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .qe-catmoves > .subbtn,
+  .qe-catarrows .subbtn:first-child {
+    margin-left: 0;
   }
 }
 
@@ -2133,6 +2153,8 @@ button.iconbtn {
 }
 .qe-copyrow {
   display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   margin-top: 8px;
 }
 .qe-mono,

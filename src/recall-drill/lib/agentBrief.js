@@ -27,7 +27,7 @@ export const briefParts = ({ prompt, categories, quiz }) => [
 ];
 
 // The last line of the brief, left open for the user to say what they want changed
-export const CLOSING = "Make this change:";
+export const CLOSING = "\nMake this change:\n";
 
 export const briefText = (parts) =>
   parts

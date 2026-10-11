@@ -531,8 +531,7 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
                 onChange={(e) => setPrompt(e.target.value)}
               />
               <p className="note" style={{ margin: 0 }}>
-                Renaming an item, or moving it to another section, clears
-                anyone's saved progress for it.
+                Renaming an item clears user history for that item.
               </p>
             </div>
             <DndContext

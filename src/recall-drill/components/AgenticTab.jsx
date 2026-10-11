@@ -34,15 +34,25 @@ const ChevronIcon = ({ open }) => (
   </svg>
 );
 
+// Chat pages the instructions can be sent to
+const AI_TOOLS = [
+  ["ChatGPT", "https://chatgpt.com/"],
+  ["Claude", "https://claude.ai/new"],
+  ["Gemini", "https://gemini.google.com/app"],
+];
+
 // The Agentic tab: a brief to paste into an AI assistant (read-only; instructions, valid categories, the quiz as it is now) and a
 // box for the JSON it sends back. Validate and Save live in the editor's button row.
 // parts: briefParts() or null while the categories are still loading; text/setText: the pasted JSON
 export default function AgenticTab({ parts, text, setText, busy }) {
   const [copied, setCopied] = useState(false);
   const [open, setOpen] = useState(false); // the brief is long, so it starts closed; Copy works either way
-  const copy = async () => {
+  // With a url, the AI tool's chat page opens in a new tab. Both happen before the first await so the click still counts as a user gesture
+  const copy = async (url) => {
     try {
-      await navigator.clipboard.writeText(briefText(parts));
+      const done = navigator.clipboard.writeText(briefText(parts));
+      if (url) window.open(url, "_blank", "noopener");
+      await done;
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
     } catch {
@@ -55,7 +65,9 @@ export default function AgenticTab({ parts, text, setText, busy }) {
         <h3 className="qe-title">How to use</h3>
         <div className="qe-card qe-details">
           <ol className="qe-steps">
-            <li>Press Copy brief and paste it into an AI assistant.</li>
+            <li>
+              Press Copy instructions and paste them into an AI assistant.
+            </li>
             <li>
               After "Make this change:", say what you want: add items, fix
               keywords, split a category.
@@ -69,10 +81,6 @@ export default function AgenticTab({ parts, text, setText, busy }) {
               quiz.
             </li>
           </ol>
-          <p className="note" style={{ margin: 0 }}>
-            Renaming an item, or moving it to another section, clears anyone's
-            saved progress for it.
-          </p>
         </div>
       </div>
       <div className="qe-section">
@@ -84,7 +92,7 @@ export default function AgenticTab({ parts, text, setText, busy }) {
             onClick={() => setOpen(!open)}
           >
             <ChevronIcon open={open} />
-            Brief for the AI
+            Instructions for the AI
           </button>
         </h3>
         {open && (
@@ -93,7 +101,7 @@ export default function AgenticTab({ parts, text, setText, busy }) {
             tabIndex={0}
             role="textbox"
             aria-readonly="true"
-            aria-label="Brief for the AI (read-only)"
+            aria-label="Instructions for the AI (read-only)"
           >
             {parts ? (
               <span className="qe-parts">
@@ -118,12 +126,25 @@ export default function AgenticTab({ parts, text, setText, busy }) {
           <button
             type="button"
             className="primary qe-copy"
-            onClick={copy}
+            onClick={() => copy()}
             disabled={!parts}
           >
             <CopyIcon />
-            {copied ? "Copied" : "Copy brief"}
+            {copied ? "Copied" : "Copy instructions"}
           </button>
+        </div>
+        <div className="qe-copyrow">
+          {AI_TOOLS.map(([name, url]) => (
+            <button
+              key={name}
+              type="button"
+              title={`Copy the instructions and open ${name}`}
+              onClick={() => copy(url)}
+              disabled={!parts}
+            >
+              {name} →
+            </button>
+          ))}
         </div>
       </div>
       <div className="qe-section">

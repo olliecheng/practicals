@@ -211,58 +211,67 @@ export default function PlaylistEditor({ id, pl, onDone, onCancel }) {
 
   return (
     <form className="pledit" onSubmit={save} noValidate>
-      <label className="lbl" htmlFor="pl-title">
-        Title
-      </label>
-      <input
-        id="pl-title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <label className="lbl" htmlFor="pl-desc">
-        Description
-      </label>
-      <textarea
-        id="pl-desc"
-        rows={3}
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <p className="lbl">Sections</p>
-      <DndContext
-        sensors={sensors}
-        collisionDetection={closestCenter}
-        onDragStart={({ active }) => setActive(active.id)}
-        onDragOver={onDragOver}
-        onDragEnd={onDragEnd}
-        onDragCancel={() => setActive(null)}
-      >
-        {sections.map((sec, i) => (
-          <Section
-            key={sec.key}
-            sec={sec}
-            index={i}
-            count={sections.length}
-            set={(next) => setSection(sec.key, next)}
-            onMove={(d) => setSections((ss) => arrayMove(ss, i, i + d))}
-          />
-        ))}
-        <DragOverlay>
-          {activeItem && <Item item={activeItem} overlay />}
-        </DragOverlay>
-      </DndContext>
-      <div className="big">
-        <button
-          type="button"
-          onClick={() =>
-            setSections((ss) => [
-              ...ss,
-              { key: newKey(), title: "", items: [] },
-            ])
-          }
-        >
-          Add section
-        </button>
+      <h2 className="qe-pagetitle">
+        Edit playlist: {title.trim() || pl.title}
+      </h2>
+      <div className="qe-card qe-details">
+        <label className="lbl" htmlFor="pl-title">
+          Title
+        </label>
+        <input
+          id="pl-title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <label className="lbl" htmlFor="pl-desc">
+          Description
+        </label>
+        <textarea
+          id="pl-desc"
+          rows={3}
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+      </div>
+      <div className="qe-section">
+        <h3 className="qe-title">Sections</h3>
+        <div className="qe-card">
+          <DndContext
+            sensors={sensors}
+            collisionDetection={closestCenter}
+            onDragStart={({ active }) => setActive(active.id)}
+            onDragOver={onDragOver}
+            onDragEnd={onDragEnd}
+            onDragCancel={() => setActive(null)}
+          >
+            {sections.map((sec, i) => (
+              <Section
+                key={sec.key}
+                sec={sec}
+                index={i}
+                count={sections.length}
+                set={(next) => setSection(sec.key, next)}
+                onMove={(d) => setSections((ss) => arrayMove(ss, i, i + d))}
+              />
+            ))}
+            <DragOverlay>
+              {activeItem && <Item item={activeItem} overlay />}
+            </DragOverlay>
+          </DndContext>
+          <div className="big">
+            <button
+              type="button"
+              onClick={() =>
+                setSections((ss) => [
+                  ...ss,
+                  { key: newKey(), title: "", items: [] },
+                ])
+              }
+            >
+              Add section
+            </button>
+          </div>
+        </div>
       </div>
       {msg && (
         <p className="msg" role="alert">

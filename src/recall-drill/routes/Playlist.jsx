@@ -89,17 +89,15 @@ function PlaylistView({ id }) {
   if (editing)
     return (
       <section className="home">
-        <div className="panel">
-          <PlaylistEditor
-            id={id}
-            pl={pl}
-            onCancel={() => setEditing(false)}
-            onDone={() => {
-              setEditing(false);
-              st.retry();
-            }}
-          />
-        </div>
+        <PlaylistEditor
+          id={id}
+          pl={pl}
+          onCancel={() => setEditing(false)}
+          onDone={() => {
+            setEditing(false);
+            st.retry();
+          }}
+        />
       </section>
     );
 
