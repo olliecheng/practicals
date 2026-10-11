@@ -2339,6 +2339,30 @@ button.iconbtn {
   background: var(--teal-soft);
   font-weight: 600; /* so it differs from a hovered row */
 }
+.modal .pick .note {
+  margin: 0;
+  padding: 6px 8px;
+}
+/* The "Custom category" box at the end of the list: looks like another row until hovered or focused */
+.modal .pick-custom {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 4px;
+  padding: 6px 8px;
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-radius: var(--r);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.8rem;
+}
+.modal .pick-custom:hover,
+.modal .pick-custom:focus {
+  background: var(--teal-soft);
+  outline: none;
+}
 .modal-row {
   display: flex;
   justify-content: flex-end;

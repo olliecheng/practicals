@@ -70,6 +70,21 @@ export const saveQuiz = async (id, data) => {
 export const validateQuiz = (data) =>
   api("POST", "/api/quizzes/validate", data);
 
+// The categories in a quiz body that aren't in the Settings list (any case), as messages. The server doesn't check
+// category names; the Agentic tab uses this to keep to the list. Malformed shapes are skipped (the server reports them).
+export const categoryErrors = (data, categories) => {
+  const known = new Set(categories.map((c) => c.toLowerCase()));
+  const items = data?.items;
+  if (!items || typeof items !== "object" || Array.isArray(items)) return [];
+  return Object.entries(items).flatMap(([section, sec]) =>
+    !sec || typeof sec !== "object" || Array.isArray(sec)
+      ? []
+      : Object.keys(sec)
+          .filter((cat) => !known.has(cat.toLowerCase()))
+          .map((cat) => `${section}: "${cat}" is not a valid category.`),
+  );
+};
+
 // The playlist with its quizzes grouped by section; meta leaves the quiz bodies out
 export const usePlaylist = (id, { meta } = {}) =>
   useLoad(id ? `/api/playlists/${id}${meta ? "?quizzes=meta" : ""}` : null);

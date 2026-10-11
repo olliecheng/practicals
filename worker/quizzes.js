@@ -14,7 +14,6 @@ import {
   readObject,
   validateQuiz,
 } from "./content-util.js";
-import { readSettings } from "./settings.js";
 
 export function mountQuizzes(app, { getDb, getSession, auth }) {
   // List quiz summaries, newest first. ?owner=me (needs a session) or ?owner=<id>; deleted quizzes are hidden unless
@@ -93,8 +92,7 @@ export function mountQuizzes(app, { getDb, getSession, auth }) {
   app.post("/api/quizzes/validate", auth, async (c) => {
     const body = await readObject(c);
     if (!body) return c.json({ error: "bad json" }, 400);
-    const { categories } = await readSettings(getDb(c));
-    const errors = validateQuiz(body, categories);
+    const errors = validateQuiz(body);
     return c.json(
       errors.length
         ? { ok: false, errors }
@@ -109,7 +107,7 @@ export function mountQuizzes(app, { getDb, getSession, auth }) {
     const body = await readObject(c);
     if (!body) return c.json({ error: "bad json" }, 400);
     const db = getDb(c);
-    const errors = validateQuiz(body, (await readSettings(db)).categories);
+    const errors = validateQuiz(body);
     if (errors.length) return c.json({ error: errors.join("\n"), errors }, 400);
     const r = await db
       .prepare(

@@ -18,7 +18,12 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { cap } from "../lib/data";
-import { saveQuiz, useSettings, validateQuiz } from "../lib/content";
+import {
+  categoryErrors,
+  saveQuiz,
+  useSettings,
+  validateQuiz,
+} from "../lib/content";
 import ItemCard from "./ItemCard";
 import AgenticTab from "./AgenticTab";
 import CategoryPicker from "./CategoryPicker";
@@ -457,12 +462,24 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
       ? err.errors.join("\n")
       : `Could not ${what}: ${err.message}`;
 
-  // Validate (Agentic tab): the server checks the pasted quiz, nothing is saved
+  // The Agentic tab keeps to the Settings categories (the server doesn't check them, and the Manual tab allows custom ones).
+  // Shows the problems and returns false when the pasted quiz uses any other.
+  const categoriesOk = (data) => {
+    if (!settings.data) {
+      setMsg("The category list hasn't loaded yet; try again in a moment.");
+      return false;
+    }
+    const errors = categoryErrors(data, settings.data.categories);
+    if (errors.length) setMsg(errors.join("\n"));
+    return !errors.length;
+  };
+
+  // Validate (Agentic tab): checks the categories here and the rest on the server, nothing is saved
   const validate = async () => {
     setOk("");
     setMsg("");
     const data = parseAgentic();
-    if (!data) return;
+    if (!data || !categoriesOk(data)) return;
     setBusy(true);
     try {
       const r = await validateQuiz(data);
@@ -474,7 +491,7 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
     setBusy(false);
   };
 
-  // Save: the Manual tab saves its own state, the Agentic tab the pasted JSON; the server checks both the same way
+  // Save: the Manual tab saves its own state, the Agentic tab the pasted JSON (its categories checked first); the server checks the rest
   const save = async (e) => {
     e.preventDefault();
     setOk("");
@@ -482,6 +499,7 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
     const data = tab === "agentic" ? parseAgentic() : build();
     if (!data) return;
     if (typeof data === "string") return setMsg(data);
+    if (tab === "agentic" && !categoriesOk(data)) return;
     setBusy(true);
     try {
       await saveQuiz(id, data);
@@ -491,6 +509,13 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
       setBusy(false);
     }
   };
+
+  // The picker's names already used by the section's other categories (lowercase; the one being changed may keep its own)
+  const taken = picking
+    ? groups[picking.key]
+        .filter((_, j) => j !== picking.gi)
+        .map((g) => g.cat.trim().toLowerCase())
+    : [];
 
   return (
     <section className="home">
@@ -655,13 +680,9 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
             status={settings.status}
             // Names not used by another category of the section (the one being changed keeps its own)
             categories={(settings.data?.categories ?? []).filter(
-              (c) =>
-                !groups[picking.key].some(
-                  (g, j) =>
-                    j !== picking.gi &&
-                    g.cat.trim().toLowerCase() === c.toLowerCase(),
-                ),
+              (c) => !taken.includes(c.toLowerCase()),
             )}
+            taken={taken}
             current={
               picking.gi === null
                 ? null

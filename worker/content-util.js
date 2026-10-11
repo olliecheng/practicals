@@ -70,15 +70,13 @@ export const page = (items, limit) => ({
 const QUIZ_FIELDS = ["system", "name", "items", "deleted"];
 
 // The problems with one section ({"Category": [items]}), as messages. Items are {label, keywords}; keywords must compile as the game compiles them.
-const sectionErrors = (key, sec, vocab) => {
+const sectionErrors = (key, sec) => {
   if (sec === undefined) return [];
   if (!sec || typeof sec !== "object" || Array.isArray(sec))
     return [`${key}: must be an object of {"Category": [items]}.`];
   const errors = [];
   for (const [cat, list] of Object.entries(sec)) {
     const where = `${key} / ${cat}`;
-    if (!vocab.has(cat.toLowerCase()))
-      errors.push(`${key}: "${cat}" is not a valid category.`);
     if (!Array.isArray(list)) {
       errors.push(`${where}: must be a list of items.`);
       continue;
@@ -101,9 +99,10 @@ const sectionErrors = (key, sec, vocab) => {
   return errors;
 };
 
-// The problems with a quiz body as a list of messages (empty when valid). `categories` is the Settings vocabulary: every category
-// in every section must be one of its names (any case). Any signed-in user can PUT a quiz, so this is the only guard on what is stored.
-export function validateQuiz(b, categories) {
+// The problems with a quiz body as a list of messages (empty when valid): its shape, keywords that compile and known fields.
+// Category names are free-form here (Systems review uses its own); the editor's Agentic tab checks them against Settings itself.
+// Any signed-in user can PUT a quiz, so this is the only guard on what is stored.
+export function validateQuiz(b) {
   if (!b || typeof b !== "object" || Array.isArray(b))
     return ["The quiz must be a JSON object."];
   const errors = [];
@@ -122,13 +121,12 @@ export function validateQuiz(b, categories) {
     return [...errors, '"items" must be an object of sections.'];
   const names = Object.keys(items);
   if (!names.length) errors.push('"items" needs at least one section.');
-  const vocab = new Set(categories.map((c) => c.toLowerCase()));
   for (const k of names) {
     if (!k.trim() || k !== k.trim())
       errors.push(
         `Section name "${k}" can't be empty or start or end with a space.`,
       );
-    errors.push(...sectionErrors(k, items[k], vocab));
+    errors.push(...sectionErrors(k, items[k]));
   }
   return errors;
 }
