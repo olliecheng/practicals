@@ -1010,6 +1010,46 @@ body.drilling .sect .sh .sc {
   margin: 4px 0 0;
   color: var(--mute);
 }
+/* An empty message takes no space (it stays in the page so a screen reader announces it when text arrives) */
+.pref .msg:empty {
+  min-height: 0;
+  margin: 0;
+}
+.pref .msg.bad {
+  color: var(--bad);
+}
+.pref input[aria-invalid="true"] {
+  border-color: var(--bad);
+}
+/* A page can stack several panes (Profile, Settings) */
+.pref + .pref {
+  margin-top: 22px;
+}
+.pref .prefarea {
+  box-sizing: border-box;
+  width: 100%;
+  font: inherit;
+  padding: 7px 10px;
+  border-radius: var(--r);
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+  resize: vertical;
+}
+/* A quiet button sitting alone in a row: centre it on the row's label (9px label padding + half a line, less half the button),
+   and pull it left by its padding so the icon lines up with the column edge */
+.prefbody > .prefbtn {
+  margin: 6px 0 0 -6px;
+}
+.prefsave {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+.prefsave .msg {
+  margin: 0;
+}
 @media (max-width: 600px) {
   .prefrow {
     grid-template-columns: minmax(0, 1fr);
@@ -1019,6 +1059,9 @@ body.drilling .sect .sh .sc {
   .preflabel {
     padding-top: 0;
     text-align: left;
+  }
+  .prefbody > .prefbtn {
+    margin-top: 0;
   }
 }
 
@@ -1183,17 +1226,22 @@ body.drilling .sect .sh .sc {
 .menu .mi {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  min-width: 170px;
   padding: 4px;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: var(--r);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
 }
-/* Entries are .subbtn (icon + small label); black text, as menus are for choosing */
+/* Entries are .subbtn (icon + small label); black text, as menus are for choosing. Same metrics as .tilemenu; size and gap are
+   set here because `.condlist button` (the popover sits inside the list) would otherwise make them bigger */
 .menu .subbtn {
+  width: 100%;
+  gap: 6px;
   white-space: nowrap;
   justify-content: flex-start;
+  text-align: left;
+  font-size: 0.8rem;
   padding: 6px 8px 6px 4px; /* menu edge to icon is about the same as icon to text */
   color: var(--ink);
   cursor: pointer;
@@ -1294,6 +1342,24 @@ body.drilling .sect .sh .sc {
   padding: 3px 4px;
   white-space: nowrap;
   color: var(--ink);
+  border: 1px solid var(--mute);
+}
+/* Colour coding as in the popover: Restart green, Redo incorrect red, each with its tint at rest too */
+.acts .subbtn.ok,
+.acts .subbtn.ok:hover {
+  color: var(--ok);
+}
+.acts .subbtn.bad,
+.acts .subbtn.bad:hover {
+  color: var(--bad);
+}
+.acts .subbtn.ok {
+  background: var(--ok-soft);
+  border: 1px solid var(--ok);
+}
+.acts .subbtn.bad {
+  background: var(--bad-soft);
+  border: 1px solid var(--bad);
 }
 .acts .subbtn svg {
   display: none;
@@ -1711,18 +1777,17 @@ button.iconbtn {
   line-height: 1.4;
   color: var(--mute);
 }
-/* Up / Down under a category name: tight, with the text lined up with the name */
+/* Arrows (one row) and Edit (the next) under a category name: tight, with the first glyph lined up with the name */
+.qe-catarrows {
+  display: flex;
+}
 .qe-catmoves .subbtn {
   padding: 2px 6px;
-  margin-left: -6px;
   font-size: 0.75rem;
 }
-.pledit .qe-cathead {
-  width: 100%;
-  box-sizing: border-box;
-  font-family: var(--font-head);
-  font-weight: 600;
-  color: var(--teal);
+.qe-catmoves > .subbtn,
+.qe-catarrows .subbtn:first-child {
+  margin-left: -6px;
 }
 .qe-delcat {
   border: 0;
@@ -1910,6 +1975,25 @@ button.iconbtn {
   background: var(--teal-soft);
   color: var(--ink);
 }
+.subbtn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+/* A small button that is the screen's main action (Add / Save in a modal): filled teal */
+.subbtn.primary,
+.subbtn.primary:hover {
+  padding: 4px 10px;
+  background: var(--teal);
+  color: #fff;
+}
+:root[data-theme="dark"] .subbtn.primary {
+  color: #0f1d1f;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .subbtn.primary {
+    color: #0f1d1f;
+  }
+}
 .subbtn.danger {
   color: var(--bad);
 }
@@ -1918,6 +2002,8 @@ button.iconbtn {
   color: var(--bad);
 }
 .qe-addcat {
+  display: flex;
+  justify-content: center;
   margin-top: 4px;
 }
 
@@ -1950,8 +2036,8 @@ button.iconbtn {
   font-weight: 600;
 }
 
-/* Segmented control (a switch between a few modes): a tinted track with the selected option as a raised panel.
-   Used for Locate / Name / Learn in Dermatome Ninja and Manual / Agentic in the quiz editor. */
+/* Tab slider (a tablist switching between a few modes or tabs): a tinted track with the selected tab as a raised panel.
+   Used for Locate / Name / Learn in Dermatome Ninja and the Manual / Agentic tabs of the quiz editor. */
 .segmented {
   display: inline-flex;
   padding: 4px;
@@ -2030,9 +2116,43 @@ button.iconbtn {
   font: inherit;
   resize: none;
 }
-.modal textarea.qe-matchbox {
+/* The keywords an item already matches (Teach new keyword): plain text, not a field */
+.modal textarea.qe-label {
+  font-size: 0.9rem; /* item text size */
+}
+.modal textarea.qe-matchbox,
+.modal .qe-current {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.85rem;
+}
+.modal .qe-current {
+  color: var(--mute);
+  overflow-wrap: anywhere;
+}
+/* The picker's filter box uses the same size as the names below it */
+.modal .pick-filter {
+  font-size: 0.8rem;
+}
+/* The category picker's list: names to choose from, the selected one tinted */
+.modal .pick {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+  padding: 2px;
+  max-height: 50vh;
+  overflow-y: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+}
+.modal .pick .subbtn {
+  width: 100%;
+  padding: 6px 8px;
+  color: var(--ink);
+  text-align: left;
+}
+.modal .pick .subbtn.on {
+  background: var(--teal-soft);
+  font-weight: 600; /* so it differs from a hovered row */
 }
 .modal-row {
   display: flex;

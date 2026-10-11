@@ -66,3 +66,5 @@ temp/
 
 # Local Worker secrets (see .dev.vars.example)
 .dev.vars
+
+backup.sql
