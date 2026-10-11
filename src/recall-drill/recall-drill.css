@@ -141,6 +141,34 @@ header h1 {
   letter-spacing: -0.01em;
   line-height: 1.2;
 }
+/* Medpunk logo (components/MedpunkLogo.jsx): an inline SVG whose colours come from the theme.
+   Its viewBox is cropped to the final frame, so the box has no empty space; the pill and cursor of the
+   first frames overflow it. */
+header:has(.mp-logo) {
+  align-items: center;
+}
+.mp-logo {
+  display: block;
+  height: 1.2rem;
+  aspect-ratio: 174 / 24.5;
+}
+.mp-logo svg {
+  display: block;
+  height: 100%;
+  width: auto;
+  overflow: visible;
+}
+.mp-word,
+.mp-caret {
+  fill: var(--ink);
+}
+.mp-pill {
+  fill: var(--panel);
+  stroke: var(--line);
+}
+.mp-check {
+  stroke: var(--teal);
+}
 .stats {
   display: flex;
   gap: 16px;

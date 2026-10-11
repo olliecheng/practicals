@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { useAccount } from "../state/AccountContext";
 import Avatar from "./Avatar";
+import MedpunkLogo from "./MedpunkLogo";
 
 // 16px outline icon (see DESIGN.md)
 const Icon = ({ d }) => (
@@ -92,12 +93,24 @@ function Account() {
 }
 
 export default function Layout() {
+  // Clicking the logo replays its animation: a new key remounts the logo, which inserts a fresh SVG.
+  // Other ways home (Back, the browser's back button) don't touch it, and neither does opening in a new tab.
+  const [plays, setPlays] = useState(0);
+  const replay = (e) => {
+    if (e.button === 0 && !(e.metaKey || e.ctrlKey || e.shiftKey || e.altKey))
+      setPlays((n) => n + 1);
+  };
   return (
     <div className="wrap">
       <header>
         <h1>
-          <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
-            History recall drill
+          <Link
+            to="/"
+            aria-label="MedPunk"
+            onClick={replay}
+            style={{ color: "inherit", textDecoration: "none" }}
+          >
+            <MedpunkLogo key={plays} />
           </Link>
         </h1>
         <Account />

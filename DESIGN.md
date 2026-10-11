@@ -83,6 +83,10 @@ A box with a 1px `--bad` outline, `--bad-soft` background, `--r` radius, padding
 
 16px outline SVGs: `stroke="currentColor"`, stroke width 2, round caps and joins, no fill (a filled variant only for an on state, such as the amber star), e.g. `components/PencilIcon.jsx`. They take the colour of the text next to them.
 
+### Logo (`components/MedpunkLogo.jsx`)
+
+The Medpunk logo replaces the page title in the Recall Drill header, 1.2rem high, linking home, centred vertically with the account control (`header:has(.mp-logo)`). Its viewBox is cropped to the final frame so the box has no empty space above or below; the pill and cursor of the first frames overflow it (`overflow: visible`). It is an inline SVG (`assets/medpunk-logo.svg`, imported with `?raw`) whose colours are the theme variables (`--ink`, `--teal`, `--panel`, `--line`), so it works in dark mode. Its letters are outlines, so there is no font to load. The animation (2.28s, SMIL) starts when the SVG is inserted after the first paint, plays once and rests on its final frame. `Layout` stays mounted while navigating, so it replays only on a page load or reload.
+
 ### Edit entry
 
 A pencil icon, not the word "Edit" (except inside menus, where every entry has an icon and a label). In a header next to other quiet icons (the star on a drill) it is a `.subbtn`; among bordered buttons (the playlist actions) it is a bordered `.iconbtn` (padding 8px).
