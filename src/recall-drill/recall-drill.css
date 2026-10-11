@@ -1801,6 +1801,14 @@ button.iconbtn {
   .qe-cat:focus-within .qe-catmoves {
     opacity: 1;
   }
+  /* The same for a section's Up / Down beside its title: shown while the pointer is over the section (its card included) or focus is inside it */
+  .qe-sechead .subbtn {
+    opacity: 0;
+  }
+  .qe-section:hover .qe-sechead .subbtn,
+  .qe-section:focus-within .qe-sechead .subbtn {
+    opacity: 1;
+  }
 }
 .qe-catmoves > .subbtn,
 .qe-catarrows .subbtn:first-child {
