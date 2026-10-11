@@ -95,6 +95,16 @@ export function useFeaturedPlaylists() {
   return { ...state, retry: () => setAttempt((n) => n + 1) };
 }
 
+// The global settings {agentQuizPrompt, categories}
+export const useSettings = () => useLoad("/api/settings");
+
+// Replaces the given settings (any of the keys) and drops the cached reads; resolves to all the settings
+export const saveSettings = async (patch) => {
+  const r = await api("PUT", "/api/settings", patch);
+  bust();
+  return r;
+};
+
 export const useQuiz = (id) => useLoad(id ? `/api/quizzes/${id}` : null);
 
 // Full quizzes for a set of ids (history rows), fetched in chunks of 100. Deleted quizzes are not returned.

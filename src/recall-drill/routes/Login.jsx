@@ -18,7 +18,7 @@ export default function Login() {
     const { error } = await authClient.signIn.social({
       provider: "google",
       callbackURL: "/recall-drill/",
-      newUserCallbackURL: "/recall-drill/profile",
+      newUserCallbackURL: "/recall-drill/settings",
       errorCallbackURL: "/recall-drill/login",
     });
     if (error) {

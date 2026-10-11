@@ -20,7 +20,7 @@ const Icon = ({ d }) => (
   </svg>
 );
 
-// Signed in: avatar + name + arrow form one button; clicking it opens a dropdown with Profile and Log out.
+// Signed in: avatar + name + arrow form one button; clicking it opens a dropdown with Settings and Log out.
 // Escape, a click outside, or navigating closes it.
 function AccountMenu() {
   const { acct, profile, saveMsg, logout } = useAccount();
@@ -59,9 +59,9 @@ function AccountMenu() {
       </button>
       {open && (
         <div className="acctmenu" role="menu">
-          <Link role="menuitem" className="subbtn" to="/profile">
-            <Icon d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" />
-            Profile
+          <Link role="menuitem" className="subbtn" to="/settings">
+            <Icon d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6" />
+            Settings
           </Link>
           <button
             role="menuitem"

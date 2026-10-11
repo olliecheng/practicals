@@ -18,8 +18,10 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { MODES, SECTION_KEYS } from "../lib/data";
-import { saveQuiz } from "../lib/content";
+import { saveQuiz, useSettings } from "../lib/content";
 import ItemCard from "./ItemCard";
+import CategoryPicker from "./CategoryPicker";
+import PencilIcon from "./PencilIcon";
 import { rx } from "../lib/match";
 import { toKeywords, toText } from "../lib/editItem";
 
@@ -79,65 +81,52 @@ const Gap = ({ row, onAdd }) => (
   </>
 );
 
-// The category name as heading text with ↑ / ↓ buttons to move the whole category. The name can't be changed afterwards;
-// one made by "New category" (fresh) starts in an input with the cursor in it, which turns into text when it's done.
-function CategoryHead({ group, set, n, index, count, onMove }) {
-  const [editing, setEditing] = useState(!!group.fresh);
-  const done = () => {
-    setEditing(false);
-    if (group.fresh) set({ ...group, fresh: false });
-  };
+// The category name as heading text. Under it, one row of ↑ Up / ↓ Down buttons moves the whole category, and an Edit button on a second
+// row changes the name through the category picker (the name is never typed).
+function CategoryHead({ group, n, index, count, onMove, onEdit }) {
   return (
     // It spans the rows of its items, so its height never stretches the first item's row
     <div
       className="qe-head"
       style={{ gridColumn: 1, gridRow: n ? `2 / span ${2 * n}` : "1 / span 2" }}
     >
-      {editing ? (
-        <input
-          className="edtitle qe-cathead"
-          autoFocus={group.fresh}
-          value={group.cat}
-          placeholder="Category"
-          aria-label="Category"
-          onChange={(e) => set({ ...group, cat: e.target.value })}
-          onBlur={done}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              e.preventDefault();
-              done();
-            }
-          }}
-        />
-      ) : (
-        <>
-          <span className="qe-catname">{group.cat || "No category"}</span>
-          <span className="qe-catmoves">
-            {index > 0 && (
-              <button
-                type="button"
-                className="subbtn"
-                aria-label="Move category up"
-                title="Move category up"
-                onClick={() => onMove(-1)}
-              >
-                ↑ Up
-              </button>
-            )}
-            {index < count - 1 && (
-              <button
-                type="button"
-                className="subbtn"
-                aria-label="Move category down"
-                title="Move category down"
-                onClick={() => onMove(1)}
-              >
-                ↓ Down
-              </button>
-            )}
-          </span>
-        </>
-      )}
+      <span className="qe-catname">{group.cat || "No category"}</span>
+      <span className="qe-catmoves">
+        <span className="qe-catarrows">
+          {index > 0 && (
+            <button
+              type="button"
+              className="subbtn"
+              aria-label="Move category up"
+              title="Move category up"
+              onClick={() => onMove(-1)}
+            >
+              ↑ Up
+            </button>
+          )}
+          {index < count - 1 && (
+            <button
+              type="button"
+              className="subbtn"
+              aria-label="Move category down"
+              title="Move category down"
+              onClick={() => onMove(1)}
+            >
+              ↓ Down
+            </button>
+          )}
+        </span>
+        <button
+          type="button"
+          className="subbtn"
+          aria-label="Change category"
+          title="Change category"
+          onClick={onEdit}
+        >
+          <PencilIcon />
+          Edit
+        </button>
+      </span>
     </div>
   );
 }
@@ -197,6 +186,7 @@ function Group({
   removeGroup,
   addItem,
   onMove,
+  onEdit,
 }) {
   const n = group.items.length;
   const setItem = (i, patch) =>
@@ -217,11 +207,11 @@ function Group({
       <div className="qe-cat" ref={setNodeRef}>
         <CategoryHead
           group={group}
-          set={set}
           n={n}
           index={index}
           count={count}
           onMove={onMove}
+          onEdit={onEdit}
         />
         {group.items.map((it, i) => (
           <Fragment key={it.key}>
@@ -266,6 +256,8 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
     Object.fromEntries(sections.map((s) => [s.key, toGroups(d[s.key])])),
   );
   const [focus, setFocus] = useState(null);
+  const [picking, setPicking] = useState(null); // {key: section, gi: index of the category being changed, or null for a new one}
+  const settings = useSettings();
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState("");
 
@@ -383,12 +375,10 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
     );
     setFocus(item.key);
   };
-  const addGroup = (key) => {
+  const addGroup = (key, cat) => {
     const item = { key: newKey(), label: "", matches: "" };
-    setSec(key, (gs) => [
-      ...gs,
-      { key: newKey(), cat: "", fresh: true, items: [item] },
-    ]);
+    setSec(key, (gs) => [...gs, { key: newKey(), cat, items: [item] }]);
+    setFocus(item.key);
   };
 
   // The quiz data to save, or an error message
@@ -496,6 +486,7 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
                         index={gi}
                         count={groups[s.key].length}
                         onMove={(d) => moveGroup(s.key, gi, d)}
+                        onEdit={() => setPicking({ key: s.key, gi })}
                         set={(next) => setGroup(s.key, gi, next)}
                         remove={(i) => removeItem(s.key, gi, i)}
                         removeGroup={() => removeGroup(s.key, gi)}
@@ -506,7 +497,7 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
                       <button
                         type="button"
                         className="subbtn"
-                        onClick={() => addGroup(s.key)}
+                        onClick={() => setPicking({ key: s.key, gi: null })}
                       >
                         <PlusIcon />
                         New category
@@ -520,6 +511,36 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
               </DragOverlay>
             </DndContext>
           </>
+        )}
+        {picking && (
+          <CategoryPicker
+            status={settings.status}
+            // Names not used by another category of the section (the one being changed keeps its own)
+            categories={(settings.data?.categories ?? []).filter(
+              (c) =>
+                !groups[picking.key].some(
+                  (g, j) =>
+                    j !== picking.gi &&
+                    g.cat.trim().toLowerCase() === c.toLowerCase(),
+                ),
+            )}
+            current={
+              picking.gi === null
+                ? null
+                : groups[picking.key][picking.gi].cat.trim()
+            }
+            confirmLabel={picking.gi === null ? "Add" : "Edit"}
+            onPick={(cat) => {
+              if (picking.gi === null) addGroup(picking.key, cat);
+              else
+                setGroup(picking.key, picking.gi, {
+                  ...groups[picking.key][picking.gi],
+                  cat,
+                });
+              setPicking(null);
+            }}
+            onClose={() => setPicking(null)}
+          />
         )}
         {msg && (
           <div className="qe-error" role="alert">

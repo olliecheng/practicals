@@ -6,7 +6,7 @@ import Home from "./routes/Home";
 import Playlist from "./routes/Playlist";
 import Drill from "./routes/Drill";
 import Login from "./routes/Login";
-import Profile from "./routes/Profile";
+import Settings from "./routes/Settings";
 
 const NotFound = () => (
   <div className="panel">
@@ -28,7 +28,8 @@ export default function App() {
             <Route index element={<Home />} />
             <Route path="p/:id" element={<Playlist />} />
             <Route path="login" element={<Login />} />
-            <Route path="profile" element={<Profile />} />
+            <Route path="settings" element={<Settings />} />
+            <Route path="profile" element={<Settings />} />
             <Route path="q/:id" element={<Drill />} />
             <Route path="q/:id/edit" element={<Drill edit />} />
             <Route path="*" element={<NotFound />} />

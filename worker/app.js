@@ -5,12 +5,14 @@
 //   limitWrites(c, key) -> Promise<boolean>, optional: false means the caller is writing too fast (429)
 // /api/auth/* is Better Auth (Google sign-in, sessions). GET /api/history returns the signed-in user's record
 // ({v:1, stars, drills}); PUT replaces it. /api/quizzes and /api/playlists are readable by anyone and writable by
-// their owner. Everything else under /api is 404. The user is always the session's, never a client claim.
+// their owner. /api/settings holds the global settings (readable by anyone, writable by any signed-in user). Everything else
+// under /api is 404. The user is always the session's, never a client claim.
 import { Hono } from "hono";
 import { etag } from "hono/etag";
 import { checkRecord, recordToRows, rowsToRecord } from "./history.js";
 import { mountPlaylists } from "./playlists.js";
 import { mountQuizzes } from "./quizzes.js";
+import { mountSettings } from "./settings.js";
 
 const MAX = 256 * 1024;
 
@@ -78,9 +80,10 @@ export function createApp({ getAuth, getStore, getDb, limitWrites }) {
     return c.json({ ok: true });
   });
 
-  const deps = { getDb, getSession, auth };
+  const deps = { getDb, getSession, auth, limitWrites };
   mountQuizzes(app, deps);
   mountPlaylists(app, deps);
+  mountSettings(app, deps);
 
   app.all("/api/*", (c) => c.json({ error: "not found" }, 404));
 
