@@ -1,14 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import { MODES } from "../lib/data";
 import { judge, variants } from "../lib/match";
 import { confetti } from "../lib/confetti";
 import { loadCollapsed, saveCollapsed } from "../lib/storage";
 
 // One round of a drill. Tiles are addressed by their index in drill.items.
 // State: found (typed), credited (missed but self-credited), revealed (shown), ignored (given up on, left out of the score),
-// over (round finished), hint (code of the section whose category boxes are shown, "" if off; it only applies while that section is still the hinted one, so finishing it hides the hint), active (the open section while collapsed).
+// over (round finished), hint (name of the section whose category boxes are shown, "" if off; it only applies while that section is still the hinted one, so finishing it hides the hint), active (the open section while collapsed).
 // Collapsed: only the section `active` is open and matched (counter and score still cover everything). Remembered across drills.
-// Drill: retrying a section's missed tiles. drill (code of the section, "" if off), drilling (the tiles hidden again for it), recalled (tiles answered in a drill).
+// Drill: retrying a section's missed tiles. drill (name of the section, "" if off), drilling (the tiles hidden again for it), recalled (tiles answered in a drill).
 // shown: tiles a drill ended on without an answer (shown in purple, dashed). A drill ends through endDrill, or by itself once every drilled tile is recalled.
 // Recalled tiles never reach found/credited, so history, the score and the counters ignore them. While drilling the view is forced to Collapse on that section.
 
@@ -16,31 +15,31 @@ const settled = (s, i) =>
   s.found.has(i) || s.credited.has(i) || s.ignored.has(i);
 const pending = (s, i) =>
   !s.found.has(i) && !s.revealed.has(i) && !s.ignored.has(i);
-const sectionIdx = (drill, code) =>
-  drill.items.flatMap((it, i) => (it.code === code ? [i] : []));
+const sectionIdx = (drill, name) =>
+  drill.items.flatMap((it, i) => (it.section === name ? [i] : []));
 // The first section with something left to name (else the first section)
 const firstPending = (drill, s) => {
-  const sections = MODES[drill.mode].sections;
+  const sections = drill.sections;
   return (
     sections.find((sec) =>
-      drill.items.some((it, i) => it.code === sec.code && pending(s, i)),
+      drill.items.some((it, i) => it.section === sec.name && pending(s, i)),
     ) || sections[0]
-  ).code;
+  ).name;
 };
 // A section is complete once every tile is named, credited, ignored or revealed
-export const sectionComplete = (drill, s, code) =>
-  sectionIdx(drill, code).every((i) => settled(s, i) || s.revealed.has(i));
+export const sectionComplete = (drill, s, name) =>
+  sectionIdx(drill, name).every((i) => settled(s, i) || s.revealed.has(i));
 // Tiles of a section that were revealed and never answered (not found, credited or ignored). Recalled tiles still count, as a drill leaves the round's state alone, so the section can be drilled again
-const missedIdx = (drill, s, code) =>
-  sectionIdx(drill, code).filter(
+const missedIdx = (drill, s, name) =>
+  sectionIdx(drill, name).filter(
     (i) =>
       s.revealed.has(i) &&
       !s.found.has(i) &&
       !s.credited.has(i) &&
       !s.ignored.has(i),
   );
-export const hasMissed = (drill, s, code) =>
-  missedIdx(drill, s, code).length > 0;
+export const hasMissed = (drill, s, name) =>
+  missedIdx(drill, s, name).length > 0;
 const allSettled = (drill, s) =>
   drill.items.every((_, i) => settled(s, i) || s.revealed.has(i));
 
@@ -55,8 +54,8 @@ export function stats(drill, s) {
     total,
     got,
     pct: total ? Math.round((100 * got) / total) : 100,
-    sections: MODES[drill.mode].sections.map((sec) => {
-      const si = sectionIdx(drill, sec.code),
+    sections: drill.sections.map((sec) => {
+      const si = sectionIdx(drill, sec.name),
         n = si.filter((i) => !s.ignored.has(i)).length,
         g = si.filter(
           (i) => !s.ignored.has(i) && (s.found.has(i) || s.credited.has(i)),
@@ -122,7 +121,7 @@ const retrigger = (el, cls) => {
 
 export function useDrillGame({ drill, account, inc }) {
   const { items } = drill;
-  const sections = MODES[drill.mode].sections;
+  const sections = drill.sections;
   const redoRound = !!inc;
 
   const [s, setS] = useState(() => init(drill, account.user, inc));
@@ -148,7 +147,7 @@ export function useDrillGame({ drill, account, inc }) {
     setS(ns);
   };
   const act = (st, i) =>
-    !collapsedRef.current || st.over || items[i].code === st.active;
+    !collapsedRef.current || st.over || items[i].section === st.active;
   // Ending a drill shows every unanswered drilled tile (as "shown")
   const endDrillState = (st) => ({
     ...st,
@@ -162,8 +161,8 @@ export function useDrillGame({ drill, account, inc }) {
   const nextSec = (st) =>
     sections.find(
       (sec) =>
-        (!collapsedRef.current || sec.code === st.active) &&
-        items.some((it, i) => it.code === sec.code && pending(st, i)),
+        (!collapsedRef.current || sec.name === st.active) &&
+        items.some((it, i) => it.section === sec.name && pending(st, i)),
     );
 
   // Sections already complete (prefilled or ignored) must not fire confetti when something else is typed.
@@ -171,10 +170,10 @@ export function useDrillGame({ drill, account, inc }) {
     celebrated.current = new Set(
       sections
         .filter((sec) => {
-          const si = sectionIdx(drill, sec.code);
+          const si = sectionIdx(drill, sec.name);
           return si.length && si.every((i) => settled(st, i));
         })
-        .map((sec) => sec.code),
+        .map((sec) => sec.name),
     );
   };
   useEffect(() => {
@@ -191,13 +190,13 @@ export function useDrillGame({ drill, account, inc }) {
   // A section named in full (by typing, not reveal/credit) earns confetti
   const celebrate = (st) =>
     sections.forEach((sec) => {
-      const si = sectionIdx(drill, sec.code);
+      const si = sectionIdx(drill, sec.name);
       if (
         si.length &&
-        !celebrated.current.has(sec.code) &&
+        !celebrated.current.has(sec.name) &&
         si.every((i) => st.found.has(i) || st.ignored.has(i))
       ) {
-        celebrated.current.add(sec.code);
+        celebrated.current.add(sec.name);
         confetti();
       }
     });
@@ -360,7 +359,7 @@ export function useDrillGame({ drill, account, inc }) {
     if (!n) return apply(finishRound(st));
     const revealed = new Set(st.revealed);
     items.forEach(
-      (it, i) => it.code === n.code && pending(st, i) && revealed.add(i),
+      (it, i) => it.section === n.name && pending(st, i) && revealed.add(i),
     );
     const ns = { ...st, revealed };
     apply(items.some((_, i) => pending(ns, i)) ? ns : finishRound(ns));
@@ -371,10 +370,10 @@ export function useDrillGame({ drill, account, inc }) {
     clearTimeout(deferT.current);
     apply(endDrillState(sRef.current));
   };
-  const startDrill = (code) => {
+  const startDrill = (name) => {
     const st = sRef.current;
     if (st.drill) return;
-    const miss = missedIdx(drill, st, code);
+    const miss = missedIdx(drill, st, name);
     if (!miss.length) return;
     clearTimeout(deferT.current);
     const shown = new Set(st.shown);
@@ -383,7 +382,7 @@ export function useDrillGame({ drill, account, inc }) {
       shown.delete(i);
       recalled.delete(i);
     });
-    apply({ ...st, drill: code, drilling: new Set(miss), shown, recalled });
+    apply({ ...st, drill: name, drilling: new Set(miss), shown, recalled });
     answerRef.current?.focus();
   };
 
@@ -398,7 +397,7 @@ export function useDrillGame({ drill, account, inc }) {
       // A correct tile can only be ignored once its section is complete
       if (
         (st.found.has(i) || st.credited.has(i)) &&
-        !sectionComplete(drill, st, items[i].code)
+        !sectionComplete(drill, st, items[i].section)
       )
         return;
       ignored.add(i);
@@ -429,17 +428,17 @@ export function useDrillGame({ drill, account, inc }) {
     if (want) apply({ ...st, active: firstPending(drill, st) });
   };
   // Show or hide the category boxes (per round, not saved)
-  const toggleHint = (code) => {
+  const toggleHint = (name) => {
     const st = sRef.current;
     if (st.over && !st.drill) return;
-    apply({ ...st, hint: st.hint === code ? "" : code });
+    apply({ ...st, hint: st.hint === name ? "" : name });
   };
-  const setActive = (code) => {
+  const setActive = (name) => {
     const st = sRef.current;
-    if (st.over || st.drill || !collapsedRef.current || code === st.active)
+    if (st.over || st.drill || !collapsedRef.current || name === st.active)
       return;
     clearTimeout(deferT.current);
-    apply({ ...st, active: code });
+    apply({ ...st, active: name });
   };
 
   const setHistory = (on) => {
@@ -480,12 +479,12 @@ export function useDrillGame({ drill, account, inc }) {
   const revealLabel = s.drill
     ? "End drill"
     : n
-      ? "Reveal " + n.short
+      ? "Reveal " + n.name
       : collapsed
-        ? "Reveal " + sections.find((x) => x.code === s.active).short
+        ? "Reveal " + s.active
         : "Finish";
   // The section the hint applies to: the one Reveal names (the open one when collapsed)
-  const hintCode = s.drill ? s.drill : n ? n.code : collapsed ? s.active : "";
+  const hintCode = s.drill ? s.drill : n ? n.name : collapsed ? s.active : "";
   const revealDisabled = s.drill ? false : collapsed ? !n : !items.length;
 
   return {

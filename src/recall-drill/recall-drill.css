@@ -374,9 +374,6 @@ button.starfilter[aria-pressed="true"] {
     font-size: 1.4rem !important;
     margin: 0 !important;
   }
-  .prompt {
-    display: none;
-  }
   .tline {
     margin-top: 2px !important;
     font-size: 0.78rem !important;
@@ -912,14 +909,6 @@ body.drilling .sect .sh .sc {
 .note {
   color: var(--mute);
   font-size: 0.88rem;
-}
-.prompt {
-  color: var(--mute);
-  margin: 0 0 8px;
-  font-size: 0.85rem;
-}
-.prompt:empty {
-  display: none;
 }
 .acct {
   display: flex;

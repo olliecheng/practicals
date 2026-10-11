@@ -6,7 +6,7 @@ import {
   useNavigate,
   useParams,
 } from "react-router-dom";
-import { drillFromQuiz, MODES } from "../lib/data";
+import { cap, drillFromQuiz } from "../lib/data";
 import {
   playlistQuizzes,
   saveQuiz,
@@ -109,13 +109,15 @@ function Game({ drill, inc, restart, quiz }) {
   useEffect(() => {
     const prev = was.current;
     was.current = { compact, over: s.over };
-    const code = scrollTo.current;
+    const name = scrollTo.current;
     const onlyIfHidden = scrollOnlyIfHidden.current;
     scrollTo.current = "";
     scrollOnlyIfHidden.current = false;
-    if (!code || !((prev.compact && !compact) || (!prev.over && s.over)))
+    if (!name || !((prev.compact && !compact) || (!prev.over && s.over)))
       return;
-    const el = document.getElementById("s" + code);
+    const el = document.getElementById(
+      "s" + drill.sections.findIndex((x) => x.name === name),
+    );
     if (!el) return;
     // The Expand toggle only scrolls when the section Reveal names is off screen
     if (onlyIfHidden) {
@@ -185,7 +187,6 @@ function Game({ drill, inc, restart, quiz }) {
     }
     return out;
   };
-  const noun = MODES[drill.mode].noun;
   const starred = !!acct && user.stars.includes(drill.key);
 
   // New / Next / Back stay in the playlist the drill was opened from, if it is one of its quizzes
@@ -202,7 +203,7 @@ function Game({ drill, inc, restart, quiz }) {
   };
   const menu = () => nav(inCtx ? `/p/${ctxId}` : "/");
   // Header label: the playlist, linking back to it
-  const plTitle = inCtx ? ctx.data.title : MODES[drill.mode].label;
+  const plTitle = inCtx ? ctx.data.title : "Recall Drill";
   // Hint needs named categories in the section Reveal names
   // The hint only holds for the section it was switched on for
   const hintOn = !!g.hintCode && s.hint === g.hintCode && (!s.over || drilling);
@@ -211,10 +212,12 @@ function Game({ drill, inc, restart, quiz }) {
     ? s.drill
     : g.collapsed
       ? s.active
-      : ([...stats.sections].reverse().find((x) => hasMissed(drill, s, x.code))
-          ?.code ?? "");
+      : ([...stats.sections].reverse().find((x) => hasMissed(drill, s, x.name))
+          ?.name ?? "");
   const drillable = !!drillCode && hasMissed(drill, s, drillCode);
-  const hintable = drill.items.some((it) => it.code === g.hintCode && it.cat);
+  const hintable = drill.items.some(
+    (it) => it.section === g.hintCode && it.cat,
+  );
 
   return (
     <section
@@ -252,7 +255,6 @@ function Game({ drill, inc, restart, quiz }) {
           </div>
           <div className="cond">{drill.name}</div>
           <Byline drill={drill} />
-          <p className="prompt">{drill.prompt}</p>
           {!s.over || drilling ? (
             <div className="actions two">
               <div className="arow">
@@ -301,7 +303,7 @@ function Game({ drill, inc, restart, quiz }) {
               <span className="result">{stats.pct}%</span>
               {inCtx && (
                 <button className="primary" onClick={another}>
-                  Next {noun}
+                  Next quiz
                 </button>
               )}
               {!g.nothingMissed && (
@@ -374,17 +376,17 @@ function Game({ drill, inc, restart, quiz }) {
           )}
         </div>
         <div>
-          {stats.sections.map((sec) => {
+          {stats.sections.map((sec, si) => {
             const shut =
-              collapsed && (!s.over || drilling) && sec.code !== focus;
+              collapsed && (!s.over || drilling) && sec.name !== focus;
             const idx = drill.items.flatMap((it, i) =>
-              it.code === sec.code ? [i] : [],
+              it.section === sec.name ? [i] : [],
             );
-            const complete = sectionComplete(drill, s, sec.code);
-            const active = s.drill === sec.code;
+            const complete = sectionComplete(drill, s, sec.name);
+            const active = s.drill === sec.name;
             // One drill at a time: the drilled section shows its button disabled, the others hide theirs
             const canDrill =
-              active || (!drilling && hasMissed(drill, s, sec.code));
+              active || (!drilling && hasMissed(drill, s, sec.name));
             // A finished section has nothing left to spoil, so its categories are always shown
             const hasCats = idx.some((i) => drill.items[i].cat);
             // n is the tile's number within its section, whatever the grouping
@@ -403,8 +405,8 @@ function Game({ drill, inc, restart, quiz }) {
             );
             return (
               <section
-                key={sec.code}
-                id={"s" + sec.code}
+                key={sec.name}
+                id={"s" + si}
                 className={
                   "sect" +
                   (shut ? " closed" : "") +
@@ -417,15 +419,17 @@ function Game({ drill, inc, restart, quiz }) {
                     className="tg"
                     type="button"
                     aria-expanded={!shut}
-                    onClick={() => g.setActive(sec.code)}
+                    onClick={() => g.setActive(sec.name)}
                   >
                     <span className="nm">
-                      <span
-                        className="ic"
-                        aria-hidden="true"
-                        style={{ "--ic": `url("${sec.icon}")` }}
-                      />
-                      {sec.name}
+                      {sec.icon && (
+                        <span
+                          className="ic"
+                          aria-hidden="true"
+                          style={{ "--ic": `url("${sec.icon}")` }}
+                        />
+                      )}
+                      {cap(sec.name)}
                     </span>
                   </button>
                   {canDrill && (
@@ -440,21 +444,21 @@ function Game({ drill, inc, restart, quiz }) {
                           : "Drill the missed items in this section"
                       }
                       aria-label="Drill the missed items in this section"
-                      onClick={() => g.startDrill(sec.code)}
+                      onClick={() => g.startDrill(sec.name)}
                     >
                       ↺
                     </button>
                   )}
-                  <span className="sc" onClick={() => g.setActive(sec.code)}>
+                  <span className="sc" onClick={() => g.setActive(sec.name)}>
                     {sec.count ? `${sec.got} of ${sec.total}` : ""}
                   </span>
                 </h3>
                 {!idx.length && (
                   <p className="note" style={{ margin: 0 }}>
-                    None listed for this {noun}.
+                    None listed for this quiz.
                   </p>
                 )}
-                {(hintOn && sec.code === g.hintCode) ||
+                {(hintOn && sec.name === g.hintCode) ||
                 (complete && hasCats) ? (
                   <div className="cats">
                     {groups(drill, idx).map(([cat, list]) => (

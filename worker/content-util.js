@@ -15,17 +15,14 @@ export const owner = (r) => ({
 
 // Quiz summary without its body, pulled out of the JSON by SQLite
 export const QUIZ_META_COLS = `q.id, q.owner_id, q.forked_from,
-  json_extract(q.data, '$.mode') AS mode, json_extract(q.data, '$.system') AS system,
-  json_extract(q.data, '$.name') AS name, json_extract(q.data, '$.prompt') AS prompt,
+  json_extract(q.data, '$.system') AS system, json_extract(q.data, '$.name') AS name,
   json_extract(q.data, '$.deleted') AS deleted, ${OWNER_COLS}`;
 export const quizMeta = (r) => ({
   id: r.id,
   owner: owner(r),
   forked_from: r.forked_from,
-  mode: r.mode,
   system: r.system,
   name: r.name,
-  prompt: r.prompt,
   deleted: !!r.deleted,
 });
 
@@ -69,20 +66,8 @@ export const page = (items, limit) => ({
   next: items.length === limit ? items[items.length - 1].id : null,
 });
 
-// Section keys of a quiz's data per mode (the same as SECTION_KEYS in src/recall-drill/lib/data.js)
-const QUIZ_SECTIONS = {
-  cond: [
-    "presentation",
-    "risks",
-    "examination",
-    "investigations",
-    "medications",
-  ],
-  pres: ["differentials", "associated", "investigations"],
-  sys: ["symptoms"],
-};
-// The key every quiz carries besides its sections; `deleted` is owned by the Worker (it is stripped from the body on save)
-const QUIZ_FIELDS = ["mode", "system", "name", "prompt", "deleted"];
+// The keys a quiz carries: its sections are the keys of `items`; `deleted` is owned by the Worker (it is stripped from the body on save)
+const QUIZ_FIELDS = ["system", "name", "items", "deleted"];
 
 // The problems with one section ({"Category": [items]}), as messages. Items are {label, keywords}; keywords must compile as the game compiles them.
 const sectionErrors = (key, sec, vocab) => {
@@ -121,21 +106,30 @@ const sectionErrors = (key, sec, vocab) => {
 export function validateQuiz(b, categories) {
   if (!b || typeof b !== "object" || Array.isArray(b))
     return ["The quiz must be a JSON object."];
-  const sections = QUIZ_SECTIONS[b.mode];
-  if (!sections)
-    return [`"mode" must be one of ${Object.keys(QUIZ_SECTIONS).join(", ")}.`];
   const errors = [];
   if (typeof b.system !== "string") errors.push('"system" must be text.');
   if (typeof b.name !== "string" || !b.name.trim())
     errors.push('"name" is required.');
   else if (b.name.includes("."))
     errors.push('"name" can\'t contain a full stop.');
-  if (typeof b.prompt !== "string") errors.push('"prompt" must be text.');
   for (const k of Object.keys(b))
-    if (!QUIZ_FIELDS.includes(k) && !sections.includes(k))
-      errors.push(`"${k}" isn't a field of a ${b.mode} quiz.`);
+    if (k === "mode" || k === "prompt")
+      errors.push(`"${k}" is no longer used; remove it.`);
+    else if (!QUIZ_FIELDS.includes(k))
+      errors.push(`"${k}" isn't a field of a quiz.`);
+  const items = b.items;
+  if (!items || typeof items !== "object" || Array.isArray(items))
+    return [...errors, '"items" must be an object of sections.'];
+  const names = Object.keys(items);
+  if (!names.length) errors.push('"items" needs at least one section.');
   const vocab = new Set(categories.map((c) => c.toLowerCase()));
-  for (const k of sections) errors.push(...sectionErrors(k, b[k], vocab));
+  for (const k of names) {
+    if (!k.trim() || k !== k.trim())
+      errors.push(
+        `Section name "${k}" can't be empty or start or end with a space.`,
+      );
+    errors.push(...sectionErrors(k, items[k], vocab));
+  }
   return errors;
 }
 
@@ -143,8 +137,8 @@ export function validateQuiz(b, categories) {
 export function quizSummary(b) {
   let items = 0;
   let cats = 0;
-  for (const k of QUIZ_SECTIONS[b.mode])
-    for (const list of Object.values(b[k] ?? {})) {
+  for (const sec of Object.values(b.items))
+    for (const list of Object.values(sec)) {
       cats++;
       items += list.length;
     }

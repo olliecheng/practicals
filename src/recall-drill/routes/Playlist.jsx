@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
-import { drillFromQuiz, MODES } from "../lib/data";
+import { drillFromQuiz } from "../lib/data";
 import { usePlaylist } from "../lib/content";
 import { drillPath, featuredId, playlistPath } from "../lib/legacy";
 import { useAccount } from "../state/AccountContext";
@@ -71,8 +71,6 @@ function PlaylistView({ id }) {
     );
 
   const all = sections.flatMap((s) => s.drills);
-  const modes = [...new Set(all.map((d) => d.mode))];
-  const noun = modes.length === 1 ? MODES[modes[0]].noun : "quiz";
   const ids = all.map((d) => d.key);
   const shown = sections.map((s) => ({
     ...s,
@@ -108,7 +106,7 @@ function PlaylistView({ id }) {
         <p className="pldesc">{pl.description}</p>
         <div className="big">
           <button className="primary" onClick={random} disabled={!ids.length}>
-            Random {noun}
+            Random quiz
           </button>
           {acct && (
             <button

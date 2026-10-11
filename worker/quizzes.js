@@ -1,4 +1,4 @@
-// Quiz routes. A quiz's `data` is the drill (mode, system, name, prompt, sections) plus `deleted`, which only the Worker sets.
+// Quiz routes. A quiz's `data` is the drill (system, name, items: the sections) plus `deleted`, which only the Worker sets.
 // Anyone can read; only the owner changes a quiz (every write carries `AND owner_id = ?`, and 0 changes means 404).
 import { v7 } from "uuid";
 import {
@@ -18,7 +18,7 @@ import { readSettings } from "./settings.js";
 
 export function mountQuizzes(app, { getDb, getSession, auth }) {
   // List quiz summaries, newest first. ?owner=me (needs a session) or ?owner=<id>; deleted quizzes are hidden unless
-  // the caller asks for their own with &deleted=1. More filters: ?ids=<id,id,...> (up to 100), ?mode=, ?system=, ?name=
+  // the caller asks for their own with &deleted=1. More filters: ?ids=<id,id,...> (up to 100), ?system=, ?name=
   // (exact), and &full=1 to include each quiz's data instead of just its summary.
   app.get("/api/quizzes", async (c) => {
     let ownerId = null;
@@ -49,9 +49,8 @@ export function mountQuizzes(app, { getDb, getSession, auth }) {
            AND (?2 = 1 OR json_extract(q.data, '$.deleted') IS NOT 1)
            AND (?3 IS NULL OR q.id < ?3)
            AND (?5 IS NULL OR q.id IN (SELECT value FROM json_each(?5)))
-           AND (?6 IS NULL OR json_extract(q.data, '$.mode') = ?6)
-           AND (?7 IS NULL OR json_extract(q.data, '$.system') = ?7)
-           AND (?8 IS NULL OR json_extract(q.data, '$.name') = ?8)
+           AND (?6 IS NULL OR json_extract(q.data, '$.system') = ?6)
+           AND (?7 IS NULL OR json_extract(q.data, '$.name') = ?7)
          ORDER BY q.id DESC LIMIT ?4`,
       )
       .bind(
@@ -60,7 +59,6 @@ export function mountQuizzes(app, { getDb, getSession, auth }) {
         before,
         limit,
         ids,
-        c.req.query("mode") ?? null,
         c.req.query("system") ?? null,
         c.req.query("name") ?? null,
       )

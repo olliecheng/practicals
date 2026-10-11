@@ -22,8 +22,7 @@ const fromB64url = (s) => {
   );
 };
 
-// The old drill URL segment -> {mode, system, name}, or null if it isn't one. The single systems "Presentation" and
-// "Systems review" marked the other two modes; anything else was a condition.
+// The old drill URL segment -> {system, name}, or null if it isn't one
 export function decodeLegacyDrill(id) {
   let text;
   try {
@@ -35,11 +34,5 @@ export function decodeLegacyDrill(id) {
   if (dot < 0) return null;
   const system = text.slice(0, dot);
   const name = text.slice(dot + 1);
-  const mode =
-    system === "Presentation"
-      ? "pres"
-      : system === "Systems review"
-        ? "sys"
-        : "cond";
-  return { mode, system, name };
+  return { system, name };
 }

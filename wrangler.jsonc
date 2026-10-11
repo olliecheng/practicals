@@ -26,6 +26,7 @@
       "binding": "DB",
       "database_name": "practicals",
       "database_id": "bf5d70fd-b6b6-41e4-bd5a-5567018d866b",
+      "remote": true,
     },
   ],
   "previews": {

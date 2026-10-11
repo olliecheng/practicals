@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { drillFromQuiz, MODES } from "../lib/data";
+import { drillFromQuiz } from "../lib/data";
 import { useQuizzesById } from "../lib/content";
 import { isQuizId } from "../lib/legacy";
 import { useOutsideClose, useStart } from "../lib/useDrillUi";
@@ -38,8 +38,7 @@ function HistoryRow({ drill, sv }) {
       </div>
       <div className="hl2">
         <div className="meta">
-          {drill.mode === "cond" ? drill.system : MODES[drill.mode].label} ·{" "}
-          {new Date(sv.last).toLocaleDateString()}
+          {drill.system} · {new Date(sv.last).toLocaleDateString()}
         </div>
         <div className="acts">
           <DrillActions

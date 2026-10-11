@@ -17,7 +17,7 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { MODES, SECTION_KEYS } from "../lib/data";
+import { cap } from "../lib/data";
 import { saveQuiz, useSettings, validateQuiz } from "../lib/content";
 import ItemCard from "./ItemCard";
 import AgenticTab from "./AgenticTab";
@@ -247,15 +247,14 @@ function Group({
 
 export default function QuizEditor({ id, quiz, onDone, onCancel }) {
   const d = quiz.data;
-  const sections = SECTION_KEYS[d.mode].map(([key, code]) => ({
+  const sections = Object.keys(d.items).map((key) => ({
     key,
-    name: MODES[d.mode].sections.find((s) => s.code === code).name,
+    name: cap(key),
   }));
   const [tab, setTab] = useState("manual");
   const [name, setName] = useState(d.name);
-  const [prompt, setPrompt] = useState(d.prompt ?? "");
   const [groups, setGroups] = useState(() =>
-    Object.fromEntries(sections.map((s) => [s.key, toGroups(d[s.key])])),
+    Object.fromEntries(sections.map((s) => [s.key, toGroups(d.items[s.key])])),
   );
   const [focus, setFocus] = useState(null);
   const [picking, setPicking] = useState(null); // {key: section, gi: index of the category being changed, or null for a new one}
@@ -389,7 +388,7 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
   const build = () => {
     if (!name.trim()) return "The quiz needs a name.";
     if (name.includes(".")) return "The name can't contain a full stop.";
-    const out = { ...d, name: name.trim(), prompt };
+    const out = { ...d, name: name.trim(), items: {} };
     for (const s of sections) {
       const sec = {};
       for (const g of groups[s.key]) {
@@ -406,7 +405,7 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
           (sec[g.cat.trim()] ||= []).push({ label: it.label.trim(), keywords });
         }
       }
-      out[s.key] = sec;
+      out.items[s.key] = sec;
     }
     return out;
   };
@@ -417,7 +416,7 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
     const built = build();
     const { deleted, ...data } = typeof built === "string" ? d : built;
     return data;
-  }, [tab, name, prompt, groups]);
+  }, [tab, name, groups]);
 
   // The pasted JSON as an object, or null after showing why it can't be one
   const parseAgentic = () => {
@@ -521,14 +520,6 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
                 id="qe-name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-              />
-              <label className="lbl" htmlFor="qe-prompt">
-                Prompt
-              </label>
-              <input
-                id="qe-prompt"
-                value={prompt}
-                onChange={(e) => setPrompt(e.target.value)}
               />
               <p className="note" style={{ margin: 0 }}>
                 Renaming an item clears user history for that item.
