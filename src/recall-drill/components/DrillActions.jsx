@@ -40,17 +40,10 @@ const TrashIcon = () => (
   <Icon d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v5M14 11v5" />
 );
 
-// The quiz's menu entries, shared by the list popover and the history panel: "Start quiz" for a quiz with no saved history (sv
+// The quiz's menu entries, shared by the list popover and the history panel (both menus): "Start quiz" for a quiz with no saved history (sv
 // undefined), otherwise Start from scratch / Redo incorrect / clear history; then Edit for signed-in users. Clearing keeps
-// ignored items and the star. `star` adds Star / Unstar; `noEdit` leaves Edit out (the history panel). They are .subbtn buttons (icon and small label), see DESIGN.md.
-export default function DrillActions({
-  drill,
-  sv,
-  labels,
-  onStart,
-  star,
-  noEdit,
-}) {
+// ignored items and the star. `star` adds Star / Unstar; They are .subbtn buttons (icon and small label), see DESIGN.md.
+export default function DrillActions({ drill, sv, labels, onStart, star }) {
   const { mutate, acct, user, toggleStar } = useAccount();
   const nav = useNavigate();
   // Star / Unstar (only where `star` is set: the list popover)
@@ -65,7 +58,7 @@ export default function DrillActions({
       {starred ? "Unstar" : "Star"}
     </button>
   );
-  const edit = acct && !noEdit && (
+  const edit = acct && (
     <button
       className="subbtn"
       title="Edit this quiz"

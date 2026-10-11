@@ -1,6 +1,5 @@
-import { useRef, useState } from "react";
 import { useAccount } from "../state/AccountContext";
-import { useOutsideClose, useStart } from "../lib/useDrillUi";
+import { useRowMenu, useStart } from "../lib/useDrillUi";
 import DrillActions from "./DrillActions";
 
 export function Row({ drill }) {
@@ -9,48 +8,14 @@ export function Row({ drill }) {
   const sv = acct && user.drills[drill.key],
     hist = !!(sv && sv.runs),
     starred = !!acct && user.stars.includes(drill.key);
-  const [open, setOpen] = useState(false);
-  const [left, setLeft] = useState(false);
-  const ref = useRef(null);
-  useOutsideClose(ref, open, () => setOpen(false));
-  // Open the popover to the right of the cell, or to the left if it wouldn't fit in the viewport
-  const place = () =>
-    ref.current &&
-    setLeft(
-      ref.current.getBoundingClientRect().right + 170 >
-        document.documentElement.clientWidth,
-    );
-  // Clicking a row only opens the menu (it also shows on hover); a quiz is started from "Start quiz" or "Start from scratch" in it.
-  const click = () => {
-    setOpen((o) => !o);
-    place();
-  };
+  const { ref, open, left, place, rowProps } = useRowMenu();
   return (
     <div
       ref={ref}
       className={"cell" + (open ? " open" : "")}
       onMouseEnter={place}
     >
-      <div
-        className="rw"
-        tabIndex={0}
-        role="button"
-        onClick={click}
-        onContextMenu={(e) => {
-          e.preventDefault();
-          setOpen(true);
-          place();
-        }}
-        onKeyDown={(e) => {
-          if (
-            e.target === e.currentTarget &&
-            (e.key === "Enter" || e.key === " ")
-          ) {
-            e.preventDefault();
-            click();
-          }
-        }}
-      >
+      <div className="rw" {...rowProps}>
         <span className="lb">{drill.name}</span>
         {starred && (
           <span className="rstar" title="Starred" aria-label="Starred">

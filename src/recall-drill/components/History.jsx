@@ -1,52 +1,37 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { drillFromQuiz } from "../lib/data";
 import { useQuizzesById } from "../lib/content";
 import { isQuizId } from "../lib/legacy";
-import { useOutsideClose, useStart } from "../lib/useDrillUi";
+import { useRowMenu, useStart } from "../lib/useDrillUi";
 import { useAccount } from "../state/AccountContext";
 import DrillActions from "./DrillActions";
 
+// The same row and pop-up menu as the quiz list (Start from scratch, Redo incorrect, Reset progress, Edit), without Star
 function HistoryRow({ drill, sv }) {
   const start = useStart(drill);
-  const [open, setOpen] = useState(false);
-  const ref = useRef(null);
-  useOutsideClose(ref, open, () => setOpen(false));
-  const toggle = () => setOpen((o) => !o);
+  const { ref, open, left, place, rowProps } = useRowMenu();
   return (
     <div
       ref={ref}
-      className={"hrow" + (open ? " open" : "")}
-      tabIndex={0}
-      onClick={(e) => !e.target.closest("button") && toggle()}
-      onContextMenu={(e) => {
-        e.preventDefault();
-        setOpen(true);
-      }}
-      onKeyDown={(e) => {
-        if (
-          e.target === e.currentTarget &&
-          (e.key === "Enter" || e.key === " ")
-        ) {
-          e.preventDefault();
-          toggle();
-        }
-      }}
+      className={"cell" + (open ? " open" : "")}
+      onMouseEnter={place}
     >
-      <div className="hl1">
-        <span className="nm">{drill.name}</span>
-        <span className="bdg">{sv.score}%</span>
-      </div>
-      <div className="hl2">
+      <div className="hrow" {...rowProps}>
+        <div className="hl1">
+          <span className="nm">{drill.name}</span>
+          <span className="bdg">{sv.score}%</span>
+        </div>
         <div className="meta">
           {drill.system} · {new Date(sv.last).toLocaleDateString()}
         </div>
-        <div className="acts">
+      </div>
+      <div className={"menu" + (left ? " l" : "")}>
+        <div className="mi">
           <DrillActions
             drill={drill}
             sv={sv}
-            labels={["Restart", "Delete"]}
+            labels={["Start from scratch", "Reset progress"]}
             onStart={start}
-            noEdit
           />
         </div>
       </div>

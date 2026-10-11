@@ -628,6 +628,8 @@ button.starfilter[aria-pressed="true"] {
   display: inline-flex;
   align-items: center;
   gap: 4px;
+  font-family: var(--font-head);
+  font-size: 1.08em; /* Hanken Grotesk has a smaller x-height than Inter, so this looks as big as the 1rem body text did */
 }
 .redo {
   transition:
@@ -1257,8 +1259,7 @@ body.drilling .sect .sh .sc {
 .menu .subbtn.amber:hover {
   background: var(--amber-soft);
 }
-.menu .subbtn:disabled,
-.acts .subbtn:disabled {
+.menu .subbtn:disabled {
   opacity: 0.5;
   cursor: default;
 }
@@ -1283,6 +1284,10 @@ body.drilling .sect .sh .sc {
   gap: 6px;
   margin-top: 8px;
 }
+/* .cell shrinks to its content in a flex column elsewhere; history rows fill the panel */
+.hist > .cell {
+  align-self: stretch;
+}
 .hrow {
   display: flex;
   flex-direction: column;
@@ -1292,7 +1297,8 @@ body.drilling .sect .sh .sc {
   cursor: pointer;
   font-size: 0.88rem;
 }
-.hrow:hover {
+.hrow:hover,
+.cell.open .hrow {
   background: var(--teal-soft);
 }
 .hl1 {
@@ -1309,67 +1315,12 @@ body.drilling .sect .sh .sc {
 .hl1 .bdg {
   margin-left: 0;
 }
-.hl2 {
-  min-height: 26px;
-  display: flex;
-  align-items: center;
-}
-.hl2 .meta {
+.meta {
   color: var(--mute);
   font-size: 0.75rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-.hl2 .acts {
-  display: none;
-  gap: 4px;
-  width: 100%;
-}
-/* The history row's actions sit in one line, so no icons there */
-.acts .subbtn {
-  flex: 1;
-  justify-content: center;
-  font-size: 0.72rem;
-  padding: 3px 4px;
-  white-space: nowrap;
-  color: var(--ink);
-  border: 1px solid var(--mute);
-}
-/* Colour coding as in the popover: Restart green, Redo incorrect red, each with its tint at rest too */
-.acts .subbtn.ok,
-.acts .subbtn.ok:hover {
-  color: var(--ok);
-}
-.acts .subbtn.bad,
-.acts .subbtn.bad:hover {
-  color: var(--bad);
-}
-.acts .subbtn.ok {
-  background: var(--ok-soft);
-  border: 1px solid var(--ok);
-}
-.acts .subbtn.bad {
-  background: var(--bad-soft);
-  border: 1px solid var(--bad);
-}
-.acts .subbtn svg {
-  display: none;
-}
-/* a history row swaps its meta line for the actions on hover/tap, so its height never changes */
-.hrow.open .meta {
-  display: none;
-}
-.hrow.open .acts {
-  display: flex;
-}
-@media (hover: hover) {
-  .hrow:hover .meta {
-    display: none;
-  }
-  .hrow:hover .acts {
-    display: flex;
-  }
 }
 /* With a mouse the menu follows the pointer (a click doesn't pin it), and keyboard focus on the row or in the menu also shows it */
 @media (hover: hover) {
@@ -1839,6 +1790,17 @@ button.iconbtn {
 .qe-catmoves .subbtn {
   padding: 2px 6px;
   font-size: 0.75rem;
+}
+/* With a mouse, the category's Up / Down / Edit show only while the pointer is over the category (its items included) or focus is inside it.
+   They are hidden with opacity, not display, so they keep their place and the layout doesn't move; touch screens always show them. */
+@media (hover: hover) {
+  .qe-catmoves {
+    opacity: 0;
+  }
+  .qe-cat:hover .qe-catmoves,
+  .qe-cat:focus-within .qe-catmoves {
+    opacity: 1;
+  }
 }
 .qe-catmoves > .subbtn,
 .qe-catarrows .subbtn:first-child {
