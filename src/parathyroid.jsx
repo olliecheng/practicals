@@ -50,6 +50,26 @@ const getDiagnosisInfo = (diagnosis) => {
       phosphate:
         "Phosphate will increase. Decreased calcium leads to decreased phosphate excretion in the kidneys.",
     },
+    osteomalacia: {
+      title: "Osteomalacia",
+      explanation:
+        "Low calcium with elevated PTH in an adult patient indicates vitamin D deficiency. The parathyroid glands are responding appropriately to hypocalcemia caused by impaired intestinal calcium absorption. This represents secondary hyperparathyroidism due to vitamin D deficiency in adults.",
+      pattern: "↓ Calcium, ↑ PTH (adult)",
+      pathophysiology:
+        "Vitamin D deficiency → decreased intestinal calcium absorption → hypocalcemia → appropriate ↑ PTH response",
+      phosphate:
+        "Phosphate will decrease. Vitamin D deficiency impairs phosphate absorption, and elevated PTH further decreases renal phosphate reabsorption.",
+    },
+    rickets: {
+      title: "Rickets",
+      explanation:
+        "Low calcium with elevated PTH in a pediatric patient indicates vitamin D deficiency. The parathyroid glands are responding appropriately to hypocalcemia caused by impaired intestinal calcium absorption. This is the same pathophysiology as osteomalacia but occurs in children.",
+      pattern: "↓ Calcium, ↑ PTH (pediatric)",
+      pathophysiology:
+        "Vitamin D deficiency → decreased intestinal calcium absorption → hypocalcemia → appropriate ↑ PTH response",
+      phosphate:
+        "Phosphate will decrease. Vitamin D deficiency impairs phosphate absorption, and elevated PTH further decreases renal phosphate reabsorption.",
+    },
   };
   return info[diagnosis];
 };
@@ -65,6 +85,8 @@ const parathyroidQuizConfig = {
       "secondary-hyperparathyroidism",
       "tertiary-hyperparathyroidism",
       "hypoparathyroidism",
+      "osteomalacia",
+      "rickets",
     ];
     const diagnosis = diagnoses[Math.floor(Math.random() * diagnoses.length)];
 
@@ -172,6 +194,54 @@ const parathyroidQuizConfig = {
           hypoHistories[Math.floor(Math.random() * hypoHistories.length)];
         break;
 
+      case "osteomalacia":
+        calciumDirection = "decreased";
+        pthDirection = "elevated";
+        const osteomalaciaContexts = [
+          "Routine blood work for fatigue and weakness",
+          "Metabolic panel during annual physical examination",
+          "Laboratory workup for muscle weakness",
+          "Blood tests for unexplained fatigue",
+          "Routine screening laboratory studies",
+        ];
+        const osteomalaciaHistories = [
+          "Limited sun exposure, otherwise healthy adult",
+          "No significant past medical history, indoor lifestyle",
+          "No chronic kidney disease or malabsorption",
+          "Healthy adult with minimal vitamin D intake",
+        ];
+        clinicalContext =
+          osteomalaciaContexts[
+            Math.floor(Math.random() * osteomalaciaContexts.length)
+          ];
+        medicalHistory =
+          osteomalaciaHistories[
+            Math.floor(Math.random() * osteomalaciaHistories.length)
+          ];
+        break;
+
+      case "rickets":
+        calciumDirection = "decreased";
+        pthDirection = "elevated";
+        const ricketsContexts = [
+          "Pediatric screening blood work",
+          "Laboratory studies during routine pediatric visit",
+          "Blood tests for growth monitoring",
+          "Metabolic panel in pediatric patient",
+          "Routine laboratory screening in child",
+        ];
+        const ricketsHistories = [
+          "Healthy child with limited sun exposure",
+          "No significant past medical history in pediatric patient",
+          "Normal growth and development, indoor activities",
+          "Healthy child with minimal vitamin D supplementation",
+        ];
+        clinicalContext =
+          ricketsContexts[Math.floor(Math.random() * ricketsContexts.length)];
+        medicalHistory =
+          ricketsHistories[Math.floor(Math.random() * ricketsHistories.length)];
+        break;
+
       default:
         calciumDirection = "normal";
         pthDirection = "normal";
@@ -179,7 +249,13 @@ const parathyroidQuizConfig = {
         medicalHistory = "No significant past medical history";
     }
 
-    const age = ages[Math.floor(Math.random() * ages.length)];
+    let age;
+    if (diagnosis === "rickets") {
+      const pediatricAges = [3, 5, 7, 9, 11, 13, 15, 17];
+      age = pediatricAges[Math.floor(Math.random() * pediatricAges.length)];
+    } else {
+      age = ages[Math.floor(Math.random() * ages.length)];
+    }
     const gender = genders[Math.floor(Math.random() * genders.length)];
 
     return {
@@ -246,6 +322,18 @@ const parathyroidQuizConfig = {
               description: "Inadequate PTH production",
               correct: diagnosis === "hypoparathyroidism",
             },
+            {
+              id: "osteomalacia",
+              text: "Osteomalacia",
+              description: "Vitamin D deficiency in adults",
+              correct: diagnosis === "osteomalacia",
+            },
+            {
+              id: "rickets",
+              text: "Rickets",
+              description: "Vitamin D deficiency in children",
+              correct: diagnosis === "rickets",
+            },
           ],
           explanation: (
             <div>
@@ -273,12 +361,18 @@ const parathyroidQuizConfig = {
             {
               id: "increased",
               text: "↑ PO₄",
-              correct: diagnosis !== "primary-hyperparathyroidism",
+              correct:
+                diagnosis !== "primary-hyperparathyroidism" &&
+                diagnosis !== "osteomalacia" &&
+                diagnosis !== "rickets",
             },
             {
               id: "decreased",
               text: "↓ PO₄",
-              correct: diagnosis === "primary-hyperparathyroidism",
+              correct:
+                diagnosis === "primary-hyperparathyroidism" ||
+                diagnosis === "osteomalacia" ||
+                diagnosis === "rickets",
             },
           ],
           explanation: getDiagnosisInfo(diagnosis).phosphate,

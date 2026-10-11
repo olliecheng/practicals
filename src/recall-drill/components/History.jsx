@@ -47,6 +47,7 @@ function HistoryRow({ drill, sv }) {
             sv={sv}
             labels={["Restart", "Delete"]}
             onStart={start}
+            noEdit
           />
         </div>
       </div>

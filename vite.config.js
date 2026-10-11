@@ -6,6 +6,8 @@ import { resolve } from "path";
 // The Cloudflare plugin runs worker/index.js (and a local D1) inside the dev server, so /api works without a second process.
 export default defineConfig({
   plugins: [react(), cloudflare()],
+  // The preview tool assigns a free port through PORT; plain `npm run dev` keeps Vite's default
+  server: process.env.PORT ? { port: Number(process.env.PORT) } : {},
   // Scope the HTML entries to the client build: a top-level build.rollupOptions.input is inherited by the Worker environment too, which then fails with 'Entry module "index.html" cannot be external'.
   environments: {
     client: {
