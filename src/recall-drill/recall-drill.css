@@ -1693,6 +1693,20 @@ button.star[aria-pressed="true"] {
 .edrow.gone .lb {
   opacity: 0.55;
 }
+/* Delete shows on hover or keyboard focus (always where there is no hover); it is hidden, not removed, so the row doesn't change size */
+.edrow .rowdel {
+  visibility: hidden;
+  margin: -2px 0; /* the button is a little taller than the name, and shouldn't make the row taller */
+}
+.edrow:hover .rowdel,
+.edrow:focus-within .rowdel {
+  visibility: visible;
+}
+@media (hover: none) {
+  .edrow .rowdel {
+    visibility: visible;
+  }
+}
 .edrow.dragging {
   opacity: 0.4;
 }

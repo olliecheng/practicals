@@ -71,7 +71,7 @@ export function drillFromQuiz(quiz) {
       name: d.name,
       owner: quiz.owner,
       forked_from: quiz.forked_from,
-      deleted: !!d.deleted,
+      deleted: !!quiz.deleted,
       sections: secs.map(([name]) => ({ name, icon: SECTION_ICONS[name] })),
       items,
     };

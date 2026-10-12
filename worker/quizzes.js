@@ -1,5 +1,5 @@
-// Quiz routes. A quiz's `data` is the drill (name, items: the sections) plus `deleted`, which only the Worker sets.
-// Anyone can read; only the owner changes a quiz (every write carries `AND owner_id = ?`, and 0 changes means 404).
+// Quiz routes. A quiz's `data` is the drill (name, items: the sections); `deleted` is a column.
+// Anyone can read; any signed-in user can edit, soft-delete or restore a quiz (0 changes means 404).
 import { v7 } from "uuid";
 import {
   OWNER_COLS,
@@ -42,10 +42,10 @@ export function mountQuizzes(app, { getDb, getSession, auth }) {
     if (before === false) return c.json({ error: "bad cursor" }, 400);
     const { results } = await getDb(c)
       .prepare(
-        `SELECT ${full ? `q.id, q.owner_id, q.forked_from, q.data, ${OWNER_COLS}` : QUIZ_META_COLS}
+        `SELECT ${full ? `q.id, q.owner_id, q.forked_from, q.deleted, q.data, ${OWNER_COLS}` : QUIZ_META_COLS}
          FROM quizzes q LEFT JOIN users u ON u.id = q.owner_id
          WHERE (?1 IS NULL OR q.owner_id = ?1)
-           AND (?2 = 1 OR json_extract(q.data, '$.deleted') IS NOT 1)
+           AND (?2 = 1 OR q.deleted = 0)
            AND (?3 IS NULL OR q.id < ?3)
            AND (?5 IS NULL OR q.id IN (SELECT value FROM json_each(?5)))
            AND (?6 IS NULL OR json_extract(q.data, '$.name') = ?6)
@@ -78,9 +78,11 @@ export function mountQuizzes(app, { getDb, getSession, auth }) {
     if (!body) return c.json({ error: "bad json" }, 400);
     const db = getDb(c);
     const id = v7();
+    // A new quiz is never deleted: the column defaults to 0, so a `deleted` key in the body is dropped, not stored
+    const { deleted: _deleted, ...data } = body;
     await db
       .prepare("INSERT INTO quizzes (id, owner_id, data) VALUES (?1, ?2, ?3)")
-      .bind(id, c.get("userId"), JSON.stringify({ ...body, deleted: false }))
+      .bind(id, c.get("userId"), JSON.stringify(data))
       .run();
     return c.json(await getQuiz(db, id), 201);
   });
@@ -98,7 +100,7 @@ export function mountQuizzes(app, { getDb, getSession, auth }) {
     );
   });
 
-  // Replaces the data in place (any signed-in user may): every playlist that references the quiz sees the change. `deleted` is kept as it is.
+  // Replaces the data in place (any signed-in user may): every playlist that references the quiz sees the change. The `deleted` column is not touched.
   app.put("/api/quizzes/:id", auth, async (c) => {
     const id = c.req.param("id");
     if (!isId(id)) return c.json({ error: "not found" }, 404);
@@ -108,18 +110,14 @@ export function mountQuizzes(app, { getDb, getSession, auth }) {
     const errors = validateQuiz(body);
     if (errors.length) return c.json({ error: errors.join("\n"), errors }, 400);
     const r = await db
-      .prepare(
-        `UPDATE quizzes
-         SET data = json_set(?1, '$.deleted', json(CASE WHEN json_extract(data, '$.deleted') THEN 'true' ELSE 'false' END))
-         WHERE id = ?2`,
-      )
+      .prepare("UPDATE quizzes SET data = ?1 WHERE id = ?2")
       .bind(JSON.stringify(body), id)
       .run();
     if (!r.meta.changes) return c.json({ error: "not found" }, 404);
     return c.json(await getQuiz(db, id));
   });
 
-  // Soft delete / restore. Playlists are never touched, so restoring puts the quiz back everywhere.
+  // Soft delete / restore (any signed-in user may, like editing). Playlists are never touched, so restoring puts the quiz back everywhere.
   app.put("/api/quizzes/:id/deleted", auth, async (c) => {
     const id = c.req.param("id");
     if (!isId(id)) return c.json({ error: "not found" }, 404);
@@ -127,10 +125,8 @@ export function mountQuizzes(app, { getDb, getSession, auth }) {
     if (!body || typeof body.deleted !== "boolean")
       return c.json({ error: "bad json" }, 400);
     const r = await getDb(c)
-      .prepare(
-        "UPDATE quizzes SET data = json_set(data, '$.deleted', json(?1)) WHERE id = ?2 AND owner_id = ?3",
-      )
-      .bind(String(body.deleted), id, c.get("userId"))
+      .prepare("UPDATE quizzes SET deleted = ?1 WHERE id = ?2")
+      .bind(body.deleted ? 1 : 0, id)
       .run();
     return r.meta.changes
       ? c.json({ ok: true })
@@ -146,7 +142,7 @@ export function mountQuizzes(app, { getDb, getSession, auth }) {
     const r = await db
       .prepare(
         `INSERT INTO quizzes (id, owner_id, forked_from, data)
-         SELECT ?1, ?2, q.id, json_set(q.data, '$.deleted', json('false')) FROM quizzes q WHERE q.id = ?3`,
+         SELECT ?1, ?2, q.id, q.data FROM quizzes q WHERE q.id = ?3`,
       )
       .bind(forkId, c.get("userId"), id)
       .run();

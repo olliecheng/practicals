@@ -13,10 +13,10 @@ export const owner = (r) => ({
   image: r.owner_image,
 });
 
-// Quiz summary without its body, pulled out of the JSON by SQLite
+// Quiz summary without its body (the name is pulled out of the JSON by SQLite)
 export const QUIZ_META_COLS = `q.id, q.owner_id, q.forked_from,
   json_extract(q.data, '$.name') AS name,
-  json_extract(q.data, '$.deleted') AS deleted, ${OWNER_COLS}`;
+  q.deleted, ${OWNER_COLS}`;
 export const quizMeta = (r) => ({
   id: r.id,
   owner: owner(r),
@@ -25,11 +25,12 @@ export const quizMeta = (r) => ({
   deleted: !!r.deleted,
 });
 
-const QUIZ_FULL = `SELECT q.id, q.owner_id, q.forked_from, q.data, ${OWNER_COLS} FROM quizzes q LEFT JOIN users u ON u.id = q.owner_id`;
+const QUIZ_FULL = `SELECT q.id, q.owner_id, q.forked_from, q.deleted, q.data, ${OWNER_COLS} FROM quizzes q LEFT JOIN users u ON u.id = q.owner_id`;
 export const quizFull = (r) => ({
   id: r.id,
   owner: owner(r),
   forked_from: r.forked_from,
+  deleted: !!r.deleted,
   data: JSON.parse(r.data),
 });
 export const getQuiz = async (db, id) => {
@@ -65,8 +66,8 @@ export const page = (items, limit) => ({
   next: items.length === limit ? items[items.length - 1].id : null,
 });
 
-// The keys a quiz carries: its sections are the keys of `items`; `deleted` is owned by the Worker (it is stripped from the body on save)
-const QUIZ_FIELDS = ["name", "items", "deleted"];
+// The keys a quiz carries: its sections are the keys of `items`. The soft-delete flag is a column, not part of the data.
+const QUIZ_FIELDS = ["name", "items"];
 
 // The problems with one section ({"Category": [items]}), as messages. Items are {label, keywords}; keywords must compile as the game compiles them.
 const sectionErrors = (key, sec) => {

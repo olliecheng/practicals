@@ -245,7 +245,7 @@ export default function QuizEditor({ id, quiz, initialTab, onDone, onCancel }) {
     initialTab === "agentic" ? "agentic" : "manual",
   );
   const [name, setName] = useState(d.name);
-  const [base, setBase] = useState(d); // the quiz's other fields (`deleted`), which Apply on the Agentic tab can replace
+  const [base, setBase] = useState(d); // the quiz's data, whose other fields Apply on the Agentic tab can replace
   // The sections in order, [{id, name}]; the id stays put while the name is edited. `groups` holds each section's categories by id.
   const [start] = useState(() =>
     Object.entries(d.items).map(([name, sec]) => ({
@@ -448,14 +448,13 @@ export default function QuizEditor({ id, quiz, initialTab, onDone, onCancel }) {
     return out;
   };
 
-  // The quiz as it is now (the Manual tab's and the Agentic tab's section edits included), for the Agentic tab's brief; `deleted` is the
-  // Worker's, so it is left out. While the quiz can't be built (a section has no name...) `problem` says why and there is no `current`.
+  // The quiz as it is now (the Manual tab's and the Agentic tab's section edits included), for the Agentic tab's brief.
+  // While the quiz can't be built (a section has no name...) `problem` says why and there is no `current`.
   const { current, problem } = useMemo(() => {
     if (tab !== "agentic") return {};
     const built = build();
     if (typeof built === "string") return { problem: built };
-    const { deleted, ...data } = built;
-    return { current: data };
+    return { current: built };
   }, [tab, name, sections, groups]);
 
   // The sections the quiz has now, which the Agentic tab must keep

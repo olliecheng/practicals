@@ -98,7 +98,7 @@ export function mountPlaylists(app, { getDb, getSession, auth }) {
         .prepare(
           meta
             ? `SELECT ${QUIZ_META_COLS} FROM quizzes q LEFT JOIN users u ON u.id = q.owner_id WHERE q.id IN (SELECT value FROM json_each(?1))`
-            : `SELECT q.id, q.owner_id, q.forked_from, q.data, ${OWNER_COLS} FROM quizzes q LEFT JOIN users u ON u.id = q.owner_id WHERE q.id IN (SELECT value FROM json_each(?1))`,
+            : `SELECT q.id, q.owner_id, q.forked_from, q.deleted, q.data, ${OWNER_COLS} FROM quizzes q LEFT JOIN users u ON u.id = q.owner_id WHERE q.id IN (SELECT value FROM json_each(?1))`,
         )
         .bind(JSON.stringify(ids))
         .all();
@@ -222,7 +222,7 @@ export function mountPlaylists(app, { getDb, getSession, auth }) {
       db
         .prepare(
           `INSERT INTO quizzes (id, owner_id, forked_from, data)
-           SELECT ?1, ?2, q.id, json_set(q.data, '$.deleted', json('false')) FROM quizzes q
+           SELECT ?1, ?2, q.id, q.data FROM quizzes q
            WHERE q.id = ?3 AND EXISTS (SELECT 1 FROM playlists WHERE id = ?4 AND owner_id = ?2)`,
         )
         .bind(forkId, me, qid, pid),

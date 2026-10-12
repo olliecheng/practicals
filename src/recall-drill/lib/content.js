@@ -59,6 +59,13 @@ export const savePlaylist = async (id, data) => {
   return r;
 };
 
+// Soft-deletes a quiz (it stays in the database and in playlists' lists, but is hidden and can't be played) and drops the cached reads
+export const deleteQuiz = async (id) => {
+  const r = await api("PUT", `/api/quizzes/${id}/deleted`, { deleted: true });
+  bust();
+  return r;
+};
+
 // Replaces a quiz's data (see lib/data.js) and drops the cached reads
 export const saveQuiz = async (id, data) => {
   const r = await api("PUT", `/api/quizzes/${id}`, data);
@@ -213,6 +220,4 @@ export function useQuizzesById(ids) {
 
 // All of a playlist's quizzes, flat, in order, without the deleted ones. Works on the meta or the full form.
 export const playlistQuizzes = (pl) =>
-  pl.sections
-    .flatMap((s) => s.quizzes)
-    .filter((q) => !(q.deleted ?? q.data?.deleted));
+  pl.sections.flatMap((s) => s.quizzes).filter((q) => !q.deleted);

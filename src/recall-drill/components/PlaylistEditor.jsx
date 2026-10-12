@@ -18,7 +18,7 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { cap, drillFromQuiz } from "../lib/data";
-import { savePlaylist } from "../lib/content";
+import { deleteQuiz, savePlaylist } from "../lib/content";
 import PlusIcon from "./PlusIcon";
 import TrashIcon from "./TrashIcon";
 import { noEnterSubmit } from "../lib/noEnterSubmit";
@@ -37,12 +37,13 @@ const fromPlaylist = (pl) =>
       return {
         id: q.id,
         name: d ? d.name : q.id,
-        deleted: !!(q.deleted ?? q.data?.deleted),
+        deleted: !!q.deleted,
       };
     }),
   }));
 
-function Item({ item, overlay }) {
+// onDelete: the Delete button, shown on hover (not in the drag overlay)
+function Item({ item, overlay, onDelete }) {
   const s = useSortable({ id: item.id, disabled: overlay });
   const style = overlay
     ? undefined
@@ -75,6 +76,17 @@ function Item({ item, overlay }) {
         {item.name}
         {item.deleted && <em> (deleted)</em>}
       </span>
+      {!overlay && (
+        <button
+          type="button"
+          className="subbtn danger rowdel"
+          aria-label={`Delete ${item.name}`}
+          onClick={() => onDelete(item)}
+        >
+          <TrashIcon />
+          Delete
+        </button>
+      )}
     </div>
   );
 }
@@ -129,7 +141,7 @@ function TemplateRow({ d, onRename, onDelete }) {
   );
 }
 
-function Section({ sec, index, count, set, onMove }) {
+function Section({ sec, index, count, set, onMove, onDelete }) {
   // An empty section has no rows to drop on, so the list itself is a drop target
   const { setNodeRef } = useDroppable({ id: secDrop(sec.key) });
   return (
@@ -169,7 +181,7 @@ function Section({ sec, index, count, set, onMove }) {
       >
         <div ref={setNodeRef} className="edlist">
           {sec.items.map((it) => (
-            <Item key={it.id} item={it} />
+            <Item key={it.id} item={it} onDelete={onDelete} />
           ))}
           {!sec.items.length && <p className="note">No quizzes</p>}
         </div>
@@ -193,6 +205,8 @@ export default function PlaylistEditor({ id, pl, onDone, onCancel }) {
   const [active, setActive] = useState(null);
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState("");
+  // Quizzes taken out of the playlist with Delete, [{id, name, deleted}]; they are deleted when Save is pressed
+  const [removed, setRemoved] = useState([]);
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 4 } }),
     useSensor(KeyboardSensor, {
@@ -270,6 +284,26 @@ export default function PlaylistEditor({ id, pl, onDone, onCancel }) {
     );
   };
 
+  // Delete on a row: after a confirm, the quiz leaves the list now and is deleted by Save (Cancel brings it back)
+  const removeQuiz = (secKey, item) => {
+    if (
+      !confirm(
+        item.deleted
+          ? `Remove ${item.name} from this playlist? It is already deleted.`
+          : `Delete ${item.name}? It will be removed from this playlist and deleted.`,
+      )
+    )
+      return;
+    setSections((ss) =>
+      ss.map((s) =>
+        s.key === secKey
+          ? { ...s, items: s.items.filter((i) => i.id !== item.id) }
+          : s,
+      ),
+    );
+    setRemoved((r) => [...r, item]);
+  };
+
   const save = async (e) => {
     e.preventDefault();
     setMsg("");
@@ -290,6 +324,24 @@ export default function PlaylistEditor({ id, pl, onDone, onCancel }) {
           quiz_ids: s.items.map((i) => i.id),
         })),
       });
+      // The playlist is saved; now delete the quizzes taken out of it (any left from an earlier attempt are retried by pressing Save again)
+      const failed = [];
+      for (const q of removed) {
+        if (q.deleted) continue;
+        try {
+          await deleteQuiz(q.id);
+        } catch (err) {
+          failed.push({ q, err });
+        }
+      }
+      if (failed.length) {
+        setRemoved(failed.map((f) => f.q));
+        setMsg(
+          `Saved, but couldn't delete ${failed.map((f) => f.q.name).join(", ")}: ${failed[0].err.message}`,
+        );
+        setBusy(false);
+        return;
+      }
       onDone();
     } catch (err) {
       setMsg("Could not save: " + err.message);
@@ -399,6 +451,7 @@ export default function PlaylistEditor({ id, pl, onDone, onCancel }) {
                 count={sections.length}
                 set={(next) => setSection(sec.key, next)}
                 onMove={(d) => setSections((ss) => arrayMove(ss, i, i + d))}
+                onDelete={(item) => removeQuiz(sec.key, item)}
               />
             ))}
             <DragOverlay>
