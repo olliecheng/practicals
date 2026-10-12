@@ -44,14 +44,20 @@ function Tile({ i, n, label, s, complete, onCredit, onIgnore, onMenu }) {
                 ? " on miss"
                 : "";
   const ok = complete && (s.found.has(i) || s.credited.has(i));
+  // Face-down tiles have no menu, so nothing is given away
+  const menuable = cls.includes("on") || s.revealed.has(i);
   return (
     <div
       id={"t" + i}
       className={"tile" + cls + (ok ? " ok" : "")}
-      onClick={() => onCredit(i)}
+      onClick={(e) => {
+        // Touch screens have no right-click, so a tap opens the menu (its first entry is "I got this")
+        if (menuable && window.matchMedia("(hover: none)").matches)
+          return onMenu(i, e.clientX, e.clientY);
+        onCredit(i);
+      }}
       onContextMenu={(e) => {
-        // Face-down tiles keep the browser's menu so nothing is given away
-        if (!cls.includes("on") && !s.revealed.has(i)) return;
+        if (!menuable) return;
         e.preventDefault();
         onMenu(i, e.clientX, e.clientY);
       }}
