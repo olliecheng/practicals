@@ -1727,10 +1727,14 @@ button.iconbtn {
   padding: 8px;
 }
 
-/* The playlist's Edit sits at the right end of the Random / Starred row */
-.big .pl-edit {
+/* The playlist's New quiz and Edit sit together at the right end of the Random / Starred row */
+.big .pl-actions {
+  display: flex;
+  gap: 6px;
   margin-left: auto;
-  align-self: center; /* the row stretches its buttons to Random's height otherwise */
+  align-self: center; /* the row stretches its items to Random's height otherwise */
+}
+.big .pl-edit {
   padding: 4px 6px; /* .big button would make it as big as Random */
   font-size: 0.8rem;
 }

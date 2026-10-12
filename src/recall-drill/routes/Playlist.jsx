@@ -7,8 +7,10 @@ import { useAccount } from "../state/AccountContext";
 import { useFilters } from "../state/FilterContext";
 import { Group, Row } from "../components/DrillList";
 import History from "../components/History";
+import NewQuizDialog from "../components/NewQuizDialog";
 import PencilIcon from "../components/PencilIcon";
 import PlaylistEditor from "../components/PlaylistEditor";
+import PlusIcon from "../components/PlusIcon";
 
 const NotFound = ({ children = "Playlist not found" }) => (
   <div className="panel">
@@ -35,6 +37,7 @@ function PlaylistView({ id }) {
   const f = useFilters();
   const nav = useNavigate();
   const [editing, setEditing] = useState(false);
+  const [creating, setCreating] = useState(false);
   const { setPlaylist, starOnly, setStarOnly } = f;
 
   // The filter context decides what Random / Next / New pick from, so keep it on this playlist
@@ -118,14 +121,24 @@ function PlaylistView({ id }) {
             </button>
           )}
           {acct && (
-            <button
-              className="subbtn pl-edit"
-              title="Edit playlist"
-              onClick={() => setEditing(true)}
-            >
-              <PencilIcon />
-              Edit
-            </button>
+            <div className="pl-actions">
+              <button
+                className="subbtn pl-edit"
+                title="New quiz"
+                onClick={() => setCreating(true)}
+              >
+                <PlusIcon />
+                New quiz
+              </button>
+              <button
+                className="subbtn pl-edit"
+                title="Edit playlist"
+                onClick={() => setEditing(true)}
+              >
+                <PencilIcon />
+                Edit
+              </button>
+            </div>
           )}
         </div>
         <p className="lbl" style={{ marginTop: 18 }}>
@@ -148,6 +161,19 @@ function PlaylistView({ id }) {
         </div>
       </div>
       {acct && <History ids={new Set(ids)} />}
+      {creating && (
+        <NewQuizDialog
+          playlistId={id}
+          pl={pl}
+          onClose={() => setCreating(false)}
+          // The new quiz opens in the editor on the Agentic tab, with the template's sections
+          onCreated={(quizId) =>
+            nav(`${drillPath(quizId)}/edit`, {
+              state: { tab: "agentic", playlist: id },
+            })
+          }
+        />
+      )}
     </section>
   );
 }

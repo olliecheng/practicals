@@ -21,9 +21,7 @@ function HistoryRow({ drill, sv }) {
           <span className="nm">{drill.name}</span>
           <span className="bdg">{sv.score}%</span>
         </div>
-        <div className="meta">
-          {drill.system} · {new Date(sv.last).toLocaleDateString()}
-        </div>
+        <div className="meta">{new Date(sv.last).toLocaleDateString()}</div>
       </div>
       <div className={"menu" + (left ? " l" : "")}>
         <div className="mi">

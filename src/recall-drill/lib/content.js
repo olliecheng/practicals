@@ -66,6 +66,38 @@ export const saveQuiz = async (id, data) => {
   return r;
 };
 
+// Creates a quiz called `name` with an empty section for each of `sections` (the playlist's New quiz template) and drops the cached reads.
+// Resolves to the new quiz's id. It isn't in any playlist yet: addQuizToPlaylist does that.
+export const createQuiz = async (name, sections) => {
+  const r = await api("POST", "/api/quizzes", {
+    name,
+    items: Object.fromEntries(sections.map((s) => [s, {}])),
+  });
+  bust();
+  return r.id;
+};
+
+// Appends a quiz to the end of the playlist's `sectionIndex`th section. The playlist is read afresh first (not from the cache), so
+// an edit made by someone else in the meantime isn't overwritten by this replace.
+export const addQuizToPlaylist = async (playlistId, sectionIndex, quizId) => {
+  bust();
+  const pl = await load(`/api/playlists/${playlistId}?quizzes=meta`);
+  if (!pl.sections[sectionIndex])
+    throw new Error("That section is no longer in the playlist.");
+  await savePlaylist(playlistId, {
+    title: pl.title,
+    description: pl.description,
+    quiz_settings: pl.quiz_settings,
+    sections: pl.sections.map((s, i) => ({
+      title: s.title,
+      quiz_ids: [
+        ...s.quizzes.map((q) => q.id),
+        ...(i === sectionIndex ? [quizId] : []),
+      ],
+    })),
+  });
+};
+
 // Asks the server to check a quiz body without saving it: {ok: true, summary} or {ok: false, errors}
 export const validateQuiz = (data) =>
   api("POST", "/api/quizzes/validate", data);

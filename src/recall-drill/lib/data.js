@@ -29,7 +29,7 @@ const categories = (sec) =>
   ).filter(([, list]) => Array.isArray(list) && list.length);
 
 // The game's view of a quiz from the API ({id, owner, forked_from, data}):
-// {key (the quiz id), system, name, owner, forked_from, deleted, sections:[{name, icon}], items:[{label, keywords, section, cat, key (the label), re, lits}]}.
+// {key (the quiz id), name, owner, forked_from, deleted, sections:[{name, icon}], items:[{label, keywords, section, cat, key (the label), re, lits}]}.
 // Items are saved by label alone, so a label should be used once per quiz.
 // The API stores quiz data as sent, so anything malformed is skipped rather than allowed to crash the page; data without any section gives null.
 // Memoised per quiz object so the regexes compile once.
@@ -68,7 +68,6 @@ export function drillFromQuiz(quiz) {
     );
     drill = {
       key: quiz.id,
-      system: d.system,
       name: d.name,
       owner: quiz.owner,
       forked_from: quiz.forked_from,

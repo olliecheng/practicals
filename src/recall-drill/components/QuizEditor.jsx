@@ -239,11 +239,13 @@ function Group({
   );
 }
 
-export default function QuizEditor({ id, quiz, onDone, onCancel }) {
+export default function QuizEditor({ id, quiz, initialTab, onDone, onCancel }) {
   const d = quiz.data;
-  const [tab, setTab] = useState("manual");
+  const [tab, setTab] = useState(
+    initialTab === "agentic" ? "agentic" : "manual",
+  );
   const [name, setName] = useState(d.name);
-  const [base, setBase] = useState(d); // the quiz's other fields (system...), which Apply on the Agentic tab can replace
+  const [base, setBase] = useState(d); // the quiz's other fields (`deleted`), which Apply on the Agentic tab can replace
   // The sections in order, [{id, name}]; the id stays put while the name is edited. `groups` holds each section's categories by id.
   const [start] = useState(() =>
     Object.entries(d.items).map(([name, sec]) => ({

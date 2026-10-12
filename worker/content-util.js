@@ -15,13 +15,12 @@ export const owner = (r) => ({
 
 // Quiz summary without its body, pulled out of the JSON by SQLite
 export const QUIZ_META_COLS = `q.id, q.owner_id, q.forked_from,
-  json_extract(q.data, '$.system') AS system, json_extract(q.data, '$.name') AS name,
+  json_extract(q.data, '$.name') AS name,
   json_extract(q.data, '$.deleted') AS deleted, ${OWNER_COLS}`;
 export const quizMeta = (r) => ({
   id: r.id,
   owner: owner(r),
   forked_from: r.forked_from,
-  system: r.system,
   name: r.name,
   deleted: !!r.deleted,
 });
@@ -67,7 +66,7 @@ export const page = (items, limit) => ({
 });
 
 // The keys a quiz carries: its sections are the keys of `items`; `deleted` is owned by the Worker (it is stripped from the body on save)
-const QUIZ_FIELDS = ["system", "name", "items", "deleted"];
+const QUIZ_FIELDS = ["name", "items", "deleted"];
 
 // The problems with one section ({"Category": [items]}), as messages. Items are {label, keywords}; keywords must compile as the game compiles them.
 const sectionErrors = (key, sec) => {
@@ -106,7 +105,6 @@ export function validateQuiz(b) {
   if (!b || typeof b !== "object" || Array.isArray(b))
     return ["The quiz must be a JSON object."];
   const errors = [];
-  if (typeof b.system !== "string") errors.push('"system" must be text.');
   if (typeof b.name !== "string" || !b.name.trim())
     errors.push('"name" is required.');
   else if (b.name.includes("."))

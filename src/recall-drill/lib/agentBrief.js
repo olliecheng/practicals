@@ -11,7 +11,6 @@ const schema = (sections) => {
     `    ${JSON.stringify(name)}: { "<Category>": [ { "label": "...", "keywords": "a|b|c" }, ... ], ... }`;
   return [
     "{",
-    '  "system": "...",',
     '  "name": "...",',
     sections.length ? '  "items": {' : '  "items": {}',
     ...(sections.length ? [sections.map(line).join(",\n"), "  }"] : []),
@@ -20,13 +19,12 @@ const schema = (sections) => {
 };
 
 // The parts of the brief: [{title, text, mono, tone}]. The tab shows each in its own colour and font; Copy puts briefText(parts)
-// on the clipboard. The categories, the schema and the quiz are fenced as JSON code blocks.
+// on the clipboard. The categories, the schema and the quiz are fenced as JSON code blocks. The Instructions part is left out
+// when the Agent quiz prompt in Settings is empty (it has no default).
 export const briefParts = ({ prompt, categories, sections, quiz }) => [
-  {
-    title: "Instructions",
-    text: prompt.trim() || "(The Agent quiz prompt in Settings is empty.)",
-    tone: "teal",
-  },
+  ...(prompt.trim()
+    ? [{ title: "Instructions", text: prompt.trim(), tone: "teal" }]
+    : []),
   {
     title: "Valid categories",
     text: fence(JSON.stringify(categories)),

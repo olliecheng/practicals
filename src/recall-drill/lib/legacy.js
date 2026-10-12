@@ -1,4 +1,4 @@
-// Links from before drills were stored as quizzes: /p/cond, /p/pres, /p/sys (playlists) and /q/<base64 of "<system>.<name>"> (drills).
+// Links from before drills were stored as quizzes: /p/cond, /p/pres, /p/sys (playlists) and /q/<base64 of "<system>.<name>"> (drills; only the name is used now).
 // FEATURED are the built-in playlists seeded by migrations/0003_seed_builtin.sql, in the order Home shows them.
 export const FEATURED = [
   { slug: "cond", id: "01a0f4c4-0c20-72e6-9bc1-f16f3c032604" },
@@ -22,7 +22,7 @@ const fromB64url = (s) => {
   );
 };
 
-// The old drill URL segment -> {system, name}, or null if it isn't one
+// The old drill URL segment -> {name}, or null if it isn't one. The system in front of the first full stop is dropped: quizzes no longer have one.
 export function decodeLegacyDrill(id) {
   let text;
   try {
@@ -32,7 +32,5 @@ export function decodeLegacyDrill(id) {
   }
   const dot = text.indexOf(".");
   if (dot < 0) return null;
-  const system = text.slice(0, dot);
-  const name = text.slice(dot + 1);
-  return { system, name };
+  return { name: text.slice(dot + 1) };
 }

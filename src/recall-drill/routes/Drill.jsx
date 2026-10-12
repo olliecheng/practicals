@@ -542,7 +542,8 @@ export default function Drill({ edit }) {
   );
 }
 
-// /q/<base64 of "<system>.<name>"> was the URL before drills were quizzes: find the quiz and go to its own address
+// /q/<base64 of "<system>.<name>"> was the URL before drills were quizzes: find the quiz by its name and go to its own address.
+// The list is newest first, so the last match is the oldest, the seeded built-in.
 function LegacyDrill({ id }) {
   const location = useLocation();
   const legacy = useMemo(() => decodeLegacyDrill(id), [id]);
@@ -551,7 +552,7 @@ function LegacyDrill({ id }) {
   );
   if (!legacy) return <NotFound />;
   if (st.status === "loading") return <p className="note">Loading…</p>;
-  const hit = st.status === "ok" && st.data.items[0];
+  const hit = st.status === "ok" && st.data.items.at(-1);
   if (!hit) return <NotFound />;
   return <Navigate to={drillPath(hit.id)} replace state={location.state} />;
 }
@@ -590,7 +591,16 @@ function QuizDrill({ id, edit }) {
     // Only signed-in users edit; guests are sent to the drill
     if (!acct) return <Navigate to={drillPath(id)} replace />;
     const back = () => nav(drillPath(id), { replace: true });
-    return <QuizEditor id={id} quiz={st.data} onDone={back} onCancel={back} />;
+    return (
+      <QuizEditor
+        id={id}
+        quiz={st.data}
+        // A new quiz opens on the Agentic tab
+        initialTab={location.state?.tab}
+        onDone={back}
+        onCancel={back}
+      />
+    );
   }
   // location.key changes on every navigation, so Next / New start a fresh round even if the drill repeats
   return (
