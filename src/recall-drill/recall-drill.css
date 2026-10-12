@@ -1702,6 +1702,21 @@ button.star[aria-pressed="true"] {
   padding: 2px 4px;
   letter-spacing: -2px;
 }
+/* The new quiz template's rows (playlist editor): a drag handle (see DESIGN.md) before the name. Its left padding is pulled back out of the
+   card's padding so the dots line up with the note's text, and it stretches to the row's height. */
+.defsec .edhandle {
+  align-self: stretch;
+  padding: 0 9px 0 10px;
+  margin-left: -10px;
+}
+.pledit .defsec .edhandle + input {
+  margin-left: 0;
+}
+.defsec.dragging {
+  position: relative;
+  z-index: 1;
+  opacity: 0.6;
+}
 
 /* A button holding only an icon: centre it (buttons are display:block elsewhere, which leaves the inline SVG off-centre) */
 button.iconbtn {

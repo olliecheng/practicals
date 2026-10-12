@@ -21,6 +21,7 @@ import { cap, drillFromQuiz } from "../lib/data";
 import { savePlaylist } from "../lib/content";
 import PlusIcon from "./PlusIcon";
 import TrashIcon from "./TrashIcon";
+import { noEnterSubmit } from "../lib/noEnterSubmit";
 
 let nextKey = 0;
 const newKey = () => "s" + nextKey++;
@@ -74,6 +75,56 @@ function Item({ item, overlay }) {
         {item.name}
         {item.deleted && <em> (deleted)</em>}
       </span>
+    </div>
+  );
+}
+
+// One row of the new quiz template: a drag handle, the section's name and Delete
+function TemplateRow({ d, onRename, onDelete }) {
+  const s = useSortable({ id: d.key });
+  const style = {
+    transform: CSS.Transform.toString(s.transform),
+    transition: s.transition,
+  };
+  return (
+    <div
+      ref={s.setNodeRef}
+      style={style}
+      className={"defsec" + (s.isDragging ? " dragging" : "")}
+    >
+      <button
+        type="button"
+        className="edhandle"
+        aria-label={`Drag ${d.name || "section"}`}
+        title="Drag to reorder"
+        ref={s.setActivatorNodeRef}
+        {...s.attributes}
+        {...s.listeners}
+      >
+        ⋮⋮
+      </button>
+      <input
+        value={cap(d.name)}
+        placeholder="Section name"
+        aria-label="Template section name"
+        data-id={d.key}
+        onChange={(e) => {
+          // Capitalising the shown text makes React reset the caret, so put it back
+          const { target } = e;
+          const caret = target.selectionStart;
+          onRename(d.key, target.value);
+          requestAnimationFrame(() => target.setSelectionRange(caret, caret));
+        }}
+      />
+      <button
+        type="button"
+        className="subbtn danger"
+        aria-label={`Delete ${d.name || "section"}`}
+        onClick={() => onDelete(d.key)}
+      >
+        <TrashIcon />
+        Delete
+      </button>
     </div>
   );
 }
@@ -207,7 +258,17 @@ export default function PlaylistEditor({ id, pl, onDone, onCancel }) {
     setDefaults((ds) =>
       ds.map((d) => (d.key === key ? { ...d, name: name.toLowerCase() } : d)),
     );
-  const moveDefault = (i, by) => setDefaults((ds) => arrayMove(ds, i, i + by));
+  // The template has its own drag and drop (the rows only reorder; they never leave the list)
+  const onTemplateDragEnd = ({ active, over }) => {
+    if (!over || active.id === over.id) return;
+    setDefaults((ds) =>
+      arrayMove(
+        ds,
+        ds.findIndex((d) => d.key === active.id),
+        ds.findIndex((d) => d.key === over.id),
+      ),
+    );
+  };
 
   const save = async (e) => {
     e.preventDefault();
@@ -241,7 +302,12 @@ export default function PlaylistEditor({ id, pl, onDone, onCancel }) {
     : null;
 
   return (
-    <form className="pledit" onSubmit={save} noValidate>
+    <form
+      className="pledit"
+      onSubmit={save}
+      onKeyDown={noEnterSubmit}
+      noValidate
+    >
       <h2 className="qe-pagetitle">
         Edit playlist: {title.trim() || pl.title}
       </h2>
@@ -265,65 +331,38 @@ export default function PlaylistEditor({ id, pl, onDone, onCancel }) {
         />
       </div>
       <div className="qe-section">
-        <h3 className="qe-title">Quiz settings</h3>
+        <h3 className="qe-title">New quiz template</h3>
         <div className="qe-card qe-details">
-          <span className="lbl">Default sections</span>
           <p className="note" style={{ margin: 0 }}>
-            The sections a new quiz in this playlist starts with. Changing them
-            doesn't change quizzes that already exist.
+            This is a template for the sections that new quizzes in this
+            playlist will start with. Changing it doesn't change quizzes that
+            already exist.
           </p>
           <div className="defsecs">
-            {defaults.map((d, i) => (
-              <div key={d.key} className="defsec">
-                <input
-                  value={cap(d.name)}
-                  placeholder="Section name"
-                  aria-label="Default section name"
-                  data-id={d.key}
-                  onChange={(e) => {
-                    // Capitalising the shown text makes React reset the caret, so put it back
-                    const { target } = e;
-                    const caret = target.selectionStart;
-                    setDefault(d.key, target.value);
-                    requestAnimationFrame(() =>
-                      target.setSelectionRange(caret, caret),
-                    );
-                  }}
-                />
-                {i > 0 && (
-                  <button
-                    type="button"
-                    className="subbtn"
-                    aria-label={`Move ${d.name || "section"} up`}
-                    onClick={() => moveDefault(i, -1)}
-                  >
-                    ↑ Up
-                  </button>
-                )}
-                {i < defaults.length - 1 && (
-                  <button
-                    type="button"
-                    className="subbtn"
-                    aria-label={`Move ${d.name || "section"} down`}
-                    onClick={() => moveDefault(i, 1)}
-                  >
-                    ↓ Down
-                  </button>
-                )}
-                <button
-                  type="button"
-                  className="subbtn danger"
-                  aria-label={`Delete ${d.name || "section"}`}
-                  title="Delete"
-                  onClick={() =>
-                    setDefaults((ds) => ds.filter((x) => x.key !== d.key))
-                  }
-                >
-                  <TrashIcon />
-                </button>
-              </div>
-            ))}
-            {!defaults.length && <p className="note">No default sections</p>}
+            <DndContext
+              sensors={sensors}
+              collisionDetection={closestCenter}
+              onDragEnd={onTemplateDragEnd}
+            >
+              <SortableContext
+                items={defaults.map((d) => d.key)}
+                strategy={verticalListSortingStrategy}
+              >
+                {defaults.map((d) => (
+                  <TemplateRow
+                    key={d.key}
+                    d={d}
+                    onRename={setDefault}
+                    onDelete={(key) =>
+                      setDefaults((ds) => ds.filter((x) => x.key !== key))
+                    }
+                  />
+                ))}
+              </SortableContext>
+            </DndContext>
+            {!defaults.length && (
+              <p className="note">The template has no sections.</p>
+            )}
           </div>
           <div>
             <button

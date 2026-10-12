@@ -35,6 +35,7 @@ import TrashIcon from "./TrashIcon";
 import { rx } from "../lib/match";
 import { toKeywords, toText } from "../lib/editItem";
 import { briefParts } from "../lib/agentBrief";
+import { noEnterSubmit } from "../lib/noEnterSubmit";
 
 let nextKey = 0;
 const newKey = () => "k" + nextKey++;
@@ -577,7 +578,12 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
 
   return (
     <section className="home">
-      <form className="pledit qe" onSubmit={save} noValidate>
+      <form
+        className="pledit qe"
+        onSubmit={save}
+        onKeyDown={noEnterSubmit}
+        noValidate
+      >
         <h2 className="qe-pagetitle qe-namehead">
           <span className="qe-pagesub">Edit quiz:</span>
           {/* The wrapper's ::after repeats the text invisibly, so the input is as wide as the name */}
