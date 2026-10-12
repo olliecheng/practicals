@@ -8,7 +8,7 @@ The look of the site, so new screens and components match. The theme (colours, f
 - Always use the theme variables (`--bg --panel --ink --mute --line --teal --teal-soft --amber --bad --bad-soft --r --font-head --font-body`), never hard-coded colours, so dark mode works.
 - Headings use the header font (`--font-head`); body text is Inter (`--font-body`); IBM Plex Mono (`@fontsource/ibm-plex-mono`) is for code-like values such as the keyword lists.
 - Controls that aren't being used look like plain text. They only show they are editable on hover (a soft rounded tint or a thin outline) and open up on click or focus; they never look like a form until touched.
-- No animations for showing and hiding things (expanding cards, hover reveals); they are instant.
+- No animations for showing and hiding things (expanding cards, hover reveals); they are instant. The exception is the editable names: the section names (`.qe-sectitle` and the default-section rows) fade their background and border in over 0.2s on hover and focus, and the quiz name in the editor heading (`.qe-pagename`) fades its panel background and underline colour on focus.
 
 ## Tokens
 
@@ -77,7 +77,7 @@ A `⋮⋮` on the left of a row, muted, `cursor: grab`, with a large grab area (
 
 ### Errors (`.qe-error`)
 
-A box with a 1px `--bad` outline, `--bad-soft` background, `--r` radius, padding `10px 14px`, 0.9rem `--bad` text, `role="alert"`: a bold "Errors" label and then the message, 2px apart.
+A box with a 1px `--bad` outline, `--bad-soft` background, `--r` radius, padding `10px 14px`, 0.9rem `--bad` text, `role="alert"`: a bold "Errors" label and then the message, 2px apart. In the quiz editor (`.pledit .qe-error`) the text is IBM Plex Mono 0.8rem, line-height 1.35, like the pasted-JSON box (the "Errors" label there is the header font, 1rem, weight 600), because the messages quote section, category and JSON names.
 
 ### Icons
 

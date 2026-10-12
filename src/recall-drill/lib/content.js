@@ -85,6 +85,30 @@ export const categoryErrors = (data, categories) => {
   );
 };
 
+// The sections of a quiz body that were added, renamed or dropped compared with `sections` (any case, order ignored), as messages.
+// The Agentic tab uses this to keep the quiz's sections as they are. Malformed shapes are skipped (the server reports them).
+export const sectionErrors = (data, sections) => {
+  const items = data?.items;
+  if (!items || typeof items !== "object" || Array.isArray(items)) return [];
+  const norm = (n) => n.trim().toLowerCase();
+  const had = new Set(sections.map(norm));
+  const has = new Set(Object.keys(items).map(norm));
+  return [
+    ...Object.keys(items)
+      .filter((n) => !had.has(norm(n)))
+      .map(
+        (n) =>
+          `"${n}" is not one of the quiz's sections; keep them as they are.`,
+      ),
+    ...sections
+      .filter((n) => !has.has(norm(n)))
+      .map(
+        (n) =>
+          `The section "${n}" is missing; keep the quiz's sections as they are.`,
+      ),
+  ];
+};
+
 // The playlist with its quizzes grouped by section; meta leaves the quiz bodies out
 export const usePlaylist = (id, { meta } = {}) =>
   useLoad(id ? `/api/playlists/${id}${meta ? "?quizzes=meta" : ""}` : null);

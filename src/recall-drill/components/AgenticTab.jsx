@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { briefText, CLOSING } from "../lib/agentBrief";
+import { cap } from "../lib/data";
+import PlusIcon from "./PlusIcon";
+import TrashIcon from "./TrashIcon";
 
 const CopyIcon = () => (
   <svg
@@ -41,10 +44,21 @@ const AI_TOOLS = [
   ["Gemini", "https://gemini.google.com/app"],
 ];
 
-// The Agentic tab: a brief to paste into an AI assistant (read-only; instructions, valid categories, the quiz as it is now) and a
-// box for the JSON it sends back. Validate and Save live in the editor's button row.
-// parts: briefParts() or null while the categories are still loading; text/setText: the pasted JSON
-export default function AgenticTab({ parts, text, setText, busy }) {
+// The Agentic tab: the quiz's sections (add one, or delete an empty one), a brief to paste into an AI assistant (read-only; instructions,
+// valid categories, sections, the quiz as it is now) and a box for the JSON it sends back. Validate and Apply live in the editor's button row.
+// parts: briefParts() or null while the categories are still loading or the quiz can't be built (`problem` says why);
+// sections: [{id, name, empty}] with onRename(id, event) / onAdd() / onRemove(id), the same sections as the Manual tab; text/setText: the pasted JSON
+export default function AgenticTab({
+  parts,
+  problem,
+  sections,
+  onRename,
+  onAdd,
+  onRemove,
+  text,
+  setText,
+  busy,
+}) {
   const [copied, setCopied] = useState(false);
   const [open, setOpen] = useState(false); // the brief is long, so it starts closed; Copy works either way
   // With a url, the AI tool's chat page opens in a new tab. Both happen before the first await so the click still counts as a user gesture
@@ -77,10 +91,71 @@ export default function AgenticTab({ parts, text, setText, busy }) {
               the box at the bottom.
             </li>
             <li>
-              Press Validate to check it, then Save. Saving replaces the whole
-              quiz.
+              Press Validate to check it, then Apply. Applying loads it into the
+              Manual tab, where you review it and Save.
             </li>
           </ol>
+        </div>
+      </div>
+      <div className="qe-section">
+        <h3 className="qe-title">Sections</h3>
+        <div className="qe-card qe-details">
+          <p className="note" style={{ margin: 0 }}>
+            These are the quiz's sections. Only sections with no entries can be
+            deleted.
+          </p>
+          <div className="defsecs">
+            {sections.map((s) => (
+              <div key={s.id} className="defsec">
+                <input
+                  value={cap(s.name)}
+                  placeholder="Section name"
+                  aria-label="Section name"
+                  data-id={s.id}
+                  onChange={(e) => onRename(s.id, e)}
+                />
+                {/* A disabled button gets no hover events in some browsers, so the hover message sits on the wrapper; it is shown instantly (a title tooltip is delayed) */}
+                <span className="qe-tip">
+                  <button
+                    type="button"
+                    className="subbtn danger"
+                    aria-label={`Delete ${s.name || "section"}`}
+                    aria-describedby={s.empty ? undefined : `qe-tip-${s.id}`}
+                    disabled={!s.empty}
+                    onClick={() =>
+                      confirm(
+                        `Delete the section ${cap(s.name.trim()) || "(unnamed)"}?`,
+                      ) && onRemove(s.id)
+                    }
+                  >
+                    <TrashIcon />
+                    Delete
+                  </button>
+                  {!s.empty && (
+                    <span
+                      id={`qe-tip-${s.id}`}
+                      role="tooltip"
+                      className="qe-tiptext"
+                    >
+                      This section has categories and items. Remove them on the
+                      Manual tab first.
+                    </span>
+                  )}
+                </span>
+              </div>
+            ))}
+          </div>
+          <div>
+            <button type="button" className="subbtn" onClick={onAdd}>
+              <PlusIcon />
+              Add section
+            </button>
+          </div>
+          {problem && (
+            <p className="note" role="alert" style={{ margin: 0 }}>
+              {problem} Fix this to get the instructions.
+            </p>
+          )}
         </div>
       </div>
       <div className="qe-section">
@@ -118,7 +193,11 @@ export default function AgenticTab({ parts, text, setText, busy }) {
                 </span>
               </span>
             ) : (
-              <span className="qe-body">Loading the categories...</span>
+              <span className="qe-body">
+                {problem
+                  ? "Fix the sections first."
+                  : "Loading the categories..."}
+              </span>
             )}
           </span>
         )}

@@ -22,6 +22,7 @@ import Segmented from "../../components/Segmented";
 import {
   categoryErrors,
   saveQuiz,
+  sectionErrors,
   useSettings,
   validateQuiz,
 } from "../lib/content";
@@ -241,6 +242,7 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
   const d = quiz.data;
   const [tab, setTab] = useState("manual");
   const [name, setName] = useState(d.name);
+  const [base, setBase] = useState(d); // the quiz's other fields (system...), which Apply on the Agentic tab can replace
   // The sections in order, [{id, name}]; the id stays put while the name is edited. `groups` holds each section's categories by id.
   const [start] = useState(() =>
     Object.entries(d.items).map(([name, sec]) => ({
@@ -295,6 +297,12 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
     setSections((ss) =>
       ss.map((s) => (s.id === id ? { ...s, name: name.toLowerCase() } : s)),
     );
+  // For a section's name input: capitalising the shown text makes React reset the caret, so put it back
+  const renameFromInput = (id, { target }) => {
+    const caret = target.selectionStart;
+    renameSection(id, target.value);
+    requestAnimationFrame(() => target.setSelectionRange(caret, caret));
+  };
   const moveSection = (i, by) => setSections((ss) => arrayMove(ss, i, i + by));
   const addSection = () => {
     const sec = { id: newKey(), name: "" };
@@ -414,7 +422,7 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
         return `Two sections are called "${cap(n)}"; give them different names.`;
       seen.add(n.toLowerCase());
     }
-    const out = { ...d, name: name.trim(), items: {} };
+    const out = { ...base, name: name.trim(), items: {} };
     for (const s of sections) {
       const n = s.name.trim().toLowerCase();
       const sec = {};
@@ -437,13 +445,18 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
     return out;
   };
 
-  // The quiz as it is now (the Manual tab's edits included), for the Agentic tab's brief; `deleted` is the Worker's, so it is left out
-  const current = useMemo(() => {
-    if (tab !== "agentic") return null;
+  // The quiz as it is now (the Manual tab's and the Agentic tab's section edits included), for the Agentic tab's brief; `deleted` is the
+  // Worker's, so it is left out. While the quiz can't be built (a section has no name...) `problem` says why and there is no `current`.
+  const { current, problem } = useMemo(() => {
+    if (tab !== "agentic") return {};
     const built = build();
-    const { deleted, ...data } = typeof built === "string" ? d : built;
-    return data;
+    if (typeof built === "string") return { problem: built };
+    const { deleted, ...data } = built;
+    return { current: data };
   }, [tab, name, sections, groups]);
+
+  // The sections the quiz has now, which the Agentic tab must keep
+  const currentSections = current ? Object.keys(current.items) : [];
 
   // The pasted JSON as an object, or null after showing why it can't be one
   const parseAgentic = () => {
@@ -463,14 +476,21 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
       ? err.errors.join("\n")
       : `Could not ${what}: ${err.message}`;
 
-  // The Agentic tab keeps to the Settings categories (the server doesn't check them, and the Manual tab allows custom ones).
-  // Shows the problems and returns false when the pasted quiz uses any other.
-  const categoriesOk = (data) => {
+  // The Agentic tab (Validate and Apply) keeps to the Settings categories (the server doesn't check them, and the Manual tab allows custom ones) and to the
+  // quiz's sections (added, renamed or dropped ones are for the Manual tab). Shows the problems and returns false when the pasted quiz breaks either.
+  const agentOk = (data) => {
+    if (problem) {
+      setMsg(problem);
+      return false;
+    }
     if (!settings.data) {
       setMsg("The category list hasn't loaded yet; try again in a moment.");
       return false;
     }
-    const errors = categoryErrors(data, settings.data.categories);
+    const errors = [
+      ...sectionErrors(data, currentSections),
+      ...categoryErrors(data, settings.data.categories),
+    ];
     if (errors.length) setMsg(errors.join("\n"));
     return !errors.length;
   };
@@ -480,7 +500,7 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
     setOk("");
     setMsg("");
     const data = parseAgentic();
-    if (!data || !categoriesOk(data)) return;
+    if (!data || !agentOk(data)) return;
     setBusy(true);
     try {
       const r = await validateQuiz(data);
@@ -492,15 +512,52 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
     setBusy(false);
   };
 
-  // Save: the Manual tab saves its own state, the Agentic tab the pasted JSON (its categories checked first); the server checks the rest
+  // Apply (Agentic tab): checks the pasted JSON like Validate, then loads it into the Manual tab's state and goes there; nothing is saved yet.
+  // Sections keep their ids by name, so they stay the same sections.
+  // The button stays enabled so that pressing it with nothing pasted says what is missing.
+  const apply = async () => {
+    if (!agentText.trim()) return setMsg("JSON text box is empty.");
+    const data = parseAgentic();
+    if (!data || !agentOk(data)) return;
+    setBusy(true);
+    try {
+      const r = await validateQuiz(data);
+      if (!r.ok) setMsg(r.errors.join("\n"));
+      else {
+        const ids = new Map(
+          sections.map((s) => [s.name.trim().toLowerCase(), s.id]),
+        );
+        const used = new Set();
+        const next = Object.entries(data.items).map(([n, sec]) => {
+          let id = ids.get(n.trim().toLowerCase());
+          if (!id || used.has(id)) id = newKey();
+          used.add(id);
+          return { id, name: n, groups: toGroups(sec) };
+        });
+        setName(data.name);
+        setBase(data);
+        setSections(next.map(({ id, name }) => ({ id, name })));
+        setGroups(Object.fromEntries(next.map((s) => [s.id, s.groups])));
+        setAgentText("");
+        setTab("manual");
+        setOk(
+          `Applied: ${r.summary}. Review the changes, then press Save to keep them.`,
+        );
+      }
+    } catch (err) {
+      setMsg(failure(err, "apply"));
+    }
+    setBusy(false);
+  };
+
+  // Save the Manual tab's state (the Agentic tab's button is Apply, which saves nothing); the server checks the quiz
   const save = async (e) => {
     e.preventDefault();
     setOk("");
     setMsg("");
-    const data = tab === "agentic" ? parseAgentic() : build();
-    if (!data) return;
+    if (tab === "agentic") return apply();
+    const data = build();
     if (typeof data === "string") return setMsg(data);
-    if (tab === "agentic" && !categoriesOk(data)) return;
     setBusy(true);
     try {
       await saveQuiz(id, data);
@@ -521,7 +578,18 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
   return (
     <section className="home">
       <form className="pledit qe" onSubmit={save} noValidate>
-        <h2 className="qe-pagetitle">Edit quiz: {name.trim() || d.name}</h2>
+        <h2 className="qe-pagetitle qe-namehead">
+          <span className="qe-pagesub">Edit quiz:</span>
+          {/* The wrapper's ::after repeats the text invisibly, so the input is as wide as the name */}
+          <span className="qe-pagename" data-value={name || "Quiz name"}>
+            <input
+              value={name}
+              placeholder="Quiz name"
+              aria-label="Quiz name"
+              onChange={(e) => setName(e.target.value)}
+            />
+          </span>
+        </h2>
         <Segmented
           tabs={[
             ["manual", "Manual"],
@@ -537,33 +605,29 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
         {tab === "agentic" ? (
           <AgenticTab
             parts={
-              settings.status === "ok"
+              settings.status === "ok" && current
                 ? briefParts({
                     prompt: settings.data.agentQuizPrompt,
                     categories: settings.data.categories,
+                    sections: currentSections,
                     quiz: current,
                   })
                 : null
             }
+            problem={problem}
+            sections={sections.map((s) => ({
+              ...s,
+              empty: !groups[s.id].length,
+            }))}
+            onRename={renameFromInput}
+            onAdd={addSection}
+            onRemove={removeSection}
             text={agentText}
             setText={setAgentText}
             busy={busy}
           />
         ) : (
           <>
-            <div className="qe-card qe-details">
-              <label className="lbl" htmlFor="qe-name">
-                Name
-              </label>
-              <input
-                id="qe-name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-              <p className="note" style={{ margin: 0 }}>
-                Renaming an item clears user history for that item.
-              </p>
-            </div>
             <DndContext
               sensors={sensors}
               collisionDetection={closestCenter}
@@ -581,15 +645,7 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
                       placeholder="Section name"
                       aria-label="Section name"
                       data-id={s.id}
-                      onChange={(e) => {
-                        // Capitalising the shown text makes React reset the caret, so put it back
-                        const { target } = e;
-                        const caret = target.selectionStart;
-                        renameSection(s.id, target.value);
-                        requestAnimationFrame(() =>
-                          target.setSelectionRange(caret, caret),
-                        );
-                      }}
+                      onChange={(e) => renameFromInput(s.id, e)}
                     />
                     {si > 0 && (
                       <button
@@ -715,12 +771,8 @@ export default function QuizEditor({ id, quiz, onDone, onCancel }) {
               Validate
             </button>
           )}
-          <button
-            className="primary"
-            type="submit"
-            disabled={busy || (tab === "agentic" && !agentText.trim())}
-          >
-            {busy ? "Working…" : "Save"}
+          <button className="primary" type="submit" disabled={busy}>
+            {busy ? "Working…" : tab === "agentic" ? "Apply" : "Save"}
           </button>
           <button type="button" disabled={busy} onClick={onCancel}>
             Cancel

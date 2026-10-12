@@ -1775,6 +1775,10 @@ button.iconbtn {
   font-weight: 400;
   color: var(--ink);
   cursor: text;
+  /* The panel background and the border fade in on focus (hover too), instead of switching on */
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
 }
 .pledit input.qe-sectitle:hover,
 .pledit .defsec input:hover {
@@ -1812,6 +1816,40 @@ button.iconbtn {
   border: 1px solid transparent;
   background: transparent;
   cursor: text;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+/* A disabled button swallows hover in some browsers, so its hover message is on the wrapper, which then gets the pointer. The message is a
+   popover (like the menus) shown instantly while the pointer is over the button; a title tooltip would wait about a second. */
+.qe-tip {
+  position: relative;
+  display: inline-flex;
+}
+.qe-tip .subbtn:disabled {
+  pointer-events: none;
+}
+/* Dark in both themes (fixed colours on purpose: --ink and --panel swap in dark mode); the faint light border keeps it apart from a dark card */
+.qe-tiptext {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 5;
+  width: 15rem;
+  margin-top: 4px;
+  padding: 6px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--r);
+  background: #0a1517;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  font-size: 0.7rem;
+  line-height: 1.4;
+  color: #e3eeec;
+  pointer-events: none;
+}
+.qe-tip:hover .qe-tiptext {
+  display: block;
 }
 .qe-cat {
   display: grid;
@@ -2145,6 +2183,17 @@ button.iconbtn {
 .qe-error span {
   white-space: pre-line; /* the server's problems come one per line */
 }
+/* In the quiz editor the problems quote section, category and JSON names, so they use the pasted-JSON box's font and size */
+.pledit .qe-error {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+.pledit .qe-error strong {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 600;
+}
 
 /* The editor's page heading, above the Manual / Agentic tabs */
 .qe-pagetitle {
@@ -2152,6 +2201,67 @@ button.iconbtn {
   font-family: var(--font-head);
   font-size: 1.5rem;
   font-weight: 600;
+}
+
+/* "Edit quiz" is in the heading's font and size, in the accent colour, on the same line as the quiz's name (it wraps above a very long name) */
+.qe-namehead {
+  margin-bottom: 16px; /* with the form's 8px gap, as far from the tabs as the first section title is below them */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 10px;
+}
+.qe-pagesub {
+  color: var(--teal);
+}
+/* The first section follows the tabs closely (the section margin is for the space between sections) */
+.pledit .segmented + .qe-section {
+  margin-top: 0;
+}
+/* The Manual tab's title is an input, whose 1px border and 2px padding put its text 3px lower than a heading's: the same gap as above the tabs */
+.pledit .segmented + .qe-section > .qe-sechead {
+  margin-top: -3px;
+}
+/* The quiz's name is the page heading: editable, underlined by a 2px black line only as long as the text (the ::after
+   repeats the text invisibly to size the input), in the accent colour while focused */
+.qe-pagename {
+  display: inline-grid;
+  max-width: 100%;
+  padding: 0 6px;
+  margin-left: -6px;
+  border-bottom: 2px solid var(--ink);
+  border-radius: var(--r) var(--r) 0 0;
+  /* Like the section names: the panel background fades in on focus, with the line */
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+.qe-pagename:focus-within {
+  border-bottom-color: var(--teal);
+  background: var(--panel);
+}
+.qe-pagename::after,
+.pledit .qe-pagename input {
+  grid-area: 1 / 1;
+}
+.qe-pagename::after {
+  content: attr(data-value) " ";
+  visibility: hidden;
+  white-space: pre;
+  overflow: hidden;
+}
+.pledit .qe-pagename input {
+  width: 0; /* an input's own default width would stretch the grid; the hidden text sizes it */
+  min-width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+}
+.pledit .qe-pagename input:focus {
+  outline: none;
 }
 
 /* Agentic tab: numbered steps, a section title with an action beside it, the read-only brief, the pasted JSON and the valid note */
@@ -2189,6 +2299,9 @@ button.iconbtn {
 }
 .qe-part.amber {
   --hue: var(--amber);
+}
+.qe-part.green {
+  --hue: var(--ok);
 }
 .qe-part.blue {
   --hue: var(--blue);

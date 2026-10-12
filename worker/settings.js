@@ -16,8 +16,8 @@ const DEFAULT_CATEGORIES = [
   ),
 ];
 
-// What the quiz editor's Agentic tab tells an AI assistant, until someone changes it in Settings. It is shown above the valid categories
-// and the quiz's current JSON, so it refers to them by those names.
+// What the quiz editor's Agentic tab tells an AI assistant, until someone changes it in Settings. It is shown above the valid categories,
+// the sections and the quiz's current JSON, so it refers to them by those names.
 const DEFAULT_PROMPT = `You are editing one quiz for a recall game. The player types answers from memory and each item in the quiz is a tile that flips when the typed text matches its keywords. Change the CURRENT QUIZ below as I ask, and reply with the complete edited quiz as JSON.
 
 Layout. The quiz is one JSON object: "system", "name" (required, no full stop) and "items", which holds the quiz's sections. Each section is named by its key, an object of categories, and each category is a list of items:
@@ -30,7 +30,7 @@ Layout. The quiz is one JSON object: "system", "name" (required, no full stop) a
   }
 }
 \`\`\`
-Keep the section names exactly as they are in the current quiz unless I ask you to change them (they are shown to the player with the first letter capitalised). Sections appear in the order of their keys, categories in the order of their keys, and items in the order given. Leave out categories that have no items.
+Use only the sections that are keys of "items" in the SCHEMA below, spelt exactly as shown: don't add, rename or remove any (they are shown to the player with the first letter capitalised). Sections appear in the order of their keys, categories in the order of their keys, and items in the order given. Leave out categories that have no items.
 
 Categories. Use only the categories listed under VALID CATEGORIES below, spelt exactly as listed. Put each item in the single category that fits it best. Don't invent categories.
 
