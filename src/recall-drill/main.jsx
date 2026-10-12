@@ -6,6 +6,13 @@ import { BrowserRouter } from "react-router-dom";
 import "./recall-drill.css";
 import App from "./App";
 
+// iOS Safari ignores user-scalable=no; its pinch gesture events must be cancelled to keep the app from zooming
+for (const type of ["gesturestart", "gesturechange", "gestureend"]) {
+  document.addEventListener(type, (e) => e.preventDefault(), {
+    passive: false,
+  });
+}
+
 createRoot(document.getElementById("root")).render(
   <BrowserRouter basename="/recall-drill">
     <App />

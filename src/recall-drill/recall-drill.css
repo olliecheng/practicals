@@ -40,6 +40,9 @@
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
+  /* Landscape: keep content out from under the notch and the home-indicator sides */
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -100,6 +103,27 @@
 }
 html {
   scroll-padding-top: env(safe-area-inset-top, 0px);
+  /* Scrolling and taps only: no double-tap zoom, no pinch */
+  touch-action: manipulation;
+  /* An app, not a page: no rubber-band bounce or pull-to-refresh */
+  overscroll-behavior: none;
+}
+body {
+  overscroll-behavior: none;
+}
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+/* No long-press callout or text selection on the interface itself (inputs stay selectable) */
+button,
+a,
+header,
+.tile,
+.menu,
+.tilemenu {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 body {
   margin: 0;
@@ -444,6 +468,33 @@ button.starfilter[aria-pressed="true"] {
   }
   .actions.two .arow:first-child {
     --h: 36px;
+  }
+  /* During a round the action buttons sit in a bar at the bottom, within thumb reach. --kb (set in routes/Drill.jsx) lifts it above the keyboard. */
+  .play:not(.over) {
+    padding-bottom: calc(7rem + env(safe-area-inset-bottom, 0px));
+  }
+  .play:not(.over) .actions.two {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: var(--kb, 0px);
+    z-index: 3;
+    margin: 0 !important;
+    padding: 8px max(10px, env(safe-area-inset-right, 0px))
+      max(8px, calc(env(safe-area-inset-bottom, 0px) - var(--kb, 0px)))
+      max(10px, env(safe-area-inset-left, 0px));
+    background: var(--panel);
+    border-top: 1px solid var(--line);
+    align-items: stretch;
+  }
+  .play:not(.over) .actions.two .arow {
+    width: 100%;
+  }
+  .play:not(.over) .actions.two .arow:last-child button {
+    flex: 1;
+  }
+  .play:not(.over) .actions.two .arow button.primary {
+    flex: 1;
   }
   .result {
     font-size: 1.05rem;
