@@ -5,6 +5,7 @@ import { usePlaylist } from "../lib/content";
 import { drillPath, featuredId, playlistPath } from "../lib/legacy";
 import { useAccount } from "../state/AccountContext";
 import { useFilters } from "../state/FilterContext";
+import { useTitle } from "../lib/useTitle";
 import { Group, Row } from "../components/DrillList";
 import History from "../components/History";
 import NewQuizDialog from "../components/NewQuizDialog";
@@ -51,6 +52,7 @@ function PlaylistView({ id }) {
   }, [acct, starOnly, setStarOnly]);
 
   const pl = st.status === "ok" ? st.data : null;
+  useTitle(pl && (editing ? `Editing ${pl.title}` : `⏩︎ ${pl.title}`));
   // [{title, drills}] without deleted or unreadable quizzes
   const sections = useMemo(
     () =>

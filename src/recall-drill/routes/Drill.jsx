@@ -19,6 +19,7 @@ import PencilIcon from "../components/PencilIcon";
 import QuizEditor from "../components/QuizEditor";
 import { ICONS, ItemDialog, TileMenu } from "../components/TileMenu";
 import { applyToItem, updateItem } from "../lib/editItem";
+import { useTitle } from "../lib/useTitle";
 import { useAccount } from "../state/AccountContext";
 import { useFilters } from "../state/FilterContext";
 import {
@@ -566,14 +567,7 @@ function QuizDrill({ id, edit }) {
     () => (st.status === "ok" ? drillFromQuiz(st.data) : null),
     [st],
   );
-  useEffect(() => {
-    document.title = drill
-      ? `${drill.name} – History Recall Drill`
-      : "History Recall Drill";
-    return () => {
-      document.title = "History Recall Drill";
-    };
-  }, [drill]);
+  useTitle(drill && (edit ? `Editing ${drill.name}` : drill.name));
 
   // The saved record (ignored items, redo rounds) is needed to start, so wait for the signed-in user's record to load
   if (!ready || st.status === "loading")
