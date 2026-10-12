@@ -101,25 +101,6 @@ function Game({ drill, inc, restart, quiz }) {
     document.body.classList.toggle("drilling", drilling);
     return () => document.body.classList.remove("drilling");
   }, [drilling]);
-  // --kb is the height of the on-screen keyboard, which iOS Safari draws over the page without resizing it; the bottom action bar sits on top of it
-  useEffect(() => {
-    const vv = window.visualViewport;
-    if (!vv) return;
-    const root = document.documentElement;
-    const update = () => {
-      const kb = window.innerHeight - vv.height - vv.offsetTop;
-      // Small differences are the collapsing browser toolbar, not a keyboard
-      root.style.setProperty("--kb", kb > 120 ? `${kb}px` : "0px");
-    };
-    update();
-    vv.addEventListener("resize", update);
-    vv.addEventListener("scroll", update);
-    return () => {
-      vv.removeEventListener("resize", update);
-      vv.removeEventListener("scroll", update);
-      root.style.removeProperty("--kb");
-    };
-  }, []);
   // Expanding (the toggle, or Reveal ending the round) scrolls the section just revealed or left open into view; the toggle only if it is off screen
   const scrollTo = useRef("");
   const scrollOnlyIfHidden = useRef(false);
