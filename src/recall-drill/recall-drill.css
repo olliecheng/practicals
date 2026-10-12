@@ -1270,6 +1270,13 @@ body.drilling .sect .sh .sc {
   padding-left: 0;
   padding-right: 4px;
 }
+/* .b: below the cell, for a row with no room at either side (set by useRowMenu; the narrow-screen rule below does the same) */
+.menu.b {
+  top: 100%;
+  left: 0;
+  right: auto;
+  padding: 4px 0 0;
+}
 .menu .mi {
   display: flex;
   flex-direction: column;

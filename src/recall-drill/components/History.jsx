@@ -9,7 +9,7 @@ import DrillActions from "./DrillActions";
 // The same row and pop-up menu as the quiz list (Start from scratch, Redo incorrect, Reset progress, Edit), without Star
 function HistoryRow({ drill, sv }) {
   const start = useStart(drill);
-  const { ref, open, left, place, rowProps } = useRowMenu();
+  const { ref, open, side, place, rowProps } = useRowMenu();
   return (
     <div
       ref={ref}
@@ -23,7 +23,7 @@ function HistoryRow({ drill, sv }) {
         </div>
         <div className="meta">{new Date(sv.last).toLocaleDateString()}</div>
       </div>
-      <div className={"menu" + (left ? " l" : "")}>
+      <div className={"menu" + (side && " " + side)}>
         <div className="mi">
           <DrillActions
             drill={drill}

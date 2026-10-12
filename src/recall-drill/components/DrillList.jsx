@@ -8,7 +8,7 @@ export function Row({ drill }) {
   const sv = acct && user.drills[drill.key],
     hist = !!(sv && sv.runs),
     starred = !!acct && user.stars.includes(drill.key);
-  const { ref, open, left, place, rowProps } = useRowMenu();
+  const { ref, open, side, place, rowProps } = useRowMenu();
   return (
     <div
       ref={ref}
@@ -31,7 +31,7 @@ export function Row({ drill }) {
           </span>
         )}
       </div>
-      <div className={"menu" + (left ? " l" : "")}>
+      <div className={"menu" + (side && " " + side)}>
         <div className="mi">
           <DrillActions
             drill={drill}
