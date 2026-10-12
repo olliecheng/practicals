@@ -632,6 +632,7 @@ export default function QuizEditor({ id, quiz, initialTab, onDone, onCancel }) {
               settings.status === "ok" && current
                 ? briefParts({
                     prompt: settings.data.agentQuizPrompt,
+                    example: settings.data.agentQuizExample,
                     categories: settings.data.categories,
                     sections: currentSections,
                     quiz: current,

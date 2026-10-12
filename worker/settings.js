@@ -1,9 +1,10 @@
-// Global settings routes: {agentQuizPrompt, categories}, shared by every user. Anyone can read; any signed-in user can change
+// Global settings routes: {agentQuizPrompt, agentQuizExample, categories}, shared by every user. Anyone can read; any signed-in user can change
 // them (like quizzes and playlists). A key with no stored row falls back to its default.
 import vocab from "../src/recall-drill/categories.json";
 import { readObject } from "./content-util.js";
 
 const MAX_PROMPT = 20000;
+const MAX_EXAMPLE = 20000;
 const MAX_CATEGORIES = 200;
 const MAX_NAME = 100;
 
@@ -18,12 +19,14 @@ const DEFAULT_CATEGORIES = [
 
 const DEFAULTS = {
   agentQuizPrompt: "", // empty until someone writes one in Settings
+  agentQuizExample: "", // an example quiz as JSON text; empty until someone pastes one in Settings
   categories: DEFAULT_CATEGORIES,
 };
 
 // One validator per key; a body key without one is rejected
 const VALID = {
   agentQuizPrompt: (v) => typeof v === "string" && v.length <= MAX_PROMPT,
+  agentQuizExample: (v) => typeof v === "string" && v.length <= MAX_EXAMPLE,
   categories: (v) =>
     Array.isArray(v) &&
     v.length <= MAX_CATEGORIES &&

@@ -1083,6 +1083,14 @@ body.drilling .sect .sh .sc {
   color: var(--ink);
   resize: vertical;
 }
+/* A box for code-like text (JSON): the same monospace look as the quiz editor's paste box, lines never wrap */
+.pref .prefarea.mono {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  white-space: pre;
+  overflow: auto;
+}
 /* A quiet button sitting alone in a row: centre it on the row's label (9px label padding + half a line, less half the button),
    and pull it left by its padding so the icon lines up with the column edge */
 .prefbody > .prefbtn {
@@ -2391,6 +2399,10 @@ button.iconbtn {
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 8px;
+}
+/* A part's note: prose between its heading and its fenced text */
+.qe-note {
+  margin-bottom: 4px;
 }
 .qe-mono,
 .pledit textarea.qe-paste {

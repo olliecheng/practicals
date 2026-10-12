@@ -186,6 +186,9 @@ export default function AgenticTab({
                 {parts.map((p) => (
                   <span key={p.title} className={`qe-part ${p.tone}`}>
                     <span className="qe-briefhead">{p.title}</span>
+                    {p.note && (
+                      <span className="qe-body qe-note">{p.note}</span>
+                    )}
                     <span className={p.mono ? "qe-body qe-mono" : "qe-body"}>
                       {p.text}
                     </span>

@@ -171,6 +171,7 @@ function SettingsPanel() {
         <>
           <PromptRow initial={data.agentQuizPrompt} />
           <CategoriesRow initial={data.categories} />
+          <ExampleRow initial={data.agentQuizExample ?? ""} />
         </>
       ) : (
         <div className="prefrow">
@@ -240,6 +241,54 @@ function PromptRow({ initial }) {
           </button>
           <span className="msg" role="alert">
             {msg}
+          </span>
+        </div>
+      </div>
+    </form>
+  );
+}
+
+// A whole quiz as JSON text, kept as pasted (the brief puts it on one line). Blank is allowed and leaves the example out.
+function ExampleRow({ initial }) {
+  const [text, setText] = useState(initial);
+  const [err, setErr] = useState("");
+  const [msg, busy, save] = useSave();
+
+  function submit(e) {
+    e.preventDefault();
+    if (text.trim()) {
+      try {
+        JSON.parse(text);
+      } catch {
+        return setErr("That isn't valid JSON.");
+      }
+    }
+    setErr("");
+    save({ agentQuizExample: text });
+  }
+
+  return (
+    <form className="prefrow" noValidate onSubmit={submit}>
+      <label className="preflabel" htmlFor="aqe">
+        Agent quiz example
+      </label>
+      <div className="prefbody">
+        <textarea
+          id="aqe"
+          className="prefarea mono"
+          rows={8}
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          maxLength={20000}
+          spellCheck={false}
+          autoComplete="off"
+        />
+        <div className="prefsave">
+          <button className="subbtn primary" type="submit" disabled={busy}>
+            Save
+          </button>
+          <span className="msg" role="alert">
+            {err || msg}
           </span>
         </div>
       </div>
