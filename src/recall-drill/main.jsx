@@ -2,7 +2,7 @@ import { createRoot } from "react-dom/client";
 import "@fontsource-variable/inter";
 import "@fontsource-variable/hanken-grotesk";
 import "@fontsource/ibm-plex-mono/400.css";
-import { BrowserRouter } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./recall-drill.css";
 import App from "./App";
 
@@ -13,8 +13,11 @@ for (const type of ["gesturestart", "gesturechange", "gestureend"]) {
   });
 }
 
+// A data router, because useBlocker (the unsaved-changes prompt) needs one; App's <Routes> match under the catch-all route
+const router = createBrowserRouter([{ path: "*", element: <App /> }], {
+  basename: "/recall-drill",
+});
+
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter basename="/recall-drill">
-    <App />
-  </BrowserRouter>,
+  <RouterProvider router={router} />,
 );

@@ -15,10 +15,11 @@ import {
   useQuiz,
 } from "../lib/content";
 import { decodeLegacyDrill, drillPath, isQuizId } from "../lib/legacy";
+import { useDialog } from "../components/Dialog";
 import PencilIcon from "../components/PencilIcon";
 import QuizEditor from "../components/QuizEditor";
 import { ICONS, ItemDialog, TileMenu } from "../components/TileMenu";
-import { applyToItem, updateItem } from "../lib/editItem";
+import { applyToItem, removeItem, updateItem } from "../lib/editItem";
 import { useTitle } from "../lib/useTitle";
 import { useAccount } from "../state/AccountContext";
 import { useFilters } from "../state/FilterContext";
@@ -97,6 +98,7 @@ function Game({ drill, inc, restart, quiz }) {
   const account = useAccount();
   const filters = useFilters();
   const nav = useNavigate();
+  const { alert, confirm } = useDialog();
   const g = useDrillGame({ drill, account, inc });
   const { s, stats } = g;
   // A drill temporarily forces the Collapse view onto the drilled section (the saved preference is untouched)
@@ -160,6 +162,26 @@ function Game({ drill, inc, restart, quiz }) {
     quizData.current = data;
     applyToItem(item, patch);
   };
+  // Deletes the item from the stored quiz, then takes its tile out of the round (which carries on as it was)
+  const deleteItem = async (i) => {
+    if (
+      !(await confirm({
+        message: "Are you sure you want to delete?",
+        unsafe: "Delete",
+      }))
+    )
+      return;
+    const data = removeItem(quizData.current, drill.items[i]);
+    if (!data)
+      return alert("This item changed in the quiz; reload to delete it.");
+    try {
+      await saveQuiz(quiz.id, data);
+    } catch (e) {
+      return alert(e.message || "Could not delete.");
+    }
+    quizData.current = data;
+    g.removeItem(i);
+  };
   const menuEntries = (i) => {
     const out = [];
     if (!s.ignored.has(i)) {
@@ -190,6 +212,12 @@ function Game({ drill, inc, restart, quiz }) {
         icon: ICONS.edit,
         label: "Edit",
         onClick: () => setDialog({ mode: "edit", i }),
+      });
+      out.push({
+        icon: ICONS.trash,
+        label: "Delete",
+        danger: true,
+        onClick: () => deleteItem(i),
       });
     }
     return out;
@@ -591,7 +619,11 @@ function QuizDrill({ id, edit }) {
         quiz={st.data}
         // A new quiz opens on the Agentic tab
         initialTab={location.state?.tab}
-        onDone={back}
+        // saveQuiz dropped the cached reads, but this page still holds the old quiz: read it again so the drill shows the edit
+        onDone={() => {
+          st.retry();
+          back();
+        }}
         onCancel={back}
       />
     );

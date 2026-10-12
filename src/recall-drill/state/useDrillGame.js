@@ -386,6 +386,31 @@ export function useDrillGame({ drill, account, inc }) {
     answerRef.current?.focus();
   };
 
+  // Takes tile i out of the round (after it was deleted from the quiz). Tiles are addressed by index, so every set is renumbered
+  // and the round carries on with everything else as it was.
+  const removeItem = (i) => {
+    const st = sRef.current;
+    clearTimeout(deferT.current);
+    items.splice(i, 1);
+    const shift = (set) =>
+      new Set([...set].filter((j) => j !== i).map((j) => (j > i ? j - 1 : j)));
+    let ns = {
+      ...st,
+      found: shift(st.found),
+      credited: shift(st.credited),
+      revealed: shift(st.revealed),
+      ignored: shift(st.ignored),
+      recalled: shift(st.recalled),
+      drilling: shift(st.drilling),
+      shown: shift(st.shown),
+    };
+    // A drill whose last tile was this one has nothing left to drill
+    if (ns.drill && !ns.drilling.size) ns = endDrillState(ns);
+    syncCelebrated(ns);
+    commit(ns, false, histOnRef.current);
+    apply(!ns.over && allSettled(drill, ns) ? finishRound(ns) : ns);
+  };
+
   const toggleIgnore = (i) => {
     const st = sRef.current,
       ignored = new Set(st.ignored),
@@ -502,6 +527,7 @@ export function useDrillGame({ drill, account, inc }) {
     hintCode,
     toggleHint,
     toggleIgnore,
+    removeItem,
     toggleCredit,
     setCollapsed,
     setActive,

@@ -3,6 +3,7 @@ import { briefText, CLOSING } from "../lib/agentBrief";
 import { cap } from "../lib/data";
 import PlusIcon from "./PlusIcon";
 import TrashIcon from "./TrashIcon";
+import { useDialog } from "./Dialog";
 
 const CopyIcon = () => (
   <svg
@@ -59,6 +60,7 @@ export default function AgenticTab({
   setText,
   busy,
 }) {
+  const { confirm } = useDialog();
   const [copied, setCopied] = useState(false);
   const [open, setOpen] = useState(false); // the brief is long, so it starts closed; Copy works either way
   // With a url, the AI tool's chat page opens in a new tab. Both happen before the first await so the click still counts as a user gesture
@@ -122,10 +124,11 @@ export default function AgenticTab({
                     aria-label={`Delete ${s.name || "section"}`}
                     aria-describedby={s.empty ? undefined : `qe-tip-${s.id}`}
                     disabled={!s.empty}
-                    onClick={() =>
-                      confirm(
-                        `Delete the section ${cap(s.name.trim()) || "(unnamed)"}?`,
-                      ) && onRemove(s.id)
+                    onClick={async () =>
+                      (await confirm({
+                        message: `Delete the section ${cap(s.name.trim()) || "(unnamed)"}?`,
+                        unsafe: "Delete",
+                      })) && onRemove(s.id)
                     }
                   >
                     <TrashIcon />

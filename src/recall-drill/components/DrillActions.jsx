@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useAccount } from "../state/AccountContext";
 import { drillPath } from "../lib/legacy";
 import PencilIcon from "./PencilIcon";
+import { useDialog } from "./Dialog";
 
 // 16px outline icons (see DESIGN.md)
 const Icon = ({ d }) => (
@@ -46,6 +47,7 @@ const TrashIcon = () => (
 export default function DrillActions({ drill, sv, labels, onStart, star }) {
   const { mutate, acct, user, toggleStar } = useAccount();
   const nav = useNavigate();
+  const { confirm } = useDialog();
   // Star / Unstar (only where `star` is set: the list popover)
   const starred = !!acct && user.stars.includes(drill.key);
   const starBtn = acct && star && (
@@ -85,8 +87,14 @@ export default function DrillActions({ drill, sv, labels, onStart, star }) {
     );
   const known = new Set([...sv.found, ...sv.credited, ...sv.ignored]);
   const hasBlanks = drill.items.some((it) => !known.has(it.key));
-  const reset = () => {
-    if (!confirm(`Clear your history for ${drill.name}?`)) return;
+  const reset = async () => {
+    if (
+      !(await confirm({
+        message: `Clear your history for ${drill.name}?`,
+        unsafe: "Clear history",
+      }))
+    )
+      return;
     mutate(() =>
       Object.assign(sv, {
         runs: 0,

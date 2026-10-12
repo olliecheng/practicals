@@ -75,6 +75,15 @@ Long text wraps (`components/AutoArea.jsx`), it is never cut off. Reuse the card
 
 A `⋮⋮` on the left of a row, muted, `cursor: grab`, with a large grab area (padding `0 9px 0 10px`, stretching the row's height). The hover tint covers only the text, not the handle.
 
+### Dialogs (`components/Dialog.jsx`)
+
+The replacement for the browser's `alert()` and `confirm()` (some browsers don't show those): never call them. `useDialog()` gives `alert(message)`, `confirm({message, unsafe, safe?, title?})` and the general `ask(...)`, all returning promises; `confirm` / `ask` resolve `true` only when the unsafe button was clicked.
+
+- A `.modal` card centred over a dimmed page (`.dialog-bg`, above every other modal). Message in 0.9rem; an optional title in the header font like other modals.
+- Buttons (0.9rem, padding 8px 14px, `--r` radius), unsafe on the left and safe on the right. **Safe** (`.dlg-safe`, the primary button; default label "Cancel" for a confirm, "OK" for a notice) is filled `--ok` green. **Unsafe** (`.dlg-unsafe`, labelled by the caller, e.g. "Delete") is `--bad` text and outline on a `--panel` background, tinted `--bad-soft` on hover. A notice has only the safe button.
+- The leave prompt of the editors (`lib/useLeaveGuard.js`): message "Your changes are unsaved. Are you sure you want to leave?", unsafe "Leave", safe "Stay". Closing or reloading the tab can only get the browser's own prompt.
+- Safe is always what dismissal means: clicking the dimmed page and Escape resolve as safe. Every other key is swallowed while it is open and nothing is focused, so Enter can never run the unsafe action; the buttons work by mouse or touch only.
+
 ### Errors (`.qe-error`)
 
 A box with a 1px `--bad` outline, `--bad-soft` background, `--r` radius, padding `10px 14px`, 0.9rem `--bad` text, `role="alert"`: a bold "Errors" label and then the message, 2px apart. In the quiz editor (`.pledit .qe-error`) the text is IBM Plex Mono 0.8rem, line-height 1.35, like the pasted-JSON box (the "Errors" label there is the header font, 1rem, weight 600), because the messages quote section, category and JSON names.

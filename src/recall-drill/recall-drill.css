@@ -2500,6 +2500,13 @@ button.iconbtn {
   text-align: left;
   cursor: pointer;
 }
+/* Destructive entry (Delete): red icon and text, tinted on hover */
+.tilemenu .subbtn.danger {
+  color: var(--bad);
+}
+.tilemenu .subbtn.danger:hover {
+  background: var(--bad-soft);
+}
 .modal-bg {
   position: fixed;
   inset: 0;
@@ -2599,4 +2606,47 @@ button.iconbtn {
   align-items: center;
   gap: 8px;
   margin-top: 14px;
+}
+
+/* Alert / confirm dialog (components/Dialog.jsx): above every other modal; safe action green and filled, unsafe action red outline */
+.modal-bg.dialog-bg {
+  z-index: 80;
+}
+.dialog {
+  outline: none;
+}
+.dialog-msg {
+  margin: 0;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.dlg-safe,
+.dlg-unsafe {
+  padding: 8px 14px;
+  border: 1px solid;
+  border-radius: var(--r);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.dlg-safe {
+  border-color: var(--ok);
+  background: var(--ok);
+  color: #fff;
+}
+:root[data-theme="dark"] .dlg-safe {
+  color: #0f1d1f;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .dlg-safe {
+    color: #0f1d1f;
+  }
+}
+.dlg-unsafe {
+  border-color: var(--bad);
+  background: var(--panel);
+  color: var(--bad);
+}
+.dlg-unsafe:hover {
+  background: var(--bad-soft);
 }

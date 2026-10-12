@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   closestCenter,
   DndContext,
@@ -21,7 +21,9 @@ import { cap, drillFromQuiz } from "../lib/data";
 import { deleteQuiz, savePlaylist } from "../lib/content";
 import PlusIcon from "./PlusIcon";
 import TrashIcon from "./TrashIcon";
+import { useDialog } from "./Dialog";
 import { noEnterSubmit } from "../lib/noEnterSubmit";
+import { useLeaveGuard } from "../lib/useLeaveGuard";
 
 let nextKey = 0;
 const newKey = () => "s" + nextKey++;
@@ -191,6 +193,7 @@ function Section({ sec, index, count, set, onMove, onDelete }) {
 }
 
 export default function PlaylistEditor({ id, pl, onDone, onCancel }) {
+  const { confirm } = useDialog();
   const [title, setTitle] = useState(pl.title);
   const [description, setDescription] = useState(pl.description);
   const [sections, setSections] = useState(() => fromPlaylist(pl));
@@ -207,6 +210,12 @@ export default function PlaylistEditor({ id, pl, onDone, onCancel }) {
   const [msg, setMsg] = useState("");
   // Quizzes taken out of the playlist with Delete, [{id, name, deleted}]; they are deleted when Save is pressed
   const [removed, setRemoved] = useState([]);
+  // Unsaved changes: the editable state now against how it was on opening (rows taken out with Delete count until Save)
+  const snapshot = JSON.stringify({ title, description, sections, defaults });
+  const opened = useRef(snapshot);
+  const guard = useLeaveGuard(
+    snapshot !== opened.current || removed.length > 0,
+  );
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 4 } }),
     useSensor(KeyboardSensor, {
@@ -285,13 +294,14 @@ export default function PlaylistEditor({ id, pl, onDone, onCancel }) {
   };
 
   // Delete on a row: after a confirm, the quiz leaves the list now and is deleted by Save (Cancel brings it back)
-  const removeQuiz = (secKey, item) => {
+  const removeQuiz = async (secKey, item) => {
     if (
-      !confirm(
-        item.deleted
+      !(await confirm({
+        message: item.deleted
           ? `Remove ${item.name} from this playlist? It is already deleted.`
           : `Delete ${item.name}? It will be removed from this playlist and deleted.`,
-      )
+        unsafe: item.deleted ? "Remove" : "Delete",
+      }))
     )
       return;
     setSections((ss) =>
@@ -342,6 +352,7 @@ export default function PlaylistEditor({ id, pl, onDone, onCancel }) {
         setBusy(false);
         return;
       }
+      guard.bypass();
       onDone();
     } catch (err) {
       setMsg("Could not save: " + err.message);
@@ -482,7 +493,11 @@ export default function PlaylistEditor({ id, pl, onDone, onCancel }) {
         <button className="primary" type="submit" disabled={busy}>
           {busy ? "Saving…" : "Save"}
         </button>
-        <button type="button" disabled={busy} onClick={onCancel}>
+        <button
+          type="button"
+          disabled={busy}
+          onClick={() => guard.leave(onCancel)}
+        >
           Cancel
         </button>
       </div>

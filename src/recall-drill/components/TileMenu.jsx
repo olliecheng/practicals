@@ -3,6 +3,7 @@ import AutoArea from "./AutoArea";
 import { toKeywords, toText } from "../lib/editItem";
 import { rx } from "../lib/match";
 import PencilIcon from "./PencilIcon";
+import TrashIcon from "./TrashIcon";
 
 // 16px outline icons for the menu entries (see DESIGN.md)
 const Icon = ({ d }) => (
@@ -31,6 +32,7 @@ export const ICONS = {
   ),
   teach: <Icon d="M12 5v14M5 12h14" />,
   edit: <PencilIcon />,
+  trash: <TrashIcon />,
 };
 
 // The right-click menu of a revealed tile, drawn at the cursor. `entries` is [{label, onClick, danger?}]; it closes on
@@ -65,7 +67,7 @@ export function TileMenu({ x, y, entries, onClose }) {
       {entries.map((e) => (
         <button
           key={e.label}
-          className="subbtn"
+          className={"subbtn" + (e.danger ? " danger" : "")}
           type="button"
           role="menuitem"
           onClick={() => {

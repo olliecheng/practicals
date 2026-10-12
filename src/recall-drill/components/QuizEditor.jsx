@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useMemo, useState } from "react";
+import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import {
   closestCenter,
   DndContext,
@@ -32,10 +32,12 @@ import CategoryPicker from "./CategoryPicker";
 import PencilIcon from "./PencilIcon";
 import PlusIcon from "./PlusIcon";
 import TrashIcon from "./TrashIcon";
+import { useDialog } from "./Dialog";
 import { rx } from "../lib/match";
 import { toKeywords, toText } from "../lib/editItem";
 import { briefParts } from "../lib/agentBrief";
 import { noEnterSubmit } from "../lib/noEnterSubmit";
+import { useLeaveGuard } from "../lib/useLeaveGuard";
 
 let nextKey = 0;
 const newKey = () => "k" + nextKey++;
@@ -129,6 +131,7 @@ function CategoryHead({ group, n, index, count, onMove, onEdit }) {
 
 // The quiz editor's item: an ItemCard with a handle on its left that drags it to any place in any category
 function ItemRow({ it, row, setItem, remove, overlay }) {
+  const { confirm } = useDialog();
   const sort = useSortable({ id: it.key, disabled: overlay });
   if (overlay)
     return (
@@ -153,8 +156,11 @@ function ItemRow({ it, row, setItem, remove, overlay }) {
       keywords={it.matches}
       labelProps={{ "data-id": it.key }}
       onChange={(p) => setItem("keywords" in p ? { matches: p.keywords } : p)}
-      onDelete={() =>
-        confirm(`Delete ${it.label.trim() || "this item"}?`) && remove()
+      onDelete={async () =>
+        (await confirm({
+          message: `Delete ${it.label.trim() || "this item"}?`,
+          unsafe: "Delete",
+        })) && remove()
       }
       handle={
         <button
@@ -184,6 +190,7 @@ function Group({
   onMove,
   onEdit,
 }) {
+  const { confirm } = useDialog();
   const n = group.items.length;
   const setItem = (i, patch) =>
     set({
@@ -225,9 +232,11 @@ function Group({
             type="button"
             className="qe-delcat"
             style={at(1, 2)}
-            onClick={() =>
-              confirm(`Delete the category ${group.cat.trim() || ""}?`) &&
-              removeGroup()
+            onClick={async () =>
+              (await confirm({
+                message: `Delete the category ${group.cat.trim() || ""}?`,
+                unsafe: "Delete",
+              })) && removeGroup()
             }
           >
             Delete category
@@ -240,6 +249,7 @@ function Group({
 }
 
 export default function QuizEditor({ id, quiz, initialTab, onDone, onCancel }) {
+  const { confirm } = useDialog();
   const d = quiz.data;
   const [tab, setTab] = useState(
     initialTab === "agentic" ? "agentic" : "manual",
@@ -267,6 +277,12 @@ export default function QuizEditor({ id, quiz, initialTab, onDone, onCancel }) {
   const [msg, setMsg] = useState(""); // problems, one per line
   const [ok, setOk] = useState(""); // the Agentic tab's "Valid: ..." note
   const [agentText, setAgentText] = useState(""); // the JSON pasted on the Agentic tab
+  // Unsaved changes: the editable state now against how it was on opening (the section ids are stable, so the comparison is exact)
+  const snapshot = JSON.stringify({ name, sections, groups });
+  const opened = useRef(snapshot);
+  const guard = useLeaveGuard(
+    snapshot !== opened.current || !!agentText.trim(),
+  );
 
   // A new item takes the cursor once it is on the page
   useEffect(() => {
@@ -563,6 +579,7 @@ export default function QuizEditor({ id, quiz, initialTab, onDone, onCancel }) {
     setBusy(true);
     try {
       await saveQuiz(id, data);
+      guard.bypass();
       onDone();
     } catch (err) {
       setMsg(failure(err, "save"));
@@ -705,10 +722,11 @@ export default function QuizEditor({ id, quiz, initialTab, onDone, onCancel }) {
                         <button
                           type="button"
                           className="subbtn danger"
-                          onClick={() =>
-                            confirm(
-                              `Delete the section ${cap(s.name.trim()) || "(unnamed)"}?`,
-                            ) && removeSection(s.id)
+                          onClick={async () =>
+                            (await confirm({
+                              message: `Delete the section ${cap(s.name.trim()) || "(unnamed)"}?`,
+                              unsafe: "Delete",
+                            })) && removeSection(s.id)
                           }
                         >
                           <TrashIcon />
@@ -781,7 +799,11 @@ export default function QuizEditor({ id, quiz, initialTab, onDone, onCancel }) {
           <button className="primary" type="submit" disabled={busy}>
             {busy ? "Working…" : tab === "agentic" ? "Apply" : "Save"}
           </button>
-          <button type="button" disabled={busy} onClick={onCancel}>
+          <button
+            type="button"
+            disabled={busy}
+            onClick={() => guard.leave(onCancel)}
+          >
             Cancel
           </button>
         </div>
