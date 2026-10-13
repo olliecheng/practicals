@@ -1555,6 +1555,26 @@ button.star[aria-pressed="true"] {
 .mini b {
   color: var(--teal);
   font-size: 0.95rem;
+  font-weight: 400;
+}
+/* Card icon above the title: the JPEGs have a white background, which multiplies away on a light card;
+   on the dark theme it stays a small rounded tile. */
+.mini-icon {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  margin: -4px 0 2px -6px;
+  mix-blend-mode: multiply;
+}
+:root[data-theme="dark"] .mini-icon {
+  mix-blend-mode: normal;
+  border-radius: var(--r);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .mini-icon {
+    mix-blend-mode: normal;
+    border-radius: var(--r);
+  }
 }
 .mini:hover {
   border-color: var(--teal);

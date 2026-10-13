@@ -4,8 +4,8 @@ The code will be written in JavaScript, React and Tailwind and run using node.js
 
 The sitemap looks like this:
 
-- /: contains links and brief descriptions to each of the tests
-- /dexamethasone: dexamethasone suppression test
+- /: redirects to /recall-drill/ (`index.html`)
+- Minis (listed in `src/recall-drill/components/Minis.jsx`, each a standalone page that imports `recall-drill.css` and `src/quiz/quiz.css`): the case quizzes /dexamethasone.html, /parathyroid.html, /hepatitis-b.html, /liver-function.html and /bacteria.html (case data is generated inline in `src/<name>.jsx`; they share `src/components/QuizEngine.jsx` and `MiniPage.jsx`)
 - /privacy: privacy policy (linked from the Google sign-in consent screen)
 - /dermatome-ninja: Dermatome Ninja minigame (listed under Minis in /recall-drill) with Locate, Name and Learn modes; data in src/dermatome-ninja/dermatomes.json
 

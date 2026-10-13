@@ -1,6 +1,6 @@
 # Design
 
-The look of the site, so new screens and components match. The theme (colours, fonts) lives in `src/recall-drill/recall-drill.css` (variables on `:root`, with a dark theme) and the other pages reuse it; Tailwind (`tailwind.config.js`) is used by the older single-test pages.
+The look of the site, so new screens and components match. The theme (colours, fonts) lives in `src/recall-drill/recall-drill.css` (variables on `:root`, with a dark theme) and the other pages reuse it; Tailwind (`tailwind.config.js`) is now used only by `/privacy`; the Minis (including the case quizzes) use the theme variables.
 
 ## Principles
 
@@ -87,6 +87,10 @@ The replacement for the browser's `alert()` and `confirm()` (some browsers don't
 ### Errors (`.qe-error`)
 
 A box with a 1px `--bad` outline, `--bad-soft` background, `--r` radius, padding `10px 14px`, 0.9rem `--bad` text, `role="alert"`: a bold "Errors" label and then the message, 2px apart. In the quiz editor (`.pledit .qe-error`) the text is IBM Plex Mono 0.8rem, line-height 1.35, like the pasted-JSON box (the "Errors" label there is the header font, 1rem, weight 600), because the messages quote section, category and JSON names.
+
+### Case quiz (`components/QuizEngine.jsx`, `quiz/quiz.css`, `components/MiniPage.jsx`)
+
+The shell of the case-quiz Minis (Dexamethasone, Parathyroid, Hepatitis B, LFTs, Bacteria). `MiniPage` is the page: the `header` (page heading and a `.link` "← Minis" back to the Recall Drill home), a `.note` blurb, then one `.panel`. Inside, `QuizEngine` uses `.qz-*` classes: section titles (`.qz-title`, like `.qe-title`), a `--tile` case box, a bordered lab table, option rows (`.qz-opt`: `--panel`, 1px `--line`, `--r`, `--teal-soft` on hover, `accent-color: var(--teal)` inputs, `.locked` once answered), a feedback box (`.qz-fb`, the `.qe-error` look; `.ok` is `--ok` on `--ok-soft`) and `button.primary` actions. Lab arrows and +/- are `.qz-mark` (`--bad` up, `--blue` down and positive, `--ok` normal). New explanation JSX uses plain `p`, `ul` and `strong`, which `.qz-fb` styles; never Tailwind classes (the pages don't load Tailwind).
 
 ### Icons
 

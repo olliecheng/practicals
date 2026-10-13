@@ -1,0 +1,214 @@
+/* Case quizzes (components/QuizEngine.jsx on the Mini pages). The theme comes from recall-drill.css. */
+.qz {
+  max-width: 900px;
+}
+.qz-blurb {
+  margin: 0 0 14px;
+}
+.qz .panel {
+  text-align: left;
+}
+
+/* Intro (before the first case) */
+.qz-intro {
+  text-align: center;
+  padding: 14px 0;
+}
+.qz-intro p {
+  color: var(--mute);
+  font-size: 0.9rem;
+  margin: 0 auto 14px;
+  max-width: 60ch;
+}
+
+/* Section titles, like .qe-title */
+.qz-title {
+  font-family: var(--font-head);
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin: 0 0 8px 2px;
+}
+.qz-section {
+  margin-bottom: 22px;
+}
+.qz-case {
+  background: var(--tile);
+  border-radius: var(--r);
+  padding: 8px 14px;
+  font-size: 0.9rem;
+}
+.qz-case p {
+  margin: 6px 0;
+}
+
+/* Lab results */
+.qz-table-wrap {
+  overflow-x: auto;
+}
+.qz-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.qz-table th,
+.qz-table td {
+  border: 1px solid var(--line);
+  padding: 8px 14px;
+  text-align: center;
+}
+.qz-table th:first-child,
+.qz-table td:first-child {
+  text-align: left;
+}
+.qz-table th {
+  background: var(--tile);
+  font-weight: 600;
+}
+.qz-table td:first-child {
+  font-weight: 500;
+}
+.qz-table td.qz-normal {
+  color: var(--mute);
+}
+.qz-table small {
+  font-size: 0.75rem;
+}
+.qz-annot {
+  color: var(--mute);
+  font-size: 0.8rem;
+  margin: 8px 0 0;
+}
+
+/* Questions */
+.qz-question {
+  margin-bottom: 22px;
+}
+.qz-text {
+  font-size: 1rem;
+  margin: 0 0 8px;
+}
+.qz-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 8px;
+}
+.qz-opt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--panel);
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.qz-opt input {
+  flex: none;
+  accent-color: var(--teal);
+}
+.qz-opt b {
+  font-weight: 500;
+}
+.qz-opt-desc {
+  color: var(--mute);
+  font-size: 0.8rem;
+}
+.qz-opt:hover {
+  background: var(--teal-soft);
+}
+.qz-opt.locked {
+  background: var(--tile);
+  cursor: default;
+}
+.qz-opt.locked:hover {
+  background: var(--tile);
+}
+.qz-opt.locked input {
+  opacity: 0.6;
+}
+
+/* Feedback box, like .qe-error but green when right */
+.qz-fb {
+  margin-top: 8px;
+  border: 1px solid var(--bad);
+  background: var(--bad-soft);
+  border-radius: var(--r);
+  padding: 10px 14px;
+  font-size: 0.9rem;
+}
+.qz-fb.ok {
+  border-color: var(--ok);
+  background: var(--ok-soft);
+}
+.qz-fb-title {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--bad);
+  margin: 0 0 2px;
+}
+.qz-fb.ok .qz-fb-title {
+  color: var(--ok);
+}
+
+/* Explanation text inside the feedback box (the tests pass plain JSX: p, ul, strong) */
+.qz-fb p {
+  margin: 6px 0;
+}
+.qz-fb ul {
+  margin: 6px 0;
+  padding-left: 1.2em;
+}
+.qz-fb .qz-pattern {
+  background: var(--panel);
+  border-radius: var(--r);
+  padding: 8px 14px;
+  margin-top: 8px;
+}
+.qz-fb .qz-pattern p {
+  margin: 4px 0;
+}
+.qz-fb .qz-pattern .qz-pathophys {
+  color: var(--mute);
+  font-size: 0.8rem;
+}
+
+/* Lab arrows and +/- marks (utils/labUtils.jsx) */
+.qz-mark {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.qz-mark.up {
+  color: var(--bad);
+}
+.qz-mark.down,
+.qz-mark.pos {
+  color: var(--blue);
+}
+.qz-mark.same {
+  color: var(--ok);
+}
+.qz-mark.unknown,
+.qz-mark.neg {
+  color: var(--mute);
+}
+
+/* Actions */
+.qz-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 14px;
+}
+.qz-next {
+  justify-content: center;
+}
+.qz-actions button {
+  padding: 10px 16px;
+  font-size: 0.95rem;
+}
+.qz-intro button {
+  padding: 10px 16px;
+  font-size: 0.95rem;
+}

@@ -6,7 +6,7 @@ Routes: `/recall-drill` (home: the three default playlists, each with its descri
 
 Registered in `/vite.config.js` as `recallDrill` -> `recall-drill/index.html`, a thin shell that loads `src/recall-drill/main.jsx`. The Worker serves that shell for every `/recall-drill/*` path that isn't a real file (see Deployment).
 
-Layout: `routes/` (Home, Playlist, Drill, Login, Settings), `components/` (Layout with the account menu, Avatar, Owner, DrillActions, DrillList, History, Minis), `state/` (`AccountContext` user record + saving, `FilterContext` the browsed playlist and starred filter, which decide what Random/Next/New pick from, `useDrillGame` the round logic), `lib/` (`api.js` fetch helper, `content.js` hooks that load playlists and quizzes, `data.js` builds the game's drill from a quiz, `match.js` keyword matching, `legacy.js`, `storage.js`, `auth.js`, `confetti.js`), `recall-drill.css` (plain CSS, not Tailwind).
+Layout: `routes/` (Home, Playlist, Drill, Login, Settings), `components/` (Layout with the account menu, Avatar, Owner, DrillActions, DrillList, History, Minis (a `MINIS` array of cards linking to standalone pages: Dermatome Ninja and the five case quizzes)), `state/` (`AccountContext` user record + saving, `FilterContext` the browsed playlist and starred filter, which decide what Random/Next/New pick from, `useDrillGame` the round logic), `lib/` (`api.js` fetch helper, `content.js` hooks that load playlists and quizzes, `data.js` builds the game's drill from a quiz, `match.js` keyword matching, `legacy.js`, `storage.js`, `auth.js`, `confetti.js`), `recall-drill.css` (plain CSS, not Tailwind).
 
 ## How the game works
 

@@ -10,21 +10,21 @@
 export const getArrowForDirection = (direction) => {
   switch (direction) {
     case "elevated":
-      return <span className="text-2xl font-bold text-red-600">↑</span>;
+      return <span className="qz-mark up">↑</span>;
     case "decreased":
-      return <span className="text-2xl font-bold text-blue-600">↓</span>;
+      return <span className="qz-mark down">↓</span>;
     case "normal":
-      return <span className="text-2xl font-bold text-green-600">→</span>;
+      return <span className="qz-mark same">→</span>;
     default:
-      return <span className="text-2xl font-bold text-gray-600">?</span>;
+      return <span className="qz-mark unknown">?</span>;
   }
 };
 
 export const getPosNeg = (direction) => {
   switch (direction) {
     case "positive":
-      return <span className="text-2xl font-bold text-blue-600">+</span>;
+      return <span className="qz-mark pos">+</span>;
     case "negative":
-      return <span className="text-2xl font-bold text-gray-600">-</span>;
+      return <span className="qz-mark neg">-</span>;
   }
 };

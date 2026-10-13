@@ -1,9 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
-
+import "@fontsource-variable/inter";
 import "@fontsource-variable/hanken-grotesk";
-import "@fontsource-variable/bricolage-grotesque";
+import "./recall-drill/recall-drill.css";
+import "./quiz/quiz.css";
+import MiniPage from "./components/MiniPage.jsx";
 
 import QuizEngine from "./components/QuizEngine.jsx";
 import { getArrowForDirection } from "./utils/labUtils.jsx";
@@ -272,7 +273,7 @@ const parathyroidQuizConfig = {
             <>
               8.5-10.5 mg/dL
               <br />
-              <span className="text-xs">(2.1-2.6 mmol/L)</span>
+              <small>(2.1-2.6 mmol/L)</small>
             </>
           ),
         },
@@ -283,7 +284,7 @@ const parathyroidQuizConfig = {
             <>
               15-65 pg/mL
               <br />
-              <span className="text-xs">(1.6-6.9 pmol/L)</span>
+              <small>(1.6-6.9 pmol/L)</small>
             </>
           ),
         },
@@ -337,16 +338,14 @@ const parathyroidQuizConfig = {
           ],
           explanation: (
             <div>
-              <p className="mb-3">
+              <p>
                 <strong>Correct answer:</strong>{" "}
                 {getDiagnosisInfo(diagnosis).title}
               </p>
-              <p className="mb-3">{getDiagnosisInfo(diagnosis).explanation}</p>
-              <div className="bg-blue-50 p-3 rounded">
-                <p className="text-sm font-medium mb-2 text-blue-800">
-                  Expected pattern: {getDiagnosisInfo(diagnosis).pattern}
-                </p>
-                <p className="text-xs text-blue-700">
+              <p>{getDiagnosisInfo(diagnosis).explanation}</p>
+              <div className="qz-pattern">
+                <p>Expected pattern: {getDiagnosisInfo(diagnosis).pattern}</p>
+                <p className="qz-pathophys">
                   <strong>Pathophysiology:</strong>{" "}
                   {getDiagnosisInfo(diagnosis).pathophysiology}
                 </p>
@@ -388,28 +387,11 @@ function ParathyroidTest() {
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <div className="min-h-screen text-gray-800">
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
-        <header className="text-left mb-8">
-          <a
-            href="/"
-            className="text-blue-600 hover:text-blue-800 mb-4 inline-block"
-          >
-            ← Back to Tests
-          </a>
-          <h1 className="font-serif text-3xl font-bold text-gray-800 mb-4">
-            Parathyroid Function Test
-          </h1>
-          <p className="text-gray-600">
-            Practice interpreting calcium and PTH levels to diagnose parathyroid
-            disorders
-          </p>
-        </header>
-
-        <div className="bg-white rounded-lg shadow-md p-8 border border-gray-200 text-left">
-          <ParathyroidTest />
-        </div>
-      </div>
-    </div>
+    <MiniPage
+      title={"Parathyroid Function Test"}
+      blurb="Practice interpreting calcium and PTH levels to diagnose parathyroid disorders."
+    >
+      <ParathyroidTest />
+    </MiniPage>
   </StrictMode>,
 );

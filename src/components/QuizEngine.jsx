@@ -60,10 +60,10 @@ function QuizEngine({ quizConfig }) {
   };
 
   const renderPatientInfo = () => (
-    <div className="mb-6">
-      <h2 className="text-xl font-semibold mb-3">Patient Case</h2>
-      <div className="bg-gray-50 text-gray-700 p-4 rounded-lg">
-        <p className="mb-2">
+    <div className="qz-section">
+      <h2 className="qz-title">Patient Case</h2>
+      <div className="qz-case">
+        <p>
           <strong>Patient:</strong> {currentCase.patient.description}
         </p>
         <p>
@@ -74,42 +74,32 @@ function QuizEngine({ quizConfig }) {
   );
 
   const renderLabResults = () => (
-    <div className="mb-8">
-      <h3 className="text-lg font-semibold mb-4">Laboratory Results</h3>
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse border border-gray-300">
+    <div className="qz-section">
+      <h2 className="qz-title">Laboratory Results</h2>
+      <div className="qz-table-wrap">
+        <table className="qz-table">
           <thead>
-            <tr className="bg-gray-50">
-              <th className="border border-gray-300 p-3 text-left">Test</th>
-              <th className="border border-gray-300 p-3 text-center">Result</th>
-              {!quizConfig.hideNormalValues && (
-                <th className="border border-gray-300 p-3 text-center">
-                  Normal Range
-                </th>
-              )}
+            <tr>
+              <th>Test</th>
+              <th>Result</th>
+              {!quizConfig.hideNormalValues && <th>Normal Range</th>}
             </tr>
           </thead>
           <tbody>
             {currentCase.labs.map((lab, index) => (
-              <tr key={index} className={index % 2 === 1 ? "bg-gray-25" : ""}>
-                <td className="border border-gray-300 p-3 font-medium">
-                  {lab.test}
-                </td>
-                <td className="border border-gray-300 p-3 text-center">
-                  {lab.result}
-                </td>
+              <tr key={index}>
+                <td>{lab.test}</td>
+                <td>{lab.result}</td>
                 {!quizConfig.hideNormalValues && (
-                  <td className="border border-gray-300 p-3 text-center text-gray-600">
-                    {lab.normal}
-                  </td>
+                  <td className="qz-normal">{lab.normal}</td>
                 )}
               </tr>
             ))}
           </tbody>
         </table>
-        <div className="mt-4 text-sm text-gray-600">
-          <p>{currentCase.labsAnnotation}</p>
-        </div>
+        {currentCase.labsAnnotation && (
+          <p className="qz-annot">{currentCase.labsAnnotation}</p>
+        )}
       </div>
     </div>
   );
@@ -122,19 +112,15 @@ function QuizEngine({ quizConfig }) {
     const isCurrentQuestion = questionIndex === currentQuestionIndex;
 
     return (
-      <div key={questionIndex} className="mb-8">
-        <h3 className="text-lg mb-4">{question.text}</h3>
+      <div key={questionIndex} className="qz-question">
+        <h3 className="qz-text">{question.text}</h3>
 
         {question.type === "selectOne" && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="qz-options">
             {question.options.map((option) => (
               <label
                 key={option.id}
-                className={`flex items-center p-4 border border-gray-300 rounded-lg ${
-                  isCurrentQuestion && !isSubmitted
-                    ? "hover:bg-gray-50 cursor-pointer"
-                    : "bg-gray-50 cursor-not-allowed"
-                }`}
+                className={`qz-opt${isCurrentQuestion && !isSubmitted ? "" : " locked"}`}
               >
                 <input
                   type="radio"
@@ -147,14 +133,11 @@ function QuizEngine({ quizConfig }) {
                     handleAnswer(questionIndex, e.target.value)
                   }
                   disabled={!isCurrentQuestion || isSubmitted}
-                  className="mr-4 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 disabled:opacity-50"
                 />
                 <div>
-                  <div className="font-medium">{option.text}</div>
+                  <b>{option.text}</b>
                   {option.description && isSubmitted && (
-                    <div className="text-sm text-gray-600">
-                      {option.description}
-                    </div>
+                    <div className="qz-opt-desc">{option.description}</div>
                   )}
                 </div>
               </label>
@@ -163,15 +146,11 @@ function QuizEngine({ quizConfig }) {
         )}
 
         {question.type === "selectAll" && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="qz-options">
             {question.options.map((option) => (
               <label
                 key={option.id}
-                className={`flex items-center p-4 border border-gray-300 rounded-lg ${
-                  isCurrentQuestion && !isSubmitted
-                    ? "hover:bg-gray-50 cursor-pointer"
-                    : "bg-gray-50 cursor-not-allowed"
-                }`}
+                className={`qz-opt${isCurrentQuestion && !isSubmitted ? "" : " locked"}`}
               >
                 <input
                   type="checkbox"
@@ -186,14 +165,11 @@ function QuizEngine({ quizConfig }) {
                     }
                   }}
                   disabled={!isCurrentQuestion || isSubmitted}
-                  className="mr-4 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded disabled:opacity-50"
                 />
                 <div>
-                  <div className="font-medium">{option.text}</div>
+                  <b>{option.text}</b>
                   {option.description && isSubmitted && (
-                    <div className="text-sm text-gray-600">
-                      {option.description}
-                    </div>
+                    <div className="qz-opt-desc">{option.description}</div>
                   )}
                 </div>
               </label>
@@ -202,11 +178,8 @@ function QuizEngine({ quizConfig }) {
         )}
 
         {isCurrentQuestion && !isSubmitted && (
-          <div className="mt-6">
-            <button
-              onClick={submitCurrentQuestion}
-              className="font-serif bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-            >
+          <div className="qz-actions">
+            <button className="primary" onClick={submitCurrentQuestion}>
               Submit answer
             </button>
           </div>
@@ -246,36 +219,18 @@ function QuizEngine({ quizConfig }) {
     }
 
     return (
-      <div className="mt-6">
-        <div
-          className={`p-6 rounded-lg border ${
-            isCorrect
-              ? "bg-green-100 border-green-300"
-              : "bg-red-100 border-red-300"
-          }`}
-        >
-          <h4
-            className={`text-lg font-semibold mb-3 ${
-              isCorrect ? "text-green-800" : "text-red-800"
-            }`}
-          >
-            {isCorrect ? "Correct!" : "Incorrect"}
-          </h4>
-
-          {question.explanation}
-        </div>
+      <div className={`qz-fb${isCorrect ? " ok" : ""}`} role="status">
+        <h4 className="qz-fb-title">{isCorrect ? "Correct!" : "Incorrect"}</h4>
+        {question.explanation}
       </div>
     );
   };
 
   if (!currentCase) {
     return (
-      <div className="text-center">
-        <p className="text-gray-600 mb-6">{quizConfig.description}</p>
-        <button
-          onClick={startNewCase}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-        >
+      <div className="qz-intro">
+        <p>{quizConfig.description}</p>
+        <button className="primary" onClick={startNewCase}>
           {quizConfig.startButtonText || "Start Quiz"}
         </button>
       </div>
@@ -289,7 +244,7 @@ function QuizEngine({ quizConfig }) {
     currentQuestionIndex === currentCase.questions.length - 1;
 
   return (
-    <div className="text-left">
+    <div>
       {renderPatientInfo()}
       {renderLabResults()}
 
@@ -300,11 +255,8 @@ function QuizEngine({ quizConfig }) {
 
       {/* Show "Generate New Case" button after last question is answered */}
       {isLastQuestion && allQuestionsSubmitted && (
-        <div className="text-center mt-8">
-          <button
-            onClick={startNewCase}
-            className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-medium transition-colors"
-          >
+        <div className="qz-actions qz-next">
+          <button className="primary" onClick={startNewCase}>
             Generate New Case
           </button>
         </div>
