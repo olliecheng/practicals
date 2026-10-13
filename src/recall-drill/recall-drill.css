@@ -379,6 +379,28 @@ button.starfilter[aria-pressed="true"] {
 }
 .play > .tiles {
   padding: 14px 16px;
+  position: relative;
+}
+/* Resume prompt (components/ResumePrompt.jsx): the play area keeps the look of the saved round, dimmed; only the text inside the tiles
+   (number, label and the ignore bubble) is blanked, and the rest of the page text stays. Below .side (z-index 2). */
+.tiles.veiled .tile .f,
+.tiles.veiled .tile .b,
+.tiles.veiled .tile .ig {
+  color: transparent !important;
+}
+.tiles.veiled > :not(.resume-veil) {
+  pointer-events: none;
+}
+.resume-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 80px 16px 16px;
+  border-radius: var(--r);
+  background: rgba(0, 0, 0, 0.35);
 }
 @media (max-width: 780px) {
   .wrap {

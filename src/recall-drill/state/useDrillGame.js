@@ -10,6 +10,10 @@ import { loadCollapsed, saveCollapsed } from "../lib/storage";
 // Drill: retrying a section's missed tiles. drill (name of the section, "" if off), drilling (the tiles hidden again for it), recalled (tiles answered in a drill).
 // shown: tiles a drill ended on without an answer (shown in purple, dashed). A drill ends through endDrill, or by itself once every drilled tile is recalled.
 // Recalled tiles never reach found/credited, so history, the score and the counters ignore them. While drilling the view is forced to Collapse on that section.
+// Autosave: a correct answer (typed or credited), a reveal, ignoring a tile and deleting an item (autosave) send a snapshot to the server
+// (account.saveProgress; item labels, not indexes). Finishing the round deletes it, so does a round with nothing found yet. Nothing else saves
+// (not the view, hint, starting or restoring a round) and drills are never part of it. A snapshot can start the round (saved), at once, or behind the resume prompt (prompt: the round shows the snapshot, locked and
+// with its text blanked by CSS, until restore() carries on or startAgain() swaps in the blank round).
 
 const settled = (s, i) =>
   s.found.has(i) || s.credited.has(i) || s.ignored.has(i);
@@ -71,8 +75,21 @@ export function stats(drill, s) {
   };
 }
 
+const SETS = [
+  "found",
+  "credited",
+  "revealed",
+  "ignored",
+  "recalled",
+  "drilling",
+  "shown",
+];
+// What an autosave keeps; drills (recalled, drilling, shown) are not saved
+const SAVED = ["found", "credited", "revealed", "ignored"];
+
 // inc: true redoes from the saved record; {found, credited} (item keys) redoes from the round just played (also works for guests)
-function init(drill, user, inc) {
+// saved: an autosaved snapshot, which replaces everything (the ignored tiles and the redo source are in it)
+function init(drill, user, inc, saved) {
   const keys = drill.items.map((it) => it.key),
     at = (k) => keys.indexOf(k),
     s = {
@@ -88,6 +105,18 @@ function init(drill, user, inc) {
       hint: "",
       active: "",
     };
+  if (saved) {
+    SAVED.forEach((k) =>
+      saved[k].forEach((key) => {
+        const i = at(key);
+        if (i >= 0) s[k].add(i);
+      }),
+    );
+    s.active = drill.sections.some((x) => x.name === saved.active)
+      ? saved.active
+      : firstPending(drill, s);
+    return s;
+  }
   const sv = user && user.drills[drill.key];
   if (sv)
     sv.ignored.forEach((k) => {
@@ -119,12 +148,15 @@ const retrigger = (el, cls) => {
   el.classList.add(cls);
 };
 
-export function useDrillGame({ drill, account, inc }) {
+// saved: the autosaved snapshot of this quiz, if any; prompt: hold it back until the player chooses; fresh: the player chose to start over, so drop it
+export function useDrillGame({ drill, account, inc, saved, prompt, fresh }) {
   const { items } = drill;
   const sections = drill.sections;
-  const redoRound = !!inc;
+  const redo = useRef(!!inc || !!saved?.redo);
+  const lockedRef = useRef(!!prompt);
+  const [locked, setLocked] = useState(!!prompt);
 
-  const [s, setS] = useState(() => init(drill, account.user, inc));
+  const [s, setS] = useState(() => init(drill, account.user, inc, saved));
   const [collapsed, setCollapsedState] = useState(loadCollapsed);
   const [histOn, setHistOn] = useState(true);
 
@@ -142,9 +174,53 @@ export function useDrillGame({ drill, account, inc }) {
   const deferT = useRef(null);
   const answerRef = useRef(null);
 
+  // The round as it would be restored: item labels, and the counts shown on the resume prompt and the quiz menu
+  const snapshot = (st) => {
+    const keysOf = (set) => [...set].map((i) => items[i].key);
+    const { got, total } = stats(drill, st);
+    return {
+      v: 1,
+      redo: redo.current,
+      ...Object.fromEntries(SAVED.map((k) => [k, keysOf(st[k])])),
+      active: st.active,
+      got,
+      total,
+    };
+  };
+
+  // Every change of the round goes through here
   const apply = (ns) => {
     sRef.current = ns;
     setS(ns);
+  };
+  // Back the round up, for the few changes that are worth it. Nothing found yet (or finished): there is nothing to resume.
+  const autosave = (ns) => {
+    if (!account.acct || lockedRef.current) return;
+    const snap = ns.over ? null : snapshot(ns);
+    if (snap?.got) account.saveProgress(drill.key, snap);
+    else account.dropProgress(drill.key);
+  };
+  const unlock = () => {
+    lockedRef.current = false;
+    setLocked(false);
+    answerRef.current?.focus();
+  };
+  // Resume prompt: carry on from the snapshot (it is on screen already, but build it again from `saved` rather than trust the state), or
+  // discard it and play the blank round
+  const restore = () => {
+    redo.current = !!saved.redo;
+    const ns = init(drill, account.user, inc, saved);
+    syncCelebrated(ns);
+    unlock();
+    apply(ns);
+  };
+  const startAgain = () => {
+    account.dropProgress(drill.key);
+    redo.current = !!inc;
+    const ns = init(drill, account.user, inc, null);
+    syncCelebrated(ns);
+    unlock();
+    apply(ns);
   };
   const act = (st, i) =>
     !collapsedRef.current || st.over || items[i].section === st.active;
@@ -178,11 +254,13 @@ export function useDrillGame({ drill, account, inc }) {
   };
   useEffect(() => {
     syncCelebrated(sRef.current);
-    answerRef.current?.focus();
+    if (!lockedRef.current) answerRef.current?.focus();
+    if (fresh) account.dropProgress(drill.key);
     return () => {
       clearTimeout(deferT.current);
       clearTimeout(swT.current);
       latest.current.account.flush();
+      latest.current.account.flushProgress();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -244,7 +322,7 @@ export function useDrillGame({ drill, account, inc }) {
       const r = account.user.drills[drill.key];
       prevRec.current = r ? JSON.parse(JSON.stringify(r)) : null;
     }
-    const h = !redoRound;
+    const h = !redo.current;
     histOnRef.current = h;
     setHistOn(h);
     commit(ns, true, h);
@@ -318,7 +396,9 @@ export function useDrillGame({ drill, account, inc }) {
       const ns = { ...st, found };
       retrigger(inp, "ok");
       celebrate(ns);
-      apply(allSettled(drill, ns) ? finishRound(ns) : ns);
+      const next = allSettled(drill, ns) ? finishRound(ns) : ns;
+      apply(next);
+      autosave(next);
     } else {
       retrigger(inp, "dup");
       r.dup.forEach((i) => retrigger(document.getElementById("t" + i), "dup"));
@@ -356,13 +436,17 @@ export function useDrillGame({ drill, account, inc }) {
     if (st.drill) return endDrill();
     if (st.over) return;
     const n = nextSec(st);
-    if (!n) return apply(finishRound(st));
+    const save = (next) => {
+      apply(next);
+      autosave(next);
+    };
+    if (!n) return save(finishRound(st));
     const revealed = new Set(st.revealed);
     items.forEach(
       (it, i) => it.section === n.name && pending(st, i) && revealed.add(i),
     );
     const ns = { ...st, revealed };
-    apply(items.some((_, i) => pending(ns, i)) ? ns : finishRound(ns));
+    save(items.some((_, i) => pending(ns, i)) ? ns : finishRound(ns));
   };
 
   // Hide a section's missed tiles again so they can be retried. Local only: the saved record is not touched. Only endDrill stops it.
@@ -408,7 +492,9 @@ export function useDrillGame({ drill, account, inc }) {
     if (ns.drill && !ns.drilling.size) ns = endDrillState(ns);
     syncCelebrated(ns);
     commit(ns, false, histOnRef.current);
-    apply(!ns.over && allSettled(drill, ns) ? finishRound(ns) : ns);
+    const next = !ns.over && allSettled(drill, ns) ? finishRound(ns) : ns;
+    apply(next);
+    autosave(next);
   };
 
   const toggleIgnore = (i) => {
@@ -430,7 +516,9 @@ export function useDrillGame({ drill, account, inc }) {
     const ns = { ...st, ignored, revealed };
     syncCelebrated(ns);
     commit(ns, false, histOnRef.current);
-    apply(!ns.over && allSettled(drill, ns) ? finishRound(ns) : ns);
+    const next = !ns.over && allSettled(drill, ns) ? finishRound(ns) : ns;
+    apply(next);
+    autosave(next);
   };
 
   const toggleCredit = (i) => {
@@ -440,6 +528,7 @@ export function useDrillGame({ drill, account, inc }) {
     credited.has(i) ? credited.delete(i) : credited.add(i);
     const ns = { ...st, credited };
     apply(ns);
+    autosave(ns);
     if (ns.over) commit(ns, false, histOnRef.current);
   };
 
@@ -517,6 +606,9 @@ export function useDrillGame({ drill, account, inc }) {
     collapsed,
     histOn,
     answerRef,
+    locked,
+    restore,
+    startAgain,
     onInput,
     onKeyDown,
     revealSec,

@@ -11,6 +11,7 @@ import { Hono } from "hono";
 import { etag } from "hono/etag";
 import { checkRecord, recordToRows, rowsToRecord } from "./history.js";
 import { mountPlaylists } from "./playlists.js";
+import { mountProgress } from "./progress.js";
 import { mountQuizzes } from "./quizzes.js";
 import { mountSettings } from "./settings.js";
 
@@ -84,6 +85,7 @@ export function createApp({ getAuth, getStore, getDb, limitWrites }) {
   mountQuizzes(app, deps);
   mountPlaylists(app, deps);
   mountSettings(app, deps);
+  mountProgress(app, deps);
 
   app.all("/api/*", (c) => c.json({ error: "not found" }, 404));
 

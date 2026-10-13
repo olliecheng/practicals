@@ -16,10 +16,12 @@ import {
 } from "../lib/content";
 import { decodeLegacyDrill, drillPath, isQuizId } from "../lib/legacy";
 import { useDialog } from "../components/Dialog";
+import ResumePrompt from "../components/ResumePrompt";
 import PencilIcon from "../components/PencilIcon";
 import QuizEditor from "../components/QuizEditor";
 import { ICONS, ItemDialog, TileMenu } from "../components/TileMenu";
 import { applyToItem, removeItem, updateItem } from "../lib/editItem";
+import { fetchProgress, RESUME_AFTER } from "../lib/progress";
 import { useTitle } from "../lib/useTitle";
 import { useAccount } from "../state/AccountContext";
 import { useFilters } from "../state/FilterContext";
@@ -94,12 +96,13 @@ const groups = (drill, idx) =>
   }, []);
 
 // One round. Remounted (via key) for every restart, so each round starts from fresh state.
-function Game({ drill, inc, restart, quiz }) {
+// saved / prompt / fresh: the autosaved round of this quiz (see useDrillGame)
+function Game({ drill, inc, restart, quiz, saved, prompt, fresh }) {
   const account = useAccount();
   const filters = useFilters();
   const nav = useNavigate();
   const { alert, confirm } = useDialog();
-  const g = useDrillGame({ drill, account, inc });
+  const g = useDrillGame({ drill, account, inc, saved, prompt, fresh });
   const { s, stats } = g;
   // A drill temporarily forces the Collapse view onto the drilled section (the saved preference is untouched)
   const drilling = !!s.drill;
@@ -296,7 +299,7 @@ function Game({ drill, inc, restart, quiz }) {
                 <button
                   className={"primary" + (drilling ? " drill" : "")}
                   onClick={reveal}
-                  disabled={g.revealDisabled}
+                  disabled={g.revealDisabled || g.locked}
                 >
                   {g.revealLabel}
                 </button>
@@ -305,7 +308,7 @@ function Game({ drill, inc, restart, quiz }) {
                     className="redo bare"
                     type="button"
                     aria-pressed={drilling}
-                    disabled={drilling || !drillable}
+                    disabled={drilling || !drillable || g.locked}
                     title={
                       drilling
                         ? "Drilling this section"
@@ -323,7 +326,7 @@ function Game({ drill, inc, restart, quiz }) {
                   className="hintbtn"
                   aria-pressed={hintOn}
                   onClick={() => g.toggleHint(g.hintCode)}
-                  disabled={!hintable}
+                  disabled={!hintable || g.locked}
                   title="Show the categories for this section"
                 >
                   <span className="hintbox" aria-hidden="true" />
@@ -378,7 +381,7 @@ function Game({ drill, inc, restart, quiz }) {
             autoCorrect="off"
             spellCheck={false}
             enterKeyHint="go"
-            disabled={s.over && !drilling}
+            disabled={g.locked || (s.over && !drilling)}
             onInput={g.onInput}
             onKeyDown={g.onKeyDown}
           />
@@ -387,7 +390,21 @@ function Game({ drill, inc, restart, quiz }) {
           </div>
         </div>
       </div>
-      <div className={"panel tiles" + (drilling ? " drilling" : "")}>
+      <div
+        className={
+          "panel tiles" +
+          (drilling ? " drilling" : "") +
+          (g.locked ? " veiled" : "")
+        }
+      >
+        {g.locked && (
+          <ResumePrompt
+            got={saved.got}
+            total={saved.total}
+            onStartAgain={g.startAgain}
+            onResume={g.restore}
+          />
+        )}
         <div className="chead">
           <p className="counter">
             {stats.got} <span>of {stats.total} found</span>
@@ -630,24 +647,66 @@ function QuizDrill({ id, edit }) {
   }
   // location.key changes on every navigation, so Next / New start a fresh round even if the drill repeats
   return (
-    <Run
+    <Start
       key={location.key}
       drill={drill}
       quiz={st.data}
       inc={location.state?.inc}
+      fresh={!!location.state?.fresh || !!location.state?.inc}
     />
   );
 }
 
-// A round plus its restarts (Retry everything / Retry incorrect)
-function Run({ drill, quiz, inc }) {
+// Fetches the quiz's autosaved round, if it had one when the page was opened (decided once: the round's own first save must not
+// bring this screen back). fresh: the player chose to start over (or redo).
+// Otherwise a round saved within RESUME_AFTER carries straight on, and an older one waits behind the resume prompt.
+function Start({ drill, quiz, inc, fresh }) {
+  const { acct, progress, dropProgress } = useAccount();
+  const [had] = useState(() => !!acct && drill.key in progress);
+  const [saved, setSaved] = useState(had && !fresh ? undefined : null);
+  useEffect(() => {
+    if (saved !== undefined) return;
+    let live = true;
+    fetchProgress(drill.key)
+      .catch(() => null)
+      .then((d) => {
+        // A save with nothing found is not worth resuming (older saves can be like that)
+        if (d && !d.got) {
+          dropProgress(drill.key);
+          d = null;
+        }
+        if (live) setSaved(d);
+      });
+    return () => {
+      live = false;
+    };
+  }, [saved, drill.key, dropProgress]);
+  if (saved === undefined) return <p className="note">Loading…</p>;
+  return (
+    <Run
+      drill={drill}
+      quiz={quiz}
+      inc={inc}
+      saved={saved}
+      prompt={!!saved && Date.now() - saved.updated >= RESUME_AFTER}
+      fresh={had && fresh}
+    />
+  );
+}
+
+// A round plus its restarts (Retry everything / Retry incorrect). Only the first round starts from the autosave.
+function Run({ drill, quiz, inc, saved, prompt, fresh }) {
   const [run, setRun] = useState({ n: 0, inc });
+  const first = run.n === 0;
   return (
     <Game
       key={run.n}
       drill={drill}
       quiz={quiz}
       inc={run.inc}
+      saved={first ? saved : null}
+      prompt={first && prompt}
+      fresh={first && fresh}
       restart={(inc) => setRun((r) => ({ n: r.n + 1, inc }))}
     />
   );

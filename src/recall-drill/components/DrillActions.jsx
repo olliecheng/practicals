@@ -76,7 +76,7 @@ export default function DrillActions({ drill, sv, labels, onStart, star }) {
         <button
           className="subbtn ok"
           title="Start this quiz"
-          onClick={() => onStart(false)}
+          onClick={() => onStart(false, true)}
         >
           <PlayIcon />
           Start quiz
