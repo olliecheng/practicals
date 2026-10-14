@@ -1552,12 +1552,18 @@ button.star[aria-pressed="true"] {
   text-decoration: none;
   font-size: 0.85rem;
 }
+.mini-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
 .mini b {
   color: var(--teal);
   font-size: 0.95rem;
   font-weight: 400;
 }
-/* Card icon above the title: the JPEGs have a white background, which multiplies away on a light card;
+/* Card icon left of the text: the JPEGs have a white background, which multiplies away on a light card;
    on the dark theme it stays a small rounded tile. */
 .mini-icon {
   width: 72px;
@@ -1574,6 +1580,18 @@ button.star[aria-pressed="true"] {
   :root:not([data-theme="light"]) .mini-icon {
     mix-blend-mode: normal;
     border-radius: var(--r);
+  }
+}
+/* Phones: picture beside the text, centred in its own column */
+@media (max-width: 600px) {
+  .mini {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+  .mini-icon {
+    flex: none;
+    margin: -8px 0;
   }
 }
 .mini:hover {

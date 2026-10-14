@@ -1,4 +1,4 @@
-// Standalone minigames and case quizzes, separate from the drills (each is its own page, see vite.config.js); `icon` is an optional picture shown above the title
+// Standalone minigames and case quizzes, separate from the drills (each is its own page, see vite.config.js); `icon` is an optional picture shown to the left of the text
 const MINIS = [
   {
     href: "/dermatome-ninja.html",
@@ -46,8 +46,10 @@ export default function Minis() {
       {MINIS.map((m) => (
         <a key={m.href} className="mini" href={m.href}>
           {m.icon && <img className="mini-icon" src={m.icon} alt="" />}
-          <b>{m.title}</b>
-          <span>{m.blurb}</span>
+          <div className="mini-text">
+            <b>{m.title}</b>
+            <span>{m.blurb}</span>
+          </div>
         </a>
       ))}
     </div>
