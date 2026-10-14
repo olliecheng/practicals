@@ -197,27 +197,6 @@ header:has(.mp-logo) {
 .mp-check {
   stroke: var(--logo-check);
 }
-/* Fallback when the browser never runs the SMIL timeline: the animation is removed and this is the final frame. */
-.mp-logo svg[data-static] > g {
-  opacity: 1;
-}
-.mp-logo svg[data-static] .mp-pill,
-.mp-logo svg[data-static] .mp-caret {
-  display: none;
-}
-.mp-logo svg[data-static] .mp-word {
-  transform: translate(6px, 37px) scale(0.016, -0.016);
-}
-.mp-logo svg[data-static] .mp-word path {
-  fill-opacity: 1;
-}
-.mp-logo svg[data-static] g:has(> .mp-check) {
-  transform: translate(149.63px, 8.39px) scale(1.4661);
-  opacity: 1;
-}
-.mp-logo svg[data-static] .mp-check {
-  stroke-dashoffset: 0;
-}
 .stats {
   display: flex;
   gap: 16px;
