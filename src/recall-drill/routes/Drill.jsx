@@ -651,7 +651,7 @@ function QuizDrill({ id, edit }) {
       drill={drill}
       quiz={st.data}
       inc={location.state?.inc}
-      fresh={!!location.state?.fresh || !!location.state?.inc}
+      fresh={!!location.state?.fresh}
     />
   );
 }
@@ -663,6 +663,16 @@ function Start({ drill, quiz, inc, fresh }) {
   const { acct, progress, dropProgress } = useAccount();
   const [had] = useState(() => !!acct && drill.key in progress);
   const [saved, setSaved] = useState(had && !fresh ? undefined : null);
+  // Route state is kept in history.state, so a reload or Back would replay "start over" and delete the round played since.
+  // Clear the flag from the history entry once it is acted on (not with a router navigation: a new location.key remounts this page).
+  useEffect(() => {
+    const st = window.history.state;
+    if (fresh && st?.usr?.fresh)
+      window.history.replaceState(
+        { ...st, usr: { ...st.usr, fresh: false } },
+        "",
+      );
+  }, [fresh]);
   useEffect(() => {
     if (saved !== undefined) return;
     let live = true;

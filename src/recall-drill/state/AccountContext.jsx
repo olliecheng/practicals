@@ -175,12 +175,17 @@ export function AccountProvider({ children }) {
 
   useEffect(() => {
     const f = () => {
-      if (!document.hidden) return;
       flush();
       flushProgress(true);
     };
-    document.addEventListener("visibilitychange", f);
-    return () => document.removeEventListener("visibilitychange", f);
+    const hidden = () => document.hidden && f();
+    document.addEventListener("visibilitychange", hidden);
+    // Safari does not reliably fire visibilitychange when a page is reloaded or closed
+    window.addEventListener("pagehide", f);
+    return () => {
+      document.removeEventListener("visibilitychange", hidden);
+      window.removeEventListener("pagehide", f);
+    };
   }, [flush, flushProgress]);
 
   const value = useMemo(

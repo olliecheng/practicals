@@ -57,17 +57,17 @@ export function useRowMenu() {
   return { ref, open, side, place, rowProps };
 }
 
-// Start a drill, optionally redoing the incorrect ones from the saved record. Starting over discards the quiz's autosaved round;
-// keep (the Start quiz entry) leaves it, so the drill carries on from it or asks. The playlist being browsed goes with it,
+// Start a drill, optionally redoing the incorrect ones from the saved record. Redoing discards the quiz's autosaved round (fresh);
+// a plain start leaves it, so the drill carries on from it or asks. The playlist being browsed goes with it,
 // so the drill's Back / New / Next stay in that playlist.
 export const useStart = (drill) => {
   const nav = useNavigate();
   const { playlistId } = useFilters();
-  return (inc, keep) =>
+  return (inc) =>
     nav(drillPath(drill.key), {
       state: {
         inc: inc ? true : undefined,
-        fresh: !keep,
+        fresh: inc ? true : undefined,
         playlist: playlistId || undefined,
       },
     });
