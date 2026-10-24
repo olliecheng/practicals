@@ -97,7 +97,7 @@ const groups = (drill, idx) =>
 
 // One round. Remounted (via key) for every restart, so each round starts from fresh state.
 // saved / prompt / fresh: the autosaved round of this quiz (see useDrillGame)
-function Game({ drill, inc, restart, quiz, saved, prompt, fresh }) {
+function Game({ drill, inc, restart, quiz, quizData, saved, prompt, fresh }) {
   const account = useAccount();
   const filters = useFilters();
   const nav = useNavigate();
@@ -153,7 +153,6 @@ function Game({ drill, inc, restart, quiz, saved, prompt, fresh }) {
   // Right-click menu on a revealed tile, and the modal (teach / edit) it opens
   const [tileMenu, setTileMenu] = useState(null); // {i, x, y}
   const [dialog, setDialog] = useState(null); // {mode, i}
-  const quizData = useRef(quiz.data);
   const closeMenu = useCallback(() => setTileMenu(null), []);
   const closeDialog = useCallback(() => setDialog(null), []);
   const saveItem = async (i, patch) => {
@@ -581,8 +580,11 @@ const NotFound = ({ children = "Drill not found" }) => (
 // edit: /q/<id>/edit, the quiz editor instead of the drill
 export default function Drill({ edit }) {
   const { id } = useParams();
+  const location = useLocation();
+  // /q/<id> and /q/<id>/edit are separate routes of the same component, so the router would keep one QuizDrill (and the quiz it
+  // loaded) across them. Keying on location.key remounts it on every navigation, so each play and each edit reads the quiz afresh.
   return isQuizId(id) ? (
-    <QuizDrill id={id} edit={edit} />
+    <QuizDrill key={location.key} id={id} edit={edit} />
   ) : (
     <LegacyDrill id={id} />
   );
@@ -636,11 +638,8 @@ function QuizDrill({ id, edit }) {
         quiz={st.data}
         // A new quiz opens on the Agentic tab
         initialTab={location.state?.tab}
-        // saveQuiz dropped the cached reads, but this page still holds the old quiz: read it again so the drill shows the edit
-        onDone={() => {
-          st.retry();
-          back();
-        }}
+        // Going back remounts this page (see Drill), which reads the saved quiz again
+        onDone={back}
         onCancel={back}
       />
     );
@@ -698,11 +697,15 @@ function Start({ drill, quiz, inc, fresh }) {
 function Run({ drill, quiz, inc, saved, prompt, fresh }) {
   const [run, setRun] = useState({ n: 0, inc });
   const first = run.n === 0;
+  // The stored quiz body as of the last tile Edit / Delete; it outlives the rounds (Game is remounted for each), so a restart
+  // keeps editing the latest saved version instead of the one loaded when the page opened
+  const quizData = useRef(quiz.data);
   return (
     <Game
       key={run.n}
       drill={drill}
       quiz={quiz}
+      quizData={quizData}
       inc={run.inc}
       saved={first ? saved : null}
       prompt={first && prompt}

@@ -28,17 +28,25 @@ export const bust = () => {
   done.clear();
 };
 
+const forget = (path) => {
+  pending.delete(path);
+  done.delete(path);
+};
+
 // {status: "loading" | "ok" | "error", data, error}; path null = nothing to load
-export function useLoad(path) {
+// fresh: ignore what is remembered and read the path from the server again (each time it is loaded or retried)
+export function useLoad(path, { fresh } = {}) {
   const [state, setState] = useState(() =>
-    path && done.has(path)
+    path && !fresh && done.has(path)
       ? { status: "ok", data: done.get(path) }
       : { status: "loading" },
   );
   const [attempt, setAttempt] = useState(0);
   useEffect(() => {
     if (!path) return;
-    if (done.has(path)) return setState({ status: "ok", data: done.get(path) });
+    if (fresh) forget(path);
+    else if (done.has(path))
+      return setState({ status: "ok", data: done.get(path) });
     let live = true;
     setState({ status: "loading" });
     load(path).then(
@@ -48,6 +56,7 @@ export function useLoad(path) {
     return () => {
       live = false;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [path, attempt]);
   return { ...state, retry: () => setAttempt((n) => n + 1) };
 }
@@ -187,7 +196,10 @@ export const saveSettings = async (patch) => {
   return r;
 };
 
-export const useQuiz = (id) => useLoad(id ? `/api/quizzes/${id}` : null);
+// Always read from the server, never from the session's remembered reads: a quiz is edited while it is played (tile Edit / Delete,
+// the editor), and the screen that plays or edits it must start from the stored version
+export const useQuiz = (id) =>
+  useLoad(id ? `/api/quizzes/${id}` : null, { fresh: true });
 
 // Full quizzes for a set of ids (history rows), fetched in chunks of 100. Deleted quizzes are not returned.
 // Resolves to a Map id -> quiz.
