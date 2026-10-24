@@ -423,6 +423,16 @@ export function useDrillGame({ drill, account, inc, saved, prompt, fresh }) {
     evaluate(false);
   };
   const onKeyDown = (e) => {
+    if (e.key === "/" || e.key === "?") {
+      e.preventDefault();
+      if (
+        hintCode &&
+        !locked &&
+        items.some((it) => it.section === hintCode && it.cat)
+      )
+        toggleHint(hintCode);
+      return;
+    }
     if (e.key === "Enter") {
       e.preventDefault();
       swallowing.current = false;
