@@ -4,7 +4,7 @@ export default function MiniPage({ title, blurb, children }) {
     <div className="wrap qz">
       <header>
         <h1>{title}</h1>
-        <a className="link" href="/recall-drill/">
+        <a className="link" href="/">
           ← Minis
         </a>
       </header>

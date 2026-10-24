@@ -1,0 +1,8 @@
+{
+  // Redirects the old host to medpunk.oyc.id.au (see index.js). Deploy with: cd redirect-worker && npx wrangler deploy
+  "name": "practicals-redirect",
+  "main": "index.js",
+  "compatibility_date": "2025-10-01",
+  // The old host must be detached from the `practicals` Worker first: a hostname belongs to one Worker
+  "routes": [{ "pattern": "practicals.oyc.id.au", "custom_domain": true }],
+}

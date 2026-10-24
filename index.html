@@ -1,15 +1,32 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="refresh" content="0; url=/recall-drill/" />
-    <title>MedPunk</title>
-    <script>
-      location.replace("/recall-drill/");
-    </script>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="theme-color"
+      content="#e6edeb"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0f1d1f"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="manifest" href="/medpunk.webmanifest" />
+    <link rel="apple-touch-icon" href="/medpunk-icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="MedPunk" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <title>MedPunk: medical recall</title>
   </head>
   <body>
-    <a href="/recall-drill/">MedPunk</a>
+    <div id="root"></div>
+    <script type="module" src="/src/recall-drill/main.jsx"></script>
   </body>
 </html>

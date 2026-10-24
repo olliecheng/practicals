@@ -1,39 +1,39 @@
 // Standalone minigames and case quizzes, separate from the drills (each is its own page, see vite.config.js); `icon` is an optional picture shown to the left of the text
 const MINIS = [
   {
-    href: "/dermatome-ninja.html",
+    href: "/mini/dermatome-ninja",
     icon: "/dermatome.jpg",
     title: "Dermatome Ninja",
     blurb: "Learn the dermatomes: locate a region or name a point.",
   },
   {
-    href: "/dexamethasone.html",
+    href: "/mini/dexamethasone",
     icon: "/cushing.jpg",
     title: "Dexamethasone Suppression",
     blurb:
       "Cushing's syndrome diagnosis using low and high dose dexamethasone suppression tests.",
   },
   {
-    href: "/parathyroid.html",
+    href: "/mini/parathyroid",
     icon: "/parathyroid.jpg",
     title: "Parathyroid Function",
     blurb:
       "Interpret calcium, PTH and phosphate to diagnose parathyroid disorders.",
   },
   {
-    href: "/hepatitis-b.html",
+    href: "/mini/hepatitis-b",
     icon: "/hep_b.jpg",
     title: "Hepatitis B Serology",
     blurb: "Interpret HBsAg, anti-HBc and anti-HBs patterns.",
   },
   {
-    href: "/liver-function.html",
+    href: "/mini/liver-function",
     icon: "/liver.jpg",
     title: "Liver Function Tests",
     blurb: "Recognise hepatocellular, cholestatic and other LFT patterns.",
   },
   {
-    href: "/bacteria.html",
+    href: "/mini/bacteria",
     icon: "/bacteria.jpg",
     title: "Bacterial Identification",
     blurb: "Identify bacterial species from lab tests.",

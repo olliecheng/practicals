@@ -14,9 +14,7 @@ for (const type of ["gesturestart", "gesturechange", "gestureend"]) {
 }
 
 // A data router, because useBlocker (the unsaved-changes prompt) needs one; App's <Routes> match under the catch-all route
-const router = createBrowserRouter([{ path: "*", element: <App /> }], {
-  basename: "/recall-drill",
-});
+const router = createBrowserRouter([{ path: "*", element: <App /> }]);
 
 createRoot(document.getElementById("root")).render(
   <RouterProvider router={router} />,

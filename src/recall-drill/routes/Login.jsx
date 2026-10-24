@@ -17,9 +17,9 @@ export default function Login() {
     setSignedInHint(true); // so the drill route waits for the saved record after the redirect back
     const { error } = await authClient.signIn.social({
       provider: "google",
-      callbackURL: "/recall-drill/",
-      newUserCallbackURL: "/recall-drill/settings",
-      errorCallbackURL: "/recall-drill/login",
+      callbackURL: "/",
+      newUserCallbackURL: "/settings",
+      errorCallbackURL: "/login",
     });
     if (error) {
       setSignedInHint(false);

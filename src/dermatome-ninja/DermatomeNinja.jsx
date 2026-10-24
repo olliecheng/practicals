@@ -271,7 +271,7 @@ export default function DermatomeNinja() {
       <main className="dn-side">
         <header>
           <h1>Dermatome Ninja</h1>
-          <a className="link" href="/recall-drill/">
+          <a className="link" href="/">
             ← Minis
           </a>
         </header>

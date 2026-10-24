@@ -14,16 +14,16 @@ export default defineConfig({
       build: {
         rollupOptions: {
           input: {
+            // The Recall Drill SPA shell; Cloudflare serves it for every unknown client route (assets.not_found_handling)
             main: resolve(__dirname, "index.html"),
-            dexamethasone: resolve(__dirname, "dexamethasone.html"),
-            parathyroid: resolve(__dirname, "parathyroid.html"),
-            hepatitisB: resolve(__dirname, "hepatitis-b.html"),
-            lft: resolve(__dirname, "liver-function.html"),
-            bacteria: resolve(__dirname, "bacteria.html"),
-            dermatomeNinja: resolve(__dirname, "dermatome-ninja.html"),
+            // The minis are served at /mini/<name>
+            dexamethasone: resolve(__dirname, "mini/dexamethasone.html"),
+            parathyroid: resolve(__dirname, "mini/parathyroid.html"),
+            hepatitisB: resolve(__dirname, "mini/hepatitis-b.html"),
+            lft: resolve(__dirname, "mini/liver-function.html"),
+            bacteria: resolve(__dirname, "mini/bacteria.html"),
+            dermatomeNinja: resolve(__dirname, "mini/dermatome-ninja.html"),
             privacy: resolve(__dirname, "privacy.html"),
-            // SPA shell for /recall-drill/*; the Worker serves it for every client route
-            recallDrill: resolve(__dirname, "recall-drill/index.html"),
           },
         },
       },

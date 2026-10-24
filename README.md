@@ -1,6 +1,6 @@
 <center>
 <h1>Practical test interpretation</h1>
-<h3>https://practicals.oyc.id.au</h3>
+<h3>https://medpunk.oyc.id.au</h3>
 
 <img src="public/site_screenshot.png" />
 
