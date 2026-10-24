@@ -292,6 +292,14 @@ button.chip[aria-pressed="true"] {
   border-radius: var(--r);
   padding: 20px;
 }
+/* The legal pages (components/LegalPage.jsx): a few plain paragraphs */
+.legal p {
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+}
+.legal p:last-child {
+  margin-bottom: 0;
+}
 .home {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(240px, 340px);

@@ -24,6 +24,7 @@ export default defineConfig({
             bacteria: resolve(__dirname, "mini/bacteria.html"),
             dermatomeNinja: resolve(__dirname, "mini/dermatome-ninja.html"),
             privacy: resolve(__dirname, "privacy.html"),
+            tos: resolve(__dirname, "tos.html"),
           },
         },
       },

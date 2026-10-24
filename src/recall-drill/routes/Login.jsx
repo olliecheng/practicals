@@ -63,6 +63,10 @@ export default function Login() {
         <a className="link" href="/privacy">
           Privacy
         </a>
+        {" · "}
+        <a className="link" href="/tos">
+          Terms
+        </a>
       </p>
     </div>
   );

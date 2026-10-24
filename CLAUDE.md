@@ -6,7 +6,7 @@ The sitemap looks like this:
 
 - /: the Recall Drill SPA (`index.html`, client routes /p/<id>, /q/<id>, /login, /settings; the site lives at https://medpunk.oyc.id.au). The old /recall-drill/* paths 301 to the same path at the root (`worker/index.js`)
 - Minis (listed in `src/recall-drill/components/Minis.jsx`, each a standalone page that imports `recall-drill.css` and `src/quiz/quiz.css`): all served under /mini/ (files in `mini/<name>.html`, clean URLs): the case quizzes /mini/dexamethasone, /mini/parathyroid, /mini/hepatitis-b, /mini/liver-function and /mini/bacteria (case data is generated inline in `src/<name>.jsx`; they share `src/components/QuizEngine.jsx` and `MiniPage.jsx`)
-- /privacy: privacy policy (linked from the Google sign-in consent screen)
+- /privacy and /tos: the privacy policy and terms of service (a few paragraphs each, `privacy.html`/`tos.html`, sharing `src/components/LegalPage.jsx`; linked from the Google sign-in consent screen and the login page)
 - /mini/dermatome-ninja: Dermatome Ninja minigame (listed under Minis on the home page) with Locate, Name and Learn modes; data in src/dermatome-ninja/dermatomes.json
 
 The style should be minimal, with a beige background colour, and modern theme.
