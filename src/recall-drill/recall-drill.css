@@ -2312,6 +2312,9 @@ button.iconbtn {
 }
 
 /* The editor's page heading, above the Manual / Agentic tabs */
+.qe-back {
+  margin-bottom: 4px;
+}
 .qe-pagetitle {
   margin: 0 0 8px 2px;
   font-family: var(--font-head);

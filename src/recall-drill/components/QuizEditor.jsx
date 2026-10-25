@@ -602,6 +602,15 @@ export default function QuizEditor({ id, quiz, initialTab, onDone, onCancel }) {
         onKeyDown={noEnterSubmit}
         noValidate
       >
+        <div className="qe-back">
+          <button
+            type="button"
+            className="subbtn"
+            onClick={() => guard.leave(onCancel)}
+          >
+            ← Back to quiz
+          </button>
+        </div>
         <h2 className="qe-pagetitle qe-namehead">
           <span className="qe-pagesub">Edit quiz:</span>
           {/* The wrapper's ::after repeats the text invisibly, so the input is as wide as the name */}
