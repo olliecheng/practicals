@@ -260,6 +260,14 @@ function Game({ drill, inc, restart, quiz, quizData, saved, prompt, fresh }) {
     <section
       id="game"
       className={"play" + (s.over && !drilling ? " over" : "")}
+      // Tapping a button (Hint, Collapse / Expand, ...) must not blur the answer box, or the mobile keyboard closes
+      onMouseDown={(e) => {
+        if (
+          document.activeElement === g.answerRef.current &&
+          e.target.closest("button")
+        )
+          e.preventDefault();
+      }}
     >
       <div className="side">
         <div className="panel">
