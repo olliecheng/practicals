@@ -32,8 +32,9 @@ import {
   useDrillGame,
 } from "../state/useDrillGame";
 
-// With Hint on, a tile that says to avoid or stop something shows that word on its face, shaded red
-const WARN = /^(avoid|stop|cease|discontinue|withhold)\b/i;
+// With Hint on, a tile that says to avoid or stop something (anywhere in its label) shows that word on its face in red
+const WARN =
+  /(?<![\w-])(avoid|stop|cease|exclude|discontinue|withhold)(?![\w-])/i;
 
 function Tile({ i, n, label, s, complete, hint, onCredit, onIgnore, onMenu }) {
   const warn = hint && label.match(WARN);
