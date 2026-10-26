@@ -2,6 +2,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import { AccountProvider } from "./state/AccountContext";
 import { FilterProvider } from "./state/FilterContext";
 import { DialogProvider } from "./components/Dialog";
+import { AccessDeniedListener } from "./components/RequireEditor";
 import Layout from "./components/Layout";
 import Home from "./routes/Home";
 import Playlist from "./routes/Playlist";
@@ -25,6 +26,7 @@ export default function App() {
     <AccountProvider>
       <FilterProvider>
         <DialogProvider>
+          <AccessDeniedListener />
           <Routes>
             <Route element={<Layout />}>
               <Route index element={<Home />} />

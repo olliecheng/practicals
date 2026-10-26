@@ -45,7 +45,7 @@ const TrashIcon = () => (
 // undefined), otherwise Start from scratch / Redo incorrect / clear history; then Edit for signed-in users. Clearing keeps
 // ignored items and the star. `star` adds Star / Unstar; They are .subbtn buttons (icon and small label), see DESIGN.md.
 export default function DrillActions({ drill, sv, labels, onStart, star }) {
-  const { mutate, acct, user, toggleStar } = useAccount();
+  const { mutate, acct, user, toggleStar, canEdit } = useAccount();
   const nav = useNavigate();
   const { confirm } = useDialog();
   // Star / Unstar (only where `star` is set: the list popover)
@@ -60,7 +60,7 @@ export default function DrillActions({ drill, sv, labels, onStart, star }) {
       {starred ? "Unstar" : "Star"}
     </button>
   );
-  const edit = acct && (
+  const edit = canEdit && (
     <button
       className="subbtn"
       title="Edit this quiz"

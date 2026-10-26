@@ -4,8 +4,8 @@
 //   getDb(c)    -> the D1 database, for quizzes and playlists (quizzes.js, playlists.js; they use SQLite JSON functions)
 //   limitWrites(c, key) -> Promise<boolean>, optional: false means the caller is writing too fast (429)
 // /api/auth/* is Better Auth (Google sign-in, sessions). GET /api/history returns the signed-in user's record
-// ({v:1, stars, drills}); PUT replaces it. /api/quizzes and /api/playlists are readable by anyone and writable by
-// their owner. /api/settings holds the global settings (readable by anyone, writable by any signed-in user). Everything else
+// ({v:1, stars, drills}); PUT replaces it. /api/quizzes and /api/playlists are readable by anyone and writable only by
+// the approved editors (permissions.js). /api/settings holds the global settings (readable by anyone, writable only by editors). Everything else
 // under /api is 404. The user is always the session's, never a client claim.
 import { Hono } from "hono";
 import { etag } from "hono/etag";
@@ -13,6 +13,7 @@ import { checkRecord, recordToRows, rowsToRecord } from "./history.js";
 import { mountPlaylists } from "./playlists.js";
 import { mountProgress } from "./progress.js";
 import { mountQuizzes } from "./quizzes.js";
+import { canEdit } from "./permissions.js";
 import { mountSettings } from "./settings.js";
 
 const MAX = 256 * 1024;
@@ -60,6 +61,15 @@ export function createApp({ getAuth, getStore, getDb, limitWrites }) {
     await next();
   };
 
+  // Content edits: the same checks as `auth`, then only approved editors (permissions.js) get through. Personal data (history, progress, ignore, stars) stays on plain `auth`.
+  const editor = async (c, next) => {
+    const denied = await auth(c, async () => {});
+    if (denied) return denied;
+    if (!canEdit((await getSession(c)).user))
+      return c.json({ error: "editor_only" }, 403);
+    await next();
+  };
+
   app.get("/api/history", auth, async (c) =>
     c.json(rowsToRecord(await getStore(c).getHistory(c.get("userId")))),
   );
@@ -81,7 +91,7 @@ export function createApp({ getAuth, getStore, getDb, limitWrites }) {
     return c.json({ ok: true });
   });
 
-  const deps = { getDb, getSession, auth, limitWrites };
+  const deps = { getDb, getSession, auth, editor, limitWrites };
   mountQuizzes(app, deps);
   mountPlaylists(app, deps);
   mountSettings(app, deps);

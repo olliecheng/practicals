@@ -16,6 +16,7 @@ import {
 } from "../lib/content";
 import { decodeLegacyDrill, drillPath, isQuizId } from "../lib/legacy";
 import { useDialog } from "../components/Dialog";
+import RequireEditor from "../components/RequireEditor";
 import ResumePrompt from "../components/ResumePrompt";
 import PencilIcon from "../components/PencilIcon";
 import QuizEditor from "../components/QuizEditor";
@@ -157,7 +158,7 @@ function Game({ drill, inc, restart, quiz, quizData, saved, prompt, fresh }) {
     }
     g.setCollapsed(!collapsed);
   };
-  const { acct, user } = account;
+  const { acct, user, canEdit } = account;
   // Right-click menu on a revealed tile, and the modal (teach / edit) it opens
   const [tileMenu, setTileMenu] = useState(null); // {i, x, y}
   const [dialog, setDialog] = useState(null); // {mode, i}
@@ -212,7 +213,8 @@ function Game({ drill, inc, restart, quiz, quizData, saved, prompt, fresh }) {
       label: s.ignored.has(i) ? "Restore" : "Ignore",
       onClick: () => g.toggleIgnore(i),
     });
-    if (acct) {
+    // Ignore and the credit toggles are personal; changing the quiz is for approved editors only
+    if (canEdit) {
       out.push({
         icon: ICONS.teach,
         label: "Teach new keyword",
@@ -294,15 +296,17 @@ function Game({ drill, inc, restart, quiz, quizData, saved, prompt, fresh }) {
                 >
                   ★ {starred ? "Starred" : "Star"}
                 </button>
-                <Link
-                  className="subbtn"
-                  to={`${drillPath(drill.key)}/edit`}
-                  title="Edit quiz"
-                  aria-label="Edit quiz"
-                >
-                  <PencilIcon />
-                  Edit
-                </Link>
+                {canEdit && (
+                  <Link
+                    className="subbtn"
+                    to={`${drillPath(drill.key)}/edit`}
+                    title="Edit quiz"
+                    aria-label="Edit quiz"
+                  >
+                    <PencilIcon />
+                    Edit
+                  </Link>
+                )}
               </div>
             )}
           </div>
@@ -554,12 +558,14 @@ function Game({ drill, inc, restart, quiz, quizData, saved, prompt, fresh }) {
         />
       )}
       {dialog && (
-        <ItemDialog
-          mode={dialog.mode}
-          item={drill.items[dialog.i]}
-          onSave={(patch) => saveItem(dialog.i, patch)}
-          onClose={closeDialog}
-        />
+        <RequireEditor onDenied={closeDialog}>
+          <ItemDialog
+            mode={dialog.mode}
+            item={drill.items[dialog.i]}
+            onSave={(patch) => saveItem(dialog.i, patch)}
+            onClose={closeDialog}
+          />
+        </RequireEditor>
       )}
     </section>
   );
@@ -625,7 +631,7 @@ function LegacyDrill({ id }) {
 function QuizDrill({ id, edit }) {
   const location = useLocation();
   const nav = useNavigate();
-  const { ready, acct } = useAccount();
+  const { ready } = useAccount();
   const st = useQuiz(id);
   const drill = useMemo(
     () => (st.status === "ok" ? drillFromQuiz(st.data) : null),
@@ -646,19 +652,20 @@ function QuizDrill({ id, edit }) {
   if (drill.deleted)
     return <NotFound>This quiz was deleted by its owner.</NotFound>;
   if (edit) {
-    // Only signed-in users edit; guests are sent to the drill
-    if (!acct) return <Navigate to={drillPath(id)} replace />;
+    // Only approved editors edit; anyone else gets the Access denied dialog and is sent back to the drill
     const back = () => nav(drillPath(id), { replace: true });
     return (
-      <QuizEditor
-        id={id}
-        quiz={st.data}
-        // A new quiz opens on the Agentic tab
-        initialTab={location.state?.tab}
-        // Going back remounts this page (see Drill), which reads the saved quiz again
-        onDone={back}
-        onCancel={back}
-      />
+      <RequireEditor onDenied={back}>
+        <QuizEditor
+          id={id}
+          quiz={st.data}
+          // A new quiz opens on the Agentic tab
+          initialTab={location.state?.tab}
+          // Going back remounts this page (see Drill), which reads the saved quiz again
+          onDone={back}
+          onCancel={back}
+        />
+      </RequireEditor>
     );
   }
   // location.key changes on every navigation, so Next / New start a fresh round even if the drill repeats

@@ -28,7 +28,7 @@ const LogoutIcon = () => (
 // Each panel is styled like an old macOS preferences pane: a title strip, then rows with the heading in the left column and
 // its content in the right.
 export default function Settings() {
-  const { acct } = useAccount();
+  const { acct, canEdit } = useAccount();
   if (!acct)
     return (
       <div className="panel login">
@@ -43,7 +43,8 @@ export default function Settings() {
   return (
     <>
       <ProfilePanel />
-      <SettingsPanel />
+      {/* The global settings change what every user sees, so only approved editors get them (the server enforces it too) */}
+      {canEdit && <SettingsPanel />}
     </>
   );
 }

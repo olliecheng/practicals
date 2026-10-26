@@ -12,6 +12,7 @@ import NewQuizDialog from "../components/NewQuizDialog";
 import PencilIcon from "../components/PencilIcon";
 import PlaylistEditor from "../components/PlaylistEditor";
 import PlusIcon from "../components/PlusIcon";
+import RequireEditor from "../components/RequireEditor";
 
 const NotFound = ({ children = "Playlist not found" }) => (
   <div className="panel">
@@ -34,7 +35,7 @@ export default function Playlist() {
 
 function PlaylistView({ id }) {
   const st = usePlaylist(id);
-  const { acct, user } = useAccount();
+  const { acct, user, canEdit } = useAccount();
   const f = useFilters();
   const nav = useNavigate();
   const [editing, setEditing] = useState(false);
@@ -92,15 +93,17 @@ function PlaylistView({ id }) {
   if (editing)
     return (
       <section className="home">
-        <PlaylistEditor
-          id={id}
-          pl={pl}
-          onCancel={() => setEditing(false)}
-          onDone={() => {
-            setEditing(false);
-            st.retry();
-          }}
-        />
+        <RequireEditor onDenied={() => setEditing(false)}>
+          <PlaylistEditor
+            id={id}
+            pl={pl}
+            onCancel={() => setEditing(false)}
+            onDone={() => {
+              setEditing(false);
+              st.retry();
+            }}
+          />
+        </RequireEditor>
       </section>
     );
 
@@ -122,7 +125,7 @@ function PlaylistView({ id }) {
               ★ Starred
             </button>
           )}
-          {acct && (
+          {canEdit && (
             <div className="pl-actions">
               <button
                 className="subbtn pl-edit"
@@ -164,17 +167,19 @@ function PlaylistView({ id }) {
       </div>
       {acct && <History ids={new Set(ids)} />}
       {creating && (
-        <NewQuizDialog
-          playlistId={id}
-          pl={pl}
-          onClose={() => setCreating(false)}
-          // The new quiz opens in the editor on the Agentic tab, with the template's sections
-          onCreated={(quizId) =>
-            nav(`${drillPath(quizId)}/edit`, {
-              state: { tab: "agentic", playlist: id },
-            })
-          }
-        />
+        <RequireEditor onDenied={() => setCreating(false)}>
+          <NewQuizDialog
+            playlistId={id}
+            pl={pl}
+            onClose={() => setCreating(false)}
+            // The new quiz opens in the editor on the Agentic tab, with the template's sections
+            onCreated={(quizId) =>
+              nav(`${drillPath(quizId)}/edit`, {
+                state: { tab: "agentic", playlist: id },
+              })
+            }
+          />
+        </RequireEditor>
       )}
     </section>
   );

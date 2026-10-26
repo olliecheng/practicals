@@ -192,6 +192,9 @@ export function AccountProvider({ children }) {
     () => ({
       acct,
       profile: acct ? session.user : null,
+      // May this user change shared content (quizzes, playlists, settings)? Decided by the server (worker/permissions.js) and sent with the session; the server re-checks every write.
+      canEdit: session?.user?.canEdit === true,
+      sessionPending: isPending,
       ready,
       user: userRef.current,
       progress: progressRef.current,
@@ -208,6 +211,7 @@ export function AccountProvider({ children }) {
     [
       acct,
       session,
+      isPending,
       ready,
       version,
       saveMsg,
