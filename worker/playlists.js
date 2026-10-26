@@ -1,5 +1,5 @@
 // Playlist routes. A playlist's `data` is {title, description, sections:[{title, quiz_ids:[quizId]}]}; quizzes are referenced by id,
-// so an owner's edit to a quiz shows in every playlist that uses it. Anyone can read; only the owner changes a playlist.
+// so an owner's edit to a quiz shows in every playlist that uses it. Anyone can read; only approved editors (permissions.js) change a playlist.
 import { v7 } from "uuid";
 import {
   OWNER_COLS,
@@ -28,7 +28,7 @@ const validQuizSettings = (qs) => {
   );
 };
 
-export function mountPlaylists(app, { getDb, getSession, auth }) {
+export function mountPlaylists(app, { getDb, getSession, editor }) {
   const PLAYLIST = `SELECT p.id, p.owner_id, p.forked_from, p.data, ${OWNER_COLS} FROM playlists p LEFT JOIN users u ON u.id = p.owner_id`;
   const getPlaylist = async (db, id) => {
     const r = await db
@@ -126,7 +126,7 @@ export function mountPlaylists(app, { getDb, getSession, auth }) {
   });
 
   // The body is the playlist data
-  app.post("/api/playlists", auth, async (c) => {
+  app.post("/api/playlists", editor, async (c) => {
     const body = await readObject(c);
     if (!body) return c.json({ error: "bad json" }, 400);
     const db = getDb(c);
@@ -138,12 +138,12 @@ export function mountPlaylists(app, { getDb, getSession, auth }) {
     return c.json({ id, data: body }, 201);
   });
 
-  app.put("/api/playlists/:id", auth, async (c) => {
+  app.put("/api/playlists/:id", editor, async (c) => {
     const id = c.req.param("id");
     if (!isId(id)) return notFound(c);
     const body = await readObject(c);
     if (!body) return c.json({ error: "bad json" }, 400);
-    // Any signed-in user may edit a playlist, so check the shape the editor relies on
+    // Editors may replace any playlist, so check the shape the editor relies on
     const str = (v) => typeof v === "string";
     if (
       !str(body.title) ||
@@ -167,7 +167,7 @@ export function mountPlaylists(app, { getDb, getSession, auth }) {
   });
 
   // Hard delete; quizzes are untouched
-  app.delete("/api/playlists/:id", auth, async (c) => {
+  app.delete("/api/playlists/:id", editor, async (c) => {
     const id = c.req.param("id");
     if (!isId(id)) return notFound(c);
     const r = await getDb(c)
@@ -178,7 +178,7 @@ export function mountPlaylists(app, { getDb, getSession, auth }) {
   });
 
   // Same sections and quiz ids, owned by the caller; the quizzes themselves are not copied
-  app.post("/api/playlists/:id/copy", auth, async (c) => {
+  app.post("/api/playlists/:id/copy", editor, async (c) => {
     const id = c.req.param("id");
     if (!isId(id)) return notFound(c);
     const db = getDb(c);
@@ -196,7 +196,7 @@ export function mountPlaylists(app, { getDb, getSession, auth }) {
 
   // Fork a quiz and swap the fork into the caller's own playlist at the same place. One batch: the copy is only inserted
   // if the caller owns the playlist, and the playlist is only updated if the copy exists, so neither half can happen alone.
-  app.post("/api/playlists/:pid/quizzes/:qid/fork", auth, async (c) => {
+  app.post("/api/playlists/:pid/quizzes/:qid/fork", editor, async (c) => {
     const { pid, qid } = c.req.param();
     if (!isId(pid) || !isId(qid)) return notFound(c);
     const db = getDb(c);

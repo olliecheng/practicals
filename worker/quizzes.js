@@ -1,5 +1,5 @@
 // Quiz routes. A quiz's `data` is the drill (name, items: the sections); `deleted` is a column.
-// Anyone can read; any signed-in user can edit, soft-delete or restore a quiz (0 changes means 404).
+// Anyone can read; only approved editors (permissions.js) can create, edit, soft-delete, restore or fork a quiz (0 changes means 404).
 import { v7 } from "uuid";
 import {
   OWNER_COLS,
@@ -15,7 +15,7 @@ import {
   validateQuiz,
 } from "./content-util.js";
 
-export function mountQuizzes(app, { getDb, getSession, auth }) {
+export function mountQuizzes(app, { getDb, getSession, editor }) {
   // List quiz summaries, newest first. ?owner=me (needs a session) or ?owner=<id>; deleted quizzes are hidden unless
   // the caller asks for their own with &deleted=1. More filters: ?ids=<id,id,...> (up to 100), ?name=
   // (exact), and &full=1 to include each quiz's data instead of just its summary.
@@ -73,7 +73,7 @@ export function mountQuizzes(app, { getDb, getSession, auth }) {
   });
 
   // The body is the quiz data
-  app.post("/api/quizzes", auth, async (c) => {
+  app.post("/api/quizzes", editor, async (c) => {
     const body = await readObject(c);
     if (!body) return c.json({ error: "bad json" }, 400);
     const db = getDb(c);
@@ -89,7 +89,7 @@ export function mountQuizzes(app, { getDb, getSession, auth }) {
 
   // Checks a quiz body without saving it (the editor's Validate button): {ok: true, summary} or {ok: false, errors}.
   // Always 200: an invalid quiz is a normal answer here. PUT runs the same check.
-  app.post("/api/quizzes/validate", auth, async (c) => {
+  app.post("/api/quizzes/validate", editor, async (c) => {
     const body = await readObject(c);
     if (!body) return c.json({ error: "bad json" }, 400);
     const errors = validateQuiz(body);
@@ -101,7 +101,7 @@ export function mountQuizzes(app, { getDb, getSession, auth }) {
   });
 
   // Replaces the data in place (any signed-in user may): every playlist that references the quiz sees the change. The `deleted` column is not touched.
-  app.put("/api/quizzes/:id", auth, async (c) => {
+  app.put("/api/quizzes/:id", editor, async (c) => {
     const id = c.req.param("id");
     if (!isId(id)) return c.json({ error: "not found" }, 404);
     const body = await readObject(c);
@@ -118,7 +118,7 @@ export function mountQuizzes(app, { getDb, getSession, auth }) {
   });
 
   // Soft delete / restore (any signed-in user may, like editing). Playlists are never touched, so restoring puts the quiz back everywhere.
-  app.put("/api/quizzes/:id/deleted", auth, async (c) => {
+  app.put("/api/quizzes/:id/deleted", editor, async (c) => {
     const id = c.req.param("id");
     if (!isId(id)) return c.json({ error: "not found" }, 404);
     const body = await readObject(c);
@@ -134,7 +134,7 @@ export function mountQuizzes(app, { getDb, getSession, auth }) {
   });
 
   // Copy of anyone's quiz (deleted or not) owned by the caller, not deleted
-  app.post("/api/quizzes/:id/fork", auth, async (c) => {
+  app.post("/api/quizzes/:id/fork", editor, async (c) => {
     const id = c.req.param("id");
     if (!isId(id)) return c.json({ error: "not found" }, 404);
     const db = getDb(c);

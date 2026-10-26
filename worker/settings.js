@@ -1,4 +1,4 @@
-// Global settings routes: {agentQuizPrompt, agentQuizExample, categories}, shared by every user. Anyone can read; any signed-in user can change
+// Global settings routes: {agentQuizPrompt, agentQuizExample, categories}, shared by every user. Anyone can read; only approved editors (permissions.js) can change
 // them (like quizzes and playlists). A key with no stored row falls back to its default.
 import vocab from "../src/recall-drill/categories.json";
 import { readObject } from "./content-util.js";
@@ -45,11 +45,11 @@ export async function readSettings(db) {
   return out;
 }
 
-export function mountSettings(app, { getDb, auth, limitWrites }) {
+export function mountSettings(app, { getDb, editor, limitWrites }) {
   app.get("/api/settings", async (c) => c.json(await readSettings(getDb(c))));
 
   // Body: any of the keys above; only those sent are replaced. Returns all the settings.
-  app.put("/api/settings", auth, async (c) => {
+  app.put("/api/settings", editor, async (c) => {
     if (limitWrites && !(await limitWrites(c, "settings:" + c.get("userId"))))
       return c.json({ error: "too many requests" }, 429);
     const body = await readObject(c);

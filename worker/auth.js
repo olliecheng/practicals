@@ -1,6 +1,7 @@
 // Better Auth (Google sign-in) on Cloudflare D1. Workers expose bindings only per request, so build the instance from `env` each time.
 import { betterAuth } from "better-auth";
-import { admin, username } from "better-auth/plugins";
+import { admin, customSession, username } from "better-auth/plugins";
+import { canEdit } from "./permissions.js";
 
 export const createAuth = (env) =>
   betterAuth({
@@ -26,6 +27,11 @@ export const createAuth = (env) =>
       }),
       // Ban / remove users and set roles; the first admin is set by hand in the D1 console
       admin(),
+      // Tell the client whether this user may edit shared content, alongside the user data (get-session). The server re-checks on every write (the `editor` middleware in app.js), so this only drives the UI.
+      customSession(async ({ user, session }) => ({
+        user: { ...user, canEdit: canEdit(user) },
+        session,
+      })),
     ],
     // In-memory rate limits are per isolate and so ineffective on Workers. Session reads happen on every page load, so skip them (each counted request is a D1 write); sign-in and sign-up keep Better Auth's strict built-in limits.
     rateLimit: {
