@@ -157,10 +157,14 @@ function ItemRow({ it, row, setItem, remove, overlay }) {
       labelProps={{ "data-id": it.key }}
       onChange={(p) => setItem("keywords" in p ? { matches: p.keywords } : p)}
       onDelete={async () =>
+        // An empty item has nothing to lose, so it goes without asking
+        (!it.label.trim() && !it.matches.trim()) ||
         (await confirm({
           message: `Delete ${it.label.trim() || "this item"}?`,
           unsafe: "Delete",
-        })) && remove()
+        }))
+          ? remove()
+          : undefined
       }
       handle={
         <button
