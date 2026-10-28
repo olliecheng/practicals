@@ -32,7 +32,12 @@ import {
   useDrillGame,
 } from "../state/useDrillGame";
 
-function Tile({ i, n, label, s, complete, onCredit, onIgnore, onMenu }) {
+// With Hint on, a tile that says to avoid or stop something (anywhere in its label) shows that word on its face in red
+const WARN =
+  /(?<![\w-])(avoid|stop|cease|exclude|discontinue|withhold)(?![\w-])/i;
+
+function Tile({ i, n, label, s, complete, hint, onCredit, onIgnore, onMenu }) {
+  const warn = hint && label.match(WARN);
   const cls = s.ignored.has(i)
     ? " on ign"
     : s.credited.has(i)
@@ -54,7 +59,7 @@ function Tile({ i, n, label, s, complete, onCredit, onIgnore, onMenu }) {
   return (
     <div
       id={"t" + i}
-      className={"tile" + cls + (ok ? " ok" : "")}
+      className={"tile" + cls + (ok ? " ok" : "") + (warn ? " warn" : "")}
       onClick={(e) => {
         // Touch screens have no right-click, so a tap opens the menu (its first entry is "I got this")
         if (menuable && window.matchMedia("(hover: none)").matches)
@@ -68,7 +73,11 @@ function Tile({ i, n, label, s, complete, onCredit, onIgnore, onMenu }) {
       }}
     >
       <div className="in">
-        <div className="f">{n + 1}</div>
+        <div className="f">
+          {warn
+            ? warn[0][0].toUpperCase() + warn[0].slice(1).toLowerCase() + "…"
+            : n + 1}
+        </div>
         <div className="b">{label}</div>
       </div>
       <button
@@ -262,6 +271,14 @@ function Game({ drill, inc, restart, quiz, quizData, saved, prompt, fresh }) {
     <section
       id="game"
       className={"play" + (s.over && !drilling ? " over" : "")}
+      // Tapping a button (Hint, Collapse / Expand, ...) must not blur the answer box, or the mobile keyboard closes
+      onMouseDown={(e) => {
+        if (
+          document.activeElement === g.answerRef.current &&
+          e.target.closest("button")
+        )
+          e.preventDefault();
+      }}
     >
       <div className="side">
         <div className="panel">
@@ -454,6 +471,7 @@ function Game({ drill, inc, restart, quiz, quizData, saved, prompt, fresh }) {
                 label={drill.items[i].label}
                 s={s}
                 complete={complete}
+                hint={hintOn && sec.name === g.hintCode}
                 onCredit={g.toggleCredit}
                 onIgnore={g.toggleIgnore}
                 onMenu={(i, x, y) => setTileMenu({ i, x, y })}

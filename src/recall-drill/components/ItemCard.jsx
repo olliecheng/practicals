@@ -71,6 +71,9 @@ export default function ItemCard({
                 className="subbtn danger"
                 aria-label="Delete item"
                 title="Delete item"
+                // Safari doesn't focus a button on click, so the press would blur the card (relatedTarget null), close it and
+                // unmount the button before its click fires; keeping focus where it is avoids that
+                onMouseDown={(e) => e.preventDefault()}
                 onClick={onDelete}
               >
                 <TrashIcon />

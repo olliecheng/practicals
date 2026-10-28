@@ -2312,6 +2312,9 @@ button.iconbtn {
 }
 
 /* The editor's page heading, above the Manual / Agentic tabs */
+.qe-back {
+  margin-bottom: 4px;
+}
 .qe-pagetitle {
   margin: 0 0 8px 2px;
   font-family: var(--font-head);
@@ -2729,4 +2732,10 @@ button.iconbtn {
 }
 .dlg-unsafe:hover {
   background: var(--bad-soft);
+}
+
+/* Hint: tiles that say to avoid or stop something name the word on their face in soft red, with a light red border */
+.tile.warn:not(.on) .f {
+  border-color: color-mix(in srgb, var(--bad) 30%, var(--line));
+  color: color-mix(in srgb, var(--bad) 75%, var(--mute));
 }
