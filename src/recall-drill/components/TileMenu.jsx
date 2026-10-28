@@ -149,7 +149,9 @@ export function ItemDialog({ mode, item, onSave, onClose }) {
             </p>
             <div className="qe-kwlbl">Current keywords</div>
             <div className="qe-current">
-              {item.keywords ? toText(item.keywords) : "None yet"}
+              {item.keywords
+                ? toText(item.keywords)
+                : "None yet (the name still matches)"}
             </div>
             <label className="qe-kwlbl" htmlFor="teach-kw">
               New keyword

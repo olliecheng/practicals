@@ -1,5 +1,5 @@
 // Helpers shared by the quiz and playlist routes (D1 / SQLite).
-import { rx } from "../src/recall-drill/lib/match.js";
+import { rx, withLabel } from "../src/recall-drill/lib/match.js";
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
 export const isId = (s) => typeof s === "string" && UUID.test(s);
@@ -87,10 +87,11 @@ const sectionErrors = (key, sec) => {
         return errors.push(`${n}: must be {"label", "keywords"}.`);
       if (typeof it.label !== "string" || !it.label.trim())
         return errors.push(`${n}: needs a label.`);
-      if (typeof it.keywords !== "string" || !it.keywords.trim())
-        return errors.push(`${n} ("${it.label}"): needs keywords.`);
+      // Keywords are optional (the item's name always matches); when given they must be text that compiles
+      if (it.keywords !== undefined && typeof it.keywords !== "string")
+        return errors.push(`${n} ("${it.label}"): keywords must be text.`);
       try {
-        rx(it.keywords);
+        rx(withLabel(it.label, it.keywords));
       } catch {
         errors.push(`${n} ("${it.label}"): the keywords aren't valid.`);
       }

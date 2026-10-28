@@ -3,7 +3,7 @@ import icR from "../assets/risks.svg";
 import icE from "../assets/examination.svg";
 import icM from "../assets/investigations.svg";
 import icT from "../assets/medications.svg";
-import { rx, literals } from "./match";
+import { rx, literals, withLabel } from "./match";
 
 // A section's name is its key in a quiz's `items`, so the sections of a quiz are free-form. Headings show the name with the first letter
 // capitalised; the icons below are matched by name and a section with another name has none.
@@ -46,18 +46,21 @@ export function drillFromQuiz(quiz) {
     const items = secs.flatMap(([section, sec]) =>
       categories(sec).flatMap(([cat, list]) =>
         list.flatMap((it) => {
-          if (typeof it?.label !== "string" || typeof it?.keywords !== "string")
+          // Keywords are optional: the item's name always matches too
+          const keywords = it?.keywords ?? "";
+          if (typeof it?.label !== "string" || typeof keywords !== "string")
             return [];
           try {
+            const spec = withLabel(it.label, keywords);
             return [
               {
                 label: it.label,
-                keywords: it.keywords,
+                keywords,
                 section,
                 cat,
                 key: it.label,
-                re: rx(it.keywords),
-                lits: literals(it.keywords),
+                re: rx(spec),
+                lits: literals(spec),
               },
             ];
           } catch {

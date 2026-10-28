@@ -1,6 +1,6 @@
 // Changing one item of a quiz from the drill screen. The drill's items are flattened copies, so the stored quiz data is
 // searched for the item by its section, category and label.
-import { literals, rx } from "./match";
+import { literals, rx, withLabel } from "./match";
 
 // Keywords are stored as "a|b|c" and edited as "a, b, c"
 export const toText = (kw) =>
@@ -46,6 +46,7 @@ export const removeItem = (data, item) =>
 export function applyToItem(item, patch) {
   Object.assign(item, patch);
   item.key = item.label;
-  item.re = rx(item.keywords);
-  item.lits = literals(item.keywords);
+  const spec = withLabel(item.label, item.keywords);
+  item.re = rx(spec);
+  item.lits = literals(spec);
 }

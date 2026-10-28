@@ -33,7 +33,7 @@ import PencilIcon from "./PencilIcon";
 import PlusIcon from "./PlusIcon";
 import TrashIcon from "./TrashIcon";
 import { useDialog } from "./Dialog";
-import { rx } from "../lib/match";
+import { rx, withLabel } from "../lib/match";
 import { toKeywords, toText } from "../lib/editItem";
 import { briefParts } from "../lib/agentBrief";
 import { noEnterSubmit } from "../lib/noEnterSubmit";
@@ -453,10 +453,10 @@ export default function QuizEditor({ id, quiz, initialTab, onDone, onCancel }) {
         for (const it of g.items) {
           if (!it.label.trim() && !it.matches.trim()) continue;
           if (!it.label.trim()) return `${n}: an item has no text.`;
+          // Matches are optional: the item's name always matches too
           const keywords = toKeywords(it.matches);
-          if (!keywords) return `${n}: "${it.label}" needs matches.`;
           try {
-            rx(keywords);
+            rx(withLabel(it.label, keywords));
           } catch {
             return `${n}: the matches for "${it.label}" aren't valid.`;
           }

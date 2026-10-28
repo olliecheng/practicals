@@ -17,6 +17,23 @@ export const rx = (kws) =>
     "i",
   );
 
+// The keywords plus the item's name, so typing the name always matches (even with no keywords at all). The name is
+// literal text (regex characters escaped, "|" turned into a space), also without a trailing "(...)" note. Never stored.
+export const withLabel = (label, keywords = "") => {
+  // A leading "~" would mean "match anywhere" to rx(), so it is escaped too
+  const lit = (s) =>
+    s
+      .replace(/\|/g, " ")
+      .replace(/\s+/g, " ")
+      .trim()
+      .replace(/^~|[.*+?^${}()[\]\\]/g, "\\$&");
+  const name = lit(label),
+    bare = lit(label.replace(/\([^)]*\)/g, " "));
+  return [name, bare !== name && bare, keywords.trim()]
+    .filter(Boolean)
+    .join("|");
+};
+
 // Literal keywords, used to defer while the typed text could still grow into a longer keyword
 export const literals = (kws) =>
   kws
