@@ -58,7 +58,10 @@ export default function QuizHistory({ drill }) {
   if (!sv || !sv.attempts.length) return null;
   const attempts = [...sv.attempts].reverse();
   return (
-    <div className="panel qh">
+    <div
+      className={"panel qh" + (open ? "" : " closed")}
+      onClick={open ? undefined : () => setOpen(true)}
+    >
       <button
         className="qe-toggle lbl"
         aria-expanded={open}
@@ -66,7 +69,9 @@ export default function QuizHistory({ drill }) {
       >
         <ChevronIcon open={open} />
         History
-        <span className="meta">{attempts.length}</span>
+        <span className="meta">
+          ({attempts.length} attempt{attempts.length === 1 ? "" : "s"})
+        </span>
       </button>
       {open && (
         <div className="qh-grid">

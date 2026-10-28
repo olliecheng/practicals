@@ -398,13 +398,39 @@ button.starfilter[aria-pressed="true"] {
   gap: 14px;
   min-height: calc(100dvh - 112px);
 }
+/* Closed, History is plain text: no panel until the whole bar is hovered (or focused). Open, it is a panel around the grid. */
 .qh {
   margin-top: auto;
-  padding: 10px 14px;
+  padding: 12px 14px;
+}
+.qh.closed {
+  background: transparent;
+  border-color: transparent;
+  cursor: pointer;
+}
+.qh.closed:hover,
+.qh.closed:has(:focus-visible) {
+  background: var(--panel);
+  border-color: var(--line);
 }
 .qh .qe-toggle {
+  /* Block-level, or the line box adds a few pixels of descender space below the button and it sits off-centre */
+  display: flex;
+  width: 100%;
+  padding: 0;
   font-size: 0.9rem;
   font-weight: 600;
+  line-height: 1.5;
+  background: none;
+  cursor: pointer;
+}
+.qh .qe-toggle:hover,
+.qh .qe-toggle:focus-visible {
+  background: none;
+}
+.qh .qe-toggle .meta {
+  font-size: 0.8rem;
+  font-weight: 400;
 }
 .qh-grid {
   display: grid;
@@ -418,8 +444,11 @@ button.starfilter[aria-pressed="true"] {
 .hrow.qh-card {
   flex-direction: row;
   align-items: baseline;
-  justify-content: space-between;
+  gap: 8px;
   border: 1px solid var(--line);
+}
+.qh-card .bdg {
+  margin-left: 0;
 }
 /* Resume prompt (components/ResumePrompt.jsx): the play area keeps the look of the saved round, dimmed; only the text inside the tiles
    (number, label and the ignore bubble) is blanked, and the rest of the page text stays. Below .side (z-index 2). */

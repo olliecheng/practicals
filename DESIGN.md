@@ -94,7 +94,7 @@ The shell of the case-quiz Minis (Dexamethasone, Parathyroid, Hepatitis B, LFTs,
 
 ### Quiz history grid (`components/QuizHistory.jsx`)
 
-The quiz page's own History, under the tiles panel. A `--panel` card whose title is a quiet `.qe-toggle` button (chevron, "History", attempt count), closed by default and instant. Open, it holds a grid (`repeat(auto-fill, minmax(130px, 1fr))`, 8px gap) of attempt cards: a bordered `.hrow` with the score badge and the date, and the usual pop-up menu with only Redo incorrect and Clear attempt. The column is a screen tall (`.main`), so with a short tiles panel the card sits at the bottom of the screen.
+The quiz page's own History, under the tiles panel. A `--panel` card whose title is a quiet `.qe-toggle` button (chevron, "History", attempt count), closed by default and instant: closed, it is plain text ("History (3 attempts)") that gets the panel background and border only while the whole bar is hovered (pointer cursor). Open, it is always a panel and holds a grid (`repeat(auto-fill, minmax(130px, 1fr))`, 8px gap) of attempt cards: a bordered `.hrow` with the score badge and the date, and the usual pop-up menu with only Redo incorrect and Clear attempt. The column is a screen tall (`.main`), so with a short tiles panel the card sits at the bottom of the screen.
 
 ### Icons
 
