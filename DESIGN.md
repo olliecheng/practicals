@@ -33,7 +33,7 @@ All sizes are in `rem` (1rem = 16px) unless written in px. Pick from these; don'
 
 ### Menus
 
-The pop-up lists: the right-click menu (`.tilemenu`: "I got this", Ignore, Teach new keyword, Edit), the quiz popover (`.menu .mi`: Start from scratch, Redo incorrect, Star, Reset progress, Edit) and the account menu (`.acctmenu`). The "I got this" menu is the reference; every menu uses these numbers.
+The pop-up lists: the right-click menu (`.tilemenu`: "I got this", Ignore, Teach new keyword, Edit), the quiz popover (`.menu .mi`: Start from scratch, Redo incorrect, Star, Clear attempt, Edit) and the account menu (`.acctmenu`). The "I got this" menu is the reference; every menu uses these numbers.
 
 - Container: `--panel` background, 1px `--line` border, `--r` radius, popover shadow, padding 4px, minimum width 170px (account menu 150px). Entries stack with no gap between them.
 - Entry: a `.subbtn` button, full width, left-aligned, no border, no wrapping. A 16px icon, then a 6px gap, then the 0.8rem label. Padding `6px 8px 6px 4px`: the distance from the menu edge to the icon (4px container + 4px) is about the same as from the icon to the text.
@@ -91,6 +91,10 @@ A box with a 1px `--bad` outline, `--bad-soft` background, `--r` radius, padding
 ### Case quiz (`components/QuizEngine.jsx`, `quiz/quiz.css`, `components/MiniPage.jsx`)
 
 The shell of the case-quiz Minis (Dexamethasone, Parathyroid, Hepatitis B, LFTs, Bacteria). `MiniPage` is the page: the `header` (page heading and a `.link` "← Minis" back to the Recall Drill home), a `.note` blurb, then one `.panel`. Inside, `QuizEngine` uses `.qz-*` classes: section titles (`.qz-title`, like `.qe-title`), a `--tile` case box, a bordered lab table, option rows (`.qz-opt`: `--panel`, 1px `--line`, `--r`, `--teal-soft` on hover, `accent-color: var(--teal)` inputs, `.locked` once answered), a feedback box (`.qz-fb`, the `.qe-error` look; `.ok` is `--ok` on `--ok-soft`) and `button.primary` actions. Lab arrows and +/- are `.qz-mark` (`--bad` up, `--blue` down and positive, `--ok` normal). New explanation JSX uses plain `p`, `ul` and `strong`, which `.qz-fb` styles; never Tailwind classes (the pages don't load Tailwind).
+
+### Quiz history grid (`components/QuizHistory.jsx`)
+
+The quiz page's own History, under the tiles panel. A `--panel` card whose title is a quiet `.qe-toggle` button (chevron, "History", attempt count), closed by default and instant. Open, it holds a grid (`repeat(auto-fill, minmax(130px, 1fr))`, 8px gap) of attempt cards: a bordered `.hrow` with the score badge and the date, and the usual pop-up menu with only Redo incorrect and Clear attempt. The column is a screen tall (`.main`), so with a short tiles panel the card sits at the bottom of the screen.
 
 ### Icons
 

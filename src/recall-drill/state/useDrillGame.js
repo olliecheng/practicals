@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { judge, variants } from "../lib/match";
 import { confetti } from "../lib/confetti";
-import { loadCollapsed, saveCollapsed } from "../lib/storage";
+import { loadCollapsed, saveCollapsed, syncLatest } from "../lib/storage";
 
 // One round of a drill. Tiles are addressed by their index in drill.items.
 // State: found (typed), credited (missed but self-credited), revealed (shown), ignored (given up on, left out of the score),
@@ -167,6 +167,7 @@ export function useDrillGame({ drill, account, inc, saved, prompt, fresh }) {
   const latest = useRef({});
   latest.current.account = account;
   const counted = useRef(false);
+  const attemptT = useRef(0); // `t` of the attempt this round added to the record, so later credit toggles update it
   const prevRec = useRef(null);
   const celebrated = useRef(new Set());
   const swallowing = useRef(false);
@@ -279,8 +280,8 @@ export function useDrillGame({ drill, account, inc, saved, prompt, fresh }) {
       }
     });
 
-  // Persist the round into the user's record: ignored always; found/credited/score once a round is over.
-  // done: the round has just finished, so count it as a run.
+  // Persist the round into the user's record: ignored always; once a round is over, it is the latest attempt (found/credited/score).
+  // done: the round has just finished, so it is added as a new attempt; later calls (credit toggles) update that attempt.
   const commit = (st, done, hist) => {
     if (!account.acct) return;
     const keysOf = (set) => [...set].map((i) => items[i].key);
@@ -292,20 +293,25 @@ export function useDrillGame({ drill, account, inc, saved, prompt, fresh }) {
         found: [],
         credited: [],
         ignored: [],
+        attempts: [],
       });
       r.ignored = keysOf(st.ignored);
       // A redo round starts from the saved found/credited, so what it saves is the combined result
       if (st.over && hist) {
-        r.found = keysOf(st.found);
-        r.credited = keysOf(st.credited);
-        r.score = stats(drill, st).pct;
-      }
-      if (done && hist) {
-        if (!counted.current) {
-          r.runs++;
+        const result = {
+          score: stats(drill, st).pct,
+          found: keysOf(st.found),
+          credited: keysOf(st.credited),
+        };
+        if (done && !counted.current) {
           counted.current = true;
+          attemptT.current = Date.now();
+          r.attempts.push({ t: attemptT.current, ...result });
+        } else {
+          const cur = r.attempts.find((a) => a.t === attemptT.current);
+          if (cur) Object.assign(cur, result);
         }
-        r.last = Date.now();
+        syncLatest(r);
       }
     });
   };
@@ -572,20 +578,9 @@ export function useDrillGame({ drill, account, inc, saved, prompt, fresh }) {
     else {
       account.mutate((user) => {
         const r = user.drills[drill.key],
-          p = prevRec.current || {
-            runs: 0,
-            last: 0,
-            score: 0,
-            found: [],
-            credited: [],
-          };
-        Object.assign(r, {
-          runs: p.runs,
-          last: p.last,
-          score: p.score,
-          found: p.found,
-          credited: p.credited,
-        });
+          p = prevRec.current;
+        r.attempts = p ? p.attempts : [];
+        syncLatest(r);
       });
       counted.current = false;
     }

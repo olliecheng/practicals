@@ -1,5 +1,6 @@
 // Mapping between the client's whole-user record and the `history` table (one row per quiz).
-//   record = {v:1, stars:[quizId], drills:{quizId:{runs,last,score,found,credited,ignored}}}
+//   record = {v:1, stars:[quizId], drills:{quizId:{runs,last,score,found,credited,ignored,attempts:[{t,score,found,credited}]}}}
+//   (runs/last/score/found/credited mirror the latest attempt; the client keeps at most 30 attempts per quiz)
 //   rows   = {quizId: {...drill record, starred:boolean}}; a starred drill that was never played is just {starred:true}
 
 export const rowsToRecord = (rows) => {
@@ -22,6 +23,7 @@ export const recordToRows = (record) => {
 
 const MAX_ROWS = 5000;
 const MAX_KEY = 300;
+const MAX_ATTEMPTS = 100;
 const isObject = (x) => x && typeof x === "object" && !Array.isArray(x);
 
 // Returns an error message, or null if the record is acceptable
@@ -34,5 +36,11 @@ export const checkRecord = (r) => {
     return "bad data";
   for (const [k, d] of Object.entries(r.drills))
     if (!k || k.length > MAX_KEY || !isObject(d)) return "bad data";
+  for (const d of Object.values(r.drills))
+    if (
+      d.attempts !== undefined &&
+      (!Array.isArray(d.attempts) || d.attempts.length > MAX_ATTEMPTS)
+    )
+      return "bad data";
   return null;
 };

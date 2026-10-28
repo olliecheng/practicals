@@ -20,6 +20,7 @@ import RequireEditor from "../components/RequireEditor";
 import ResumePrompt from "../components/ResumePrompt";
 import PencilIcon from "../components/PencilIcon";
 import QuizEditor from "../components/QuizEditor";
+import QuizHistory from "../components/QuizHistory";
 import { ICONS, ItemDialog, TileMenu } from "../components/TileMenu";
 import { applyToItem, removeItem, updateItem } from "../lib/editItem";
 import { fetchProgress, RESUME_AFTER } from "../lib/progress";
@@ -410,145 +411,148 @@ function Game({ drill, inc, restart, quiz, quizData, saved, prompt, fresh }) {
           </div>
         </div>
       </div>
-      <div
-        className={
-          "panel tiles" +
-          (drilling ? " drilling" : "") +
-          (g.locked ? " veiled" : "")
-        }
-      >
-        {g.locked && (
-          <ResumePrompt
-            got={saved.got}
-            total={saved.total}
-            onStartAgain={g.startAgain}
-            onResume={g.restore}
-          />
-        )}
-        <div className="chead">
-          <p className="counter">
-            {stats.got} <span>of {stats.total} found</span>
-          </p>
-          {drilling ? (
-            <div className="drillchip" role="status">
-              <span aria-hidden="true">↺</span> Drill mode
-            </div>
-          ) : (
-            <div
-              className="seg"
-              id="allToggle"
-              role="group"
-              aria-label="Sections"
-              data-state={collapsed ? "collapsed" : "expanded"}
-              onClick={toggleCollapsed}
-            >
-              <span className="pill" />
-              <button aria-pressed={collapsed}>Collapse</button>
-              <button aria-pressed={!collapsed}>Expand</button>
-            </div>
+      <div className="main">
+        <div
+          className={
+            "panel tiles" +
+            (drilling ? " drilling" : "") +
+            (g.locked ? " veiled" : "")
+          }
+        >
+          {g.locked && (
+            <ResumePrompt
+              got={saved.got}
+              total={saved.total}
+              onStartAgain={g.startAgain}
+              onResume={g.restore}
+            />
           )}
-        </div>
-        <div>
-          {stats.sections.map((sec, si) => {
-            const shut =
-              collapsed && (!s.over || drilling) && sec.name !== focus;
-            const idx = drill.items.flatMap((it, i) =>
-              it.section === sec.name ? [i] : [],
-            );
-            const complete = sectionComplete(drill, s, sec.name);
-            const active = s.drill === sec.name;
-            // One drill at a time: the drilled section shows its button disabled, the others hide theirs
-            const canDrill =
-              active || (!drilling && hasMissed(drill, s, sec.name));
-            // A finished section has nothing left to spoil, so its categories are always shown
-            const hasCats = idx.some((i) => drill.items[i].cat);
-            // n is the tile's number within its section, whatever the grouping
-            const tile = (i) => (
-              <Tile
-                key={i}
-                i={i}
-                n={idx.indexOf(i)}
-                label={drill.items[i].label}
-                s={s}
-                complete={complete}
-                hint={hintOn && sec.name === g.hintCode}
-                onCredit={g.toggleCredit}
-                onIgnore={g.toggleIgnore}
-                onMenu={(i, x, y) => setTileMenu({ i, x, y })}
-              />
-            );
-            return (
-              <section
-                key={sec.name}
-                id={"s" + si}
-                className={
-                  "sect" +
-                  (shut ? " closed" : "") +
-                  (collapsed && !s.over && !drilling ? " collapsible" : "") +
-                  (sec.done ? " done" : "")
-                }
+          <div className="chead">
+            <p className="counter">
+              {stats.got} <span>of {stats.total} found</span>
+            </p>
+            {drilling ? (
+              <div className="drillchip" role="status">
+                <span aria-hidden="true">↺</span> Drill mode
+              </div>
+            ) : (
+              <div
+                className="seg"
+                id="allToggle"
+                role="group"
+                aria-label="Sections"
+                data-state={collapsed ? "collapsed" : "expanded"}
+                onClick={toggleCollapsed}
               >
-                <h3 className="sh">
-                  <button
-                    className="tg"
-                    type="button"
-                    aria-expanded={!shut}
-                    onClick={() => g.setActive(sec.name)}
-                  >
-                    <span className="nm">
-                      {sec.icon && (
-                        <span
-                          className="ic"
-                          aria-hidden="true"
-                          style={{ "--ic": `url("${sec.icon}")` }}
-                        />
-                      )}
-                      {cap(sec.name)}
-                    </span>
-                  </button>
-                  {canDrill && (
+                <span className="pill" />
+                <button aria-pressed={collapsed}>Collapse</button>
+                <button aria-pressed={!collapsed}>Expand</button>
+              </div>
+            )}
+          </div>
+          <div>
+            {stats.sections.map((sec, si) => {
+              const shut =
+                collapsed && (!s.over || drilling) && sec.name !== focus;
+              const idx = drill.items.flatMap((it, i) =>
+                it.section === sec.name ? [i] : [],
+              );
+              const complete = sectionComplete(drill, s, sec.name);
+              const active = s.drill === sec.name;
+              // One drill at a time: the drilled section shows its button disabled, the others hide theirs
+              const canDrill =
+                active || (!drilling && hasMissed(drill, s, sec.name));
+              // A finished section has nothing left to spoil, so its categories are always shown
+              const hasCats = idx.some((i) => drill.items[i].cat);
+              // n is the tile's number within its section, whatever the grouping
+              const tile = (i) => (
+                <Tile
+                  key={i}
+                  i={i}
+                  n={idx.indexOf(i)}
+                  label={drill.items[i].label}
+                  s={s}
+                  complete={complete}
+                  hint={hintOn && sec.name === g.hintCode}
+                  onCredit={g.toggleCredit}
+                  onIgnore={g.toggleIgnore}
+                  onMenu={(i, x, y) => setTileMenu({ i, x, y })}
+                />
+              );
+              return (
+                <section
+                  key={sec.name}
+                  id={"s" + si}
+                  className={
+                    "sect" +
+                    (shut ? " closed" : "") +
+                    (collapsed && !s.over && !drilling ? " collapsible" : "") +
+                    (sec.done ? " done" : "")
+                  }
+                >
+                  <h3 className="sh">
                     <button
-                      className="redo"
+                      className="tg"
                       type="button"
-                      aria-pressed={active}
-                      disabled={active}
-                      title={
-                        active
-                          ? "Drilling this section"
-                          : "Drill the missed items in this section"
-                      }
-                      aria-label="Drill the missed items in this section"
-                      onClick={() => g.startDrill(sec.name)}
+                      aria-expanded={!shut}
+                      onClick={() => g.setActive(sec.name)}
                     >
-                      ↺
+                      <span className="nm">
+                        {sec.icon && (
+                          <span
+                            className="ic"
+                            aria-hidden="true"
+                            style={{ "--ic": `url("${sec.icon}")` }}
+                          />
+                        )}
+                        {cap(sec.name)}
+                      </span>
                     </button>
+                    {canDrill && (
+                      <button
+                        className="redo"
+                        type="button"
+                        aria-pressed={active}
+                        disabled={active}
+                        title={
+                          active
+                            ? "Drilling this section"
+                            : "Drill the missed items in this section"
+                        }
+                        aria-label="Drill the missed items in this section"
+                        onClick={() => g.startDrill(sec.name)}
+                      >
+                        ↺
+                      </button>
+                    )}
+                    <span className="sc" onClick={() => g.setActive(sec.name)}>
+                      {sec.count ? `${sec.got} of ${sec.total}` : ""}
+                    </span>
+                  </h3>
+                  {!idx.length && (
+                    <p className="note" style={{ margin: 0 }}>
+                      None listed for this quiz.
+                    </p>
                   )}
-                  <span className="sc" onClick={() => g.setActive(sec.name)}>
-                    {sec.count ? `${sec.got} of ${sec.total}` : ""}
-                  </span>
-                </h3>
-                {!idx.length && (
-                  <p className="note" style={{ margin: 0 }}>
-                    None listed for this quiz.
-                  </p>
-                )}
-                {(hintOn && sec.name === g.hintCode) ||
-                (complete && hasCats) ? (
-                  <div className="cats">
-                    {groups(drill, idx).map(([cat, list]) => (
-                      <fieldset className="cat" key={cat || ""}>
-                        {cat && <legend>{cat}</legend>}
-                        <div className="board">{list.map(tile)}</div>
-                      </fieldset>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="board">{idx.map(tile)}</div>
-                )}
-              </section>
-            );
-          })}
+                  {(hintOn && sec.name === g.hintCode) ||
+                  (complete && hasCats) ? (
+                    <div className="cats">
+                      {groups(drill, idx).map(([cat, list]) => (
+                        <fieldset className="cat" key={cat || ""}>
+                          {cat && <legend>{cat}</legend>}
+                          <div className="board">{list.map(tile)}</div>
+                        </fieldset>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="board">{idx.map(tile)}</div>
+                  )}
+                </section>
+              );
+            })}
+          </div>
         </div>
+        <QuizHistory drill={drill} />
       </div>
       {tileMenu && (
         <TileMenu

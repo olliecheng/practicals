@@ -3,6 +3,7 @@ import { useAccount } from "../state/AccountContext";
 import { drillPath } from "../lib/legacy";
 import PencilIcon from "./PencilIcon";
 import { useDialog } from "./Dialog";
+import { syncLatest } from "../lib/storage";
 
 // 16px outline icons (see DESIGN.md)
 const Icon = ({ d }) => (
@@ -41,10 +42,20 @@ const TrashIcon = () => (
   <Icon d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v5M14 11v5" />
 );
 
-// The quiz's menu entries, shared by the list popover and the history panel (both menus): "Start quiz" for a quiz with no saved history (sv
-// undefined), otherwise Start from scratch / Redo incorrect / clear history; then Edit for signed-in users. Clearing keeps
-// ignored items and the star. `star` adds Star / Unstar; They are .subbtn buttons (icon and small label), see DESIGN.md.
-export default function DrillActions({ drill, sv, labels, onStart, star }) {
+// The quiz's menu entries, shared by the list popover and the history panels: "Start quiz" for a quiz with no saved history (sv
+// undefined), otherwise Start from scratch / Redo incorrect / Clear attempt; then Edit for signed-in users. Clear attempt removes one
+// attempt (keeping ignored items and the star). `attempt` is the attempt the menu is for (default: the latest, as in the list popover);
+// Redo incorrect redoes that attempt's answers. `star` adds Star / Unstar. `only` ("redo-clear") leaves just Redo incorrect and Clear attempt
+// (the quiz page's own history). They are .subbtn buttons (icon and small label), see DESIGN.md.
+export default function DrillActions({
+  drill,
+  sv,
+  attempt,
+  labels,
+  onStart,
+  star,
+  only,
+}) {
   const { mutate, acct, user, toggleStar, canEdit } = useAccount();
   const nav = useNavigate();
   const { confirm } = useDialog();
@@ -60,7 +71,7 @@ export default function DrillActions({ drill, sv, labels, onStart, star }) {
       {starred ? "Unstar" : "Star"}
     </button>
   );
-  const edit = canEdit && (
+  const edit = canEdit && !only && (
     <button
       className="subbtn"
       title="Edit this quiz"
@@ -85,36 +96,35 @@ export default function DrillActions({ drill, sv, labels, onStart, star }) {
         {edit}
       </>
     );
-  const known = new Set([...sv.found, ...sv.credited, ...sv.ignored]);
+  // A record can exist without attempts (ignored tiles only, or every attempt cleared): then there is nothing to clear
+  const at = attempt || sv.attempts[sv.attempts.length - 1] || sv;
+  const known = new Set([...at.found, ...at.credited, ...sv.ignored]);
   const hasBlanks = drill.items.some((it) => !known.has(it.key));
-  const reset = async () => {
+  const clearAttempt = async () => {
     if (
       !(await confirm({
-        message: `Clear your history for ${drill.name}?`,
-        unsafe: "Clear history",
+        message: `Clear this attempt of ${drill.name}?`,
+        unsafe: "Clear attempt",
       }))
     )
       return;
-    mutate(() =>
-      Object.assign(sv, {
-        runs: 0,
-        last: 0,
-        score: 0,
-        found: [],
-        credited: [],
-      }),
-    );
+    mutate(() => {
+      sv.attempts = sv.attempts.filter((a) => a.t !== at.t);
+      syncLatest(sv);
+    });
   };
   return (
     <>
-      <button
-        className="subbtn ok"
-        title="Start from scratch"
-        onClick={() => onStart(false)}
-      >
-        <PlayIcon />
-        {labels[0]}
-      </button>
+      {!only && (
+        <button
+          className="subbtn ok"
+          title="Start from scratch"
+          onClick={() => onStart(false)}
+        >
+          <PlayIcon />
+          {labels[0]}
+        </button>
+      )}
       <button
         className="subbtn bad"
         disabled={!hasBlanks}
@@ -123,16 +133,22 @@ export default function DrillActions({ drill, sv, labels, onStart, star }) {
             ? "Keep your correct answers filled in; fill the rest"
             : "Nothing incorrect to redo"
         }
-        onClick={() => onStart(true)}
+        onClick={() => onStart(true, attempt)}
       >
         <RedoIcon />
         Redo incorrect
       </button>
       {starBtn}
-      <button className="subbtn" title="Delete from history" onClick={reset}>
-        <TrashIcon />
-        {labels[1]}
-      </button>
+      {sv.attempts.length > 0 && (
+        <button
+          className="subbtn"
+          title="Remove this attempt from your history"
+          onClick={clearAttempt}
+        >
+          <TrashIcon />
+          {labels[1]}
+        </button>
+      )}
       {edit}
     </>
   );

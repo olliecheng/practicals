@@ -36,7 +36,7 @@ export function Row({ drill }) {
           <DrillActions
             drill={drill}
             sv={sv}
-            labels={["Start from scratch", "Reset progress"]}
+            labels={["Start from scratch", "Clear attempt"]}
             onStart={start}
             star
           />

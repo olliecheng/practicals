@@ -385,9 +385,41 @@ button.starfilter[aria-pressed="true"] {
   flex-direction: column;
   gap: 14px;
 }
-.play > .tiles {
+.play > .tiles,
+.main > .tiles {
   padding: 14px 16px;
   position: relative;
+}
+/* The tiles and, below them, the quiz's History (components/QuizHistory.jsx). The column is as tall as the screen, so a short tiles
+   panel leaves History at the bottom of the screen; a tall one pushes it down after the tiles. */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: calc(100dvh - 112px);
+}
+.qh {
+  margin-top: auto;
+  padding: 10px 14px;
+}
+.qh .qe-toggle {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.qh-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+.qh-grid > .cell {
+  align-self: stretch;
+}
+.hrow.qh-card {
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  border: 1px solid var(--line);
 }
 /* Resume prompt (components/ResumePrompt.jsx): the play area keeps the look of the saved round, dimmed; only the text inside the tiles
    (number, label and the ignore bubble) is blanked, and the rest of the page text stays. Below .side (z-index 2). */
@@ -437,8 +469,12 @@ button.starfilter[aria-pressed="true"] {
     z-index: 2;
     padding: 8px 10px;
   }
-  .play > .tiles {
+  .play > .tiles,
+  .main > .tiles {
     padding: 12px;
+  }
+  .main {
+    min-height: 0;
   }
   /* The drill scrolls inside .wrap rather than the document, so the iOS keyboard has no page to pan and the sticky input card stays at the top */
   html:has(#game:not(.hidden)),

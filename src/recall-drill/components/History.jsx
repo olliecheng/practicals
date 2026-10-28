@@ -6,8 +6,9 @@ import { useRowMenu, useStart } from "../lib/useDrillUi";
 import { useAccount } from "../state/AccountContext";
 import DrillActions from "./DrillActions";
 
-// The same row and pop-up menu as the quiz list (Start from scratch, Redo incorrect, Reset progress, Edit), without Star
-function HistoryRow({ drill, sv }) {
+// The same row and pop-up menu as the quiz list (Start from scratch, Redo incorrect, Clear attempt, Edit), without Star.
+// One row is one attempt, so a quiz can appear more than once.
+function HistoryRow({ drill, sv, attempt }) {
   const start = useStart(drill);
   const { ref, open, side, place, rowProps } = useRowMenu();
   return (
@@ -19,16 +20,17 @@ function HistoryRow({ drill, sv }) {
       <div className="hrow" {...rowProps}>
         <div className="hl1">
           <span className="nm">{drill.name}</span>
-          <span className="bdg">{sv.score}%</span>
+          <span className="bdg">{attempt.score}%</span>
         </div>
-        <div className="meta">{new Date(sv.last).toLocaleDateString()}</div>
+        <div className="meta">{new Date(attempt.t).toLocaleDateString()}</div>
       </div>
       <div className={"menu" + (side && " " + side)}>
         <div className="mi">
           <DrillActions
             drill={drill}
             sv={sv}
-            labels={["Start from scratch", "Reset progress"]}
+            attempt={attempt}
+            labels={["Start from scratch", "Clear attempt"]}
             onStart={start}
           />
         </div>
@@ -44,21 +46,27 @@ export default function History({ ids }) {
   const { user } = useAccount();
   const [limit, setLimit] = useState(PAGE);
   const entries = Object.entries(user.drills)
-    .filter(([k, v]) => v.runs && isQuizId(k) && (!ids || ids.has(k)))
-    .sort((a, b) => b[1].last - a[1].last);
+    .filter(([k]) => isQuizId(k) && (!ids || ids.has(k)))
+    .flatMap(([k, sv]) => sv.attempts.map((attempt) => ({ k, sv, attempt })))
+    .sort((a, b) => b.attempt.t - a.attempt.t);
   const shown = entries.slice(0, limit);
-  const quizzes = useQuizzesById(shown.map(([k]) => k));
-  const rows = shown.flatMap(([k, sv]) => {
-    const quiz = quizzes.map.get(k);
+  const quizzes = useQuizzesById([...new Set(shown.map((e) => e.k))]);
+  const rows = shown.flatMap((e) => {
+    const quiz = quizzes.map.get(e.k);
     const drill = quiz && drillFromQuiz(quiz);
-    return drill && !drill.deleted ? [{ k, sv, drill }] : [];
+    return drill && !drill.deleted ? [{ ...e, drill }] : [];
   });
   return (
     <div className="panel" id="hist">
       <p className="lbl">History</p>
       <div className="hist">
-        {rows.map(({ k, sv, drill }) => (
-          <HistoryRow key={k} drill={drill} sv={sv} />
+        {rows.map(({ k, sv, attempt, drill }) => (
+          <HistoryRow
+            key={k + ":" + attempt.t}
+            drill={drill}
+            sv={sv}
+            attempt={attempt}
+          />
         ))}
         {!rows.length && (
           <p className="note" style={{ margin: 0 }}>
