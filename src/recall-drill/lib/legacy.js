@@ -1,9 +1,10 @@
 // Links from before drills were stored as quizzes: /p/cond, /p/pres, /p/sys (playlists) and /q/<base64 of "<system>.<name>"> (drills; only the name is used now).
-// FEATURED are the built-in playlists seeded by migrations/0003_seed_builtin.sql, in the order Home shows them.
+// FEATURED are the playlists Home shows, in order: the built-ins seeded by migrations/0003_seed_builtin.sql, then Examinations (migrations/0011_examinations_playlist.sql).
 export const FEATURED = [
   { slug: "cond", id: "01a0f4c4-0c20-72e6-9bc1-f16f3c032604" },
   { slug: "pres", id: "01a0f4c5-40b8-74d6-ba30-518e7deafe12" },
   { slug: "sys", id: "01a0f4c5-aa30-77d7-bd6c-1afed312b051" },
+  { slug: "exam", id: "01a182d8-23c6-739c-bbfd-4bdf80dc7891" },
 ];
 
 export const featuredId = (slug) => FEATURED.find((f) => f.slug === slug)?.id;

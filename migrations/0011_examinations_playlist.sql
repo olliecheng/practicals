@@ -1,0 +1,2 @@
+-- The Examinations playlist (shown on Home through FEATURED in src/recall-drill/lib/legacy.js). It starts empty; add quizzes with the playlist's Edit and New quiz buttons.
+INSERT INTO playlists (id, owner_id, data) VALUES ('01a182d8-23c6-739c-bbfd-4bdf80dc7891', 'ollie', '{"title":"Examinations","description":"What to look for and how to examine, by body system.","quiz_settings":{"sections":[]},"sections":[{"title":"Examinations","quiz_ids":[]}]}');
