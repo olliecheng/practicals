@@ -6,6 +6,7 @@ import { drillPath, featuredId, playlistPath } from "../lib/legacy";
 import { useAccount } from "../state/AccountContext";
 import { useFilters } from "../state/FilterContext";
 import { useTitle } from "../lib/useTitle";
+import BetaLock from "../components/BetaLock";
 import { Group, Row } from "../components/DrillList";
 import History from "../components/History";
 import NewQuizDialog from "../components/NewQuizDialog";
@@ -112,58 +113,60 @@ function PlaylistView({ id }) {
       <div className="panel">
         <h2 className="pltitle">{pl.title}</h2>
         <p className="pldesc">{pl.description}</p>
-        <div className="big">
-          <button className="primary" onClick={random} disabled={!ids.length}>
-            Random quiz
-          </button>
-          {acct && (
-            <button
-              className="starfilter"
-              aria-pressed={starOnly}
-              onClick={() => setStarOnly(!starOnly)}
-            >
-              ★ Starred
+        <BetaLock tall>
+          <div className="big">
+            <button className="primary" onClick={random} disabled={!ids.length}>
+              Random quiz
             </button>
-          )}
-          {canEdit && (
-            <div className="pl-actions">
+            {acct && (
               <button
-                className="subbtn pl-edit"
-                title="New quiz"
-                onClick={() => setCreating(true)}
+                className="starfilter"
+                aria-pressed={starOnly}
+                onClick={() => setStarOnly(!starOnly)}
               >
-                <PlusIcon />
-                New quiz
+                ★ Starred
               </button>
-              <button
-                className="subbtn pl-edit"
-                title="Edit playlist"
-                onClick={() => setEditing(true)}
-              >
-                <PencilIcon />
-                Edit
-              </button>
-            </div>
-          )}
-        </div>
-        <p className="lbl" style={{ marginTop: 18 }}>
-          Or pick one
-        </p>
-        <div className="condlist">
-          {!any ? (
-            <p className="note" style={{ gridColumn: "1/-1", margin: 0 }}>
-              {starOnly ? "No starred drills here yet." : "Nothing here yet."}
-            </p>
-          ) : sections.length > 1 ? (
-            shown
-              .filter((s) => s.drills.length)
-              .map((s, i) => (
-                <Group key={i} system={s.title} drills={s.drills} />
-              ))
-          ) : (
-            shown[0].drills.map((d) => <Row key={d.key} drill={d} />)
-          )}
-        </div>
+            )}
+            {canEdit && (
+              <div className="pl-actions">
+                <button
+                  className="subbtn pl-edit"
+                  title="New quiz"
+                  onClick={() => setCreating(true)}
+                >
+                  <PlusIcon />
+                  New quiz
+                </button>
+                <button
+                  className="subbtn pl-edit"
+                  title="Edit playlist"
+                  onClick={() => setEditing(true)}
+                >
+                  <PencilIcon />
+                  Edit
+                </button>
+              </div>
+            )}
+          </div>
+          <p className="lbl" style={{ marginTop: 18 }}>
+            Or pick one
+          </p>
+          <div className="condlist">
+            {!any ? (
+              <p className="note" style={{ gridColumn: "1/-1", margin: 0 }}>
+                {starOnly ? "No starred drills here yet." : "Nothing here yet."}
+              </p>
+            ) : sections.length > 1 ? (
+              shown
+                .filter((s) => s.drills.length)
+                .map((s, i) => (
+                  <Group key={i} system={s.title} drills={s.drills} />
+                ))
+            ) : (
+              shown[0].drills.map((d) => <Row key={d.key} drill={d} />)
+            )}
+          </div>
+        </BetaLock>
       </div>
       {acct && <History ids={new Set(ids)} />}
       {creating && (

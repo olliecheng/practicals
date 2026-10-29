@@ -3,6 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { authClient } from "../lib/auth";
 import { setSignedInHint } from "../lib/storage";
 import { useAccount } from "../state/AccountContext";
+import BetaMessage from "../components/BetaMessage";
 
 export default function Login() {
   const { acct } = useAccount();
@@ -36,9 +37,9 @@ export default function Login() {
         </p>
       ) : (
         <>
+          <BetaMessage />
           <p className="note">
-            Sign in with your Google account to save your progress and stars. We
-            only receive your name, email and profile picture.
+            MedPunk is beta software. Only whitelisted users can log in.
           </p>
           <p className="msg" role="alert">
             {msg || (failed && "Sign-in failed. Please try again.")}
@@ -55,19 +56,17 @@ export default function Login() {
           </div>
         </>
       )}
-      <p className="note" style={{ marginTop: 14 }}>
+      <div className="login-links">
         <Link className="link" to="/">
-          ← Back to the drill{acct ? "s" : " (as guest)"}
+          ← Back
         </Link>
-        {" · "}
         <a className="link" href="/privacy">
           Privacy
         </a>
-        {" · "}
         <a className="link" href="/tos">
           Terms
         </a>
-      </p>
+      </div>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { playlistQuizzes, useFeaturedPlaylists } from "../lib/content";
 import { playlistPath } from "../lib/legacy";
 import { useAccount } from "../state/AccountContext";
+import BetaLock from "../components/BetaLock";
 import History from "../components/History";
 import Minis from "../components/Minis";
 
@@ -34,11 +35,13 @@ export default function Home() {
         <div className="panel">
           <p className="lbl">Playlists</p>
           {f.status === "ok" ? (
-            <div className="plist">
-              {f.data.map((pl) => (
-                <PlaylistRow key={pl.id} pl={pl} />
-              ))}
-            </div>
+            <BetaLock>
+              <div className="plist">
+                {f.data.map((pl) => (
+                  <PlaylistRow key={pl.id} pl={pl} />
+                ))}
+              </div>
+            </BetaLock>
           ) : f.status === "error" ? (
             <p className="note" style={{ margin: 0 }}>
               Could not load playlists. <button onClick={f.retry}>Retry</button>

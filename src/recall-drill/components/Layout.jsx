@@ -21,9 +21,9 @@ const Icon = ({ d }) => (
   </svg>
 );
 
-// Signed in: avatar + name + arrow form one button; clicking it opens a dropdown with Settings and Log out.
-// Escape, a click outside, or navigating closes it.
-function AccountMenu() {
+// Avatar + name + arrow form one button; clicking it opens a dropdown: Settings and Log out when signed in,
+// just Log in for a guest. Escape, a click outside, or navigating closes it.
+function AccountMenu({ guest }) {
   const { acct, profile, saveMsg, logout } = useAccount();
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
@@ -42,8 +42,8 @@ function AccountMenu() {
     };
   }, [open]);
   return (
-    <div className="acct acctin" ref={ref}>
-      {saveMsg && <span className="savemsg">{saveMsg}</span>}
+    <div className={guest ? "acct acctin guest" : "acct acctin"} ref={ref}>
+      {!guest && saveMsg && <span className="savemsg">{saveMsg}</span>}
       <button
         className="acctbtn"
         aria-haspopup="menu"
@@ -51,8 +51,12 @@ function AccountMenu() {
         onClick={() => setOpen((o) => !o)}
       >
         <span className="acctname">
-          <Avatar user={{ name: acct, image: profile.image }} />
-          <span>{acct}</span>
+          <Avatar
+            user={
+              guest ? { name: "Guest" } : { name: acct, image: profile.image }
+            }
+          />
+          <span>{guest ? "Guest" : acct}</span>
         </span>
         <span className="acctchev" aria-hidden="true">
           ▾
@@ -60,21 +64,30 @@ function AccountMenu() {
       </button>
       {open && (
         <div className="acctmenu" role="menu">
-          <Link role="menuitem" className="subbtn" to="/settings">
-            <Icon d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6" />
-            Settings
-          </Link>
-          <button
-            role="menuitem"
-            className="subbtn"
-            onClick={() => {
-              setOpen(false);
-              logout();
-            }}
-          >
-            <Icon d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" />
-            Log out
-          </button>
+          {guest ? (
+            <Link role="menuitem" className="subbtn" to="/login">
+              <Icon d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3" />
+              Log in
+            </Link>
+          ) : (
+            <>
+              <Link role="menuitem" className="subbtn" to="/settings">
+                <Icon d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6" />
+                Settings
+              </Link>
+              <button
+                role="menuitem"
+                className="subbtn"
+                onClick={() => {
+                  setOpen(false);
+                  logout();
+                }}
+              >
+                <Icon d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" />
+                Log out
+              </button>
+            </>
+          )}
         </div>
       )}
     </div>
@@ -83,13 +96,7 @@ function AccountMenu() {
 
 function Account() {
   const { acct } = useAccount();
-  return acct ? (
-    <AccountMenu />
-  ) : (
-    <div className="acct">
-      Guest: nothing is saved <Link to="/login">Log in</Link>
-    </div>
-  );
+  return <AccountMenu guest={!acct} />;
 }
 
 export default function Layout() {
