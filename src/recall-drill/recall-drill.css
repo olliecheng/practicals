@@ -2783,13 +2783,25 @@ button.iconbtn {
 .modal .pick-filter {
   font-size: 0.8rem;
 }
+/* The category picker is a column that never outgrows the window (the .modal-bg padding is 16px a side): only the list
+   shrinks and scrolls, so the filter, the custom box and the buttons stay on screen */
+.modal.pick-modal {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  max-height: min(640px, calc(100dvh - 32px));
+}
+.modal.pick-modal > * {
+  flex-shrink: 0;
+}
 /* The category picker's list: names to choose from, the selected one tinted */
 .modal .pick {
   display: flex;
   flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
   margin-top: 8px;
   padding: 2px;
-  max-height: 50vh;
   overflow-y: auto;
   border: 1px solid var(--line);
   border-radius: var(--r);
@@ -2808,15 +2820,14 @@ button.iconbtn {
   margin: 0;
   padding: 6px 8px;
 }
-/* The "Custom category" box at the end of the list: looks like another row until hovered or focused */
+/* The "Custom category" box under the list (outside the scrolling area, so always visible): tinted when hovered or focused */
 .modal .pick-custom {
   display: block;
   width: 100%;
   box-sizing: border-box;
-  margin-top: 4px;
+  margin-top: 8px;
   padding: 6px 8px;
-  border: 0;
-  border-top: 1px solid var(--line);
+  border: 1px solid var(--line);
   border-radius: var(--r);
   background: transparent;
   color: var(--ink);

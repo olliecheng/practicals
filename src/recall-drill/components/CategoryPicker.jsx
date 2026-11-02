@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-// A modal to choose a category for a quiz section: one of the allowed names, or a custom one typed in the box at the bottom
-// of the list (a custom name is only used for this category; it is never added to the list). Clicking a name selects it; Add confirms.
+// A modal to choose a category for a quiz section: one of the allowed names, or a custom one typed in the box below the
+// scrolling list, which is always visible (a custom name is only used for this category; it is never added to the list). Clicking a name selects it; Add confirms.
 //   status      "loading" | "ok" | "error", the state of loading the categories
 //   categories  the names on offer
 //   taken       lowercase names the section already uses for other categories (a custom name can't repeat one)
@@ -56,7 +56,7 @@ export default function CategoryPicker({
       onMouseDown={(e) => e.target === e.currentTarget && onClose()}
     >
       <div
-        className="modal qe-card"
+        className="modal qe-card pick-modal"
         role="dialog"
         aria-modal="true"
         aria-label="Choose a category"
@@ -92,23 +92,23 @@ export default function CategoryPicker({
               {c}
             </button>
           ))}
-          <input
-            className="pick-custom"
-            type="text"
-            value={custom}
-            onChange={(e) => setCustom(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key !== "Enter") return;
-              e.preventDefault(); // the editor's form would save the quiz
-              if (canPick) onPick(chosen);
-            }}
-            placeholder="Custom category"
-            aria-label="Custom category"
-            maxLength={100}
-            autoComplete="off"
-            spellCheck={false}
-          />
         </div>
+        <input
+          className="pick-custom"
+          type="text"
+          value={custom}
+          onChange={(e) => setCustom(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key !== "Enter") return;
+            e.preventDefault(); // the editor's form would save the quiz
+            if (canPick) onPick(chosen);
+          }}
+          placeholder="Custom category"
+          aria-label="Custom category"
+          maxLength={100}
+          autoComplete="off"
+          spellCheck={false}
+        />
         {repeat && (
           <p className="note" style={{ margin: "8px 0 0" }}>
             This section already has that category.
