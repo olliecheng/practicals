@@ -20,7 +20,6 @@ import { CSS } from "@dnd-kit/utilities";
 import { cap } from "../lib/data";
 import Segmented from "../../components/Segmented";
 import {
-  categoryErrors,
   saveQuiz,
   sectionErrors,
   useSettings,
@@ -498,21 +497,14 @@ export default function QuizEditor({ id, quiz, initialTab, onDone, onCancel }) {
       ? err.errors.join("\n")
       : `Could not ${what}: ${err.message}`;
 
-  // The Agentic tab (Validate and Apply) keeps to the Settings categories (the server doesn't check them, and the Manual tab allows custom ones) and to the
-  // quiz's sections (added, renamed or dropped ones are for the Manual tab). Shows the problems and returns false when the pasted quiz breaks either.
+  // The Agentic tab (Validate and Apply) keeps to the quiz's sections (added, renamed or dropped ones are for the Manual tab); category names are free.
+  // Shows the problems and returns false when the pasted quiz breaks that.
   const agentOk = (data) => {
     if (problem) {
       setMsg(problem);
       return false;
     }
-    if (!settings.data) {
-      setMsg("The category list hasn't loaded yet; try again in a moment.");
-      return false;
-    }
-    const errors = [
-      ...sectionErrors(data, currentSections),
-      ...categoryErrors(data, settings.data.categories),
-    ];
+    const errors = sectionErrors(data, currentSections);
     if (errors.length) setMsg(errors.join("\n"));
     return !errors.length;
   };
