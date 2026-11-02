@@ -2816,28 +2816,13 @@ button.iconbtn {
   background: var(--teal-soft);
   font-weight: 600; /* so it differs from a hovered row */
 }
+/* The typed name offered at the bottom of the list */
+.modal .pick .subbtn.custom {
+  font-style: italic;
+}
 .modal .pick .note {
   margin: 0;
   padding: 6px 8px;
-}
-/* The "Custom category" box under the list (outside the scrolling area, so always visible): tinted when hovered or focused */
-.modal .pick-custom {
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
-  margin-top: 8px;
-  padding: 6px 8px;
-  border: 1px solid var(--line);
-  border-radius: var(--r);
-  background: transparent;
-  color: var(--ink);
-  font: inherit;
-  font-size: 0.8rem;
-}
-.modal .pick-custom:hover,
-.modal .pick-custom:focus {
-  background: var(--teal-soft);
-  outline: none;
 }
 .modal-row {
   display: flex;

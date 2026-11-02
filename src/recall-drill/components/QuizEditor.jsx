@@ -431,6 +431,37 @@ export default function QuizEditor({ id, quiz, initialTab, onDone, onCancel }) {
     setFocus(item.key);
   };
 
+  // Keyboard shortcuts of the Manual tab (the form's onKeyDown): Cmd/Ctrl+Enter adds an item below the one being edited and
+  // Cmd/Ctrl+Shift+Enter opens the picker for a new category in its section
+  const onKeyDown = (e) => {
+    noEnterSubmit(e);
+    // Plain Enter in an item's text or keywords box leaves the box (the card closes)
+    if (
+      e.key === "Enter" &&
+      !(e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) &&
+      !e.nativeEvent.isComposing &&
+      e.target.tagName === "TEXTAREA" &&
+      e.target.closest(".qe-item")
+    )
+      return e.target.blur();
+    if (e.key !== "Enter" || !(e.metaKey || e.ctrlKey)) return;
+    e.preventDefault();
+    if (tab !== "manual" || picking) return;
+    const itemKey = e.target.closest(".qe-item")?.querySelector("[data-id]")
+      ?.dataset.id;
+    const found = itemKey && locate(groups, itemKey);
+    if (e.shiftKey) {
+      // The focused item's section, else the section whose name is focused, else the last section
+      const key =
+        found?.key ??
+        (e.target.dataset?.id in groups
+          ? e.target.dataset.id
+          : sections[sections.length - 1]?.id);
+      if (key) setPicking({ key, gi: null });
+    } else if (found && found.i !== null)
+      addItem(found.key, found.gi, found.i + 1);
+  };
+
   // The quiz data to save, or an error message
   const build = () => {
     if (!name.trim()) return "The quiz needs a name.";
@@ -595,7 +626,7 @@ export default function QuizEditor({ id, quiz, initialTab, onDone, onCancel }) {
       <form
         className="pledit qe"
         onSubmit={save}
-        onKeyDown={noEnterSubmit}
+        onKeyDown={onKeyDown}
         noValidate
       >
         <div className="qe-back">
