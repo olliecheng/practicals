@@ -75,6 +75,8 @@ Long text wraps (`components/AutoArea.jsx`), it is never cut off. Reuse the card
 
 A `⋮⋮` on the left of a row, muted, `cursor: grab`, with a large grab area (padding `0 9px 0 10px`, stretching the row's height). The hover tint covers only the text, not the handle.
 
+While a row is dragged the other rows never move: the original stays in place at 40% opacity, a `DragOverlay` copy follows the pointer, and a 2px `--teal` line (`.dropbefore` / `.dropafter` on the neighbouring row, `.qe-dropline` in an empty category) shows where it will land. The move is applied once, on drop (`lib/dropSide.js`).
+
 ### Dialogs (`components/Dialog.jsx`)
 
 The replacement for the browser's `alert()` and `confirm()` (some browsers don't show those): never call them. `useDialog()` gives `alert(message)`, `confirm({message, unsafe, safe?, title?})` and the general `ask(...)`, all returning promises; `confirm` / `ask` resolve `true` only when the unsafe button was clicked.

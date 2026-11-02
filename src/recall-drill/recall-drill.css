@@ -2880,3 +2880,54 @@ button.iconbtn {
   border-color: color-mix(in srgb, var(--bad) 30%, var(--line));
   color: color-mix(in srgb, var(--bad) 75%, var(--mute));
 }
+
+/* Drag and drop: rows never move; a line shows where the dragged row will land. It is drawn in the space between rows (--dg is half
+   the gap plus half the line), so nothing shifts */
+.dropbefore,
+.dropafter {
+  position: relative;
+}
+.dropbefore::before,
+.dropafter::after,
+.qe-dropline {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--teal);
+  pointer-events: none;
+  z-index: 2;
+}
+.dropbefore::before {
+  top: calc(var(--dg, 4px) / -2 - 1px);
+}
+.dropafter::after {
+  bottom: calc(var(--dg, 4px) / -2 - 1px);
+}
+.qe-item {
+  --dg: 10px;
+}
+.edrow {
+  --dg: 4px;
+}
+.defsec {
+  --dg: 2px;
+}
+.qe-dropline {
+  position: relative;
+  align-self: start;
+}
+.defsec.eddrag {
+  padding: 4px 8px 4px 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--panel);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  cursor: grabbing;
+  font-size: 0.9rem;
+}
+.defsec.eddrag .edhandle {
+  margin-left: 0;
+}

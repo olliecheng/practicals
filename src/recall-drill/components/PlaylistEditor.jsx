@@ -14,10 +14,9 @@ import {
   SortableContext,
   sortableKeyboardCoordinates,
   useSortable,
-  verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import { CSS } from "@dnd-kit/utilities";
 import { cap, drillFromQuiz } from "../lib/data";
+import { isBefore, noShift, overOf } from "../lib/dropSide";
 import { deleteQuiz, savePlaylist } from "../lib/content";
 import PlusIcon from "./PlusIcon";
 import TrashIcon from "./TrashIcon";
@@ -45,20 +44,15 @@ const fromPlaylist = (pl) =>
   }));
 
 // onDelete: the Delete button, shown on hover (not in the drag overlay)
-function Item({ item, overlay, onDelete }) {
+// mark: "dropbefore" or "dropafter" draws the drop line on that edge of the row
+function Item({ item, overlay, onDelete, mark = "" }) {
   const s = useSortable({ id: item.id, disabled: overlay });
-  const style = overlay
-    ? undefined
-    : {
-        transform: CSS.Transform.toString(s.transform),
-        transition: s.transition,
-      };
   return (
     <div
       ref={overlay ? undefined : s.setNodeRef}
-      style={style}
       className={
         "edrow" +
+        (mark && " " + mark) +
         (item.deleted ? " gone" : "") +
         (s.isDragging ? " dragging" : "") +
         (overlay ? " eddrag" : "")
@@ -94,17 +88,14 @@ function Item({ item, overlay, onDelete }) {
 }
 
 // One row of the new quiz template: a drag handle, the section's name and Delete
-function TemplateRow({ d, onRename, onDelete }) {
+function TemplateRow({ d, onRename, onDelete, mark = "" }) {
   const s = useSortable({ id: d.key });
-  const style = {
-    transform: CSS.Transform.toString(s.transform),
-    transition: s.transition,
-  };
   return (
     <div
       ref={s.setNodeRef}
-      style={style}
-      className={"defsec" + (s.isDragging ? " dragging" : "")}
+      className={
+        "defsec" + (s.isDragging ? " dragging" : "") + (mark && " " + mark)
+      }
     >
       <button
         type="button"
@@ -143,7 +134,7 @@ function TemplateRow({ d, onRename, onDelete }) {
   );
 }
 
-function Section({ sec, index, count, set, onMove, onDelete }) {
+function Section({ sec, index, count, set, onMove, onDelete, drop }) {
   // An empty section has no rows to drop on, so the list itself is a drop target
   const { setNodeRef } = useDroppable({ id: secDrop(sec.key) });
   return (
@@ -177,15 +168,27 @@ function Section({ sec, index, count, set, onMove, onDelete }) {
           </button>
         )}
       </div>
-      <SortableContext
-        items={sec.items.map((i) => i.id)}
-        strategy={verticalListSortingStrategy}
-      >
+      <SortableContext items={sec.items.map((i) => i.id)} strategy={noShift}>
         <div ref={setNodeRef} className="edlist">
-          {sec.items.map((it) => (
-            <Item key={it.id} item={it} onDelete={onDelete} />
+          {sec.items.map((it, i) => (
+            <Item
+              key={it.id}
+              item={it}
+              onDelete={onDelete}
+              mark={
+                drop === i
+                  ? "dropbefore"
+                  : drop === sec.items.length && i === sec.items.length - 1
+                    ? "dropafter"
+                    : ""
+              }
+            />
           ))}
-          {!sec.items.length && <p className="note">No quizzes</p>}
+          {!sec.items.length && (
+            <p className={"note" + (drop === 0 ? " dropbefore" : "")}>
+              No quizzes
+            </p>
+          )}
         </div>
       </SortableContext>
     </div>
@@ -232,39 +235,49 @@ export default function PlaylistEditor({ id, pl, onDone, onCancel }) {
   const setSection = (key, next) =>
     setSections((ss) => ss.map((s) => (s.key === key ? next : s)));
 
-  // Moves the dragged row into the section it is over, so rows can cross sections while dragging
-  const onDragOver = ({ active, over }) => {
-    if (!over) return;
+  // Nothing moves while dragging: {key, i} is where the row would be inserted (a line is drawn there), null when that is where it already is
+  const [drop, setDrop] = useState(null);
+  const dropRef = useRef(null);
+  const setDropAt = (d) => {
+    const same = JSON.stringify(d) === JSON.stringify(dropRef.current);
+    dropRef.current = d;
+    if (!same) setDrop(d);
+  };
+  const onDragMove = (e) => {
+    const { active } = e;
+    const over = overOf(e);
+    const from = findSection(sections, active.id);
+    const to = over && findSection(sections, over.id);
+    if (!from || !to) return setDropAt(null);
+    const overIndex = to.items.findIndex((i) => i.id === over.id);
+    const i = overIndex < 0 ? 0 : overIndex + (isBefore(active, over) ? 0 : 1);
+    const at = from.items.findIndex((x) => x.id === active.id);
+    setDropAt(
+      from === to && (i === at || i === at + 1) ? null : { key: to.key, i },
+    );
+  };
+  // The move happens once, on drop
+  const onDragEnd = ({ active }) => {
+    const d = dropRef.current;
+    setActive(null);
+    setDropAt(null);
+    if (!d) return;
     setSections((ss) => {
       const from = findSection(ss, active.id);
-      const to = findSection(ss, over.id);
-      if (!from || !to || from === to) return ss;
+      if (!from) return ss;
       const item = from.items.find((i) => i.id === active.id);
-      const overIndex = to.items.findIndex((i) => i.id === over.id);
-      const at = overIndex < 0 ? to.items.length : overIndex;
-      return ss.map((s) =>
-        s === from
-          ? { ...s, items: s.items.filter((i) => i !== item) }
-          : s === to
-            ? {
-                ...s,
-                items: [...s.items.slice(0, at), item, ...s.items.slice(at)],
-              }
-            : s,
+      const fromIndex = from.items.indexOf(item);
+      const at = d.i - (from.key === d.key && fromIndex < d.i ? 1 : 0);
+      const out = ss.map((s) =>
+        s === from ? { ...s, items: s.items.filter((i) => i !== item) } : s,
       );
-    });
-  };
-
-  const onDragEnd = ({ active, over }) => {
-    setActive(null);
-    if (!over) return;
-    setSections((ss) => {
-      const sec = findSection(ss, active.id);
-      const from = sec?.items.findIndex((i) => i.id === active.id);
-      const to = sec?.items.findIndex((i) => i.id === over.id);
-      if (!sec || from < 0 || to < 0 || from === to) return ss;
-      return ss.map((s) =>
-        s === sec ? { ...s, items: arrayMove(s.items, from, to) } : s,
+      return out.map((s) =>
+        s.key === d.key
+          ? {
+              ...s,
+              items: [...s.items.slice(0, at), item, ...s.items.slice(at)],
+            }
+          : s,
       );
     });
   };
@@ -281,16 +294,32 @@ export default function PlaylistEditor({ id, pl, onDone, onCancel }) {
     setDefaults((ds) =>
       ds.map((d) => (d.key === key ? { ...d, name: name.toLowerCase() } : d)),
     );
-  // The template has its own drag and drop (the rows only reorder; they never leave the list)
-  const onTemplateDragEnd = ({ active, over }) => {
-    if (!over || active.id === over.id) return;
-    setDefaults((ds) =>
-      arrayMove(
-        ds,
-        ds.findIndex((d) => d.key === active.id),
-        ds.findIndex((d) => d.key === over.id),
-      ),
-    );
+  // The template has its own drag and drop (the rows only reorder; they never leave the list); tdrop is the index a line is drawn before
+  const [tdrop, setTdrop] = useState(null);
+  const [tactive, setTactive] = useState(null);
+  const tdropRef = useRef(null);
+  const setTdropAt = (i) => {
+    tdropRef.current = i;
+    setTdrop(i);
+  };
+  const onTemplateDragMove = (e) => {
+    const { active } = e;
+    const over = overOf(e);
+    const from = defaults.findIndex((d) => d.key === active.id);
+    const to = over ? defaults.findIndex((d) => d.key === over.id) : -1;
+    if (from < 0 || to < 0) return setTdropAt(null);
+    const i = to + (isBefore(active, over) ? 0 : 1);
+    setTdropAt(i === from || i === from + 1 ? null : i);
+  };
+  const onTemplateDragEnd = ({ active }) => {
+    const i = tdropRef.current;
+    setTactive(null);
+    setTdropAt(null);
+    if (i === null) return;
+    setDefaults((ds) => {
+      const from = ds.findIndex((d) => d.key === active.id);
+      return arrayMove(ds, from, i - (from < i ? 1 : 0));
+    });
   };
 
   // Delete on a row: after a confirm, the quiz leaves the list now and is deleted by Save (Cancel brings it back)
@@ -405,16 +434,29 @@ export default function PlaylistEditor({ id, pl, onDone, onCancel }) {
             <DndContext
               sensors={sensors}
               collisionDetection={closestCenter}
+              onDragStart={({ active }) => setTactive(active.id)}
+              onDragMove={onTemplateDragMove}
               onDragEnd={onTemplateDragEnd}
+              onDragCancel={() => {
+                setTactive(null);
+                setTdropAt(null);
+              }}
             >
               <SortableContext
                 items={defaults.map((d) => d.key)}
-                strategy={verticalListSortingStrategy}
+                strategy={noShift}
               >
-                {defaults.map((d) => (
+                {defaults.map((d, i) => (
                   <TemplateRow
                     key={d.key}
                     d={d}
+                    mark={
+                      tdrop === i
+                        ? "dropbefore"
+                        : tdrop === defaults.length && i === defaults.length - 1
+                          ? "dropafter"
+                          : ""
+                    }
                     onRename={setDefault}
                     onDelete={(key) =>
                       setDefaults((ds) => ds.filter((x) => x.key !== key))
@@ -422,6 +464,16 @@ export default function PlaylistEditor({ id, pl, onDone, onCancel }) {
                   />
                 ))}
               </SortableContext>
+              <DragOverlay>
+                {tactive && (
+                  <div className="defsec eddrag">
+                    <span className="edhandle">⋮⋮</span>
+                    <span className="lb">
+                      {cap(defaults.find((d) => d.key === tactive)?.name ?? "")}
+                    </span>
+                  </div>
+                )}
+              </DragOverlay>
             </DndContext>
             {!defaults.length && (
               <p className="note">The template has no sections.</p>
@@ -450,9 +502,12 @@ export default function PlaylistEditor({ id, pl, onDone, onCancel }) {
             sensors={sensors}
             collisionDetection={closestCenter}
             onDragStart={({ active }) => setActive(active.id)}
-            onDragOver={onDragOver}
+            onDragMove={onDragMove}
             onDragEnd={onDragEnd}
-            onDragCancel={() => setActive(null)}
+            onDragCancel={() => {
+              setActive(null);
+              setDropAt(null);
+            }}
           >
             {sections.map((sec, i) => (
               <Section
@@ -461,6 +516,7 @@ export default function PlaylistEditor({ id, pl, onDone, onCancel }) {
                 index={i}
                 count={sections.length}
                 set={(next) => setSection(sec.key, next)}
+                drop={drop?.key === sec.key ? drop.i : null}
                 onMove={(d) => setSections((ss) => arrayMove(ss, i, i + d))}
                 onDelete={(item) => removeQuiz(sec.key, item)}
               />

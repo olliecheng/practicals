@@ -14,10 +14,9 @@ import {
   SortableContext,
   sortableKeyboardCoordinates,
   useSortable,
-  verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import { CSS } from "@dnd-kit/utilities";
 import { cap } from "../lib/data";
+import { isBefore, noShift, overOf } from "../lib/dropSide";
 import Segmented from "../../components/Segmented";
 import {
   saveQuiz,
@@ -129,7 +128,8 @@ function CategoryHead({ group, n, index, count, onMove, onEdit }) {
 }
 
 // The quiz editor's item: an ItemCard with a handle on its left that drags it to any place in any category
-function ItemRow({ it, row, setItem, remove, overlay }) {
+// mark: "dropbefore" or "dropafter" draws the drop line on that edge of the row
+function ItemRow({ it, row, setItem, remove, overlay, mark = "" }) {
   const { confirm } = useDialog();
   const sort = useSortable({ id: it.key, disabled: overlay });
   if (overlay)
@@ -145,12 +145,8 @@ function ItemRow({ it, row, setItem, remove, overlay }) {
     <ItemCard
       id={it.key}
       rootRef={sort.setNodeRef}
-      style={{
-        ...at(row, 2),
-        transform: CSS.Transform.toString(sort.transform),
-        transition: sort.transition,
-      }}
-      className={sort.isDragging ? " dragging" : ""}
+      style={at(row, 2)}
+      className={(sort.isDragging ? " dragging" : "") + (mark && " " + mark)}
       label={it.label}
       keywords={it.matches}
       labelProps={{ "data-id": it.key }}
@@ -192,6 +188,7 @@ function Group({
   addItem,
   onMove,
   onEdit,
+  drop,
 }) {
   const { confirm } = useDialog();
   const n = group.items.length;
@@ -206,10 +203,7 @@ function Group({
     disabled: n > 0,
   });
   return (
-    <SortableContext
-      items={group.items.map((it) => it.key)}
-      strategy={verticalListSortingStrategy}
-    >
+    <SortableContext items={group.items.map((it) => it.key)} strategy={noShift}>
       <div className="qe-cat" ref={setNodeRef}>
         <CategoryHead
           group={group}
@@ -225,11 +219,19 @@ function Group({
             <ItemRow
               it={it}
               row={2 * i + 2}
+              mark={
+                drop === i
+                  ? "dropbefore"
+                  : drop === n && i === n - 1
+                    ? "dropafter"
+                    : ""
+              }
               setItem={(patch) => setItem(i, patch)}
               remove={() => remove(i)}
             />
           </Fragment>
         ))}
+        {!n && drop === 0 && <div className="qe-dropline" style={at(1, 2)} />}
         {!n && (
           <button
             type="button"
@@ -355,24 +357,48 @@ export default function QuizEditor({ id, quiz, initialTab, onDone, onCancel }) {
       }
     return null;
   };
-  // While dragging, the item moves into the category it is over
-  const onDragOver = ({ active, over }) => {
-    if (!over) return;
+  // Nothing moves while dragging: {key, gi, i} is where the item would be inserted (a line is drawn there), null when that is where it already is
+  const [drop, setDrop] = useState(null);
+  const dropRef = useRef(null);
+  const setDropAt = (d) => {
+    const same = JSON.stringify(d) === JSON.stringify(dropRef.current);
+    dropRef.current = d;
+    if (!same) setDrop(d);
+  };
+  const onDragMove = (e) => {
+    const { active } = e;
+    const over = overOf(e);
+    const from = locate(groups, active.id);
+    const to = over && locate(groups, over.id);
+    if (!from || !to) return setDropAt(null);
+    const i = to.i === null ? 0 : to.i + (isBefore(active, over) ? 0 : 1);
+    const same = from.key === to.key && from.gi === to.gi;
+    setDropAt(
+      same && (i === from.i || i === from.i + 1)
+        ? null
+        : { key: to.key, gi: to.gi, i },
+    );
+  };
+  // The move happens once, on drop
+  const onDragEnd = ({ active }) => {
+    const d = dropRef.current;
+    setDragging(null);
+    setDropAt(null);
+    if (!d) return;
     setGroups((all) => {
       const from = locate(all, active.id);
-      const to = locate(all, over.id);
-      if (!from || !to || (from.key === to.key && from.gi === to.gi))
-        return all;
+      if (!from) return all;
       const item = all[from.key][from.gi].items[from.i];
-      const at = to.i ?? all[to.key][to.gi].items.length;
+      const at =
+        d.i - (from.key === d.key && from.gi === d.gi && from.i < d.i ? 1 : 0);
       const next = { ...all };
       next[from.key] = next[from.key].map((g, j) =>
         j === from.gi
           ? { ...g, items: g.items.filter((it) => it !== item) }
           : g,
       );
-      next[to.key] = next[to.key].map((g, j) =>
-        j === to.gi
+      next[d.key] = next[d.key].map((g, j) =>
+        j === d.gi
           ? {
               ...g,
               items: [...g.items.slice(0, at), item, ...g.items.slice(at)],
@@ -380,29 +406,6 @@ export default function QuizEditor({ id, quiz, initialTab, onDone, onCancel }) {
           : g,
       );
       return next;
-    });
-  };
-  const onDragEnd = ({ active, over }) => {
-    setDragging(null);
-    if (!over) return;
-    setGroups((all) => {
-      const from = locate(all, active.id);
-      const to = locate(all, over.id);
-      if (
-        !from ||
-        !to ||
-        to.i === null ||
-        from.key !== to.key ||
-        from.gi !== to.gi ||
-        from.i === to.i
-      )
-        return all;
-      return {
-        ...all,
-        [from.key]: all[from.key].map((g, j) =>
-          j === from.gi ? { ...g, items: arrayMove(g.items, from.i, to.i) } : g,
-        ),
-      };
     });
   };
   const draggedItem = dragging
@@ -693,9 +696,12 @@ export default function QuizEditor({ id, quiz, initialTab, onDone, onCancel }) {
               sensors={sensors}
               collisionDetection={closestCenter}
               onDragStart={({ active }) => setDragging(active.id)}
-              onDragOver={onDragOver}
+              onDragMove={onDragMove}
               onDragEnd={onDragEnd}
-              onDragCancel={() => setDragging(null)}
+              onDragCancel={() => {
+                setDragging(null);
+                setDropAt(null);
+              }}
             >
               {sections.map((s, si) => (
                 <div key={s.id} className="qe-section">
@@ -744,6 +750,9 @@ export default function QuizEditor({ id, quiz, initialTab, onDone, onCancel }) {
                         remove={(i) => removeItem(s.id, gi, i)}
                         removeGroup={() => removeGroup(s.id, gi)}
                         addItem={(at) => addItem(s.id, gi, at)}
+                        drop={
+                          drop?.key === s.id && drop.gi === gi ? drop.i : null
+                        }
                       />
                     ))}
                     <div className="qe-addcat">
