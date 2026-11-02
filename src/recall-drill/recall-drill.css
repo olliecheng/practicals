@@ -1976,6 +1976,17 @@ button.iconbtn {
   margin-left: auto;
   align-self: center; /* the row stretches its items to Random's height otherwise */
 }
+/* The quiz editor's shortcut reminder, muted and right-aligned beside Save / Cancel */
+.big .qe-keyhint {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  align-self: center;
+  color: var(--mute);
+  font-size: 0.8rem;
+  line-height: 1.35;
+  text-align: right;
+}
 .big .pl-edit {
   padding: 4px 6px; /* .big button would make it as big as Random */
   font-size: 0.8rem;

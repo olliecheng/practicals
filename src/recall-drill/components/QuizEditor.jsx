@@ -852,6 +852,12 @@ export default function QuizEditor({ id, quiz, initialTab, onDone, onCancel }) {
           >
             Cancel
           </button>
+          {tab === "manual" && (
+            <span className="qe-keyhint" title="Ctrl also works instead of ⌘">
+              <span>⌘↵ New item</span>
+              <span>⌘⇧↵ New category</span>
+            </span>
+          )}
         </div>
       </form>
     </section>
