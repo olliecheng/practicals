@@ -44,7 +44,7 @@ const TrashIcon = () => (
 
 // The quiz's menu entries, shared by the list popover and the history panels: "Start quiz" for a quiz with no saved history (sv
 // undefined), otherwise Start from scratch / Redo incorrect / Clear attempt; then Edit for signed-in users. Clear attempt removes one
-// attempt (keeping ignored items and the star). `attempt` is the attempt the menu is for (default: the latest, as in the list popover);
+// attempt, or every attempt with `clearAll` (the list popover), keeping ignored items and the star. `attempt` is the attempt the menu is for (default: the latest, as in the list popover);
 // Redo incorrect redoes that attempt's answers. `star` adds Star / Unstar. `only` ("redo-clear") leaves just Redo incorrect and Clear attempt
 // (the quiz page's own history). They are .subbtn buttons (icon and small label), see DESIGN.md.
 export default function DrillActions({
@@ -55,6 +55,7 @@ export default function DrillActions({
   onStart,
   star,
   only,
+  clearAll,
 }) {
   const { mutate, acct, user, toggleStar, canEdit } = useAccount();
   const nav = useNavigate();
@@ -103,13 +104,15 @@ export default function DrillActions({
   const clearAttempt = async () => {
     if (
       !(await confirm({
-        message: `Clear this attempt of ${drill.name}?`,
-        unsafe: "Clear attempt",
+        message: clearAll
+          ? `Clear all attempts of ${drill.name}?`
+          : `Clear this attempt of ${drill.name}?`,
+        unsafe: clearAll ? "Clear all attempts" : "Clear attempt",
       }))
     )
       return;
     mutate(() => {
-      sv.attempts = sv.attempts.filter((a) => a.t !== at.t);
+      sv.attempts = clearAll ? [] : sv.attempts.filter((a) => a.t !== at.t);
       syncLatest(sv);
     });
   };
@@ -142,7 +145,11 @@ export default function DrillActions({
       {sv.attempts.length > 0 && (
         <button
           className="subbtn"
-          title="Remove this attempt from your history"
+          title={
+            clearAll
+              ? "Remove all attempts from your history"
+              : "Remove this attempt from your history"
+          }
           onClick={clearAttempt}
         >
           <TrashIcon />
