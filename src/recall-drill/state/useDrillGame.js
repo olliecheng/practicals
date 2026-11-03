@@ -323,12 +323,12 @@ export function useDrillGame({ drill, account, inc, saved, prompt, fresh }) {
     const revealed = new Set(st.revealed);
     items.forEach((_, i) => pending(st, i) && revealed.add(i));
     const ns = { ...st, revealed, over: true };
-    // "Add to history" starts ticked (unticked after a redo round): remember the record as it was so unticking can restore it
+    // "Add to history" starts ticked only on a first attempt (unticked after a redo round or once the quiz has history): remember the record as it was so unticking can restore it
     if (account.acct) {
       const r = account.user.drills[drill.key];
       prevRec.current = r ? JSON.parse(JSON.stringify(r)) : null;
     }
-    const h = !redo.current;
+    const h = !redo.current && !prevRec.current?.attempts?.length;
     histOnRef.current = h;
     setHistOn(h);
     commit(ns, true, h);
