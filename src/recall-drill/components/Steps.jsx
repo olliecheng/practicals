@@ -11,9 +11,29 @@ export const groups = (drill, idx) =>
   }, []);
 
 // Every item of a quiz face-up, grouped by section and category (the condensed view the drill shows after Reveal)
-export default function StepsView({ drill }) {
+// onMenu(item, x, y), when given, opens a menu for an item on right-click (a tap on touch screens)
+export default function StepsView({ drill, onMenu }) {
   const tile = (i) => (
-    <div key={i} className="tile on">
+    <div
+      key={i}
+      className="tile on"
+      onContextMenu={
+        onMenu
+          ? (e) => {
+              e.preventDefault();
+              onMenu(drill.items[i], e.clientX, e.clientY);
+            }
+          : undefined
+      }
+      onClick={
+        onMenu
+          ? (e) => {
+              if (window.matchMedia("(hover: none)").matches)
+                onMenu(drill.items[i], e.clientX, e.clientY);
+            }
+          : undefined
+      }
+    >
       <div className="in">
         <div className="b">{drill.items[i].label}</div>
       </div>

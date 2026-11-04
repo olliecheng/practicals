@@ -356,6 +356,26 @@ a.starfilter:hover {
 /* The Learn page: one panel per quiz */
 .learn-quiz {
   margin-bottom: 8px;
+  scroll-margin-top: 8px;
+}
+/* Table of contents: a wrapping row of links, one per quiz */
+.learn-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.learn-toc a {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  color: var(--ink);
+  text-decoration: none;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+}
+.learn-toc a:hover {
+  background: var(--teal-soft);
 }
 .learn .tile .b {
   background: var(--panel);
