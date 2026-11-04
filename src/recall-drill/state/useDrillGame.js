@@ -237,11 +237,15 @@ export function useDrillGame({ drill, account, inc, saved, prompt, fresh }) {
   });
   const hasPending = (st, name) =>
     items.some((it, i) => it.section === name && pending(st, i));
-  // Expanded: the first section with something left. Collapsed: the open section, or (once it has nothing left, e.g. it was named in full) the first section that has
-  const nextSec = (st) =>
-    collapsedRef.current && hasPending(st, st.active)
-      ? sections.find((sec) => sec.name === st.active)
-      : sections.find((sec) => hasPending(st, sec.name));
+  // Expanded: the first section with something left. Collapsed: the open section while it has something left, else (it was revealed or named in full) the next section after it that has
+  const nextSec = (st) => {
+    if (!collapsedRef.current)
+      return sections.find((s) => hasPending(st, s.name));
+    const at = sections.findIndex((s) => s.name === st.active);
+    return [...sections.slice(at), ...sections.slice(0, at)].find((s) =>
+      hasPending(st, s.name),
+    );
+  };
 
   // Sections already complete (prefilled or ignored) must not fire confetti when something else is typed.
   const syncCelebrated = (st) => {
@@ -447,7 +451,7 @@ export function useDrillGame({ drill, account, inc, saved, prompt, fresh }) {
     }
   };
 
-  // Reveal the next section's missed tiles (the open section when collapsed, which then moves on to the next section with tiles left); revealing the last one ends the round
+  // Reveal the next section's missed tiles (the open section when collapsed, which stays open; the button then reads "Next: <section>" and opens that section without revealing it); revealing the last one ends the round
   const revealSec = () => {
     const st = sRef.current;
     if (st.drill) return endDrill();
@@ -458,16 +462,17 @@ export function useDrillGame({ drill, account, inc, saved, prompt, fresh }) {
       autosave(next);
     };
     if (!n) return save(finishRound(st));
+    // Collapsed and the open section is done: just open the next one
+    if (collapsedRef.current && n.name !== st.active) {
+      clearTimeout(deferT.current);
+      return apply({ ...st, active: n.name });
+    }
     const revealed = new Set(st.revealed);
     items.forEach(
       (it, i) => it.section === n.name && pending(st, i) && revealed.add(i),
     );
     const ns = { ...st, revealed };
-    if (!items.some((_, i) => pending(ns, i))) return save(finishRound(ns));
-    // Collapsed: move the open section on to the next one with something left
-    save(
-      collapsedRef.current ? { ...ns, active: firstPending(drill, ns) } : ns,
-    );
+    save(items.some((_, i) => pending(ns, i)) ? ns : finishRound(ns));
   };
 
   // Hide a section's missed tiles again so they can be retried. Local only: the saved record is not touched. Only endDrill stops it.
@@ -603,12 +608,12 @@ export function useDrillGame({ drill, account, inc, saved, prompt, fresh }) {
   const revealLabel = s.drill
     ? "End drill"
     : n
-      ? "Reveal " + n.name
+      ? (collapsed && n.name !== s.active ? "Next: " : "Reveal ") + n.name
       : collapsed
         ? "Reveal " + s.active
         : "Finish";
   // The section the hint applies to: the one Reveal names (the open one when collapsed)
-  const hintCode = s.drill ? s.drill : n ? n.name : collapsed ? s.active : "";
+  const hintCode = s.drill ? s.drill : collapsed ? s.active : n ? n.name : "";
   const revealDisabled = s.drill ? false : collapsed ? !n : !items.length;
 
   return {
