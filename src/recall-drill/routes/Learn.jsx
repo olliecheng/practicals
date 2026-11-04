@@ -103,50 +103,55 @@ function LearnView({ id }) {
           ← {pl.title}
         </Link>
       </p>
-      <nav className="learn-toc" aria-label="Quizzes">
-        {sections
-          .flatMap((s) => s.drills)
-          .map((d) => (
-            <a
-              key={d.key}
-              href={"#quiz-" + d.key}
-              onClick={(e) => {
-                e.preventDefault();
-                document
-                  .getElementById("quiz-" + d.key)
-                  ?.scrollIntoView({ block: "start" });
-              }}
-            >
-              {d.name}
-            </a>
-          ))}
-      </nav>
-      {sections.map((s, i) =>
-        s.drills.length ? (
-          <div key={i}>
-            {sections.length > 1 && <h2 className="qe-title">{s.title}</h2>}
-            {s.drills.map((d) => (
-              <div
-                className="panel learn-quiz"
-                id={"quiz-" + d.key}
+      <div className="learn-body">
+        <nav className="learn-toc" aria-label="Contents">
+          <h2 className="learn-toc-title">Contents</h2>
+          {sections
+            .flatMap((s) => s.drills)
+            .map((d) => (
+              <a
                 key={d.key}
+                href={"#quiz-" + d.key}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document
+                    .getElementById("quiz-" + d.key)
+                    ?.scrollIntoView({ block: "start" });
+                }}
               >
-                <h2 className="pltitle">
-                  <Link to={drillPath(d.key)}>{d.name}</Link>
-                </h2>
-                <StepsView
-                  drill={d}
-                  onMenu={
-                    canEdit
-                      ? (item, x, y) => setMenu({ drill: d, item, x, y })
-                      : undefined
-                  }
-                />
-              </div>
+                {d.name}
+              </a>
             ))}
-          </div>
-        ) : null,
-      )}
+        </nav>
+        <div className="learn-main">
+          {sections.map((s, i) =>
+            s.drills.length ? (
+              <div key={i}>
+                {sections.length > 1 && <h2 className="qe-title">{s.title}</h2>}
+                {s.drills.map((d) => (
+                  <div
+                    className="panel learn-quiz"
+                    id={"quiz-" + d.key}
+                    key={d.key}
+                  >
+                    <h2 className="pltitle">
+                      <Link to={drillPath(d.key)}>{d.name}</Link>
+                    </h2>
+                    <StepsView
+                      drill={d}
+                      onMenu={
+                        canEdit
+                          ? (item, x, y) => setMenu({ drill: d, item, x, y })
+                          : undefined
+                      }
+                    />
+                  </div>
+                ))}
+              </div>
+            ) : null,
+          )}
+        </div>
+      </div>
       {menu && (
         <TileMenu
           x={menu.x}

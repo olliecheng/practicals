@@ -358,24 +358,49 @@ a.starfilter:hover {
   margin-bottom: 8px;
   scroll-margin-top: 8px;
 }
-/* Table of contents: a wrapping row of links, one per quiz */
+/* Table of contents: hyperlinks, a sticky list on the left on wide screens and a wrapping row on top on narrow ones */
 .learn-toc {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 2px 14px;
   margin-bottom: 14px;
 }
+.learn-toc-title {
+  flex-basis: 100%;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
 .learn-toc a {
-  padding: 6px 10px;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--ink);
   text-decoration: none;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: var(--r);
 }
 .learn-toc a:hover {
-  background: var(--teal-soft);
+  color: var(--teal);
+}
+@media (min-width: 901px) {
+  .learn-body {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 14px;
+    align-items: start;
+  }
+  .learn-toc {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 2px;
+    margin: 0;
+    padding: 6px 0;
+    position: sticky;
+    top: 14px;
+    max-height: calc(100vh - 28px);
+    overflow-y: auto;
+  }
 }
 .learn .tile .b {
   background: var(--panel);
