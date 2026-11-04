@@ -25,6 +25,7 @@ import QuizHistory from "../components/QuizHistory";
 import { ICONS, ItemDialog, TileMenu } from "../components/TileMenu";
 import { applyToItem, removeItem, updateItem } from "../lib/editItem";
 import { fetchProgress, RESUME_AFTER } from "../lib/progress";
+import { useKeepFocus } from "../lib/useKeepFocus";
 import { useTitle } from "../lib/useTitle";
 import { useAccount } from "../state/AccountContext";
 import { useFilters } from "../state/FilterContext";
@@ -108,6 +109,7 @@ function Game({ drill, inc, restart, quiz, quizData, saved, prompt, fresh }) {
   const { s, stats } = g;
   // A drill temporarily forces the Collapse view onto the drilled section (the saved preference is untouched)
   const drilling = !!s.drill;
+  useKeepFocus(g.answerRef, !g.locked && (!s.over || drilling));
   const collapsed = g.collapsed || drilling;
   const focus = drilling ? s.drill : s.active;
   // The page background and buttons are recoloured from CSS while drilling
