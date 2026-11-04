@@ -14,6 +14,7 @@ export const isQuizId = (s) => UUID.test(s);
 
 export const drillPath = (id) => `/q/${id}`;
 export const playlistPath = (id) => `/p/${id}`;
+export const learnPath = (id) => `/learn/${id}`;
 
 const fromB64url = (s) => {
   const b = s.replace(/-/g, "+").replace(/_/g, "/");

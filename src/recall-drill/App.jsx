@@ -7,6 +7,7 @@ import Layout from "./components/Layout";
 import Home from "./routes/Home";
 import Playlist from "./routes/Playlist";
 import Drill from "./routes/Drill";
+import Learn from "./routes/Learn";
 import Login from "./routes/Login";
 import Settings from "./routes/Settings";
 
@@ -31,6 +32,7 @@ export default function App() {
             <Route element={<Layout />}>
               <Route index element={<Home />} />
               <Route path="p/:id" element={<Playlist />} />
+              <Route path="learn/:id" element={<Learn />} />
               <Route path="login" element={<Login />} />
               <Route path="settings" element={<Settings />} />
               <Route path="profile" element={<Settings />} />

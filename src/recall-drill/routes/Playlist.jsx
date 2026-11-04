@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { drillFromQuiz } from "../lib/data";
 import { usePlaylist } from "../lib/content";
-import { drillPath, featuredId, playlistPath } from "../lib/legacy";
+import { drillPath, featuredId, learnPath, playlistPath } from "../lib/legacy";
 import { useAccount } from "../state/AccountContext";
 import { useFilters } from "../state/FilterContext";
 import { useTitle } from "../lib/useTitle";
@@ -127,6 +127,9 @@ function PlaylistView({ id }) {
                 ★ Starred
               </button>
             )}
+            <Link className="starfilter" to={learnPath(id)}>
+              Learn
+            </Link>
             {canEdit && (
               <div className="pl-actions">
                 <button

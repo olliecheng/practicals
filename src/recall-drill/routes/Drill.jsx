@@ -16,6 +16,7 @@ import {
 } from "../lib/content";
 import { decodeLegacyDrill, drillPath, isQuizId } from "../lib/legacy";
 import { useDialog } from "../components/Dialog";
+import { groups } from "../components/Steps";
 import RequireEditor from "../components/RequireEditor";
 import ResumePrompt from "../components/ResumePrompt";
 import PencilIcon from "../components/PencilIcon";
@@ -95,16 +96,6 @@ function Tile({ i, n, label, s, complete, hint, onCredit, onIgnore, onMenu }) {
     </div>
   );
 }
-
-// Group a section's item indexes by consecutive category: [[cat, [i...]]]
-const groups = (drill, idx) =>
-  idx.reduce((out, i) => {
-    const cat = drill.items[i].cat,
-      last = out[out.length - 1];
-    if (last && last[0] === cat) last[1].push(i);
-    else out.push([cat, [i]]);
-    return out;
-  }, []);
 
 // One round. Remounted (via key) for every restart, so each round starts from fresh state.
 // saved / prompt / fresh: the autosaved round of this quiz (see useDrillGame)
