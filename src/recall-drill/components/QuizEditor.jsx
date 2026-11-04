@@ -60,7 +60,8 @@ const dropId = (groupKey) => "grp:" + groupKey;
 const at = (row, col) => ({ gridRow: row, gridColumn: col });
 
 // The gap before row 2n+2: a dotted line in the items column with its "New item" label in the hint column
-const Gap = ({ row, onAdd }) => (
+// dataId (optional) lets the editor focus this gap by `data-id`, e.g. the one of a category that was just added empty
+const Gap = ({ row, onAdd, dataId }) => (
   <>
     <span className="qe-newlbl" style={at(row, 1)} aria-hidden="true">
       New item
@@ -70,6 +71,7 @@ const Gap = ({ row, onAdd }) => (
       className="qe-gap"
       style={at(row, 2)}
       aria-label="New item"
+      data-id={dataId}
       onClick={onAdd}
     >
       <span />
@@ -151,6 +153,8 @@ function ItemRow({ it, row, setItem, remove, overlay, mark = "" }) {
       keywords={it.matches}
       labelProps={{ "data-id": it.key }}
       onChange={(p) => setItem("keywords" in p ? { matches: p.keywords } : p)}
+      // An item left with no text and no keywords (a "New item" opened by accident) goes when focus leaves it
+      onLeave={() => !it.label.trim() && !it.matches.trim() && remove()}
       onDelete={async () =>
         // An empty item has nothing to lose, so it goes without asking
         (!it.label.trim() && !it.matches.trim()) ||
@@ -247,7 +251,11 @@ function Group({
             Delete category
           </button>
         )}
-        <Gap row={2 * n + 1 + (n ? 0 : 1)} onAdd={() => addItem(n)} />
+        <Gap
+          row={2 * n + 1 + (n ? 0 : 1)}
+          onAdd={() => addItem(n)}
+          dataId={group.key}
+        />
       </div>
     </SortableContext>
   );
@@ -428,10 +436,11 @@ export default function QuizEditor({ id, quiz, initialTab, onDone, onCancel }) {
     );
     setFocus(item.key);
   };
+  // A new category starts empty; the cursor goes to its "New item" gap, where Enter adds the first item
   const addGroup = (key, cat) => {
-    const item = { key: newKey(), label: "", matches: "" };
-    setSec(key, (gs) => [...gs, { key: newKey(), cat, items: [item] }]);
-    setFocus(item.key);
+    const group = { key: newKey(), cat, items: [] };
+    setSec(key, (gs) => [...gs, group]);
+    setFocus(group.key);
   };
 
   // Keyboard shortcuts of the Manual tab (the form's onKeyDown): Cmd/Ctrl+Enter adds an item below the one being edited and

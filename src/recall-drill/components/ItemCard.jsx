@@ -9,6 +9,7 @@ import TrashIcon from "./TrashIcon";
 //   label, keywords     the text (keywords as a comma separated list)
 //   onChange(patch)     {label} or {keywords}
 //   onDelete            when given, the open card shows a Delete button (it should confirm itself)
+//   onLeave             called when focus moves out of the card to somewhere else on the page (not when the window loses focus)
 //   handle              node on the left of the text while closed (e.g. a drag handle); focus on it doesn't open the card
 //   rootRef, className, style, labelProps (e.g. data-id)   for the wrapper and the text box
 export default function ItemCard({
@@ -16,6 +17,7 @@ export default function ItemCard({
   keywords,
   onChange,
   onDelete,
+  onLeave,
   handle,
   rootRef,
   className = "",
@@ -30,9 +32,11 @@ export default function ItemCard({
       style={style}
       className={"qe-item" + (open ? " open" : "") + className}
       onFocus={() => setOpen(true)}
-      onBlur={(e) =>
-        e.currentTarget.contains(e.relatedTarget) || setOpen(false)
-      }
+      onBlur={(e) => {
+        if (e.currentTarget.contains(e.relatedTarget)) return;
+        setOpen(false);
+        if (document.hasFocus()) onLeave?.();
+      }}
     >
       <div className="qe-row1">
         {!open && handle && (
