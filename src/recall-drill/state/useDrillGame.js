@@ -235,12 +235,13 @@ export function useDrillGame({ drill, account, inc, saved, prompt, fresh }) {
     drilling: new Set(),
     drill: "",
   });
+  const hasPending = (st, name) =>
+    items.some((it, i) => it.section === name && pending(st, i));
+  // Expanded: the first section with something left. Collapsed: the open section, or (once it has nothing left, e.g. it was named in full) the first section that has
   const nextSec = (st) =>
-    sections.find(
-      (sec) =>
-        (!collapsedRef.current || sec.name === st.active) &&
-        items.some((it, i) => it.section === sec.name && pending(st, i)),
-    );
+    collapsedRef.current && hasPending(st, st.active)
+      ? sections.find((sec) => sec.name === st.active)
+      : sections.find((sec) => hasPending(st, sec.name));
 
   // Sections already complete (prefilled or ignored) must not fire confetti when something else is typed.
   const syncCelebrated = (st) => {
@@ -446,7 +447,7 @@ export function useDrillGame({ drill, account, inc, saved, prompt, fresh }) {
     }
   };
 
-  // Reveal the next section's missed tiles (the open section when collapsed); revealing the last one ends the round
+  // Reveal the next section's missed tiles (the open section when collapsed, which then moves on to the next section with tiles left); revealing the last one ends the round
   const revealSec = () => {
     const st = sRef.current;
     if (st.drill) return endDrill();
@@ -462,7 +463,11 @@ export function useDrillGame({ drill, account, inc, saved, prompt, fresh }) {
       (it, i) => it.section === n.name && pending(st, i) && revealed.add(i),
     );
     const ns = { ...st, revealed };
-    save(items.some((_, i) => pending(ns, i)) ? ns : finishRound(ns));
+    if (!items.some((_, i) => pending(ns, i))) return save(finishRound(ns));
+    // Collapsed: move the open section on to the next one with something left
+    save(
+      collapsedRef.current ? { ...ns, active: firstPending(drill, ns) } : ns,
+    );
   };
 
   // Hide a section's missed tiles again so they can be retried. Local only: the saved record is not touched. Only endDrill stops it.
